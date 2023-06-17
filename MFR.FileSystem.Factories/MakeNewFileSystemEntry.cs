@@ -1,10 +1,6 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
-using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Factories
@@ -15,7 +11,6 @@ namespace MFR.FileSystem.Factories
     ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
     /// interface.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class MakeNewFileSystemEntry
     {
         /// <summary>
@@ -34,7 +29,9 @@ namespace MFR.FileSystem.Factories
         /// <see
         ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface,
-        /// initialized with the specified <paramref name="pathname" />, or <see langword="null" /> if either an exception is thrown during the create operation or if <paramref name="pathname"/> is a blank value.
+        /// initialized with the specified <paramref name="pathname" />, or
+        /// <see langword="null" /> if either an exception is thrown during the create
+        /// operation or if <paramref name="pathname" /> is a blank value.
         /// </returns>
         /// <remarks>
         /// NOTE: The caller must also call the
@@ -47,15 +44,10 @@ namespace MFR.FileSystem.Factories
         /// </remarks>
         public static IFileSystemEntry ForPath(string pathname)
         {
-            IFileSystemEntry result = default;
+            IFileSystemEntry result;
 
             try
             {
-                if (string.IsNullOrWhiteSpace(pathname))
-                    return result;
-                if (!Does.FileSystemEntryExist(pathname))
-                    return result;
-
                 result = new FileSystemEntry(pathname);
             }
             catch (Exception ex)

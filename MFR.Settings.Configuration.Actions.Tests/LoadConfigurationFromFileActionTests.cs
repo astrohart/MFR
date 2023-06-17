@@ -6,7 +6,6 @@ using MFR.Settings.Configuration.Actions.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
-using MFR.Settings.Configuration.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;
 
@@ -33,24 +32,25 @@ namespace MFR.Settings.Configuration.Actions.Tests
         [Test]
         public void Test_ConfigurationFileLoadedSuccessfully_GivenValidPath()
         {
-            var configurationFilePath = GetConfigurationAction
+            var configurationFilePath = GetConfigAction
                                         .For<IRegQueryExpression<string>,
                                             IFileSystemEntry>(
-                                            ConfigurationActionType
-                                                .LoadStringFromRegistry
+                                            ConfigActionType
+                                                .LoadConfigFilePathFromRegistry
                                         )
                                         .AsCachedResultAction()
                                         .WithInput(
                                             MakeNewRegQueryExpression
                                                 .FromScatch<string>()
                                                 .ForKeyPath(
-                                                    ConfigurationPathRegistry
-                                                        .KeyName
+                                                    KEY_PATH
                                                 )
                                                 .AndValueName(
-                                                    ConfigurationPathRegistry
-                                                        .ValueName
+                                                    VALUE_NAME
                                                 )
+                                                .WithDefaultValue(
+                                                    DEFAULT_CONFIG_FILE_PATH
+                                                    )
                                         )
                                         .Execute()
                                         .Path;
@@ -60,9 +60,9 @@ namespace MFR.Settings.Configuration.Actions.Tests
             IProjectFileRenamerConfiguration result = null;
 
             Assert.DoesNotThrow(
-                () => result = GetConfigurationAction
+                () => result = GetConfigAction
                                .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
-                                   ConfigurationActionType.LoadConfigurationFromFile
+                                   ConfigActionType.LoadConfigFromFile
                                )
                                .WithInput(
                                    MakeNewFileSystemEntry.ForPath(

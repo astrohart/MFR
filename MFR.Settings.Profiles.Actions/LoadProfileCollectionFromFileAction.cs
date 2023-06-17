@@ -2,8 +2,10 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Settings.Profiles.Actions.Constants;
+using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Serializers;
 using PostSharp.Patterns.Diagnostics;
@@ -24,30 +26,28 @@ namespace MFR.Settings.Profiles.Actions
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static LoadProfileCollectionFromFileAction()
-        {
-        }
+        static LoadProfileCollectionFromFileAction() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected LoadProfileCollectionFromFileAction()
-        {
-        }
+        protected LoadProfileCollectionFromFileAction() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see
-        /// cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction"/> .
+        /// Gets a reference to the one and only instance of
+        /// <see
+        ///     cref="T:MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction" />
+        /// .
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static LoadProfileCollectionFromFileAction Instance
+        public static IAction<IFileSystemEntry, IProfileCollection> Instance
         {
             get;
         } = new LoadProfileCollectionFromFileAction();
 
         /// <summary>
-        /// Gets the <see cref="T:MFR.MessageType"/> that is being used
+        /// Gets the <see cref="T:MFR.MessageType" /> that is being used
         /// to identify which message this is.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -58,15 +58,12 @@ namespace MFR.Settings.Profiles.Actions
         /// Executes this message.
         /// </summary>
         /// <returns>
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection"/>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
         /// interface that is initialized with the values read in from the
         /// specified file.
         /// </returns>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the <see cref="F:MFR.ActionBase._input"/> field is
-        /// blank or <see langword="null"/>.
-        /// </exception>
         /// <remarks>
         /// Implementers shall override this method to provide the functionality
         /// of the request.
@@ -74,21 +71,17 @@ namespace MFR.Settings.Profiles.Actions
         protected override IProfileCollection CommonExecute()
         {
             // write the name of the current class and method we are now
-            IProfileCollection result = null;
+            var result = GetEmptyProfileCollection.SoleInstance();
 
             // Check to see if the required field, _input, is null. If it is,
             if (Input == null)
-            {
+
                 // the field _input is required.
                 // stop.
                 return result;
-            }
             try
             {
-                Input.Path = FileHelpers.CreateOrOpenTextFile(
-                    Path.GetDirectoryName(Input.Path),
-                    Path.GetFileName(Input.Path)
-                );
+                Input.Path = CreateOrOpen.TextFile(Input.Path);
 
                 result = ProfileCollectionSerializer.Load(Input.Path);
             }
@@ -96,7 +89,10 @@ namespace MFR.Settings.Profiles.Actions
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = GetEmptyProfileCollection.SoleInstance();
             }
+
             /*
              * Provide the fully-qualified pathname of the new file
              * (or blank if a file system exception was thrown) to the caller.

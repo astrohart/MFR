@@ -1,3 +1,4 @@
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.Operations;
 using MFR.Operations.Constants;
@@ -10,7 +11,8 @@ namespace MFR.FileSystem
     /// POCO to encapsulate the details of a file-system entry, such as a file
     /// or a folder.
     /// </summary>
-    public class FileSystemEntry : OperationTypeSpecificObjectBase, IFileSystemEntry
+    public class FileSystemEntry : OperationTypeSpecificObjectBase,
+        IFileSystemEntry
     {
         /// <summary>
         /// Constructs a new instance of
@@ -56,6 +58,16 @@ namespace MFR.FileSystem
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets a value that indicates whether the file system entry exists.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the file system entry exists;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public bool Exists
+            => Does.FileSystemEntryExist(Path);
 
         /// <summary>
         /// Gets one of the
@@ -119,5 +131,11 @@ namespace MFR.FileSystem
 
             return this;
         }
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        [Log(AttributeExclude = true)]
+        public override string ToString()
+            => Path;
     }
 }

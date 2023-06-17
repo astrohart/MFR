@@ -10,6 +10,18 @@ namespace MFR.Metadata.Registry
     /// <typeparam name="T">
     /// Type of the data to be accessed.
     /// </typeparam>
+    /// <remarks>
+    /// You may ask, what is the difference between this and a Registry Query
+    /// Expression object?
+    /// <para />
+    /// The difference is in semantics only; the two types of object have exactly the
+    /// same structure in terms of methods and properties.
+    /// <para />
+    /// A Registry Operation Metadata object is for
+    /// <i>performing an operation on the Registry</i>, whereas a
+    /// <i>Registry Query Expression</i> object is for
+    /// <i>searching for information or querying data from the Registry.</i>
+    /// </remarks>
     public class RegOperationMetadata<T> : RegMetadataBase,
         IRegOperationMetadata<T> where T : class
     {

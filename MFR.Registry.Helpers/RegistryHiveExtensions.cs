@@ -137,7 +137,7 @@ namespace MFR.Registry.Helpers
 
             if (!keyPath.StartsWith("HKEY_")) return false;
 
-            var result = false;
+            bool result;
 
             try
             {

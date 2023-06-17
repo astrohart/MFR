@@ -4,6 +4,7 @@ using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MFR.Settings.Configuration.Factories
 {
@@ -211,11 +212,15 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndOperationsToPerform(
+        public static IProjectFileRenamerConfiguration HavingInvokableOperations(
             this IProjectFileRenamerConfiguration self,
-            List<IOperationTypeInfo> operationsToPerform)
+            IList<IOperationTypeInfo> operationsToPerform)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
+
+            if (self.InvokableOperations != null &&
+                self.InvokableOperations.Any())
+                self.InvokableOperations.Clear();
 
             self.InvokableOperations = operationsToPerform;
             return self;

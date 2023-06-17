@@ -1,6 +1,8 @@
 using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;
+using MFR.Settings.Profiles.Actions.Factories.Properties;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Actions.Factories
 {
@@ -47,39 +49,49 @@ namespace MFR.Settings.Profiles.Actions.Factories
             For<TInput, TResult>(ProfileCollectionActionType actionType)
             where TInput : class where TResult : class
         {
-            IAction<TInput, TResult> action;
+            IAction<TInput, TResult> result;
 
-            switch (actionType)
+            try
             {
-                case var _ when actionType ==
-                                ProfileCollectionActionType.LoadStringFromRegistry:
-                    action =
-                        (IAction<TInput, TResult>)
-                        LoadProfileCollectionFilePathFromRegistryAction.Instance;
-                    break;
+                switch (actionType)
+                {
+                    case var _ when actionType ==
+                                    ProfileCollectionActionType.LoadStringFromRegistry:
+                        result =
+                            (IAction<TInput, TResult>)
+                            GetLoadProfileCollectionFilePathFromRegistryAction.SoleInstance();
+                        break;
 
-                case var _ when actionType ==
-                                ProfileCollectionActionType.CreateNewNamedProfile:
-                    action =
-                        (IAction<TInput, TResult>)CreateNewNamedProfileAction
-                            .Instance;
-                    break;
+                    case var _ when actionType ==
+                                    ProfileCollectionActionType.CreateNewNamedProfile:
+                        result =
+                            (IAction<TInput, TResult>)GetCreateNewNamedProfileAction
+                                .SoleInstance();
+                        break;
 
-                case var _ when actionType ==
-                                ProfileCollectionActionType.LoadProfileCollectionFromFile:
-                    action =
-                        (IAction<TInput, TResult>)LoadProfileCollectionFromFileAction
-                            .Instance;
-                    break;
+                    case var _ when actionType ==
+                                    ProfileCollectionActionType.LoadProfileCollectionFromFile:
+                        result =
+                            (IAction<TInput, TResult>)GetLoadProfileCollectionFromFileAction
+                                .SoleInstance();
+                        break;
 
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(actionType), actionType,
-                        $"There is no message available that corresponds to the '{actionType}' action type."
-                    );
+                    default:
+                        throw new ArgumentOutOfRangeException(
+                            nameof(actionType), actionType,
+                            string.Format(Resources.Error_NoActionAvailable, actionType)
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
             }
 
-            return action;
+            return result;
         }
     }
 }

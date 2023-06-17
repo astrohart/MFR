@@ -56,13 +56,18 @@ namespace MFR.Operations.Descriptions.Factories
                         .SoleInstance();
                     break;
 
-                case OperationType.ReplaceTextInFiles:
-                    result = GetReplaceTextInFilesOperationDescription
+                case OperationType.RenameSolutionFolders:
+                    result = GetRenameSolutionFoldersOperationDescription
                         .SoleInstance();
                     break;
 
                 case OperationType.RenameSubFolders:
                     result = GetRenameSubFoldersOperationDescription
+                        .SoleInstance();
+                    break;
+
+                case OperationType.ReplaceTextInFiles:
+                    result = GetReplaceTextInFilesOperationDescription
                         .SoleInstance();
                     break;
 

@@ -26,12 +26,6 @@
 - [Resources](#T-MFR-Replacers-Factories-Tests-Properties-Resources 'MFR.Replacers.Factories.Tests.Properties.Resources')
   - [Culture](#P-MFR-Replacers-Factories-Tests-Properties-Resources-Culture 'MFR.Replacers.Factories.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Replacers-Factories-Tests-Properties-Resources-ResourceManager 'MFR.Replacers.Factories.Tests.Properties.Resources.ResourceManager')
-- [SaveConfigurationToFileCommandTests](#T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests')
-  - [FILE_PATH](#F-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
-  - [ProjectFileRenamerConfigurationData](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-ProjectFileRenamerConfigurationData 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.ProjectFileRenamerConfigurationData')
-  - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
-- [SaveStringToRegistryCommandTests](#T-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests')
-  - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
 
 <a name='T-MFR-Replacers-Factories-Tests-GetStringReplacerTests'></a>
 ## GetStringReplacerTests `type`
@@ -389,7 +383,6 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
-
 <a name='T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests'></a>
 ## SaveConfigurationToFileCommandTests `type`
 

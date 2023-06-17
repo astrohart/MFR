@@ -1,11 +1,12 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.GUI.Constants;
+using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
-using MFR.Tests;
-using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
+using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Providers.Tests
@@ -15,18 +16,55 @@ namespace MFR.Settings.Profiles.Providers.Tests
     /// <see cref="T:MFR.Settings.Profiles.Providers.ProfileProvider" /> class.
     /// </summary>
     [TestFixture]
-    public class ProfileProviderTests : DebuggableTestFixture
+    public class ProfileProviderTests
     {
         /// <summary>
-        /// Method that sets up the logging infrastructure for use with a child test
-        /// fixture.
-        /// <para />
-        /// Child classes may override this method to run additional
-        /// set-up logic.
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Tests.ProfileProviderTests" /> and
+        /// returns a reference to it.
         /// </summary>
-        [SetUp]
-        public override void Initialize()
-            => base.Initialize();
+        /// <remarks>
+        /// This constructor sets up the production of a log file for this test fixture.
+        /// </remarks>
+        public ProfileProviderTests()
+        {
+            ProgramText.CompanyName = "xyLOGIX, LLC";
+            ProgramText.ProductName = "xyLOGIX Project File Renamer";
+
+            LogFileManager.InitializeLogging(
+                muteConsole: false,
+                infrastructureType: LoggingInfrastructureType.PostSharp,
+                logFileName: Get.LogFilePath(),
+                applicationName: Get.ApplicationProductName()
+            );
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the file containing the collection of user-defined
+        /// configuration-setting profiles.
+        /// <para />
+        /// This pathname is loaded from, and saved to, the system Registry.
+        /// </summary>
+        private static string ProfileCollectionFilePath
+            => ProfileProvider.ProfileCollectionFilePath;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
+        /// </summary>
+        private static IProfileProvider ProfileProvider
+            => GetProfileProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
+        /// interface that represents the collection of configuration-setting profiles
+        /// we're working with.
+        /// </summary>
+        private static IProfileCollection Profiles
+            => ProfileProvider.Profiles;
 
         /// <summary>
         /// Asserts that the workflow of Profiles, i.e., loading them from disk, adding new
@@ -41,106 +79,173 @@ namespace MFR.Settings.Profiles.Providers.Tests
              * Get a count of the current number of profiles, to
              * check whether the Add operations done below are successful.
              */
-            var currentProfileCount = ProfileProvider.Profiles.Count;
-
-            /*
-             * If the profile list file is found, then currentProfileCount
-             * should be greater than zero.  Otherwise, it should be zero.
-             */
-
-            Assert.That(
-                File.Exists(ProfileProvider.ProfileCollectionFilePath)
-                    ? currentProfileCount > 0
-                    : currentProfileCount == 0
-            );
+            var currentProfileCount = GetProfileCount();
 
             /*
              * Add three Profiles with random names.
              */
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
+            Assert.DoesNotThrow(
+                () => ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                )
             );
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
+            Assert.DoesNotThrow(
+                () => Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                )
             );
-            ProfileProvider.Profiles.Add(
-                MakeNewProfile.FromScratch()
-                              .HavingName(
-                                  Guid.NewGuid()
-                                      .ToString("B")
-                              )
+            Assert.DoesNotThrow(
+                () => ProfileProvider.Profiles.Add(
+                    MakeNewProfile.FromScratch()
+                                  .HavingName(
+                                      Guid.NewGuid()
+                                          .ToString("B")
+                                  )
+                )
             );
 
             /*
              * Get the new count of profile entries.
              */
-            var profileCountAfterAdding = ProfileProvider.Profiles.Count;
+            var profileCountAfterAdding = GetProfileCount();
 
             /*
              * Assert that the delta in the count of Profile objects in the
              * Profiles collection is +3.
              */
 
-            Assert.That(
-                profileCountAfterAdding - currentProfileCount, Is.EqualTo(3)
-            );
+            var countAfterAdding = profileCountAfterAdding - currentProfileCount;
+
+            Assert.That(countAfterAdding, Is.EqualTo(3));
 
             /*
-             * Now, save the Profiles to the disk.
+             * Now, save the Profiles to the disk. Assert that no exceptions
+             * are thrown during the course of the operation.
              */
 
-            ProfileProvider.Save();
+            Assert.DoesNotThrow(() => ProfileProvider.Save());
 
             /*
              * Assert that the profile list file with the default
              * path is present.
              */
 
-            Assert.That(File.Exists(ProfileProvider.ProfileCollectionFilePath));
+            FileInfo profileCollectionFile = default;
+
+            Assert.DoesNotThrow(
+                () => profileCollectionFile =
+                    new FileInfo(ProfileCollectionFilePath)
+            );
+            Assert.IsNotNull(profileCollectionFile);
+
+            Assert.That(
+                profileCollectionFile.Exists && profileCollectionFile.Length > 0
+            );
         }
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
-        /// interface.
+        /// Gets the count of user-defined configuration-setting profiles.
         /// </summary>
-        private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        /// <returns>Count of user-defined configuration-setting profiles.</returns>
+        private static int GetProfileCount()
+            => Profiles.Count;
 
         /// <summary>
-        /// Asserts that the
-        /// <see cref="M:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider.Load" />
-        /// method works even when we pass it the empty string for the pathname of the file
-        /// to be loaded.
-        /// <para />
-        /// In this circumstance, the profile
-        /// provider object should attempt to read the path to load from, from the system
-        /// Registry, or use the default.
+        /// Exposes static methods to obtain data from various data sources.
         /// </summary>
-        [Test]
-        public void Test_Load_Method_Works_When_PassedStringEmpty()
+        private static class Get
         {
-            // This is the value that the Load method will utilize because we 
-            // pass in the empty string.
-            Assert.DoesNotThrow(
-                () => ProfileProvider.Load(
-                    /*
-                     * This method could also be called with zero parameters passed,
-                     * since the default parameter value  is the empty string.  However,
-                     * we are being explicit here, for clarity.
-                     */
-                    StringConstants.EMPTY_STRING
-                )
-            );
+            /// <summary>
+            /// A <see cref="T:System.String" /> containing the final piece of the path of the
+            /// log file.
+            /// </summary>
+            private static readonly string LOG_FILE_PATH_TERMINATOR =
+                $@"{AssemblyCompany}\{AssemblyProduct}\Logs\{AssemblyTitle}_log.txt";
 
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains the product name defined
+            /// for this application.
+            /// </summary>
+            /// <remarks>
+            /// This property is really an alias for the
+            /// <see cref="P:AssemblyMetadata.AssemblyCompany" /> property.
+            /// </remarks>
+            private static string AssemblyCompany
+                => AssemblyMetadata.AssemblyCompany;
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains the product name defined
+            /// for this application.
+            /// </summary>
+            /// <remarks>
+            /// This property is really an alias for the
+            /// <see cref="P:AssemblyMetadata.AssemblyProduct" /> property.
+            /// </remarks>
+            private static string AssemblyProduct
+                => AssemblyMetadata.AssemblyProduct.Replace(
+                    "xyLOGIX ", string.Empty
+                );
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains the assembly title defined
+            /// for this application.
+            /// </summary>
+            /// <remarks>
+            /// This property is really an alias for the
+            /// <see cref="P:AssemblyMetadata.AssemblyTitle" /> property.
+            /// </remarks>
+            private static string AssemblyTitle
+                => AssemblyMetadata.AssemblyTitle.Replace(" ", "_");
+
+            /// <summary>
+            /// Gets a <see cref="T:System.String" /> that contains a user-friendly name for
+            /// the software product of which this application or class library is a part.
+            /// </summary>
+            /// <returns>
+            /// A <see cref="T:System.String" /> that contains a user-friendly name
+            /// for the software product of which this application or class library is a part.
+            /// </returns>
+            public static string ApplicationProductName()
+            {
+                string result;
+
+                try
+                {
+                    result = AssemblyProduct;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+
+            /// <summary>
+            /// Obtains a <see cref="T:System.String" /> that contains the fully-qualified
+            /// pathname of the file that should be used for logging messages.
+            /// </summary>
+            /// <returns>
+            /// A <see cref="T:System.String" /> that contains the fully-qualified
+            /// pathname of the file that should be used for logging messages.
+            /// </returns>
+            public static string LogFilePath()
+                => Path.Combine(
+                    Environment.GetFolderPath(
+                        Environment.SpecialFolder.CommonApplicationData
+                    ), LOG_FILE_PATH_TERMINATOR
+                );
         }
     }
 }

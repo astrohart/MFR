@@ -14,10 +14,12 @@
   - [BuildConfigurationForUseCase(matchCase,matchExactWord)](#M-MFR-Tests-Common-ConfigurationBuilder-BuildConfigurationForUseCase-System-Boolean,System-Boolean- 'MFR.Tests.Common.ConfigurationBuilder.BuildConfigurationForUseCase(System.Boolean,System.Boolean)')
   - [SetMatchCase(matchCase)](#M-MFR-Tests-Common-ConfigurationBuilder-SetMatchCase-System-Boolean- 'MFR.Tests.Common.ConfigurationBuilder.SetMatchCase(System.Boolean)')
 - [RegistryDataExchangeTestsBase](#T-MFR-Tests-Common-RegistryDataExchangeTestsBase 'MFR.Tests.Common.RegistryDataExchangeTestsBase')
-  - [CONFIG_FILE_DIR](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR 'MFR.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_DIR')
+  - [COMPANY_NAME](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-COMPANY_NAME 'MFR.Tests.Common.RegistryDataExchangeTestsBase.COMPANY_NAME')
   - [CONFIG_FILE_NAME](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME 'MFR.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_NAME')
-  - [CONFIG_FILE_PATH](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH 'MFR.Tests.Common.RegistryDataExchangeTestsBase.CONFIG_FILE_PATH')
+  - [DEFAULT_CONFIG_FILE_DIR](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_DIR 'MFR.Tests.Common.RegistryDataExchangeTestsBase.DEFAULT_CONFIG_FILE_DIR')
+  - [DEFAULT_CONFIG_FILE_PATH](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_PATH 'MFR.Tests.Common.RegistryDataExchangeTestsBase.DEFAULT_CONFIG_FILE_PATH')
   - [KEY_PATH](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-KEY_PATH 'MFR.Tests.Common.RegistryDataExchangeTestsBase.KEY_PATH')
+  - [PRODUCT_NAME](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-PRODUCT_NAME 'MFR.Tests.Common.RegistryDataExchangeTestsBase.PRODUCT_NAME')
   - [VALUE_NAME](#F-MFR-Tests-Common-RegistryDataExchangeTestsBase-VALUE_NAME 'MFR.Tests.Common.RegistryDataExchangeTestsBase.VALUE_NAME')
 - [Resources](#T-MFR-Tests-Common-Properties-Resources 'MFR.Tests.Common.Properties.Resources')
   - [Culture](#P-MFR-Tests-Common-Properties-Resources-Culture 'MFR.Tests.Common.Properties.Resources.Culture')
@@ -243,13 +245,13 @@ Defines the events, methods, properties, and behaviors for all unit test
 fixtures that test methods and objects that perform data exchange to and from
 the system Registry.
 
-<a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_DIR'></a>
-### CONFIG_FILE_DIR `constants`
+<a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-COMPANY_NAME'></a>
+### COMPANY_NAME `constants`
 
 ##### Summary
 
-String containing the fully-qualified pathname of a folder that stores the
-configuration file.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the company that
+is associated with the application.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_NAME'></a>
 ### CONFIG_FILE_NAME `constants`
@@ -258,8 +260,16 @@ configuration file.
 
 String containing the name of a projectFileRenamerConfiguration file.
 
-<a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-CONFIG_FILE_PATH'></a>
-### CONFIG_FILE_PATH `constants`
+<a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_DIR'></a>
+### DEFAULT_CONFIG_FILE_DIR `constants`
+
+##### Summary
+
+String containing the fully-qualified pathname of a folder that stores the
+configuration file.
+
+<a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_PATH'></a>
+### DEFAULT_CONFIG_FILE_PATH `constants`
 
 ##### Summary
 
@@ -290,6 +300,14 @@ in the centralized location that is used by the application.
 
 Fully-qualified pathname to where we expect that the path to the
 projectFileRenamerConfiguration file has been written to.
+
+<a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-PRODUCT_NAME'></a>
+### PRODUCT_NAME `constants`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the product name that is
+associated with the application.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-VALUE_NAME'></a>
 ### VALUE_NAME `constants`

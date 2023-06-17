@@ -123,6 +123,9 @@
   <data name="OperationDescription_RenameFilesInFolder" xml:space="preserve">
     <value>Renaming files..</value>
   </data>
+  <data name="OperationDescription_RenameSolutionFolders" xml:space="preserve">
+    <value>Renaming folder(s) of Solution(s)...</value>
+  </data>
   <data name="OperationDescription_RenameSubFolders" xml:space="preserve">
     <value>Renaming subfolders..</value>
   </data>
@@ -157,7 +160,7 @@
     <value>Calculating files to be renamed..</value>
   </data>
   <data name="OperationStartedDescription_RenameSolutionFolder" xml:space="preserve">
-      <value>Getting ready to rename the folders of Solution(s) that happen to be within the directory tree...</value>
+    <value>Getting ready to rename the folders of Solution(s) that happen to be within the directory tree...</value>
   </data>
   <data name="OperationStartedDescription_RenameSubFolders" xml:space="preserve">
     <value>Calculating folders to be renamed..</value>

@@ -18,6 +18,18 @@ namespace MFR.FileSystem.Interfaces
         }
 
         /// <summary>
+        /// Gets a value that indicates whether the file system entry exists.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the file system entry exists;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        bool Exists
+        {
+            get;
+        }
+
+        /// <summary>
         /// Gets or sets the pathname of the file-system entry.
         /// </summary>
         string Path

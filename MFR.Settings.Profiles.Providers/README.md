@@ -5,18 +5,20 @@
 
 - [ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider')
   - [#ctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#ctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#ctor')
-  - [DEFAULT_PROFILE_LIST_FILENAME](#F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME 'MFR.Settings.Profiles.Providers.ProfileProvider.DEFAULT_PROFILE_LIST_FILENAME')
-  - [_profileCollectionFilePath](#F-MFR-Settings-Profiles-Providers-ProfileProvider-_profileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider._profileCollectionFilePath')
-  - [DefaultProfileCollectionDir](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionDir')
-  - [DefaultProfileCollectionPath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath 'MFR.Settings.Profiles.Providers.ProfileProvider.DefaultProfileCollectionPath')
   - [Instance](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance 'MFR.Settings.Profiles.Providers.ProfileProvider.Instance')
-  - [LoadProfileCollectionPathAction](#P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileCollectionPathAction 'MFR.Settings.Profiles.Providers.ProfileProvider.LoadProfileCollectionPathAction')
   - [ProfileCollectionFilePath](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath')
-  - [ProfileCollectionPathKeyName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathKeyName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionPathKeyName')
-  - [ProfileCollectionPathValueName](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathValueName 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionPathValueName')
+  - [ProfileListPathProvider](#P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathProvider 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileListPathProvider')
   - [Profiles](#P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles 'MFR.Settings.Profiles.Providers.ProfileProvider.Profiles')
   - [#cctor()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-#cctor 'MFR.Settings.Profiles.Providers.ProfileProvider.#cctor')
-  - [Load(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Load(System.String)')
+  - [InitializeProfileListPathProvider()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileListPathProvider 'MFR.Settings.Profiles.Providers.ProfileProvider.InitializeProfileListPathProvider')
+  - [Load()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Load 'MFR.Settings.Profiles.Providers.ProfileProvider.Load')
+  - [OnLoadingProfiles(e)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnLoadingProfiles-System-ComponentModel-CancelEventArgs- 'MFR.Settings.Profiles.Providers.ProfileProvider.OnLoadingProfiles(System.ComponentModel.CancelEventArgs)')
+  - [OnProfileCollectionFilePathChanged(sender,e)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileCollectionFilePathChanged-System-Object,System-EventArgs- 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfileCollectionFilePathChanged(System.Object,System.EventArgs)')
+  - [OnProfileLoadFailed(e)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileLoadFailed-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfileLoadFailed(MFR.Events.Common.ExceptionRaisedEventArgs)')
+  - [OnProfileSaveFailed(e)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileSaveFailed-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfileSaveFailed(MFR.Events.Common.ExceptionRaisedEventArgs)')
+  - [OnProfilesLoaded()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfilesLoaded 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfilesLoaded')
+  - [OnProfilesSaved()](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfilesSaved 'MFR.Settings.Profiles.Providers.ProfileProvider.OnProfilesSaved')
+  - [OnSavingProfiles(e)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-OnSavingProfiles-System-ComponentModel-CancelEventArgs- 'MFR.Settings.Profiles.Providers.ProfileProvider.OnSavingProfiles(System.ComponentModel.CancelEventArgs)')
   - [Save(pathname)](#M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String- 'MFR.Settings.Profiles.Providers.ProfileProvider.Save(System.String)')
 - [Resources](#T-MFR-Settings-Profiles-Providers-Properties-Resources 'MFR.Settings.Profiles.Providers.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Providers-Properties-Resources-Culture 'MFR.Settings.Profiles.Providers.Properties.Resources.Culture')
@@ -44,85 +46,30 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='F-MFR-Settings-Profiles-Providers-ProfileProvider-DEFAULT_PROFILE_LIST_FILENAME'></a>
-### DEFAULT_PROFILE_LIST_FILENAME `constants`
-
-##### Summary
-
-Gets the default JSON file name of the profile list path.
-
-<a name='F-MFR-Settings-Profiles-Providers-ProfileProvider-_profileCollectionFilePath'></a>
-### _profileCollectionFilePath `constants`
-
-##### Summary
-
-A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that holds the path the JSON file that stores
-profiles.
-
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionDir'></a>
-### DefaultProfileCollectionDir `property`
-
-##### Summary
-
-Gets the default folder for the profile list file.
-
-##### Remarks
-
-We store the profile list file, by default, in a folder
-under the current user's AppData folder.
-
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-DefaultProfileCollectionPath'></a>
-### DefaultProfileCollectionPath `property`
-
-##### Summary
-
-Gets the default fully-qualified pathname of the profile list file.
-
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[ProfileProvider](#T-MFR-Settings-Profiles-Providers-ProfileProvider 'MFR.Settings.Profiles.Providers.ProfileProvider').
-
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-LoadProfileCollectionPathAction'></a>
-### LoadProfileCollectionPathAction `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IAction](#T-MFR-Messages-Actions-Interfaces-IAction 'MFR.Messages.Actions.Interfaces.IAction') interface.
-
-
-
-This object is an `Action` object whose job it is to access the system
-Registry and read from the data stored therein, the path to the profile list
-file.
+Gets a reference to the one and only instance of the object that implements the
+[IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
+interface.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePath'></a>
 ### ProfileCollectionFilePath `property`
 
 ##### Summary
 
-Gets a string whose value is the fully-qualified pathname of the profile list
-file.
+Gets or sets the fully-qualified pathname of the `profiles.json` file.
 
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathKeyName'></a>
-### ProfileCollectionPathKeyName `property`
-
-##### Summary
-
-Gets a string whose value is the pathname of the system Registry key
-in which Profile settings are stored.
-
-<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionPathValueName'></a>
-### ProfileCollectionPathValueName `property`
+<a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileListPathProvider'></a>
+### ProfileListPathProvider `property`
 
 ##### Summary
 
-Gets a string whose value is the Registry value under which we store
-the path to the profile list file.
+Gets a reference to an instance of an object that implements the
+[IProfileListPathProvider](#T-MFR-Paths-Profiles-Provider-Interfaces-IProfileListPathProvider 'MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider')
+interface.
 
 <a name='P-MFR-Settings-Profiles-Providers-ProfileProvider-Profiles'></a>
 ### Profiles `property`
@@ -149,8 +96,22 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-Load-System-String-'></a>
-### Load(pathname) `method`
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-InitializeProfileListPathProvider'></a>
+### InitializeProfileListPathProvider() `method`
+
+##### Summary
+
+Configures settings on the object reference that we retain as a dependency,
+that implements the
+[IProfileListPathProvider](#T-MFR-Paths-Profiles-Provider-Interfaces-IProfileListPathProvider 'MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider')
+interface.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-Load'></a>
+### Load() `method`
 
 ##### Summary
 
@@ -158,23 +119,126 @@ Loads the profiles from the profile list file.
 
 ##### Parameters
 
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnLoadingProfiles-System-ComponentModel-CancelEventArgs-'></a>
+### OnLoadingProfiles(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-LoadingProfiles 'MFR.Settings.Profiles.Providers.ProfileProvider.LoadingProfiles')
+event.
+
+##### Parameters
+
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of the file from which to
-load the profiles. |
+| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+allows us to cancel the operation that this event is notifying the caller of.
 
-##### Exceptions
 
-| Name | Description |
-| ---- | ----------- |
-| [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file whose pathname is passed in the
-`pathname`
-parameter cannot be found on the disk. |
 
-##### Remarks
+To cancel the operation, handlers should set the value of the
+[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+`true`. |
 
-The file whose pathname is passed must not be the actual
-projectFileRenamerConfiguration file, but a separate file.
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileCollectionFilePathChanged-System-Object,System-EventArgs-'></a>
+### OnProfileCollectionFilePathChanged(sender,e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileCollectionFilePathChanged 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePathChanged')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) Reference to the sender of this event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains
+the event data. |
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileLoadFailed-MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
+### OnProfileLoadFailed(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileLoadFailed 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileLoadFailed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs')
+that contains the event data. |
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfileSaveFailed-MFR-Events-Common-ExceptionRaisedEventArgs-'></a>
+### OnProfileSaveFailed(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-ProfileSaveFailed 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfileSaveFailed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs')
+that contains the event data. |
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfilesLoaded'></a>
+### OnProfilesLoaded() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-ProfilesLoaded 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfilesLoaded')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnProfilesSaved'></a>
+### OnProfilesSaved() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-ProfilesSaved 'MFR.Settings.Profiles.Providers.ProfileProvider.ProfilesSaved')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-OnSavingProfiles-System-ComponentModel-CancelEventArgs-'></a>
+### OnSavingProfiles(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Settings-Profiles-Providers-ProfileProvider-SavingProfiles 'MFR.Settings.Profiles.Providers.ProfileProvider.SavingProfiles')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [System.ComponentModel.CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') | A [CancelEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs 'System.ComponentModel.CancelEventArgs') that
+allows us to cancel the operation that this event is notifying the caller of.
+
+
+
+To cancel the operation, handlers should set the value of the
+[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+`true`. |
 
 <a name='M-MFR-Settings-Profiles-Providers-ProfileProvider-Save-System-String-'></a>
 ### Save(pathname) `method`

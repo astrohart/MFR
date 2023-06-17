@@ -43,7 +43,7 @@ namespace MFR.FileSystem.Validators.Factories
         /// </exception>
         public static IFileSystemEntryValidator For(OperationType type)
         {
-            IFileSystemEntryValidator validator = null;
+            IFileSystemEntryValidator validator;
 
             switch (type)
             {
@@ -57,6 +57,7 @@ namespace MFR.FileSystem.Validators.Factories
                     break;
 
                 case OperationType.ListTopLevelSubFolders:
+                case OperationType.RenameSolutionFolders:
                 case OperationType.RenameSubFolders:
                     validator = GetDirectoryPathValidator.SoleInstance();
                     break;

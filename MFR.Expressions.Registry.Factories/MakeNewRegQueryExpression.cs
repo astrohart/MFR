@@ -9,7 +9,6 @@ namespace MFR.Expressions.Registry.Factories
     ///     cref="T:MFR.IRegQueryExpression{T}" />
     /// interface.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class MakeNewRegQueryExpression
     {
         /// <summary>

@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Models.Extensions;
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
@@ -10,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration
 {
@@ -60,9 +60,12 @@ namespace MFR.Settings.Configuration
         /// value.
         /// </exception>
         public ProjectFileRenamerConfiguration(
-            IProjectFileRenamerConfiguration source)
+            IProjectFileRenamerConfiguration source
+        )
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
+
+            Reset();
 
             AutoStart = source.AutoStart;
             AutoQuitOnCompletion = source.AutoQuitOnCompletion;
@@ -92,7 +95,8 @@ namespace MFR.Settings.Configuration
         /// </summary>
         [JsonConstructor]
         public ProjectFileRenamerConfiguration(
-            IEnumerable<IOperationTypeInfo> operations)
+            IEnumerable<IOperationTypeInfo> operations
+        )
         {
             Reset();
 
@@ -131,6 +135,11 @@ namespace MFR.Settings.Configuration
             set;
         }
 
+        public static IProjectFileRenamerConfiguration Blank
+        {
+            get;
+        } = new ProjectFileRenamerConfiguration();
+
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
         /// by the user.
@@ -147,7 +156,7 @@ namespace MFR.Settings.Configuration
         /// utilized values for Find What.
         /// </summary>
         [JsonProperty("findWhatHistory")]
-        public List<string> FindWhatHistory
+        public IList<string> FindWhatHistory
         {
             get;
             set;
@@ -159,11 +168,11 @@ namespace MFR.Settings.Configuration
         /// all the operations the user can perform with this application.
         /// </summary>
         [JsonProperty("invokableOperations")]
-        public List<IOperationTypeInfo> InvokableOperations
+        public IList<IOperationTypeInfo> InvokableOperations
         {
             get;
             set;
-        } = new List<IOperationTypeInfo>();
+        }
 
         /// <summary>
         /// Gets a value indicating whether the form is in the Folded state.
@@ -458,7 +467,7 @@ namespace MFR.Settings.Configuration
         /// most-recently-used values for Replace With.
         /// </summary>
         [JsonProperty("replaceWithHistory")]
-        public List<string> ReplaceWithHistory
+        public IList<string> ReplaceWithHistory
         {
             get;
             set;
@@ -495,7 +504,7 @@ namespace MFR.Settings.Configuration
         /// most-recently-used values for Starting Folder.
         /// </summary>
         [JsonProperty("startingFolderHistory")]
-        public List<string> StartingFolderHistory
+        public IList<string> StartingFolderHistory
         {
             get;
             set;
@@ -508,6 +517,113 @@ namespace MFR.Settings.Configuration
         /// property has been updated.
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
+
+        /// <summary>
+        /// Determines whether the specified <paramref name="configuration" /> object
+        /// instance is blank or a <see langword="null" /> reference.
+        /// </summary>
+        /// <param name="configuration">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface that represents the object instance that is to be examined.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified
+        /// <paramref name="configuration" /> object instance is blank or a
+        /// <see langword="null" /> reference.
+        /// </returns>
+        public static bool IsBlankOrNull(
+            IProjectFileRenamerConfiguration configuration
+        )
+        {
+            bool result;
+
+            try
+            {
+                result = configuration == null || Blank.Equals(configuration);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether the specified object is equal to the current
+        /// object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>
+        /// <see langword="true" /> if the specified object  is equal to the current
+        /// object; otherwise, <see langword="false" />.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            var result = false;
+
+            try
+            {
+                if (obj is null) return result;
+                if (ReferenceEquals(this, obj)) return true;
+
+                result = obj.GetType() == GetType() && Equals(
+                    (ProjectFileRenamerConfiguration)obj
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>Serves as the default hash function.</summary>
+        /// <returns>A hash code for the current object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var result = 19;
+
+                result = result * 31 + AutoQuitOnCompletion.GetHashCode();
+                result = result * 31 + AutoStart.GetHashCode();
+                result = result * 31 + FindWhat.GetHashCode();
+                result = FindWhatHistory.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                result = InvokableOperations.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                result = result * 31 + IsFolded.GetHashCode();
+                result = result * 31 + IsFromCommandLine.GetHashCode();
+                result = result * 31 + MatchCase.GetHashCode();
+                result = result * 31 + MatchExactWord.GetHashCode();
+                result = result * 31 + ReOpenSolution.GetHashCode();
+                result = result * 31 + ReplaceWith.GetHashCode();
+                result = ReplaceWithHistory.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                result = result * 31 + SelectedOptionTab.GetHashCode();
+                result = StartingFolderHistory.Aggregate(
+                    result,
+                    (current, element) => current * 31 + element.GetHashCode()
+                );
+                return result;
+            }
+        }
 
         /// <summary>
         /// Sets the values of this class' properties to their default values.
@@ -535,15 +651,56 @@ namespace MFR.Settings.Configuration
                 ReplaceWithHistory.Clear();
 
                 FindWhat = ReplaceWith = string.Empty;
-                StartingFolder = Directory.GetCurrentDirectory();
+                StartingFolder = string.Empty;
 
-                InvokableOperations = new List<IOperationTypeInfo>();
+                if (InvokableOperations != null && InvokableOperations.Any())
+                    InvokableOperations.Clear();
+
+                InvokableOperations = Initialize.OperationList();
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+        }
+
+        protected bool Equals(IProjectFileRenamerConfiguration other)
+        {
+            var result = false;
+
+            try
+            {
+                if (other is null) return result;
+
+                result = AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
+                         AutoStart == other.AutoStart &&
+                         FindWhat == other.FindWhat &&
+                         FindWhatHistory.SequenceEqual(other.FindWhatHistory) &&
+                         InvokableOperations.SequenceEqual(
+                             other.InvokableOperations
+                         ) && IsFolded == other.IsFolded &&
+                         IsFromCommandLine == other.IsFromCommandLine &&
+                         MatchCase == other.MatchCase &&
+                         MatchExactWord == other.MatchExactWord &&
+                         ReOpenSolution == other.ReOpenSolution &&
+                         ReplaceWith == other.ReplaceWith &&
+                         ReplaceWithHistory.SequenceEqual(
+                             other.ReplaceWithHistory
+                         ) && SelectedOptionTab == other.SelectedOptionTab &&
+                         StartingFolderHistory.SequenceEqual(
+                             other.StartingFolderHistory
+                         );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Interfaces;
+using MFR.Expressions.Registry.Validators.Properties;
 using MFR.Registry.Helpers;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -9,8 +10,10 @@ namespace MFR.Expressions.Registry.Validators
 {
     /// <summary>
     /// Validates the data in the properties of instances of objects that
-    /// implement the <see
-    /// cref="T:MFR.Expressions.Registry.Interfaces.IRegQueryExpression"/> interface.
+    /// implement the
+    /// <see
+    ///     cref="T:MFR.Expressions.Registry.Interfaces.IRegQueryExpression" />
+    /// interface.
     /// </summary>
     /// <typeparam name="T">
     /// Name of the type of data that is being fetched from, or written to, the
@@ -24,30 +27,19 @@ namespace MFR.Expressions.Registry.Validators
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static RegQueryExpressionValidator()
-        {
-        }
+        static RegQueryExpressionValidator() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected RegQueryExpressionValidator()
-        {
-        }
+        protected RegQueryExpressionValidator() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of <see cref="T:MFR.RegQueryExpressionValidator"/>.
-        /// </summary>
-        [Log(AttributeExclude = true)]
-        public static IRegQueryExpressionValidator<T> Instance
-        {
-            get;
-        } = new RegQueryExpressionValidator<T>();
-
-        /// <summary>
-        /// Gets the instance of the object that implements the <see
-        /// cref="T:MFR.IRegQueryExpression"/> interface that is being validated.
+        /// Gets the instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.IRegQueryExpression" />
+        /// interface that is being validated.
         /// </summary>
         [Log(AttributeExclude = true)]
         public IRegQueryExpression<T> Expression
@@ -57,8 +49,19 @@ namespace MFR.Expressions.Registry.Validators
         }
 
         /// <summary>
-        /// Initializes the value of the <see
-        /// cref="P:MFR.IRegQueryExpressionValidator.Expression"/>
+        /// Gets a reference to the one and only instance of
+        /// <see cref="T:MFR.RegQueryExpressionValidator" />.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IRegQueryExpressionValidator<T> Instance
+        {
+            get;
+        } = new RegQueryExpressionValidator<T>();
+
+        /// <summary>
+        /// Initializes the value of the
+        /// <see
+        ///     cref="P:MFR.IRegQueryExpressionValidator.Metadata" />
         /// property to refer to the data that is to be validated.
         /// </summary>
         /// <returns>
@@ -66,8 +69,8 @@ namespace MFR.Expressions.Registry.Validators
         /// method, for fluent use.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="expression"/>, is
-        /// passed a <see langword="null"/> value.
+        /// Thrown if the required parameter, <paramref name="expression" />, is
+        /// passed a <see langword="null" /> value.
         /// </exception>
         public IRegQueryExpressionValidator<T> ForRegQueryExpression(
             IRegQueryExpression<T> expression)
@@ -79,34 +82,49 @@ namespace MFR.Expressions.Registry.Validators
         }
 
         /// <summary>
-        /// Validates the data. An <see
-        /// cref="T:System.InvalidOperationException"/> is thrown if the data is
-        /// invalid. No exception means valid.
+        /// Validates the data.
         /// </summary>
-        /// <exception cref="T:System.InvalidOperationException">
-        /// Thrown if the data is not valid.
-        /// </exception>
-        public void Validate()
+        /// <returns>
+        /// <see langword="true" /> if the value of the
+        /// <see
+        ///     cref="P:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}.Metadata" />
+        /// property is valid; <see langword="false" /> otherwise.
+        /// </returns>
+        public bool Validate()
         {
-            // write the name of the current class and method we are now
-            if (string.IsNullOrWhiteSpace(Expression.KeyPath))
-                throw new InvalidOperationException(
-                    "The specified expression's Registry key path is invalid."
-                );
+            var result = true;
 
-            if (!Expression.KeyPath.StartsWithValidHiveName())
-                throw new InvalidOperationException(
-                    "The specified expression's Registry key path must be the fully-qualified path, including the Registry hive (HKEY_CLASSES_ROOT etc)."
-                );
+            try
+            {
+                if (Expression == null)
+                    throw new InvalidOperationException(
+                        Resources.Error_ExpressionPropertyIsNull
+                    );
+
+                if (string.IsNullOrWhiteSpace(Expression.KeyPath))
+                    throw new InvalidOperationException(
+                        Resources.Error_RegistryKeyPathnameBlank
+                    );
+
+                if (!Expression.KeyPath.StartsWithValidHiveName())
+                    throw new InvalidOperationException(
+                        Resources
+                            .Error_RegistryKeyPathnameDoesNotStartWithValidHive
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
 
             /*
              * OKAY, if we are here, then our validation rules have been passed.
              */
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** SUCCESS *** The registry query expression has passed validation."
-            );
+            return result;
         }
     }
 }

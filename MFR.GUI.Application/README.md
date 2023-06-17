@@ -11,7 +11,7 @@
   - [CommandLineParser](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineParser 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineParser')
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
-  - [ConfigurationProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigProvider')
   - [FileStreamProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileStreamProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
@@ -107,8 +107,8 @@ Gets a reference to an instance of an object that implements the
 [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
 interface.
 
-<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 

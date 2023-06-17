@@ -112,7 +112,8 @@ namespace MFR.FileSystem.Retrievers
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         public override IFileSystemEntryListRetriever UsingSearchPattern(
-            string searchPattern)
+            string searchPattern
+        )
         {
             SearchPattern = "*.sln"; // hard-code the SearchPattern to be *.sln
             return this;
@@ -167,8 +168,10 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
-            DoGetMatchingFileSystemPaths(string rootFolderPath,
-                Predicate<string> pathFilter = null)
+            DoGetMatchingFileSystemPaths(
+                string rootFolderPath,
+                Predicate<string> pathFilter = null
+            )
         {
             var result = new List<IFileSystemEntry>();
             try

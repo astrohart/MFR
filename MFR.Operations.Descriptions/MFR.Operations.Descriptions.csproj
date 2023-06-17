@@ -104,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.cs" />
+    <Compile Include="OperationDescriptionBase.cs" />
+    <Compile Include="RenameSolutionFoldersOperationDescription.cs" />
     <Compile Include="ScanDirectoryTreeForSolutionFilesOperationStartedDescription.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="CloseActiveSolutionOperationStartedDescription.cs" />

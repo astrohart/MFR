@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Constants;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using NUnit.Framework;
@@ -60,6 +61,15 @@ namespace MFR.Settings.Configuration.Providers.Tests
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface that represents the currently-loaded (if any) configuration.
+        /// </summary>
+        private static IProjectFileRenamerConfiguration CurrentConfiguration
+            => ProjectFileRenamerConfigurationProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
@@ -86,10 +96,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 )
             );
 
-            Console.WriteLine(
-                ProjectFileRenamerConfigurationProvider.CurrentConfiguration
-                    .FindWhat
-            );
+            Assert.IsNotNull(CurrentConfiguration);
         }
 
         /// <summary>

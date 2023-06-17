@@ -51,6 +51,10 @@
   - [OperationType](#P-MFR-Operations-Descriptions-OpenActiveSolutionOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.OpenActiveSolutionOperationStartedDescription.OperationType')
   - [Text](#P-MFR-Operations-Descriptions-OpenActiveSolutionOperationStartedDescription-Text 'MFR.Operations.Descriptions.OpenActiveSolutionOperationStartedDescription.Text')
   - [#cctor()](#M-MFR-Operations-Descriptions-OpenActiveSolutionOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.OpenActiveSolutionOperationStartedDescription.#cctor')
+- [OperationDescriptionBase](#T-MFR-Operations-Descriptions-OperationDescriptionBase 'MFR.Operations.Descriptions.OperationDescriptionBase')
+  - [OperationType](#P-MFR-Operations-Descriptions-OperationDescriptionBase-OperationType 'MFR.Operations.Descriptions.OperationDescriptionBase.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-OperationDescriptionBase-Text 'MFR.Operations.Descriptions.OperationDescriptionBase.Text')
+  - [ToString()](#M-MFR-Operations-Descriptions-OperationDescriptionBase-ToString 'MFR.Operations.Descriptions.OperationDescriptionBase.ToString')
 - [RenameFilesInFolderOperationDescription](#T-MFR-Operations-Descriptions-RenameFilesInFolderOperationDescription 'MFR.Operations.Descriptions.RenameFilesInFolderOperationDescription')
   - [#ctor()](#M-MFR-Operations-Descriptions-RenameFilesInFolderOperationDescription-#ctor 'MFR.Operations.Descriptions.RenameFilesInFolderOperationDescription.#ctor')
   - [Instance](#P-MFR-Operations-Descriptions-RenameFilesInFolderOperationDescription-Instance 'MFR.Operations.Descriptions.RenameFilesInFolderOperationDescription.Instance')
@@ -63,15 +67,18 @@
   - [OperationType](#P-MFR-Operations-Descriptions-RenameFilesInFolderOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.RenameFilesInFolderOperationStartedDescription.OperationType')
   - [Text](#P-MFR-Operations-Descriptions-RenameFilesInFolderOperationStartedDescription-Text 'MFR.Operations.Descriptions.RenameFilesInFolderOperationStartedDescription.Text')
   - [#cctor()](#M-MFR-Operations-Descriptions-RenameFilesInFolderOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.RenameFilesInFolderOperationStartedDescription.#cctor')
-<<<<<<< HEAD
-=======
+- [RenameSolutionFoldersOperationDescription](#T-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-#ctor 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-Instance 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-OperationType 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-Text 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-#cctor 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationDescription.#cctor')
 - [RenameSolutionFoldersOperationStartedDescription](#T-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationStartedDescription')
   - [#ctor()](#M-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription-#ctor 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationStartedDescription.#ctor')
   - [Instance](#P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription-Instance 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationStartedDescription.Instance')
   - [OperationType](#P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationStartedDescription.OperationType')
   - [Text](#P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription-Text 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationStartedDescription.Text')
   - [#cctor()](#M-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.RenameSolutionFoldersOperationStartedDescription.#cctor')
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [RenameSubFoldersOperationDescription](#T-MFR-Operations-Descriptions-RenameSubFoldersOperationDescription 'MFR.Operations.Descriptions.RenameSubFoldersOperationDescription')
   - [#ctor()](#M-MFR-Operations-Descriptions-RenameSubFoldersOperationDescription-#ctor 'MFR.Operations.Descriptions.RenameSubFoldersOperationDescription.#ctor')
   - [Instance](#P-MFR-Operations-Descriptions-RenameSubFoldersOperationDescription-Instance 'MFR.Operations.Descriptions.RenameSubFoldersOperationDescription.Instance')
@@ -100,6 +107,7 @@
   - [Culture](#P-MFR-Operations-Descriptions-Properties-Resources-Culture 'MFR.Operations.Descriptions.Properties.Resources.Culture')
   - [OperationDescription_LoadAllSolutionsInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_LoadAllSolutionsInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_LoadAllSolutionsInFolder')
   - [OperationDescription_RenameFilesInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameFilesInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameFilesInFolder')
+  - [OperationDescription_RenameSolutionFolders](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSolutionFolders 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameSolutionFolders')
   - [OperationDescription_RenameSubFolders](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSubFolders 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameSubFolders')
   - [OperationDescription_ReplaceTextInFiles](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_ReplaceTextInFiles 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_ReplaceTextInFiles')
   - [OperationDescription_UnloadAllSolutionsInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_UnloadAllSolutionsInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_UnloadAllSolutionsInFolder')
@@ -626,6 +634,55 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
+<a name='T-MFR-Operations-Descriptions-OperationDescriptionBase'></a>
+## OperationDescriptionBase `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Defines the events, methods, properties, and behaviors for all classes that
+provide text describing the description of an operation.
+
+<a name='P-MFR-Operations-Descriptions-OperationDescriptionBase-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-OperationDescriptionBase-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is currently being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-OperationDescriptionBase-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns a string that represents the current object.
+
+##### Returns
+
+A string that represents the current object.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Operations-Descriptions-RenameFilesInFolderOperationDescription'></a>
 ## RenameFilesInFolderOperationDescription `type`
 
@@ -751,8 +808,72 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<<<<<<< HEAD
-=======
+<a name='T-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription'></a>
+## RenameSolutionFoldersOperationDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Gets the descriptive text to be displayed to the user during a `Rename Solution Folders` operation.
+
+<a name='M-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface and which provides user-friendly text that explains that the
+application is currently in the process of renaming subfolders of the root
+directory.
+
+<a name='P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-RenameSolutionFoldersOperationDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-Operations-Descriptions-RenameSolutionFoldersOperationStartedDescription'></a>
 ## RenameSolutionFoldersOperationStartedDescription `type`
 
@@ -822,7 +943,7 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
+
 <a name='T-MFR-Operations-Descriptions-RenameSubFoldersOperationDescription'></a>
 ## RenameSubFoldersOperationDescription `type`
 
@@ -1115,6 +1236,13 @@ Looks up a localized string similar to Loading all Visual Studio Solutions in th
 
 Looks up a localized string similar to Renaming files...
 
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSolutionFolders'></a>
+### OperationDescription_RenameSolutionFolders `property`
+
+##### Summary
+
+Looks up a localized string similar to Renaming folder(s) of Solution(s)....
+
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSubFolders'></a>
 ### OperationDescription_RenameSubFolders `property`
 
@@ -1192,8 +1320,6 @@ Looks up a localized string similar to Reloading the solution containing the ite
 
 Looks up a localized string similar to Calculating files to be renamed...
 
-<<<<<<< HEAD
-=======
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_RenameSolutionFolder'></a>
 ### OperationStartedDescription_RenameSolutionFolder `property`
 
@@ -1201,7 +1327,6 @@ Looks up a localized string similar to Calculating files to be renamed...
 
 Looks up a localized string similar to Getting ready to rename the folders of Solution(s) that happen to be within the directory tree....
 
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_RenameSubFolders'></a>
 ### OperationStartedDescription_RenameSubFolders `property`
 

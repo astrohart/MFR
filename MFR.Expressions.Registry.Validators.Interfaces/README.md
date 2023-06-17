@@ -24,6 +24,13 @@ Validates instances of objects that implement the
 [IRegQueryExpression{T}](#T-MFR-IRegQueryExpression{T} 'MFR.IRegQueryExpression{T}')
 interface.
 
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | (Required.) Name of the data type of the information that
+to be accessed. |
+
 <a name='P-MFR-Expressions-Registry-Validators-Interfaces-IRegQueryExpressionValidator`1-Expression'></a>
 ### Expression `property`
 
@@ -64,8 +71,13 @@ passed a `null` value. |
 
 ##### Summary
 
-Validates the data. An exception is thrown if the data is invalid.
-No exception means valid.
+Validates the data.
+
+##### Returns
+
+`true` if the value of the
+[Expression](#P-MFR-Expressions-Registry-Validators-Interfaces-IRegQueryExpressionValidator{T}-Expression 'MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}.Expression')
+property is valid; `false` otherwise.
 
 ##### Parameters
 

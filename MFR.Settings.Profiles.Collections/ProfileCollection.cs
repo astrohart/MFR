@@ -1,5 +1,4 @@
 using MFR.Settings.Profiles.Collections.Interfaces;
-using MFR.Settings.Profiles.Collections.Properties;
 using MFR.Settings.Profiles.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
@@ -7,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Profiles.Collections
 {
@@ -25,6 +25,10 @@ namespace MFR.Settings.Profiles.Collections
         /// <see cref="T:MFR.Settings.Profiles.Collections.ProfileCollection" /> and
         /// returns a reference to it.
         /// </summary>
+        /// <remarks>
+        /// The object instance reference returned by this constructor represents the empty
+        /// collection.
+        /// </remarks>
         public ProfileCollection()
         {
             // Default constructor
@@ -35,8 +39,7 @@ namespace MFR.Settings.Profiles.Collections
         /// <see cref="T:MFR.Settings.Profiles.Collections.ProfileCollection" /> and
         /// returns a reference to it.
         /// </summary>
-        [Log(AttributeExclude = true)]
-        [JsonConstructor]
+        [Log(AttributeExclude = true), JsonConstructor]
         public ProfileCollection(IEnumerable<IProfile> profiles)
         {
             if (profiles == null) return;
@@ -56,6 +59,14 @@ namespace MFR.Settings.Profiles.Collections
         }
 
         /// <summary>
+        /// Represents the empty <c>ProfileCollection</c>.
+        /// </summary>
+        public static IProfileCollection Empty
+        {
+            get;
+        } = new ProfileCollection();
+
+        /// <summary>
         /// Determines whether the profile collection already has a profile with the
         /// name provided.
         /// <para />
@@ -68,19 +79,68 @@ namespace MFR.Settings.Profiles.Collections
         /// </returns>
         public bool HasProfileNamed(string name)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException(
-                    Resources.Error_ValueCannotBeNullOrWhiteSpace, nameof(name)
-                );
-
             var result = false;
 
-            if (Count == 0) return result;
+            try
+            {
+                if (Count == 0) return result;
+                if (string.IsNullOrWhiteSpace(name)) return result;
 
-            return Items.Any(
-                profile => name.ToLowerInvariant()
-                               .Equals(profile.Name.ToLowerInvariant())
-            );
+                result = Items.Any(
+                    profile => name.ToLowerInvariant()
+                                   .Equals(profile.Name.ToLowerInvariant())
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Removes all of those elements from the collection that satisfy the specified
+        /// <paramref name="predicate" />.
+        /// </summary>
+        /// <param name="predicate">
+        /// (Required.) A predicate that returns
+        /// <see langword="true" /> if a specific item is to be removed from the
+        /// collection.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the element(s) matching the specified
+        /// <paramref name="predicate" /> were removed successfully, or if the collection
+        /// is empty; <see langword="false" /> otherwise.
+        /// </returns>
+        public bool RemoveAll(Predicate<IProfile> predicate)
+        {
+            var result = true;
+
+            try
+            {
+                if (Count == 0) return result;
+                if (predicate == null) return result;
+
+                for (var i = Count - 1; i >= 0; i--)
+                {
+                    if (!predicate(this[i])) continue;
+
+                    RemoveAt(i);
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
     }
 }

@@ -7,8 +7,102 @@
   - [For\`\`2(actionType)](#M-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType-For``2-MFR-Settings-Profiles-Actions-Constants-ProfileCollectionActionType- 'MFR.Settings.Profiles.Actions.Factories.GetProfileCollectionActionType.For``2(MFR.Settings.Profiles.Actions.Constants.ProfileCollectionActionType)')
 - [Resources](#T-MFR-Settings-Profiles-Actions-Factories-Properties-Resources 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Culture')
+  - [Error_NoActionAvailable](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Error_NoActionAvailable 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.Error_NoActionAvailable')
   - [ResourceManager](#P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Profiles.Actions.Factories.Properties.Resources.ResourceManager')
 
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetCreateNewNamedProfileAction'></a>
+## GetCreateNewNamedProfileAction `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Actions.Factories
+
+##### Summary
+
+Exposes static methods to gain access to a reference to the sole instance of
+[CreateNewNamedProfileAction](#T-MFR-Settings-Profiles-Actions-CreateNewNamedProfileAction 'MFR.Settings.Profiles.Actions.CreateNewNamedProfileAction').
+
+<a name='M-MFR-Settings-Profiles-Actions-Factories-GetCreateNewNamedProfileAction-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Gets a reference to the sole instance of
+[CreateNewNamedProfileAction](#T-MFR-Settings-Profiles-Actions-CreateNewNamedProfileAction 'MFR.Settings.Profiles.Actions.CreateNewNamedProfileAction').
+
+##### Returns
+
+A reference to the sole instance of
+[CreateNewNamedProfileAction](#T-MFR-Settings-Profiles-Actions-CreateNewNamedProfileAction 'MFR.Settings.Profiles.Actions.CreateNewNamedProfileAction').
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFilePathFromRegistryAction'></a>
+## GetLoadProfileCollectionFilePathFromRegistryAction `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Actions.Factories
+
+##### Summary
+
+Exposes static methods for obtaining a reference to the sole instance of
+[LoadProfileCollectionFilePathFromRegistryAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction')
+.
+
+<a name='M-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFilePathFromRegistryAction-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Gets a  reference to the one and only instance of
+[LoadProfileCollectionFilePathFromRegistryAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFilePathFromRegistryAction')
+.
+
+##### Returns
+
+
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFromFileAction'></a>
+## GetLoadProfileCollectionFromFileAction `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Actions.Factories
+
+##### Summary
+
+Exposes static methods to obtain a reference to the one and only instance of
+[LoadProfileCollectionFromFileAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction')
+.
+
+<a name='M-MFR-Settings-Profiles-Actions-Factories-GetLoadProfileCollectionFromFileAction-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Gets a reference to the one and only instance of
+[LoadProfileCollectionFromFileAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction')
+.
+
+##### Returns
+
+A reference to the one and only instance of
+[LoadProfileCollectionFromFileAction](#T-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction 'MFR.Settings.Profiles.Actions.LoadProfileCollectionFromFileAction')
+.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionAction'></a>
+## GetProfileCollectionAction `type`
 <a name='T-MFR-Settings-Profiles-Actions-Factories-GetProfileCollectionActionType'></a>
 ## GetProfileCollectionActionType `type`
 
@@ -79,6 +173,13 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-Error_NoActionAvailable'></a>
+### Error_NoActionAvailable `property`
+
+##### Summary
+
+Looks up a localized string similar to There is no message available that corresponds to the '{0}' action type..
 
 <a name='P-MFR-Settings-Profiles-Actions-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

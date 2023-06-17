@@ -1,6 +1,7 @@
 using MFR.Settings.Profiles;
 using MFR.Settings.Profiles.Collections;
 using MFR.Settings.Profiles.Collections.Converters;
+using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Converters;
 using Newtonsoft.Json;
@@ -8,6 +9,7 @@ using Newtonsoft.Json.Converters;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Globalization;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Configuration.Converters
 {
@@ -59,19 +61,33 @@ namespace MFR.Settings.Configuration.Converters
         /// properties are initialized to the data values read in from the JSON
         /// text, or <see langword="null" /> if a problem occurred.
         /// </returns>
-        /// <exception cref="T:System.ArgumentException">
-        /// Thrown if the required parameter, <paramref name="json" />, is passed
-        /// a blank or <see langword="null" /> string for a value.
-        /// </exception>
+        /// <remarks>
+        /// If the <paramref name="json" /> parameter is passed a blank or
+        /// <see langword="null" /> <see cref="T:System.String" /> for its argument, or if
+        /// an error occurs during the loading process, then the empty collection is
+        /// returned.
+        /// </remarks>
         public static IProfileCollection FromJson([NotLogged] string json)
         {
-            if (string.IsNullOrWhiteSpace(json))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(json)
+            var result = GetEmptyProfileCollection.SoleInstance();
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(json)) return result;
+
+                result = JsonConvert.DeserializeObject<ProfileCollection>(
+                    json, Settings
                 );
-            return JsonConvert.DeserializeObject<ProfileCollection>(
-                json, Settings
-            );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = GetEmptyProfileCollection.SoleInstance();
+            }
+
+            return result;
         }
 
         /// <summary>

@@ -79,6 +79,15 @@ namespace MFR.Operations.Descriptions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Renaming folder(s) of Solution(s)....
+        /// </summary>
+        public static string OperationDescription_RenameSolutionFolders {
+            get {
+                return ResourceManager.GetString("OperationDescription_RenameSolutionFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Renaming subfolders...
         /// </summary>
         public static string OperationDescription_RenameSubFolders {

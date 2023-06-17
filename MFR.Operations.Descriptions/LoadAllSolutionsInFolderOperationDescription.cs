@@ -10,7 +10,7 @@ namespace MFR.Operations.Descriptions
     /// Solutions in Folder operation.
     /// </summary>
     public class
-        LoadAllSolutionsInFolderOperationDescription : IOperationDescription
+        LoadAllSolutionsInFolderOperationDescription : OperationDescriptionBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -41,8 +41,10 @@ namespace MFR.Operations.Descriptions
         /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values
         /// that corresponds to the type of operation being performed.
         /// </summary>
-        public OperationType OperationType
-            => OperationType.LoadAllSolutionsInFolder;
+        public override OperationType OperationType
+        {
+            get;
+        } = OperationType.LoadAllSolutionsInFolder;
 
         /// <summary>
         /// Gets a string to be displayed to the user, that corresponds to the
@@ -51,7 +53,7 @@ namespace MFR.Operations.Descriptions
         /// <remarks>
         /// It is up to the implementers of this interface to supply the proper text.
         /// </remarks>
-        public string Text
+        public override string Text
         {
             get;
         } = Resources.OperationDescription_LoadAllSolutionsInFolder;

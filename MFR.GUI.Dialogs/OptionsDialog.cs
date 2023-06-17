@@ -60,9 +60,10 @@ namespace MFR.GUI.Dialogs
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -71,7 +72,7 @@ namespace MFR.GUI.Dialogs
         /// interface.
         /// </summary>
         private static IProjectFileRenamerConfiguration CurrentConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
+            => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
@@ -194,17 +195,18 @@ namespace MFR.GUI.Dialogs
         /// to the text box that accepts the pathname of the application's
         /// configuration file.
         /// </remarks>
-        private void OnClickConfigPathnameBrowseButton(object sender,
-            EventArgs e)
+        private void OnClickConfigPathnameBrowseButton(
+            object sender,
+            EventArgs e
+        )
         {
             configPathBrowseBox.InitialDirectory =
                 string.IsNullOrWhiteSpace(ConfigPathname)
-                    ? ConfigurationProvider.DefaultConfigDir
+                    ? Path.GetDirectoryName(ConfigProvider.ConfigFilePath)
                     : Path.GetDirectoryName(ConfigPathname);
             configPathBrowseBox.FileName =
                 string.IsNullOrWhiteSpace(ConfigPathname)
-                    ? GetProjectFileRenamerConfigurationProvider.SoleInstance()
-                        .DefaultConfigFileName
+                    ? ConfigProvider.ConfigFilePath
                     : ConfigPathname;
 
             if (configPathBrowseBox.ShowDialog(this) != DialogResult.OK)
@@ -236,8 +238,10 @@ namespace MFR.GUI.Dialogs
         ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
         /// method.
         /// </remarks>
-        private void OnTextChangedConfiguraitonFilePathname(object sender,
-            EventArgs e)
+        private void OnTextChangedConfiguraitonFilePathname(
+            object sender,
+            EventArgs e
+        )
             => SetModifiedFlag();
 
         /// <summary>
@@ -282,15 +286,13 @@ namespace MFR.GUI.Dialogs
             {
                 CurrentConfiguration.AutoQuitOnCompletion =
                     AutoQuitOnCompletion;
-                CurrentConfiguration.ReOpenSolution =
-                    ReOpenSolution;
-                ConfigurationProvider.ConfigurationFilePath = ConfigPathname;
+                CurrentConfiguration.ReOpenSolution = ReOpenSolution;
+                ConfigProvider.ConfigFilePath = ConfigPathname;
             }
             else
             {
-                ReOpenSolution =
-                    CurrentConfiguration.ReOpenSolution;
-                ConfigPathname = ConfigurationProvider.ConfigurationFilePath;
+                ReOpenSolution = CurrentConfiguration.ReOpenSolution;
+                ConfigPathname = ConfigProvider.ConfigFilePath;
                 AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;
             }

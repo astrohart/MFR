@@ -41,7 +41,7 @@ namespace MFR.GUI.Initializers
         /// controls with data from a data source.
         /// </remarks>
         public static void InitializeComboBox(IEntryRespectingComboBox comboBox,
-            IReadOnlyCollection<string> itemList, string currentItem = "")
+            IList<string> itemList, string currentItem = "")
         {
             if (comboBox == null)
                 throw new ArgumentNullException(nameof(comboBox));

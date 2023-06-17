@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Factories;
 using MFR.Expressions.Registry.Validators.Interfaces;
@@ -36,6 +35,16 @@ namespace MFR.Settings.Configuration.Actions
         protected LoadConfigurationFilePathFromRegistryAction() { }
 
         /// <summary>
+        /// Gets the one and only instance of the Registry query expression validator that
+        /// read <see cref="T:System.String" /> values  from the system Registry.
+        /// </summary>
+        private static IRegQueryExpressionValidator<string>
+            AccessTheRegueryExpressionValidator
+        {
+            get;
+        } = GetRegistryExpressionValidator<string>.SoleInstance();
+
+        /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction" />
@@ -55,7 +64,7 @@ namespace MFR.Settings.Configuration.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
-            => ConfigurationActionType.LoadStringFromRegistry;
+            => ConfigActionType.LoadConfigFilePathFromRegistry;
 
         /// <summary>
         /// Performs this action's operation if the result could not located in
@@ -89,16 +98,10 @@ namespace MFR.Settings.Configuration.Actions
             {
                 // Run validation on the properties of the input registry query
                 // expression object. This method throws exceptions if data is not valid.
-                IRegQueryExpressionValidator<string>
-                    regQueryExpressionValidator = default;
-                regQueryExpressionValidator =
-                    GetRegistryExpressionValidator<string>.Instance()
-                        .ForRegQueryExpression(Input);
-                if (regQueryExpressionValidator ==  null) return result;
-
-                // An exception gets thrown if the registry query expression
-                // is not valid.
-                regQueryExpressionValidator.Validate();
+                if (!AccessTheRegueryExpressionValidator
+                     .ForRegQueryExpression(Input)
+                     .Validate())
+                    return result;
 
                 var pathname = Load.String.FromRegistry(
                                        Input.KeyPath, Input.ValueName,
@@ -106,11 +109,10 @@ namespace MFR.Settings.Configuration.Actions
                                    )
                                    .Replace("\"", string.Empty);
 
-                if (string.IsNullOrWhiteSpace(pathname) 
-                    || !File.Exists(pathname))
-                    return result;
-                if (!File.Exists(pathname))
-                    return result;
+                /*
+                 * All we care about is reading a fucking path from the system
+                 * Registry.  We do not care, here, whether or not it exists.
+                 */
 
                 result = MakeNewFileSystemEntry.ForPath(pathname);
             }
@@ -121,6 +123,11 @@ namespace MFR.Settings.Configuration.Actions
 
                 result = default;
             }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"LoadConfigurationFilePathFromRegistryAction.ExecuteOperationIfNotCached: Result = '{result}'"
+            );
 
             return result;
         }

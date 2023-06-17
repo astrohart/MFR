@@ -52,7 +52,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a collection of strings consisting of the most-recently
         /// utilized values for Find What.
         /// </summary>
-        List<string> FindWhatHistory
+        IList<string> FindWhatHistory
         {
             get;
             set;
@@ -63,7 +63,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> instances, that represents
         /// all the operations the user can perform with this application.
         /// </summary>
-        List<IOperationTypeInfo> InvokableOperations
+        IList<IOperationTypeInfo> InvokableOperations
         {
             get;
             set;
@@ -182,7 +182,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a collection of strings that correspond to the
         /// most-recently-used values for Replace With.
         /// </summary>
-        List<string> ReplaceWithHistory
+        IList<string> ReplaceWithHistory
         {
             get;
             set;
@@ -212,7 +212,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a collection of strings that correspond to the
         /// most-recently-used values for Starting Folder.
         /// </summary>
-        List<string> StartingFolderHistory
+        IList<string> StartingFolderHistory
         {
             get;
             set;

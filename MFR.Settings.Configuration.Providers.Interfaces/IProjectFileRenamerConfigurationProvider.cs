@@ -1,37 +1,58 @@
 using MFR.Settings.Configuration.Interfaces;
+using System;
 
 namespace MFR.Settings.Configuration.Providers.Interfaces
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a ProjectFileRenamerConfiguration Provider object.
+    /// Defines the publicly-exposed methods and properties of a
+    /// ProjectFileRenamerConfiguration Provider object.
     /// </summary>
     public interface IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
-        /// Gets a reference to the instance of the object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface and which
-        /// exposes settings changed by the user in order to modify the
-        /// application's behavior.
+        /// Gets or sets the pathname of the configuration file.
         /// </summary>
-        IProjectFileRenamerConfiguration CurrentConfiguration { get; set; }
-
         /// <summary>
         /// Gets or sets the pathname of the configuration file.
         /// </summary>
-        string ConfigurationFilePath { get; set; }
-
-        /// <summary>
-        /// Gets the default folder for the configuration file.
-        /// </summary>
         /// <remarks>
-        /// We store the config file, by default, in a folder under %USERPROFILE%\AppData\Local.
+        /// This property raises the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigFilePathChanged" />
+        /// event when its value is updated.
         /// </remarks>
-        string DefaultConfigDir { get; }
+        string ConfigFilePath
+        {
+            get;
+            set;
+        }
 
         /// <summary>
-        /// Gets the default filename for the config file.
+        /// Gets a reference to the instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface and which
+        /// exposes settings changed by the user in order to modify the
+        /// application's behavior.
         /// </summary>
-        string DefaultConfigFileName { get; }
+        IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        /// property is updated.
+        /// </summary>
+        event EventHandler ConfigFilePathChanged;
+
+        /// <summary>
+        /// Resets the configuration to default values.
+        /// </summary>
+        void Clear();
 
         /// <summary>
         /// Exports configuration data to a file other than the master
@@ -59,22 +80,6 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         void Export(string exportFileName);
-
-        /// <summary>
-        /// Gets a string whose value is the pathname of the system Registry key in which configuration settings are stored.
-        /// </summary>
-        string ConfigurationFilePathKeyName
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Gets a string whose value is the Registry value under which we store the path to the configuration file.
-        /// </summary>
-        string ConfigurationFilePathValueName
-        {
-            get;
-        }
 
         /// <summary>
         /// Imports configuration data from a file whose path is
@@ -116,7 +121,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
@@ -125,13 +130,19 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface and which has been initialized with data from the configuration file.
+        /// </returns>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file whose pathname is passed in the
         /// <paramref
         ///     name="pathname" />
         /// parameter cannot be located on the disk.
         /// </exception>
-        void Load(string pathname = "");
+        IProjectFileRenamerConfiguration Load(string pathname = "");
 
         /// <summary>
         /// Saves configuration data to a file on the disk having path
@@ -144,13 +155,13 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigurationFilePath" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");

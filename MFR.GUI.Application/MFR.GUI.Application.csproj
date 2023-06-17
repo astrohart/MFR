@@ -143,6 +143,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
+      <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
+      <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj">
       <Project>{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}</Project>
       <Name>MFR.CommandLine.Models.Factories</Name>
@@ -246,6 +250,10 @@
     <ProjectReference Include="..\MFR.Renamers.Files.Interfaces\MFR.Renamers.Files.Interfaces.csproj">
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
       <Name>MFR.Renamers.Files.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
+      <Project>{1ae68e39-484d-4347-ba55-739e0fe98246}</Project>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>

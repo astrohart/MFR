@@ -29,6 +29,7 @@ using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI.Application
 {
@@ -110,9 +111,10 @@ namespace MFR.GUI.Application
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -120,7 +122,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
+        {
+            get;
+        } = GetFileStreamProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -137,15 +141,19 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
         /// interface.
         /// </summary>
-        private IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+        {
+            get;
+        } = GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Occurs when the application has been initialized, but has not yet processed the
@@ -201,7 +209,7 @@ namespace MFR.GUI.Application
                     // NOTE: Do NOT save the configuration settings in the event
                     // that the user is running this app from the command line.
                     // Ditto for profiles.
-                    ConfigurationProvider.Save();
+                    ConfigProvider.Save();
 
                     ProfileProvider.Save();
                 }
@@ -267,8 +275,10 @@ namespace MFR.GUI.Application
         /// <remarks>
         /// This method responds by showing an error message to the user.
         /// </remarks>
-        private static void OnCommandLineInfoInvalid(object sender,
-            CommandLineInfoInvalidEventArgs e)
+        private static void OnCommandLineInfoInvalid(
+            object sender,
+            CommandLineInfoInvalidEventArgs e
+        )
             => ShowValidationFailureMessage(e.Message);
 
         /// <summary>
@@ -285,8 +295,10 @@ namespace MFR.GUI.Application
         /// data.
         /// </param>
         /// <remarks>This method shows a message box and then quits the application.</remarks>
-        private static void OnCommandLineParserDisplayHelp(object sender,
-            DisplayHelpEventArgs e)
+        private static void OnCommandLineParserDisplayHelp(
+            object sender,
+            DisplayHelpEventArgs e
+        )
         {
             MessageBox.Show(
                 e.HelpText, System.Windows.Forms.Application.ProductName,
@@ -315,8 +327,10 @@ namespace MFR.GUI.Application
         /// <remarks>
         /// This method responds by showing an error message to the user.
         /// </remarks>
-        private static void OnRootDirectoryInvalid(object sender,
-            RootDirectoryInvalidEventArgs e)
+        private static void OnRootDirectoryInvalid(
+            object sender,
+            RootDirectoryInvalidEventArgs e
+        )
             => ShowValidationFailureMessage(e.Message);
 
         /// <summary>
@@ -346,8 +360,10 @@ namespace MFR.GUI.Application
         /// and stack trace.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private static void OnThreadException(object sender,
-            ThreadExceptionEventArgs e)
+        private static void OnThreadException(
+            object sender,
+            ThreadExceptionEventArgs e
+        )
         {
             try
             {
@@ -440,7 +456,7 @@ namespace MFR.GUI.Application
                 // Load the configuration from the disk.
                 ProfileProvider.Load();
 
-                ConfigurationProvider.Load();
+                ConfigProvider.Load();
 
                 ParseCommandLine(args);
 

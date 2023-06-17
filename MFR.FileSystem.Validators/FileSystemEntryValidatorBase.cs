@@ -195,7 +195,7 @@ namespace MFR.FileSystem.Validators
         /// </remarks>
         public virtual bool IsValid(IFileSystemEntry entry)
         {
-            var result = false;
+            bool result;
 
             try
             {

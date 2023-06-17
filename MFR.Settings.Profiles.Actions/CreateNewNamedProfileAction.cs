@@ -1,4 +1,7 @@
+using MFR.Expressions.Registry.Interfaces;
+using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Settings.Profiles.Actions.Constants;
 using MFR.Settings.Profiles.Factories;
@@ -46,7 +49,7 @@ namespace MFR.Settings.Profiles.Actions
         /// <see cref="T:MFR.Settings.Profiles.Actions.CreateNewNamedProfileAction" />.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static CreateNewNamedProfileAction Instance
+        public static IAction<string, IProfile> Instance
         {
             get;
         } = new CreateNewNamedProfileAction();

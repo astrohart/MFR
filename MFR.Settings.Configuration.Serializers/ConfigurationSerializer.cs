@@ -1,13 +1,11 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Helpers;
 using MFR.Settings.Configuration.Converters;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
-using MFR.Settings.Configuration.Serializers.Properties;
 using System;
-using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
-using File = Alphaleonis.Win32.Filesystem.File;
 using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration.Serializers
@@ -38,7 +36,7 @@ namespace MFR.Settings.Configuration.Serializers
         /// </returns>
         public static IProjectFileRenamerConfiguration Load(string pathname)
         {
-            var result = MakeNewProjectFileRenamerConfiguration.FromScratch();
+            var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
             try
             {
@@ -46,13 +44,14 @@ namespace MFR.Settings.Configuration.Serializers
                 if (!File.Exists(pathname)) return result;
 
                 var content = File.ReadAllText(pathname);
+                if (string.IsNullOrWhiteSpace(content))
+                    return result;
 
                 // If the file at the path pathname has zero bytes of data, or
                 // only whitespace, then return a blank ProjectFileRenamerConfiguration instance
                 // with its properties all set to default values.
-                result = string.IsNullOrWhiteSpace(content)
-                    ? MakeNewProjectFileRenamerConfiguration.FromScratch()
-                    : ConvertConfiguration.FromJson(content);
+                result =
+                    ConvertProjectFileRenamerConfiguration.FromJson(content);
 
                 if (result == null) return result;
 
@@ -69,7 +68,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = MakeNewProjectFileRenamerConfiguration.FromScratch();
+                result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
             }
 
             return result;
@@ -89,8 +88,10 @@ namespace MFR.Settings.Configuration.Serializers
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </param>
-        public static void Save(string pathname,
-            IProjectFileRenamerConfiguration configuration)
+        public static void Save(
+            string pathname,
+            IProjectFileRenamerConfiguration configuration
+        )
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
@@ -100,7 +101,9 @@ namespace MFR.Settings.Configuration.Serializers
 
             try
             {
-                var content = ConvertConfiguration.ToJson(configuration);
+                var content =
+                    ConvertProjectFileRenamerConfiguration
+                        .ToJson(configuration);
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;
@@ -108,7 +111,7 @@ namespace MFR.Settings.Configuration.Serializers
                 if (File.Exists(pathname))
                     File.Delete(pathname);
 
-                FileHelpers.MakeSureContainingFolderExists(pathname);
+                MakeSure.ContainingFolderExists(pathname);
 
                 File.WriteAllText(pathname, content);
             }

@@ -29,6 +29,7 @@ namespace MFR.GUI.Models.Extensions
             this IList<IOperationTypeInfo> source)
         {
             var result = false;
+
             try
             {
                 result = source != null && source.Any();

@@ -8,6 +8,10 @@ namespace MFR.Expressions.Registry.Validators.Interfaces
     ///     cref="T:MFR.IRegQueryExpression{T}" />
     /// interface.
     /// </summary>
+    /// <typeparam name="T">
+    /// (Required.) Name of the data type of the information that
+    /// to be accessed.
+    /// </typeparam>
     public interface IRegQueryExpressionValidator<T> where T : class
     {
         /// <summary>
@@ -40,10 +44,14 @@ namespace MFR.Expressions.Registry.Validators.Interfaces
             IRegQueryExpression<T> expression);
 
         /// <summary>
-        /// Validates the data. An exception is thrown if the data is invalid.
-        /// No exception means valid.
+        /// Validates the data.
         /// </summary>
-        void Validate();
+        /// <returns>
+        /// <see langword="true" /> if the value of the
+        /// <see
+        ///     cref="P:MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}.Expression" />
+        /// property is valid; <see langword="false" /> otherwise.
+        /// </returns>
+        bool Validate();
     }
 }
-

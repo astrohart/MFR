@@ -1,7 +1,7 @@
-using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Messages.Constants;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Registry.Writers.Factories;
+using MFR.Settings.Configuration.Commands.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
@@ -60,18 +60,17 @@ namespace MFR.Messages.Commands
         {
             // Check to see if the required field, _input, is null. If it is,
             if (Input == null)
-            {
+
                 // the field _input is required.
                 // stop.
                 return;
-            }
+
             // Check to see if the required property, _input.Value, is null. If
             if (string.IsNullOrWhiteSpace(Input.Value))
-            {
+
                 // the property _input.Value is required.
                 // stop.
                 return;
-            }
             try
             {
                 Write.String.ToRegistry(
