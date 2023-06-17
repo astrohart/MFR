@@ -1368,6 +1368,11 @@ namespace MFR.Renamers.Files
                                              )
                                              .ToList();
 
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFiles: {fileSystemEntries.Count} file(s) found to move forward on."
+            );
+
             if (!fileSystemEntries.Any() && !AbortRequested)
             {
                 OnStatusUpdate(

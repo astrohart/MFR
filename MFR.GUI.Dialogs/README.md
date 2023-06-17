@@ -35,6 +35,7 @@
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
+  - [OnFileRenamerSolutionFoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSolutionFoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerSolutionFoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnProcessingWorkerDoWork(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnProcessingWorkerDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnProcessingWorkerDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
@@ -162,7 +163,7 @@
 - [Resources](#T-MFR-GUI-Dialogs-Properties-Resources 'MFR.GUI.Dialogs.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Properties-Resources-Culture 'MFR.GUI.Dialogs.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-GUI-Dialogs-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.GUI.Dialogs.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
-  - [FolderSelectDialogFIlters](#P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFIlters 'MFR.GUI.Dialogs.Properties.Resources.FolderSelectDialogFIlters')
+  - [FolderSelectDialogFilters](#P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFilters 'MFR.GUI.Dialogs.Properties.Resources.FolderSelectDialogFilters')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-GUI-Dialogs-AboutDialog'></a>
@@ -630,6 +631,31 @@ Otherwise, the method responds by incrementing the progress dialog's
 progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
+
+<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSolutionFoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
+### OnFileRenamerSolutionFoldersToBeRenamedCounted(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Renamers-Files-Interfaces-IFileRenamer-SubfoldersToBeRenamedCounted 'MFR.Renamers.Files.Interfaces.IFileRenamer.SubfoldersToBeRenamedCounted')
+event raised by the File Renamer object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
+| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+This method responds by resetting the progress dialog's progress bar
+back to zero, and then updating the value of its
+[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
+property to have
+the same value as the count of file system entries.
 
 <a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
 ### OnFileRenamerStatusUpdate(sender,e) `method`
@@ -1853,7 +1879,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the
+This object allows access to the user configuration and the
 actions
 associated with it.
 
@@ -1947,7 +1973,7 @@ for the Browse button on the configuration File Pathname text box..
 
 This method responds to a click of the '...' button that lies next
 to the text box that accepts the pathname of the application's
-projectFileRenamerConfiguration file.
+configuration file.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
 ### OnFormClosing(e) `method`
@@ -2095,7 +2121,7 @@ MFR.GUI.Dialogs
 
 ##### Summary
 
-Dialog box to assist the user in managing projectFileRenamerConfiguration profiles.
+Dialog box to assist the user in managing configuration profiles.
 
 <a name='M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor'></a>
 ### #ctor() `constructor`
@@ -2339,8 +2365,8 @@ Overrides the current thread's CurrentUICulture property for all
 
 Looks up a localized string similar to Value cannot be null or whitespace..
 
-<a name='P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFIlters'></a>
-### FolderSelectDialogFIlters `property`
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFilters'></a>
+### FolderSelectDialogFilters `property`
 
 ##### Summary
 
