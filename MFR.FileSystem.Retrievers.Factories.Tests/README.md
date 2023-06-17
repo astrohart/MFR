@@ -7,9 +7,9 @@
   - [Test_For_ReturnsFilesToRenameRetriever_For_RenameFilesInFolder_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ReturnsFilesToRenameRetriever_For_RenameFilesInFolder_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ReturnsFilesToRenameRetriever_For_RenameFilesInFolder_OperationType')
   - [Test_For_ReturnsFolderToRenameRetriever_For_RenameSubFolders_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ReturnsFolderToRenameRetriever_For_RenameSubFolders_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ReturnsFolderToRenameRetriever_For_RenameSubFolders_OperationType')
   - [Test_For_ReturnsTextInFilesRetriever_For_ReplaceTextInFiles_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ReturnsTextInFilesRetriever_For_ReplaceTextInFiles_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ReturnsTextInFilesRetriever_For_ReplaceTextInFiles_OperationType')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()](#M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType 'MFR.FileSystem.Retrievers.Factories.Tests.GetFileSystemEntryListRetrieverTests.Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType')
 - [Resources](#T-MFR-FileSystem-Retrievers-Factories-Tests-Properties-Resources 'MFR.FileSystem.Retrievers.Factories.Tests.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Retrievers-Factories-Tests-Properties-Resources-Culture 'MFR.FileSystem.Retrievers.Factories.Tests.Properties.Resources.Culture')
@@ -61,6 +61,17 @@ TODO: Add unit test documentation here
 
 This method has no parameters.
 
+<a name='M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType'></a>
+### Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType() `method`
+
+##### Summary
+
+TODO: Add unit test documentation here
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType'></a>
 ### Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType() `method`
 
@@ -74,17 +85,6 @@ This method has no parameters.
 
 <a name='M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType'></a>
 ### Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType() `method`
-
-##### Summary
-
-TODO: Add unit test documentation here
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-FileSystem-Retrievers-Factories-Tests-GetFileSystemEntryListRetrieverTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType'></a>
-### Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType() `method`
 
 ##### Summary
 

@@ -199,7 +199,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user projectFileRenamerConfiguration and the actions
+This object allows access to the user configuration and the actions
 associated with it.
 
 <a name='M-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Cleanup'></a>

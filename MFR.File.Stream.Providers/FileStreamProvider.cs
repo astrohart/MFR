@@ -214,20 +214,26 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (Guid.Empty.Equals(ticket)) return;
-                if (!InternalFileStreamCollection.ContainsKey(ticket))
-                    return;
-
-                var correspondingReader = InternalFileStreamCollection[ticket];
-                if (correspondingReader == null)
-                    return;
-
-                correspondingReader.Dispose();
-
                 lock (SyncRoot)
+                {
+                    if (!InternalFileStreamCollection.ContainsKey(ticket))
+                        return;
+
+                    var correspondingReader = InternalFileStreamCollection[ticket];
+                    if (correspondingReader == null)
+                        return;
+
+                    var pathname = ((FileStream)correspondingReader.BaseStream)
+                        .Name;
+
+                    correspondingReader.Close();
+                    correspondingReader.Dispose();
+
                     if (remove)
                         InternalFileStreamCollection.Remove(ticket);
 
-                OnFileStreamDisposed(new FileStreamDisposedEventArgs(ticket));
+                    OnFileStreamDisposed(new FileStreamDisposedEventArgs(pathname, ticket));
+                }
             }
             catch (Exception ex)
             {
