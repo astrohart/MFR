@@ -83,7 +83,7 @@ This method has no parameters.
 ##### Summary
 
 Initializes the value of the
-[Expression](#P-MFR-IRegQueryExpressionValidator-Expression 'MFR.IRegQueryExpressionValidator.Expression')
+[Metadata](#P-MFR-IRegQueryExpressionValidator-Metadata 'MFR.IRegQueryExpressionValidator.Metadata')
 property to refer to the data that is to be validated.
 
 ##### Returns
@@ -112,7 +112,7 @@ Validates the data.
 ##### Returns
 
 `true` if the value of the
-[Expression](#P-MFR-Expressions-Registry-Validators-Interfaces-IRegQueryExpressionValidator{T}-Expression 'MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}.Expression')
+[Metadata](#P-MFR-Expressions-Registry-Validators-Interfaces-IRegQueryExpressionValidator{T}-Metadata 'MFR.Expressions.Registry.Validators.Interfaces.IRegQueryExpressionValidator{T}.Metadata')
 property is valid; `false` otherwise.
 
 ##### Parameters
@@ -143,7 +143,7 @@ Overrides the current thread's CurrentUICulture property for all
 
 ##### Summary
 
-Looks up a localized string similar to Please initialize the value of the Expression property before calling this method..
+Looks up a localized string similar to Please initialize the value of the Metadata property before calling this method..
 
 <a name='P-MFR-Expressions-Registry-Validators-Properties-Resources-Error_RegistryKeyPathnameBlank'></a>
 ### Error_RegistryKeyPathnameBlank `property`

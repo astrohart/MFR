@@ -258,7 +258,7 @@ is associated with the application.
 
 ##### Summary
 
-String containing the name of a projectFileRenamerConfiguration file.
+String containing the name of a configuration file.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_DIR'></a>
 ### DEFAULT_CONFIG_FILE_DIR `constants`
@@ -274,19 +274,14 @@ configuration file.
 ##### Summary
 
 String containing the fully-qualified pathname of the master
-projectFileRenamerConfiguration file.
+configuration file.
 
 ##### Remarks
 
-<<<<<<< HEAD
-The master projectFileRenamerConfiguration file is defined to be that file, containing
-a JSON representation of an object that implements the [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface, exists
-=======
 The master configuration file is defined to be that file, containing
 a JSON representation of an object that implements the
 [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
 interface, exists
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 in the centralized location that is used by the application.
 
 
@@ -299,7 +294,7 @@ in the centralized location that is used by the application.
 ##### Summary
 
 Fully-qualified pathname to where we expect that the path to the
-projectFileRenamerConfiguration file has been written to.
+configuration file has been written to.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-PRODUCT_NAME'></a>
 ### PRODUCT_NAME `constants`
@@ -315,7 +310,7 @@ associated with the application.
 ##### Summary
 
 Name of the Registry value under which the path to the application's
-projectFileRenamerConfiguration file is to be stored.
+configuration file is to be stored.
 
 <a name='T-MFR-Tests-Common-Properties-Resources'></a>
 ## Resources `type`

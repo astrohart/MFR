@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [GetBlankProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Factories.GetBlankProjectFileRenamerConfiguration')
+  - [SoleInstance()](#M-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration-SoleInstance 'MFR.Settings.Configuration.Factories.GetBlankProjectFileRenamerConfiguration.SoleInstance')
 - [MakeNewProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration')
   - [AndFindWhat(self,findWhat)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndFindWhat-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndFindWhat(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [AndFindWhatHistory(self,findWhatHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndFindWhatHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndFindWhatHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
@@ -26,6 +28,41 @@
 - [Resources](#T-MFR-Settings-Configuration-Factories-Properties-Resources 'MFR.Settings.Configuration.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration'></a>
+## GetBlankProjectFileRenamerConfiguration `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Factories
+
+##### Summary
+
+Gets the sole reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that represents the blank configuration initialized with the default
+invokable operations and other settings.
+
+<a name='M-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that represents the blank configuration initialized with the default
+invokable operations and other settings.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that represents the blank configuration initialized with the default
+invokable operations and other settings.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration'></a>
 ## MakeNewProjectFileRenamerConfiguration `type`

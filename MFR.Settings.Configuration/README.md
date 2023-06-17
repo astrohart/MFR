@@ -37,6 +37,7 @@
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolderHistory')
   - [Equals(obj)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Equals-System-Object- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Equals(System.Object)')
   - [GetHashCode()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-GetHashCode 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.GetHashCode')
+  - [IsBlankOrNull(configuration)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [OnStartingFolderChanged()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged')
   - [Reset()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Reset')
 - [Resources](#T-MFR-Settings-Configuration-Properties-Resources 'MFR.Settings.Configuration.Properties.Resources')
@@ -499,6 +500,28 @@ A hash code for the current object.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### IsBlankOrNull(configuration) `method`
+
+##### Summary
+
+Determines whether the specified `configuration` object
+instance is blank or a `null` reference.
+
+##### Returns
+
+`true` if the specified
+`configuration` object instance is blank or a
+`null` reference.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that represents the object instance that is to be examined. |
 
 <a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged'></a>
 ### OnStartingFolderChanged() `method`

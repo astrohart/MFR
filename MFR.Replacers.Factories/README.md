@@ -3,8 +3,6 @@
 
 ## Contents
 
-<<<<<<< HEAD
-=======
 - [GetRenameFilesInFolderStringReplacerFactory](#T-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory 'MFR.Replacers.Factories.GetRenameFilesInFolderStringReplacerFactory')
   - [SoleInstance()](#M-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetRenameFilesInFolderStringReplacerFactory.SoleInstance')
 - [GetRenameSolutionFoldersStringReplacerFactory](#T-MFR-Replacers-Factories-GetRenameSolutionFoldersStringReplacerFactory 'MFR.Replacers.Factories.GetRenameSolutionFoldersStringReplacerFactory')
@@ -13,7 +11,6 @@
   - [SoleInstance()](#M-MFR-Replacers-Factories-GetRenameSubFoldersStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetRenameSubFoldersStringReplacerFactory.SoleInstance')
 - [GetReplaceTextInFilesStringReplacerFactory](#T-MFR-Replacers-Factories-GetReplaceTextInFilesStringReplacerFactory 'MFR.Replacers.Factories.GetReplaceTextInFilesStringReplacerFactory')
   - [SoleInstance()](#M-MFR-Replacers-Factories-GetReplaceTextInFilesStringReplacerFactory-SoleInstance 'MFR.Replacers.Factories.GetReplaceTextInFilesStringReplacerFactory.SoleInstance')
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [GetStringReplacer](#T-MFR-Replacers-Factories-GetStringReplacer 'MFR.Replacers.Factories.GetStringReplacer')
   - [For(type)](#M-MFR-Replacers-Factories-GetStringReplacer-For-MFR-Operations-Constants-OperationType- 'MFR.Replacers.Factories.GetStringReplacer.For(MFR.Operations.Constants.OperationType)')
 - [RenameFilesInFolderStringReplacerFactory](#T-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory 'MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory')
@@ -43,8 +40,6 @@
   - [Culture](#P-MFR-Replacers-Factories-Properties-Resources-Culture 'MFR.Replacers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Replacers-Factories-Properties-Resources-ResourceManager 'MFR.Replacers.Factories.Properties.Resources.ResourceManager')
 
-<<<<<<< HEAD
-=======
 <a name='T-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory'></a>
 ## GetRenameFilesInFolderStringReplacerFactory `type`
 
@@ -191,7 +186,6 @@ pattern specified by the user.
 
 This method has no parameters.
 
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Replacers-Factories-GetStringReplacer'></a>
 ## GetStringReplacer `type`
 
@@ -261,9 +255,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[RenameFilesInFolderStringReplacerFactory](#T-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory 'MFR.Replacers.Factories.RenameFilesInFolderStringReplacerFactory')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates instances of objects that are responsible for replacing
+the text in the filenames of files that exist in a specific directory tree on
+the disk.
 
 <a name='P-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory-OperationType'></a>
 ### OperationType `property`
@@ -414,14 +410,20 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of [RenameSubFoldersStringReplacerFactory](#T-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory 'MFR.Replacers.Factories.RenameSubFoldersStringReplacerFactory') .
+Gets a reference to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for renaming file folders
+within a specific directory tree according to a text-replacement pattern that
+was specified by the user.
 
 <a name='P-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory-OperationType'></a>
 ### OperationType `property`
 
 ##### Summary
 
-Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values that
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
 corresponds to the type of operation being performed.
 
 <a name='M-MFR-Replacers-Factories-RenameSubFoldersStringReplacerFactory-#cctor'></a>
@@ -440,19 +442,27 @@ This method has no parameters.
 
 ##### Summary
 
-Creates a new instance of an object that implements the [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer') interface and
-returns a reference to it for the [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') value that
+Creates a new instance of an object that implements the
+[IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
+interface and
+returns a reference to it for the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+value that
 is specified by the `matchingConfig` parameter.
 
 ##### Returns
 
-Reference to an instance of an object that implements the [IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer') interface.
+Reference to an instance of an object that implements the
+[IStringReplacer](#T-MFR-IStringReplacer 'MFR.IStringReplacer')
+interface.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| matchingConfig | [MFR.Settings.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Settings-Configuration-Constants-TextMatchingConfiguration 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') values that
+| matchingConfig | [MFR.Settings.Configuration.Constants.TextMatchingConfiguration](#T-MFR-Settings-Configuration-Constants-TextMatchingConfiguration 'MFR.Settings.Configuration.Constants.TextMatchingConfiguration') | (Required.) One of the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+values that
 specifies which type of matching is being done. |
 
 ##### Exceptions
@@ -460,9 +470,13 @@ specifies which type of matching is being done. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ComponentModel.InvalidEnumArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.InvalidEnumArgumentException 'System.ComponentModel.InvalidEnumArgumentException') | Thrown if the value passed in the `matchingConfig`
-is not one of the [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') values. |
+is not one of the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+values. |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if a string replacer object is not defined for the Rename
-Files in Folder operation type that supports the [TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration') value
+Files in Folder operation type that supports the
+[TextMatchingConfiguration](#T-MFR-TextMatchingConfiguration 'MFR.TextMatchingConfiguration')
+value
 passed in the `matchingConfig` parameter. |
 
 <a name='T-MFR-Replacers-Factories-ReplaceTextInFilesStringReplacerFactory'></a>
@@ -494,9 +508,11 @@ This constructor has no parameters.
 
 ##### Summary
 
-Gets a reference to the one and only instance of
-[ReplaceTextInFilesStringReplacerFactory](#T-MFR-Replacers-Factories-ReplaceTextInFilesStringReplacerFactory 'MFR.Replacers.Factories.ReplaceTextInFilesStringReplacerFactory')
-.
+Gets a reference to the one and only instance of the object that implements the
+[IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
+interface that creates objects which are responsible for replacing text in the
+contents of files within a specific directory tree based on a text-replacement
+pattern specified by the user.
 
 <a name='P-MFR-Replacers-Factories-ReplaceTextInFilesStringReplacerFactory-OperationType'></a>
 ### OperationType `property`

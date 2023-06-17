@@ -6,7 +6,9 @@
 - [MakeNewProfile](#T-MFR-Settings-Profiles-Factories-MakeNewProfile 'MFR.Settings.Profiles.Factories.MakeNewProfile')
   - [FromScratch()](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-FromScratch 'MFR.Settings.Profiles.Factories.MakeNewProfile.FromScratch')
   - [HavingName(profile,name)](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-HavingName-MFR-Settings-Profiles-Interfaces-IProfile,System-String- 'MFR.Settings.Profiles.Factories.MakeNewProfile.HavingName(MFR.Settings.Profiles.Interfaces.IProfile,System.String)')
-  - [ToProfile(projectFileRenamerConfiguration,name)](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Profiles.Factories.MakeNewProfile.ToProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
+  - [ToProfile(configuration,name)](#M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Profiles.Factories.MakeNewProfile.ToProfile(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
+- [MakeNewTemporaryProfile](#T-MFR-Settings-Profiles-Factories-MakeNewTemporaryProfile 'MFR.Settings.Profiles.Factories.MakeNewTemporaryProfile')
+  - [FromScratch()](#M-MFR-Settings-Profiles-Factories-MakeNewTemporaryProfile-FromScratch 'MFR.Settings.Profiles.Factories.MakeNewTemporaryProfile.FromScratch')
 - [Resources](#T-MFR-Settings-Profiles-Factories-Properties-Resources 'MFR.Settings.Profiles.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Profiles-Factories-Properties-Resources-Culture 'MFR.Settings.Profiles.Factories.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-Settings-Profiles-Factories-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.Settings.Profiles.Factories.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
@@ -93,11 +95,11 @@ method also generates a new GUID to use to identify the profile by.  This is
 done because only one profile can be saved having the same name.
 
 <a name='M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String-'></a>
-### ToProfile(projectFileRenamerConfiguration,name) `method`
+### ToProfile(configuration,name) `method`
 
 ##### Summary
 
-Extension method that converts the specified `projectFileRenamerConfiguration`
+Extension method that converts the specified `configuration`
 object to a profile object.
 
 
@@ -115,7 +117,7 @@ Reference to an instance of an object that implements the
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object
 that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |
@@ -127,7 +129,7 @@ new profile. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `projectFileRenamerConfiguration`, is passed a
+parameter, `configuration`, is passed a
 `null` value. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
 `name`, is passed a blank or `null` string
@@ -141,6 +143,58 @@ exists.
 
 
 Doing so is the job of the caller.
+
+<a name='T-MFR-Settings-Profiles-Factories-MakeNewTemporaryProfile'></a>
+## MakeNewTemporaryProfile `type`
+
+##### Namespace
+
+MFR.Settings.Profiles.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface that are
+"temporary profiles."
+
+##### Remarks
+
+Temporary profiles are those that have a prefix of `tmp_` in their names,
+and a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') for the rest of the name.
+
+
+
+Temporary profiles are meant to be used only for the lifetime of the
+application.
+
+<a name='M-MFR-Settings-Profiles-Factories-MakeNewTemporaryProfile-FromScratch'></a>
+### FromScratch() `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface that is a
+"temporary profile."
+
+##### Returns
+
+New instance of an object that implements the
+[IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile') interface that is a
+"temporary profile."
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+Temporary profiles are those that have a prefix of `tmp_` in their names,
+and a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') for the rest of the name.
+
+
+
+Temporary profiles are meant to be used only for the lifetime of the
+application.
 
 <a name='T-MFR-Settings-Profiles-Factories-Properties-Resources'></a>
 ## Resources `type`

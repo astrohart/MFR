@@ -12,6 +12,7 @@
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameSolutionFolders(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
   - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.Interfaces.IFileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RequestAbort()](#M-MFR-Renamers-Files-Interfaces-IFileRenamer-RequestAbort 'MFR.Renamers.Files.Interfaces.IFileRenamer.RequestAbort')
@@ -212,6 +213,60 @@ filtering is done. |
 does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
+<a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
+### RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
+
+##### Summary
+
+Iterates through the directory tree that is topped by the folder having the
+specified `rootFolderPath`, and, for all Visual Studio
+Solution (`*.sln`) file(s) found in the directory tree, renames them
+according to the text-replacement pattern specified by the arguments of the
+`findWhat` and `replaceWith` parameters.
+
+##### Returns
+
+`true` if the operation succeeded;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rootFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a folder in which the operation is to start. |
+| findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) Text to be found in each file contained in the directory tree. |
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text that the text
+specified by the argument of the `findWhat` parameter is to
+be replaced with. |
+| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func')
+that points to a delegate, accepting the current file or folder's
+path as an argument, that returns `true` if the file
+should be included in the operation or `false` otherwise.
+
+
+
+This parameter is `null` by default. This method
+should return `true` to specify that a given
+file-system entry is to be included in the output collection --
+barring other inclusion/exclusion criteria.
+
+
+
+In the event that this parameter is `null`, no path
+filtering is done. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath` or the
+`findWhat` parameters are blank. |
+| [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
+`rootFolderPath`
+does not exist. |
+| [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
+
 <a name='M-MFR-Renamers-Files-Interfaces-IFileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
 
@@ -272,12 +327,8 @@ does not exist. |
 
 Iterates recursively through a directory tree, starting at the
 folder with pathname `rootFolderPath` and replacing
-every occurrence of the text specified by the
-`findWhat`
-parameter with the text specified by the
-`replaceWith`
-parameter. A case-sensitive, not-in-exact-word
-search is performed.
+every occurrence of the text specified by the `findWhat` and
+`replaceWith` parameters' arguments.
 
 ##### Returns
 

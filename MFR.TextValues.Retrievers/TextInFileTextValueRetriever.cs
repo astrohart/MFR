@@ -70,7 +70,6 @@ namespace MFR.TextValues.Retrievers
         public override string GetTextValue(IFileSystemEntry entry)
         {
             var result = string.Empty;
-            var fileTicket = Guid.NewGuid();
 
             try
             {
@@ -78,6 +77,8 @@ namespace MFR.TextValues.Retrievers
                 if (!FileSystemEntryValidatorSays.IsValid(entry)) return result;
                 if (!(entry.UserState is Guid)) return result;
                 if (Guid.Empty.Equals(entry.UserState)) return result;
+
+                Guid fileTicket = entry.UserState;
 
                 // Here, the entry.UserState property is expected to be a globally-unique
                 // identifier, or GUID, value that serves as a ticket to refer to a currently-

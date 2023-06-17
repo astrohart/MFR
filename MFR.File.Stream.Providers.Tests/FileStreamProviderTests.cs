@@ -24,6 +24,22 @@ namespace MFR.File.Stream.Providers.Tests
     public class FileStreamProviderTests
     {
         /// <summary>
+        /// Cleans up/releases system resources after each unit test has completed.
+        /// </summary>
+        [TearDown]
+        public void Cleanup()
+            => FileStreamProvider.DisposeAll();
+
+        /// <summary>
+        /// Initializes the state of this fixture for every unit test session.
+        /// </summary>
+        [SetUp]
+        public void Initialize()
+        {
+            // TODO: Add code to initialize the test fixture here.
+        }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.File.Stream.Providers.Tests.FileStreamProviderTests" /> and
         /// returns a reference to it.
@@ -36,11 +52,6 @@ namespace MFR.File.Stream.Providers.Tests
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
-
-            FileStreamProvider.FileStreamDisposed += OnFileStreamDisposed;
-            FileStreamProvider.FileStreamOpened += OnFileStreamOpened;
-            FileStreamProvider.FileStreamOpening += OnFileStreamOpening;
-            FileStreamProvider.FileStreamOpenFailed += OnFileStreamOpenFailed;
         }
 
         /// <summary>
@@ -92,6 +103,18 @@ namespace MFR.File.Stream.Providers.Tests
             Assert.That(tickets.Any());
 
             Thread.Sleep(500);
+
+            var currentFileContent = "";
+            foreach (var ticket in tickets)
+            {
+                var stream = FileStreamProvider.RedeemTicket(ticket);
+                Assert.IsNotNull(stream);
+
+                Assert.DoesNotThrow(
+                    () => currentFileContent = stream.ReadToEnd()
+                );
+                Assert.IsNotEmpty(currentFileContent);
+            }
 
             FileStreamProvider.BatchDispose(tickets);
 

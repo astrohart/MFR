@@ -47,7 +47,7 @@ Gets a value that indicates whether a Profile is currently loaded.
 ##### Summary
 
 Creates a 'profile' (really a way of saving a group of
-projectFileRenamerConfiguration
+configuration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -122,7 +122,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current projectFileRenamerConfiguration data to the file on the
+Exports the current configuration data to the file on the
 user's hard drive having the specified `pathname`.
 
 ##### Parameters
@@ -175,7 +175,7 @@ that exists on the user's hard drive and has the `.json` extension.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on projectFileRenamerConfiguration settings.
+based on configuration settings.
 
 ##### Parameters
 
@@ -219,7 +219,7 @@ string for a value. |
 ##### Summary
 
 Saves data from the screen control and then saves the
-projectFileRenamerConfiguration to the persistence location.
+configuration to the persistence location.
 
 ##### Parameters
 

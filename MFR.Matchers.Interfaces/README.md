@@ -24,7 +24,7 @@ performs matching on strings.
 ##### Remarks
 
 The type of matching performed varies by file- and folder-renaming
-operation type, as well as the specific projectFileRenamerConfiguration of matching (Match
+operation type, as well as the specific configuration of matching (Match
 Case, Match Exact Word etc.).
 
 <a name='M-MFR-Matchers-Interfaces-IStringMatcher-IsMatch-System-String,System-String,System-String-'></a>

@@ -4,7 +4,7 @@
 ## Contents
 
 - [FileNameReplacementMatchExpressionFactoryTests](#T-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests')
-  - [GetMatchExpressionFactoryConfiguredAccordingTo(projectFileRenamerConfiguration)](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.GetMatchExpressionFactoryConfiguredAccordingTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [GetMatchExpressionFactoryConfiguredAccordingTo(configuration)](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.GetMatchExpressionFactoryConfiguredAccordingTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [Initialize()](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Initialize 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.Initialize')
   - [Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse()](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse')
   - [Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue()](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue')
@@ -26,9 +26,9 @@
   - [Test_For_ReturnsFileNameReplacementMatchExpressionFactory_For_RenameFilesInFolder_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ReturnsFileNameReplacementMatchExpressionFactory_For_RenameFilesInFolder_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ReturnsFileNameReplacementMatchExpressionFactory_For_RenameFilesInFolder_OperationType')
   - [Test_For_ReturnsFolderNameReplacementMatchExpressionFactory_For_RenameSubFolders_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ReturnsFolderNameReplacementMatchExpressionFactory_For_RenameSubFolders_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ReturnsFolderNameReplacementMatchExpressionFactory_For_RenameSubFolders_OperationType')
   - [Test_For_ReturnsReplaceTextInFileMatchExpressionFactory_For_ReplaceTextInFiles_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ReturnsReplaceTextInFileMatchExpressionFactory_For_ReplaceTextInFiles_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ReturnsReplaceTextInFileMatchExpressionFactory_For_ReplaceTextInFiles_OperationType')
+  - [Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType')
-  - [Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType')
   - [Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType()](#M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType 'MFR.Expressions.Matches.Factories.Tests.GetMatchExpressionFactoryTests.Test_For_ThrowsArgumentOutOfRangeException_For_OpenActiveSolution_OperationType')
 - [Resources](#T-MFR-Expressions-Matches-Factories-Tests-Properties-Resources 'MFR.Expressions.Matches.Factories.Tests.Properties.Resources')
   - [Culture](#P-MFR-Expressions-Matches-Factories-Tests-Properties-Resources-Culture 'MFR.Expressions.Matches.Factories.Tests.Properties.Resources.Culture')
@@ -48,14 +48,14 @@ Provides unit tests for the methods, properties, and events of the
 class.
 
 <a name='M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### GetMatchExpressionFactoryConfiguredAccordingTo(projectFileRenamerConfiguration) `method`
+### GetMatchExpressionFactoryConfiguredAccordingTo(configuration) `method`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
 [IMatchExpressionFactory](#T-MFR-IMatchExpressionFactory 'MFR.IMatchExpressionFactory')
 interface and that is configured according to the
-`projectFileRenamerConfiguration`
+`configuration`
 instance specified.
 
 ##### Returns
@@ -63,13 +63,13 @@ instance specified.
 Reference to an instance of an object that implements the
 [IMatchExpressionFactory](#T-MFR-IMatchExpressionFactory 'MFR.IMatchExpressionFactory')
 interface
-that has the specified `projectFileRenamerConfiguration` attached.
+that has the specified `configuration` attached.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface. |
 
 ##### Remarks
@@ -312,6 +312,17 @@ TODO: Add unit test documentation here
 
 This method has no parameters.
 
+<a name='M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType'></a>
+### Test_For_ThrowsArgumentOutOfRangeException_For_CalculateListOfFilesToBeRenamed_OperationType() `method`
+
+##### Summary
+
+TODO: Add unit test documentation here
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType'></a>
 ### Test_For_ThrowsArgumentOutOfRangeException_For_CloseActiveSolution_OperationType() `method`
 
@@ -325,17 +336,6 @@ This method has no parameters.
 
 <a name='M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType'></a>
 ### Test_For_ThrowsArgumentOutOfRangeException_For_FindVisualStudio_OperationType() `method`
-
-##### Summary
-
-TODO: Add unit test documentation here
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-Expressions-Matches-Factories-Tests-GetMatchExpressionFactoryTests-Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType'></a>
-### Test_For_ThrowsArgumentOutOfRangeException_For_GettingListOfFilesToBeRenamed_OperationType() `method`
 
 ##### Summary
 

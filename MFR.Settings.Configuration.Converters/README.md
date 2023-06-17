@@ -3,10 +3,6 @@
 
 ## Contents
 
-- [ConvertConfiguration](#T-MFR-Settings-Configuration-Converters-ConvertConfiguration 'MFR.Settings.Configuration.Converters.ConvertConfiguration')
-  - [Settings](#F-MFR-Settings-Configuration-Converters-ConvertConfiguration-Settings 'MFR.Settings.Configuration.Converters.ConvertConfiguration.Settings')
-  - [FromJson(json)](#M-MFR-Settings-Configuration-Converters-ConvertConfiguration-FromJson-System-String- 'MFR.Settings.Configuration.Converters.ConvertConfiguration.FromJson(System.String)')
-  - [ToJson(projectFileRenamerConfiguration)](#M-MFR-Settings-Configuration-Converters-ConvertConfiguration-ToJson-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Converters.ConvertConfiguration.ToJson(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [ConvertProfileCollection](#T-MFR-Settings-Configuration-Converters-ConvertProfileCollection 'MFR.Settings.Configuration.Converters.ConvertProfileCollection')
   - [Settings](#F-MFR-Settings-Configuration-Converters-ConvertProfileCollection-Settings 'MFR.Settings.Configuration.Converters.ConvertProfileCollection.Settings')
   - [FromJson(json)](#M-MFR-Settings-Configuration-Converters-ConvertProfileCollection-FromJson-System-String- 'MFR.Settings.Configuration.Converters.ConvertProfileCollection.FromJson(System.String)')
@@ -81,8 +77,6 @@ returned.
 
 <a name='M-MFR-Settings-Configuration-Converters-ConvertProfileCollection-ToJson-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
 ### ToJson(configuration) `method`
-<a name='M-MFR-Settings-Configuration-Converters-ConvertConfiguration-ToJson-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### ToJson(projectFileRenamerConfiguration) `method`
 
 ##### Summary
 
@@ -94,7 +88,7 @@ JSON-formatted string and returns the resultant string.
 ##### Returns
 
 String containing the JSON equivalent of the
-`projectFileRenamerConfiguration`
+`configuration`
 object fed in.
 
 ##### Parameters
@@ -104,15 +98,13 @@ object fed in.
 | configuration | [MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') | (Required.) Reference to an instance of an object that implements
 the [IProfileCollection](#T-MFR-Settings-Configuration-Interfaces-IProfileCollection 'MFR.Settings.Configuration.Interfaces.IProfileCollection')
 interface
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
 that is to be converted into JSON-formatted text. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `projectFileRenamerConfiguration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
 is passed a `null` value. |
 
 <a name='T-MFR-Settings-Configuration-Converters-ConvertProjectFileRenamerConfiguration'></a>

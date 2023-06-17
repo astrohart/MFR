@@ -34,6 +34,12 @@ ProjectFileRenamerConfiguration Provider object.
 
 Gets or sets the pathname of the configuration file.
 
+##### Remarks
+
+This property raises the
+[](#E-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ConfigFilePathChanged 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigFilePathChanged')
+event when its value is updated.
+
 <a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-CurrentConfiguration'></a>
 ### CurrentConfiguration `property`
 
@@ -61,8 +67,8 @@ This method has no parameters.
 
 ##### Summary
 
-Exports projectFileRenamerConfiguration data to a file other than the master
-projectFileRenamerConfiguration file.
+Exports configuration data to a file other than the master
+configuration file.
 
 ##### Parameters
 
@@ -80,7 +86,7 @@ is passed a blank or `null` string for a value. |
 ##### Remarks
 
 Before performing the export, the method first saves the latest
-settings out to the master projectFileRenamerConfiguration file.
+settings out to the master configuration file.
 
 
 
@@ -101,7 +107,7 @@ handle this.
 
 ##### Summary
 
-Imports projectFileRenamerConfiguration data from a file whose path is
+Imports configuration data from a file whose path is
 `sourceFilePath`.
 
 ##### Parameters
@@ -124,11 +130,11 @@ parameter, cannot be located on the disk. |
 ##### Remarks
 
 First, this method loads the data from the file specified into the
-application's projectFileRenamerConfiguration object.
+application's configuration object.
 
 
 
-Then, the method saves the new data out to the master projectFileRenamerConfiguration file.
+Then, the method saves the new data out to the master configuration file.
 
 <a name='M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Load-System-String-'></a>
 ### Load(pathname) `method`
@@ -181,7 +187,7 @@ property is set to `null` if an error occurs during loading.
 
 ##### Summary
 
-Saves projectFileRenamerConfiguration data to a file on the disk having path
+Saves configuration data to a file on the disk having path
 `pathname`.
 
 ##### Parameters

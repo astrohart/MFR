@@ -5,7 +5,7 @@
 
 - [ConfigurationSerializer](#T-MFR-Settings-Configuration-Serializers-ConfigurationSerializer 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer')
   - [Load(pathname)](#M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Load-System-String- 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer.Load(System.String)')
-  - [Save(pathname,projectFileRenamerConfiguration)](#M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [Save(pathname,configuration)](#M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Serializers.ConfigurationSerializer.Save(System.String,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [Resources](#T-MFR-Settings-Configuration-Serializers-Properties-Resources 'MFR.Settings.Configuration.Serializers.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Serializers-Properties-Resources-Culture 'MFR.Settings.Configuration.Serializers.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-Settings-Configuration-Serializers-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.Settings.Configuration.Serializers.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
@@ -48,11 +48,11 @@ if a problem occurred.
 JSON-formatted data file on the disk that contains the configuration data. |
 
 <a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### Save(pathname,projectFileRenamerConfiguration) `method`
+### Save(pathname,configuration) `method`
 
 ##### Summary
 
-Saves projectFileRenamerConfiguration data to a file.
+Saves configuration data to a file.
 
 ##### Parameters
 
@@ -60,7 +60,7 @@ Saves projectFileRenamerConfiguration data to a file.
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of the file that the data
 is to be saved to. |
-| projectFileRenamerConfiguration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
 the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |

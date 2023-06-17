@@ -117,7 +117,7 @@ MFR.Settings.Profiles.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master projectFileRenamerConfiguration file.
+the master configuration file.
 
 <a name='M-MFR-Settings-Profiles-Actions-LoadProfileCollectionFilePathFromRegistryAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -213,7 +213,7 @@ MFR.Settings.Profiles.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master projectFileRenamerConfiguration file.
+the master configuration file.
 
 <a name='M-MFR-Settings-Profiles-Actions-LoadProfileCollectionFromFileAction-#ctor'></a>
 ### #ctor() `constructor`

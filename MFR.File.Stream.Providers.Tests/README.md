@@ -6,6 +6,8 @@
 - [FileStreamProviderTests](#T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests')
   - [#ctor()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-#ctor 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.#ctor')
   - [FileStreamProvider](#P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-FileStreamProvider 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.FileStreamProvider')
+  - [Cleanup()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Cleanup 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Cleanup')
+  - [Initialize()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Initialize 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Initialize')
   - [OnFileStreamDisposed(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamDisposed-System-Object,MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamDisposed(System.Object,MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
   - [OnFileStreamOpenFailed(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpenFailed-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpenFailed(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs)')
   - [OnFileStreamOpened(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpened-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpened(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
@@ -55,6 +57,28 @@ This constructor has no parameters.
 Gets a reference to an instance of an object that implements the
 [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
 interface.
+
+<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Cleanup'></a>
+### Cleanup() `method`
+
+##### Summary
+
+Cleans up/releases system resources after each unit test has completed.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Initialize'></a>
+### Initialize() `method`
+
+##### Summary
+
+Initializes the state of this fixture for every unit test session.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamDisposed-System-Object,MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-'></a>
 ### OnFileStreamDisposed(sender,e) `method`

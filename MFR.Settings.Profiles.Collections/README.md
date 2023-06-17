@@ -7,6 +7,7 @@
   - [#ctor()](#M-MFR-Settings-Profiles-Collections-ProfileCollection-#ctor 'MFR.Settings.Profiles.Collections.ProfileCollection.#ctor')
   - [#ctor()](#M-MFR-Settings-Profiles-Collections-ProfileCollection-#ctor-System-Collections-Generic-IEnumerable{MFR-Settings-Profiles-Interfaces-IProfile}- 'MFR.Settings.Profiles.Collections.ProfileCollection.#ctor(System.Collections.Generic.IEnumerable{MFR.Settings.Profiles.Interfaces.IProfile})')
   - [ActiveProfile](#P-MFR-Settings-Profiles-Collections-ProfileCollection-ActiveProfile 'MFR.Settings.Profiles.Collections.ProfileCollection.ActiveProfile')
+  - [Empty](#P-MFR-Settings-Profiles-Collections-ProfileCollection-Empty 'MFR.Settings.Profiles.Collections.ProfileCollection.Empty')
   - [HasProfileNamed(name)](#M-MFR-Settings-Profiles-Collections-ProfileCollection-HasProfileNamed-System-String- 'MFR.Settings.Profiles.Collections.ProfileCollection.HasProfileNamed(System.String)')
   - [RemoveAll(predicate)](#M-MFR-Settings-Profiles-Collections-ProfileCollection-RemoveAll-System-Predicate{MFR-Settings-Profiles-Interfaces-IProfile}- 'MFR.Settings.Profiles.Collections.ProfileCollection.RemoveAll(System.Predicate{MFR.Settings.Profiles.Interfaces.IProfile})')
 - [Resources](#T-MFR-Settings-Profiles-Collections-Properties-Resources 'MFR.Settings.Profiles.Collections.Properties.Resources')
@@ -44,6 +45,11 @@ returns a reference to it.
 
 This constructor has no parameters.
 
+##### Remarks
+
+The object instance reference returned by this constructor represents the empty
+collection.
+
 <a name='M-MFR-Settings-Profiles-Collections-ProfileCollection-#ctor-System-Collections-Generic-IEnumerable{MFR-Settings-Profiles-Interfaces-IProfile}-'></a>
 ### #ctor() `constructor`
 
@@ -64,6 +70,13 @@ This constructor has no parameters.
 
 A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that delineates which profile is
 currently "active" i.e., is in use.
+
+<a name='P-MFR-Settings-Profiles-Collections-ProfileCollection-Empty'></a>
+### Empty `property`
+
+##### Summary
+
+Represents the empty `ProfileCollection`.
 
 <a name='M-MFR-Settings-Profiles-Collections-ProfileCollection-HasProfileNamed-System-String-'></a>
 ### HasProfileNamed(name) `method`

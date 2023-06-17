@@ -5,8 +5,6 @@
 
 - [GetTextReplacementEngine](#T-MFR-Engines-Replacement-Factories-GetTextReplacementEngine 'MFR.Engines.Replacement.Factories.GetTextReplacementEngine')
   - [For(type)](#M-MFR-Engines-Replacement-Factories-GetTextReplacementEngine-For-MFR-Operations-Constants-OperationType- 'MFR.Engines.Replacement.Factories.GetTextReplacementEngine.For(MFR.Operations.Constants.OperationType)')
-<<<<<<< HEAD
-=======
 - [MakeNewFileNameReplacementEngine](#T-MFR-Engines-Replacement-Factories-MakeNewFileNameReplacementEngine 'MFR.Engines.Replacement.Factories.MakeNewFileNameReplacementEngine')
   - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewFileNameReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewFileNameReplacementEngine.FromScratch')
 - [MakeNewFolderNameReplacementEngine](#T-MFR-Engines-Replacement-Factories-MakeNewFolderNameReplacementEngine 'MFR.Engines.Replacement.Factories.MakeNewFolderNameReplacementEngine')
@@ -15,7 +13,6 @@
   - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewSolutionFolderNameReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewSolutionFolderNameReplacementEngine.FromScratch')
 - [MakeNewTextInFileReplacementEngine](#T-MFR-Engines-Replacement-Factories-MakeNewTextInFileReplacementEngine 'MFR.Engines.Replacement.Factories.MakeNewTextInFileReplacementEngine')
   - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewTextInFileReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewTextInFileReplacementEngine.FromScratch')
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 - [Resources](#T-MFR-Engines-Replacement-Factories-Properties-Resources 'MFR.Engines.Replacement.Factories.Properties.Resources')
   - [Culture](#P-MFR-Engines-Replacement-Factories-Properties-Resources-Culture 'MFR.Engines.Replacement.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Replacement-Factories-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Factories.Properties.Resources.ResourceManager')
@@ -70,8 +67,6 @@ specifies which operation is being performed. |
 | [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown if the `type` parameter specifies an
 operation modality that is not supported. |
 
-<<<<<<< HEAD
-=======
 <a name='T-MFR-Engines-Replacement-Factories-MakeNewFileNameReplacementEngine'></a>
 ## MakeNewFileNameReplacementEngine `type`
 
@@ -212,7 +207,6 @@ user-directed search.
 
 This method has no parameters.
 
->>>>>>> 5c56bab7c99bcfd0fdf8cba1e1d81c04714e5a3b
 <a name='T-MFR-Engines-Replacement-Factories-Properties-Resources'></a>
 ## Resources `type`
 
