@@ -43,6 +43,11 @@ namespace MFR.GUI.Models.Actions
                                                 OperationType.ReplaceTextInFiles
                                             )
                                             .AndSetEnabledFlag(),
+                    MakeNewOperationTypeInfo.FromScratch()
+                                            .HavingOperationType(
+                                                OperationType.RenameSolutionFolders
+                                            )
+                                            .AndSetEnabledFlag(),
                 };
             }
             catch (Exception ex)

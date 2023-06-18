@@ -40,8 +40,6 @@ using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Directories.Monitors.Actions;
-using xyLOGIX.Directories.Monitors.Events;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
@@ -240,10 +238,14 @@ namespace MFR.Renamers.Files
         } = new List<IVisualStudioSolution>();
 
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> containing the full pathname of the
-        /// folder where all
-        /// operations start.
+        /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname
+        /// of the folder where all operations start.
         /// </summary>
+        /// <remarks>
+        /// This property raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged" /> event
+        /// when its value is updated.
+        /// </remarks>
         public string RootDirectoryPath
         {
             get => _rootDirectoryPath;
@@ -476,8 +478,15 @@ namespace MFR.Renamers.Files
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
+                var renameSolutionFoldersResult = true;
+                if (CurrentConfiguration.RenameSolutionFolders)
+                    renameSolutionFoldersResult = RenameSolutionFolders(
+                        RootDirectoryPath, findWhat, replaceWith
+                    );
+
                 result = renameFilesInFolderResult && renameSubFoldersResult &&
-                         replaceTextInFilesResult;
+                         replaceTextInFilesResult &&
+                         renameSolutionFoldersResult;
             }
             catch (OperationAbortedException ex)
             {
@@ -1552,9 +1561,21 @@ namespace MFR.Renamers.Files
         {
             try
             {
+                /*
+                 * Now that the folder that the Solution(s) itself are contained
+                 * in has been renamed, update the pathname of any of the Solution(s)
+                 * in our list of loaded Solution(s) to have the new pathname.
+                 *
+                 * If the RootDirectoryPath is also formerly set to the oldFolderPath,
+                 * update it as well.
+                 */
+
                 if (string.IsNullOrWhiteSpace(oldFolderPath)) return;
                 if (!Does.FolderExist(newFolderPath)) return;
                 if (!LoadedSolutions.Any()) return;
+
+                if (oldFolderPath.Equals(RootDirectoryPath))
+                    RootDirectoryPath = newFolderPath;
 
                 foreach (var currentSolution in LoadedSolutions)
                 {
@@ -1827,6 +1848,7 @@ namespace MFR.Renamers.Files
                 if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
                     return;
 
+                /*
                 rootDirectoryPathMonitorTicket = Monitor
                                                  .Folder(RootDirectoryPath)
                                                  .AndCallThisMethodWhenItsRenamed(
@@ -1834,15 +1856,15 @@ namespace MFR.Renamers.Files
                                                  );
                 if (rootDirectoryPathMonitorTicket.IsZero())
                     return; // failed to create directory monitor
+                */
 
                 OnStarted();
 
                 if (!SearchForLoadedSolutions())
-                {
-                    Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
-                    rootDirectoryPathMonitorTicket = Guid.Empty;
+
+                    // Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
+                    // rootDirectoryPathMonitorTicket = Guid.Empty;
                     return;
-                }
 
                 // If Visual Studio is open and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
@@ -1859,8 +1881,9 @@ namespace MFR.Renamers.Files
                     ReopenActiveSolutions();
 
                     OnFinished();
-                    Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
-                    rootDirectoryPathMonitorTicket = Guid.Empty;
+
+                    //Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
+                    //rootDirectoryPathMonitorTicket = Guid.Empty;
                     return;
                 }
 
@@ -1879,8 +1902,8 @@ namespace MFR.Renamers.Files
             {
                 OnFinished();
 
-                Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
-                rootDirectoryPathMonitorTicket = Guid.Empty;
+                //Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
+                //rootDirectoryPathMonitorTicket = Guid.Empty;
             }
         }
 
@@ -2228,65 +2251,6 @@ namespace MFR.Renamers.Files
             ProcessingOperation?.Invoke(this, e);
             SendMessage<ProcessingOperationEventArgs>.Having.Args(this, e)
                 .ForMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION);
-        }
-
-        private void OnRootDirectoryRenamed(
-            object sender,
-            DirectoryBeingMonitoredChangedEventArgs e
-        )
-        {
-            if (!IsStarted) return;
-
-            if (LoadedSolutions.Any())
-                foreach (var solution in LoadedSolutions)
-                {
-                    if (solution == null) continue;
-                    if (string.IsNullOrWhiteSpace(solution.FullName)) continue;
-
-                    var solutionFolder =
-                        Path.GetDirectoryName(solution.FullName);
-                    if (string.IsNullOrWhiteSpace(solutionFolder)) continue;
-
-                    var solutionFileName = Path.GetFileName(solution.FullName);
-                    if (string.IsNullOrWhiteSpace(solutionFileName)) continue;
-
-                    if (!solutionFolder.Contains(RootDirectoryPath) &&
-                        !RootDirectoryPath.Contains(solutionFolder)) continue;
-
-                    ProgramFlowHelper.StartDebugger();
-
-                    /*
-                     * If we are here, then one or more of the Visual Studio Solution (*.sln)
-                     * files that had been already loaded in Visual Studio when we began the
-                     * operations is now potentially in a different location.  Let's determine
-                     * whether that is so, and if so, update its path to correspond to where
-                     * on the disk it is sitting now.
-                     */
-
-                    var newSolutionPath = Path.Combine(
-                        e.NewPath, solutionFileName
-                    );
-                    if (!Alphaleonis.Win32.Filesystem.File.Exists(
-                            newSolutionPath
-                        ))
-                        continue; // give up because we don't know where the hell this Solution went to
-
-                    solution.FullName =
-                        newSolutionPath; // update the path of the Solution to refer to where it is now
-                }
-
-            RootDirectoryPath =
-                e.NewPath; // update the Root Directory to the new path it's been renamed to
-
-            SendMessage<DirectoryBeingMonitoredChangedEventArgs>.Having.Args(
-                    this,
-                    new DirectoryBeingMonitoredChangedEventArgs(
-                        e.OldPath, e.NewPath
-                    )
-                )
-                .ForMessageId(
-                    FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED
-                );
         }
 
         /// <summary>
