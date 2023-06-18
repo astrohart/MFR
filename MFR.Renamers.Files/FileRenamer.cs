@@ -1549,6 +1549,46 @@ namespace MFR.Renamers.Files
                                                  );
         }
 
+        public void SearchForRenamedSolution(
+            string oldFolderPath,
+            string newFolderPath
+        )
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(oldFolderPath)) return;
+                if (!Does.FolderExist(newFolderPath)) return;
+                if (!LoadedSolutions.Any()) return;
+
+                foreach (var currentSolution in LoadedSolutions)
+                {
+                    var currentSolutionPath = currentSolution.Path;
+                    if (string.IsNullOrWhiteSpace(currentSolutionPath))
+                        continue;
+
+                    var currentSolutionFolder =
+                        Path.GetDirectoryName(currentSolutionPath);
+                    if (string.IsNullOrWhiteSpace(currentSolutionFolder))
+                        continue;
+
+                    if (!currentSolutionFolder.Equals(oldFolderPath)) continue;
+
+                    var newSolutionPath = currentSolutionFolder.Replace(
+                        oldFolderPath, newFolderPath
+                    );
+                    if (!Does.FileExist(newSolutionPath)) continue;
+
+                    currentSolution.Path = newSolutionPath;
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
         /// <summary>
         /// Raises the
         /// <see cref="E:MFR.Renamers.Files.FileRenamer.CurrentOperationChanged" />
@@ -1648,43 +1688,6 @@ namespace MFR.Renamers.Files
                                                    FileRenamerMessages
                                                        .FRM_SOLUTION_FOLDER_RENAMED
                                                );
-        }
-
-        public void SearchForRenamedSolution(string oldFolderPath, string newFolderPath)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(oldFolderPath)) return;
-                if (!Does.FolderExist(newFolderPath)) return;
-                if (!LoadedSolutions.Any()) return;
-
-                foreach (var currentSolution in LoadedSolutions)
-                {
-                    var currentSolutionPath = currentSolution.Path;
-                    if (string.IsNullOrWhiteSpace(currentSolutionPath))
-                        continue;
-
-                    var currentSolutionFolder =
-                        Path.GetDirectoryName(currentSolutionPath);
-                    if (string.IsNullOrWhiteSpace(currentSolutionFolder))
-                        continue;
-
-                    if (!currentSolutionFolder.Equals(oldFolderPath)) continue;
-
-                    var newSolutionPath = currentSolutionFolder.Replace(
-                        oldFolderPath, newFolderPath
-                    );
-                    if (!Does.FileExist(newSolutionPath)) continue;
-
-                    currentSolution.Path = newSolutionPath;
-                    break;
-                }
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         /// <summary>
@@ -2164,11 +2167,8 @@ namespace MFR.Renamers.Files
         /// </summary>
         private void OnFinished()
         {
-            lock (SyncRoot)
-            {
-                IsBusy = false;
-                IsStarted = false;
-            }
+            IsBusy = false;
+            IsStarted = false;
 
             /*
              * If the user has requested that we rename the Solution's
@@ -2644,10 +2644,9 @@ namespace MFR.Renamers.Files
                 var entryDirectionInfo = entry.ToDirectoryInfo();
                 if (entryDirectionInfo == null) return result;
 
-                if (entryDirectionInfo
-                        .RenameTo(destination) &&
-                    !Directory.Exists(source)
-                    && Directory.Exists(destination))
+                if (entryDirectionInfo.RenameTo(destination) &&
+                    !Directory.Exists(source) &&
+                    Directory.Exists(destination))
                 {
                     result = true; /* success */
                     OnSolutionFolderRenamed(
@@ -2853,8 +2852,6 @@ namespace MFR.Renamers.Files
                 while (!solution.IsLoaded && numTries < MAX_RETRIES)
                     try
                     {
-                        numTries++;
-
                         solution.Load();
                     }
                     catch (Exception ex)
@@ -2864,6 +2861,10 @@ namespace MFR.Renamers.Files
 
                         // otherwise, continue to try
                         continue;
+                    }
+                    finally
+                    {
+                        numTries++;
                     }
             }
             catch (Exception ex)

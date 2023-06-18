@@ -515,7 +515,6 @@ namespace MFR.Engines
         /// This method responds to such an event by showing the user a message
         /// box, logging the error, and then aborting the operation.
         /// </remarks>
-        [Log(AttributeExclude = true)]
         private void OnFileRenamerExceptionRaised(object sender,
             ExceptionRaisedEventArgs e)
         {
@@ -573,12 +572,10 @@ namespace MFR.Engines
         /// property to have
         /// the same value as the count of file system entries.
         /// </remarks>
-        [Log(AttributeExclude = true)]
         private void OnFileRenamerFilesToHaveTextReplacedCounted(object sender,
             FilesOrFoldersCountedEventArgs e)
             => HandleFilesCountedEvent(e.Count);
 
-        // ReSharper disable once MemberCanBeMadeStatic.Local
         private void OnFileRenamerFinished()
             => SendMessage.Having.Args(this, EventArgs.Empty)
                           .ForMessageId(

@@ -167,16 +167,7 @@ namespace MFR.FileSystem.Helpers
                 var sourceFolderPath = folderToBeRenamed.FullName;
                 if (!Does.FolderExist(sourceFolderPath)) return result;
 
-                var temporaryDestinationPath = Path.Combine(
-                    Path.GetTempPath(), Guid.NewGuid().ToUppercaseWithBraces()
-                );
-                if (string.IsNullOrWhiteSpace(temporaryDestinationPath))
-                    return result;
-
-                folderToBeRenamed.MoveTo(temporaryDestinationPath);
-                if (!Does.FolderExist(temporaryDestinationPath)) return result;
-
-                new DirectoryInfo(temporaryDestinationPath).MoveTo(
+                new DirectoryInfo(sourceFolderPath).MoveTo(
                     newSubFolderPath
                 );
                 if (!Does.FolderExist(newSubFolderPath)) return result;

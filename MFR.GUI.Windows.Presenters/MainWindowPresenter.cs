@@ -1068,7 +1068,6 @@ namespace MFR.GUI.Windows.Presenters
         /// dialog that may have been previously shown during the operation and
         /// re-enabling user input.
         /// </remarks>
-        [Log(AttributeExclude = true)]
         protected virtual void OnFinished()
         {
             Finished?.Invoke(this, EventArgs.Empty);
@@ -1151,7 +1150,7 @@ namespace MFR.GUI.Windows.Presenters
                                         )
                                         .AndHandler(
                                             new EventHandler(
-                                                OnOperationFinished
+                                                OnProcessingFinished
                                             )
                                         );
         }
@@ -1219,7 +1218,7 @@ namespace MFR.GUI.Windows.Presenters
         /// This method is called when the Operation Engine sends the
         /// <c>OE_PROCESSING_FINISHED</c> message.
         /// </summary>
-        private void OnOperationFinished(object sender, EventArgs e)
+        private void OnProcessingFinished(object sender, EventArgs e)
             => OnFinished();
 
         /// <summary>

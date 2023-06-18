@@ -44,7 +44,7 @@
   - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Operations.Events.DataOperationEventArgs)')
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
   - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Events.Common.ExceptionRaisedEventArgs)')
-  - [OnOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationFinished(System.Object,System.EventArgs)')
+  - [OnProcessingFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProcessingFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnProcessingFinished(System.Object,System.EventArgs)')
   - [OnRootDirectoryPathBeingChanged(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnRootDirectoryPathBeingChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnRootDirectoryPathBeingChanged(System.Object,xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
@@ -667,8 +667,8 @@ event.
 | e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs')
 that contains the event data. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs-'></a>
-### OnOperationFinished() `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProcessingFinished-System-Object,System-EventArgs-'></a>
+### OnProcessingFinished() `method`
 
 ##### Summary
 

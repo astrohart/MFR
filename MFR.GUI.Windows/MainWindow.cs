@@ -947,9 +947,20 @@ namespace MFR.GUI.Windows
             helpAbout.Text = $"&About {FullApplicationName}";
         }
 
-        [Log(AttributeExclude = true)]
         private void OnOperationError(object sender, ExceptionRaisedEventArgs e)
         {
+            this.InvokeIfRequired(
+                () =>
+                {
+                    UseWaitCursor = false;
+                    Enabled = true;
+
+                    Update();
+                    Refresh();
+                    Application.DoEvents();
+                }
+            );
+
             // dump all the exception info to the log
             DebugUtils.LogException(e.Exception);
 
@@ -1192,6 +1203,11 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
         {
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Running operation-finished processing..."
+            );
+
             this.InvokeIfRequired(
                 () =>
                 {
