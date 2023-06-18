@@ -1832,8 +1832,6 @@ namespace MFR.Renamers.Files
                     nameof(rootDirectoryPath)
                 );
 
-            var rootDirectoryPathMonitorTicket = Guid.Empty;
-
             try
             {
                 OnStarting(); // before we even check the root directory path
