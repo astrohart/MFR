@@ -14,10 +14,8 @@ using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.GUI.Actions;
 using MFR.GUI.Application.Interfaces;
-using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Displayers;
 using MFR.GUI.Processors.Factories;
-using MFR.GUI.Windows.Factories;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
@@ -30,7 +28,6 @@ using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI.Application
 {
@@ -172,63 +169,14 @@ namespace MFR.GUI.Application
         /// </param>
         public void WinInit(string[] args)
         {
-            /*
-             * Initialize the application, displaying a "loading" progress dialog box
-             * to let the user know we're doing something.
-             */
-            if (!IsAutoStarted(args))
-                using (var dialog = MakeNewOperationDrivenProgressDialog
-                                    .FromScratch()
-                                    .HavingProc(
-                                        arg =>
-                                        {
-                                            var initialized =
-                                                InitApplication(arg);
-                                            if (!initialized)
-                                                Environment.Exit(-1);
-                                            return initialized;
-                                        }
-                                    )
-                                    .AndArgument(args)
-                                    .AndStatusText(
-                                        @"Searching for projects and solutions..."
-                                    ))
-                {
-                    // The dialog is automatically dismissed as soon as the
-                    // InitializeApplication method is completed.
-                    dialog.ShowDialog(GetMainWindow.SoleInstance());
+=            if (!InitApplication(args))
+                Environment.Exit(-1);
 
-                    OnInitialized();
+            OnInitialized();
 
-                    ProcessCommandLine();
+            ProcessCommandLine();
 
-                    // When we are here, the application has been closed by the user.
-
-                    // Save changes in the configuration back out to the disk.
-                    // Also writes the path to the config file to the Registry.
-                    //
-                    // NOTE: Do NOT save the configuration settings in the event
-                    // that the user is running this app from the command line.
-                    // Ditto for profiles.
-                    ConfigProvider.Save();
-
-                    ProfileProvider.Save();
-                }
-            else
-            {
-                if (!InitApplication(args))
-                    Environment.Exit(-1);
-
-                OnInitialized();
-
-                ProcessCommandLine();
-
-                // When we are here, the application has been closed by the user.
-            }
-
-            FileStreamProvider.DisposeAll();
-
-            Revoke.WindowsMessageFilter();
+            ExitApplication();
         }
 
         /// <summary>
@@ -237,6 +185,20 @@ namespace MFR.GUI.Application
         /// </summary>
         protected virtual void OnInitialized()
             => Initialized?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Performs operations that should be undertaken when the application exits.
+        /// </summary>
+        private static void ExitApplication()
+        {
+            ConfigProvider.Save();
+
+            ProfileProvider.Save();
+
+            FileStreamProvider.DisposeAll();
+
+            Revoke.WindowsMessageFilter();
+        }
 
         /// <summary>
         /// Determines whether the app was auto-started.  It does this by scanning the

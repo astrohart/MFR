@@ -31,8 +31,10 @@
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox 'MFR.GUI.Windows.MainWindow.StartingFolderComboBox')
   - [Version](#P-MFR-GUI-Windows-MainWindow-Version 'MFR.GUI.Windows.MainWindow.Version')
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
+  - [ConfigureAutocompletionForFindWhatComboBox()](#M-MFR-GUI-Windows-MainWindow-ConfigureAutocompletionForFindWhatComboBox 'MFR.GUI.Windows.MainWindow.ConfigureAutocompletionForFindWhatComboBox')
   - [DeselectAllOperations()](#M-MFR-GUI-Windows-MainWindow-DeselectAllOperations 'MFR.GUI.Windows.MainWindow.DeselectAllOperations')
   - [Dispose(disposing)](#M-MFR-GUI-Windows-MainWindow-Dispose-System-Boolean- 'MFR.GUI.Windows.MainWindow.Dispose(System.Boolean)')
+  - [DoInitializeWindow()](#M-MFR-GUI-Windows-MainWindow-DoInitializeWindow 'MFR.GUI.Windows.MainWindow.DoInitializeWindow')
   - [DoesDirectoryContainSolutionFile(path)](#M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String- 'MFR.GUI.Windows.MainWindow.DoesDirectoryContainSolutionFile(System.String)')
   - [InitializeComponent()](#M-MFR-GUI-Windows-MainWindow-InitializeComponent 'MFR.GUI.Windows.MainWindow.InitializeComponent')
   - [InitializeConfiguration()](#M-MFR-GUI-Windows-MainWindow-InitializeConfiguration 'MFR.GUI.Windows.MainWindow.InitializeConfiguration')
@@ -46,7 +48,6 @@
   - [OnFormFolded(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFormFolded-System-Object,MFR-GUI-Controls-Events-FormFoldedEventArgs- 'MFR.GUI.Windows.MainWindow.OnFormFolded(System.Object,MFR.GUI.Controls.Events.FormFoldedEventArgs)')
   - [OnHelpAbout(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpAbout-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpAbout(System.Object,System.EventArgs)')
   - [OnHelpMenuDropDownOpening(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpMenuDropDownOpening-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpMenuDropDownOpening(System.Object,System.EventArgs)')
-  - [OnLoad(e)](#M-MFR-GUI-Windows-MainWindow-OnLoad-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnLoad(System.EventArgs)')
   - [OnOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationStarted-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationStarted(System.Object,System.EventArgs)')
   - [OnOperationsPerform(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOperationsPerform-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnOperationsPerform(System.Object,System.EventArgs)')
   - [OnOptionsModified(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnOptionsModified-System-Object,MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Windows.MainWindow.OnOptionsModified(System.Object,MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
@@ -71,7 +72,6 @@
   - [OnViewToolBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewToolBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewToolBar(System.Object,System.EventArgs)')
   - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ResetProfileCollectionComboBox')
   - [SelectAllOperations()](#M-MFR-GUI-Windows-MainWindow-SelectAllOperations 'MFR.GUI.Windows.MainWindow.SelectAllOperations')
-  - [SetUpFindWhatComboBox()](#M-MFR-GUI-Windows-MainWindow-SetUpFindWhatComboBox 'MFR.GUI.Windows.MainWindow.SetUpFindWhatComboBox')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
 - [Resources](#T-MFR-GUI-Windows-Properties-Resources 'MFR.GUI.Windows.Properties.Resources')
@@ -373,6 +373,23 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
+<a name='M-MFR-GUI-Windows-MainWindow-ConfigureAutocompletionForFindWhatComboBox'></a>
+### ConfigureAutocompletionForFindWhatComboBox() `method`
+
+##### Summary
+
+Configures the combo box.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+One of the things method does is get a list of all the `*.csproj` files in
+the stating folder and builds an auto-completion suggestion list consisting of
+just their names (with no folder path or file extension).
+
 <a name='M-MFR-GUI-Windows-MainWindow-DeselectAllOperations'></a>
 ### DeselectAllOperations() `method`
 
@@ -397,6 +414,17 @@ Clean up any resources being used.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
+
+<a name='M-MFR-GUI-Windows-MainWindow-DoInitializeWindow'></a>
+### DoInitializeWindow() `method`
+
+##### Summary
+
+Carries out a series of actions to initialize the GUI.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String-'></a>
 ### DoesDirectoryContainSolutionFile(path) `method`
@@ -650,19 +678,6 @@ open it.
 This method responds to the event by ensuring that the text of the
 HelpProfileExplainerDialog menu's About command contains the full name of this
 application.
-
-<a name='M-MFR-GUI-Windows-MainWindow-OnLoad-System-EventArgs-'></a>
-### OnLoad(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnOperationStarted-System-Object,System-EventArgs-'></a>
 ### OnOperationStarted(sender,e) `method`
@@ -1200,23 +1215,6 @@ tab.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-MainWindow-SetUpFindWhatComboBox'></a>
-### SetUpFindWhatComboBox() `method`
-
-##### Summary
-
-Configures the combo box.
-
-##### Parameters
-
-This method has no parameters.
-
-##### Remarks
-
-One of the things method does is get a list of all the `*.csproj` files in
-the stating folder and builds an auto-completion suggestion list consisting of
-just their names (with no folder path or file extension).
 
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size-'></a>
 ### UpdateSize(newSize) `method`

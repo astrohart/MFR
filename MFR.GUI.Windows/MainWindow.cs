@@ -395,18 +395,7 @@ namespace MFR.GUI.Windows
         {
             base.OnShown(e);
 
-            using (var dialog = MakeNewOperationDrivenProgressDialog
-                                .FromScratch()
-                                .HavingProc(new Action(DoInitializeWindow))
-                                .AndStatusText(
-                                    GetOperationStartedDescriptionText.For(
-                                        OperationType.InitializeApplication
-                                    )
-                                ))
-
-                // The dialog is automatically dismissed as soon as the
-                // InitializeApplication method is completed.
-                dialog.ShowDialog(this);
+            DoInitializeWindow();
 
             /*
              * Just carry out the normal behavior in the event that the configuration
