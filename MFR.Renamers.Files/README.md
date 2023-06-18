@@ -239,9 +239,14 @@ is loaded in a running instance of Visual Studio.
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the full pathname of the
-folder where all
-operations start.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname
+of the folder where all operations start.
+
+##### Remarks
+
+This property raises the
+[](#E-MFR-Renamers-Files-FileRenamer-RootDirectoryPathChanged 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged') event
+when its value is updated.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator'></a>
 ### RootDirectoryPathValidator `property`

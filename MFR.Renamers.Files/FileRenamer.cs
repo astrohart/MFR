@@ -2782,11 +2782,6 @@ namespace MFR.Renamers.Files
 
         private void ReopenSolution(IVisualStudioSolution solution)
         {
-            var numTries =
-                0; // number of times we've attempted to open the solution thus far
-            const int
-                MAX_RETRIES = 10; // we will only try 10 times.
-
             try
             {
                 if (solution == null) return;
@@ -2807,23 +2802,7 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                while (!solution.IsLoaded && numTries < MAX_RETRIES)
-                    try
-                    {
-                        solution.Load();
-                    }
-                    catch (Exception ex)
-                    {
-                        // dump all the exception info to the log
-                        DebugUtils.LogException(ex);
-
-                        // otherwise, continue to try
-                        continue;
-                    }
-                    finally
-                    {
-                        numTries++;
-                    }
+                solution.Load();
             }
             catch (Exception ex)
             {
