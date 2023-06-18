@@ -4,7 +4,9 @@
 ## Contents
 
 - [IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine')
+  - [DialogOwner](#P-MFR-Engines-Interfaces-IFullGuiOperationEngine-DialogOwner 'MFR.Engines.Interfaces.IFullGuiOperationEngine.DialogOwner')
   - [CloseProgressDialog()](#M-MFR-Engines-Interfaces-IFullGuiOperationEngine-CloseProgressDialog 'MFR.Engines.Interfaces.IFullGuiOperationEngine.CloseProgressDialog')
+  - [SetDialogOwner(owner)](#M-MFR-Engines-Interfaces-IFullGuiOperationEngine-SetDialogOwner-System-Windows-Forms-IWin32Window- 'MFR.Engines.Interfaces.IFullGuiOperationEngine.SetDialogOwner(System.Windows.Forms.IWin32Window)')
   - [ShowCalculatingProgressBar(text,canCancel)](#M-MFR-Engines-Interfaces-IFullGuiOperationEngine-ShowCalculatingProgressBar-System-String,System-Boolean- 'MFR.Engines.Interfaces.IFullGuiOperationEngine.ShowCalculatingProgressBar(System.String,System.Boolean)')
   - [ShowProgressDialog(canCancel)](#M-MFR-Engines-Interfaces-IFullGuiOperationEngine-ShowProgressDialog-System-Boolean- 'MFR.Engines.Interfaces.IFullGuiOperationEngine.ShowProgressDialog(System.Boolean)')
   - [ShowProgressDialog(owner)](#M-MFR-Engines-Interfaces-IFullGuiOperationEngine-ShowProgressDialog-System-Windows-Forms-IWin32Window- 'MFR.Engines.Interfaces.IFullGuiOperationEngine.ShowProgressDialog(System.Windows.Forms.IWin32Window)')
@@ -24,6 +26,15 @@
 
 MFR.Engines.Interfaces
 
+<a name='P-MFR-Engines-Interfaces-IFullGuiOperationEngine-DialogOwner'></a>
+### DialogOwner `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface that represents
+the parent window of the progress dialog.
+
 <a name='M-MFR-Engines-Interfaces-IFullGuiOperationEngine-CloseProgressDialog'></a>
 ### CloseProgressDialog() `method`
 
@@ -34,6 +45,26 @@ Dismisses the progress dialog.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Engines-Interfaces-IFullGuiOperationEngine-SetDialogOwner-System-Windows-Forms-IWin32Window-'></a>
+### SetDialogOwner(owner) `method`
+
+##### Summary
+
+Sets the owner window of all dialog boxes displayed by this component.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface that represents
+the new owner window. |
+
+##### Remarks
+
+Typically, this method would be called by passing a reference to the
+main window of the application.
 
 <a name='M-MFR-Engines-Interfaces-IFullGuiOperationEngine-ShowCalculatingProgressBar-System-String,System-Boolean-'></a>
 ### ShowCalculatingProgressBar(text,canCancel) `method`

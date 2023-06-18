@@ -460,7 +460,7 @@ namespace MFR.Renamers.Files
                     return result;
 
                 var renameFilesInFolderResult = true;
-                if (CurrentConfiguration.RenameFiles)
+                if (CurrentConfiguration.RenameFilesInFolder)
                     renameFilesInFolderResult = RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );

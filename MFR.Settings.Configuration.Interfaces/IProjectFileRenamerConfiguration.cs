@@ -117,7 +117,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a value that indicates whether we should rename files
         /// in the folders encountered.
         /// </summary>
-        bool RenameFiles
+        bool RenameFilesInFolder
         {
             get;
             set;

@@ -587,7 +587,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFiles" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -613,7 +613,7 @@ namespace MFR.Settings.Configuration.Factories
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
-            self.RenameFiles = renameFiles;
+            self.RenameFilesInFolder = renameFiles;
             return self;
         }
 

@@ -77,7 +77,7 @@ namespace MFR.Settings.Configuration
             MatchExactWord = source.MatchExactWord;
             InvokableOperations = source.InvokableOperations;
             ReOpenSolution = source.ReOpenSolution;
-            RenameFiles = source.RenameFiles;
+            RenameFilesInFolder = source.RenameFilesInFolder;
             RenameSolutionFolders = source.RenameSolutionFolders;
             RenameSubFolders = source.RenameSubFolders;
             ReplaceTextInFiles = source.ReplaceTextInFiles;
@@ -225,7 +225,7 @@ namespace MFR.Settings.Configuration
         /// in the folders encountered.
         /// </summary>
         [JsonIgnore]
-        public bool RenameFiles
+        public bool RenameFilesInFolder
         {
             get {
                 var result = false;
@@ -233,18 +233,15 @@ namespace MFR.Settings.Configuration
                 try
                 {
                     if (InvokableOperations == null) return result;
-                    if (InvokableOperations.Count == 0) return result;
+                    if (!InvokableOperations.Any(
+                            o => o.IsOfType(OperationType.RenameFilesInFolder)
+                        ))
+                        return result;
 
-                    foreach (var operation in InvokableOperations.Where(
-                                 operation
-                                     => operation != null &&
-                                        OperationType.RenameFilesInFolder ==
-                                        operation.OperationType
-                             ))
-                    {
-                        result = operation.Enabled;
-                        break;
-                    }
+                    result =
+                        InvokableOperations[
+                                (int)OperationType.RenameFilesInFolder
+                            ].Enabled;
                 }
                 catch (Exception ex)
                 {
@@ -260,16 +257,15 @@ namespace MFR.Settings.Configuration
                 try
                 {
                     if (InvokableOperations == null) return;
-                    if (!InvokableOperations.Any()) return;
+                    if (!InvokableOperations.Any(
+                            o => OperationType.RenameFilesInFolder.Equals(
+                                o.OperationType
+                            )
+                        )) return;
 
-                    foreach (var operation in InvokableOperations)
-                    {
-                        if (OperationType.RenameFilesInFolder !=
-                            operation.OperationType)
-                            continue;
-
-                        operation.Enabled = value;
-                    }
+                    InvokableOperations[
+                            (int)OperationType.RenameFilesInFolder
+                        ].Enabled = value;
                 }
                 catch (Exception ex)
                 {
@@ -291,7 +287,7 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!InvokableOperations.Any()) return result;
+                    if (InvokableOperations == null) return result;
                     if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameSolutionFolders)
                         ))
@@ -314,7 +310,7 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (InvokableOperations == null) return;
                     if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameSolutionFolders)
                         ))
@@ -343,7 +339,7 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (InvokableOperations == null) return result;
                     if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.RenameSubFolders)
                         ))
@@ -366,14 +362,16 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (InvokableOperations == null) return;
                     if (!InvokableOperations.Any(
-                            o => o.IsOfType(OperationType.RenameSubFolders)
-                        ))
-                        return;
+                            o => OperationType.RenameSubFolders.Equals(
+                                o.OperationType
+                            )
+                        )) return;
 
-                    InvokableOperations[(int)OperationType.RenameSubFolders]
-                        .Enabled = value;
+                    InvokableOperations[
+                        (int)OperationType.RenameSubFolders
+                    ].Enabled = value;
                 }
                 catch (Exception ex)
                 {
@@ -413,7 +411,7 @@ namespace MFR.Settings.Configuration
 
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return result;
+                    if (InvokableOperations == null) return result;
                     if (!InvokableOperations.Any(
                             o => o.IsOfType(OperationType.ReplaceTextInFiles)
                         ))
@@ -436,14 +434,16 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
-                    if (!InvokableOperations.HasAnyOperations()) return;
+                    if (InvokableOperations == null) return;
                     if (!InvokableOperations.Any(
-                            o => o.IsOfType(OperationType.ReplaceTextInFiles)
-                        ))
-                        return;
+                            o => OperationType.ReplaceTextInFiles.Equals(
+                                o.OperationType
+                            )
+                        )) return;
 
-                    InvokableOperations[(int)OperationType.ReplaceTextInFiles]
-                        .Enabled = value;
+                    InvokableOperations[
+                        (int)OperationType.ReplaceTextInFiles
+                    ].Enabled = value;
                 }
                 catch (Exception ex)
                 {
@@ -642,7 +642,7 @@ namespace MFR.Settings.Configuration
 
                 ReOpenSolution = true;
 
-                RenameFiles = RenameSubFolders = ReplaceTextInFiles = true;
+                RenameFilesInFolder = RenameSubFolders = ReplaceTextInFiles = true;
 
                 MatchCase = true;
                 MatchExactWord = false;

@@ -537,7 +537,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.RenameFilesInFolder,
-                CurrentConfiguration.RenameFiles
+                CurrentConfiguration.RenameFilesInFolder
             );
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.RenameSubFolders,
@@ -822,7 +822,7 @@ namespace MFR.GUI.Windows.Presenters
         public void SaveOperationSelections()
         {
             // write the name of the current class and method we are now
-            CurrentConfiguration.RenameFiles =
+            CurrentConfiguration.RenameFilesInFolder =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     OperationNames.RenameFilesInFolder
                 );
