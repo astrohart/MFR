@@ -1,7 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.FileSystem.Factories.Actions;
 using System;
 using System.Threading;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.FileSystem.Helpers
 {
@@ -162,13 +164,24 @@ namespace MFR.FileSystem.Helpers
 
             try
             {
-                folderToBeRenamed.MoveTo(newSubFolderPath);
+                var sourceFolderPath = folderToBeRenamed.FullName;
+                if (!Does.FolderExist(sourceFolderPath)) return result;
 
-                if (Directory.Exists(newSubFolderPath))
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        "*** SUCCESS *** Rename operation succeeded."
-                    );
+                var temporaryDestinationPath = Path.Combine(
+                    Path.GetTempPath(), Guid.NewGuid().ToUppercaseWithBraces()
+                );
+                if (string.IsNullOrWhiteSpace(temporaryDestinationPath))
+                    return result;
+
+                folderToBeRenamed.MoveTo(temporaryDestinationPath);
+                if (!Does.FolderExist(temporaryDestinationPath)) return result;
+
+                new DirectoryInfo(temporaryDestinationPath).MoveTo(
+                    newSubFolderPath
+                );
+                if (!Does.FolderExist(newSubFolderPath)) return result;
+
+                result = Directory.Exists(newSubFolderPath);
             }
             catch (Exception ex)
             {
@@ -177,7 +190,6 @@ namespace MFR.FileSystem.Helpers
                 return false; // rename operation failed
             }
 
-            result = Directory.Exists(newSubFolderPath);
             return result;
         }
     }

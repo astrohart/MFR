@@ -130,6 +130,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Helpers\xyLOGIX.Directories.Monitors.Helpers.csproj">
       <Project>{9F3C03A9-7B35-4515-B59A-C5F83F532A59}</Project>
       <Name>xyLOGIX.Directories.Monitors.Helpers</Name>

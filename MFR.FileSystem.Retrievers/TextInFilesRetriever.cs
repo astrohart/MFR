@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Directories.Monitors.Helpers;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -155,7 +155,8 @@ namespace MFR.FileSystem.Retrievers
                                                   path => ShouldDoPath(
                                                       path, pathFilter
                                                   )
-                                              ).AsParallel())
+                                              )
+                                              .AsParallel())
                 {
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;

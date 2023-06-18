@@ -42,9 +42,6 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Directories.Monitors.Actions;
 using xyLOGIX.Directories.Monitors.Events;
-using xyLOGIX.Directories.Monitors.Factories;
-using xyLOGIX.Directories.Monitors.Helpers;
-using xyLOGIX.Directories.Monitors.Interfaces;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
@@ -153,16 +150,6 @@ namespace MFR.Renamers.Files
                     );
             }
         }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Directories.Monitors.Interfaces.IDirectoryMonitorProvider" />
-        /// interface.
-        /// </summary>
-        private static IDirectoryMonitorProvider DirectoryMonitorProvider
-        {
-            get;
-        } = GetDirectoryMonitorProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to a collection of of the
@@ -450,8 +437,11 @@ namespace MFR.Renamers.Files
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        public bool ProcessAll(string findWhat, string replaceWith,
-            Predicate<string> pathFilter = null)
+        public bool ProcessAll(
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        )
         {
             var result = false;
 
@@ -484,6 +474,11 @@ namespace MFR.Renamers.Files
                         RootDirectoryPath, findWhat,
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
+
+                // make sure there are no open file streams before
+                // proceeding
+                if (FileStreamProvider.Count > 0)
+                    FileStreamProvider.DisposeAll();
 
                 var renameSolutionFoldersResult = true;
                 if (CurrentConfiguration.RenameSolutionFolders)
@@ -573,8 +568,12 @@ namespace MFR.Renamers.Files
         ///     langword="null" />
         /// string for a value.
         /// </exception>
-        public void ProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null)
+        public void ProcessAll(
+            string rootDirectoryPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        )
         {
             if (CurrentConfiguration == null)
                 throw new InvalidOperationException(
@@ -687,8 +686,12 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public bool RenameFilesInFolder(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null)
+        public bool RenameFilesInFolder(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        )
         {
             var result = false;
 
@@ -897,9 +900,12 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public bool RenameSolutionFolders(string rootFolderPath,
-            string findWhat, string replaceWith,
-            Predicate<string> pathFilter = null)
+        public bool RenameSolutionFolders(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        )
         {
             var result = false;
 
@@ -1114,8 +1120,12 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public bool RenameSubFoldersOf(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null)
+        public bool RenameSubFoldersOf(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        )
         {
             var result = false;
 
@@ -1315,8 +1325,12 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        public bool ReplaceTextInFiles(string rootFolderPath, string findWhat,
-            string replaceWith = "", Predicate<string> pathFilter = null)
+        public bool ReplaceTextInFiles(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith = "",
+            Predicate<string> pathFilter = null
+        )
         {
             var result = false;
 
@@ -1546,7 +1560,8 @@ namespace MFR.Renamers.Files
         /// that contains the event data.
         /// </param>
         protected virtual void OnCurrentOperationChanged(
-            CurrentOperationChangedEventArgs e)
+            CurrentOperationChangedEventArgs e
+        )
         {
             CurrentOperationChanged?.Invoke(this, e);
             SendMessage<CurrentOperationChangedEventArgs>.Having.Args(this, e)
@@ -1612,7 +1627,8 @@ namespace MFR.Renamers.Files
         /// that contains the event data.
         /// </param>
         protected virtual void OnRootDirectoryPathChanged(
-            RootDirectoryPathChangedEventArgs e)
+            RootDirectoryPathChangedEventArgs e
+        )
             => RootDirectoryPathChanged?.Invoke(this, e);
 
         /// <summary>
@@ -1744,8 +1760,12 @@ namespace MFR.Renamers.Files
         ///     langword="null" />
         /// string for a value.
         /// </exception>
-        private void DoProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter)
+        private void DoProcessAll(
+            string rootDirectoryPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter
+        )
         {
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
@@ -1796,7 +1816,7 @@ namespace MFR.Renamers.Files
                         DebugLevel.Error,
                         "*** ERROR *** The InvokeProcessing method returned FALSE."
                     );
-                    
+
                     ReopenActiveSolutions();
 
                     OnFinished();
@@ -1823,8 +1843,11 @@ namespace MFR.Renamers.Files
             }
         }
 
-        private string GetReplacementFileName(string findWhat,
-            string replaceWith, IFileSystemEntry entry)
+        private string GetReplacementFileName(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
         {
             var result = string.Empty;
 
@@ -1892,8 +1915,11 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private string GetTextInFileReplacementData(IFileSystemEntry entry,
-            string findWhat, string replaceWith)
+        private string GetTextInFileReplacementData(
+            IFileSystemEntry entry,
+            string findWhat,
+            string replaceWith
+        )
         {
             var result = string.Empty;
 
@@ -1992,8 +2018,11 @@ namespace MFR.Renamers.Files
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        private bool InvokeProcessing(string findWhat, string replaceWith,
-            Predicate<string> pathFilter)
+        private bool InvokeProcessing(
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter
+        )
         {
             var result = false;
 
@@ -2075,7 +2104,8 @@ namespace MFR.Renamers.Files
         /// contains the event data.
         /// </param>
         private void OnFilesToHaveTextReplacedCounted(
-            FilesOrFoldersCountedEventArgs e)
+            FilesOrFoldersCountedEventArgs e
+        )
         {
             FilesToHaveTextReplacedCounted?.Invoke(this, e);
             SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
@@ -2162,8 +2192,10 @@ namespace MFR.Renamers.Files
                 .ForMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION);
         }
 
-        private void OnRootDirectoryRenamed(object sender,
-            DirectoryBeingMonitoredChangedEventArgs e)
+        private void OnRootDirectoryRenamed(
+            object sender,
+            DirectoryBeingMonitoredChangedEventArgs e
+        )
         {
             if (!IsStarted) return;
 
@@ -2229,7 +2261,8 @@ namespace MFR.Renamers.Files
         /// contains the event data.
         /// </param>
         private void OnSolutionFoldersToBeRenamedCounted(
-            FilesOrFoldersCountedEventArgs e)
+            FilesOrFoldersCountedEventArgs e
+        )
         {
             SolutionFoldersToBeRenamedCounted?.Invoke(this, e);
             SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
@@ -2284,7 +2317,8 @@ namespace MFR.Renamers.Files
         /// contains the event data.
         /// </param>
         private void OnSubfoldersToBeRenamedCounted(
-            FilesOrFoldersCountedEventArgs e)
+            FilesOrFoldersCountedEventArgs e
+        )
         {
             SubfoldersToBeRenamedCounted?.Invoke(this, e);
             SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
@@ -2293,8 +2327,11 @@ namespace MFR.Renamers.Files
                 );
         }
 
-        private bool RenameFileInFolderForEntry(string findWhat,
-            string replaceWith, IFileSystemEntry entry)
+        private bool RenameFileInFolderForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
         {
             var result = false;
 
@@ -2427,8 +2464,11 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private bool RenameSolutionFolderForEntry(string findWhat,
-            string replaceWith, IFileSystemEntry entry)
+        private bool RenameSolutionFolderForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
         {
             var result = false;
 
@@ -2586,8 +2626,11 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private bool RenameSubFolderForEntry(string findWhat,
-            string replaceWith, IFileSystemEntry entry)
+        private bool RenameSubFolderForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
         {
             var result = false;
 
@@ -2784,8 +2827,11 @@ namespace MFR.Renamers.Files
             }
         }
 
-        private bool ReplaceTextInFileForEntry(string findWhat,
-            string replaceWith, IFileSystemEntry entry)
+        private bool ReplaceTextInFileForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
         {
             var result = false;
 
@@ -2976,7 +3022,8 @@ namespace MFR.Renamers.Files
         }
 
         private void UpdateLoadedSolutionPaths(
-            FileRenamedEventArgs e)
+            FileRenamedEventArgs e
+        )
         {
             if (!LoadedSolutions.Any(
                     solution => solution.Path.ToLowerInvariant()

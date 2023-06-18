@@ -5,6 +5,7 @@
 
 - [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
   - [ContainingFolder](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
+  - [Exists](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-Exists 'MFR.FileSystem.Interfaces.IFileSystemEntry.Exists')
   - [Path](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
   - [UserState](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.FileSystem.Interfaces.IFileSystemEntry.UserState')
   - [SetUserState(userState)](#M-MFR-FileSystem-Interfaces-IFileSystemEntry-SetUserState-System-Object- 'MFR.FileSystem.Interfaces.IFileSystemEntry.SetUserState(System.Object)')
@@ -30,6 +31,18 @@ encapsulates data about a file-system entry.
 ##### Summary
 
 Gets or sets the pathname of the parent folder of this file system entry.
+
+<a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-Exists'></a>
+### Exists `property`
+
+##### Summary
+
+Gets a value that indicates whether the file system entry exists.
+
+##### Returns
+
+`true` if the file system entry exists;
+`false` otherwise.
 
 <a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path'></a>
 ### Path `property`
