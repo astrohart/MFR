@@ -386,30 +386,6 @@ namespace MFR.GUI.Windows
             Presenter.UpdateData();
         }
 
-        /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            using (var dialog = MakeNewOperationDrivenProgressDialog
-                                .FromScratch()
-                                .HavingProc(new Action(DoLoad))
-                                .AndStatusText(
-                                    GetOperationStartedDescriptionText.For(
-                                        OperationType.InitializeApplication
-                                    )
-                                ))
-
-                // The dialog is automatically dismissed as soon as the
-                // InitializeApplication method is completed.
-                dialog.ShowDialog(this);
-        }
-
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
         /// A <see cref="T:System.EventArgs" /> that contains the event
@@ -419,9 +395,18 @@ namespace MFR.GUI.Windows
         {
             base.OnShown(e);
 
-            // Automatically resize the main window for the monitor it is
-            // being displayed upon
-            PerformAutoScale();
+            using (var dialog = MakeNewOperationDrivenProgressDialog
+                                .FromScratch()
+                                .HavingProc(new Action(DoInitializeWindow))
+                                .AndStatusText(
+                                    GetOperationStartedDescriptionText.For(
+                                        OperationType.InitializeApplication
+                                    )
+                                ))
+
+                // The dialog is automatically dismissed as soon as the
+                // InitializeApplication method is completed.
+                dialog.ShowDialog(this);
 
             /*
              * Just carry out the normal behavior in the event that the configuration
@@ -434,8 +419,6 @@ namespace MFR.GUI.Windows
             if (!CurrentConfiguration.IsFromCommandLine ||
                 !CurrentConfiguration.AutoStart)
                 return;
-
-            Presenter.UpdateData(false);
 
             performOperationButton.PerformClick();
         }
@@ -536,6 +519,61 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Configures the <b>Find What</b> combo box.
+        /// </summary>
+        /// <remarks>
+        /// One of the things method does is get a list of all the <c>*.csproj</c> files in
+        /// the stating folder and builds an auto-completion suggestion list consisting of
+        /// just their names (with no folder path or file extension).
+        /// </remarks>
+        private void ConfigureAutocompletionForFindWhatComboBox()
+        {
+            try
+            {
+                if (!Directory.Exists(StartingFolder))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        Resources
+                            .Error_CantSetUpFindWhatComboStartFolderNotExists
+                            .PostfixFormat(StartingFolder)
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "MainWindow.ConfigureAutocompletionForFindWhatComboBox: Done."
+                    );
+                    return;
+                }
+
+                var findWhatAutocompleteCustomSource =
+                    new AutoCompleteStringCollection();
+
+                // Obtain a list of the names of the C# projects that are listed in the
+                // root directory (i.e., starting folder designated by the user).
+                findWhatAutocompleteCustomSource.AddRange(
+                    Directory.EnumerateFiles(
+                                 StartingFolder, "*.csproj",
+                                 SearchOption.AllDirectories
+                             )
+                             .Select(Path.GetFileNameWithoutExtension)
+                             .ToArray()
+                );
+                FindWhatComboBox.AutoCompleteCustomSource =
+                    findWhatAutocompleteCustomSource;
+                FindWhatComboBox.AutoCompleteMode =
+                    AutoCompleteMode.SuggestAppend;
+                FindWhatComboBox.AutoCompleteSource =
+                    AutoCompleteSource.CustomSource;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Determines whether the folder having the specified <paramref name="path" />
         /// contains a Visual Studio Solution (*.sln) file.
         /// <para />
@@ -612,7 +650,10 @@ namespace MFR.GUI.Windows
             return result;
         }
 
-        private void DoLoad()
+        /// <summary>
+        /// Carries out a series of actions to initialize the GUI.
+        /// </summary>
+        private void DoInitializeWindow()
             => this.InvokeIfRequired(
                 () =>
                 {
@@ -632,7 +673,11 @@ namespace MFR.GUI.Windows
 
                     Presenter.FillProfileDropDownList();
 
-                    SetUpFindWhatComboBox();
+                    ConfigureAutocompletionForFindWhatComboBox();
+
+                    // Automatically resize the main window for the monitor it is
+                    // being displayed upon
+                    PerformAutoScale();
                 }
             );
 
@@ -660,7 +705,6 @@ namespace MFR.GUI.Windows
                 .WithOperationEngine(fullGuiOperationEngine);
 
             Presenter.UpdateConfiguration(CurrentConfiguration);
-            Presenter.UpdateData(false);
 
             if (Presenter == null)
                 throw new InvalidOperationException(
@@ -1613,61 +1657,6 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnViewToolBar(object sender, EventArgs e)
             => standardToolStrip.Visible = !standardToolStrip.Visible;
-
-        /// <summary>
-        /// Configures the <b>Find What</b> combo box.
-        /// </summary>
-        /// <remarks>
-        /// One of the things method does is get a list of all the <c>*.csproj</c> files in
-        /// the stating folder and builds an auto-completion suggestion list consisting of
-        /// just their names (with no folder path or file extension).
-        /// </remarks>
-        private void SetUpFindWhatComboBox()
-        {
-            try
-            {
-                if (!Directory.Exists(StartingFolder))
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        Resources
-                            .Error_CantSetUpFindWhatComboStartFolderNotExists
-                            .PostfixFormat(StartingFolder)
-                    );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        "MainWindow.SetUpFindWhatComboBox: Done."
-                    );
-                    return;
-                }
-
-                var findWhatAutocompleteCustomSource =
-                    new AutoCompleteStringCollection();
-
-                // Obtain a list of the names of the C# projects that are listed in the
-                // root directory (i.e., starting folder designated by the user).
-                findWhatAutocompleteCustomSource.AddRange(
-                    Directory.EnumerateFiles(
-                                 StartingFolder, "*.csproj",
-                                 SearchOption.AllDirectories
-                             )
-                             .Select(Path.GetFileNameWithoutExtension)
-                             .ToArray()
-                );
-                FindWhatComboBox.AutoCompleteCustomSource =
-                    findWhatAutocompleteCustomSource;
-                FindWhatComboBox.AutoCompleteMode =
-                    AutoCompleteMode.SuggestAppend;
-                FindWhatComboBox.AutoCompleteSource =
-                    AutoCompleteSource.CustomSource;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
 
         /// <summary>
         /// Resizes the form to that specified in the <paramref name="newSize" />
