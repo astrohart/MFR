@@ -259,6 +259,7 @@ namespace MFR.Settings.Configuration
             set {
                 try
                 {
+                    if (InvokableOperations == null) return;
                     if (!InvokableOperations.Any()) return;
 
                     foreach (var operation in InvokableOperations)
