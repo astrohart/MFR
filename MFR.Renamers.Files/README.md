@@ -11,7 +11,6 @@
   - [ConfigurationProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider 'MFR.Renamers.Files.FileRenamer.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
-  - [DirectoryMonitorProvider](#P-MFR-Renamers-Files-FileRenamer-DirectoryMonitorProvider 'MFR.Renamers.Files.FileRenamer.DirectoryMonitorProvider')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [FileStreamProvider](#P-MFR-Renamers-Files-FileRenamer-FileStreamProvider 'MFR.Renamers.Files.FileRenamer.FileStreamProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
@@ -154,15 +153,6 @@ interface.
 
 Gets or sets the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 enumeration value that indicates which operation is currently being performed.
-
-<a name='P-MFR-Renamers-Files-FileRenamer-DirectoryMonitorProvider'></a>
-### DirectoryMonitorProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IDirectoryMonitorProvider](#T-xyLOGIX-Directories-Monitors-Interfaces-IDirectoryMonitorProvider 'xyLOGIX.Directories.Monitors.Interfaces.IDirectoryMonitorProvider')
-interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-EnabledOperations'></a>
 ### EnabledOperations `property`
