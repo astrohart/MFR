@@ -50,19 +50,19 @@ namespace MFR.GUI.Dialogs
             // progressBar
             // 
             this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.progressBar.DrawBlendShadow = true;
+            this.progressBar.DrawBlendShadow = false;
             this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.progressBar.IsDarkTheme = false;
-            this.progressBar.Location = new System.Drawing.Point(12, 100);
+            this.progressBar.IsDarkTheme = true;
+            this.progressBar.Location = new System.Drawing.Point(16, 85);
             this.progressBar.MarqueeAnimationSpeed = 30;
             this.progressBar.MarqueeIncrement = 5;
-            this.progressBar.MarqueeWidth = 25F;
+            this.progressBar.MarqueeWidth = 50F;
             this.progressBar.Name = "progressBar";
             this.progressBar.Percentage = 0;
             this.progressBar.ProgressBarColor = System.Drawing.SystemColors.Highlight;
             this.progressBar.ShowBorder = true;
             this.progressBar.ShowText = false;
-            this.progressBar.Size = new System.Drawing.Size(300, 23);
+            this.progressBar.Size = new System.Drawing.Size(416, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar.TabIndex = 2;
             // 

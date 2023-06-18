@@ -12,10 +12,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="https://www.xylogix.net"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://www.xylogix.net"/>
     <ROW Property="Manufacturer" Value="xyLOGIX, LLC"/>
-    <ROW Property="ProductCode" Value="1033:{2B824F35-CCEA-4636-B9A6-A91D0F834A27} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{215EAF53-0FA9-4643-B497-C0B823874C7C} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="1.0.8569.4205" Options="16"/>
+    <ROW Property="ProductVersion" Value="1.0.8569.4299" Options="16"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
