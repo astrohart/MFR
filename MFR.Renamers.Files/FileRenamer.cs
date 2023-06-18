@@ -1640,12 +1640,51 @@ namespace MFR.Renamers.Files
         /// </param>
         protected virtual void OnSolutionFolderRenamed(FolderRenamedEventArgs e)
         {
+            SearchForRenamedSolution(e.Source, e.Destination);
+
             FolderRenamed?.Invoke(this, e);
             SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
                                              .ForMessageId(
                                                  FileRenamerMessages
                                                      .FRM_SOLUTION_FOLDER_RENAMED
                                              );
+        }
+
+        public void SearchForRenamedSolution(string oldFolderPath, string newFolderPath)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(oldFolderPath)) return;
+                if (!Does.FolderExist(newFolderPath)) return;
+                if (!LoadedSolutions.Any()) return;
+
+                foreach (var currentSolution in LoadedSolutions)
+                {
+                    var currentSolutionPath = currentSolution.Path;
+                    if (string.IsNullOrWhiteSpace(currentSolutionPath))
+                        continue;
+
+                    var currentSolutionFolder =
+                        Path.GetDirectoryName(currentSolutionPath);
+                    if (string.IsNullOrWhiteSpace(currentSolutionFolder))
+                        continue;
+
+                    if (!currentSolutionFolder.Equals(oldFolderPath)) continue;
+
+                    var newSolutionPath = currentSolutionFolder.Replace(
+                        oldFolderPath, newFolderPath
+                    );
+                    if (!Does.FileExist(newSolutionPath)) continue;
+
+                    currentSolution.Path = newSolutionPath;
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -2599,9 +2638,13 @@ namespace MFR.Renamers.Files
                  * Actually DO the rename operation.
                  */
 
-                if (entry.ToDirectoryInfo()
-                         .RenameTo(destination) &&
-                    !Directory.Exists(source))
+                var entryDirectionInfo = entry.ToDirectoryInfo();
+                if (entryDirectionInfo == null) return result;
+
+                if (entryDirectionInfo
+                        .RenameTo(destination) &&
+                    !Directory.Exists(source)
+                    && Directory.Exists(destination))
                 {
                     result = true; /* success */
                     OnSolutionFolderRenamed(
