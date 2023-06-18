@@ -15,7 +15,9 @@
 - [FullGuiOperationEngine](#T-MFR-Engines-FullGuiOperationEngine 'MFR.Engines.FullGuiOperationEngine')
   - [#ctor()](#M-MFR-Engines-FullGuiOperationEngine-#ctor 'MFR.Engines.FullGuiOperationEngine.#ctor')
   - [_cancellableProgressDialog](#F-MFR-Engines-FullGuiOperationEngine-_cancellableProgressDialog 'MFR.Engines.FullGuiOperationEngine._cancellableProgressDialog')
+  - [_dialogOwner](#F-MFR-Engines-FullGuiOperationEngine-_dialogOwner 'MFR.Engines.FullGuiOperationEngine._dialogOwner')
   - [ConfigurationProvider](#P-MFR-Engines-FullGuiOperationEngine-ConfigurationProvider 'MFR.Engines.FullGuiOperationEngine.ConfigurationProvider')
+  - [DialogOwner](#P-MFR-Engines-FullGuiOperationEngine-DialogOwner 'MFR.Engines.FullGuiOperationEngine.DialogOwner')
   - [Instance](#P-MFR-Engines-FullGuiOperationEngine-Instance 'MFR.Engines.FullGuiOperationEngine.Instance')
   - [Type](#P-MFR-Engines-FullGuiOperationEngine-Type 'MFR.Engines.FullGuiOperationEngine.Type')
   - [#cctor()](#M-MFR-Engines-FullGuiOperationEngine-#cctor 'MFR.Engines.FullGuiOperationEngine.#cctor')
@@ -23,6 +25,7 @@
   - [HandleFilesCountedEvent(count)](#M-MFR-Engines-FullGuiOperationEngine-HandleFilesCountedEvent-System-Int32- 'MFR.Engines.FullGuiOperationEngine.HandleFilesCountedEvent(System.Int32)')
   - [IncrementProgressBar(statusLabelText,currentFileLabelText)](#M-MFR-Engines-FullGuiOperationEngine-IncrementProgressBar-System-String,System-String- 'MFR.Engines.FullGuiOperationEngine.IncrementProgressBar(System.String,System.String)')
   - [OnCancellableProgressDialogRequestedCancel(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnCancellableProgressDialogRequestedCancel-System-Object,System-EventArgs- 'MFR.Engines.FullGuiOperationEngine.OnCancellableProgressDialogRequestedCancel(System.Object,System.EventArgs)')
+  - [OnDialogOwnerChanged()](#M-MFR-Engines-FullGuiOperationEngine-OnDialogOwnerChanged 'MFR.Engines.FullGuiOperationEngine.OnDialogOwnerChanged')
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.FullGuiOperationEngine.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
@@ -32,6 +35,7 @@
   - [OnProcessingStarted()](#M-MFR-Engines-FullGuiOperationEngine-OnProcessingStarted 'MFR.Engines.FullGuiOperationEngine.OnProcessingStarted')
   - [ReinitializeProgressDialog()](#M-MFR-Engines-FullGuiOperationEngine-ReinitializeProgressDialog 'MFR.Engines.FullGuiOperationEngine.ReinitializeProgressDialog')
   - [ResetProgressBar()](#M-MFR-Engines-FullGuiOperationEngine-ResetProgressBar 'MFR.Engines.FullGuiOperationEngine.ResetProgressBar')
+  - [SetDialogOwner(owner)](#M-MFR-Engines-FullGuiOperationEngine-SetDialogOwner-System-Windows-Forms-IWin32Window- 'MFR.Engines.FullGuiOperationEngine.SetDialogOwner(System.Windows.Forms.IWin32Window)')
   - [ShowCalculatingProgressBar(text,canCancel)](#M-MFR-Engines-FullGuiOperationEngine-ShowCalculatingProgressBar-System-String,System-Boolean- 'MFR.Engines.FullGuiOperationEngine.ShowCalculatingProgressBar(System.String,System.Boolean)')
   - [ShowProgressDialog(canCancel)](#M-MFR-Engines-FullGuiOperationEngine-ShowProgressDialog-System-Boolean- 'MFR.Engines.FullGuiOperationEngine.ShowProgressDialog(System.Boolean)')
   - [ShowProgressDialog(owner)](#M-MFR-Engines-FullGuiOperationEngine-ShowProgressDialog-System-Windows-Forms-IWin32Window- 'MFR.Engines.FullGuiOperationEngine.ShowProgressDialog(System.Windows.Forms.IWin32Window)')
@@ -55,7 +59,6 @@
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
-  - [OnFileRenamerRootDirectoryPathChanged(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerRootDirectoryPathChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerRootDirectoryPathChanged(System.Object,xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs)')
   - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-Engines-OperationEngineBase-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Engines.OperationEngineBase.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnProcessingError()](#M-MFR-Engines-OperationEngineBase-OnProcessingError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Engines.OperationEngineBase.OnProcessingError(MFR.Events.Common.ExceptionRaisedEventArgs)')
@@ -269,6 +272,15 @@ Reference to an instance of an object that implements the
 [ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
 interface.
 
+<a name='F-MFR-Engines-FullGuiOperationEngine-_dialogOwner'></a>
+### _dialogOwner `constants`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface that represents
+the parent window of the progress dialog.
+
 <a name='P-MFR-Engines-FullGuiOperationEngine-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
 
@@ -283,6 +295,15 @@ interface.
 This object allows access to the user configuration and the
 actions
 associated with it.
+
+<a name='P-MFR-Engines-FullGuiOperationEngine-DialogOwner'></a>
+### DialogOwner `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface that represents
+the parent window of the progress dialog.
 
 <a name='P-MFR-Engines-FullGuiOperationEngine-Instance'></a>
 ### Instance `property`
@@ -403,6 +424,18 @@ event.
 This method handles the situation in which the user has clicked the
 Cancel button on the progress dialog. The message taken by this
 method is to tell the File Renamer Object to attempt to abort.
+
+<a name='M-MFR-Engines-FullGuiOperationEngine-OnDialogOwnerChanged'></a>
+### OnDialogOwnerChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-Engines-FullGuiOperationEngine-DialogOwnerChanged 'MFR.Engines.FullGuiOperationEngine.DialogOwnerChanged') event.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Engines-FullGuiOperationEngine-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs-'></a>
 ### OnFileRenamerOperationFinished(sender,e) `method`
@@ -568,6 +601,26 @@ Resets the progress bar back to the beginning.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Engines-FullGuiOperationEngine-SetDialogOwner-System-Windows-Forms-IWin32Window-'></a>
+### SetDialogOwner(owner) `method`
+
+##### Summary
+
+Sets the owner window of all dialog boxes displayed by this component.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| owner | [System.Windows.Forms.IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') | (Required.) Reference to an instance of an object that implements the
+[IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface that represents
+the new owner window. |
+
+##### Remarks
+
+Typically, this method would be called by passing a reference to the
+main window of the application.
 
 <a name='M-MFR-Engines-FullGuiOperationEngine-ShowCalculatingProgressBar-System-String,System-Boolean-'></a>
 ### ShowCalculatingProgressBar(text,canCancel) `method`
@@ -1023,25 +1076,6 @@ Otherwise, the method responds by incrementing the progress dialog's
 progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
-
-<a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerRootDirectoryPathChanged-System-Object,xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs-'></a>
-### OnFileRenamerRootDirectoryPathChanged(sender,e) `method`
-
-##### Summary
-
-Handles the
-[FRM_ROOT_DIRECTORY_PATH_CHANGED](#F-MFR-Constants-FileRenamerMessages-FRM_ROOT_DIRECTORY_PATH_CHANGED 'MFR.Constants.FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED')
-message by passing this up the call chain to the user of this object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) A reference to the instance of the object that
-sent the message. |
-| e | [xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs](#T-xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs 'xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs') | (Required.) A
-[DirectoryBeingMonitoredChangedEventArgs](#T-xyLOGIX-Directories-Monitors-Events-DirectoryBeingMonitoredChangedEventArgs 'xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs')
-that carries the message data. |
 
 <a name='M-MFR-Engines-OperationEngineBase-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
 ### OnFileRenamerStatusUpdate(sender,e) `method`
