@@ -206,15 +206,8 @@ namespace MFR.Managers.Solutions
 
                 var visualStudioInstances = files
                                             .Select(
-                                                file => new {
-                                                    Instance =
-                                                        VisualStudioManager
-                                                            .GetVsProcessHavingSolutionOpened(
-                                                                file
-                                                            ),
-                                                    Path = file
-                                                }
-                                            )
+                                                VisualStudioManager
+                                                    .GetVsProcessHavingSolutionOpened)
                                             .ToList();
 
                 if (!visualStudioInstances.Any())
@@ -225,10 +218,13 @@ namespace MFR.Managers.Solutions
                                                       => GetNewVisualStudioSolutionObject
                                                           .ForVisualStudioInstance(
                                                               instanceData
-                                                                  .Instance
+                                                                  .Dte
                                                           )
                                                           .AndPath(
-                                                              instanceData.Path
+                                                              instanceData.SolutionPath
+                                                          )
+                                                          .AndPID(
+                                                              instanceData.PID
                                                           )
                                               )
                                               .ToList();

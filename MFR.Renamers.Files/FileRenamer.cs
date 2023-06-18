@@ -525,7 +525,7 @@ namespace MFR.Renamers.Files
         /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
         /// </summary>
         /// <param name="rootDirectoryPath">
-        /// (Required.) Path to the recursion root.
+        /// (Required.) FullName to the recursion root.
         /// </param>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
@@ -1562,7 +1562,7 @@ namespace MFR.Renamers.Files
 
                 foreach (var currentSolution in LoadedSolutions)
                 {
-                    var currentSolutionPath = currentSolution.Path;
+                    var currentSolutionPath = currentSolution.FullName;
                     if (string.IsNullOrWhiteSpace(currentSolutionPath))
                         continue;
 
@@ -1578,7 +1578,7 @@ namespace MFR.Renamers.Files
                     );
                     if (!Does.FileExist(newSolutionPath)) continue;
 
-                    currentSolution.Path = newSolutionPath;
+                    currentSolution.FullName = newSolutionPath;
                     break;
                 }
             }
@@ -1632,7 +1632,7 @@ namespace MFR.Renamers.Files
              * Sometimes, .sln files (the ones we close and then open before and after the
              * operations) are renamed by the operations.
              *
-             * We check if this is so.  If so, then we update the Path property of any of
+             * We check if this is so.  If so, then we update the FullName property of any of
              * the LoadedSolutions if we find one that matches, so that when we reload the
              * solution, we open the correct file.
              */
@@ -1741,17 +1741,17 @@ namespace MFR.Renamers.Files
             {
                 if (solution == null) return;
                 if (!solution.IsLoaded) return;
-                if (string.IsNullOrWhiteSpace(solution.Path)) return;
-                if (!Does.FileExist(solution.Path)) return;
+                if (string.IsNullOrWhiteSpace(solution.FullName)) return;
+                if (!Does.FileExist(solution.FullName)) return;
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.DoProcessAll: An instance of Visual Studio currently has the solution '{solution.Path}' open."
+                    $"FileRenamer.DoProcessAll: An instance of Visual Studio currently has the solution '{solution.FullName}' open."
                 );
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"Closing solution '{solution.Path}'...",
+                        $"Closing solution '{solution.FullName}'...",
                         CurrentOperation, true /* operation finished */
                     )
                 );
@@ -1770,7 +1770,7 @@ namespace MFR.Renamers.Files
         /// root directories.
         /// </summary>
         /// <param name="rootDirectoryPath">
-        /// (Required.) Path to the recursion root.
+        /// (Required.) FullName to the recursion root.
         /// </param>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
@@ -2245,12 +2245,12 @@ namespace MFR.Renamers.Files
                 foreach (var solution in LoadedSolutions)
                 {
                     if (solution == null) continue;
-                    if (string.IsNullOrWhiteSpace(solution.Path)) continue;
+                    if (string.IsNullOrWhiteSpace(solution.FullName)) continue;
 
-                    var solutionFolder = Path.GetDirectoryName(solution.Path);
+                    var solutionFolder = Path.GetDirectoryName(solution.FullName);
                     if (string.IsNullOrWhiteSpace(solutionFolder)) continue;
 
-                    var solutionFileName = Path.GetFileName(solution.Path);
+                    var solutionFileName = Path.GetFileName(solution.FullName);
                     if (string.IsNullOrWhiteSpace(solutionFileName)) continue;
 
                     if (!solutionFolder.Contains(RootDirectoryPath) &&
@@ -2274,7 +2274,7 @@ namespace MFR.Renamers.Files
                         ))
                         continue; // give up because we don't know where the hell this Solution went to
 
-                    solution.Path =
+                    solution.FullName =
                         newSolutionPath; // update the path of the Solution to refer to where it is now
                 }
 
@@ -2401,10 +2401,10 @@ namespace MFR.Renamers.Files
             if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
                 !Does.FileExist(entry.Path)) return result;
 
-            // Dump the variable entry.Path to the log
+            // Dump the variable entry.FullName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"FileRenamer.RenameFileInFolderForEntry: entry.Path = '{entry.Path}'"
+                $"FileRenamer.RenameFileInFolderForEntry: entry.FullName = '{entry.Path}'"
             );
 
             DebugUtils.WriteLine(
@@ -2533,10 +2533,10 @@ namespace MFR.Renamers.Files
                 return result;
             if (AbortRequested) return result;
 
-            // Dump the variable entry.Path to the log
+            // Dump the variable entry.FullName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"FileRenamer.RenameSolutionFolderForEntry: entry.Path = '{entry.Path}'"
+                $"FileRenamer.RenameSolutionFolderForEntry: entry.FullName = '{entry.Path}'"
             );
 
             try
@@ -2698,10 +2698,10 @@ namespace MFR.Renamers.Files
                 return result;
             if (AbortRequested) return false;
 
-            // Dump the variable entry.Path to the log
+            // Dump the variable entry.FullName to the log
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"FileRenamer.RenameSubFolderForEntry: entry.Path = '{entry.Path}'"
+                $"FileRenamer.RenameSubFolderForEntry: entry.FullName = '{entry.Path}'"
             );
 
             try
@@ -2833,18 +2833,18 @@ namespace MFR.Renamers.Files
             {
                 if (solution == null) return;
                 if (solution.IsLoaded) return;
-                if (string.IsNullOrWhiteSpace(solution.Path))
+                if (string.IsNullOrWhiteSpace(solution.FullName))
                     return;
-                if (!Does.FileExist(solution.Path)) return;
+                if (!Does.FileExist(solution.FullName)) return;
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.DoProcessAll: An instance of Visual Studio currently has the solution '{solution.Path}' open."
+                    $"FileRenamer.DoProcessAll: An instance of Visual Studio currently has the solution '{solution.FullName}' open."
                 );
 
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
-                        $"Opening solution '{solution.Path}'...",
+                        $"Opening solution '{solution.FullName}'...",
                         CurrentOperation
                     )
                 );
@@ -3073,7 +3073,7 @@ namespace MFR.Renamers.Files
         )
         {
             if (!LoadedSolutions.Any(
-                    solution => solution.Path.ToLowerInvariant()
+                    solution => solution.FullName.ToLowerInvariant()
                                         .Equals(
                                             e.Source
                                              .ToLowerInvariant()
@@ -3093,8 +3093,8 @@ namespace MFR.Renamers.Files
                 )) return;
 
             foreach (var solution in LoadedSolutions)
-                if (e.Source.Equals(solution.Path))
-                    solution.Path = e.Destination;
+                if (e.Source.Equals(solution.FullName))
+                    solution.FullName = e.Destination;
         }
     }
 }

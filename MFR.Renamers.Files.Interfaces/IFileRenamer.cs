@@ -198,7 +198,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
         /// </summary>
         /// <param name="rootDirectoryPath">
-        /// Path to the recursion root.
+        /// FullName to the recursion root.
         /// </param>
         /// <param name="findWhat">
         /// (Required.) String containing the text to search for.
