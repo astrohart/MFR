@@ -610,21 +610,27 @@ namespace MFR.GUI.Windows
         /// </summary>
         private void InitializePresenter()
         {
+            IFullGuiOperationEngine fullGuiOperationEngine = GetOperationEngine
+                                         .OfType<IFullGuiOperationEngine>(
+                                             OperationEngineType.FullGUI
+                                         )
+                                         .AndAttachConfiguration(CurrentConfiguration);
+            if (fullGuiOperationEngine == null) return;
+
+            // Set the DialogOwner property for the progress dialogs displayed by the component
+            fullGuiOperationEngine.SetDialogOwner(this);
+
             Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
-                .HavingWindowReference(this)
-                .AndHistoryManager(
-                    MakeHistoryManager.ForForm(this)
-                                      .AndAttachConfiguration(
-                                          CurrentConfiguration
-                                      )
-                )
-                .WithOperationEngine(
-                    GetOperationEngine
-                        .OfType<IFullGuiOperationEngine>(
-                            OperationEngineType.FullGUI
-                        )
-                        .AndAttachConfiguration(CurrentConfiguration)
-                );
+                                                                .HavingWindowReference(this)
+                                                                .AndHistoryManager(
+                                                                    MakeHistoryManager.ForForm(this)
+                                                                                      .AndAttachConfiguration(
+                                                                                          CurrentConfiguration
+                                                                                      )
+                                                                )
+                                                                .WithOperationEngine(
+                                                                    fullGuiOperationEngine
+                                                                );
 
             Presenter.UpdateConfiguration(CurrentConfiguration);
             Presenter.UpdateData(false);

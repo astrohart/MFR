@@ -13,6 +13,7 @@ using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Win32.Interact;
 
@@ -32,6 +33,13 @@ namespace MFR.Engines
         /// interface.
         /// </summary>
         private ICancellableProgressDialog _cancellableProgressDialog;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface that represents
+        /// the parent window of the progress dialog.
+        /// </summary>
+        private IWin32Window _dialogOwner;
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -62,6 +70,22 @@ namespace MFR.Engines
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface that represents
+        /// the parent window of the progress dialog.
+        /// </summary>
+        public IWin32Window DialogOwner
+        {
+            get => _dialogOwner;
+            private set {
+                var changed = _dialogOwner != value;
+                _dialogOwner = value;
+                if (changed)
+                    OnDialogOwnerChanged();
+            }
+        }
+
+        /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface.
         /// </summary>
@@ -81,12 +105,47 @@ namespace MFR.Engines
             => OperationEngineType.FullGUI;
 
         /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Engines.FullGuiOperationEngine.DialogOwner" /> property is
+        /// updated.
+        /// </summary>
+        public event EventHandler DialogOwnerChanged;
+
+        /// <summary>
         /// Dismisses the progress dialog.
         /// </summary>
         public void CloseProgressDialog()
             => _cancellableProgressDialog.DoIfNotDisposed(
                 () => _cancellableProgressDialog.Close()
             );
+
+        /// <summary>
+        /// Sets the owner window of all dialog boxes displayed by this component.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface that represents
+        /// the new owner window.
+        /// </param>
+        /// <remarks>
+        /// Typically, this method would be called by passing a reference to the
+        /// main window of the application.
+        /// <para />
+        /// </remarks>
+        public void SetDialogOwner(IWin32Window owner)
+        {
+            try
+            {
+                if (owner == null) return;
+
+                DialogOwner = owner;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Shows a marquee progress bar that indicates the application is
@@ -106,8 +165,10 @@ namespace MFR.Engines
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        public void ShowCalculatingProgressBar(string text,
-            bool canCancel = true)
+        public void ShowCalculatingProgressBar(
+            string text,
+            bool canCancel = true
+        )
         {
             if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentException(
@@ -139,7 +200,7 @@ namespace MFR.Engines
                 () =>
                 {
                     _cancellableProgressDialog.CanCancel = canCancel;
-                    _cancellableProgressDialog.Show();
+                    _cancellableProgressDialog.ShowDialog(DialogOwner);
                 }
             );
 
@@ -222,7 +283,8 @@ namespace MFR.Engines
         /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(
-            IProjectFileRenamerConfiguration configuration)
+            IProjectFileRenamerConfiguration configuration
+        )
         {
             base.UpdateConfiguration(configuration);
 
@@ -259,6 +321,13 @@ namespace MFR.Engines
         }
 
         /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Engines.FullGuiOperationEngine.DialogOwnerChanged" /> event.
+        /// </summary>
+        protected virtual void OnDialogOwnerChanged()
+            => DialogOwnerChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Handles the
         /// <see
         ///     cref="E:MFR.IFileRenamer.OperationFinished" />
@@ -277,8 +346,10 @@ namespace MFR.Engines
         /// reset the progress bar back to the starting point.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        protected override void OnFileRenamerOperationFinished(object sender,
-            OperationFinishedEventArgs e)
+        protected override void OnFileRenamerOperationFinished(
+            object sender,
+            OperationFinishedEventArgs e
+        )
             => ResetProgressBar();
 
         /// <summary>
@@ -301,8 +372,10 @@ namespace MFR.Engines
         /// processing is now being started.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        protected override void OnFileRenamerOperationStarted(object sender,
-            OperationStartedEventArgs e)
+        protected override void OnFileRenamerOperationStarted(
+            object sender,
+            OperationStartedEventArgs e
+        )
         {
             if (e.OperationType == OperationType.Unknown) return;
 
@@ -340,8 +413,10 @@ namespace MFR.Engines
         /// currently being worked on.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        protected override void OnFileRenamerProcessingOperation(object sender,
-            ProcessingOperationEventArgs e)
+        protected override void OnFileRenamerProcessingOperation(
+            object sender,
+            ProcessingOperationEventArgs e
+        )
         {
             if (e.OperationType == OperationType.Unknown) return;
             if (e.Entry == null) return;
@@ -368,8 +443,10 @@ namespace MFR.Engines
         /// contains the event data.
         /// </param>
         /// <remarks></remarks>
-        protected override void OnFileRenamerStatusUpdate(object sender,
-            StatusUpdateEventArgs e)
+        protected override void OnFileRenamerStatusUpdate(
+            object sender,
+            StatusUpdateEventArgs e
+        )
             => _cancellableProgressDialog.DoIfNotDisposed(
                 () => _cancellableProgressDialog.Status = e.Text
             );
@@ -383,9 +460,7 @@ namespace MFR.Engines
         {
             base.OnProcessingError(e);
 
-            Messages.ShowStopError(
-                Resources.Error_OperationFailed
-            );
+            Messages.ShowStopError(Resources.Error_OperationFailed);
         }
 
         /// <summary>
@@ -429,7 +504,9 @@ namespace MFR.Engines
         /// </remarks>
         [Log(AttributeExclude = true)]
         private static void OnCancellableProgressDialogRequestedCancel(
-                object sender, EventArgs e)
+                object sender,
+                EventArgs e
+            )
 
             // Ask the File Renamer component to stop.  Because the user has
             // clicked the Cancel button in the progress dialog.
@@ -458,8 +535,10 @@ namespace MFR.Engines
         /// are passed blank or <see langword="null" /> string for values.
         /// </exception>
         [Log(AttributeExclude = true)]
-        private void IncrementProgressBar(string statusLabelText,
-            string currentFileLabelText)
+        private void IncrementProgressBar(
+            string statusLabelText,
+            string currentFileLabelText
+        )
         {
             if (string.IsNullOrWhiteSpace(statusLabelText))
                 throw new ArgumentException(

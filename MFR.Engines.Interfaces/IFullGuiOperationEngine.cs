@@ -1,13 +1,46 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace MFR.Engines.Interfaces
 {
     public interface IFullGuiOperationEngine : IOperationEngine
     {
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface that represents
+        /// the parent window of the progress dialog.
+        /// </summary>
+        IWin32Window DialogOwner
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Engines.FullGuiOperationEngine.DialogOwner" /> property is
+        /// updated.
+        /// </summary>
+        event EventHandler DialogOwnerChanged;
+
+        /// <summary>
         /// Dismisses the progress dialog.
         /// </summary>
         void CloseProgressDialog();
+
+        /// <summary>
+        /// Sets the owner window of all dialog boxes displayed by this component.
+        /// </summary>
+        /// <param name="owner">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:System.Windows.Forms.IWin32Window" /> interface that represents
+        /// the new owner window.
+        /// </param>
+        /// <remarks>
+        /// Typically, this method would be called by passing a reference to the
+        /// main window of the application.
+        /// <para />
+        /// </remarks>
+        void SetDialogOwner(IWin32Window owner);
 
         /// <summary>
         /// Shows a marquee progress bar that indicates the application is
