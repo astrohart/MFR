@@ -6,11 +6,9 @@ using MFR.Paths.Config.Provider.Interfaces;
 using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Settings.Configuration.Factories;
-using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
-using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -103,7 +101,8 @@ namespace MFR.Settings.Configuration.Providers
         /// Resets the configuration to default values.
         /// </summary>
         public void Clear()
-            => CurrentConfiguration = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+            => CurrentConfiguration =
+                GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
         /// <summary>
         /// Exports configuration data to a file other than the master
@@ -222,6 +221,23 @@ namespace MFR.Settings.Configuration.Providers
             try
             {
                 /*
+                 * If we aren't passed anything for the pathname parameter
+                 * of this method, and if the CurrentConfiguration is already
+                 * loaded, then just return a reference to the CurrentConfiguration
+                 * property, to save cycles -- but only if the CurrentConfiguration
+                 * property isn't set to the blank value.
+                 */
+
+                if (string.IsNullOrWhiteSpace(pathname) &&
+                    !ProjectFileRenamerConfiguration.IsBlankOrNull(
+                        CurrentConfiguration
+                    ))
+                {
+                    result = CurrentConfiguration;
+                    return result;
+                }
+
+                /*
                  * Should we load from the pathname passed to us, or from the
                  * ConfigFilePath?
                  */
@@ -245,7 +261,8 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                CurrentConfiguration = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+                CurrentConfiguration = GetBlankProjectFileRenamerConfiguration
+                    .SoleInstance();
             }
 
             DebugUtils.WriteLine(

@@ -76,6 +76,8 @@ namespace MFR.GUI.Windows
         {
             InitializeComponent();
 
+            InitializeConfiguration();
+
             InitializeStyles();
 
             InitializePresenter();
@@ -437,6 +439,31 @@ namespace MFR.GUI.Windows
             performOperationButton.PerformClick();
         }
 
+        /// <summary>
+        /// Checks whether the value of the
+        /// <see cref="P:MFR.GUI.Windows.MainWindow.CurrentConfiguration" /> property is
+        /// <see langword="null" />.
+        /// <para />
+        /// If so, then calls the
+        /// <see
+        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load" />
+        /// method to load the application configuration.
+        /// </summary>
+        private static void InitializeConfiguration()
+        {
+            try
+            {
+                if (CurrentConfiguration != null) return;
+
+                ConfigProvider.Load();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
         // Give the button a transparent background.
         private static void MakeButtonBitmapTransparent(ButtonBase button)
         {
@@ -611,26 +638,22 @@ namespace MFR.GUI.Windows
         private void InitializePresenter()
         {
             IFullGuiOperationEngine fullGuiOperationEngine = GetOperationEngine
-                                         .OfType<IFullGuiOperationEngine>(
-                                             OperationEngineType.FullGUI
-                                         )
-                                         .AndAttachConfiguration(CurrentConfiguration);
+                .OfType<IFullGuiOperationEngine>(OperationEngineType.FullGUI)
+                .AndAttachConfiguration(CurrentConfiguration);
             if (fullGuiOperationEngine == null) return;
 
             // Set the DialogOwner property for the progress dialogs displayed by the component
             fullGuiOperationEngine.SetDialogOwner(this);
 
             Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
-                                                                .HavingWindowReference(this)
-                                                                .AndHistoryManager(
-                                                                    MakeHistoryManager.ForForm(this)
-                                                                                      .AndAttachConfiguration(
-                                                                                          CurrentConfiguration
-                                                                                      )
-                                                                )
-                                                                .WithOperationEngine(
-                                                                    fullGuiOperationEngine
-                                                                );
+                .HavingWindowReference(this)
+                .AndHistoryManager(
+                    MakeHistoryManager.ForForm(this)
+                                      .AndAttachConfiguration(
+                                          CurrentConfiguration
+                                      )
+                )
+                .WithOperationEngine(fullGuiOperationEngine);
 
             Presenter.UpdateConfiguration(CurrentConfiguration);
             Presenter.UpdateData(false);
