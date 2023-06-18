@@ -102,15 +102,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="xyLOGIX.Forms.DarkTheme.Constants">
-      <HintPath>..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Constants\bin\x86\Release\xyLOGIX.Forms.DarkTheme.Constants.dll</HintPath>
-    </Reference>
-    <Reference Include="xyLOGIX.Forms.DarkTheme.Events">
-      <HintPath>..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Events\bin\x86\Release\xyLOGIX.Forms.DarkTheme.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="xyLOGIX.Forms.DarkTheme.Interfaces">
-      <HintPath>..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Interfaces\bin\x86\Release\xyLOGIX.Forms.DarkTheme.Interfaces.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoStartCancellableProgressDialog.cs">

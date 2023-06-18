@@ -15,7 +15,6 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Directories.Monitors.Events;
 using xyLOGIX.Queues.Messages;
 
 namespace MFR.Engines
@@ -301,15 +300,6 @@ namespace MFR.Engines
                                  FileRenamerMessages.FRM_FINISHED
                              )
                              .AndHandler(new Action(OnFileRenamerFinished));
-            NewMessageMapping<DirectoryBeingMonitoredChangedEventArgs>.Associate
-                .WithMessageId(
-                    FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED
-                )
-                .AndHandler(
-                    new DirectoryBeingMonitoredChangedEventHandler(
-                        OnFileRenamerRootDirectoryPathChanged
-                    )
-                );
         }
 
         /// <summary>
@@ -581,29 +571,6 @@ namespace MFR.Engines
                           .ForMessageId(
                               OperationEngineMessages.OE_PROCESSING_FINISHED
                           );
-
-        /// <summary>
-        /// Handles the
-        /// <see cref="F:MFR.Constants.FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED" />
-        /// message by passing this up the call chain to the user of this object.
-        /// </summary>
-        /// <param name="sender">
-        /// (Required.) A reference to the instance of the object that
-        /// sent the message.
-        /// </param>
-        /// <param name="e">
-        /// (Required.) A
-        /// <see
-        ///     cref="T:xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs" />
-        /// that carries the message data.
-        /// </param>
-        private void OnFileRenamerRootDirectoryPathChanged(object sender,
-            DirectoryBeingMonitoredChangedEventArgs e)
-            => SendMessage<DirectoryBeingMonitoredChangedEventArgs>.Having
-                .Args(sender, e)
-                .ForMessageId(
-                    OperationEngineMessages.OE_ROOT_DIRECTORY_PATH_UPDATED
-                );
 
         /// <summary>
         /// Handles the <see cref="E:MFR.IFileRenamer.Finished" /> event

@@ -34,7 +34,6 @@ using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Directories.Monitors.Events;
 using xyLOGIX.Queues.Messages;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
@@ -769,8 +768,7 @@ namespace MFR.GUI.Windows.Presenters
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.FindWhatComboBox, 
-                    CurrentConfiguration.FindWhatHistory,
+                    View.FindWhatComboBox, CurrentConfiguration.FindWhatHistory,
                     CurrentConfiguration.FindWhat
                 );
 
@@ -1135,15 +1133,6 @@ namespace MFR.GUI.Windows.Presenters
                                         .AndHandler(
                                             new EventHandler(OnOperationStarted)
                                         );
-            NewMessageMapping<DirectoryBeingMonitoredChangedEventArgs>.Associate
-                .WithMessageId(
-                    OperationEngineMessages.OE_ROOT_DIRECTORY_PATH_UPDATED
-                )
-                .AndHandler(
-                    new DirectoryBeingMonitoredChangedEventHandler(
-                        OnRootDirectoryPathBeingChanged
-                    )
-                );
             NewMessageMapping<EventArgs>.Associate.WithMessageId(
                                             OperationEngineMessages
                                                 .OE_PROCESSING_FINISHED
@@ -1220,44 +1209,6 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private void OnProcessingFinished(object sender, EventArgs e)
             => OnFinished();
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="F:MFR.Engines.Constants.OperationEngineMessages.OE_ROOT_DIRECTORY_PATH_UPDATED" />
-        /// message.
-        /// </summary>
-        /// <param name="sender">
-        /// (Required.) Reference to an instance of the object that
-        /// originally sent the message.
-        /// </param>
-        /// <param name="e">
-        /// (Required.) A
-        /// <see
-        ///     cref="T:xyLOGIX.Directories.Monitors.Events.DirectoryBeingMonitoredChangedEventArgs" />
-        /// that carries the message data.
-        /// </param>
-        private void OnRootDirectoryPathBeingChanged(
-            object sender,
-            DirectoryBeingMonitoredChangedEventArgs e
-        )
-        {
-            /*
-             * If we are here, then the root directory path (that is, that the user
-             * initially started the operation from in the first place, and which may potentially have
-             * several Visual Studio Solution (*.sln) files contained within it) got
-             * modified during the operations, perhaps because Rename Solution Folders was one of the
-             * indicated operations.
-             *
-             * Therefore, check if the OldPath property of the EventArgs object is equal to the
-             * entered text in the View's combo box, and, if so, then update it to reflect
-             * the new path.
-             */
-            if (View.StartingFolderComboBox.EnteredText.TrimEnd('\\')
-                    .Equals(e.OldPath.TrimEnd('\\')))
-                View.StartingFolderComboBox.EnteredText =
-                    e.NewPath.TrimEnd('\\');
-        }
 
         // raise the Finished event
         /// <summary>

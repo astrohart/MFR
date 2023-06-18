@@ -17,6 +17,7 @@ using MFR.GUI.Application.Interfaces;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Displayers;
 using MFR.GUI.Processors.Factories;
+using MFR.GUI.Windows.Factories;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
@@ -195,7 +196,7 @@ namespace MFR.GUI.Application
                 {
                     // The dialog is automatically dismissed as soon as the
                     // InitializeApplication method is completed.
-                    dialog.ShowDialog();
+                    dialog.ShowDialog(GetMainWindow.SoleInstance());
 
                     OnInitialized();
 

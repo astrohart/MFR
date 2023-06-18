@@ -235,6 +235,14 @@
       <Project>{CEFD1E05-C955-42ED-A631-23E5DD1067AC}</Project>
       <Name>MFR.GUI.Processors.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Factories\MFR.GUI.Windows.Factories.csproj">
+      <Project>{97522DBA-0381-421D-A589-18CC183B1258}</Project>
+      <Name>MFR.GUI.Windows.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Interfaces\MFR.GUI.Windows.Interfaces.csproj">
+      <Project>{CB4A02F4-9C1C-46D6-8296-E0E9143CEDB4}</Project>
+      <Name>MFR.GUI.Windows.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Operations.Constants</Name>

@@ -147,22 +147,6 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Actions\xyLOGIX.Directories.Monitors.Actions.csproj">
-      <Project>{e29b81c7-07a8-41cb-a932-b305f6bbbd59}</Project>
-      <Name>xyLOGIX.Directories.Monitors.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Events\xyLOGIX.Directories.Monitors.Events.csproj">
-      <Project>{2A6CAA4D-E1DB-4432-A63B-CD8D74473F90}</Project>
-      <Name>xyLOGIX.Directories.Monitors.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Helpers\xyLOGIX.Directories.Monitors.Helpers.csproj">
-      <Project>{9F3C03A9-7B35-4515-B59A-C5F83F532A59}</Project>
-      <Name>xyLOGIX.Directories.Monitors.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Directories.Monitors\xyLOGIX.Directories.Monitors.Interfaces\xyLOGIX.Directories.Monitors.Interfaces.csproj">
-      <Project>{01E4BDDD-D877-4465-95BD-AD827240D12C}</Project>
-      <Name>xyLOGIX.Directories.Monitors.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>

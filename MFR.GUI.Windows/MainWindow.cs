@@ -404,7 +404,7 @@ namespace MFR.GUI.Windows
 
                 // The dialog is automatically dismissed as soon as the
                 // InitializeApplication method is completed.
-                dialog.ShowDialog();
+                dialog.ShowDialog(this);
         }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
