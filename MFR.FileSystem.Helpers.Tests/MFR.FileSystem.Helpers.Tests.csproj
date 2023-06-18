@@ -1,230 +1,231 @@
 ﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
-	<Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
-	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-	<PropertyGroup>
-		<ApplicationIcon>1382_cogs.ico</ApplicationIcon>
-		<TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-		<TargetFrameworkProfile />
-		<ProjectGuid>{4EC1C78A-28A4-4373-A830-025ED25A8F68}</ProjectGuid>
-		<NuGetPackageImportStamp></NuGetPackageImportStamp>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-		<DebugSymbols>true</DebugSymbols>
-		<OutputPath>bin\x64\Debug\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<DebugType>full</DebugType>
-		<PlatformTarget>x64</PlatformTarget>
-		<LangVersion>7.3</LangVersion>
-		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-		<Prefer32Bit>false</Prefer32Bit>
-		<SkipPostSharp>False</SkipPostSharp>
-		<DocumentationFile>bin\x64\Debug\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
-		<NoWarn>CS1591;CS1587</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-		<OutputPath>bin\x64\Release\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<Optimize>true</Optimize>
-		<DebugType>pdbonly</DebugType>
-		<PlatformTarget>x64</PlatformTarget>
-		<LangVersion>7.3</LangVersion>
-		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-		<Prefer32Bit>false</Prefer32Bit>
-		<SkipPostSharp>False</SkipPostSharp>
-		<DocumentationFile>bin\x64\Release\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
-		<NoWarn>CS1591;CS1587</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-		<DebugSymbols>true</DebugSymbols>
-		<OutputPath>bin\x86\Debug\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<DebugType>full</DebugType>
-		<PlatformTarget>x86</PlatformTarget>
-		<LangVersion>7.3</LangVersion>
-		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-		<Prefer32Bit>false</Prefer32Bit>
-		<SkipPostSharp>False</SkipPostSharp>
-		<DocumentationFile>bin\x86\Debug\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
-		<NoWarn>CS1591;CS1587</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-		<OutputPath>bin\x86\Release\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<Optimize>true</Optimize>
-		<DebugType>pdbonly</DebugType>
-		<PlatformTarget>x86</PlatformTarget>
-		<LangVersion>7.3</LangVersion>
-		<ErrorReport>prompt</ErrorReport>
-		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-		<Prefer32Bit>false</Prefer32Bit>
-		<SkipPostSharp>False</SkipPostSharp>
-		<DocumentationFile>bin\x86\Release\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
-		<NoWarn>CS1591;CS1587</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup>
-		<OutputType>Library</OutputType>
-	</PropertyGroup>
-	<PropertyGroup>
-		<StartupObject />
-	</PropertyGroup>
-	<PropertyGroup>
-		<AssemblyName>MFR.FileSystem.Helpers.Tests</AssemblyName>
-	</PropertyGroup>
-	<PropertyGroup>
-		<RootNamespace>MFR.FileSystem.Helpers.Tests</RootNamespace>
-	</PropertyGroup>
-	<ItemGroup>
-		<Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
-			<HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
-		</Reference>
-		<Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-			<HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
-		</Reference>
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-			<HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
-		</Reference>
-		<Reference Include="PostSharp, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
-			<HintPath>..\packages\PostSharp.Redist.2023.0.4\lib\net45\PostSharp.dll</HintPath>
-		</Reference>
-		<Reference Include="PostSharp.Patterns.Common, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-			<HintPath>..\packages\PostSharp.Patterns.Common.Redist.2023.0.4\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
-		</Reference>
-		<Reference Include="PostSharp.Patterns.Diagnostics, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-			<HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.2023.0.4\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
-		</Reference>
-		<Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-			<HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
-		</Reference>
-		<Reference Include="System" />
-		<Reference Include="System.Configuration" />
-		<Reference Include="System.Core" />
-		<Reference Include="System.Transactions" />
-		<Reference Include="System.Web" />
-	</ItemGroup>
-	<ItemGroup>
-		<Compile Include="GlobalAspects.cs" />
-		<Compile Include="DirectoryInfoExtensionsTests.cs" />
-		<Compile Include="FileHelpersTests.cs" />
-		<Compile Include="FileInfoExtensionsTests.cs" />
-		<Compile Include="Properties\AssemblyInfo.cs" />
-		<Compile Include="Properties\Resources.Designer.cs">
-			<AutoGen>True</AutoGen>
-			<DesignTime>True</DesignTime>
-			<DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
-	</ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Include="Properties\Resources.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="app.config" />
-		<None Include="packages.config" />
-		<None Include="README.md" />
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="1382_cogs.ico" />
-	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-			<Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
-			<Name>xyLOGIX.Core.Debug</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
-			<Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
-			<Name>xyLOGIX.Core.Extensions</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.FileSystem.Creators\MFR.FileSystem.Creators.csproj">
-			<Project>{D33A18C1-CA9A-400D-A0B7-8656ADFE353A}</Project>
-			<Name>MFR.FileSystem.Creators</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
-			<Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
-			<Name>MFR.Settings.Configuration.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
-			<Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
-			<Name>MFR.Settings.Configuration.Providers.Factories</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
-			<Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
-			<Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
-			<Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
-			<Name>MFR.Settings.Configuration.Providers</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Engines.Replacement.Factories\MFR.Engines.Replacement.Factories.csproj">
-			<Project>{0ECB53B9-B0A3-451F-9862-F9E13EB9C9F0}</Project>
-			<Name>MFR.Engines.Replacement.Factories</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Engines.Replacement.Intefaces\MFR.Engines.Replacement.Intefaces.csproj">
-			<Project>{343E6F3B-042F-4001-B485-4E7C949DF18E}</Project>
-			<Name>MFR.Engines.Replacement.Intefaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Expressions.Matches.Factories.Interfaces\MFR.Expressions.Matches.Factories.Interfaces.csproj">
-			<Project>{057FF1CA-0D46-4B40-A8E6-3C68FB9F79A0}</Project>
-			<Name>MFR.Expressions.Matches.Factories.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Expressions.Matches.Factories\MFR.Expressions.Matches.Factories.csproj">
-			<Project>{7C33BFA5-BB1A-4FD4-BAA5-70A2E76245CF}</Project>
-			<Name>MFR.Expressions.Matches.Factories</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj">
-			<Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
-			<Name>MFR.Expressions.Matches.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
-			<Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
-			<Name>MFR.FileSystem.Factories</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
-			<Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
-			<Name>MFR.FileSystem.Helpers</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
-			<Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
-			<Name>MFR.FileSystem.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
-			<Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
-			<Name>MFR.FileSystem.Validators.Factories</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
-			<Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
-			<Name>MFR.FileSystem.Validators.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
-			<Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-			<Name>MFR.Operations.Constants</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
-			<Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
-			<Name>MFR.Operations.Interfaces</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
-			<Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
-			<Name>MFR.Tests.Common</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
-			<Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
-			<Name>MFR.TextValues.Retrievers.Factories</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
-			<Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
-			<Name>MFR.TextValues.Retrievers.Interfaces</Name>
-		</ProjectReference>
-	</ItemGroup>
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	<PropertyGroup>
-		<PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
+  <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
+  <Import Project="..\packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ProjectGuid>{4EC1C78A-28A4-4373-A830-025ED25A8F68}</ProjectGuid>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x64\Debug\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x64\Release\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x86\Debug\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>bin\x86\Release\MFR.FileSystem.Helpers.Tests.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>MFR.FileSystem.Helpers.Tests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>MFR.FileSystem.Helpers.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.2023.0.4\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Common, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.2023.0.4\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.2023.0.4\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=2023.0.4.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalAspects.cs" />
+    <Compile Include="DirectoryInfoExtensionsTests.cs" />
+    <Compile Include="FileHelpersTests.cs" />
+    <Compile Include="FileInfoExtensionsTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1382_cogs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\Do.csproj">
+      <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
+      <Name>Do</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Creators\MFR.FileSystem.Creators.csproj">
+      <Project>{D33A18C1-CA9A-400D-A0B7-8656ADFE353A}</Project>
+      <Name>MFR.FileSystem.Creators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
+      <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
+      <Name>MFR.Settings.Configuration.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
+      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers\MFR.Settings.Configuration.Providers.csproj">
+      <Project>{6BE4FCF5-BDAF-4DC5-B1F3-38D309E06E0A}</Project>
+      <Name>MFR.Settings.Configuration.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Replacement.Factories\MFR.Engines.Replacement.Factories.csproj">
+      <Project>{0ECB53B9-B0A3-451F-9862-F9E13EB9C9F0}</Project>
+      <Name>MFR.Engines.Replacement.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Replacement.Intefaces\MFR.Engines.Replacement.Intefaces.csproj">
+      <Project>{343E6F3B-042F-4001-B485-4E7C949DF18E}</Project>
+      <Name>MFR.Engines.Replacement.Intefaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Matches.Factories.Interfaces\MFR.Expressions.Matches.Factories.Interfaces.csproj">
+      <Project>{057FF1CA-0D46-4B40-A8E6-3C68FB9F79A0}</Project>
+      <Name>MFR.Expressions.Matches.Factories.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Matches.Factories\MFR.Expressions.Matches.Factories.csproj">
+      <Project>{7C33BFA5-BB1A-4FD4-BAA5-70A2E76245CF}</Project>
+      <Name>MFR.Expressions.Matches.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Expressions.Matches.Interfaces\MFR.Expressions.Matches.Interfaces.csproj">
+      <Project>{CFEB873A-F074-4B9E-B334-5E366C30F3F8}</Project>
+      <Name>MFR.Expressions.Matches.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
+      <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
+      <Name>MFR.FileSystem.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
+      <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
+      <Name>MFR.FileSystem.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Factories\MFR.FileSystem.Validators.Factories.csproj">
+      <Project>{4A1ECC08-87D5-4267-AA29-DA8151BAB3BC}</Project>
+      <Name>MFR.FileSystem.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Validators.Interfaces\MFR.FileSystem.Validators.Interfaces.csproj">
+      <Project>{86DE2BB2-55A9-4904-9C53-538CF6D5D25F}</Project>
+      <Name>MFR.FileSystem.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Operations.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Operations.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Tests.Common\MFR.Tests.Common.csproj">
+      <Project>{308473C0-311B-40E4-A35A-CF72AD85542E}</Project>
+      <Name>MFR.Tests.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
+      <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
+      <Name>MFR.TextValues.Retrievers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
+      <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
+      <Name>MFR.TextValues.Retrievers.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
 SET "_SOLUTION_DIR=$(SolutionDir.TrimEnd('\'))"
 SET "GENERATED_README_FILE_PATH=$(TargetDir)$(TargetName).md"
 SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
@@ -249,9 +250,9 @@ ECHO *** SUCCESS *** The file "%25PROJECT_README_FILE_PATH%25" was found.
 :AFTER_README
 ECHO *** DONE *** with pre-build event for project $(ProjectName).
 SET ERRORLEVEL=0</PreBuildEvent>
-	</PropertyGroup>
-	<PropertyGroup>
-		<PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
 SET "CONFIGURATION_NAME=$(ConfigurationName)"
 SET "GENERATED_XML_DOC_FILE_PATH=%25_TARGET_DIR%25$(TargetName).xml"
 SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
@@ -274,16 +275,16 @@ GOTO FINALIZATION
 :FINALIZATION
 ECHO *** DONE *** with post-build script.
 SET ERRORLEVEL=0</PostBuildEvent>
-	</PropertyGroup>
-	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-		<PropertyGroup>
-			<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-		</PropertyGroup>
-		<Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
-		<Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
-		<Error Condition="!Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2023.0.4\build\PostSharp.props'))" />
-		<Error Condition="!Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2023.0.4\build\PostSharp.targets'))" />
-	</Target>
-	<Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
-	<Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.targets')" />
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.3\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2023.0.4\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2023.0.4\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
+  <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.targets')" />
 </Project>
