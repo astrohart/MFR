@@ -17,6 +17,7 @@
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
   - [RootDirectoryPathValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryPathValidator')
   - [#cctor()](#M-MFR-GUI-Application-ProjectFileRenamerApp-#cctor 'MFR.GUI.Application.ProjectFileRenamerApp.#cctor')
+  - [ExitApplication()](#M-MFR-GUI-Application-ProjectFileRenamerApp-ExitApplication 'MFR.GUI.Application.ProjectFileRenamerApp.ExitApplication')
   - [InitApplication(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-InitApplication-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.InitApplication(System.String[])')
   - [IsAutoStarted(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-IsAutoStarted-System-Collections-Generic-IEnumerable{System-String}- 'MFR.GUI.Application.ProjectFileRenamerApp.IsAutoStarted(System.Collections.Generic.IEnumerable{System.String})')
   - [OnCommandLineInfoInvalid(sender,e)](#M-MFR-GUI-Application-ProjectFileRenamerApp-OnCommandLineInfoInvalid-System-Object,MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.GUI.Application.ProjectFileRenamerApp.OnCommandLineInfoInvalid(System.Object,MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
@@ -163,6 +164,17 @@ interface.
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Application-ProjectFileRenamerApp-ExitApplication'></a>
+### ExitApplication() `method`
+
+##### Summary
+
+Performs operations that should be undertaken when the application exits.
 
 ##### Parameters
 

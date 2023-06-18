@@ -134,9 +134,9 @@
       <Project>{2e4eda4f-0d3a-442f-87b5-f0224f596a80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\Do.csproj">
-      <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
-      <Name>Do</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Exceptions\MFR.FileSystem.Exceptions.csproj">
       <Project>{935EAA9E-4863-41DA-9CC8-D05B0F5B7BD5}</Project>

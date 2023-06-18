@@ -132,10 +132,6 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\Do.csproj">
-      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
-      <Name>Do</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Constants\MFR.GUI.Dialogs.Constants.csproj">
       <Project>{D546C3C5-919C-4E55-8C3E-D0DFF30E869B}</Project>
       <Name>MFR.GUI.Dialogs.Constants</Name>

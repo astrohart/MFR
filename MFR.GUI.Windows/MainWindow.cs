@@ -617,13 +617,7 @@ namespace MFR.GUI.Windows
                                                )
                                        ))
                 {
-                    Enabled = false;
-                    UseWaitCursor = true;
-
                     dialogBox.ShowDialog(this);
-
-                    Enabled = true;
-                    UseWaitCursor = false;
 
                     result = (bool)dialogBox.Result;
                 }
@@ -742,10 +736,6 @@ namespace MFR.GUI.Windows
                 .Associate
                 .WithMessageId(MainWindowPresenterMessages.MWP_FINISHED)
                 .AndEventHandler(OnPresenterFinished);
-            NewMessageMapping.Associate.WithMessageId(
-                                 OperationEngineMessages.OE_PROCESSING_STARTED
-                             )
-                             .AndEventHandler(OnOperationStarted);
         }
 
         private void InitializeStyles()
@@ -880,9 +870,6 @@ namespace MFR.GUI.Windows
                     dialog.ShowDialog(this);
 
                 if (!validationOfDataSucceeded) return;
-
-                UseWaitCursor = true;
-                Enabled = false;
 
                 Presenter.DoSelectedOperations();
             }
@@ -1051,19 +1038,6 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnOperationsPerform(object sender, EventArgs e)
             => performOperationButton.PerformClick();
-
-        /// <summary>
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnOperationStarted(object sender, EventArgs e)
-            => startingFolderBrowseButton.InvokeIfRequired(
-                () =>
-                {
-                    UseWaitCursor = true;
-                    Enabled = false;
-                }
-            );
 
         /// <summary>
         /// Handles the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
@@ -1277,15 +1251,6 @@ namespace MFR.GUI.Windows
             this.InvokeIfRequired(
                 () =>
                 {
-                    UseWaitCursor = false;
-                    Enabled = true;
-
-                    Update();
-                    Refresh();
-                    Application.DoEvents();
-
-                    Thread.Sleep(5 * 50);
-
                     if (CurrentConfiguration.AutoQuitOnCompletion)
                         Close();
                 }

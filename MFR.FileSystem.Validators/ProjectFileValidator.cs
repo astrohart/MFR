@@ -1,13 +1,11 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
-using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.IO;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.FileSystem.Validators
 {

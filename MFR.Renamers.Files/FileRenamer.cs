@@ -10,6 +10,7 @@ using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -37,6 +38,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -116,8 +118,7 @@ namespace MFR.Renamers.Files
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -131,7 +132,7 @@ namespace MFR.Renamers.Files
         {
             get;
             set;
-        } = ConfigurationProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
@@ -1590,7 +1591,7 @@ namespace MFR.Renamers.Files
 
                     if (!currentSolutionFolder.Equals(oldFolderPath)) continue;
 
-                    var newSolutionPath = currentSolutionFolder.Replace(
+                    var newSolutionPath = currentSolutionPath.Replace(
                         oldFolderPath, newFolderPath
                     );
                     if (!Does.FileExist(newSolutionPath)) continue;
@@ -1686,7 +1687,26 @@ namespace MFR.Renamers.Files
         protected virtual void OnRootDirectoryPathChanged(
             RootDirectoryPathChangedEventArgs e
         )
-            => RootDirectoryPathChanged?.Invoke(this, e);
+        {
+            /*
+             * If the root directory path's old value coincides with the
+             * current setting of the StartingFolder property in the
+             * Current Configuration, then update the StartingFolder property
+             * of the Current Configuration to match the new value of the
+             * Root Directory Path.
+             *
+             * NOTE: This is not trivial, since we can process more than
+             * one .sln in a directory tree -- this means that this renamer
+             * might not necessarily be operating on the starting folder set
+             * by the user in the application configuration.
+             */
+
+            if (e.OldPath.Equals(CurrentConfiguration.StartingFolder) &&
+                Does.FolderExist(e.NewPath))
+                CurrentConfiguration.StartingFolder = e.NewPath;
+
+            RootDirectoryPathChanged?.Invoke(this, e);
+        }
 
         /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
@@ -2602,18 +2622,58 @@ namespace MFR.Renamers.Files
                  * We avoid using a DirectoryInfo object here, since
                  * it could open handles on the folder that we wish to
                  * work on.
+                 *
+                 * We just try over and over again to rename the directory
+                 * until it works.
                  */
-                Directory.Move(source, destination);
 
-                if (!Directory.Exists(source))
+                if (!Does.FolderExist(source)) return result;
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Waiting for the Solution folder '{source}' to become available for renaming...",
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                Wait.ForFolderToBecomeWriteable(source);
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Attempting to rename Solution folder '{source}' -> '{destination}'...",
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                do
                 {
-                    result = true; /* success */
+                    try
+                    {
+                        Directory.Move(source, destination);
+                    }
+                    catch
+                    {
+                        //Ignored.
+                    }
+                    finally
+                    {
+                        Thread.Sleep(500);
+                    }
+                } while (Directory.Exists(source));
+
+                result = Does.FolderExist(destination);
+
+                /*
+                 * OKAY, if we get here, then we ASSUME that the folder-rename
+                 * operation took place.
+                 */
+
+                if (result)
                     OnSolutionFolderRenamed(
                         new FolderRenamedEventArgs(
                             source, destination
                         )
                     );
-                }
             }
             catch (Exception ex)
             {

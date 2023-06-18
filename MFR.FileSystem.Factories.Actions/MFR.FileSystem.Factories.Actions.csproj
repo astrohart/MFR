@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="Does.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="Wait.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Is.cs" />

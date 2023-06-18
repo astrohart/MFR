@@ -3,7 +3,6 @@ using MFR.FileSystem.Factories.Actions;
 using System;
 using System.Threading;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
 
 namespace MFR.FileSystem.Helpers
 {
@@ -167,9 +166,7 @@ namespace MFR.FileSystem.Helpers
                 var sourceFolderPath = folderToBeRenamed.FullName;
                 if (!Does.FolderExist(sourceFolderPath)) return result;
 
-                new DirectoryInfo(sourceFolderPath).MoveTo(
-                    newSubFolderPath
-                );
+                new DirectoryInfo(sourceFolderPath).MoveTo(newSubFolderPath);
                 if (!Does.FolderExist(newSubFolderPath)) return result;
 
                 result = Directory.Exists(newSubFolderPath);

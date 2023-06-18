@@ -7,7 +7,8 @@ using xyLOGIX.Core.Debug;
 namespace MFR.GUI.Controls.Helpers
 {
     /// <summary>
-    /// Helper methods that augment the functionality of a <see cref="T:MFR.GUI.Controls.EntryRespectingComboBox"/>.
+    /// Helper methods that augment the functionality of a
+    /// <see cref="T:MFR.GUI.Controls.EntryRespectingComboBox" />.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class EntryRespectingComboBoxExtensions
@@ -31,7 +32,8 @@ namespace MFR.GUI.Controls.Helpers
         {
             if (box == null) throw new ArgumentNullException(nameof(box));
 
-            if (box.IsClear()) return;  // nothing to do if combobox is already free of items
+            if (box.IsClear())
+                return; // nothing to do if combobox is already free of items
 
             box.Items.Clear();
 

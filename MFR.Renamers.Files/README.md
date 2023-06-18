@@ -8,7 +8,7 @@
   - [_currentOperation](#F-MFR-Renamers-Files-FileRenamer-_currentOperation 'MFR.Renamers.Files.FileRenamer._currentOperation')
   - [_rootDirectoryPath](#F-MFR-Renamers-Files-FileRenamer-_rootDirectoryPath 'MFR.Renamers.Files.FileRenamer._rootDirectoryPath')
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
-  - [ConfigurationProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider 'MFR.Renamers.Files.FileRenamer.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigProvider 'MFR.Renamers.Files.FileRenamer.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
@@ -121,8 +121,8 @@ where all operations start.
 Gets a value that indicates whether an abort of the current
 operation has been requested.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
