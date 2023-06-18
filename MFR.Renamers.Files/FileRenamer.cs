@@ -1642,12 +1642,12 @@ namespace MFR.Renamers.Files
         {
             SearchForRenamedSolution(e.Source, e.Destination);
 
-            FolderRenamed?.Invoke(this, e);
-            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
-                                             .ForMessageId(
-                                                 FileRenamerMessages
-                                                     .FRM_SOLUTION_FOLDER_RENAMED
-                                             );
+            SolutionFolderRenamed?.Invoke(this, e);
+            SendMessage<FolderRenamedEventArgs>.Having.Args(this, e)
+                                               .ForMessageId(
+                                                   FileRenamerMessages
+                                                       .FRM_SOLUTION_FOLDER_RENAMED
+                                               );
         }
 
         public void SearchForRenamedSolution(string oldFolderPath, string newFolderPath)
