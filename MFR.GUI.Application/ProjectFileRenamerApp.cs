@@ -169,7 +169,7 @@ namespace MFR.GUI.Application
         /// </param>
         public void WinInit(string[] args)
         {
-=            if (!InitApplication(args))
+            if (!InitApplication(args))
                 Environment.Exit(-1);
 
             OnInitialized();
