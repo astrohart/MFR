@@ -48,6 +48,7 @@ using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
 using Path = Alphaleonis.Win32.Filesystem.Path;
+using Is = xyLOGIX.VisualStudio.Actions.Is;
 
 namespace MFR.Renamers.Files
 {
@@ -2641,12 +2642,11 @@ namespace MFR.Renamers.Files
                  * Actually DO the rename operation.
                  */
 
-                var entryDirectionInfo = entry.ToDirectoryInfo();
-                if (entryDirectionInfo == null) return result;
+                var entryDirectoryInfo = entry.ToDirectoryInfo();
+                if (entryDirectoryInfo == null) return result;
 
-                if (entryDirectionInfo.RenameTo(destination) &&
-                    !Directory.Exists(source) &&
-                    Directory.Exists(destination))
+                if (entryDirectoryInfo.RenameTo(destination) &&
+                    !Directory.Exists(source))
                 {
                     result = true; /* success */
                     OnSolutionFolderRenamed(
@@ -2832,7 +2832,7 @@ namespace MFR.Renamers.Files
             try
             {
                 if (solution == null) return;
-                if (solution.IsLoaded) return;
+                if (Is.SolutionOpen(solution)) return;
                 if (string.IsNullOrWhiteSpace(solution.FullName))
                     return;
                 if (!Does.FileExist(solution.FullName)) return;
