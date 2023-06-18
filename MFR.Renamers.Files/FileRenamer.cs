@@ -1841,6 +1841,7 @@ namespace MFR.Renamers.Files
                 if (!SearchForLoadedSolutions())
                 {
                     Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
+                    rootDirectoryPathMonitorTicket = Guid.Empty;
                     return;
                 }
 
@@ -1860,6 +1861,7 @@ namespace MFR.Renamers.Files
 
                     OnFinished();
                     Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
+                    rootDirectoryPathMonitorTicket = Guid.Empty;
                     return;
                 }
 
@@ -1879,6 +1881,7 @@ namespace MFR.Renamers.Files
                 OnFinished();
 
                 Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
+                rootDirectoryPathMonitorTicket = Guid.Empty;
             }
         }
 
