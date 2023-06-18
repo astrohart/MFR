@@ -237,7 +237,7 @@ namespace MFR.Settings.Configuration.Providers
                     return result;
                 }
 
-                CurrentConfiguration =
+                result = CurrentConfiguration =
                     Obtain.ConfigurationFrom(pathnameToLoadFrom);
             }
             catch (Exception ex)
