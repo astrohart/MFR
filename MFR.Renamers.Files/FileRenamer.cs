@@ -47,8 +47,8 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
-using Path = Alphaleonis.Win32.Filesystem.Path;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
+using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.Renamers.Files
 {
@@ -476,20 +476,8 @@ namespace MFR.Renamers.Files
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
-                // make sure there are no open file streams before
-                // proceeding
-                if (FileStreamProvider.Count > 0)
-                    FileStreamProvider.DisposeAll();
-
-                var renameSolutionFoldersResult = true;
-                if (CurrentConfiguration.RenameSolutionFolders)
-                    renameSolutionFoldersResult = RenameSolutionFolders(
-                        RootDirectoryPath, findWhat, replaceWith, pathFilter
-                    );
-
                 result = renameFilesInFolderResult && renameSubFoldersResult &&
-                         replaceTextInFilesResult &&
-                         renameSolutionFoldersResult;
+                         replaceTextInFilesResult;
             }
             catch (OperationAbortedException ex)
             {
@@ -511,6 +499,13 @@ namespace MFR.Renamers.Files
                 //Ignored.
 
                 result = true;
+            }
+            finally
+            {
+                // make sure there are no open file streams before
+                // proceeding
+                if (FileStreamProvider.Count > 0)
+                    FileStreamProvider.DisposeAll();
             }
 
             DebugUtils.WriteLine(
@@ -2248,7 +2243,8 @@ namespace MFR.Renamers.Files
                     if (solution == null) continue;
                     if (string.IsNullOrWhiteSpace(solution.FullName)) continue;
 
-                    var solutionFolder = Path.GetDirectoryName(solution.FullName);
+                    var solutionFolder =
+                        Path.GetDirectoryName(solution.FullName);
                     if (string.IsNullOrWhiteSpace(solutionFolder)) continue;
 
                     var solutionFileName = Path.GetFileName(solution.FullName);
