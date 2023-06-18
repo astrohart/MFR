@@ -493,10 +493,6 @@ namespace MFR.GUI.Windows.Presenters
         {
             View = view ?? throw new ArgumentNullException(nameof(view));
 
-            UpdateData(
-                false
-            ); // at this step, move data from the configuration to the screen
-
             return this;
         }
 

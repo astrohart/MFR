@@ -27,6 +27,7 @@ using MFR.Managers.History.Factories;
 using MFR.Operations.Constants;
 using MFR.Operations.Descriptions.Factories;
 using MFR.Operations.Events;
+using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -453,7 +454,10 @@ namespace MFR.GUI.Windows
         {
             try
             {
-                if (CurrentConfiguration != null) return;
+                if (!ProjectFileRenamerConfiguration.IsBlankOrNull(
+                        CurrentConfiguration
+                    ))
+                    return;
 
                 ConfigProvider.Load();
             }
