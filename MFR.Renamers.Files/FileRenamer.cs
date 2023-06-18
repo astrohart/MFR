@@ -2597,14 +2597,15 @@ namespace MFR.Renamers.Files
                         result; // no change, so do not proceed with the Rename operation
 
                 /*
-                 * Actually DO the rename operation.
+                 * Actually perform the directory move operation.
+                 *
+                 * We avoid using a DirectoryInfo object here, since
+                 * it could open handles on the folder that we wish to
+                 * work on.
                  */
+                Directory.Move(source, destination);
 
-                var entryDirectoryInfo = entry.ToDirectoryInfo();
-                if (entryDirectoryInfo == null) return result;
-
-                if (entryDirectoryInfo.RenameTo(destination) &&
-                    !Directory.Exists(source))
+                if (!Directory.Exists(source))
                 {
                     result = true; /* success */
                     OnSolutionFolderRenamed(
