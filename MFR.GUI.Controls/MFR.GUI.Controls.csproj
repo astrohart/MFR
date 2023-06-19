@@ -131,6 +131,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528d7fb-b88b-4e9d-9bbd-b6b6b893666a}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
       <Project>{a63ca76d-b2b3-42f7-a6c3-78e980b4c629}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
