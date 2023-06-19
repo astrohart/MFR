@@ -29,8 +29,7 @@ namespace MFR.Events.Common
         /// (Optional.) A <see cref="T:System.Boolean" /> value that indicates whether the
         /// operation is finished.<para/>Default value is <see langword="false" />.
         /// </param>
-        public StatusUpdateEventArgs(string text, OperationType operationType,
-            bool operationFinished = false)
+        public StatusUpdateEventArgs(string text, OperationType operationType, bool operationFinished = false)
         {
             Text = text;
             OperationFinished = operationFinished;

@@ -106,9 +106,13 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClosingSolutionEventArgs.cs" />
+    <Compile Include="ClosingSolutionEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="RootDirectoryPathChangedEventArgs.cs" />
     <Compile Include="RootDirectoryPathChangedEventHandler.cs" />
+    <Compile Include="SolutionClosedEventArgs.cs" />
+    <Compile Include="SolutionClosedEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentOperationChangedEventArgs.cs" />
@@ -135,6 +139,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
+      <Project>{1A47DA0E-D8A0-44D4-BE58-8ED1044E9138}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Operations.Constants</Name>

@@ -1517,6 +1517,18 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Occurs when a Solution is about to be closed/unloaded from a running instance
+        /// of Visual Studio.
+        /// </summary>
+        public event ClosingSolutionEventHandler ClosingSolution;
+
+        /// <summary>
+        /// Occurs when a running instance of Visual Studio has just closed/unloaded a
+        /// Visual Studio Solution (<c>*.sln</c>) file.
+        /// </summary>
+        public event SolutionClosedEventHandler SolutionClosed;
+
+        /// <summary>
         /// Occurs when solution folders that are to be renamed have been counted.
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
@@ -1606,6 +1618,23 @@ namespace MFR.Renamers.Files
                 DebugUtils.LogException(ex);
             }
         }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ClosingSolution" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.ClosingSolutionEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// Handlers of this event can set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" /> to stop the operation from proceeding.
+        /// </remarks>
+        protected virtual void OnClosingSolution(ClosingSolutionEventArgs e)
+            => ClosingSolution?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -1709,6 +1738,23 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionClosedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// The <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" /> event is
+        /// used to indicate that a running instance of Visual Studio has just finished
+        /// closing/unloading a Visual Studio Solution (<c>*.sln</c>) file.
+        /// </remarks>
+        protected virtual void OnSolutionClosed(SolutionClosedEventArgs e)
+            => SolutionClosed?.Invoke(this, e);
+
+        /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
         /// </summary>
         /// <param name="e">
@@ -1772,34 +1818,71 @@ namespace MFR.Renamers.Files
             }
         }
 
-        private void CloseSolution(IVisualStudioSolution solution)
+        /// <summary>
+        /// Calls upon the running Visual Studio instance (if any) that currently has the
+        /// specified <paramref name="solution" /> loaded, to close it.
+        /// </summary>
+        /// <param name="solution">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface that represents the Solution.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation was successful;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        /// <remarks>
+        /// If the specified <paramref name="solution" /> object does not contain
+        /// enough information to use to close the Solution, or if the Solution isn't
+        /// loaded in any of the currently-running instances of Visual Studio, then this
+        /// method returns <see langword="false" />.
+        /// <para />
+        /// This method also returns <see langword="false" /> if the Visual Studio Solution
+        /// (<c>*.sln</c>) file corresponding to the specified <paramref name="solution" />
+        /// object does not exist on the user's hard disk.
+        /// <para />
+        /// This method raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.ClosingSolution" /> event before it
+        /// performs the requested operation.  The specified <paramref name="solution" />
+        /// is included in the event data.  The handler(s) of this event may set the value
+        /// of the <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property
+        /// to <see langword="true" /> to block this operation from proceeding, but only
+        /// for the currently-specified <paramref name="solution" />.
+        /// </remarks>
+        private bool CloseSolution(IVisualStudioSolution solution)
         {
+            var result = false;
+
             try
             {
-                if (solution == null) return;
-                if (!solution.IsLoaded) return;
-                if (string.IsNullOrWhiteSpace(solution.FullName)) return;
-                if (!Does.FileExist(solution.FullName)) return;
+                if (solution == null) return result;
+                if (!solution.IsLoaded) return result;
+                if (!Does.FileExist(solution.FullName)) return result;
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.DoProcessAll: An instance of Visual Studio currently has the solution '{solution.FullName}' open."
+                var ce = new ClosingSolutionEventArgs(solution);
+                OnClosingSolution(ce);
+                if (ce.Cancel) return result;
+
+                UpdateStatus(
+                    $"Closing solution '{solution.FullName}'...",
+                    CurrentOperation
                 );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"Closing solution '{solution.FullName}'...",
-                        CurrentOperation, true /* operation finished */
-                    )
-                );
+                result = solution.Unload();
 
-                solution.Unload();
+                OnSolutionClosed(
+                    new SolutionClosedEventArgs(solution.FullName)
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = false;
             }
+
+            return result;
         }
 
         /// <summary>
@@ -3094,5 +3177,34 @@ namespace MFR.Renamers.Files
                 if (e.Source.Equals(solution.FullName))
                     solution.FullName = e.Destination;
         }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.StatusUpdate" /> event.
+        /// </summary>
+        /// <param name="text">
+        /// (Required.) String containing the status message text that is meant for display
+        /// to the user.
+        /// </param>
+        /// <param name="operationType">
+        /// (Required.) One of the <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration values that describes the operation that is currently being
+        /// performed.
+        /// </param>
+        /// <param name="operationFinished">
+        /// (Optional.) A <see cref="T:System.Boolean" /> value that indicates whether the
+        /// operation is finished.
+        /// <para />
+        /// Default value is <see langword="false" />.
+        /// </param>
+        private void UpdateStatus(
+            string text,
+            OperationType operationType,
+            bool operationFinished = false
+        )
+            => OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    text, operationType, operationFinished
+                )
+            );
     }
 }
