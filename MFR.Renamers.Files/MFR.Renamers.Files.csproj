@@ -151,6 +151,10 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
+      <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
+      <Name>xyLOGIX.VisualStudio.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
