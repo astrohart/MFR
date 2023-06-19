@@ -10,7 +10,6 @@ using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -49,6 +48,7 @@ using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
+using Wait = MFR.FileSystem.Factories.Actions.Wait;
 
 namespace MFR.Renamers.Files
 {
@@ -1856,7 +1856,7 @@ namespace MFR.Renamers.Files
             try
             {
                 if (solution == null) return result;
-                if (!solution.IsLoaded) return result;
+                if (!Is.SolutionOpen(solution)) return result;
                 if (!Does.FileExist(solution.FullName)) return result;
 
                 var ce = new ClosingSolutionEventArgs(solution);
@@ -2924,35 +2924,35 @@ namespace MFR.Renamers.Files
             );
         }
 
-        private void ReopenSolution(IVisualStudioSolution solution)
+        private bool ReopenSolution(IVisualStudioSolution solution)
         {
+            var result = false;
+
             try
             {
-                if (solution == null) return;
-                if (Is.SolutionOpen(solution)) return;
+                if (solution == null) return result;
+                if (Is.SolutionOpen(solution)) return result;
                 if (string.IsNullOrWhiteSpace(solution.FullName))
-                    return;
-                if (!Does.FileExist(solution.FullName)) return;
+                    return result;
+                if (!Does.FileExist(solution.FullName))
+                    return result;
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.DoProcessAll: An instance of Visual Studio currently has the solution '{solution.FullName}' open."
+                UpdateStatus(
+                    $"Opening solution '{solution.FullName}'...",
+                    CurrentOperation
                 );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"Opening solution '{solution.FullName}'...",
-                        CurrentOperation
-                    )
-                );
-
-                solution.Load();
+                result = solution.Load();
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = false;
             }
+
+            return result;
         }
 
         private bool ReplaceTextInFileForEntry(
@@ -3163,15 +3163,8 @@ namespace MFR.Renamers.Files
 
             if (string.IsNullOrWhiteSpace(e.Source)) return;
             if (string.IsNullOrWhiteSpace(e.Destination)) return;
-
-            if (!".sln".Equals(
-                    Path.GetExtension(e.Source)
-                        .ToLowerInvariant()
-                )) return;
-            if (!".sln".Equals(
-                    Path.GetExtension(e.Destination)
-                        .ToLowerInvariant()
-                )) return;
+            if (!Is.SolutionPathnameValid(e.Source)) return;
+            if (!Is.SolutionPathnameValid(e.Destination)) return;
 
             foreach (var solution in LoadedSolutions)
                 if (e.Source.Equals(solution.FullName))
