@@ -606,7 +606,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[RenameFiles](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFiles')
+[RenameFilesInFolder](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
 property.
 
 ##### Returns

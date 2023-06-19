@@ -8,7 +8,9 @@
   - [FileSystemEntryExist(pathname)](#M-MFR-FileSystem-Factories-Actions-Does-FileSystemEntryExist-System-String- 'MFR.FileSystem.Factories.Actions.Does.FileSystemEntryExist(System.String)')
   - [FolderExist(pathname)](#M-MFR-FileSystem-Factories-Actions-Does-FolderExist-System-String- 'MFR.FileSystem.Factories.Actions.Does.FolderExist(System.String)')
 - [Is](#T-MFR-FileSystem-Factories-Actions-Is 'MFR.FileSystem.Factories.Actions.Is')
+  - [FileWriteable(path)](#M-MFR-FileSystem-Factories-Actions-Is-FileWriteable-System-String- 'MFR.FileSystem.Factories.Actions.Is.FileWriteable(System.String)')
   - [Folder(pathname)](#M-MFR-FileSystem-Factories-Actions-Is-Folder-System-String- 'MFR.FileSystem.Factories.Actions.Is.Folder(System.String)')
+  - [FolderWriteable(pathname)](#M-MFR-FileSystem-Factories-Actions-Is-FolderWriteable-System-String- 'MFR.FileSystem.Factories.Actions.Is.FolderWriteable(System.String)')
 - [Resources](#T-MFR-FileSystem-Factories-Actions-Properties-Resources 'MFR.FileSystem.Factories.Actions.Properties.Resources')
   - [Culture](#P-MFR-FileSystem-Factories-Actions-Properties-Resources-Culture 'MFR.FileSystem.Factories.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-FileSystem-Factories-Actions-Properties-Resources-ResourceManager 'MFR.FileSystem.Factories.Actions.Properties.Resources.ResourceManager')
@@ -118,6 +120,37 @@ MFR.FileSystem.Factories.Actions
 
 Exposes static methods to determine whether certain conditions are met by data.
 
+<a name='M-MFR-FileSystem-Factories-Actions-Is-FileWriteable-System-String-'></a>
+### FileWriteable(path) `method`
+
+##### Summary
+
+Checks for write access for the given file.
+
+##### Returns
+
+This method returns `true` if write access is allowed to the
+file with the specified `path`, otherwise
+`false`.
+
+
+
+The value `false` is also returned in the event that the
+`path` parameter is a `null` value or blank.
+
+
+
+The value `false` is also returned if an operating system
+error
+or exception occurs while trying to look up the file's permissions.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the full pathname for which write
+permissions should be checked. |
+
 <a name='M-MFR-FileSystem-Factories-Actions-Is-Folder-System-String-'></a>
 ### Folder(pathname) `method`
 
@@ -137,6 +170,38 @@ Determines whether the file system entry having the specified
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing
 the fully-qualified pathname of the file system entry to be checked. |
+
+<a name='M-MFR-FileSystem-Factories-Actions-Is-FolderWriteable-System-String-'></a>
+### FolderWriteable(pathname) `method`
+
+##### Summary
+
+Checks for write access for the given folder.
+
+##### Returns
+
+This method returns `true` if write access is allowed to the
+folder with the specified `pathname`, otherwise
+`false`.
+
+
+
+The value `false` is also returned in the event that the
+`pathname` parameter is a `null` value or
+blank.
+
+
+
+The value `false` is also returned if an operating system
+error
+or exception occurs while trying to look up the folder's permissions.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the full pathname of the folder whose
+permissions are to be checked. |
 
 <a name='T-MFR-FileSystem-Factories-Actions-Properties-Resources'></a>
 ## Resources `type`

@@ -26,7 +26,7 @@
   - [MatchCase](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchExactWord')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReOpenSolution')
-  - [RenameFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFiles')
+  - [RenameFilesInFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFilesInFolder')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSolutionFolders')
   - [RenameSubFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceTextInFiles')
@@ -397,8 +397,8 @@ If this is set to `true`, and the containing solution is open,
 then the solution will be closed prior to the start of the selected
 operation(s) and then re-opened when the selected operation(s) are complete.
 
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles'></a>
-### RenameFiles `property`
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFilesInFolder'></a>
+### RenameFilesInFolder `property`
 
 ##### Summary
 
