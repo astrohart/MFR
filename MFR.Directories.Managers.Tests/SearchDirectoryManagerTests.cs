@@ -77,6 +77,69 @@ namespace MFR.Directories.Managers.Tests
             ReportElapsedTime();
         }
 
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories" />
+        /// method finds all the folders containing Visual Studio Solution (<c>*.sln</c>)
+        /// files in the <c>C:\Users\Brian Hart\source\repos\astrohart</c> top-level
+        /// folder, which is known to contain folders.
+        /// </summary>
+        [Test]
+        public void Test_GetSearchDirectories_Works_ForAllRepos_InMFR_Folder()
+        {
+            StartStopwatch();
+
+            Assert.DoesNotThrow(
+                () => SearchDirectoryManager.GetSearchDirectories(
+                    Path.Combine(
+                        Environment.GetFolderPath(
+                            Environment.SpecialFolder.UserProfile
+                        ), @"source\repos\astrohart\MFR"
+                    )
+                )
+            );
+            Assert.IsNotNull(SearchDirectoryManager.SearchDirectories);
+            Assert.IsNotEmpty(SearchDirectoryManager.SearchDirectories);
+
+            foreach (var directory in SearchDirectoryManager.SearchDirectories)
+                Console.WriteLine(directory);
+
+            ReportElapsedTime();
+        }
+
+        /// <summary>
+        /// Asserts that the
+        /// <see
+        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories" />
+        /// method finds all the folders containing Visual Studio Solution (<c>*.sln</c>)
+        /// files in the <c>C:\Users\Brian Hart\source\repos\astrohart</c> top-level
+        /// folder, which is known to contain folders.
+        /// </summary>
+        [Test]
+        public void
+            Test_GetSearchDirectories_Works_ForAllRepos_IPortfolioMonitor_Folder()
+        {
+            StartStopwatch();
+
+            Assert.DoesNotThrow(
+                () => SearchDirectoryManager.GetSearchDirectories(
+                    Path.Combine(
+                        Environment.GetFolderPath(
+                            Environment.SpecialFolder.UserProfile
+                        ), @"source\repos\astrohart\PortfolioMonitor"
+                    )
+                )
+            );
+            Assert.IsNotNull(SearchDirectoryManager.SearchDirectories);
+            Assert.IsNotEmpty(SearchDirectoryManager.SearchDirectories);
+
+            foreach (var directory in SearchDirectoryManager.SearchDirectories)
+                Console.WriteLine(directory);
+
+            ReportElapsedTime();
+        }
+
         private void ReportElapsedTime()
         {
             try
@@ -87,9 +150,13 @@ namespace MFR.Directories.Managers.Tests
                 StopStopwatch();
 
                 var timeSpan = _stopwatch.Elapsed;
- 
-                Console.WriteLine("Elapsed Time is {0:00} hour(s), {1:00} minute(s), and {2:00}.{3} second(s)",
-                    timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** Elapsed Time is {0:00} hour(s), {1:00} minute(s), and {2:00}.{3} second(s)",
+                    timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds,
+                    timeSpan.Milliseconds
+                );
             }
             catch (Exception ex)
             {

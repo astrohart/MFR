@@ -16,7 +16,11 @@
 - [SearchDirectoryManagerTests](#T-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests')
   - [#ctor()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-#ctor 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.#ctor')
   - [SearchDirectoryManager](#P-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-SearchDirectoryManager 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.SearchDirectoryManager')
-  - [Test_GetSearchFolders_Works()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchFolders_Works 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.Test_GetSearchFolders_Works')
+  - [StartStopwatch()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-StartStopwatch 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.StartStopwatch')
+  - [StopStopwatch()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-StopStopwatch 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.StopStopwatch')
+  - [Test_GetSearchDirectories_Works_ForAllRepos_IPortfolioMonitor_Folder()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchDirectories_Works_ForAllRepos_IPortfolioMonitor_Folder 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.Test_GetSearchDirectories_Works_ForAllRepos_IPortfolioMonitor_Folder')
+  - [Test_GetSearchDirectories_Works_ForAllRepos_InAstrohart_Folder()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchDirectories_Works_ForAllRepos_InAstrohart_Folder 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.Test_GetSearchDirectories_Works_ForAllRepos_InAstrohart_Folder')
+  - [Test_GetSearchDirectories_Works_ForAllRepos_InMFR_Folder()](#M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchDirectories_Works_ForAllRepos_InMFR_Folder 'MFR.Directories.Managers.Tests.SearchDirectoryManagerTests.Test_GetSearchDirectories_Works_ForAllRepos_InMFR_Folder')
 
 <a name='T-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Get'></a>
 ## Get `type`
@@ -170,12 +174,68 @@ Gets a reference to an instance of an object that implements the
 [ISearchDirectoryManager](#T-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager')
 interface.
 
-<a name='M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchFolders_Works'></a>
-### Test_GetSearchFolders_Works() `method`
+<a name='M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-StartStopwatch'></a>
+### StartStopwatch() `method`
 
 ##### Summary
 
-TODO: Add unit test documentation here
+Starts the stopwatch.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-StopStopwatch'></a>
+### StopStopwatch() `method`
+
+##### Summary
+
+Stops the stopwatch.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchDirectories_Works_ForAllRepos_IPortfolioMonitor_Folder'></a>
+### Test_GetSearchDirectories_Works_ForAllRepos_IPortfolioMonitor_Folder() `method`
+
+##### Summary
+
+Asserts that the
+[GetSearchDirectories](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-GetSearchDirectories 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories')
+method finds all the folders containing Visual Studio Solution (`*.sln`)
+files in the `C:\Users\Brian Hart\source\repos\astrohart` top-level
+folder, which is known to contain folders.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchDirectories_Works_ForAllRepos_InAstrohart_Folder'></a>
+### Test_GetSearchDirectories_Works_ForAllRepos_InAstrohart_Folder() `method`
+
+##### Summary
+
+Asserts that the
+[GetSearchDirectories](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-GetSearchDirectories 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories')
+method finds all the folders containing Visual Studio Solution (`*.sln`)
+files in the `C:\Users\Brian Hart\source\repos\astrohart` top-level
+folder, which is known to contain folders.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Directories-Managers-Tests-SearchDirectoryManagerTests-Test_GetSearchDirectories_Works_ForAllRepos_InMFR_Folder'></a>
+### Test_GetSearchDirectories_Works_ForAllRepos_InMFR_Folder() `method`
+
+##### Summary
+
+Asserts that the
+[GetSearchDirectories](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-GetSearchDirectories 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories')
+method finds all the folders containing Visual Studio Solution (`*.sln`)
+files in the `C:\Users\Brian Hart\source\repos\astrohart` top-level
+folder, which is known to contain folders.
 
 ##### Parameters
 

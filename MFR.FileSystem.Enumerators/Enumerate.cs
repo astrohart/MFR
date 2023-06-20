@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,9 +43,17 @@ namespace MFR.FileSystem.Enumerators
         /// the folders contained within the folder whose fully-qualified pathname is
         /// passed in the <paramref name="path" />.
         /// </returns>
-        public static IEnumerable<string> Directories(string path,
-            string searchPattern, SearchOption searchOption,
-            Predicate<string> pathFilter = null)
+        /// <remarks>
+        /// This method searches either the top-level folder only, or all subfolders, as
+        /// dictated by the argument of the <paramref name="searchOption" /> parameter.
+        /// </remarks>
+        [return: NotLogged]
+        public static IEnumerable<string> Directories(
+            string path,
+            string searchPattern,
+            SearchOption searchOption,
+            Predicate<string> pathFilter = null
+        )
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
                                           .UsingSearchPattern(searchPattern)
@@ -69,6 +78,7 @@ namespace MFR.FileSystem.Enumerators
         /// fully-qualified pathname is specified for the <paramref name="path" />
         /// parameter's value.
         /// </returns>
+        [return: NotLogged]
         public static IEnumerable<string> Directories(string path)
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
@@ -101,8 +111,11 @@ namespace MFR.FileSystem.Enumerators
         /// fully-qualified pathname is specified for the <paramref name="path" />
         /// parameter's value.
         /// </returns>
-        public static IEnumerable<string> Directories(string path,
-            string searchPattern)
+        [return: NotLogged]
+        public static IEnumerable<string> Directories(
+            string path,
+            string searchPattern
+        )
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
                                           .UsingSearchPattern(searchPattern)
@@ -125,10 +138,11 @@ namespace MFR.FileSystem.Enumerators
         /// the files contained within the top level of the folder whose fully-qualified
         /// pathname is passed in the <paramref name="path" />.
         /// <para />
-        /// This method only returns those folders in the top level of the folder whose
+        /// This method only returns those files in the top level of the folder whose
         /// fully-qualified pathname is specified for the <paramref name="path" />
         /// parameter's value.
         /// </returns>
+        [return: NotLogged]
         public static IEnumerable<string> Files(string path)
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
@@ -158,12 +172,15 @@ namespace MFR.FileSystem.Enumerators
         /// the files contained within the top level of the folder whose fully-qualified
         /// pathname is passed in the <paramref name="path" />.
         /// <para />
-        /// This method only returns those folders in the top level of the folder whose
+        /// This method only returns those files in the top level of the folder whose
         /// fully-qualified pathname is specified for the <paramref name="path" />
         /// parameter's value.
         /// </returns>
-        public static IEnumerable<string> Files(string path,
-            string searchPattern)
+        [return: NotLogged]
+        public static IEnumerable<string> Files(
+            string path,
+            string searchPattern
+        )
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
                                           .UsingSearchPattern(searchPattern)
@@ -205,13 +222,16 @@ namespace MFR.FileSystem.Enumerators
         /// the files contained within the top level of the folder whose fully-qualified
         /// pathname is passed in the <paramref name="path" />.
         /// <para />
-        /// This method only returns those folders in the top level of the folder whose
-        /// fully-qualified pathname is specified for the <paramref name="path" />
-        /// parameter's value.
+        /// This method searches either the top-level folder only, or all subfolders, as
+        /// dictated by the argument of the <paramref name="searchOption" /> parameter.
         /// </returns>
-        public static IEnumerable<string> Files(string path,
-            string searchPattern, SearchOption searchOption,
-            Predicate<string> pathFilter = null)
+        [return: NotLogged]
+        public static IEnumerable<string> Files(
+            string path,
+            string searchPattern,
+            SearchOption searchOption,
+            Predicate<string> pathFilter = null
+        )
             => MakeNewFileSystemEnumerable.FromScratch()
                                           .StartingFromRootFolder(path)
                                           .UsingSearchPattern(searchPattern)

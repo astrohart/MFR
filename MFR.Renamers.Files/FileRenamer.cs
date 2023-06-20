@@ -245,7 +245,7 @@ namespace MFR.Renamers.Files
         /// is loaded in a running instance of Visual Studio.
         /// </remarks>
         public IList<IVisualStudioSolution> LoadedSolutions
-            => LoadedSolutionProvider.LoadedSolutions;
+            => LoadedSolutionProvider?.LoadedSolutions;
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname

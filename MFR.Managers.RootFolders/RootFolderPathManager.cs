@@ -32,11 +32,18 @@ namespace MFR.Managers.RootFolders
         protected RootFolderPathManager() { }
 
         /// <summary>
-        /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Managers.RootFolders.RootFolderPathManager" />.
+        /// Gets a count of the root folder pathnames stored in the collection.
+        /// </summary>
+        public int Count
+            => RootFolders.Count;
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
+        /// interface.
         /// </summary>
         [Log(AttributeExclude = true)]
-        public static RootFolderPathManager Instance
+        public static IRootFolderPathManager Instance
         {
             get;
         } = new RootFolderPathManager();
@@ -70,12 +77,6 @@ namespace MFR.Managers.RootFolders
         /// collection.
         /// </summary>
         public event RootFolderRemovedEventHandler RootFolderRemoved;
-
-        /// <summary>
-        /// Gets a count of the root folder pathnames stored in the collection.
-        /// </summary>
-        public int Count
-            => RootFolders.Count;
 
         /// <summary>
         /// Adds a root folder path to this object's collection if, and only if, the folder
@@ -205,6 +206,17 @@ namespace MFR.Managers.RootFolders
             => RootFolders.Clear();
 
         /// <summary>
+        /// Obtains a reference to an enumerable collection of all the root folders that
+        /// this object manages.
+        /// </summary>
+        /// <returns>
+        /// Enumerable collection of <see cref="T:System.String" />s, all of which
+        /// are the pathname to a folder that exists and is where processing is to begin.
+        /// </returns>
+        public IEnumerable<string> GetAll()
+            => RootFolders;
+
+        /// <summary>
         /// Removes a root folder path from this object's collection if, and only if, the
         /// folder
         /// in question contains a file whose name ends with the <c>.sln</c> extension, and
@@ -303,17 +315,6 @@ namespace MFR.Managers.RootFolders
         }
 
         /// <summary>
-        /// Obtains a reference to an enumerable collection of all the root folders that
-        /// this object manages.
-        /// </summary>
-        /// <returns>
-        /// Enumerable collection of <see cref="T:System.String" />s, all of which
-        /// are the pathname to a folder that exists and is where processing is to begin.
-        /// </returns>
-        public IEnumerable<string> GetAll()
-            => RootFolders;
-
-        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.Managers.RootFolders.RootFolderPathManager.RootFolderAdded" />
         /// event.
@@ -348,7 +349,7 @@ namespace MFR.Managers.RootFolders
         /// </summary>
         /// <param name="path">
         /// (Required.) (Required.) String containing the
-        /// fully-qualified pathname of the folder whose subfolers are to be enumerated.
+        /// fully-qualified pathname of the folder whose subfolders are to be enumerated.
         /// </param>
         /// <returns>
         /// Collection of strings containing the fully-qualified pathnames of all
