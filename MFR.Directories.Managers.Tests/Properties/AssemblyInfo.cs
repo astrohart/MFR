@@ -4,17 +4,17 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Unit Tests Library for MFR.Directories.Managers.Tests")]
-[assembly: AssemblyDescription("Provides unit tests for ")]
+[assembly: AssemblyTitle("MFR.Directories.Managers.Tests")]
+[assembly: AssemblyDescription("Provides unit tests for the object that manages the search folders for performing the operations requested by the user to rename projects, files, and folders.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MFR.Directories.Managers.Tests")]
+[assembly: AssemblyProduct("Unit Tests Library for the Project File Renamer's Search Directory Manager Component")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
+"Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX MFR.  MFR is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+"This software is a component of xyLOGIX Project File Renamer.  Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

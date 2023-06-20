@@ -17,6 +17,7 @@
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [IsStarted](#P-MFR-Renamers-Files-FileRenamer-IsStarted 'MFR.Renamers.Files.FileRenamer.IsStarted')
   - [LastSolutionFolderPath](#P-MFR-Renamers-Files-FileRenamer-LastSolutionFolderPath 'MFR.Renamers.Files.FileRenamer.LastSolutionFolderPath')
+  - [LoadedSolutionProvider](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutionProvider 'MFR.Renamers.Files.FileRenamer.LoadedSolutionProvider')
   - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
   - [RootDirectoryPathValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathValidator')
@@ -25,9 +26,11 @@
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
+  - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
   - [InvokeProcessing(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.InvokeProcessing(System.String,System.String,System.Predicate{System.String})')
+  - [OnClosingSolution(e)](#M-MFR-Renamers-Files-FileRenamer-OnClosingSolution-MFR-Renamers-Files-Events-ClosingSolutionEventArgs- 'MFR.Renamers.Files.FileRenamer.OnClosingSolution(MFR.Renamers.Files.Events.ClosingSolutionEventArgs)')
   - [OnCurrentOperationChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnCurrentOperationChanged-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnCurrentOperationChanged(MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs)')
   - [OnExceptionRaised(e)](#M-MFR-Renamers-Files-FileRenamer-OnExceptionRaised-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnExceptionRaised(MFR.Events.Common.ExceptionRaisedEventArgs)')
   - [OnFileRenamed(e)](#M-MFR-Renamers-Files-FileRenamer-OnFileRenamed-MFR-Events-FileRenamedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnFileRenamed(MFR.Events.FileRenamedEventArgs)')
@@ -39,6 +42,7 @@
   - [OnOperationStarted(e)](#M-MFR-Renamers-Files-FileRenamer-OnOperationStarted-MFR-Operations-Events-OperationStartedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnOperationStarted(MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnProcessingOperation(e)](#M-MFR-Renamers-Files-FileRenamer-OnProcessingOperation-MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.Renamers.Files.FileRenamer.OnProcessingOperation(MFR.Operations.Events.ProcessingOperationEventArgs)')
   - [OnRootDirectoryPathChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnRootDirectoryPathChanged-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnRootDirectoryPathChanged(MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs)')
+  - [OnSolutionClosed(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionClosed-MFR-Renamers-Files-Events-SolutionClosedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionClosed(MFR.Renamers.Files.Events.SolutionClosedEventArgs)')
   - [OnSolutionFolderRenamed(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFolderRenamed-MFR-Events-FolderRenamedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFolderRenamed(MFR.Events.FolderRenamedEventArgs)')
   - [OnSolutionFoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
@@ -50,9 +54,11 @@
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSolutionFolders(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [ReopenSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-ReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.ReopenSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
   - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RequestAbort()](#M-MFR-Renamers-Files-FileRenamer-RequestAbort 'MFR.Renamers.Files.FileRenamer.RequestAbort')
   - [StartingFrom(path)](#M-MFR-Renamers-Files-FileRenamer-StartingFrom-System-String- 'MFR.Renamers.Files.FileRenamer.StartingFrom(System.String)')
+  - [UpdateStatus(text,operationType,operationFinished)](#M-MFR-Renamers-Files-FileRenamer-UpdateStatus-System-String,MFR-Operations-Constants-OperationType,System-Boolean- 'MFR.Renamers.Files.FileRenamer.UpdateStatus(System.String,MFR.Operations.Constants.OperationType,System.Boolean)')
 - [Resources](#T-MFR-Renamers-Files-Properties-Resources 'MFR.Renamers.Files.Properties.Resources')
   - [Confirm_PerformRename](#P-MFR-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Renamers.Files.Properties.Resources.Confirm_PerformRename')
   - [Culture](#P-MFR-Renamers-Files-Properties-Resources-Culture 'MFR.Renamers.Files.Properties.Resources.Culture')
@@ -220,6 +226,15 @@ operation(s).
 Gets or sets the path to the folder in which last Visual Studio Solution that
 we have worked with most recently resides.
 
+<a name='P-MFR-Renamers-Files-FileRenamer-LoadedSolutionProvider'></a>
+### LoadedSolutionProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ILoadedSolutionProvider](#T-MFR-Solutions-Providers-Interfaces-ILoadedSolutionProvider 'MFR.Solutions.Providers.Interfaces.ILoadedSolutionProvider')
+interface.
+
 <a name='P-MFR-Renamers-Files-FileRenamer-LoadedSolutions'></a>
 ### LoadedSolutions `property`
 
@@ -324,6 +339,50 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
+<a name='M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
+### CloseSolution(solution) `method`
+
+##### Summary
+
+Calls upon the running Visual Studio instance (if any) that currently has the
+specified `solution` loaded, to close it.
+
+##### Returns
+
+`true` if the operation was successful;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| solution | [xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution') | (Required.) Reference to an instance of an object that implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface that represents the Solution. |
+
+##### Remarks
+
+If the specified `solution` object does not contain
+enough information to use to close the Solution, or if the Solution isn't
+loaded in any of the currently-running instances of Visual Studio, then this
+method returns `false`.
+
+
+
+This method also returns `false` if the Visual Studio Solution
+(`*.sln`) file corresponding to the specified `solution`
+object does not exist on the user's hard disk.
+
+
+
+This method raises the
+[](#E-MFR-Renamers-Files-FileRenamer-ClosingSolution 'MFR.Renamers.Files.FileRenamer.ClosingSolution') event before it
+performs the requested operation.  The specified `solution`
+is included in the event data.  The handler(s) of this event may set the value
+of the [Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property
+to `true` to block this operation from proceeding, but only
+for the currently-specified `solution`.
+
 <a name='M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter) `method`
 
@@ -410,6 +469,28 @@ barring other inclusion/exclusion criteria.
 
 In the event that this parameter is `null`, no path
 filtering is done. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnClosingSolution-MFR-Renamers-Files-Events-ClosingSolutionEventArgs-'></a>
+### OnClosingSolution(e) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-ClosingSolution 'MFR.Renamers.Files.FileRenamer.ClosingSolution')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Renamers.Files.Events.ClosingSolutionEventArgs](#T-MFR-Renamers-Files-Events-ClosingSolutionEventArgs 'MFR.Renamers.Files.Events.ClosingSolutionEventArgs') | A
+[ClosingSolutionEventArgs](#T-MFR-Renamers-Files-Events-ClosingSolutionEventArgs 'MFR.Renamers.Files.Events.ClosingSolutionEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+Handlers of this event can set the value of the
+[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+`true` to stop the operation from proceeding.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnCurrentOperationChanged-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs-'></a>
 ### OnCurrentOperationChanged(e) `method`
@@ -575,6 +656,28 @@ Raises the
 | e | [MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs') | (Required.) A
 [RootDirectoryPathChangedEventArgs](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs')
 that contains the event data. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionClosed-MFR-Renamers-Files-Events-SolutionClosedEventArgs-'></a>
+### OnSolutionClosed(e) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-SolutionClosed 'MFR.Renamers.Files.FileRenamer.SolutionClosed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Renamers.Files.Events.SolutionClosedEventArgs](#T-MFR-Renamers-Files-Events-SolutionClosedEventArgs 'MFR.Renamers.Files.Events.SolutionClosedEventArgs') | A
+[SolutionClosedEventArgs](#T-MFR-Renamers-Files-Events-SolutionClosedEventArgs 'MFR.Renamers.Files.Events.SolutionClosedEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+The [](#E-MFR-Renamers-Files-FileRenamer-SolutionClosed 'MFR.Renamers.Files.FileRenamer.SolutionClosed') event is
+used to indicate that a running instance of Visual Studio has just finished
+closing/unloading a Visual Studio Solution (`*.sln`) file.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionFolderRenamed-MFR-Events-FolderRenamedEventArgs-'></a>
 ### OnSolutionFolderRenamed(e) `method`
@@ -904,6 +1007,28 @@ filtering is done. |
 does not exist. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
 
+<a name='M-MFR-Renamers-Files-FileRenamer-ReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
+### ReopenSolution(solution) `method`
+
+##### Summary
+
+Tasks the associated instance of Visual Studio to load the specified
+`solution`.
+
+##### Returns
+
+`true` if the operation completed successfully;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| solution | [xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution') | (Required.) Reference to an instance of an object that implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface that represents the Visual Studio Solution (`*.sln`) file that
+is to be loaded. |
+
 <a name='M-MFR-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
 
@@ -1008,6 +1133,29 @@ Upon successful validation of the fully-qualified folder pathname that is
 specified as the value of the `path` parameter, assigns the
 value to the [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
 property.
+
+<a name='M-MFR-Renamers-Files-FileRenamer-UpdateStatus-System-String,MFR-Operations-Constants-OperationType,System-Boolean-'></a>
+### UpdateStatus(text,operationType,operationFinished) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-StatusUpdate 'MFR.Renamers.Files.FileRenamer.StatusUpdate') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the status message text that is meant for display
+to the user. |
+| operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+enumeration values that describes the operation that is currently being
+performed. |
+| operationFinished | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
+operation is finished.
+
+
+
+Default value is `false`. |
 
 <a name='T-MFR-Renamers-Files-Properties-Resources'></a>
 ## Resources `type`
