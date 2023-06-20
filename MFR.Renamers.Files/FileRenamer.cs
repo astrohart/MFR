@@ -2963,7 +2963,7 @@ namespace MFR.Renamers.Files
             foreach (var solution in LoadedSolutions.Where(
                          solution => solution.ShouldReopen
                      ))
-                ReopenSolution(solution); 
+                ReopenSolution(solution);
 
             /* Wait for the solution to be opened/loaded.
                     while (!dte.Solution.IsOpen) Thread.Sleep(50); */
@@ -3236,8 +3236,10 @@ namespace MFR.Renamers.Files
             if (!Is.SolutionPathnameValid(e.Destination)) return;
 
             foreach (var solution in LoadedSolutions)
-                if (e.Source.Equals(solution.FullName))
+                if (e.Source.EqualsNoCase(solution.FullName))
+                {
                     solution.FullName = e.Destination;
+                }
         }
 
         /// <summary>
