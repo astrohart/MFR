@@ -291,6 +291,14 @@
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Settings.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Solutions.Providers.Factories\MFR.Solutions.Providers.Factories.csproj">
+      <Project>{2E4029CA-D7B2-48A7-9A03-9209119FB3D2}</Project>
+      <Name>MFR.Solutions.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Solutions.Providers.Interfaces\MFR.Solutions.Providers.Interfaces.csproj">
+      <Project>{D314E4C5-41C3-40DF-8FE6-CA69EF731724}</Project>
+      <Name>MFR.Solutions.Providers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
       <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
       <Name>MFR.TextValues.Retrievers.Factories</Name>

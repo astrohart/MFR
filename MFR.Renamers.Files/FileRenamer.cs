@@ -30,6 +30,8 @@ using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.Solutions.Providers.Factories;
+using MFR.Solutions.Providers.Interfaces;
 using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -224,6 +226,16 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Solutions.Providers.Interfaces.ILoadedSolutionProvider" />
+        /// interface.
+        /// </summary>
+        private static ILoadedSolutionProvider LoadedSolutionProvider
+        {
+            get;
+        } = GetLoadedSolutionProvider.SoleInstance();
+
+        /// <summary>
         /// Gets a reference to a collection, each element of which implements the
         /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface.
@@ -233,10 +245,7 @@ namespace MFR.Renamers.Files
         /// is loaded in a running instance of Visual Studio.
         /// </remarks>
         public IList<IVisualStudioSolution> LoadedSolutions
-        {
-            get;
-            set;
-        } = new List<IVisualStudioSolution>();
+            => LoadedSolutionProvider.LoadedSolutions;
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname
@@ -2924,6 +2933,20 @@ namespace MFR.Renamers.Files
             );
         }
 
+        /// <summary>
+        /// Tasks the associated instance of Visual Studio to load the specified
+        /// <paramref name="solution" />.
+        /// </summary>
+        /// <param name="solution">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface that represents the Visual Studio Solution (<c>*.sln</c>) file that
+        /// is to be loaded.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
         private bool ReopenSolution(IVisualStudioSolution solution)
         {
             var result = false;
@@ -3055,9 +3078,13 @@ namespace MFR.Renamers.Files
             // Scan the folder in which we are starting for files ending with the
             // .sln extension.  If any of them are open in Visual Studio, mark
             // them all for reloading, and then reload them.
-            LoadedSolutions = new List<IVisualStudioSolution>(
-                VisualStudioSolutionService
-                    .GetLoadedSolutionsInFolder(RootDirectoryPath)
+            LoadedSolutions.AddRange(
+                new List<IVisualStudioSolution>(
+                    VisualStudioSolutionService
+                        .GetLoadedSolutionsInFolder(
+                            RootDirectoryPath
+                        )
+                )
             );
 
             if (LoadedSolutions != null && LoadedSolutions.Any())

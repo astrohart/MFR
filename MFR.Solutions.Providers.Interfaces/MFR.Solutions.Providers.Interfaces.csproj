@@ -110,6 +110,7 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILoadedSolutionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -129,6 +130,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
+      <Project>{1A47DA0E-D8A0-44D4-BE58-8ED1044E9138}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
