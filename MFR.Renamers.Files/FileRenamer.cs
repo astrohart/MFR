@@ -1932,6 +1932,10 @@ namespace MFR.Renamers.Files
 
                 result = solution.Unload();
 
+                // Exit Visual Studio but only if we are renaming the Solution folder
+                if (CurrentConfiguration.RenameSolutionFolders)
+                    solution.Dte.Quit();
+
                 OnSolutionClosed(
                     new SolutionClosedEventArgs(solution.FullName)
                 );
@@ -2014,13 +2018,7 @@ namespace MFR.Renamers.Files
                 OnStarted();
 
                 if (!SearchForLoadedSolutions())
-
-                    // Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
-                    // rootDirectoryPathMonitorTicket = Guid.Empty;
                     return;
-
-                // If Visual Studio is open and it currently has the solution
-                // open, then close the solution before we perform the rename operation.
 
                 CloseActiveSolutions();
 
@@ -2035,8 +2033,6 @@ namespace MFR.Renamers.Files
 
                     OnFinished();
 
-                    //Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
-                    //rootDirectoryPathMonitorTicket = Guid.Empty;
                     return;
                 }
 
@@ -2786,8 +2782,6 @@ namespace MFR.Renamers.Files
                  * find a way to be able to rename the folder.
                  */
 
-                AttemptToKillProcessesLockingFolder(source);
-
                 do
                 {
                     try
@@ -2972,7 +2966,7 @@ namespace MFR.Renamers.Files
             foreach (var solution in LoadedSolutions.Where(
                          solution => solution.ShouldReopen
                      ))
-                ReopenSolution(solution);
+                ReopenSolution(solution); 
 
             /* Wait for the solution to be opened/loaded.
                     while (!dte.Solution.IsOpen) Thread.Sleep(50); */
