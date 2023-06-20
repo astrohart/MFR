@@ -1,6 +1,7 @@
 using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
 using MFR.CommandLine.Parsers.Interfaces;
+using MFR.CommandLine.Translators;
 using MFR.Common;
 using MFR.Events;
 using MFR.Events.Common;
@@ -12,6 +13,7 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
+using System.Linq;
 
 namespace MFR.Console
 {
@@ -26,7 +28,9 @@ namespace MFR.Console
         /// interface.
         /// </summary>
         private static ICommandLineParser CommandLineParser
-            => GetCommandLineParser.SoleInstance();
+        {
+            get;
+        } = GetCommandLineParser.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -34,16 +38,10 @@ namespace MFR.Console
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
-        /// </summary>
-        private static IFileRenamer FileRenamer
-            => GetFileRenamer.SoleInstance();
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -51,9 +49,24 @@ namespace MFR.Console
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfiguration
-            ProjectFileRenamerConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
+        /// <remarks>
+        /// This property has a getter and a setter, so that we can initialize it from the
+        /// command line.
+        /// </remarks>
+        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get => ConfigProvider.CurrentConfiguration;
+            set => ConfigProvider.CurrentConfiguration = value;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
+        /// </summary>
+        private static IFileRenamer FileRenamer
+        {
+            get;
+        } = GetFileRenamer.SoleInstance();
 
         /// <summary>
         /// Application entry point.
@@ -67,18 +80,19 @@ namespace MFR.Console
 
                 CommandLineParser.DisplayHelp += OnDisplayHelp;
 
-                ConfigurationProvider.Load();
+                if (args != null && args.Any())
+                {
+                    var cmdInfo = CommandLineParser.Parse(args);
+                    if (cmdInfo != null)
+                        CurrentConfiguration = cmdInfo.ToConfiguration();
+                }
+                else
+                    ConfigProvider.Load();
 
-                FileRenamer.UpdateConfiguration(
-                    ProjectFileRenamerConfiguration
-                );
+                FileRenamer.UpdateConfiguration(CurrentConfiguration);
 
-                FileRenamer.StartingFrom(
-                               ProjectFileRenamerConfiguration.StartingFolder
-                           )
-                           .AndAttachConfiguration(
-                               ProjectFileRenamerConfiguration
-                           );
+                FileRenamer.StartingFrom(CurrentConfiguration.StartingFolder)
+                           .AndAttachConfiguration(CurrentConfiguration);
 
                 FileRenamer.FilesToHaveTextReplacedCounted +=
                     OnFilesToHaveTextReplacedCounted;
@@ -87,11 +101,11 @@ namespace MFR.Console
                 FileRenamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
                 FileRenamer.ProcessAll(
-                    ProjectFileRenamerConfiguration.FindWhat,
-                    ProjectFileRenamerConfiguration.ReplaceWith
+                    CurrentConfiguration.FindWhat,
+                    CurrentConfiguration.ReplaceWith
                 );
 
-                ConfigurationProvider.Save();
+                ConfigProvider.Save();
 
                 Revoke.WindowsMessageFilter();
 
@@ -104,10 +118,12 @@ namespace MFR.Console
         }
 
         private static void OnDisplayHelp(object sender, DisplayHelpEventArgs e)
-            => throw new NotImplementedException();
+            => System.Console.Write(e.HelpText);
 
-        private static void OnFileRenamerProcessingOperation(object sender,
-            ProcessingOperationEventArgs e)
+        private static void OnFileRenamerProcessingOperation(
+            object sender,
+            ProcessingOperationEventArgs e
+        )
         {
             switch (e.OperationType)
             {
@@ -131,12 +147,16 @@ namespace MFR.Console
             }
         }
 
-        private static void OnFileRenamerStatusUpdated(object sender,
-            StatusUpdateEventArgs e)
+        private static void OnFileRenamerStatusUpdated(
+            object sender,
+            StatusUpdateEventArgs e
+        )
             => System.Console.WriteLine(e.Text);
 
-        private static void OnFilesToHaveTextReplacedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private static void OnFilesToHaveTextReplacedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
         {
             switch (e.OperationType)
             {

@@ -5,6 +5,8 @@
 
 - [Delete](#T-MFR-Renamers-Files-Actions-Delete 'MFR.Renamers.Files.Actions.Delete')
   - [File(pathname)](#M-MFR-Renamers-Files-Actions-Delete-File-System-String- 'MFR.Renamers.Files.Actions.Delete.File(System.String)')
+- [List](#T-MFR-Renamers-Files-Actions-List 'MFR.Renamers.Files.Actions.List')
+  - [ProcessesLockingFileSystemEntry(pathname)](#M-MFR-Renamers-Files-Actions-List-ProcessesLockingFileSystemEntry-System-String- 'MFR.Renamers.Files.Actions.List.ProcessesLockingFileSystemEntry(System.String)')
 - [Resources](#T-MFR-Renamers-Files-Actions-Properties-Resources 'MFR.Renamers.Files.Actions.Properties.Resources')
   - [Culture](#P-MFR-Renamers-Files-Actions-Properties-Resources-Culture 'MFR.Renamers.Files.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
@@ -41,6 +43,37 @@ pathname of a file that is to be deleted from the disk. |
 
 If the file having the specified `pathname` does not
 exist, then this method does nothing.
+
+<a name='T-MFR-Renamers-Files-Actions-List'></a>
+## List `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+<a name='M-MFR-Renamers-Files-Actions-List-ProcessesLockingFileSystemEntry-System-String-'></a>
+### ProcessesLockingFileSystemEntry(pathname) `method`
+
+##### Summary
+
+Find out what process(es) have a lock on the specified file.
+
+##### Returns
+
+Processes locking the file
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Path of the file. |
+
+##### Remarks
+
+See also:
+http://msdn.microsoft.com/en-us/library/windows/desktop/aa373661(v=vs.85).aspx
+http://wyupdate.googlecode.com/svn-history/r401/trunk/frmFilesInUse.cs (no
+copyright in code at time of viewing)
 
 <a name='T-MFR-Renamers-Files-Actions-Properties-Resources'></a>
 ## Resources `type`

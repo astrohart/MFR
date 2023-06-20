@@ -1,6 +1,8 @@
 using Alphaleonis.Win32.Filesystem;
+using MFR.Common;
 using MFR.GUI.Application.Factories;
 using MFR.GUI.Application.Interfaces;
+using MFR.GUI.Properties;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
@@ -48,14 +50,6 @@ namespace MFR.GUI
             get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
-        public static void InitializeConfigProvider()
-        {
-            ConfigProvider.ConfigFilePathChanged -=
-                OnConfigProviderConfigFilePathChanged;
-            ConfigProvider.ConfigFilePathChanged +=
-                OnConfigProviderConfigFilePathChanged;
-        }
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -66,11 +60,19 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
-            InitializeConfigProvider();
+            if (!Register.WindowsMessageFilter())
+            {
+                Messages.ShowStopError(
+                    Resources.Error_FailedRegisterWindowsMessageFilter
+                );
+                return;
+            }
 
             SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             Application.WinInit(args);
+
+            Revoke.WindowsMessageFilter();
         }
 
         private static void OnConfigProviderConfigFilePathChanged(

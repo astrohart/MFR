@@ -123,4 +123,9 @@
   <data name="ConfigFilename" xml:space="preserve">
     <value>config.json</value>
   </data>
+  <data name="Error_FailedRegisterWindowsMessageFilter" xml:space="preserve">
+      <value>The application could not perform a crucial initialization step.
+
+The application will now close.</value>
+  </data>
 </root>

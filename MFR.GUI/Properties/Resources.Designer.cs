@@ -77,5 +77,16 @@ namespace MFR.GUI.Properties {
                 return ResourceManager.GetString("Error_ConfigFileNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The application could not perform a crucial initialization step.
+        ///
+        ///The application will now close..
+        /// </summary>
+        public static string Error_FailedRegisterWindowsMessageFilter {
+            get {
+                return ResourceManager.GetString("Error_FailedRegisterWindowsMessageFilter", resourceCulture);
+            }
+        }
     }
 }

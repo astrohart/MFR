@@ -196,8 +196,6 @@ namespace MFR.GUI.Application
             ProfileProvider.Save();
 
             FileStreamProvider.DisposeAll();
-
-            Revoke.WindowsMessageFilter();
         }
 
         /// <summary>
@@ -409,8 +407,6 @@ namespace MFR.GUI.Application
             try
             {
                 SetDisplayParameters();
-
-                Register.WindowsMessageFilter();
 
                 SetUpExceptionHandling();
 

@@ -11,17 +11,28 @@ namespace MFR.Common
         /// <summary>
         /// Registers an OLE Message Filter with the Windows operating system.
         /// </summary>
-        public static void WindowsMessageFilter()
+        /// <returns>
+        /// <see langword="true" /> if the registration attempt succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public static bool WindowsMessageFilter()
         {
+            bool result;
+
             try
             {
-                xyLOGIX.Win32.Messages.Filters.WindowsMessageFilter.Register();
-            } 
+                result = xyLOGIX.Win32.Messages.Filters.WindowsMessageFilter
+                                .Register();
+            }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = false;
             }
+
+            return result;
         }
     }
 }
