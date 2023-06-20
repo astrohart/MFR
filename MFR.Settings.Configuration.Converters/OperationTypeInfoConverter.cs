@@ -1,6 +1,7 @@
 ﻿using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Converters.Interfaces;
 using Newtonsoft.Json;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Settings.Configuration.Converters
@@ -23,6 +24,7 @@ namespace MFR.Settings.Configuration.Converters
     /// will be using, we supply the type parameter in order to let the user of this
     /// class decide for us.
     /// </remarks>
+    [Log(AttributeExclude = true)]
     public class OperationTypeInfoConverter<T> : JsonConverter,
         IOperationTypeInfoConverter<T> where T : IOperationTypeInfo
     {

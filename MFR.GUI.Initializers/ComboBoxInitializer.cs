@@ -1,4 +1,5 @@
 using MFR.GUI.Controls.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace MFR.GUI.Initializers
     /// <summary>
     /// Declares methods that assist in initializing combo boxes.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class ComboBoxInitializer
     {
         /// <summary>

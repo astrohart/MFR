@@ -1,5 +1,6 @@
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace MFR.GUI.Models.Extensions
     /// Exposes static methods that extend the
     /// <see cref="T:MFR.GUI.Models.OperationTypeInfo" /> class.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class OperationTypeInfoHelpers
     {
         /// <summary>
