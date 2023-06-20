@@ -473,12 +473,6 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                var renameSolutionFoldersResult = true;
-                if (CurrentConfiguration.RenameSolutionFolders)
-                    renameSolutionFoldersResult = RenameSolutionFolders(
-                        RootDirectoryPath, findWhat, replaceWith
-                    );
-
                 var renameFilesInFolderResult = true;
                 if (CurrentConfiguration.RenameFilesInFolder)
                     renameFilesInFolderResult = RenameFilesInFolder(
@@ -498,9 +492,15 @@ namespace MFR.Renamers.Files
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
-                result = renameSolutionFoldersResult &&
-                         renameFilesInFolderResult && renameSubFoldersResult &&
-                         replaceTextInFilesResult;
+                var renameSolutionFoldersResult = true;
+                if (CurrentConfiguration.RenameSolutionFolders)
+                    renameSolutionFoldersResult = RenameSolutionFolders(
+                        RootDirectoryPath, findWhat, replaceWith
+                    );
+
+                result = renameFilesInFolderResult && renameSubFoldersResult &&
+                         replaceTextInFilesResult &&
+                         renameSolutionFoldersResult;
             }
             catch (OperationAbortedException ex)
             {

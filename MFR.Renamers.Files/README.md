@@ -21,7 +21,8 @@
   - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
   - [RootDirectoryPathValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathValidator')
-  - [RootFolderPathManager](#P-MFR-Renamers-Files-FileRenamer-RootFolderPathManager 'MFR.Renamers.Files.FileRenamer.RootFolderPathManager')
+  - [SearchDirectories](#P-MFR-Renamers-Files-FileRenamer-SearchDirectories 'MFR.Renamers.Files.FileRenamer.SearchDirectories')
+  - [SearchDirectoryManager](#P-MFR-Renamers-Files-FileRenamer-SearchDirectoryManager 'MFR.Renamers.Files.FileRenamer.SearchDirectoryManager')
   - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
@@ -278,23 +279,24 @@ This object runs validation rules to ensure, among other things, that the
 pathname passed to it is that of a folder that exists on disk, and that
 contains a `.sln` file.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-RootFolderPathManager'></a>
-### RootFolderPathManager `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-SearchDirectories'></a>
+### SearchDirectories `property`
+
+##### Summary
+
+Gets a collection of fully-qualified pathnames of folders found by this object,
+that
+should be searched for projects, files, and folders whose names should be
+changed.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-SearchDirectoryManager'></a>
+### SearchDirectoryManager `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IRootFolderPathManager](#T-MFR-Managers-RootFolders-Interfaces-IRootFolderPathManager 'MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager')
+[ISearchDirectoryManager](#T-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager')
 interface.
-
-##### Remarks
-
-This object manages a collection of strings.
-
-
-
-Individually, the strings are all taken to be the root folder of where our
-search should start for the operation(s) that the user wants us to process.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions'></a>
 ### ShouldReOpenSolutions `property`
