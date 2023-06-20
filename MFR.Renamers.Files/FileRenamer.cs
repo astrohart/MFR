@@ -1801,6 +1801,47 @@ namespace MFR.Renamers.Files
                        .ForMessageId(FileRenamerMessages.FRM_STARTING);
         }
 
+        private static void AttemptToKillProcessesLockingFolder(string pathname)
+        {
+            // Dump the variable pathname to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.AttemptToKillProcessesLockingFolder: pathname = '{pathname}'"
+            );
+
+            if (!Does.FolderExist(pathname)) return;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: Attempting to list the process(es) locking the folder '{pathname}'..."
+            );
+
+            var procs = List.ProcessesLockingFileSystemEntry(pathname);
+            if (procs == null || !procs.Any())
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Warning,
+                    $"*** WARNING: We could not determine what process(es) were locking the folder '{pathname}'."
+                );
+                return;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"*** INFO: {procs.Count} process(es) are locking the folder '{pathname}.  Attempting to terminates them..."
+            );
+
+            foreach (var proc in procs)
+                try
+                {
+                    proc.Kill();
+                }
+                finally
+                {
+                    proc?.Dispose();
+                }
+        }
+
         private void CloseActiveSolutions()
         {
             try
@@ -2732,6 +2773,14 @@ namespace MFR.Renamers.Files
                         OperationType.RenameSolutionFolders
                     )
                 );
+
+                /*
+                 * Attempt to get a list of the process(es) locking the
+                 * pathname folder, and then try to kill them.  We have to
+                 * find a way to be able to rename the folder.
+                 */
+
+                AttemptToKillProcessesLockingFolder(source);
 
                 do
                 {
