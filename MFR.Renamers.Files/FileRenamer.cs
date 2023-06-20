@@ -39,7 +39,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -1620,7 +1619,7 @@ namespace MFR.Renamers.Files
                     if (!Does.FileExist(newSolutionPath)) continue;
 
                     currentSolution.FullName = newSolutionPath;
-                    
+
                     if (currentSolution.WasVisualStudioClosed)
                         currentSolution.Launch();
 
@@ -1733,6 +1732,18 @@ namespace MFR.Renamers.Files
         )
         {
             RootDirectoryPathChanged?.Invoke(this, e);
+
+            // Dump the variable e.OldPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.OnRootDirectoryPathChanged: e.OldPath = '{e.OldPath}'"
+            );
+
+            // Dump the variable e.NewPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.OnRootDirectoryPathChanged: e.NewPath = '{e.NewPath}'"
+            );
 
             if (CurrentConfiguration == null) return;
             if (string.IsNullOrWhiteSpace(CurrentConfiguration.StartingFolder))
@@ -1936,10 +1947,6 @@ namespace MFR.Renamers.Files
                 );
 
                 result = solution.Unload();
-
-                // Exit Visual Studio but only if we are renaming the Solution folder
-                if (CurrentConfiguration.RenameSolutionFolders)
-                    solution.Dte.Quit();
 
                 OnSolutionClosed(
                     new SolutionClosedEventArgs(solution.FullName)
@@ -2781,8 +2788,10 @@ namespace MFR.Renamers.Files
                 // Quit the instance of Visual Studio that formerly had the Solution open
                 foreach (var solution in LoadedSolutions)
                 {
-                    if (!solution.FullName.StartsWith(source)) continue;
+                    if (!solution.FullName.StartsWith(source))
+                        continue;
                     solution.Quit();
+                    break;
                 }
 
                 do
@@ -2809,7 +2818,7 @@ namespace MFR.Renamers.Files
                  */
 
                 if (result)
-                     OnSolutionFolderRenamed(
+                    OnSolutionFolderRenamed(
                         new FolderRenamedEventArgs(
                             source, destination
                         )

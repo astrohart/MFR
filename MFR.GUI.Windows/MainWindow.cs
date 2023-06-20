@@ -42,7 +42,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -128,7 +127,7 @@ namespace MFR.GUI.Windows
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        private IProjectFileRenamerConfiguration CurrentConfiguration
             => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
@@ -305,7 +304,7 @@ namespace MFR.GUI.Windows
         /// Gets or sets a <see cref="T:System.String" /> that is configured as the folder
         /// in which operations are to commence.
         /// </summary>
-        public static string StartingFolder
+        public string StartingFolder
         {
             get => CurrentConfiguration.StartingFolder;
             set => CurrentConfiguration.StartingFolder = value;
@@ -372,20 +371,6 @@ namespace MFR.GUI.Windows
         public void SelectAllOperations()
             => SelectAll = true;
 
-        /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-
-            Presenter.UpdateData();
-        }
-
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
         /// A <see cref="T:System.EventArgs" /> that contains the event
@@ -410,34 +395,6 @@ namespace MFR.GUI.Windows
                 return;
 
             performOperationButton.PerformClick();
-        }
-
-        /// <summary>
-        /// Checks whether the value of the
-        /// <see cref="P:MFR.GUI.Windows.MainWindow.CurrentConfiguration" /> property is
-        /// <see langword="null" />.
-        /// <para />
-        /// If so, then calls the
-        /// <see
-        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load" />
-        /// method to load the application configuration.
-        /// </summary>
-        private static void InitializeConfiguration()
-        {
-            try
-            {
-                if (!ProjectFileRenamerConfiguration.IsBlankOrNull(
-                        CurrentConfiguration
-                    ))
-                    return;
-
-                ConfigProvider.Load();
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         // Give the button a transparent background.
@@ -663,6 +620,42 @@ namespace MFR.GUI.Windows
                     PerformAutoScale();
                 }
             );
+
+        /// <summary>
+        /// Checks whether the value of the
+        /// <see cref="P:MFR.GUI.Windows.MainWindow.CurrentConfiguration" /> property is
+        /// <see langword="null" />.
+        /// <para />
+        /// If so, then calls the
+        /// <see
+        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load" />
+        /// method to load the application configuration.
+        /// </summary>
+        private void InitializeConfiguration()
+        {
+            try
+            {
+                if (!ProjectFileRenamerConfiguration.IsBlankOrNull(
+                        CurrentConfiguration
+                    ))
+                    return;
+
+                ConfigProvider.Load();
+
+                if (ProjectFileRenamerConfiguration.IsBlankOrNull(
+                        CurrentConfiguration
+                    ))
+                    return;
+
+                CurrentConfiguration.StartingFolderChanged +=
+                    OnConfiguredStartingFolderChanged;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Sets up the presenter object and attaches handlers to events that it exposes.
@@ -911,6 +904,12 @@ namespace MFR.GUI.Windows
             (ReplaceWithComboBox.EnteredText, FindWhatComboBox.EnteredText) = (
                 FindWhatComboBox.EnteredText, ReplaceWithComboBox.EnteredText);
         }
+
+        private void OnConfiguredStartingFolderChanged(
+            object sender,
+            EventArgs e
+        )
+            => Presenter?.UpdateData(false);
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
