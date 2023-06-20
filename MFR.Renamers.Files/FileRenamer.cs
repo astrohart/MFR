@@ -94,9 +94,6 @@ namespace MFR.Renamers.Files
         protected FileRenamer()
         {
             IsBusy = false;
-
-            // Remove any extra list elements from memory
-            ((List<IVisualStudioSolution>)LoadedSolutions).TrimExcess();
         }
 
         /// <summary>
