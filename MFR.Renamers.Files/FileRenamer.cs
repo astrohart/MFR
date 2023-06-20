@@ -12,7 +12,6 @@ using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -45,12 +44,14 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
+using Wait = MFR.FileSystem.Factories.Actions.Wait;
 
 namespace MFR.Renamers.Files
 {
@@ -1803,43 +1804,48 @@ namespace MFR.Renamers.Files
 
         private static void AttemptToKillProcessesLockingFolder(string pathname)
         {
-            // Dump the variable pathname to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.AttemptToKillProcessesLockingFolder: pathname = '{pathname}'"
-            );
+            TaskKillProcess("PerfWatson2.exe");
 
             if (!Does.FolderExist(pathname)) return;
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** INFO: Attempting to list the process(es) locking the folder '{pathname}'..."
-            );
-
             var procs = List.ProcessesLockingFileSystemEntry(pathname);
-            if (procs == null || !procs.Any())
+            if (procs == null || !procs.Any()) return;
+
+            try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Warning,
-                    $"*** WARNING: We could not determine what process(es) were locking the folder '{pathname}'."
-                );
-                return;
+                foreach (var proc in procs)
+                    try
+                    {
+                        proc.Kill();
+                    }
+                    finally
+                    {
+                        proc?.Dispose();
+                    }
             }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"*** INFO: {procs.Count} process(es) are locking the folder '{pathname}.  Attempting to terminates them..."
-            );
+        private static void TaskKillProcess(string filename)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(filename)) return;
+                if (!".exe".Equals(Path.GetExtension(filename))) return;
 
-            foreach (var proc in procs)
-                try
-                {
-                    proc.Kill();
-                }
-                finally
-                {
-                    proc?.Dispose();
-                }
+                Run.SystemCommand($"taskkill /IM {filename} /F /T");
+
+                Thread.Sleep(5 * 500);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         private void CloseActiveSolutions()
