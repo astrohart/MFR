@@ -12,6 +12,7 @@ using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
+using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -50,7 +51,6 @@ using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = MFR.FileSystem.Factories.Actions.Does;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
-using Wait = MFR.FileSystem.Factories.Actions.Wait;
 
 namespace MFR.Renamers.Files
 {
@@ -635,7 +635,9 @@ namespace MFR.Renamers.Files
 
                 SearchDirectoryManager.Clear();
 
-                SearchDirectoryManager.Search(rootDirectoryPath);
+                SearchDirectoryManager.Search(
+                    rootDirectoryPath, file => !Should.SkipSolutionFile(file)
+                );
 
                 foreach (var folder in SearchDirectories)
                     DoProcessAll(folder, findWhat, replaceWith, pathFilter);
