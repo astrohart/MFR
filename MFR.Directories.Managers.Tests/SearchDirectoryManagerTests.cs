@@ -48,7 +48,7 @@ namespace MFR.Directories.Managers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories" />
+        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.Search" />
         /// method finds all the folders containing Visual Studio Solution (<c>*.sln</c>)
         /// files in the <c>C:\Users\Brian Hart\source\repos\astrohart</c> top-level
         /// folder, which is known to contain folders.
@@ -60,7 +60,7 @@ namespace MFR.Directories.Managers.Tests
             StartStopwatch();
 
             Assert.DoesNotThrow(
-                () => SearchDirectoryManager.GetSearchDirectories(
+                () => SearchDirectoryManager.Search(
                     Path.Combine(
                         Environment.GetFolderPath(
                             Environment.SpecialFolder.UserProfile
@@ -80,7 +80,7 @@ namespace MFR.Directories.Managers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories" />
+        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.Search" />
         /// method finds all the folders containing Visual Studio Solution (<c>*.sln</c>)
         /// files in the <c>C:\Users\Brian Hart\source\repos\astrohart</c> top-level
         /// folder, which is known to contain folders.
@@ -91,7 +91,7 @@ namespace MFR.Directories.Managers.Tests
             StartStopwatch();
 
             Assert.DoesNotThrow(
-                () => SearchDirectoryManager.GetSearchDirectories(
+                () => SearchDirectoryManager.Search(
                     Path.Combine(
                         Environment.GetFolderPath(
                             Environment.SpecialFolder.UserProfile
@@ -111,7 +111,7 @@ namespace MFR.Directories.Managers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories" />
+        ///     cref="M:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.Search" />
         /// method finds all the folders containing Visual Studio Solution (<c>*.sln</c>)
         /// files in the <c>C:\Users\Brian Hart\source\repos\astrohart</c> top-level
         /// folder, which is known to contain folders.
@@ -123,7 +123,7 @@ namespace MFR.Directories.Managers.Tests
             StartStopwatch();
 
             Assert.DoesNotThrow(
-                () => SearchDirectoryManager.GetSearchDirectories(
+                () => SearchDirectoryManager.Search(
                     Path.Combine(
                         Environment.GetFolderPath(
                             Environment.SpecialFolder.UserProfile

@@ -159,6 +159,14 @@
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
+      <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
+      <Name>MFR.Directories.Managers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Managers.Interfaces\MFR.Directories.Managers.Interfaces.csproj">
+      <Project>{F88A7015-D252-4FFC-A70C-5912B1D6BF45}</Project>
+      <Name>MFR.Directories.Managers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
       <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
       <Name>MFR.Directories.Validators.Factories</Name>
@@ -178,14 +186,6 @@
     <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
       <Project>{0caccbc8-35e7-408a-8a12-970d402d695e}</Project>
       <Name>MFR.FileSystem.Factories.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.RootFolders.Factories\MFR.Managers.RootFolders.Factories.csproj">
-      <Project>{ABF085F2-3E87-46AB-AF16-7B779EFE6C1A}</Project>
-      <Name>MFR.Managers.RootFolders.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
-      <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
-      <Name>MFR.Managers.RootFolders.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.Solutions.Actions\MFR.Managers.Solutions.Actions.csproj">
       <Project>{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}</Project>

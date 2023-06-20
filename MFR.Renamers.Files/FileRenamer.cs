@@ -1,4 +1,6 @@
 using MFR.Constants;
+using MFR.Directories.Managers.Factories;
+using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Replacement.Factories;
@@ -14,8 +16,6 @@ using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;
-using MFR.Managers.RootFolders.Factories;
-using MFR.Managers.RootFolders.Interfaces;
 using MFR.Managers.Solutions.Actions;
 using MFR.Managers.Solutions.Factories;
 using MFR.Managers.Solutions.Interfaces;
@@ -280,21 +280,28 @@ namespace MFR.Renamers.Files
         /// contains a <c>.sln</c> file.
         /// </remarks>
         private static IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
+        {
+            get;
+        } = GetRootDirectoryPathValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets a collection of fully-qualified pathnames of folders found by this object,
+        /// that
+        /// should be searched for projects, files, and folders whose names should be
+        /// changed.
+        /// </summary>
+        private IList<string> SearchDirectories
+            => SearchDirectoryManager.SearchDirectories;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Managers.RootFolders.Interfaces.IRootFolderPathManager" />
+        /// <see cref="T:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager" />
         /// interface.
         /// </summary>
-        /// <remarks>
-        /// This object manages a collection of strings.
-        /// <para />
-        /// Individually, the strings are all taken to be the root folder of where our
-        /// search should start for the operation(s) that the user wants us to process.
-        /// </remarks>
-        private static IRootFolderPathManager RootFolderPathManager
-            => GetRootFolderPathManager.SoleInstance();
+        private static ISearchDirectoryManager SearchDirectoryManager
+        {
+            get;
+        } = GetSearchDirectoryManager.SoleInstance();
 
         /// <summary>
         /// Gets a value determining whether the currently-open solution
@@ -602,20 +609,20 @@ namespace MFR.Renamers.Files
                 /*
                  * OKAY, so the path parameter is understood to contain
                  * the pathname of the folder that is filled in by the user in the
-                 * Starting DoesFolder text box.
+                 * Starting Folder text box.
                  *
                  * In prior versions of this app, that folder was where we would simply
                  * start our file and folder enumerations.  The primary use case of
                  * this software is to be installed into the 'Tools' menu of Visual
                  * Studio as an External Tool and to be configured to have the
                  * folder containing the currently-opened solution inside of its
-                 * Starting DoesFolder text box.  The thinking is that the user wants
+                 * Starting Folder text box.  The thinking is that the user wants
                  * to call up this tool from within Visual Studio in order to do
                  * project-renaming on the currently open solution.
                  *
                  * However, there is a secondary use case: that of launching the tool
                  * from the Start menu, with the option to specify whatever folder
-                 * we like in the Starting DoesFolder text box.  Such a folder may, or
+                 * we like in the Starting Folder text box.  Such a folder may, or
                  * may not, contain a single .sln file.  It may be the root of a
                  * whole directory TREE of solutions, that ALL need name changes.
                  * Say, for instance, we have a whole bunch of projects with the name
@@ -626,17 +633,11 @@ namespace MFR.Renamers.Files
                  * in ALL the subfolders of the folder specified.
                  */
 
-                RootFolderPathManager.Clear();
+                SearchDirectoryManager.Clear();
 
-                RootFolderPathManager.AddFolderIfItContainsASolution(
-                    rootDirectoryPath
-                );
+                SearchDirectoryManager.Search(rootDirectoryPath);
 
-                RootFolderPathManager.AddSolutionSubFoldersOf(
-                    rootDirectoryPath
-                );
-
-                foreach (var folder in RootFolderPathManager.GetAll())
+                foreach (var folder in SearchDirectories)
                     DoProcessAll(folder, findWhat, replaceWith, pathFilter);
             }
             catch (Exception ex)
@@ -1955,16 +1956,6 @@ namespace MFR.Renamers.Files
                 if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
                     return;
 
-                /*
-                rootDirectoryPathMonitorTicket = Monitor
-                                                 .Folder(RootDirectoryPath)
-                                                 .AndCallThisMethodWhenItsRenamed(
-                                                     OnRootDirectoryRenamed
-                                                 );
-                if (rootDirectoryPathMonitorTicket.IsZero())
-                    return; // failed to create directory monitor
-                */
-
                 OnStarted();
 
                 if (!SearchForLoadedSolutions())
@@ -2511,7 +2502,7 @@ namespace MFR.Renamers.Files
                  * absolute pathname, we do the combination with the
                  * ContainingFolder property of the current
                  * FileSystemEntry we are processing.  (The Containing
-                 * DoesFolder property is filled during its construction.)
+                 * Folder property is filled during its construction.)
                  *
                  * This is done because we are operating under the assumption
                  * that the file to be renamed should be left in the same

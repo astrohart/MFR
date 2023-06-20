@@ -10,6 +10,11 @@ namespace MFR.Directories.Managers.Interfaces
     /// </summary>
     public interface ISearchDirectoryManager
     {
+        /// <summary>
+        /// Gets a collection of fully-qualified pathnames of folders found by this object, that
+        /// should be searched for projects, files, and folders whose names should be
+        /// changed.
+        /// </summary>
         IList<string> SearchDirectories
         {
             get;
@@ -27,9 +32,19 @@ namespace MFR.Directories.Managers.Interfaces
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of a folder to scan for Visual Studio Solution (<c>*.sln</c>) files.
         /// </param>
-        void GetSearchDirectories(
+        /// <remarks>
+        /// After this method executes, callers can access the
+        /// <see cref="P:MFR.Directories.Managers.SearchDirectoryManager.SearchDirectories" />
+        /// property in order to access the list of folders that was retrieved.
+        /// </remarks>
+        void Search(
             string pathname,
             Predicate<string> pathFilter = null
         );
+
+        /// <summary>
+        /// Clears the list of search folders.
+        /// </summary>
+        void Clear();
     }
 }
