@@ -44,9 +44,10 @@ namespace MFR.GUI.Dialogs
             this.configPathnameBrowseButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.configPathnameLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.visualStudioTabPage = new System.Windows.Forms.TabPage();
-            this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
+            this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.darkLabel1 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -190,6 +191,7 @@ namespace MFR.GUI.Dialogs
             // visualStudioTabPage
             // 
             this.visualStudioTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.visualStudioTabPage.Controls.Add(this.darkLabel1);
             this.visualStudioTabPage.Controls.Add(this.reOpenSolutionLabel);
             this.visualStudioTabPage.Controls.Add(this.reOpenSolutionCheckBox);
             this.visualStudioTabPage.Location = new System.Drawing.Point(4, 22);
@@ -198,16 +200,6 @@ namespace MFR.GUI.Dialogs
             this.visualStudioTabPage.Size = new System.Drawing.Size(436, 347);
             this.visualStudioTabPage.TabIndex = 1;
             this.visualStudioTabPage.Text = "Visual Studio";
-            // 
-            // reOpenSolutionLabel
-            // 
-            this.reOpenSolutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.reOpenSolutionLabel.IsDarkTheme = false;
-            this.reOpenSolutionLabel.Location = new System.Drawing.Point(42, 14);
-            this.reOpenSolutionLabel.Name = "reOpenSolutionLabel";
-            this.reOpenSolutionLabel.Size = new System.Drawing.Size(331, 38);
-            this.reOpenSolutionLabel.TabIndex = 1;
-            this.reOpenSolutionLabel.Text = "Close and then re-open containing solution before\r\nand after operation(s)";
             // 
             // reOpenSolutionCheckBox
             // 
@@ -226,6 +218,27 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
+            // 
+            // reOpenSolutionLabel
+            // 
+            this.reOpenSolutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.reOpenSolutionLabel.IsDarkTheme = false;
+            this.reOpenSolutionLabel.Location = new System.Drawing.Point(42, 14);
+            this.reOpenSolutionLabel.Name = "reOpenSolutionLabel";
+            this.reOpenSolutionLabel.Size = new System.Drawing.Size(331, 38);
+            this.reOpenSolutionLabel.TabIndex = 1;
+            this.reOpenSolutionLabel.Text = "Close and then re-open containing solution before\r\nand after operation(s)";
+            // 
+            // darkLabel1
+            // 
+            this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkLabel1.IsDarkTheme = false;
+            this.darkLabel1.Location = new System.Drawing.Point(15, 63);
+            this.darkLabel1.Name = "darkLabel1";
+            this.darkLabel1.Size = new System.Drawing.Size(405, 38);
+            this.darkLabel1.TabIndex = 2;
+            this.darkLabel1.Text = "NOTE: This setting is ignored if the Rename Folder(s) that Contain Solution(s) op" +
+    "eration is enabled.";
             // 
             // OptionsDialog
             // 
@@ -272,8 +285,9 @@ namespace MFR.GUI.Dialogs
         private System.Windows.Forms.OpenFileDialog configPathBrowseBox;
         private System.Windows.Forms.TabPage visualStudioTabPage;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox reOpenSolutionCheckBox;
-        private xyLOGIX.UI.Dark.Controls.DarkLabel reOpenSolutionLabel;
         private TabPage generalTabPage;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox autoQuitOnCompletionCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel reOpenSolutionLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel1;
     }
 }
