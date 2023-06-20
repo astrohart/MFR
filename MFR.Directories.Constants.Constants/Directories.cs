@@ -10,6 +10,7 @@ namespace MFR.Directories.Constants
         /// <summary>
         /// The My Documents folder.
         /// </summary>
-        public static readonly string MyDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static readonly string MyDocuments =
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
     }
 }
