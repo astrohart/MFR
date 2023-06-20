@@ -1584,6 +1584,12 @@ namespace MFR.Renamers.Files
         {
             try
             {
+                // Dump the variable oldFolderPath to the log
+                DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: oldFolderPath = '{oldFolderPath}'");
+
+                // Dump the variable newFolderPath to the log
+                DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: newFolderPath = '{newFolderPath}'");
+
                 /*
                  * Now that the folder that the Solution(s) itself are contained
                  * in has been renamed, update the pathname of any of the Solution(s)
@@ -1620,8 +1626,14 @@ namespace MFR.Renamers.Files
 
                     currentSolution.FullName = newSolutionPath;
 
+                    // Dump the variable currentSolution.FullName to the log
+                    DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: currentSolution.FullName = '{currentSolution.FullName}'");
+
+                    // Dump the variable currentSolution.WasVisualStudioClosed to the log
+                    DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: currentSolution.WasVisualStudioClosed = {currentSolution.WasVisualStudioClosed}");
+
                     if (currentSolution.WasVisualStudioClosed)
-                        currentSolution.Launch();
+                        currentSolution.Launch(true);
 
                     break;
                 }
