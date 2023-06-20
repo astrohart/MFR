@@ -39,6 +39,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
@@ -1619,6 +1620,10 @@ namespace MFR.Renamers.Files
                     if (!Does.FileExist(newSolutionPath)) continue;
 
                     currentSolution.FullName = newSolutionPath;
+                    
+                    if (currentSolution.WasVisualStudioClosed)
+                        currentSolution.Launch();
+
                     break;
                 }
             }
@@ -2773,11 +2778,12 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                /*
-                 * Attempt to get a list of the process(es) locking the
-                 * pathname folder, and then try to kill them.  We have to
-                 * find a way to be able to rename the folder.
-                 */
+                // Quit the instance of Visual Studio that formerly had the Solution open
+                foreach (var solution in LoadedSolutions)
+                {
+                    if (!solution.FullName.StartsWith(source)) continue;
+                    solution.Quit();
+                }
 
                 do
                 {
@@ -2803,7 +2809,7 @@ namespace MFR.Renamers.Files
                  */
 
                 if (result)
-                    OnSolutionFolderRenamed(
+                     OnSolutionFolderRenamed(
                         new FolderRenamedEventArgs(
                             source, destination
                         )
