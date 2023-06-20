@@ -2050,9 +2050,6 @@ namespace MFR.Renamers.Files
             finally
             {
                 OnFinished();
-
-                //Dispose.DirectoryMonitor(rootDirectoryPathMonitorTicket);
-                //rootDirectoryPathMonitorTicket = Guid.Empty;
             }
         }
 
