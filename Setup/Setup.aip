@@ -11,11 +11,14 @@
     <ROW Property="ARPHELPLINK" Value="https://www.xylogix.net"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://www.xylogix.net"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://www.xylogix.net"/>
+    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
     <ROW Property="Manufacturer" Value="xyLOGIX, LLC"/>
+    <ROW Property="MsiLogging" MultiBuildValue="DefaultBuild:vp"/>
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
     <ROW Property="ProductVersion" Value="1.0.8570.37622" Options="24"/>
+    <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:Force"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -277,15 +280,31 @@
     <ROW Component="MFR.TextValues.Retrievers.Interfaces.dll" ComponentId="{D8442AC8-68F1-4AD1-B763-3709B705DA4D}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Interfaces.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.dll" ComponentId="{3D53CDF4-2E58-4FE9-A3FA-D6F856A5EA5F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.dll"/>
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{9563E262-DC6C-4C73-93D3-64319D9F2C4C}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
+    <ROW Component="Microsoft" ComponentId="{319D4478-0A2A-444B-BBBA-126C296AA505}" Directory_="APPDIR" Attributes="260" KeyPath="Microsoft"/>
     <ROW Component="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" ComponentId="{59729ED1-2EC3-4546-949D-A0E5B1DED201}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Component="Microsoft.VisualStudio.Interop.dll" ComponentId="{52691F0B-16E2-4155-A1CD-C46F5C5079D0}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Interop.dll"/>
+    <ROW Component="Microsoft_1" ComponentId="{621A170E-FC75-4EBB-820C-9EBAC34D5A68}" Directory_="APPDIR" Attributes="260" KeyPath="Microsoft_1"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{019FC6FC-E60C-482E-A293-DF26F94D23F4}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="OptIn" ComponentId="{4130B5D5-2F56-4EAF-A84E-9E59E598FC50}" Directory_="APPDIR" Attributes="260" KeyPath="OptIn"/>
+    <ROW Component="OptIn_1" ComponentId="{5611534E-1D86-40FD-B742-FD92D1BE456A}" Directory_="APPDIR" Attributes="260" KeyPath="OptIn_1"/>
+    <ROW Component="OptIn_2" ComponentId="{9D8DDB06-7872-4EA9-8490-CE3307BBCBBD}" Directory_="APPDIR" Attributes="260" KeyPath="OptIn_2"/>
+    <ROW Component="OptIn_3" ComponentId="{72368C7E-E474-429A-A6F3-D730BDF69CCF}" Directory_="APPDIR" Attributes="260" KeyPath="OptIn_3"/>
+    <ROW Component="OptIn_4" ComponentId="{771328D0-A730-4F2D-92EB-9BDC1FD25AEF}" Directory_="APPDIR" Attributes="260" KeyPath="OptIn_4"/>
+    <ROW Component="OptIn_5" ComponentId="{5F2CF341-FD1D-41D5-9C82-A0803F520179}" Directory_="APPDIR" Attributes="260" KeyPath="OptIn_5"/>
     <ROW Component="PostSharp.Patterns.Common.dll" ComponentId="{9EEDBB54-1504-4543-A204-EDBCB3393D40}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.Patterns.Common.dll"/>
     <ROW Component="PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll" ComponentId="{E958729B-67A7-465A-98D7-D7D0E81AECC7}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll"/>
     <ROW Component="PostSharp.Patterns.Diagnostics.dll" ComponentId="{D3AB6997-9857-4A1C-A242-3FB49F740535}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.Patterns.Diagnostics.dll"/>
     <ROW Component="PostSharp.dll" ComponentId="{ACDAC411-BE8F-4AE5-BE0D-B02855F54886}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.dll"/>
-    <ROW Component="ProductInformation" ComponentId="{64C5CF90-EF25-442F-89C6-13BE3D0CCEFD}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{BC445822-18B7-4E94-8301-E9F229B2461A}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="VSCommon" ComponentId="{DBDEF70B-FCAB-4A5A-8B5A-FD05530ABE61}" Directory_="APPDIR" Attributes="260" KeyPath="VSCommon"/>
+    <ROW Component="VSCommon_1" ComponentId="{55CADC06-EEF3-4CB1-846F-EE4AB2E5BEC6}" Directory_="APPDIR" Attributes="260" KeyPath="VSCommon_1"/>
+    <ROW Component="Wow6432Node" ComponentId="{1A059E85-AD40-410F-8139-254BA002D091}" Directory_="APPDIR" Attributes="260" KeyPath="Wow6432Node"/>
+    <ROW Component="_" ComponentId="{3A2C8632-5F3D-486A-A574-D1414F49F8AB}" Directory_="APPDIR" Attributes="260" KeyPath="_"/>
+    <ROW Component="__1" ComponentId="{C8405DAD-AF67-4EE2-BD95-8F99DE5A9572}" Directory_="APPDIR" Attributes="260" KeyPath="__1"/>
+    <ROW Component="__2" ComponentId="{8243381A-40BC-4541-923B-FCEF3A0CEDBB}" Directory_="APPDIR" Attributes="260" KeyPath="__2"/>
+    <ROW Component="__3" ComponentId="{5DCEB5B6-0FBF-40CE-8106-B8A9330D8032}" Directory_="APPDIR" Attributes="260" KeyPath="__3"/>
+    <ROW Component="__4" ComponentId="{6F4510D3-E3EF-424A-8760-29C18BAFA8E0}" Directory_="APPDIR" Attributes="260" KeyPath="__4"/>
+    <ROW Component="__5" ComponentId="{BD39BB50-6CCA-49ED-932D-58C407B03079}" Directory_="APPDIR" Attributes="260" KeyPath="__5"/>
     <ROW Component="config.json" ComponentId="{2D390CA6-39A8-4069-BB1D-85094413E849}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
     <ROW Component="log4net.dll" ComponentId="{7538130E-D7A0-4F25-A084-41CE4FB1123F}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
     <ROW Component="mfr.exe" ComponentId="{9132EC2B-533F-4742-A0A3-68CF02698C01}" Directory_="APPDIR" Attributes="256" KeyPath="mfr.exe"/>
@@ -983,7 +1002,7 @@
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true" MsiPackageType="x64"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" ExtUI="true" UseLargeSchema="true" MsiPackageType="x64"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -1041,6 +1060,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_ApplyShortcutFlags" Type="3073" Source="ShortcutFlags.dll" Target="UpdateShortcutFlags" WithoutSeq="true"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
@@ -1051,6 +1071,7 @@
     <ROW Action="AI_PinToStartScreen" Type="1025" Source="ShortcutFlags.dll" Target="PinToStartScreen" WithoutSeq="true"/>
     <ROW Action="AI_PinToTaskbar" Type="1025" Source="ShortcutFlags.dll" Target="PinToTaskbar" WithoutSeq="true"/>
     <ROW Action="AI_PrepareShortcutFlags" Type="1" Source="ShortcutFlags.dll" Target="PrepareActionData"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
@@ -1064,7 +1085,6 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
-    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
     <ROW Feature_="MainFeature" Component_="AlphaFS.dll"/>
     <ROW Feature_="MainFeature" Component_="config.json"/>
     <ROW Feature_="MainFeature" Component_="FluentCommandLineParser.dll"/>
@@ -1381,6 +1401,23 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
+    <ROW Feature_="MainFeature" Component_="Wow6432Node"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft"/>
+    <ROW Feature_="MainFeature" Component_="VSCommon"/>
+    <ROW Feature_="MainFeature" Component_="_"/>
+    <ROW Feature_="MainFeature" Component_="__1"/>
+    <ROW Feature_="MainFeature" Component_="__2"/>
+    <ROW Feature_="MainFeature" Component_="OptIn_2"/>
+    <ROW Feature_="MainFeature" Component_="OptIn"/>
+    <ROW Feature_="MainFeature" Component_="OptIn_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft_1"/>
+    <ROW Feature_="MainFeature" Component_="VSCommon_1"/>
+    <ROW Feature_="MainFeature" Component_="__3"/>
+    <ROW Feature_="MainFeature" Component_="OptIn_3"/>
+    <ROW Feature_="MainFeature" Component_="__4"/>
+    <ROW Feature_="MainFeature" Component_="OptIn_4"/>
+    <ROW Feature_="MainFeature" Component_="__5"/>
+    <ROW Feature_="MainFeature" Component_="OptIn_5"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
@@ -1390,7 +1427,7 @@
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
     <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
-    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_PrepareShortcutFlags" Condition="(VersionNT &gt; 501) AND ((NOT Installed) OR (Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;)))" Sequence="4501"/>
@@ -1403,6 +1440,8 @@
     <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
     <ROW Action="AI_DpiContentScale" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -1411,11 +1450,31 @@
     <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
-    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
-    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
-    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
-    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
-    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+    <ROW Registry="HKEY_LOCAL_MACHINE" Root="2" Key="HKEY_LOCAL_MACHINE" Name="\"/>
+    <ROW Registry="Microsoft" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft" Name="+" Component_="Microsoft"/>
+    <ROW Registry="Microsoft_1" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" Name="+" Component_="Microsoft_1"/>
+    <ROW Registry="OptIn" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM" Name="OptIn" Value="#0" Component_="OptIn" VirtualValue="#"/>
+    <ROW Registry="OptIn_1" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM" Name="OptIn" Value="#0" Component_="OptIn_1" VirtualValue="#"/>
+    <ROW Registry="OptIn_2" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\17.0\SQM" Name="OptIn" Value="#0" Component_="OptIn_2" VirtualValue="#"/>
+    <ROW Registry="OptIn_3" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\15.0\SQM" Name="OptIn" Value="#0" Component_="OptIn_3" VirtualValue="#"/>
+    <ROW Registry="OptIn_4" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\16.0\SQM" Name="OptIn" Value="#0" Component_="OptIn_4" VirtualValue="#"/>
+    <ROW Registry="OptIn_5" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\17.0\SQM" Name="OptIn" Value="#0" Component_="OptIn_5" VirtualValue="#"/>
+    <ROW Registry="SOFTWARE" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE" Name="\"/>
+    <ROW Registry="SQM" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0\SQM" Name="\"/>
+    <ROW Registry="SQM_1" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM" Name="\"/>
+    <ROW Registry="SQM_2" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\17.0\SQM" Name="\"/>
+    <ROW Registry="SQM_3" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\15.0\SQM" Name="\"/>
+    <ROW Registry="SQM_4" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\16.0\SQM" Name="\"/>
+    <ROW Registry="SQM_5" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\17.0\SQM" Name="\"/>
+    <ROW Registry="VSCommon" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon" Name="+" Component_="VSCommon"/>
+    <ROW Registry="VSCommon_1" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon" Name="+" Component_="VSCommon_1"/>
+    <ROW Registry="Wow6432Node" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node" Name="+" Component_="Wow6432Node"/>
+    <ROW Registry="_" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\16.0" Name="+" Component_="_"/>
+    <ROW Registry="__1" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0" Name="+" Component_="__1"/>
+    <ROW Registry="__2" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\17.0" Name="+" Component_="__2"/>
+    <ROW Registry="__3" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\15.0" Name="+" Component_="__3"/>
+    <ROW Registry="__4" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\16.0" Name="+" Component_="__4"/>
+    <ROW Registry="__5" Root="2" Key="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSCommon\17.0" Name="+" Component_="__5"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="mfr" Directory_="SHORTCUTDIR" Name="XYLOGI~1.363|xyLOGIX Project File Renamer [|ProductVersion]" Component_="mfr.exe" Target="[#mfr.exe]" Description="Provides a Find and Replace for Solution Explorer-like utility to make renaming projects in large Visual Studio Solutions a breeze." Hotkey="0" Icon_="mfr.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR" CustomFlags="1"/>
