@@ -1726,6 +1726,16 @@ namespace MFR.Renamers.Files
             RootDirectoryPathChangedEventArgs e
         )
         {
+            RootDirectoryPathChanged?.Invoke(this, e);
+
+            if (CurrentConfiguration == null) return;
+            if (string.IsNullOrWhiteSpace(CurrentConfiguration.StartingFolder))
+                return;
+            if (e == null) return;
+            if (string.IsNullOrWhiteSpace(e.OldPath)) return;
+            if (!e.OldPath.Equals(CurrentConfiguration.StartingFolder)) return;
+            if (!Does.FolderExist(e.NewPath)) return;
+
             /*
              * If the root directory path's old value coincides with the
              * current setting of the StartingFolder property in the
@@ -1739,11 +1749,7 @@ namespace MFR.Renamers.Files
              * by the user in the application configuration.
              */
 
-            if (e.OldPath.Equals(CurrentConfiguration.StartingFolder) &&
-                Does.FolderExist(e.NewPath))
-                CurrentConfiguration.StartingFolder = e.NewPath;
-
-            RootDirectoryPathChanged?.Invoke(this, e);
+            CurrentConfiguration.StartingFolder = e.NewPath;
         }
 
         /// <summary>

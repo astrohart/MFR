@@ -3,6 +3,10 @@
 
 ## Contents
 
+- [ClosingSolutionEventArgs](#T-MFR-Renamers-Files-Events-ClosingSolutionEventArgs 'MFR.Renamers.Files.Events.ClosingSolutionEventArgs')
+  - [#ctor(solution)](#M-MFR-Renamers-Files-Events-ClosingSolutionEventArgs-#ctor-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.Events.ClosingSolutionEventArgs.#ctor(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
+  - [Solution](#P-MFR-Renamers-Files-Events-ClosingSolutionEventArgs-Solution 'MFR.Renamers.Files.Events.ClosingSolutionEventArgs.Solution')
+- [ClosingSolutionEventHandler](#T-MFR-Renamers-Files-Events-ClosingSolutionEventHandler 'MFR.Renamers.Files.Events.ClosingSolutionEventHandler')
 - [CurrentOperationChangedEventArgs](#T-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs 'MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs')
   - [#ctor(newOperationType)](#M-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs-#ctor-MFR-Operations-Constants-OperationType- 'MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs.#ctor(MFR.Operations.Constants.OperationType)')
   - [NewOperationType](#P-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs-NewOperationType 'MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs.NewOperationType')
@@ -15,6 +19,77 @@
   - [NewPath](#P-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs-NewPath 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs.NewPath')
   - [OldPath](#P-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs-OldPath 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs.OldPath')
 - [RootDirectoryPathChangedEventHandler](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventHandler 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventHandler')
+- [SolutionClosedEventArgs](#T-MFR-Renamers-Files-Events-SolutionClosedEventArgs 'MFR.Renamers.Files.Events.SolutionClosedEventArgs')
+  - [#ctor(pathname)](#M-MFR-Renamers-Files-Events-SolutionClosedEventArgs-#ctor-System-String- 'MFR.Renamers.Files.Events.SolutionClosedEventArgs.#ctor(System.String)')
+  - [Pathname](#P-MFR-Renamers-Files-Events-SolutionClosedEventArgs-Pathname 'MFR.Renamers.Files.Events.SolutionClosedEventArgs.Pathname')
+- [SolutionClosedEventHandler](#T-MFR-Renamers-Files-Events-SolutionClosedEventHandler 'MFR.Renamers.Files.Events.SolutionClosedEventHandler')
+
+<a name='T-MFR-Renamers-Files-Events-ClosingSolutionEventArgs'></a>
+## ClosingSolutionEventArgs `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Provides information for `ClosingSolution` event handlers.
+
+##### Remarks
+
+Callers can set the value of the
+[Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
+`true` as a means of stopping the operation from proceeding.
+
+<a name='M-MFR-Renamers-Files-Events-ClosingSolutionEventArgs-#ctor-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
+### #ctor(solution) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[ClosingSolutionEventArgs](#T-MFR-Renamers-Files-Events-ClosingSolutionEventArgs 'MFR.Renamers.Files.Events.ClosingSolutionEventArgs') and returns
+a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| solution | [xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution') | (Required.) Reference to an instance of an object that implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface that represents the Visual Studio Solution (`*.sln`) file that
+is about to be closed/unloaded in a running Visual Studio instance. |
+
+<a name='P-MFR-Renamers-Files-Events-ClosingSolutionEventArgs-Solution'></a>
+### Solution `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface that represents the Visual Studio Solution (`*.sln`) file that
+is about to be closed/unloaded in a running Visual Studio instance.
+
+<a name='T-MFR-Renamers-Files-Events-ClosingSolutionEventHandler'></a>
+## ClosingSolutionEventHandler `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Represents a handler for a `ClosingSolution` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Renamers.Files.Events.ClosingSolutionEventHandler](#T-T-MFR-Renamers-Files-Events-ClosingSolutionEventHandler 'T:MFR.Renamers.Files.Events.ClosingSolutionEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`ClosingSolution` event.
 
 <a name='T-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs'></a>
 ## CurrentOperationChangedEventArgs `type`
@@ -165,3 +240,74 @@ Represents a handler for a `RootDirectoryPathChanged` event.
 
 This delegate merely specifies the signature of all methods that handle the
 `RootDirectoryPathChanged` event.
+
+<a name='T-MFR-Renamers-Files-Events-SolutionClosedEventArgs'></a>
+## SolutionClosedEventArgs `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Provides information for `SolutionClosed` event handlers.
+
+##### Remarks
+
+The `SolutionClosed` event is used to indicate that a running
+instance of Visual Studio has just finished closing/unloading a Visual Studio
+Solution (`*.sln`) file.
+
+<a name='M-MFR-Renamers-Files-Events-SolutionClosedEventArgs-#ctor-System-String-'></a>
+### #ctor(pathname) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[SolutionClosedEventArgs](#T-MFR-Renamers-Files-Events-SolutionClosedEventArgs 'MFR.Renamers.Files.Events.SolutionClosedEventArgs') and returns
+a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a Visual Studio Solution (`*.sln`) file that has just been
+unloaded by a running instance of Visual Studio. |
+
+<a name='P-MFR-Renamers-Files-Events-SolutionClosedEventArgs-Pathname'></a>
+### Pathname `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of the Visual Studio Solution (`*.sln`) file that was most
+recently closed/unloaded by a running instance of Visual Studio.
+
+<a name='T-MFR-Renamers-Files-Events-SolutionClosedEventHandler'></a>
+## SolutionClosedEventHandler `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Represents a handler for a `SolutionClosed` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Renamers.Files.Events.SolutionClosedEventHandler](#T-T-MFR-Renamers-Files-Events-SolutionClosedEventHandler 'T:MFR.Renamers.Files.Events.SolutionClosedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`SolutionClosed` event.
+
+
+
+The `SolutionClosed` event is used to indicate that a running
+instance of Visual Studio has just finished closing/unloading a Visual Studio
+Solution (`*.sln`) file.

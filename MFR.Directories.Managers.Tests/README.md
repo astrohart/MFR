@@ -202,7 +202,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetSearchDirectories](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-GetSearchDirectories 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories')
+[Search](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-Search 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.Search')
 method finds all the folders containing Visual Studio Solution (`*.sln`)
 files in the `C:\Users\Brian Hart\source\repos\astrohart` top-level
 folder, which is known to contain folders.
@@ -217,7 +217,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetSearchDirectories](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-GetSearchDirectories 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories')
+[Search](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-Search 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.Search')
 method finds all the folders containing Visual Studio Solution (`*.sln`)
 files in the `C:\Users\Brian Hart\source\repos\astrohart` top-level
 folder, which is known to contain folders.
@@ -232,7 +232,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[GetSearchDirectories](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-GetSearchDirectories 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.GetSearchDirectories')
+[Search](#M-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager-Search 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager.Search')
 method finds all the folders containing Visual Studio Solution (`*.sln`)
 files in the `C:\Users\Brian Hart\source\repos\astrohart` top-level
 folder, which is known to contain folders.

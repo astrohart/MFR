@@ -9,8 +9,10 @@
 - [SearchDirectoryManager](#T-MFR-Directories-Managers-SearchDirectoryManager 'MFR.Directories.Managers.SearchDirectoryManager')
   - [#ctor()](#M-MFR-Directories-Managers-SearchDirectoryManager-#ctor 'MFR.Directories.Managers.SearchDirectoryManager.#ctor')
   - [Instance](#P-MFR-Directories-Managers-SearchDirectoryManager-Instance 'MFR.Directories.Managers.SearchDirectoryManager.Instance')
+  - [SearchDirectories](#P-MFR-Directories-Managers-SearchDirectoryManager-SearchDirectories 'MFR.Directories.Managers.SearchDirectoryManager.SearchDirectories')
   - [#cctor()](#M-MFR-Directories-Managers-SearchDirectoryManager-#cctor 'MFR.Directories.Managers.SearchDirectoryManager.#cctor')
-  - [GetSearchDirectories(pathname)](#M-MFR-Directories-Managers-SearchDirectoryManager-GetSearchDirectories-System-String,System-Predicate{System-String}- 'MFR.Directories.Managers.SearchDirectoryManager.GetSearchDirectories(System.String,System.Predicate{System.String})')
+  - [Clear()](#M-MFR-Directories-Managers-SearchDirectoryManager-Clear 'MFR.Directories.Managers.SearchDirectoryManager.Clear')
+  - [Search(pathname)](#M-MFR-Directories-Managers-SearchDirectoryManager-Search-System-String,System-Predicate{System-String}- 'MFR.Directories.Managers.SearchDirectoryManager.Search(System.String,System.Predicate{System.String})')
 
 <a name='T-MFR-Directories-Managers-Properties-Resources'></a>
 ## Resources `type`
@@ -70,6 +72,15 @@ Gets a reference to the one and only instance of the object that implements the
 [ISearchDirectoryManager](#T-MFR-Directories-Managers-Interfaces-ISearchDirectoryManager 'MFR.Directories.Managers.Interfaces.ISearchDirectoryManager')
 interface.
 
+<a name='P-MFR-Directories-Managers-SearchDirectoryManager-SearchDirectories'></a>
+### SearchDirectories `property`
+
+##### Summary
+
+Gets a collection of fully-qualified pathnames of folders found by this object, that
+should be searched for projects, files, and folders whose names should be
+changed.
+
 <a name='M-MFR-Directories-Managers-SearchDirectoryManager-#cctor'></a>
 ### #cctor() `method`
 
@@ -81,8 +92,19 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-Directories-Managers-SearchDirectoryManager-GetSearchDirectories-System-String,System-Predicate{System-String}-'></a>
-### GetSearchDirectories(pathname) `method`
+<a name='M-MFR-Directories-Managers-SearchDirectoryManager-Clear'></a>
+### Clear() `method`
+
+##### Summary
+
+Clears the list of search folders.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Directories-Managers-SearchDirectoryManager-Search-System-String,System-Predicate{System-String}-'></a>
+### Search(pathname) `method`
 
 ##### Summary
 
@@ -99,3 +121,9 @@ files.
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a folder to scan for Visual Studio Solution (`*.sln`) files. |
+
+##### Remarks
+
+After this method executes, callers can access the
+[SearchDirectories](#P-MFR-Directories-Managers-SearchDirectoryManager-SearchDirectories 'MFR.Directories.Managers.SearchDirectoryManager.SearchDirectories')
+property in order to access the list of folders that was retrieved.
