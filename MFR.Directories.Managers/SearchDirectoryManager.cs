@@ -10,6 +10,10 @@ using xyLOGIX.Core.Extensions;
 
 namespace MFR.Directories.Managers
 {
+    /// <summary>
+    /// Manages the search folders for performing the operations requested by the user
+    /// to rename projects, files, and folders.
+    /// </summary>
     public class SearchDirectoryManager : ISearchDirectoryManager
     {
         /// <summary>
