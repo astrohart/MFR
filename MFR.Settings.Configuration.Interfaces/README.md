@@ -344,12 +344,6 @@ tabs, of the one that is currently selected.
 Gets or sets a string containing the path to the starting folder of
 the search.
 
-##### Remarks
-
-The
-[](#E-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
-event is raised when this property's value is updated.
-
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderHistory'></a>
 ### StartingFolderHistory `property`
 

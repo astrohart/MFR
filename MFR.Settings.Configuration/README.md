@@ -38,7 +38,7 @@
   - [Equals(obj)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Equals-System-Object- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Equals(System.Object)')
   - [GetHashCode()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-GetHashCode 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.GetHashCode')
   - [IsBlankOrNull(configuration)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [OnStartingFolderChanged(e)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged(MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs)')
+  - [OnStartingFolderChanged()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged')
   - [Reset()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Reset')
 - [Resources](#T-MFR-Settings-Configuration-Properties-Resources 'MFR.Settings.Configuration.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Properties-Resources-Culture 'MFR.Settings.Configuration.Properties.Resources.Culture')
@@ -523,8 +523,8 @@ instance is blank or a `null` reference.
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface that represents the object instance that is to be examined. |
 
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-'></a>
-### OnStartingFolderChanged(e) `method`
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged'></a>
+### OnStartingFolderChanged() `method`
 
 ##### Summary
 
@@ -534,17 +534,7 @@ event.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs') | (Required.) A
-[StartingFolderChangedEventArgs](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs')
-that contains the event's data. |
-
-##### Remarks
-
-This event is supposed to be raised when the value of the
-[StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder')
-property is updated.
+This method has no parameters.
 
 <a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset'></a>
 ### Reset() `method`
