@@ -275,7 +275,7 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ConfigFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath')
+[ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath')
 property. |
 
 <a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-SaveCopyAs-System-String-'></a>
@@ -297,13 +297,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ConfigFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath')
+[ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ConfigFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath')
+[ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Settings-Configuration-Providers-Properties-Resources'></a>
