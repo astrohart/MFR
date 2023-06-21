@@ -958,9 +958,13 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnConfiguredStartingFolderChanged(
             object sender,
-            EventArgs e
+            StartingFolderChangedEventArgs e
         )
-            => this.InvokeIfRequired(DoUpdateConfiguredStartingFolder);
+        {
+            if (e.OldPath.EqualsNoCase(e.NewPath)) return;
+
+            this.InvokeIfRequired(DoUpdateConfiguredStartingFolder);
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
