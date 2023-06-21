@@ -183,14 +183,6 @@ namespace MFR.GUI.Windows.Presenters
             => View.ReplaceWithComboBox;
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
-        /// interface.
-        /// </summary>
-        private static IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
-
-        /// <summary>
         /// Gets the path to the starting folder of the search.
         /// </summary>
         private string StartingFolder
