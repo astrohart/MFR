@@ -227,7 +227,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         event StartingFolderChangedEventHandler StartingFolderChanged;
