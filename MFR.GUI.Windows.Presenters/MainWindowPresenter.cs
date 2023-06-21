@@ -1,5 +1,3 @@
-using MFR.Directories.Validators.Factories;
-using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Constants;
 using MFR.Engines.Interfaces;
 using MFR.Events.Common;
@@ -1087,7 +1085,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             try
             {
-                if (CurrentConfiguration != null) 
+                if (CurrentConfiguration != null)
                     return;
 
                 DebugUtils.WriteLine(
