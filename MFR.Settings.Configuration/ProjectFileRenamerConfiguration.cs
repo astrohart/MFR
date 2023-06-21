@@ -240,8 +240,8 @@ namespace MFR.Settings.Configuration
 
                     result =
                         InvokableOperations[
-                                (int)OperationType.RenameFilesInFolder
-                            ].Enabled;
+                                (int)OperationType.RenameFilesInFolder]
+                            .Enabled;
                 }
                 catch (Exception ex)
                 {
@@ -263,9 +263,8 @@ namespace MFR.Settings.Configuration
                             )
                         )) return;
 
-                    InvokableOperations[
-                            (int)OperationType.RenameFilesInFolder
-                        ].Enabled = value;
+                    InvokableOperations[(int)OperationType.RenameFilesInFolder]
+                        .Enabled = value;
                 }
                 catch (Exception ex)
                 {
@@ -369,9 +368,8 @@ namespace MFR.Settings.Configuration
                             )
                         )) return;
 
-                    InvokableOperations[
-                        (int)OperationType.RenameSubFolders
-                    ].Enabled = value;
+                    InvokableOperations[(int)OperationType.RenameSubFolders]
+                        .Enabled = value;
                 }
                 catch (Exception ex)
                 {
@@ -441,9 +439,8 @@ namespace MFR.Settings.Configuration
                             )
                         )) return;
 
-                    InvokableOperations[
-                        (int)OperationType.ReplaceTextInFiles
-                    ].Enabled = value;
+                    InvokableOperations[(int)OperationType.ReplaceTextInFiles]
+                        .Enabled = value;
                 }
                 catch (Exception ex)
                 {
@@ -494,9 +491,13 @@ namespace MFR.Settings.Configuration
         {
             get => _startingFolder;
             set {
+                var oldValue = _startingFolder;
                 var changed = _startingFolder != value;
                 _startingFolder = value;
-                if (changed) OnStartingFolderChanged();
+                if (changed)
+                    OnStartingFolderChanged(
+                        new StartingFolderChangedEventArgs(oldValue, value)
+                    );
             }
         }
 
@@ -642,7 +643,8 @@ namespace MFR.Settings.Configuration
 
                 ReOpenSolution = true;
 
-                RenameFilesInFolder = RenameSubFolders = ReplaceTextInFiles = true;
+                RenameFilesInFolder =
+                    RenameSubFolders = ReplaceTextInFiles = true;
 
                 MatchCase = true;
                 MatchExactWord = false;
@@ -710,7 +712,20 @@ namespace MFR.Settings.Configuration
         ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
         /// event.
         /// </summary>
-        protected virtual void OnStartingFolderChanged()
-            => StartingFolderChanged?.Invoke(this, EventArgs.Empty);
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs" />
+        /// that contains the event's data.
+        /// </param>
+        /// <remarks>
+        /// This event is supposed to be raised when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder" />
+        /// property is updated.
+        /// </remarks>
+        protected virtual void OnStartingFolderChanged(
+            StartingFolderChangedEventArgs e
+        )
+            => StartingFolderChanged?.Invoke(this, e);
     }
 }
