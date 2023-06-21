@@ -370,6 +370,21 @@ namespace MFR.GUI.Windows
         public void SelectAllOperations()
             => SelectAll = true;
 
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.Windows.Forms.FormClosedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Presenter.UpdateData();
+        }
+
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
         /// A <see cref="T:System.EventArgs" /> that contains the event
@@ -621,7 +636,7 @@ namespace MFR.GUI.Windows
             );
 
         /// <summary>
-        /// Responds to the event that the value of the value of the 
+        /// Responds to the event that the value of the value of the
         /// </summary>
         private void DoUpdateConfiguredStartingFolder()
         {
