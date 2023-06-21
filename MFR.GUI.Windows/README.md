@@ -35,6 +35,7 @@
   - [DeselectAllOperations()](#M-MFR-GUI-Windows-MainWindow-DeselectAllOperations 'MFR.GUI.Windows.MainWindow.DeselectAllOperations')
   - [Dispose(disposing)](#M-MFR-GUI-Windows-MainWindow-Dispose-System-Boolean- 'MFR.GUI.Windows.MainWindow.Dispose(System.Boolean)')
   - [DoInitializeWindow()](#M-MFR-GUI-Windows-MainWindow-DoInitializeWindow 'MFR.GUI.Windows.MainWindow.DoInitializeWindow')
+  - [DoUpdateConfiguredStartingFolder()](#M-MFR-GUI-Windows-MainWindow-DoUpdateConfiguredStartingFolder 'MFR.GUI.Windows.MainWindow.DoUpdateConfiguredStartingFolder')
   - [DoesDirectoryContainSolutionFile(path)](#M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String- 'MFR.GUI.Windows.MainWindow.DoesDirectoryContainSolutionFile(System.String)')
   - [InitializeComponent()](#M-MFR-GUI-Windows-MainWindow-InitializeComponent 'MFR.GUI.Windows.MainWindow.InitializeComponent')
   - [InitializeConfiguration()](#M-MFR-GUI-Windows-MainWindow-InitializeConfiguration 'MFR.GUI.Windows.MainWindow.InitializeConfiguration')
@@ -43,6 +44,7 @@
   - [OnClickBrowseForStartingFolder(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickBrowseForStartingFolder-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickBrowseForStartingFolder(System.Object,System.EventArgs)')
   - [OnClickPerformOperation(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickPerformOperation-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickPerformOperation(System.Object,System.EventArgs)')
   - [OnClickSwitchButton(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickSwitchButton-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickSwitchButton(System.Object,System.EventArgs)')
+  - [OnConfiguredStartingFolderChanged(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnConfiguredStartingFolderChanged-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnConfiguredStartingFolderChanged(System.Object,System.EventArgs)')
   - [OnFileExit(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFileExit-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnFileExit(System.Object,System.EventArgs)')
   - [OnFormFolded(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFormFolded-System-Object,MFR-GUI-Controls-Events-FormFoldedEventArgs- 'MFR.GUI.Windows.MainWindow.OnFormFolded(System.Object,MFR.GUI.Controls.Events.FormFoldedEventArgs)')
   - [OnHelpAbout(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpAbout-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpAbout(System.Object,System.EventArgs)')
@@ -424,6 +426,17 @@ Carries out a series of actions to initialize the GUI.
 
 This method has no parameters.
 
+<a name='M-MFR-GUI-Windows-MainWindow-DoUpdateConfiguredStartingFolder'></a>
+### DoUpdateConfiguredStartingFolder() `method`
+
+##### Summary
+
+Responds to the event that the value of the value of the
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String-'></a>
 ### DoesDirectoryContainSolutionFile(path) `method`
 
@@ -575,6 +588,31 @@ raised by the Switch button.
 
 This method responds by switching the contents of the Find What and
 Replace With combo boxes.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnConfiguredStartingFolderChanged-System-Object,System-EventArgs-'></a>
+### OnConfiguredStartingFolderChanged(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
+event raised by the object instance that represents the currently-loaded
+application configuration..
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by invoking the
+[DoUpdateConfiguredStartingFolder](#M-MFR-GUI-Windows-MainWindow-DoUpdateConfiguredStartingFolder 'MFR.GUI.Windows.MainWindow.DoUpdateConfiguredStartingFolder')
+method, and, if required, marshaling the method call to the UI thread..
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnFileExit-System-Object,System-EventArgs-'></a>
 ### OnFileExit(sender,e) `method`
