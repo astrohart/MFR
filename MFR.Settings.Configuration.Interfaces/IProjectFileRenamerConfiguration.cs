@@ -202,6 +202,12 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a string containing the path to the starting folder of
         /// the search.
         /// </summary>
+        /// <remarks>
+        /// The
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged" />
+        /// event is raised when this property's value is updated.
+        /// </remarks>
         string StartingFolder
         {
             get;
@@ -221,7 +227,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         event StartingFolderChangedEventHandler StartingFolderChanged;

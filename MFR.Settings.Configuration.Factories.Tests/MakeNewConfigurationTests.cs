@@ -15,7 +15,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Settings.ProjectFileRenamerConfiguration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch" />
+        ///     cref="M:MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch" />
         /// method returns a reference to an instance of an object that is (a) non-
         /// <see langword="null" />, (b) an instance of the
         /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />

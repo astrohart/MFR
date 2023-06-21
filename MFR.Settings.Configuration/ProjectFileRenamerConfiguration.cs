@@ -514,7 +514,7 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
@@ -707,7 +707,7 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
+        ///     cref="E:MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
         /// event.
         /// </summary>
         protected virtual void OnStartingFolderChanged()

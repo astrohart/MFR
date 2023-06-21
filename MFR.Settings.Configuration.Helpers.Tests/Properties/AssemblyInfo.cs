@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Unit Tests Library for MFR.Settings.ProjectFileRenamerConfiguration.Helpers.Tests")]
+[assembly: AssemblyTitle("xyLOGIX Unit Tests Library for MFR.Settings.Configuration.Helpers.Tests")]
 [assembly: AssemblyDescription("Provides unit tests for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MFR.Settings.ProjectFileRenamerConfiguration.Helpers.Tests")]
+[assembly: AssemblyProduct("MFR.Settings.Configuration.Helpers.Tests")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]

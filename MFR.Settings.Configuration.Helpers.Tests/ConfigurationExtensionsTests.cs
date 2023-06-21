@@ -22,11 +22,11 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
         /// enum value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="true" /> and whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="true" />.
         /// </summary>
@@ -51,11 +51,11 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// enum
         /// value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="true" /> and whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="false" />.
         /// </summary>
@@ -79,11 +79,11 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         ///     cref="T:MFR.TextMatchingConfiguration.MatchExactWordOnly" />
         /// enum value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="false" /> and whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="true" />.
         /// </summary>
@@ -107,11 +107,11 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         ///     cref="T:MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
         /// enum value for a configuration object whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
         /// <see langword="false" /> and whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// property is set
         /// to <see langword="false" />.
         /// </summary>

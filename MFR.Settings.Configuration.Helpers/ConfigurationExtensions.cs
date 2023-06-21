@@ -69,10 +69,10 @@ namespace MFR.Settings.Configuration.Helpers
         /// The <see cref="T:MFR.TextMatchingConfiguration" /> value that
         /// corresponds to the values of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// and
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// properties.
         /// </returns>
         public static TextMatchingConfiguration GetTextMatchingConfiguration(

@@ -615,7 +615,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
