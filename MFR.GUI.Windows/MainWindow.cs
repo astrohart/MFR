@@ -57,7 +57,7 @@ namespace MFR.GUI.Windows
     /// <summary>
     /// Displays the main window of the application.
     /// </summary>
-    public partial class MainWindow : DarkForm, IMainWindow
+    public partial class MainWindow : ResponsiveFormBase, IMainWindow
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -621,6 +621,9 @@ namespace MFR.GUI.Windows
                 }
             );
 
+        /// <summary>
+        /// Responds to the event that the value of the value of the 
+        /// </summary>
         private void DoUpdateConfiguredStartingFolder()
         {
             Presenter.UpdateData(false);

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Windows
 {
@@ -10,7 +11,7 @@ namespace MFR.GUI.Windows
     /// This class is designed to be inherited from when you need a Windows Form to
     /// look the same on monitors of different resolutions.
     /// </summary>
-    public class ResponsiveFormBase : Form
+    public class ResponsiveFormBase : DarkForm
     {
         /// <summary>
         /// Reference to an instance of <see cref="T:MFR.GUI.Windows.Actions.Responsive" />
