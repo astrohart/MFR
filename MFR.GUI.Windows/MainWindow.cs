@@ -621,6 +621,20 @@ namespace MFR.GUI.Windows
                 }
             );
 
+        private void DoUpdateConfiguredStartingFolder()
+        {
+            Presenter.UpdateData(false);
+
+            // Make sure we're getting a valid folder
+            if (!RootDirectoryPathValidator.Validate(
+                    CurrentConfiguration.StartingFolder
+                )) return;
+
+            StartingFolderComboBox.Items.AddDistinct(
+                CurrentConfiguration.StartingFolder
+            );
+        }
+
         /// <summary>
         /// Checks whether the value of the
         /// <see cref="P:MFR.GUI.Windows.MainWindow.CurrentConfiguration" /> property is
@@ -905,23 +919,31 @@ namespace MFR.GUI.Windows
                 FindWhatComboBox.EnteredText, ReplaceWithComboBox.EnteredText);
         }
 
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged" />
+        /// event raised by the object instance that represents the currently-loaded
+        /// application configuration..
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by invoking the
+        /// <see cref="M:MFR.GUI.Windows.MainWindow.DoUpdateConfiguredStartingFolder" />
+        /// method, and, if required, marshaling the method call to the UI thread..
+        /// </remarks>
         private void OnConfiguredStartingFolderChanged(
             object sender,
             EventArgs e
         )
-        {
-            Presenter.UpdateData(false);
-
-            // Make sure we're getting a valid folder
-            if (!RootDirectoryPathValidator.Validate(
-                    CurrentConfiguration.StartingFolder
-                )) return;
-
-            StartingFolderComboBox.Items.AddDistinct(
-                CurrentConfiguration.StartingFolder
-            );
-
-        }
+            => this.InvokeIfRequired(DoUpdateConfiguredStartingFolder);
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
