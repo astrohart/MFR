@@ -909,7 +909,19 @@ namespace MFR.GUI.Windows
             object sender,
             EventArgs e
         )
-            => Presenter?.UpdateData(false);
+        {
+            Presenter.UpdateData(false);
+
+            // Make sure we're getting a valid folder
+            if (!RootDirectoryPathValidator.Validate(
+                    CurrentConfiguration.StartingFolder
+                )) return;
+
+            StartingFolderComboBox.Items.AddDistinct(
+                CurrentConfiguration.StartingFolder
+            );
+
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />

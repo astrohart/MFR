@@ -1095,20 +1095,15 @@ namespace MFR.GUI.Windows.Presenters
         {
             try
             {
-                if (CurrentConfiguration == null)
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        "*** ERROR *** The CurrentConfiguration property has a null reference for a value."
-                    );
-
+                if (CurrentConfiguration != null) 
                     return;
-                }
 
-                CurrentConfiguration.StartingFolderChanged -=
-                    OnConfigurationStartingFolderChanged;
-                CurrentConfiguration.StartingFolderChanged +=
-                    OnConfigurationStartingFolderChanged;
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR *** The CurrentConfiguration property has a null reference for a value."
+                );
+
+                return;
             }
             catch (Exception ex)
             {
@@ -1161,43 +1156,6 @@ namespace MFR.GUI.Windows.Presenters
             EventArgs e
         )
             => FileRenamer.RequestAbort();
-
-        /// <summary>
-        /// Handles the
-        /// <see
-        ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged" />
-        /// event raised by the configuration object.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the
-        /// event.
-        /// </param>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        /// <remarks>
-        /// This method responds by checking whether the entry is a valid folder
-        /// pathname; if so, then the folder pathname is added to the history of
-        /// starting-folder entries in the history.
-        /// <para />
-        /// Starting-folder pathname entries aren't added to the configuration's history
-        /// list if an entry having the same content already exists in the history.
-        /// </remarks>
-        private void OnConfigurationStartingFolderChanged(
-            object sender,
-            EventArgs e
-        )
-        {
-            // Make sure we're getting a valid folder
-            if (!RootDirectoryPathValidator.Validate(
-                    CurrentConfiguration.StartingFolder
-                )) return;
-
-            StartingFolderComboBox.Items.AddDistinct(
-                CurrentConfiguration.StartingFolder
-            );
-        }
 
         /// <summary>
         /// This method is called when the Operation Engine sends the
