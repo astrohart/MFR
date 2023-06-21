@@ -39,7 +39,7 @@ namespace MFR.Settings.Configuration.Events
         }
 
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> tha contains the former value of the
+        /// Gets a <see cref="T:System.String" /> that contains the former value of the
         /// fully-qualified pathname of the folder in which this application's operations
         /// are started.
         /// </summary>
