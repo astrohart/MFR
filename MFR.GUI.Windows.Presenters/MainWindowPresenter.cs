@@ -983,7 +983,7 @@ namespace MFR.GUI.Windows.Presenters
             SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
                                                     .ForMessageId(
                                                         MainWindowPresenterMessages
-                                                            .MWP_DATA_OPERAITON_ERROR
+                                                            .MWP_DATA_OPERATION_ERROR
                                                     );
         }
 
@@ -1005,7 +1005,7 @@ namespace MFR.GUI.Windows.Presenters
         protected virtual void OnDataOperationFinished()
         {
             DataOperationFinished?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
+            SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(
                            MainWindowPresenterMessages
                                .MWP_DATA_OPERATION_FINISHED

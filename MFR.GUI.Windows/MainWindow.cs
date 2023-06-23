@@ -717,7 +717,7 @@ namespace MFR.GUI.Windows
                 throw new InvalidOperationException(
                     "Failed to initialize the main application window."
                 );
-            NewMessageMapping.Associate.WithMessageId(
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
                                  MainWindowPresenterMessages
                                      .MWP_ALL_HISTORY_CLEARED
                              )
@@ -743,7 +743,7 @@ namespace MFR.GUI.Windows
                         .MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED
                 )
                 .AndEventHandler(OnPresenterCreateNewBlankProfileRequested);
-            NewMessageMapping.Associate.WithMessageId(
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
                                  MainWindowPresenterMessages
                                      .MWP_DATA_OPERATION_FINISHED
                              )

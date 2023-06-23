@@ -47,6 +47,7 @@
   - [OnSolutionClosed(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionClosed-MFR-Renamers-Files-Events-SolutionClosedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionClosed(MFR.Renamers.Files.Events.SolutionClosedEventArgs)')
   - [OnSolutionFolderRenamed(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFolderRenamed-MFR-Events-FolderRenamedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFolderRenamed(MFR.Events.FolderRenamedEventArgs)')
   - [OnSolutionFoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionFoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionFoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
+  - [OnSolutionOpenFailed(e)](#M-MFR-Renamers-Files-FileRenamer-OnSolutionOpenFailed-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSolutionOpenFailed(MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs)')
   - [OnStarted()](#M-MFR-Renamers-Files-FileRenamer-OnStarted 'MFR.Renamers.Files.FileRenamer.OnStarted')
   - [OnStarting()](#M-MFR-Renamers-Files-FileRenamer-OnStarting 'MFR.Renamers.Files.FileRenamer.OnStarting')
   - [OnStatusUpdate(e)](#M-MFR-Renamers-Files-FileRenamer-OnStatusUpdate-MFR-Events-Common-StatusUpdateEventArgs- 'MFR.Renamers.Files.FileRenamer.OnStatusUpdate(MFR.Events.Common.StatusUpdateEventArgs)')
@@ -728,6 +729,22 @@ event.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
+contains the event data. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-OnSolutionOpenFailed-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs-'></a>
+### OnSolutionOpenFailed(e) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-Renamers-Files-FileRenamer-SolutionOpenFailed 'MFR.Renamers.Files.FileRenamer.SolutionOpenFailed')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs](#T-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs 'MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs') | (Required.) A
+[SolutionOpenFailedEventArgs](#T-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs 'MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs') that
 contains the event data. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnStarted'></a>
