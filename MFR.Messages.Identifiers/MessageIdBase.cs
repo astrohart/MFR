@@ -1,51 +1,10 @@
 ﻿using System;
-using xyLOGIX.Core.Debug;
 
-namespace MFR.Engines.Constants
+namespace MFR.Messages.Identifiers
 {
     /// <summary>
-    /// Defines the publicly-exposed methods and properties of a message ID object.
+    /// Defines the events, methods, properties, and behaviors for all message identifier objects.
     /// </summary>
-    /// <remarks>These objects uniquely identify messages and also give them names.</remarks>
-    public interface IMessageId
-    {
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.Guid" /> value that uniquely identifies the
-        /// message.
-        /// </summary>
-        Guid MessageId
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> that names this message
-        /// identifier.
-        /// </summary>
-        string Name
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Determines whether the value of the
-        /// <see
-        ///     cref="P:MFR.Engines.Constants.OperationEngineMessageId.OperationEngineMessageId" />
-        /// property is set
-        /// to the Zero GUID.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the value of the
-        /// <see
-        ///     cref="P:MFR.Engines.Constants.OperationEngineMessageId.OperationEngineMessageId" />
-        /// property is set
-        /// to the Zero GUID; <see langword="false" /> otherwise.
-        /// </returns>
-        bool IsZero();
-    }
-
     public class MessageIdBase : IMessageId
     {
         /// <summary>
