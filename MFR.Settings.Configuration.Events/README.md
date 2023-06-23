@@ -210,7 +210,7 @@ are started.
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') tha contains the former value of the
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the former value of the
 fully-qualified pathname of the folder in which this application's operations
 are started.
 

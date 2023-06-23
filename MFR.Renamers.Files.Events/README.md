@@ -27,6 +27,10 @@
   - [#ctor(pathname)](#M-MFR-Renamers-Files-Events-SolutionClosedEventArgs-#ctor-System-String- 'MFR.Renamers.Files.Events.SolutionClosedEventArgs.#ctor(System.String)')
   - [Pathname](#P-MFR-Renamers-Files-Events-SolutionClosedEventArgs-Pathname 'MFR.Renamers.Files.Events.SolutionClosedEventArgs.Pathname')
 - [SolutionClosedEventHandler](#T-MFR-Renamers-Files-Events-SolutionClosedEventHandler 'MFR.Renamers.Files.Events.SolutionClosedEventHandler')
+- [SolutionOpenFailedEventArgs](#T-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs 'MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs')
+  - [#ctor(exception)](#M-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs-#ctor-System-Exception- 'MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs.#ctor(System.Exception)')
+  - [Exception](#P-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs-Exception 'MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs.Exception')
+- [SolutionOpenFailedEventHandler](#T-MFR-Renamers-Files-Events-SolutionOpenFailedEventHandler 'MFR.Renamers.Files.Events.SolutionOpenFailedEventHandler')
 
 <a name='T-MFR-Renamers-Files-Events-ClosingSolutionEventArgs'></a>
 ## ClosingSolutionEventArgs `type`
@@ -378,3 +382,66 @@ This delegate merely specifies the signature of all methods that handle the
 The `SolutionClosed` event is used to indicate that a running
 instance of Visual Studio has just finished closing/unloading a Visual Studio
 Solution (`*.sln`) file.
+
+<a name='T-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs'></a>
+## SolutionOpenFailedEventArgs `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Provides information for `SolutionOpenFailed` event handlers.
+
+<a name='M-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs-#ctor-System-Exception-'></a>
+### #ctor(exception) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[SolutionOpenFailedEventArgs](#T-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs 'MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs') and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | (Required.) A [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception')
+instance that explains why the failure happened. |
+
+<a name='P-MFR-Renamers-Files-Events-SolutionOpenFailedEventArgs-Exception'></a>
+### Exception `property`
+
+##### Summary
+
+Gets a [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') instance that explains why the failure
+happened.
+
+<a name='T-MFR-Renamers-Files-Events-SolutionOpenFailedEventHandler'></a>
+## SolutionOpenFailedEventHandler `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Represents a handler for a `SolutionOpenFailed` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Renamers.Files.Events.SolutionOpenFailedEventHandler](#T-T-MFR-Renamers-Files-Events-SolutionOpenFailedEventHandler 'T:MFR.Renamers.Files.Events.SolutionOpenFailedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`SolutionOpenFailed` event.
+
+
+
+Such an event is typically raised in the event that the attempt to open a
+Visual Studio Solution (`*.sln`) file in a running instance of Visual
+Studio has failed.

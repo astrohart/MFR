@@ -3,6 +3,12 @@
 
 ## Contents
 
+- [OperationEngineMessageId](#T-MFR-Engines-Constants-OperationEngineMessageId 'MFR.Engines.Constants.OperationEngineMessageId')
+  - [MessageId](#P-MFR-Engines-Constants-OperationEngineMessageId-MessageId 'MFR.Engines.Constants.OperationEngineMessageId.MessageId')
+  - [Name](#P-MFR-Engines-Constants-OperationEngineMessageId-Name 'MFR.Engines.Constants.OperationEngineMessageId.Name')
+  - [IsZero()](#M-MFR-Engines-Constants-OperationEngineMessageId-IsZero 'MFR.Engines.Constants.OperationEngineMessageId.IsZero')
+  - [ToString()](#M-MFR-Engines-Constants-OperationEngineMessageId-ToString 'MFR.Engines.Constants.OperationEngineMessageId.ToString')
+  - [op_Implicit(id)](#M-MFR-Engines-Constants-OperationEngineMessageId-op_Implicit-MFR-Engines-Constants-OperationEngineMessageId-~System-Guid 'MFR.Engines.Constants.OperationEngineMessageId.op_Implicit(MFR.Engines.Constants.OperationEngineMessageId)~System.Guid')
 - [OperationEngineMessages](#T-MFR-Engines-Constants-OperationEngineMessages 'MFR.Engines.Constants.OperationEngineMessages')
   - [OE_OPERATION_ERROR](#F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_ERROR 'MFR.Engines.Constants.OperationEngineMessages.OE_OPERATION_ERROR')
   - [OE_PROCESSING_FINISHED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_FINISHED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_FINISHED')
@@ -15,6 +21,83 @@
 - [Resources](#T-MFR-Engines-Constants-Properties-Resources 'MFR.Engines.Constants.Properties.Resources')
   - [Culture](#P-MFR-Engines-Constants-Properties-Resources-Culture 'MFR.Engines.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Constants-Properties-Resources-ResourceManager 'MFR.Engines.Constants.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Engines-Constants-OperationEngineMessageId'></a>
+## OperationEngineMessageId `type`
+
+##### Namespace
+
+MFR.Engines.Constants
+
+##### Summary
+
+Encapsulates a unique identifier for a message, as well as its name.
+
+<a name='P-MFR-Engines-Constants-OperationEngineMessageId-MessageId'></a>
+### MessageId `property`
+
+##### Summary
+
+Gets or sets a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that uniquely identifies the
+message.
+
+<a name='P-MFR-Engines-Constants-OperationEngineMessageId-Name'></a>
+### Name `property`
+
+##### Summary
+
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that names this message
+identifier.
+
+<a name='M-MFR-Engines-Constants-OperationEngineMessageId-IsZero'></a>
+### IsZero() `method`
+
+##### Summary
+
+Determines whether the value of the
+[MessageId](#P-MFR-Engines-Constants-OperationEngineMessageId-MessageId 'MFR.Engines.Constants.OperationEngineMessageId.MessageId') property is set
+to the Zero GUID.
+
+##### Returns
+
+`true` if the value of the
+[MessageId](#P-MFR-Engines-Constants-OperationEngineMessageId-MessageId 'MFR.Engines.Constants.OperationEngineMessageId.MessageId') property is set
+to the Zero GUID; `false` otherwise.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Engines-Constants-OperationEngineMessageId-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns a string that represents the current object.
+
+##### Returns
+
+A string that represents the current object.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Engines-Constants-OperationEngineMessageId-op_Implicit-MFR-Engines-Constants-OperationEngineMessageId-~System-Guid'></a>
+### op_Implicit(id) `method`
+
+##### Summary
+
+s
+Allows us to pass instances of this class to methods that accept a
+[Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') as an input parameter.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| id | [MFR.Engines.Constants.OperationEngineMessageId)~System.Guid](#T-MFR-Engines-Constants-OperationEngineMessageId-~System-Guid 'MFR.Engines.Constants.OperationEngineMessageId)~System.Guid') | (Required.) Reference to an instance of
+[OperationEngineMessageId](#T-MFR-Engines-Constants-OperationEngineMessageId 'MFR.Engines.Constants.OperationEngineMessageId') to be converted. |
 
 <a name='T-MFR-Engines-Constants-OperationEngineMessages'></a>
 ## OperationEngineMessages `type`
