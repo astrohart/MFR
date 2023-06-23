@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace MFR.TextValues.Retrievers.Actions.Interfaces
+namespace MFR.TextValues.Retrievers.Synchronization.Interfaces
 {
     public interface ISemaphoreLocker
     {

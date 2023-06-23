@@ -1,6 +1,4 @@
-﻿using MFR.TextValues.Retrievers.Actions.Interfaces;
-
-namespace MFR.TextValues.Retrievers.Actions.Factories
+﻿namespace MFR.TextValues.Retrievers.Synchronization.Factories
 {
     /// <summary>
     /// Provides access to the one and only instance of the object that implements the
