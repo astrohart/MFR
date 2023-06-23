@@ -610,7 +610,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Events", "MFR.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Actions", "MFR.Engines.Actions\MFR.Engines.Actions.csproj", "{AAA05D77-6BDD-43CD-83F3-1ADC63788569}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines", "MFR.Engines\MFR.Engines.csproj", "{C4FED481-3267-49D5-ABB8-3D5934162477}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Operations", "MFR.Engines\MFR.Engines.Operations.csproj", "{C4FED481-3267-49D5-ABB8-3D5934162477}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Constants", "MFR.Engines.Constants\MFR.Engines.Constants.csproj", "{6991D784-1E07-471C-BA54-CB9C1A723D09}"
 EndProject

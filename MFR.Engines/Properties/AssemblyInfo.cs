@@ -4,14 +4,14 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Rename Operation Engines Component")]
+[assembly: AssemblyTitle("MFR.Engines.Operations")]
 [assembly: AssemblyDescription("Provides an object that can be used from anywhere in the software system itself, to invoke the file and folder renaming operations, as well as those operations to update the contents of solution and project files, that the user has specified.  This particular library holds the concrete classes and implementations of the component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer Operation Engine Library")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2022 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2022-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software is a component of xyLOGIX Project File Renamer.  xyLOGIX Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
