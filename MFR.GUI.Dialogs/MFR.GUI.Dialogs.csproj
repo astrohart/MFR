@@ -218,10 +218,6 @@
       <Project>{D6A72CC5-D530-4204-BF5E-2B126CF28CCA}</Project>
       <Name>xyLOGIX.Forms.DarkTheme.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
-      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
-      <Name>xyLOGIX.Queues.Messages</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
       <Project>{A63CA76D-B2B3-42F7-A6C3-78E980B4C629}</Project>
       <Name>xyLOGIX.UI.Dark.Controls.Interfaces</Name>
