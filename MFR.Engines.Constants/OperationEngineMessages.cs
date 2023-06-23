@@ -1,4 +1,5 @@
 ﻿using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Constants
 {
@@ -40,5 +41,40 @@ namespace MFR.Engines.Constants
                 MessageId = Guid.NewGuid(),
                 Name = "OE_ROOT_DIRECTORY_PATH_UPDATED"
             };
+
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.Engines.Constants.OperationEngineMessages" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// </remarks>
+        static OperationEngineMessages()
+        {
+            // Dump the variable OE_OPERATION_ERROR to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"OperationEngineMessages.OperationEngineMessages: OE_OPERATION_ERROR = '{OE_OPERATION_ERROR}'"
+            );
+
+            // Dump the variable OE_PROCESSING_FINISHED to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"OperationEngineMessages.OperationEngineMessages: OE_PROCESSING_FINISHED = '{OE_PROCESSING_FINISHED}'"
+            );
+
+            // Dump the variable OE_PROCESSING_STARTED to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"OperationEngineMessages.OperationEngineMessages: OE_PROCESSING_STARTED = '{OE_PROCESSING_STARTED}'"
+            );
+
+            // Dump the variable OE_ROOT_DIRECTORY_PATH_UPDATED to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"OperationEngineMessages.OperationEngineMessages: OE_ROOT_DIRECTORY_PATH_UPDATED = '{OE_ROOT_DIRECTORY_PATH_UPDATED}'"
+            );
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace MFR.Constants
     /// </summary>
     public static class FileRenamerMessages
     {
+
+
         /// <summary>
         /// Unique identifier for a message that indicates that the operation that is
         /// currently being executed by the application has changed.

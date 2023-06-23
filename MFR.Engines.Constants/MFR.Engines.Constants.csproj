@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OperationEngineMessageId.cs" />
+    <Compile Include="MessageIdBase.cs" />
     <Compile Include="OperationEngineMessages.cs" />
     <Compile Include="OperationEngineType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,33 +1,12 @@
 ﻿using System;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.Engines.Constants
 {
     /// <summary>
     /// Encapsulates a unique identifier for a message, as well as its name.
     /// </summary>
-    public class OperationEngineMessageId
+    public class OperationEngineMessageId : MessageIdBase
     {
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.Guid" /> value that uniquely identifies the
-        /// message.
-        /// </summary>
-        public Guid MessageId
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> that names this message
-        /// identifier.
-        /// </summary>
-        public string Name
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// s
         /// Allows us to pass instances of this class to methods that accept a
@@ -35,43 +14,10 @@ namespace MFR.Engines.Constants
         /// </summary>
         /// <param name="id">
         /// (Required.) Reference to an instance of
-        /// <see cref="T:MFR.Engines.Constants.OperationEngineMessageId" /> to be converted.
+        /// <see cref="T:MFR.Engines.Constants.OperationEngineMessageId" /> to be
+        /// converted.
         /// </param>
         public static implicit operator Guid(OperationEngineMessageId id)
             => id.MessageId;
-
-        /// <summary>
-        /// Determines whether the value of the
-        /// <see cref="P:MFR.Engines.Constants.OperationEngineMessageId.MessageId" /> property is set
-        /// to the Zero GUID.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the value of the
-        /// <see cref="P:MFR.Engines.Constants.OperationEngineMessageId.MessageId" /> property is set
-        /// to the Zero GUID; <see langword="false" /> otherwise.
-        /// </returns>
-        public bool IsZero()
-        {
-            bool result;
-
-            try
-            {
-                result = Guid.Empty.Equals(MessageId);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>Returns a string that represents the current object.</summary>
-        /// <returns>A string that represents the current object.</returns>
-        public override string ToString()
-            => Name;
     }
 }
