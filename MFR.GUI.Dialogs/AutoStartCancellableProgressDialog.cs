@@ -18,7 +18,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.Win32.Interact;
 
 #pragma warning disable IDE0060
@@ -235,8 +235,10 @@ namespace MFR.GUI.Dialogs
         /// This method is called to process a File Renamer job in a background
         /// thread.
         /// </remarks>
-        private static void OnProcessingWorkerDoWork(object sender,
-            DoWorkEventArgs e)
+        private static void OnProcessingWorkerDoWork(
+            object sender,
+            DoWorkEventArgs e
+        )
         {
             if (!(e.Argument is FileRenamerJob job)) return; // no job data
 
@@ -296,8 +298,10 @@ namespace MFR.GUI.Dialogs
         /// are passed blank or <see langword="null" /> string for values.
         /// </exception>
         [Log(AttributeExclude = true)]
-        private void IncrementProgressBar(string statusLabelText,
-            string currentFileLabelText)
+        private void IncrementProgressBar(
+            string statusLabelText,
+            string currentFileLabelText
+        )
         {
             if (string.IsNullOrWhiteSpace(statusLabelText))
                 throw new ArgumentException(
@@ -345,8 +349,10 @@ namespace MFR.GUI.Dialogs
         /// box, logging the error, and then aborting the operation.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerExceptionRaised(object sender,
-            ExceptionRaisedEventArgs e)
+        private void OnFileRenamerExceptionRaised(
+            object sender,
+            ExceptionRaisedEventArgs e
+        )
             => this.InvokeIfRequired(
                 () =>
                 {
@@ -391,8 +397,10 @@ namespace MFR.GUI.Dialogs
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerFilesToBeRenamedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private void OnFileRenamerFilesToBeRenamedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
@@ -417,8 +425,10 @@ namespace MFR.GUI.Dialogs
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerFilesToHaveTextReplacedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private void OnFileRenamerFilesToHaveTextReplacedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
@@ -455,8 +465,10 @@ namespace MFR.GUI.Dialogs
         /// reset the progress bar back to the starting point.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerOperationFinished(object sender,
-            OperationFinishedEventArgs e)
+        private void OnFileRenamerOperationFinished(
+            object sender,
+            OperationFinishedEventArgs e
+        )
             => ResetProgressBar();
 
         /// <summary>
@@ -479,8 +491,10 @@ namespace MFR.GUI.Dialogs
         /// processing is now being started.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerOperationStarted(object sender,
-            OperationStartedEventArgs e)
+        private void OnFileRenamerOperationStarted(
+            object sender,
+            OperationStartedEventArgs e
+        )
         {
             if (e.OperationType == OperationType.Unknown) return;
 
@@ -518,8 +532,10 @@ namespace MFR.GUI.Dialogs
         /// currently being worked on.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerProcessingOperation(object sender,
-            ProcessingOperationEventArgs e)
+        private void OnFileRenamerProcessingOperation(
+            object sender,
+            ProcessingOperationEventArgs e
+        )
         {
             if (e.OperationType == OperationType.Unknown) return;
             if (e.Entry == null) return;
@@ -557,7 +573,9 @@ namespace MFR.GUI.Dialogs
         /// </remarks>
         [Log(AttributeExclude = true)]
         private void OnFileRenamerSolutionFoldersToBeRenamedCounted(
-            object sender, FilesOrFoldersCountedEventArgs e)
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
@@ -575,8 +593,10 @@ namespace MFR.GUI.Dialogs
         /// contains the event data.
         /// </param>
         /// <remarks></remarks>
-        private void OnFileRenamerStatusUpdate(object sender,
-            StatusUpdateEventArgs e)
+        private void OnFileRenamerStatusUpdate(
+            object sender,
+            StatusUpdateEventArgs e
+        )
             => Status = e.Text;
 
         /// <summary>
@@ -601,8 +621,10 @@ namespace MFR.GUI.Dialogs
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerSubfoldersToBeRenamedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private void OnFileRenamerSubfoldersToBeRenamedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
@@ -624,8 +646,10 @@ namespace MFR.GUI.Dialogs
         /// <see cref="E:MFR.Engines.Interfaces.IOperationEngine.ProcessingFinished" />
         /// event and associated message.
         /// </remarks>
-        private void OnProcessingWorkerRunWorkerCompleted(object sender,
-            RunWorkerCompletedEventArgs e)
+        private void OnProcessingWorkerRunWorkerCompleted(
+            object sender,
+            RunWorkerCompletedEventArgs e
+        )
             => Close(); // just close this form
 
         /// <summary>
@@ -652,8 +676,10 @@ namespace MFR.GUI.Dialogs
         /// a blank or <see langword="null" /> string for a value.
         /// </exception>
         [Log(AttributeExclude = true)]
-        private void ShowCalculatingProgressBar(string text,
-            bool canCancel = true)
+        private void ShowCalculatingProgressBar(
+            string text,
+            bool canCancel = true
+        )
         {
             if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentException(

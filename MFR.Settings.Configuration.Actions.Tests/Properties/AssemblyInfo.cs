@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.Settings.ProjectFileRenamerConfiguration.Actions.Tests")]
+[assembly: AssemblyTitle("MFR.Settings.Configuration.Actions.Tests")]
 [assembly: AssemblyDescription("Provides objects and functionality for unit tests of the functionality to load/save the application configuration to/from a file on the disk.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]

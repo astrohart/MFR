@@ -113,6 +113,10 @@
     <Compile Include="RootDirectoryPathChangedEventHandler.cs" />
     <Compile Include="SolutionClosedEventArgs.cs" />
     <Compile Include="SolutionClosedEventHandler.cs" />
+    <Compile Include="SolutionCloseFailedEventArgs.cs" />
+    <Compile Include="SolutionCloseFailedEventHandler.cs" />
+    <Compile Include="SolutionOpenFailedEventArgs.cs" />
+    <Compile Include="SolutionOpenFailedEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrentOperationChangedEventArgs.cs" />

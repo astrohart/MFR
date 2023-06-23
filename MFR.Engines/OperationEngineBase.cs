@@ -15,7 +15,8 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Mappings;
+using xyLOGIX.Queues.Messages.Senders;
 
 namespace MFR.Engines
 {
@@ -147,8 +148,12 @@ namespace MFR.Engines
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        public void ProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null)
+        public void ProcessAll(
+            string rootDirectoryPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        )
         {
             if (_processingWorker == null || _processingWorker.IsBusy) return;
 
@@ -191,7 +196,8 @@ namespace MFR.Engines
         /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(
-            IProjectFileRenamerConfiguration configuration)
+            IProjectFileRenamerConfiguration configuration
+        )
         {
             base.UpdateConfiguration(configuration);
 
@@ -320,8 +326,10 @@ namespace MFR.Engines
         /// This method responds to the event by telling the progress dialog to
         /// reset the progress bar back to the starting point.
         /// </remarks>
-        protected abstract void OnFileRenamerOperationFinished(object sender,
-            OperationFinishedEventArgs e);
+        protected abstract void OnFileRenamerOperationFinished(
+            object sender,
+            OperationFinishedEventArgs e
+        );
 
         /// <summary>
         /// Handles the
@@ -342,8 +350,10 @@ namespace MFR.Engines
         /// show the marquee progress bar for the operation type whose
         /// processing is now being started.
         /// </remarks>
-        protected abstract void OnFileRenamerOperationStarted(object sender,
-            OperationStartedEventArgs e);
+        protected abstract void OnFileRenamerOperationStarted(
+            object sender,
+            OperationStartedEventArgs e
+        );
 
         /// <summary>
         /// Handles the
@@ -373,8 +383,10 @@ namespace MFR.Engines
         /// status label in the progress dialog to contain the path to the file
         /// currently being worked on.
         /// </remarks>
-        protected abstract void OnFileRenamerProcessingOperation(object sender,
-            ProcessingOperationEventArgs e);
+        protected abstract void OnFileRenamerProcessingOperation(
+            object sender,
+            ProcessingOperationEventArgs e
+        );
 
         /// <summary>
         /// Handles the
@@ -392,8 +404,10 @@ namespace MFR.Engines
         /// </param>
         /// <remarks></remarks>
         [Log(AttributeExclude = true)]
-        protected virtual void OnFileRenamerStatusUpdate(object sender,
-            StatusUpdateEventArgs e)
+        protected virtual void OnFileRenamerStatusUpdate(
+            object sender,
+            StatusUpdateEventArgs e
+        )
         {
             // write the name of the current class and method we are now entering, into the log
             DebugUtils.WriteLine(
@@ -467,8 +481,10 @@ namespace MFR.Engines
         /// This method is called to process a File Renamer job in a background
         /// thread.
         /// </remarks>
-        private static void OnProcessingWorkerDoWork(object sender,
-            DoWorkEventArgs e)
+        private static void OnProcessingWorkerDoWork(
+            object sender,
+            DoWorkEventArgs e
+        )
         {
             if (!(e.Argument is FileRenamerJob job)) return; // no job data
 
@@ -505,8 +521,10 @@ namespace MFR.Engines
         /// This method responds to such an event by showing the user a message
         /// box, logging the error, and then aborting the operation.
         /// </remarks>
-        private void OnFileRenamerExceptionRaised(object sender,
-            ExceptionRaisedEventArgs e)
+        private void OnFileRenamerExceptionRaised(
+            object sender,
+            ExceptionRaisedEventArgs e
+        )
         {
             FileRenamer.RequestAbort();
 
@@ -537,8 +555,10 @@ namespace MFR.Engines
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerFilesToBeRenamedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private void OnFileRenamerFilesToBeRenamedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
@@ -562,8 +582,10 @@ namespace MFR.Engines
         /// property to have
         /// the same value as the count of file system entries.
         /// </remarks>
-        private void OnFileRenamerFilesToHaveTextReplacedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private void OnFileRenamerFilesToHaveTextReplacedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         private void OnFileRenamerFinished()
@@ -606,8 +628,10 @@ namespace MFR.Engines
         /// the same value as the count of file system entries.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private void OnFileRenamerSubfoldersToBeRenamedCounted(object sender,
-            FilesOrFoldersCountedEventArgs e)
+        private void OnFileRenamerSubfoldersToBeRenamedCounted(
+            object sender,
+            FilesOrFoldersCountedEventArgs e
+        )
             => HandleFilesCountedEvent(e.Count);
 
         /// <summary>
@@ -629,8 +653,10 @@ namespace MFR.Engines
         /// <see cref="E:MFR.Engines.Interfaces.IOperationEngine.ProcessingFinished" />
         /// event and associated message.
         /// </remarks>
-        private void OnProcessingWorkerRunWorkerCompleted(object sender,
-            RunWorkerCompletedEventArgs e)
+        private void OnProcessingWorkerRunWorkerCompleted(
+            object sender,
+            RunWorkerCompletedEventArgs e
+        )
             => OnProcessingFinished();
     }
 }

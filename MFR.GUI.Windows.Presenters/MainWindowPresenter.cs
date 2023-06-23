@@ -1,5 +1,3 @@
-using MFR.Directories.Validators.Factories;
-using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Constants;
 using MFR.Engines.Interfaces;
 using MFR.Events.Common;
@@ -35,6 +33,8 @@ using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Mappings;
+using xyLOGIX.Queues.Messages.Senders;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.GUI.Windows.Presenters
@@ -181,14 +181,6 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private IEntryRespectingComboBox ReplaceWithComboBox
             => View.ReplaceWithComboBox;
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
-        /// interface.
-        /// </summary>
-        private static IRootDirectoryPathValidator RootDirectoryPathValidator
-            => GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
         /// Gets the path to the starting folder of the search.
@@ -615,7 +607,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
@@ -991,7 +983,7 @@ namespace MFR.GUI.Windows.Presenters
             SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
                                                     .ForMessageId(
                                                         MainWindowPresenterMessages
-                                                            .MWP_DATA_OPERAITON_ERROR
+                                                            .MWP_DATA_OPERATION_ERROR
                                                     );
         }
 
@@ -1013,7 +1005,7 @@ namespace MFR.GUI.Windows.Presenters
         protected virtual void OnDataOperationFinished()
         {
             DataOperationFinished?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
+            SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(
                            MainWindowPresenterMessages
                                .MWP_DATA_OPERATION_FINISHED
@@ -1095,7 +1087,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             try
             {
-                if (CurrentConfiguration != null) 
+                if (CurrentConfiguration != null)
                     return;
 
                 DebugUtils.WriteLine(

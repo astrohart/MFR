@@ -44,6 +44,7 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
@@ -398,6 +399,12 @@ namespace MFR.Renamers.Files
         /// </summary>
         public event RootDirectoryPathChangedEventHandler
             RootDirectoryPathChanged;
+
+        /// <summary>
+        /// Occurs when an attempt to close a Visual Studio Solution (<c>*.sln</c>)  that
+        /// has been loaded into a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionCloseFailedEventHandler SolutionCloseFailed;
 
         /// <summary>
         /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
@@ -1545,6 +1552,12 @@ namespace MFR.Renamers.Files
             SolutionFoldersToBeRenamedCounted;
 
         /// <summary>
+        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
+        /// a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
+
+        /// <summary>
         /// Enables this object to perform some or all of the operations specified.
         /// </summary>
         /// <param name="operations">
@@ -1585,10 +1598,16 @@ namespace MFR.Renamers.Files
             try
             {
                 // Dump the variable oldFolderPath to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: oldFolderPath = '{oldFolderPath}'");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.SearchForRenamedSolution: oldFolderPath = '{oldFolderPath}'"
+                );
 
                 // Dump the variable newFolderPath to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: newFolderPath = '{newFolderPath}'");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.SearchForRenamedSolution: newFolderPath = '{newFolderPath}'"
+                );
 
                 /*
                  * Now that the folder that the Solution(s) itself are contained
@@ -1627,10 +1646,16 @@ namespace MFR.Renamers.Files
                     currentSolution.FullName = newSolutionPath;
 
                     // Dump the variable currentSolution.FullName to the log
-                    DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: currentSolution.FullName = '{currentSolution.FullName}'");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.SearchForRenamedSolution: currentSolution.FullName = '{currentSolution.FullName}'"
+                    );
 
                     // Dump the variable currentSolution.WasVisualStudioClosed to the log
-                    DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.SearchForRenamedSolution: currentSolution.WasVisualStudioClosed = {currentSolution.WasVisualStudioClosed}");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.SearchForRenamedSolution: currentSolution.WasVisualStudioClosed = {currentSolution.WasVisualStudioClosed}"
+                    );
 
                     if (currentSolution.WasVisualStudioClosed)
                         currentSolution.Launch(true);
@@ -1799,6 +1824,24 @@ namespace MFR.Renamers.Files
             => SolutionClosed?.Invoke(this, e);
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionCloseFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionCloseFailed(
+            SolutionCloseFailedEventArgs e
+        )
+        {
+            SolutionCloseFailed?.Invoke(this, e);
+            SendMessage<SolutionCloseFailedEventArgs>.Having.Args(this, e)
+                .ForMessageId(FileRenamerMessages.FRM_SOLUTION_CLOSE_FAILED);
+        }
+
+        /// <summary>
         /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
         /// </summary>
         /// <param name="e">
@@ -1815,6 +1858,27 @@ namespace MFR.Renamers.Files
                                                    FileRenamerMessages
                                                        .FRM_SOLUTION_FOLDER_RENAMED
                                                );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionOpenFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionOpenFailed(
+            SolutionOpenFailedEventArgs e
+        )
+        {
+            SolutionOpenFailed?.Invoke(this, e);
+            SendMessage<SolutionOpenFailedEventArgs>.Having.Args(this, e)
+                                                    .ForMessageId(
+                                                        FileRenamerMessages
+                                                            .FRM_SOLUTION_OPEN_FAILED
+                                                    );
         }
 
         /// <summary>
@@ -1889,11 +1953,18 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                foreach (var solution in LoadedSolutions)
-                    CloseSolution(solution);
+                var numFailed = 0;
 
-                /* Wait for the solution to be closed.
-                    while (dte.Solution.IsOpen) Thread.Sleep(50);*/
+                foreach (var solution in LoadedSolutions)
+                {
+                    if (solution == null) continue;
+                    if (!Does.FileExist(solution.FullName)) continue;
+
+                    if (CloseSolution(solution)) continue;
+
+                    Interlocked.Increment(ref numFailed);
+                    ReportSolutionCloseFailed(solution.FullName);
+                }
 
                 OnOperationFinished(
                     new OperationFinishedEventArgs(
@@ -1905,6 +1976,8 @@ namespace MFR.Renamers.Files
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
         }
 
@@ -2987,10 +3060,14 @@ namespace MFR.Renamers.Files
                 )
             );
 
-            foreach (var solution in LoadedSolutions.Where(
-                         solution => solution.ShouldReopen
-                     ))
-                ReopenSolution(solution);
+            foreach (var solution in LoadedSolutions)
+            {
+                if (solution == null) continue;
+                if (!Does.FileExist(solution.FullName)) continue;
+                if (Is.SolutionOpen(solution)) continue;
+
+                if (ReopenSolution(solution)) continue;
+            }
 
             /* Wait for the solution to be opened/loaded.
                     while (!dte.Solution.IsOpen) Thread.Sleep(50); */
@@ -3023,7 +3100,7 @@ namespace MFR.Renamers.Files
             try
             {
                 if (solution == null) return result;
-                if (Is.SolutionOpen(solution)) return result;
+                if (Is.SolutionOpen(solution)) return true;
                 if (string.IsNullOrWhiteSpace(solution.FullName))
                     return result;
                 if (!Does.FileExist(solution.FullName))
@@ -3125,6 +3202,35 @@ namespace MFR.Renamers.Files
 
             return result;
         }
+
+        /// <summary>
+        /// Reports that an attempt to close a Visual Studio Solution (<c>*.sln</c>) file
+        /// having the specified <paramref name="pathname" /> that was loaded into a
+        /// running instance of Visual Studio has failed.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> containing
+        /// the fully-qualified pathname of the Visual Studio Solution (<c>*.sln</c>) that
+        /// could not be closed.
+        /// </param>
+        private void ReportSolutionCloseFailed(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            OnSolutionCloseFailed(
+                new SolutionCloseFailedEventArgs(
+                    new Exception(
+                        string.Format(
+                            Resources
+                                .Error_AttemptToCloseSolutionFailed,
+                            pathname
+                        )
+                    )
+                )
+            );
+        }
+
+        private void ReportSolutionOpenFailed(string pathname) { }
 
         private bool SearchForLoadedSolutions()
         {

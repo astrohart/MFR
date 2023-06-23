@@ -83,7 +83,7 @@ interface, and returns references to them.
 ##### Summary
 
 Builder extension method that initializes the
-[FindWhat](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
+[FindWhat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
 property.
 
 ##### Returns
@@ -114,7 +114,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[FindWhatHistory](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
+[FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
 property.
 
 ##### Returns
@@ -146,7 +146,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[IsFolded](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.IsFolded')
+[IsFolded](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFolded')
 property.
 
 ##### Returns
@@ -177,7 +177,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[MatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
+[MatchCase](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
 property.
 
 ##### Returns
@@ -208,7 +208,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[MatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
+[MatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
 property.
 
 ##### Returns
@@ -239,7 +239,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReOpenSolution](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
+[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
 property.
 
 ##### Returns
@@ -270,7 +270,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReplaceWith](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith')
+[ReplaceWith](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith')
 property.
 
 ##### Returns
@@ -301,7 +301,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReplaceWithHistory](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWithHistory 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory')
+[ReplaceWithHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWithHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory')
 property.
 
 ##### Returns
@@ -333,7 +333,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[SelectedOptionTab](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab')
+[SelectedOptionTab](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab')
 property.
 
 ##### Returns
@@ -365,7 +365,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[RenameSubFolders](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders')
+[RenameSubFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders')
 property.
 
 ##### Returns
@@ -396,7 +396,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReplaceTextInFiles](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles')
+[ReplaceTextInFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles')
 property.
 
 ##### Returns
@@ -427,7 +427,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReOpenSolution](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
+[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
 property.
 
 ##### Returns
@@ -459,7 +459,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[StartingFolderHistory](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory')
+[StartingFolderHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory')
 property.
 
 ##### Returns
@@ -491,7 +491,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[StartingFolder](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder')
+[StartingFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder')
 property.
 
 ##### Returns
@@ -542,7 +542,7 @@ This method has no parameters.
 ##### Summary
 
 Builder extension method that initializes the
-[InvokableOperations](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations')
+[InvokableOperations](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations')
 property.
 
 ##### Returns
@@ -575,7 +575,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[IsFromCommandLine](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
+[IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
 property.
 
 ##### Returns
@@ -606,7 +606,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[RenameFilesInFolder](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
+[RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
 property.
 
 ##### Returns
@@ -637,7 +637,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[AutoStart](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
+[AutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
 property.
 
 ##### Returns

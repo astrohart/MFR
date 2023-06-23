@@ -20,7 +20,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.FindWhat" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -55,7 +55,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -90,7 +90,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.IsFolded" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFolded" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -123,7 +123,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.MatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -156,7 +156,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -189,7 +189,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -229,7 +229,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -262,7 +262,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -297,7 +297,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -332,7 +332,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -366,7 +366,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -399,7 +399,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -434,7 +434,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -468,7 +468,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -503,7 +503,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -554,7 +554,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -587,7 +587,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder" />
         /// property.
         /// </summary>
         /// <param name="self">
@@ -620,7 +620,7 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.AutoStart" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart" />
         /// property.
         /// </summary>
         /// <param name="self">

@@ -45,7 +45,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.UI.Dark.Controls;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
@@ -370,6 +370,21 @@ namespace MFR.GUI.Windows
         public void SelectAllOperations()
             => SelectAll = true;
 
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.Windows.Forms.FormClosedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            Presenter.UpdateData();
+        }
+
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
         /// A <see cref="T:System.EventArgs" /> that contains the event
@@ -621,7 +636,7 @@ namespace MFR.GUI.Windows
             );
 
         /// <summary>
-        /// Responds to the event that the value of the value of the 
+        /// Responds to the event that the value of the value of the
         /// </summary>
         private void DoUpdateConfiguredStartingFolder()
         {
@@ -702,7 +717,7 @@ namespace MFR.GUI.Windows
                 throw new InvalidOperationException(
                     "Failed to initialize the main application window."
                 );
-            NewMessageMapping.Associate.WithMessageId(
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
                                  MainWindowPresenterMessages
                                      .MWP_ALL_HISTORY_CLEARED
                              )
@@ -728,7 +743,7 @@ namespace MFR.GUI.Windows
                         .MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED
                 )
                 .AndEventHandler(OnPresenterCreateNewBlankProfileRequested);
-            NewMessageMapping.Associate.WithMessageId(
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
                                  MainWindowPresenterMessages
                                      .MWP_DATA_OPERATION_FINISHED
                              )
@@ -943,9 +958,13 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnConfiguredStartingFolderChanged(
             object sender,
-            EventArgs e
+            StartingFolderChangedEventArgs e
         )
-            => this.InvokeIfRequired(DoUpdateConfiguredStartingFolder);
+        {
+            if (e.OldPath.EqualsNoCase(e.NewPath)) return;
+
+            this.InvokeIfRequired(DoUpdateConfiguredStartingFolder);
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />

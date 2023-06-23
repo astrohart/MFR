@@ -66,10 +66,10 @@ namespace MFR.Tests.Common
         ///     cref="T:MFR.Settings.Profiles.Interfaces.IProfile" />
         /// interface whose
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// and
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord" />
         /// properties are set to the same values as were passed for the
         /// <paramref name="matchCase" /> and <paramref name="matchExactWord" />
         /// parameters.

@@ -76,6 +76,15 @@ namespace MFR.Renamers.Files.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The attempt to close the solution &apos;{0}&apos; has failed..
+        /// </summary>
+        public static string Error_AttemptToCloseSolutionFailed {
+            get {
+                return ResourceManager.GetString("Error_AttemptToCloseSolutionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FileRenamer.DoProcessAll: A Visual Studio Solution file could not be located in the folder &apos;{0}&apos;.  Stopping..
         /// </summary>
         public static string Error_NoSolutionsInRootDirectory {

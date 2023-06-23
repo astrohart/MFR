@@ -18,8 +18,10 @@
   - [FRM_OPERATION_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_OPERATION_STARTED 'MFR.Constants.FileRenamerMessages.FRM_OPERATION_STARTED')
   - [FRM_PROCESSING_OPERATION](#F-MFR-Constants-FileRenamerMessages-FRM_PROCESSING_OPERATION 'MFR.Constants.FileRenamerMessages.FRM_PROCESSING_OPERATION')
   - [FRM_ROOT_DIRECTORY_PATH_CHANGED](#F-MFR-Constants-FileRenamerMessages-FRM_ROOT_DIRECTORY_PATH_CHANGED 'MFR.Constants.FileRenamerMessages.FRM_ROOT_DIRECTORY_PATH_CHANGED')
+  - [FRM_SOLUTION_CLOSE_FAILED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_CLOSE_FAILED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_CLOSE_FAILED')
   - [FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED')
   - [FRM_SOLUTION_FOLDER_RENAMED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDER_RENAMED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_FOLDER_RENAMED')
+  - [FRM_SOLUTION_OPEN_FAILED](#F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_OPEN_FAILED 'MFR.Constants.FileRenamerMessages.FRM_SOLUTION_OPEN_FAILED')
   - [FRM_STARTED](#F-MFR-Constants-FileRenamerMessages-FRM_STARTED 'MFR.Constants.FileRenamerMessages.FRM_STARTED')
   - [FRM_STARTING](#F-MFR-Constants-FileRenamerMessages-FRM_STARTING 'MFR.Constants.FileRenamerMessages.FRM_STARTING')
   - [FRM_STATUS_UPDATE](#F-MFR-Constants-FileRenamerMessages-FRM_STATUS_UPDATE 'MFR.Constants.FileRenamerMessages.FRM_STATUS_UPDATE')
@@ -157,6 +159,15 @@ operation is being processed.
 Unique identifier for a message that indicates that the root directory, i.e.,
 the starting directory, of the File Renamer component has been altered.
 
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_CLOSE_FAILED'></a>
+### FRM_SOLUTION_CLOSE_FAILED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that aa attempt to close a
+Visual Studio Solution (`*.sln`) file loaded into a running instance of
+Visual Studio has failed.
+
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED'></a>
 ### FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED `constants`
 
@@ -172,6 +183,15 @@ operated on.
 ##### Summary
 
 Unique identifier for a message that indicates that a folder has been renamed.
+
+<a name='F-MFR-Constants-FileRenamerMessages-FRM_SOLUTION_OPEN_FAILED'></a>
+### FRM_SOLUTION_OPEN_FAILED `constants`
+
+##### Summary
+
+Unique identifier for a message that indicates that aa attempt to close a
+Visual Studio Solution (`*.sln`) file loaded into a running instance of
+Visual Studio has failed.
 
 <a name='F-MFR-Constants-FileRenamerMessages-FRM_STARTED'></a>
 ### FRM_STARTED `constants`

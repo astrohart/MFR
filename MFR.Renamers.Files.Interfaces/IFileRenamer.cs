@@ -131,10 +131,22 @@ namespace MFR.Renamers.Files.Interfaces
         event RootDirectoryPathChangedEventHandler RootDirectoryPathChanged;
 
         /// <summary>
+        /// Occurs when an attempt to close a Visual Studio Solution (<c>*.sln</c>)  that
+        /// has been loaded into a running instance of Visual Studio has failed.
+        /// </summary>
+        event SolutionCloseFailedEventHandler SolutionCloseFailed;
+
+        /// <summary>
         /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
         /// has been renamed.
         /// </summary>
         event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
+        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
+        /// a running instance of Visual Studio has failed.
+        /// </summary>
+        event SolutionOpenFailedEventHandler SolutionOpenFailed;
 
         /// <summary>
         /// Occurs when the processing has started.
@@ -189,8 +201,11 @@ namespace MFR.Renamers.Files.Interfaces
         /// <see langword="true" /> if the operations succeeded;
         /// <see langword="false" /> otherwise.
         /// </returns>
-        bool ProcessAll(string findWhat, string replaceWith,
-            Predicate<string> pathFilter = null);
+        bool ProcessAll(
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        );
 
         /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
@@ -221,8 +236,12 @@ namespace MFR.Renamers.Files.Interfaces
         /// In the event that this parameter is <see langword="null" />, no path
         /// filtering is done.
         /// </param>
-        void ProcessAll(string rootDirectoryPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null);
+        void ProcessAll(
+            string rootDirectoryPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        );
 
         /// <summary>
         /// Renames all the files in the all the subfolders etc., recursively,
@@ -276,8 +295,12 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        bool RenameFilesInFolder(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null);
+        bool RenameFilesInFolder(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        );
 
         /// <summary>
         /// Iterates through the directory tree that is topped by the folder having the
@@ -329,8 +352,12 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        bool RenameSolutionFolders(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null);
+        bool RenameSolutionFolders(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        );
 
         /// <summary>
         /// Recursively renames all the subfolders in the folder having a
@@ -382,8 +409,12 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        bool RenameSubFoldersOf(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null);
+        bool RenameSubFoldersOf(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        );
 
         /// <summary>
         /// Iterates recursively through a directory tree, starting at the
@@ -435,8 +466,12 @@ namespace MFR.Renamers.Files.Interfaces
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
         /// </exception>
-        bool ReplaceTextInFiles(string rootFolderPath, string findWhat,
-            string replaceWith, Predicate<string> pathFilter = null);
+        bool ReplaceTextInFiles(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter = null
+        );
 
         /// <summary>
         /// Called to ask the <c>File Renamer</c> object to stop operations.

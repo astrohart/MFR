@@ -48,7 +48,9 @@ namespace MFR.GUI.Windows
             if (!Screen.AllScreens.Any() || Screen.AllScreens.Length <= 1)
             {
                 // do not have to worry about responsive metrics in this case
-                StartPosition = FormStartPosition.CenterParent;
+                StartPosition = ParentForm == null
+                    ? FormStartPosition.CenterScreen
+                    : FormStartPosition.CenterParent;
                 return;
             }
 

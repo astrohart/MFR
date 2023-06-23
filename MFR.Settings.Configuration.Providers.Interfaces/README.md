@@ -146,7 +146,7 @@ Loads the configuration from the disk.
 
 
 The
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
 property is then initialized to point to the data that has been loaded.
 
 ##### Returns
@@ -165,7 +165,7 @@ from disk, that contains the configuration data in JSON format.
 
 
 If this value is blank, then the file whose path is stored in the
-[ConfigFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath')
+[ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigFilePath')
 property is used instead. |
 
 ##### Exceptions
@@ -179,7 +179,7 @@ parameter cannot be located on the disk. |
 ##### Remarks
 
 The value of the
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration')
 property is set to `null` if an error occurs during loading.
 
 <a name='M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Save-System-String-'></a>
@@ -201,13 +201,13 @@ saved in JSON format.
 
 If this parameter is blank, then the data is saved to the path that
 is stored in the
-[ConfigFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath')
+[ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigFilePath')
 property. |
 
 ##### Remarks
 
 If the
-[ConfigFilePath](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-ConfigurationProvider-ConfigFilePath 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath')
+[ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ConfigurationProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigFilePath')
 property is blank, then this method does nothing.
 
 <a name='T-MFR-Settings-Configuration-Providers-Interfaces-Properties-Resources'></a>

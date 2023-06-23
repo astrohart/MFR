@@ -112,7 +112,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property is then initialized to point to the data that has been loaded.
         /// </summary>
         /// <param name="pathname">
@@ -121,13 +121,13 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         /// <returns>
@@ -155,13 +155,13 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.Providers.ConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ConfigFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         void Save(string pathname = "");
