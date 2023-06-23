@@ -1,18 +1,19 @@
 ﻿using System;
 
-namespace MFR.Engines.Actions
+namespace MFR.Engines.Operations.Models.Interfaces
 {
     /// <summary>
-    /// Encapsulates the parameters for a
-    /// <see cref="T:MFR.Renamers.Files.FileRenamer" /> job.
+    /// Defines the publicly-exposed methods and properties of an object that
+    /// represents one of the jobs in the job queue for renaming files, folders, and
+    /// replacing the text within files..
     /// </summary>
-    public class FileRenamerJob
+    public interface IFileRenamerJob
     {
         /// <summary>
         /// Gets or sets a <see cref="T:System.String" /> containing the content to be
         /// found in file names, folder names, and file contents.
         /// </summary>
-        public string FindWhat
+        string FindWhat
         {
             get;
             set;
@@ -24,7 +25,7 @@ namespace MFR.Engines.Actions
         /// returns <see langword="true" /> if the file should be included in the operation
         /// or <see langword="false" /> otherwise.
         /// </summary>
-        public Predicate<string> PathFilter
+        Predicate<string> PathFilter
         {
             get;
             set;
@@ -35,7 +36,7 @@ namespace MFR.Engines.Actions
         /// should be substituted for the found content in file names, folder names, and
         /// file contents.
         /// </summary>
-        public string ReplaceWith
+        string ReplaceWith
         {
             get;
             set;
@@ -45,7 +46,7 @@ namespace MFR.Engines.Actions
         /// Gets or sets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the folder in which the job was ready to start.
         /// </summary>
-        public string RootDirectory
+        string RootDirectory
         {
             get;
             set;

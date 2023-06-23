@@ -2,7 +2,7 @@
 using MFR.Engines.Operations.Interfaces;
 using System;
 
-namespace MFR.Engines.Factories
+namespace MFR.Engines.Operations.Factories
 {
     /// <summary>
     /// Creates instances of objects that implement the
@@ -52,11 +52,11 @@ namespace MFR.Engines.Factories
             switch (type)
             {
                 case OperationEngineType.FullGUI:
-                    result = FullGuiOperationEngine.Instance as T;
+                    result = GetFullGuiOperationEngine.SoleInstance() as T;
                     break;
 
                 case OperationEngineType.Console:
-                    result = ConsoleOperationEngine.Instance as T;
+                    result = GetConsoleOperationEngine.SoleInstance() as T;
                     break;
 
                 case OperationEngineType.Unknown:

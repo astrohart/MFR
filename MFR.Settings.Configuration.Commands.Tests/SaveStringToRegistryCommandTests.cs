@@ -7,7 +7,7 @@ using MFR.Settings.Configuration.Commands.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
 
-namespace MFR.Replacers.Factories.Tests
+namespace MFR.Settings.Configuration.Commands.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the

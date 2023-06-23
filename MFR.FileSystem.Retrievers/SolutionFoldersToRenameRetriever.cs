@@ -190,7 +190,7 @@ namespace MFR.FileSystem.Retrievers
                              )
                              .Where(
                                  entry => entry != null &&
-                                          SearchCriteriaMatch(entry)
+                                          SatisfiesSearchCritieria(entry)
                              )
                 );
             }

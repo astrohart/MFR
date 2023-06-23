@@ -2,7 +2,7 @@
 using MFR.Engines.Operations.Interfaces;
 using MFR.Operations.Events;
 
-namespace MFR.Engines
+namespace MFR.Engines.Operations
 {
     /// <summary>
     /// Coordinates the operation of the <c>File Renamer</c> component when the

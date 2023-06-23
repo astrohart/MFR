@@ -2,7 +2,7 @@ using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Constants;
-using MFR.Engines.Factories;
+using MFR.Engines.Operations.Factories;
 using MFR.Engines.Operations.Interfaces;
 using MFR.Events.Common;
 using MFR.FileSystem.Enumerators.Actions;
@@ -718,10 +718,12 @@ namespace MFR.GUI.Windows
                     "Failed to initialize the main application window."
                 );
             NewMessageMapping<EventArgs>.Associate.WithMessageId(
-                                 MainWindowPresenterMessages
-                                     .MWP_ALL_HISTORY_CLEARED
-                             )
-                             .AndEventHandler(OnPresenterAllHistoryCleared);
+                                            MainWindowPresenterMessages
+                                                .MWP_ALL_HISTORY_CLEARED
+                                        )
+                                        .AndEventHandler(
+                                            OnPresenterAllHistoryCleared
+                                        );
             NewMessageMapping<AddProfileFailedEventArgs>.Associate
                 .WithMessageId(
                     MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE_FAILED
@@ -744,10 +746,12 @@ namespace MFR.GUI.Windows
                 )
                 .AndEventHandler(OnPresenterCreateNewBlankProfileRequested);
             NewMessageMapping<EventArgs>.Associate.WithMessageId(
-                                 MainWindowPresenterMessages
-                                     .MWP_DATA_OPERATION_FINISHED
-                             )
-                             .AndEventHandler(OnPresenterDataOperationFinished);
+                                            MainWindowPresenterMessages
+                                                .MWP_DATA_OPERATION_FINISHED
+                                        )
+                                        .AndEventHandler(
+                                            OnPresenterDataOperationFinished
+                                        );
             NewMessageMapping<DataOperationEventArgs>.Associate.WithMessageId(
                     MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED
                 )

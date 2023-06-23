@@ -1,7 +1,8 @@
 ﻿using MFR.Constants;
-using MFR.Engines.Actions;
 using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
+using MFR.Engines.Operations.Models.Factories;
+using MFR.Engines.Operations.Models.Interfaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;
@@ -18,7 +19,7 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.Queues.Messages.Senders;
 
-namespace MFR.Engines
+namespace MFR.Engines.Operations
 {
     /// <summary>
     /// Defines the events, methods, properties, and behaviors for all operation
@@ -42,7 +43,8 @@ namespace MFR.Engines
         private BackgroundWorker _processingWorker;
 
         /// <summary>
-        /// Constructs a new instance of <see cref="T:MFR.Engines.OperationEngineBase" />
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Engines.Operations.OperationEngineBase" />
         /// and returns a reference to it.
         /// </summary>
         protected OperationEngineBase()
@@ -87,7 +89,8 @@ namespace MFR.Engines
         /// the application.
         /// <para />
         /// It is marked as <c>protected</c> in the source code, allowing access to
-        /// children of the <see cref="T:MFR.Engines.OperationEngineBase" /> class.
+        /// children of the <see cref="T:MFR.Engines.Operations.OperationEngineBase" />
+        /// class.
         /// </remarks>
         protected static IFileRenamer FileRenamer
         {
@@ -164,12 +167,10 @@ namespace MFR.Engines
             FileRenamer.UpdateConfiguration(CurrentConfiguration);
 
             _processingWorker.RunWorkerAsync(
-                new FileRenamerJob {
-                    RootDirectory = rootDirectoryPath,
-                    FindWhat = findWhat,
-                    ReplaceWith = replaceWith,
-                    PathFilter = pathFilter
-                }
+                MakeNewFileRenamerJob.ForRootDirectory(rootDirectoryPath)
+                                     .HavingPathFilter(pathFilter)
+                                     .ToFindWhat(findWhat)
+                                     .AndReplaceItWith(replaceWith)
             );
         }
 
@@ -488,7 +489,7 @@ namespace MFR.Engines
             DoWorkEventArgs e
         )
         {
-            if (!(e.Argument is FileRenamerJob job)) return; // no job data
+            if (!(e.Argument is IFileRenamerJob job)) return; // no job data
 
             FileRenamer.ProcessAll(
                 job.RootDirectory, job.FindWhat, job.ReplaceWith, job.PathFilter

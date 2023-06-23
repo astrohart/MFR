@@ -114,7 +114,7 @@ namespace MFR.FileSystem.Retrievers
                              )
                              .AsParallel()
                              .Select(MakeNewFileSystemEntry.ForPath)
-                             .Where(entry => entry != null && SearchCriteriaMatch(entry))
+                             .Where(entry => entry != null && SatisfiesSearchCritieria(entry))
                 );
             }
             catch (Exception ex)

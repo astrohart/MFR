@@ -33,6 +33,27 @@ namespace MFR.FileSystem.Retrievers
     public abstract class FileSystemEntryListRetrieverBase :
         ConfigurationComposedObjectBase, IFileSystemEntryListRetriever
     {
+        protected bool SatisfiesPathFilter(string value, Predicate<string> pathFilter)
+        {
+            var result = true;
+
+            try
+            {
+                if (pathFilter == null) return result;
+
+                result = pathFilter.Invoke(value);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = true;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Constructs a new instance of
         /// <see
@@ -580,7 +601,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        protected bool SearchCriteriaMatch(IFileSystemEntry entry)
+        protected bool SatisfiesSearchCritieria(IFileSystemEntry entry)
         {
             var result = false;
 

@@ -5,6 +5,7 @@ using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.FileSystem.Validators
 {
@@ -16,8 +17,6 @@ namespace MFR.FileSystem.Validators
     public abstract class
         FileSystemEntryValidatorBase : IFileSystemEntryValidator
     {
-        
-
         /// <summary>
         /// Determines whether the specified file-system
         /// <paramref
@@ -73,6 +72,50 @@ namespace MFR.FileSystem.Validators
         }
 
         /// <summary>
+        /// Determines whether a file system <paramref name="entry" /> exists on
+        /// the disk at the pathname indicated.
+        /// </summary>
+        /// <param name="entry">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
+        /// interface containing information about the entry to be checked.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the provided filesystem
+        /// <paramref name="entry" /> is valid; <see langword="false" /> otherwise.
+        /// </returns>
+        /// <remarks>
+        /// If the properties of the <paramref name="entry" /> have valid data
+        /// and the path stored in the entry refers to a file-system object that
+        /// exists on the disk, then this method returns <see langword="true" />.
+        /// <para />
+        /// If an object instance variable or property has a
+        /// <see
+        ///     langword="null" />
+        /// reference, or if the path stored in the entry
+        /// refers to a file-system object that does not exist on the disk, then
+        /// this method returns <see langword="false" />.
+        /// </remarks>
+        public virtual bool IsValid(IFileSystemEntry entry)
+        {
+            bool result;
+
+            try
+            {
+                result = entry != null && DoesExist(entry);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Gets a value determining whether the file system entry having the specified
         /// <paramref name="path" /> should be not be skipped.
         /// </summary>
@@ -110,11 +153,19 @@ namespace MFR.FileSystem.Validators
 
             try
             {
+                if ("app.config".EqualsNoCase(Path.GetFileName(path)))
+                    return false;
+
                 result = string.IsNullOrWhiteSpace(path) || !DoesExist(path) ||
                          path.Contains("packages") || path.Contains(".git") ||
                          path.Contains(".vs") || path.Contains(@"\bin") ||
                          path.Contains(@"\obj") || Path.GetFileName(path)
-                             .StartsWith(".");
+                             .StartsWith(".") || Path.GetExtension(path)
+                             .IsAnyOf(
+                                 ".bsc", ".obj", ".dll", ".config", ".resx",
+                                 ".xml", ".pdb", ".pspdb", ".exe", ".pif",
+                                 ".settings", ".nupkg", ".lib", ".def"
+                             );
             }
             catch (Exception ex)
             {
@@ -159,47 +210,6 @@ namespace MFR.FileSystem.Validators
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
 
                 result = Does.FileSystemEntryExist(pathname);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Determines whether a file system <paramref name="entry" /> exists on
-        /// the disk at the pathname indicated.
-        /// </summary>
-        /// <param name="entry">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
-        /// interface containing information about the entry to be checked.
-        /// </param>
-        /// <returns><see langword="true" /> if the provided filesystem <paramref name="entry"/> is valid; <see langword="false" /> otherwise.</returns>
-        /// <remarks>
-        /// If the properties of the <paramref name="entry" /> have valid data
-        /// and the path stored in the entry refers to a file-system object that
-        /// exists on the disk, then this method returns <see langword="true" />.
-        /// <para />
-        /// If an object instance variable or property has a
-        /// <see
-        ///     langword="null" />
-        /// reference, or if the path stored in the entry
-        /// refers to a file-system object that does not exist on the disk, then
-        /// this method returns <see langword="false" />.
-        /// </remarks>
-        public virtual bool IsValid(IFileSystemEntry entry)
-        {
-            bool result;
-
-            try
-            {
-                result = entry != null && DoesExist(entry);
             }
             catch (Exception ex)
             {

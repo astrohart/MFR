@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Rename Operation Engines Component")]
-[assembly: AssemblyDescription("Provides an object that can be used from anywhere in the software system itself, to invoke the file and folder renaming operations, as well as those operations to update the contents of solution and project files, that the user has specified.  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyTitle("MFR.Engines.Operations.Factories")]
+[assembly: AssemblyDescription("Provides an object that can be used from anywhere in the software system itself, to invoke the file and folder renaming operations, as well as those operations to update the contents of solution and project files, that the user has specified.  This particular library holds the factories for this component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer Operation Engine Factories Library")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2022-23 by xyLOGIX, LLC.  All rights reserved.")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("33d267bb-fdbf-41d1-a2cd-771eb3ee3ec6")]
+[assembly: Guid("991628bd-15c5-4c8d-9f76-0d46f3500d4e")]
 
 // Version information for an assembly consists of the following four values:
 //

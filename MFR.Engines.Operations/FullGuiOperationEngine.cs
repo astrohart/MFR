@@ -1,6 +1,6 @@
 ﻿using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
-using MFR.Engines.Properties;
+using MFR.Engines.Operations.Properties;
 using MFR.Events.Common;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Dialogs.Interfaces;
@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
-namespace MFR.Engines
+namespace MFR.Engines.Operations
 {
     /// <summary>
     /// Coordinates the operation of the <c>File Renamer</c> component inadmidst the
@@ -105,7 +105,7 @@ namespace MFR.Engines
 
         /// <summary>
         /// Occurs when the value of the
-        /// <see cref="P:MFR.Engines.FullGuiOperationEngine.DialogOwner" /> property is
+        /// <see cref="P:MFR.Engines.Operations.FullGuiOperationEngine.DialogOwner" /> property is
         /// updated.
         /// </summary>
         public event EventHandler DialogOwnerChanged;
@@ -321,7 +321,7 @@ namespace MFR.Engines
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.Engines.FullGuiOperationEngine.DialogOwnerChanged" /> event.
+        /// <see cref="E:MFR.Engines.Operations.FullGuiOperationEngine.DialogOwnerChanged" /> event.
         /// </summary>
         protected virtual void OnDialogOwnerChanged()
             => DialogOwnerChanged?.Invoke(this, EventArgs.Empty);
@@ -466,7 +466,7 @@ namespace MFR.Engines
 
         /// <summary>
         /// Raises the
-        /// <see cref="E:MFR.Engines.OperationEngineBase.ProcessingFinished" /> event.
+        /// <see cref="E:MFR.Engines.Operations.OperationEngineBase.ProcessingFinished" /> event.
         /// </summary>
         protected override void OnProcessingFinished()
         {
@@ -476,7 +476,7 @@ namespace MFR.Engines
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.Engines.OperationEngineBase.ProcessingStarted" />
+        /// Raises the <see cref="E:MFR.Engines.Operations.OperationEngineBase.ProcessingStarted" />
         /// event.
         /// </summary>
         protected override void OnProcessingStarted()
