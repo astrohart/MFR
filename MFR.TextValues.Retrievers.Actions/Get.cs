@@ -1,6 +1,7 @@
 ﻿using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories.Actions;
+using MFR.TextValues.Retrievers.Actions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -11,8 +12,20 @@ using xyLOGIX.Core.Extensions;
 
 namespace MFR.TextValues.Retrievers.Actions
 {
+    /// <summary>
+    /// Exposes static methods, e.g., to retrieve data from text files.
+    /// </summary>
     public static class Get
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the <see cref="T:MFR.TextValues.Retrievers.Actions.Interfaces.ISemaphoreLocker" /> interface.
+        /// </summary>
+        private static ISemaphoreLocker SemaphoreLocker
+        {
+            get;
+        } = GetSemaphoreLocker.SoleInstance();
+
+
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
