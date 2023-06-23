@@ -1,7 +1,7 @@
-﻿using MFR.Engines.Operations.Models.Interfaces;
+﻿using MFR.Engines.Operations.Jobs.Interfaces;
 using System;
 
-namespace MFR.Engines.Operations.Models
+namespace MFR.Engines.Operations.Jobs
 {
     /// <summary>
     /// Encapsulates the parameters for a

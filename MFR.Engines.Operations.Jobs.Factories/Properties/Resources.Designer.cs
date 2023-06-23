@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MFR.Engines.Operations.Models.Properties {
+namespace MFR.Engines.Operations.Jobs.Factories.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MFR.Engines.Operations.Models.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Engines.Operations.Models.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.Engines.Operations.Jobs.Factories.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

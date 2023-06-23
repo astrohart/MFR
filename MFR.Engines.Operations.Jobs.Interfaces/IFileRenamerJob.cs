@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MFR.Engines.Operations.Models.Interfaces
+namespace MFR.Engines.Operations.Jobs.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that

@@ -1,8 +1,8 @@
 ﻿using MFR.Constants;
 using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
-using MFR.Engines.Operations.Models.Factories;
-using MFR.Engines.Operations.Models.Interfaces;
+using MFR.Engines.Operations.Jobs.Factories;
+using MFR.Engines.Operations.Jobs.Interfaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;

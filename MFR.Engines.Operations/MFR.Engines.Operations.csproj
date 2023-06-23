@@ -165,13 +165,13 @@
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
       <Name>MFR.Engines.Operations.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Engines.Operations.Models.Factories\MFR.Engines.Operations.Models.Factories.csproj">
+    <ProjectReference Include="..\MFR.Engines.Operations.Jobs.Factories\MFR.Engines.Operations.Jobs.Factories.csproj">
       <Project>{7975C619-D94C-4922-8715-1D3C7F22C6C1}</Project>
-      <Name>MFR.Engines.Operations.Models.Factories</Name>
+      <Name>MFR.Engines.Operations.Jobs.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Engines.Operations.Models.Interfaces\MFR.Engines.Operations.Models.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Engines.Operations.Jobs.Interfaces\MFR.Engines.Operations.Jobs.Interfaces.csproj">
       <Project>{74C997AA-6E76-46CE-B73B-74471A92A2C6}</Project>
-      <Name>MFR.Engines.Operations.Models.Interfaces</Name>
+      <Name>MFR.Engines.Operations.Jobs.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>

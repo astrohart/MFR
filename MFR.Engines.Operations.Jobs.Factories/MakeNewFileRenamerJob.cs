@@ -1,11 +1,11 @@
-﻿using MFR.Engines.Operations.Models.Interfaces;
+﻿using MFR.Engines.Operations.Jobs.Interfaces;
 using System;
 
-namespace MFR.Engines.Operations.Models.Factories
+namespace MFR.Engines.Operations.Jobs.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the
-    /// <see cref="T:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob" />
+    /// <see cref="T:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob" />
     /// interface, and returns references to them.
     /// </summary>
     public static class MakeNewFileRenamerJob
@@ -13,14 +13,14 @@ namespace MFR.Engines.Operations.Models.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob.ReplaceWith" />
+        ///     cref="P:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob.ReplaceWith" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob" />
+        ///     cref="T:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob" />
         /// interface.
         /// </param>
         /// <param name="replaceWith">
@@ -48,12 +48,12 @@ namespace MFR.Engines.Operations.Models.Factories
 
         /// <summary>
         /// Creates a new instance of an object that implements the
-        /// <see cref="T:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob" />
+        /// <see cref="T:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob" />
         /// interface and returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob" />
+        /// <see cref="T:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob" />
         /// interface.
         /// </returns>
         public static IFileRenamerJob ForRootDirectory(string pathname)
@@ -98,14 +98,14 @@ namespace MFR.Engines.Operations.Models.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob.FindWhat" />
+        ///     cref="P:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob.FindWhat" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Engines.Operations.Models.Interfaces.IFileRenamerJob" />
+        ///     cref="T:MFR.Engines.Operations.Jobs.Interfaces.IFileRenamerJob" />
         /// interface.
         /// </param>
         /// <param name="findWhat">

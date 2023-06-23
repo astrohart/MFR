@@ -1,20 +1,20 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.Engines.Operations.Models")]
-[assembly: AssemblyDescription("Provides an object that can be used from anywhere in the software system itself, to invoke the file and folder renaming operations, as well as those operations to update the contents of solution and project files, that the user has specified.  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyTitle("MFR.Engines.Operations.Jobs.Interfaces")]
+[assembly: AssemblyDescription("Provides objects and functionality for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Project File Renamer Operation Engines Data Models Library")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for MFR.Engines.Operations.Models.Interfaces")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2022-23 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX Project File Renamer.  xyLOGIX Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+        "This software is a component of xyLOGIX MFR.  MFR is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("33d267bb-fdbf-41d1-a2cd-771eb3ee3ec6")]
+[assembly: Guid("74c997aa-6e76-46ce-b73b-74471a92a2c6")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -35,4 +35,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
