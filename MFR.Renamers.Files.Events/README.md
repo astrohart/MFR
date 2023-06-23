@@ -19,6 +19,10 @@
   - [NewPath](#P-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs-NewPath 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs.NewPath')
   - [OldPath](#P-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventArgs-OldPath 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs.OldPath')
 - [RootDirectoryPathChangedEventHandler](#T-MFR-Renamers-Files-Events-RootDirectoryPathChangedEventHandler 'MFR.Renamers.Files.Events.RootDirectoryPathChangedEventHandler')
+- [SolutionCloseFailedEventArgs](#T-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs 'MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs')
+  - [#ctor(exception)](#M-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs-#ctor-System-Exception- 'MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs.#ctor(System.Exception)')
+  - [Exception](#P-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs-Exception 'MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs.Exception')
+- [SolutionCloseFailedEventHandler](#T-MFR-Renamers-Files-Events-SolutionCloseFailedEventHandler 'MFR.Renamers.Files.Events.SolutionCloseFailedEventHandler')
 - [SolutionClosedEventArgs](#T-MFR-Renamers-Files-Events-SolutionClosedEventArgs 'MFR.Renamers.Files.Events.SolutionClosedEventArgs')
   - [#ctor(pathname)](#M-MFR-Renamers-Files-Events-SolutionClosedEventArgs-#ctor-System-String- 'MFR.Renamers.Files.Events.SolutionClosedEventArgs.#ctor(System.String)')
   - [Pathname](#P-MFR-Renamers-Files-Events-SolutionClosedEventArgs-Pathname 'MFR.Renamers.Files.Events.SolutionClosedEventArgs.Pathname')
@@ -240,6 +244,69 @@ Represents a handler for a `RootDirectoryPathChanged` event.
 
 This delegate merely specifies the signature of all methods that handle the
 `RootDirectoryPathChanged` event.
+
+<a name='T-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs'></a>
+## SolutionCloseFailedEventArgs `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Provides information for `SolutionCloseFailed` event handlers.
+
+<a name='M-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs-#ctor-System-Exception-'></a>
+### #ctor(exception) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[SolutionCloseFailedEventArgs](#T-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs 'MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs') and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | (Required.) A [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that explains the reason for
+the failure. |
+
+<a name='P-MFR-Renamers-Files-Events-SolutionCloseFailedEventArgs-Exception'></a>
+### Exception `property`
+
+##### Summary
+
+Gets a [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') instance that explains the reason for
+the failure.
+
+<a name='T-MFR-Renamers-Files-Events-SolutionCloseFailedEventHandler'></a>
+## SolutionCloseFailedEventHandler `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Events
+
+##### Summary
+
+Represents a handler for a `SolutionCloseFailed` event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [T:MFR.Renamers.Files.Events.SolutionCloseFailedEventHandler](#T-T-MFR-Renamers-Files-Events-SolutionCloseFailedEventHandler 'T:MFR.Renamers.Files.Events.SolutionCloseFailedEventHandler') | Reference to the instance of the object that raised the event. |
+
+##### Remarks
+
+This delegate merely specifies the signature of all methods that handle the
+`SolutionCloseFailed` event.
+
+
+
+This event is typically raised in the event that an attempt to close a Visual
+Studio Solution (`*.sln`) file that has been loaded in a running instance
+of Visual Studio has failed.
 
 <a name='T-MFR-Renamers-Files-Events-SolutionClosedEventArgs'></a>
 ## SolutionClosedEventArgs `type`

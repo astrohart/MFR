@@ -34,6 +34,7 @@ using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.Queues.Messages.Mappings;
+using xyLOGIX.Queues.Messages.Senders;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.GUI.Windows.Presenters

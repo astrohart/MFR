@@ -17,6 +17,7 @@ using System.ComponentModel;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Queues.Messages;
 using xyLOGIX.Queues.Messages.Mappings;
+using xyLOGIX.Queues.Messages.Senders;
 
 namespace MFR.Engines
 {

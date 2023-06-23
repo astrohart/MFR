@@ -44,6 +44,7 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
