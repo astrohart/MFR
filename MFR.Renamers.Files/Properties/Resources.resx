@@ -142,6 +142,9 @@ Do you want to proceed with the rename operation?</value>
       <value>Renaming files in subfolders of '{0}', replacing '{1}' with '{2}'...</value>
   </data>
   <data name="Error_AttemptToCloseSolutionFailed" xml:space="preserve">
-      <value>The attempt to close the solution '{0}' has failed.</value>
+      <value>The attempt to close the Solution '{0}' has failed.</value>
+  </data>
+  <data name="Error_AttemptToOpenSolutionFailed" xml:space="preserve">
+      <value>The attempt to open the Solution '{0}' has failed.</value>
   </data>
 </root>

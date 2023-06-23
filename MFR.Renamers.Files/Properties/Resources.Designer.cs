@@ -76,11 +76,20 @@ namespace MFR.Renamers.Files.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The attempt to close the solution &apos;{0}&apos; has failed..
+        ///   Looks up a localized string similar to The attempt to close the Solution &apos;{0}&apos; has failed..
         /// </summary>
         public static string Error_AttemptToCloseSolutionFailed {
             get {
                 return ResourceManager.GetString("Error_AttemptToCloseSolutionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The attempt to open the Solution &apos;{0}&apos; has failed..
+        /// </summary>
+        public static string Error_AttemptToOpenSolutionFailed {
+            get {
+                return ResourceManager.GetString("Error_AttemptToOpenSolutionFailed", resourceCulture);
             }
         }
         

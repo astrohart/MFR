@@ -44,7 +44,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
 using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
@@ -412,6 +411,12 @@ namespace MFR.Renamers.Files
         /// has been renamed.
         /// </summary>
         public event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
+        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
+        /// a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
 
         /// <summary>
         /// Occurs when the processing has started.
@@ -1430,14 +1435,13 @@ namespace MFR.Renamers.Files
 
             try
             {
-                var tasks = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .Select(
-                                              entry
-                                                  => ReplaceTextInFileForEntry(
-                                                      findWhat, replaceWith,
-                                                      entry
-                                                  )
-                                          );
+                var tasks = fileSystemEntries
+                            .TakeWhile(entry => !AbortRequested)
+                            .Select(
+                                entry => ReplaceTextInFileForEntry(
+                                    findWhat, replaceWith, entry
+                                )
+                            );
                 if (tasks == null || !tasks.Any()) return result;
 
                 result = Task.WhenAll(tasks)
@@ -1555,12 +1559,6 @@ namespace MFR.Renamers.Files
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
             SolutionFoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
-        /// a running instance of Visual Studio has failed.
-        /// </summary>
-        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
 
         /// <summary>
         /// Enables this object to perform some or all of the operations specified.
@@ -3065,6 +3063,7 @@ namespace MFR.Renamers.Files
                 )
             );
 
+            var numFailed = 0;
             foreach (var solution in LoadedSolutions)
             {
                 if (solution == null) continue;
@@ -3072,6 +3071,9 @@ namespace MFR.Renamers.Files
                 if (Is.SolutionOpen(solution)) continue;
 
                 if (ReopenSolution(solution)) continue;
+
+                Interlocked.Increment(ref numFailed);
+                ReportSolutionOpenFailed(solution.FullName);
             }
 
             /* Wait for the solution to be opened/loaded.
@@ -3157,9 +3159,10 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var replacementData = await GetTextInFileReplacementDataAsync(
-                    entry, findWhat, replaceWith
-                );
+                var replacementData =
+                    await GetTextInFileReplacementDataAsync(
+                        entry, findWhat, replaceWith
+                    );
                 if (string.IsNullOrWhiteSpace(replacementData))
                     return result;
 
@@ -3235,7 +3238,22 @@ namespace MFR.Renamers.Files
             );
         }
 
-        private void ReportSolutionOpenFailed(string pathname) { }
+        private void ReportSolutionOpenFailed(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            OnSolutionOpenFailed(
+                new SolutionOpenFailedEventArgs(
+                    new Exception(
+                        string.Format(
+                            Resources
+                                .Error_AttemptToOpenSolutionFailed,
+                            pathname
+                        )
+                    )
+                )
+            );
+        }
 
         private bool SearchForLoadedSolutions()
         {
