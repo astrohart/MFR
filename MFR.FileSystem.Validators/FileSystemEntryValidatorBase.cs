@@ -153,19 +153,11 @@ namespace MFR.FileSystem.Validators
 
             try
             {
-                if ("app.config".EqualsNoCase(Path.GetFileName(path)))
-                    return false;
-
                 result = string.IsNullOrWhiteSpace(path) || !DoesExist(path) ||
                          path.Contains("packages") || path.Contains(".git") ||
                          path.Contains(".vs") || path.Contains(@"\bin") ||
                          path.Contains(@"\obj") || Path.GetFileName(path)
-                             .StartsWith(".") || Path.GetExtension(path)
-                             .IsAnyOf(
-                                 ".bsc", ".obj", ".dll", ".config", ".resx",
-                                 ".xml", ".pdb", ".pspdb", ".exe", ".pif",
-                                 ".settings", ".nupkg", ".lib", ".def"
-                             );
+                             .StartsWith(".");
             }
             catch (Exception ex)
             {
