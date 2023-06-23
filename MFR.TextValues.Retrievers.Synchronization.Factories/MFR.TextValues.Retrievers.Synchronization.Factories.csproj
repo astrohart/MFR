@@ -5,7 +5,7 @@
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{B74598BE-E5A1-4998-8E73-1CADF7A49FF8}</ProjectGuid>
+    <ProjectGuid>{B97F12EA-2F10-4D00-813A-E0014DDA6CB4}</ProjectGuid>
     <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.TextValues.Retrievers.Actions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.TextValues.Retrievers.Synchronization.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.TextValues.Retrievers.Actions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -49,7 +49,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.TextValues.Retrievers.Actions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.TextValues.Retrievers.Synchronization.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -63,7 +63,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.TextValues.Retrievers.Actions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.TextValues.Retrievers.Synchronization.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,10 +73,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.TextValues.Retrievers.Actions.Interfaces</AssemblyName>
+    <AssemblyName>MFR.TextValues.Retrievers.Synchronization.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.TextValues.Retrievers.Actions.Interfaces</RootNamespace>
+    <RootNamespace>MFR.TextValues.Retrievers.Synchronization.Factories</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
@@ -107,10 +107,10 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetSemaphoreLocker.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISemaphoreLocker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
