@@ -84,6 +84,13 @@ namespace MFR.Constants
             Guid.NewGuid();
 
         /// <summary>
+        /// Unique identifier for a message that indicates that aa attempt to close a
+        /// Visual Studio Solution (<c>*.sln</c>) file loaded into a running instance of
+        /// Visual Studio has failed.
+        /// </summary>
+        public static readonly Guid FRM_SOLUTION_CLOSE_FAILED = Guid.NewGuid();
+
+        /// <summary>
         /// Unique identifier for a message that indicates that a folder has been renamed.
         /// </summary>
         public static readonly Guid
@@ -96,6 +103,13 @@ namespace MFR.Constants
         /// </summary>
         public static readonly Guid FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED =
             Guid.NewGuid();
+
+        /// <summary>
+        /// Unique identifier for a message that indicates that aa attempt to close a
+        /// Visual Studio Solution (<c>*.sln</c>) file loaded into a running instance of
+        /// Visual Studio has failed.
+        /// </summary>
+        public static readonly Guid FRM_SOLUTION_OPEN_FAILED = Guid.NewGuid();
 
         /// <summary>
         /// Unique identifier for a message that indicates that the set of all

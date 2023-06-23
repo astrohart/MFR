@@ -142,6 +142,14 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Mappings\xyLOGIX.Queues.Messages.Mappings.csproj">
+      <Project>{EF6CFC30-5D1D-42D8-B386-C1519427A80A}</Project>
+      <Name>xyLOGIX.Queues.Messages.Mappings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
+      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
+      <Name>xyLOGIX.Queues.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>

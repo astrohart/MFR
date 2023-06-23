@@ -45,7 +45,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.UI.Dark.Controls;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;

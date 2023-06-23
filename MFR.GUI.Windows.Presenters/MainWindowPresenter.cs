@@ -33,6 +33,7 @@ using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Queues.Messages;
+using xyLOGIX.Queues.Messages.Mappings;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
 namespace MFR.GUI.Windows.Presenters
