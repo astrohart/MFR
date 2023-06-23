@@ -3,9 +3,11 @@ using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories.Actions;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.TextValues.Retrievers.Actions
 {
@@ -17,7 +19,23 @@ namespace MFR.TextValues.Retrievers.Actions
         /// interface.
         /// </summary>
         private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
+        {
+            get;
+        } = GetFileStreamProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
+        /// used for thread synchronization.
+        /// </summary>
+        private static object SyncRoot
+        {
+            get;
+        } = new object();
+
+        private static SemaphoreSlim StreamReadSemaphore
+        {
+            get;
+        } = new SemaphoreSlim(0);
 
         /// <summary>
         /// Extracts the data from the file having a stream open on it that corresponds to
@@ -39,13 +57,89 @@ namespace MFR.TextValues.Retrievers.Actions
         /// could not be obtained.
         /// </returns>
         [return: NotLogged]
-        public static async Task<string> FileDataAsync(Guid ticket, bool dispose = false)
+        public static string FileData(Guid ticket, bool dispose = false)
         {
             var result = string.Empty;
+            StreamReader stream = default;
+
+            lock (SyncRoot)
+            {
+                try
+                {
+                    if (ticket.IsZero()) return result;
+                    /*
+                     * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
+                     * that we "redeem" with the FileStreamProvider object to get a reference
+                     * to a FileStream object that had been opened on the file previously.
+                     *
+                     */
+
+                    stream = FileStreamProvider.RedeemTicket(ticket);
+                    if (stream == null) return result;
+
+                    result = stream.ReadToEnd();
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+                finally
+                {
+                    /*
+                 * Reset the stream to the beginning
+                 * and discard the buffered data.
+                 */
+
+                    if (!dispose && stream != null)
+                    {
+                        stream.BaseStream.Position = 0L;
+                        stream.DiscardBufferedData();
+                    }
+
+                    if (dispose)
+                        FileStreamProvider.DisposeStream(
+                            ticket /* remove from the collection */
+                        );
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Extracts the data from the file having a stream open on it that corresponds to
+        /// the specified <paramref name="ticket" />.
+        /// </summary>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that
+        /// serves a <c>ticket</c> that can be used to extract the data from a stream that
+        /// is open on the corresponding file.
+        /// </param>
+        /// <param name="dispose">
+        /// (Optional.) Indicates whether the underlying file stream
+        /// should be disposed when this method has finished executing;
+        /// <see langword="false" /> is the default.
+        /// </param>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing the content of the
+        /// corresponding file, or <see cref="F:System.String.Empty" /> if the content
+        /// could not be obtained.
+        /// </returns>
+        [return: NotLogged]
+        public static async Task<string> FileDataAsync(
+            Guid ticket,
+            bool dispose = false
+        )
+        {
+            var result = string.Empty;
+            StreamReader stream = default;
 
             try
             {
-                if (Guid.Empty.Equals(ticket)) return result;
+                if (ticket.IsZero()) return result;
 
                 /*
                  * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
@@ -56,23 +150,12 @@ namespace MFR.TextValues.Retrievers.Actions
                  * the file's content so that the application can perform faster.
                  */
 
-                var stream = FileStreamProvider.RedeemTicket(ticket);
-                if (stream == null) return result;
-
-                result = await stream.ReadToEndAsync();
-
-                /*
-                 * Reset the stream to the beginning
-                 * and discard the buffered data.
-                 */
-
-                if (!dispose && stream.EndOfStream)
-                {
-                    stream.BaseStream.Position = 0L;
-                    stream.DiscardBufferedData();
+                lock (SyncRoot) {
+                    stream = FileStreamProvider.RedeemTicket(ticket);
+                    if (stream == null) return result;
                 }
 
-                if (dispose) FileStreamProvider.DisposeStream(ticket, true /* remove from the collection */);
+                result = await stream.ReadToEndAsync();
             }
             catch (Exception ex)
             {
@@ -80,6 +163,24 @@ namespace MFR.TextValues.Retrievers.Actions
                 DebugUtils.LogException(ex);
 
                 result = string.Empty;
+            }
+            finally
+            {
+                /*
+                 * Reset the stream to the beginning
+                 * and discard the buffered data.
+                 */
+
+                if (!dispose && stream != null)
+                {
+                    stream.BaseStream.Position = 0L;
+                    stream.DiscardBufferedData();
+                }
+
+                if (dispose)
+                    FileStreamProvider.DisposeStream(
+                        ticket /* remove from the collection */
+                    );
             }
 
             return result;

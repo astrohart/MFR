@@ -669,7 +669,7 @@ namespace MFR.FileSystem.Retrievers
                 var retriever = GetTextValueRetriever.For(OperationType);
                 if (retriever == null) return result;
 
-                result = retriever.GetTextValue(entry);
+                result = retriever.GetTextValueAsync(entry);
             }
             catch (Exception ex)
             {

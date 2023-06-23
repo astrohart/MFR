@@ -4,6 +4,7 @@ using MFR.FileSystem.Validators.Interfaces;
 using MFR.Operations.Constants;
 using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MFR.TextValues.Retrievers
 {
@@ -55,6 +56,6 @@ namespace MFR.TextValues.Retrievers
         /// Thrown if the required parameter, <paramref name="entry"/>, is
         /// passed a <see langword="null"/> value.
         /// </exception>
-        public abstract string GetTextValue(IFileSystemEntry entry);
+        public abstract Task<string> GetTextValueAsync(IFileSystemEntry entry);
     }
 }

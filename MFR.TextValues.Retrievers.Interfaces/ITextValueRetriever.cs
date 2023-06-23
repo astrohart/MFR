@@ -1,5 +1,6 @@
 using MFR.FileSystem.Interfaces;
 using MFR.Operations.Interfaces;
+using System.Threading.Tasks;
 
 namespace MFR.TextValues.Retrievers.Interfaces
 {
@@ -37,6 +38,6 @@ namespace MFR.TextValues.Retrievers.Interfaces
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        string GetTextValue(IFileSystemEntry entry);
+        Task<string> GetTextValueAsync(IFileSystemEntry entry);
     }
 }

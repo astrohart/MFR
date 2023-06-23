@@ -84,7 +84,7 @@ namespace MFR.FileSystem.Helpers.Tests
             var textValueRetriever = GetTextValueRetriever.For(
                 OperationType.RenameFilesInFolder
             );
-            var textValue = textValueRetriever.GetTextValue(newFileSystemEntry);
+            var textValue = textValueRetriever.GetTextValueAsync(newFileSystemEntry);
             var matchExpressionFactory = GetMatchExpressionFactory
                                          .For(OperationType.RenameFilesInFolder)
                                          .AndAttachConfiguration(ConfigurationProvider.CurrentConfiguration)
@@ -216,7 +216,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           OperationType
                                                               .RenameFilesInFolder
                                                       )
-                                                      .GetTextValue(
+                                                      .GetTextValueAsync(
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
@@ -277,7 +277,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           OperationType
                                                               .RenameFilesInFolder
                                                       )
-                                                      .GetTextValue(
+                                                      .GetTextValueAsync(
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
@@ -342,7 +342,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           OperationType
                                                               .RenameFilesInFolder
                                                       )
-                                                      .GetTextValue(
+                                                      .GetTextValueAsync(
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(
@@ -396,7 +396,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                        OperationType
                                                            .RenameFilesInFolder
                                                    )
-                                                   .GetTextValue(
+                                                   .GetTextValueAsync(
                                                        (IFileSystemEntry)
                                                        MakeNewFileSystemEntry
                                                            .ForPath(
@@ -471,7 +471,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           OperationType
                                                               .RenameFilesInFolder
                                                       )
-                                                      .GetTextValue(
+                                                      .GetTextValueAsync(
                                                           (IFileSystemEntry)
                                                           MakeNewFileSystemEntry
                                                               .ForPath(

@@ -4,6 +4,7 @@ using MFR.TextValues.Retrievers.Actions;
 using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.TextValues.Retrievers
@@ -67,7 +68,7 @@ namespace MFR.TextValues.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public override string GetTextValue(IFileSystemEntry entry)
+        public override async Task<string> GetTextValueAsync(IFileSystemEntry entry)
         {
             var result = string.Empty;
 
@@ -84,9 +85,7 @@ namespace MFR.TextValues.Retrievers
                 // identifier, or GUID, value that serves as a ticket to refer to a currently-
                 // open file stream.
 
-                result = Get.FileDataAsync(fileTicket)
-                            .GetAwaiter()
-                            .GetResult();
+                result = await Get.FileDataAsync(fileTicket);
             }
             catch (Exception ex)
             {
