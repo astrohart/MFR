@@ -151,21 +151,26 @@ namespace MFR.TextValues.Retrievers.Actions
 
             try
             {
-                if (ticket.IsZero()) return result;
+                result = await SemaphoreLocker.LockAsync(
+                    async () =>
+                    {
+                        if (ticket.IsZero()) return result;
 
-                /*
-                 * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
-                 * that we "redeem" with the FileStreamProvider object to get a reference
-                 * to a FileStream object that had been opened on the file previously.
-                 *
-                 * This FileStream object provides the service of asynchronously reading
-                 * the file's content so that the application can perform faster.
-                 */
+                        /*
+                     * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
+                     * that we "redeem" with the FileStreamProvider object to get a reference
+                     * to a FileStream object that had been opened on the file previously.
+                     *
+                     * This FileStream object provides the service of asynchronously reading
+                     * the file's content so that the application can perform faster.
+                     */
 
-                stream = FileStreamProvider.RedeemTicket(ticket);
-                if (stream == null) return result;
+                        stream = FileStreamProvider.RedeemTicket(ticket);
+                        if (stream == null) return result;
 
-                result = await stream.ReadToEndAsync();
+                        return await stream.ReadToEndAsync();
+                    }
+                );
             }
             catch (Exception ex)
             {
