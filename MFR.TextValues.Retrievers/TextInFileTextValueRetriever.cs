@@ -48,6 +48,59 @@ namespace MFR.TextValues.Retrievers
         } = OperationType.ReplaceTextInFiles;
 
         /// <summary>
+        /// Gets a <see cref="T:System.String" /> containing the text to be
+        /// searched, from the file-system <paramref name="entry" /> provided,
+        /// given the current
+        /// <see
+        ///     cref="P:MFR.FileAndFolderTextValueRetriever.OperationType" />
+        /// .
+        /// </summary>
+        /// <param name="entry">
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
+        /// interface.
+        /// </param>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing the value data to be searched
+        /// for the current operation type, or the empty string if the data source has
+        /// no data.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="entry" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        public override string GetTextValue(IFileSystemEntry entry)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                if (entry == null) return result;
+                if (!FileSystemEntryValidatorSays.IsValid(entry)) return result;
+                if (!(entry.UserState is Guid)) return result;
+                if (Guid.Empty.Equals(entry.UserState)) return result;
+
+                Guid fileTicket = entry.UserState;
+
+                // Here, the entry.UserState property is expected to be a globally-unique
+                // identifier, or GUID, value that serves as a ticket to refer to a currently-
+                // open file stream.
+
+                result = Get.FileData(fileTicket);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Gets a string containing the text to be searched, from the
         /// file-system <paramref name="entry" /> provided, given the current
         /// <see
@@ -68,7 +121,9 @@ namespace MFR.TextValues.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public override async Task<string> GetTextValueAsync(IFileSystemEntry entry)
+        public override async Task<string> GetTextValueAsync(
+            IFileSystemEntry entry
+        )
         {
             var result = string.Empty;
 

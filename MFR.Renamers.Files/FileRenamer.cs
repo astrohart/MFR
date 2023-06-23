@@ -2188,7 +2188,7 @@ namespace MFR.Renamers.Files
                                                                      OperationType
                                                                          .RenameFilesInFolder
                                                                  )
-                                                                 .GetTextValueAsync(
+                                                                 .GetTextValue(
                                                                      entry
                                                                  )
                                                          )
@@ -2256,7 +2256,7 @@ namespace MFR.Renamers.Files
                 var textToBeSearched = GetTextValueRetriever.For(
                         OperationType.ReplaceTextInFiles
                     )
-                    .GetTextValueAsync(entry);
+                    .GetTextValue(entry);
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
 
                 // release the stream or the OS won't let us perform the
@@ -2803,7 +2803,7 @@ namespace MFR.Renamers.Files
                  */
 
                 var source =
-                    retriever.GetTextValueAsync(
+                    retriever.GetTextValue(
                         entry
                     ); // target of the find-and-replace
                 if (string.IsNullOrWhiteSpace(source))
@@ -2990,7 +2990,7 @@ namespace MFR.Renamers.Files
                 );
                 if (retriever == null) return result;
 
-                var source = retriever.GetTextValueAsync(entry);
+                var source = retriever.GetTextValue(entry);
                 if (string.IsNullOrWhiteSpace(source))
                     return result;
                 if (!Directory.Exists(source)) return result;

@@ -4,7 +4,7 @@
 ## Contents
 
 - [ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
-  - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [Resources](#T-MFR-TextValues-Retrievers-Interfaces-Properties-Resources 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-TextValues-Retrievers-Interfaces-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources.ResourceManager')
@@ -35,8 +35,8 @@ upon which a find/replace operation is based.
 The specific data to be utilized varies from one type of operation to
 the other.
 
-<a name='M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
-### GetTextValue(entry) `method`
+<a name='M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### GetTextValueAsync(entry) `method`
 
 ##### Summary
 

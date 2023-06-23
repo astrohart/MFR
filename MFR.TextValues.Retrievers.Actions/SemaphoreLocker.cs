@@ -1,12 +1,47 @@
-﻿using System;
+﻿using MFR.TextValues.Retrievers.Actions.Interfaces;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace MFR.TextValues.Retrievers.Actions
 {
-    public class SemaphoreLocker
+    /// <summary>
+    /// Allows the caller to put a mutex or critical section around calls to
+    /// asynchronous methods.
+    /// </summary>
+    public class SemaphoreLocker : ISemaphoreLocker
     {
-        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
+        /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        static SemaphoreLocker() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        protected SemaphoreLocker()
+        {
+            Semaphore = new SemaphoreSlim(1, 1);
+        }
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.TextValues.Retrievers.Actions.Interfaces.ISemaphoreLocker" />
+        /// interface.
+        /// </summary>
+        public static ISemaphoreLocker Instance
+        {
+            get;
+        } = new SemaphoreLocker();
+
+        /// <summary>
+        /// Gets a to an instance of <see cref="T:System.Threading.SemaphoreSlim" />
+        /// that provides a semaphore to be used for asynchronous thread synchronization.
+        /// </summary>
+        private SemaphoreSlim Semaphore
+        {
+            get;
+        }
 
         public async Task LockAsync(Func<Task> worker)
         {
@@ -18,7 +53,7 @@ namespace MFR.TextValues.Retrievers.Actions
                     finally
                     {
                         isTaken =
-                            await _semaphore.WaitAsync(TimeSpan.FromSeconds(1));
+                            await Semaphore.WaitAsync(TimeSpan.FromSeconds(1));
                     }
                 while (!isTaken);
 
@@ -26,7 +61,7 @@ namespace MFR.TextValues.Retrievers.Actions
             }
             finally
             {
-                if (isTaken) _semaphore.Release();
+                if (isTaken) Semaphore.Release();
             }
         }
 
@@ -41,7 +76,7 @@ namespace MFR.TextValues.Retrievers.Actions
                     finally
                     {
                         isTaken =
-                            await _semaphore.WaitAsync(TimeSpan.FromSeconds(1));
+                            await Semaphore.WaitAsync(TimeSpan.FromSeconds(1));
                     }
                 while (!isTaken);
 
@@ -49,7 +84,7 @@ namespace MFR.TextValues.Retrievers.Actions
             }
             finally
             {
-                if (isTaken) _semaphore.Release();
+                if (isTaken) Semaphore.Release();
             }
         }
 
@@ -58,7 +93,7 @@ namespace MFR.TextValues.Retrievers.Actions
         /// </summary>
         ~SemaphoreLocker()
         {
-            _semaphore?.Dispose();
+            Semaphore?.Dispose();
         }
     }
 }

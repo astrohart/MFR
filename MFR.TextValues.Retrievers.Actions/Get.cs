@@ -150,10 +150,9 @@ namespace MFR.TextValues.Retrievers.Actions
                  * the file's content so that the application can perform faster.
                  */
 
-                lock (SyncRoot) {
+                
                     stream = FileStreamProvider.RedeemTicket(ticket);
                     if (stream == null) return result;
-                }
 
                 result = await stream.ReadToEndAsync();
             }

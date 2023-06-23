@@ -1,27 +1,95 @@
 <a name='assembly'></a>
-# MFR.Engines.Factories
+# MFR.Engines.Operations.Factories
 
 ## Contents
 
-- [GetOperationEngine](#T-MFR-Engines-Factories-GetOperationEngine 'MFR.Engines.Factories.GetOperationEngine')
-  - [OfType\`\`1(type)](#M-MFR-Engines-Factories-GetOperationEngine-OfType``1-MFR-Engines-Constants-OperationEngineType- 'MFR.Engines.Factories.GetOperationEngine.OfType``1(MFR.Engines.Constants.OperationEngineType)')
-- [Resources](#T-MFR-Engines-Factories-Properties-Resources 'MFR.Engines.Factories.Properties.Resources')
-  - [Culture](#P-MFR-Engines-Factories-Properties-Resources-Culture 'MFR.Engines.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Engines-Factories-Properties-Resources-ResourceManager 'MFR.Engines.Factories.Properties.Resources.ResourceManager')
+- [GetConsoleOperationEngine](#T-MFR-Engines-Operations-Factories-GetConsoleOperationEngine 'MFR.Engines.Operations.Factories.GetConsoleOperationEngine')
+  - [SoleInstance()](#M-MFR-Engines-Operations-Factories-GetConsoleOperationEngine-SoleInstance 'MFR.Engines.Operations.Factories.GetConsoleOperationEngine.SoleInstance')
+- [GetFullGuiOperationEngine](#T-MFR-Engines-Operations-Factories-GetFullGuiOperationEngine 'MFR.Engines.Operations.Factories.GetFullGuiOperationEngine')
+  - [SoleInstance()](#M-MFR-Engines-Operations-Factories-GetFullGuiOperationEngine-SoleInstance 'MFR.Engines.Operations.Factories.GetFullGuiOperationEngine.SoleInstance')
+- [GetOperationEngine](#T-MFR-Engines-Operations-Factories-GetOperationEngine 'MFR.Engines.Operations.Factories.GetOperationEngine')
+  - [OfType\`\`1(type)](#M-MFR-Engines-Operations-Factories-GetOperationEngine-OfType``1-MFR-Engines-Constants-OperationEngineType- 'MFR.Engines.Operations.Factories.GetOperationEngine.OfType``1(MFR.Engines.Constants.OperationEngineType)')
+- [Resources](#T-MFR-Engines-Operations-Factories-Properties-Resources 'MFR.Engines.Operations.Factories.Properties.Resources')
+  - [Culture](#P-MFR-Engines-Operations-Factories-Properties-Resources-Culture 'MFR.Engines.Operations.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Engines-Operations-Factories-Properties-Resources-ResourceManager 'MFR.Engines.Operations.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Engines-Factories-GetOperationEngine'></a>
+<a name='T-MFR-Engines-Operations-Factories-GetConsoleOperationEngine'></a>
+## GetConsoleOperationEngine `type`
+
+##### Namespace
+
+MFR.Engines.Operations.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IConsoleOperationEngine](#T-MFR-Engines-Operations-Interfaces-IConsoleOperationEngine 'MFR.Engines.Operations.Interfaces.IConsoleOperationEngine')
+interface.
+
+<a name='M-MFR-Engines-Operations-Factories-GetConsoleOperationEngine-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IConsoleOperationEngine](#T-MFR-Engines-Operations-Interfaces-IConsoleOperationEngine 'MFR.Engines.Operations.Interfaces.IConsoleOperationEngine')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IConsoleOperationEngine](#T-MFR-Engines-Operations-Interfaces-IConsoleOperationEngine 'MFR.Engines.Operations.Interfaces.IConsoleOperationEngine')
+interface.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Engines-Operations-Factories-GetFullGuiOperationEngine'></a>
+## GetFullGuiOperationEngine `type`
+
+##### Namespace
+
+MFR.Engines.Operations.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine')
+interface.
+
+<a name='M-MFR-Engines-Operations-Factories-GetFullGuiOperationEngine-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine')
+interface.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Engines-Operations-Factories-GetOperationEngine'></a>
 ## GetOperationEngine `type`
 
 ##### Namespace
 
-MFR.Engines.Factories
+MFR.Engines.Operations.Factories
 
 ##### Summary
 
 Creates instances of objects that implement the
 [IOperationEngine](#T-MFR-Engines-Interfaces-IOperationEngine 'MFR.Engines.Interfaces.IOperationEngine') interface.
 
-<a name='M-MFR-Engines-Factories-GetOperationEngine-OfType``1-MFR-Engines-Constants-OperationEngineType-'></a>
+<a name='M-MFR-Engines-Operations-Factories-GetOperationEngine-OfType``1-MFR-Engines-Constants-OperationEngineType-'></a>
 ### OfType\`\`1(type) `method`
 
 ##### Summary
@@ -72,18 +140,18 @@ corresponds to the value passed in the `type` parameter. |
 This method will throw an exception if there are no types implemented
 that correspond to the value of `type`.
 
-<a name='T-MFR-Engines-Factories-Properties-Resources'></a>
+<a name='T-MFR-Engines-Operations-Factories-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
 
-MFR.Engines.Factories.Properties
+MFR.Engines.Operations.Factories.Properties
 
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Engines-Factories-Properties-Resources-Culture'></a>
+<a name='P-MFR-Engines-Operations-Factories-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -91,7 +159,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Engines-Factories-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Engines-Operations-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
