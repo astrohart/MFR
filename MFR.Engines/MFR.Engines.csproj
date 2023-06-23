@@ -189,6 +189,10 @@
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
       <Name>MFR.GUI.Dialogs.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Identifiers.Interfaces\MFR.Messages.Identifiers.Interfaces.csproj">
+      <Project>{D70F3791-A751-4412-8AF4-3E732268B321}</Project>
+      <Name>MFR.Messages.Identifiers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
       <Name>MFR.Operations.Constants</Name>

@@ -76,8 +76,7 @@ namespace MFR.Directories.Managers
                                                     SearchOption.AllDirectories,
                                                     pathFilter
                                                 )
-                                                .AsParallel()
-                                                .ToList();
+                                                .AsParallel();
                 if (solutionFileList == null || !solutionFileList.Any()) return;
 
                 SearchDirectories.AddRange(

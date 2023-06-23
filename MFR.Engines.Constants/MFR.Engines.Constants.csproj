@@ -110,7 +110,6 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OperationEngineMessageId.cs" />
     <Compile Include="OperationEngineMessages.cs" />
     <Compile Include="OperationEngineType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,9 +138,13 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Identifiers\MFR.Messages.Identifiers.csproj">
-      <Project>{43B1DC10-906C-4B02-87D7-154F43FEAF6C}</Project>
-      <Name>MFR.Messages.Identifiers</Name>
+    <ProjectReference Include="..\MFR.Messages.Identifiers.Factories\MFR.Messages.Identifiers.Factories.csproj">
+      <Project>{4C980FCA-8670-4B49-9791-C3ECA8B462DB}</Project>
+      <Name>MFR.Messages.Identifiers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Identifiers.Interfaces\MFR.Messages.Identifiers.Interfaces.csproj">
+      <Project>{D70F3791-A751-4412-8AF4-3E732268B321}</Project>
+      <Name>MFR.Messages.Identifiers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,19 +1,18 @@
-﻿using MFR.Messages.Identifiers.Interfaces;
-using System;
-using xyLOGIX.Core.Debug;
+﻿using System;
 
-namespace MFR.Messages.Identifiers
+namespace MFR.Messages.Identifiers.Interfaces
 {
     /// <summary>
-    /// Defines the events, methods, properties, and behaviors for all message identifier objects.
+    /// Defines the publicly-exposed methods and properties of a message ID object.
     /// </summary>
-    public class MessageIdBase : IMessageId
+    /// <remarks>These objects uniquely identify messages and also give them names.</remarks>
+    public interface IMessageIdentifier
     {
         /// <summary>
         /// Gets or sets a <see cref="T:System.Guid" /> value that uniquely identifies the
         /// message.
         /// </summary>
-        public Guid MessageId
+        Guid MessageId
         {
             get;
             set;
@@ -23,7 +22,7 @@ namespace MFR.Messages.Identifiers
         /// Gets or sets a <see cref="T:System.String" /> that names this message
         /// identifier.
         /// </summary>
-        public string Name
+        string Name
         {
             get;
             set;
@@ -43,28 +42,13 @@ namespace MFR.Messages.Identifiers
         /// property is set
         /// to the Zero GUID; <see langword="false" /> otherwise.
         /// </returns>
-        public bool IsZero()
-        {
-            bool result;
+        bool IsZero();
 
-            try
-            {
-                result = Guid.Empty.Equals(MessageId);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>Returns a string that represents the current object.</summary>
-        /// <returns>A string that represents the current object.</returns>
-        public override string ToString()
-            => $"{{ Name = '{Name}', MessageId = '{MessageId}' }}";
+        /// <summary>
+        /// Expresses this object instance as a <see cref="T:System.Guid" /> that uniquely
+        /// identifies the message.
+        /// </summary>
+        /// <returns></returns>
+        Guid ToGuid();
     }
 }

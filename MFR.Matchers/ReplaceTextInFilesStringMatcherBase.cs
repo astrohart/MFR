@@ -71,7 +71,9 @@ namespace MFR.Matchers
         /// overriders should call the base class method while ignoring its
         /// return value.
         /// </remarks>
-        public virtual bool IsMatch(string value, string findWhat,
+        public virtual bool IsMatch(
+            [NotLogged] string value, 
+            string findWhat,
             string replaceWith = "")
         {
             if (string.IsNullOrEmpty(value))

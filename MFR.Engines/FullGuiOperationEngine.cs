@@ -15,7 +15,6 @@ using System;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Win32.Interact;
 
 namespace MFR.Engines
 {
@@ -460,7 +459,9 @@ namespace MFR.Engines
         {
             base.OnProcessingError(e);
 
-            Messages.ShowStopError(Resources.Error_OperationFailed);
+            xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                Resources.Error_OperationFailed
+            );
         }
 
         /// <summary>
