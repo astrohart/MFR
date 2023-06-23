@@ -6,12 +6,12 @@
 - [Resources](#T-MFR-Settings-Configuration-Commands-Tests-Properties-Resources 'MFR.Settings.Configuration.Commands.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Commands-Tests-Properties-Resources-Culture 'MFR.Settings.Configuration.Commands.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Commands.Tests.Properties.Resources.ResourceManager')
-- [SaveConfigurationToFileCommandTests](#T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests')
-  - [FILE_PATH](#F-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
-  - [BlankConfiguration](#P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.BlankConfiguration')
-  - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Replacers.Factories.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
-- [SaveStringToRegistryCommandTests](#T-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests')
-  - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Replacers.Factories.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
+- [SaveConfigurationToFileCommandTests](#T-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests')
+  - [FILE_PATH](#F-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
+  - [BlankConfiguration](#P-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.BlankConfiguration')
+  - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
+- [SaveStringToRegistryCommandTests](#T-MFR-Settings-Configuration-Commands-Tests-SaveStringToRegistryCommandTests 'MFR.Settings.Configuration.Commands.Tests.SaveStringToRegistryCommandTests')
+  - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Settings-Configuration-Commands-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Settings.Configuration.Commands.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
 
 <a name='T-MFR-Settings-Configuration-Commands-Tests-Properties-Resources'></a>
 ## Resources `type`
@@ -39,12 +39,12 @@ Overrides the current thread's CurrentUICulture property for all
 
 Returns the cached ResourceManager instance used by this class.
 
-<a name='T-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests'></a>
+<a name='T-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests'></a>
 ## SaveConfigurationToFileCommandTests `type`
 
 ##### Namespace
 
-MFR.Replacers.Factories.Tests
+MFR.Settings.Configuration.Commands.Tests
 
 ##### Summary
 
@@ -58,21 +58,21 @@ This class enables callers to provide a filename and a configuration
 object reference, bundled together inside a File System Entry POCO, and
 it is serialized to disk.
 
-<a name='F-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-FILE_PATH'></a>
+<a name='F-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-FILE_PATH'></a>
 ### FILE_PATH `constants`
 
 ##### Summary
 
 File in the root of the C: drive where the data is to be saved.
 
-<a name='P-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration'></a>
+<a name='P-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration'></a>
 ### BlankConfiguration `property`
 
 ##### Summary
 
 Empty configuration object for testing.
 
-<a name='M-MFR-Replacers-Factories-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs'></a>
+<a name='M-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs'></a>
 ### Test_SaveConfigurationToFile_Works_ForvalidInputs() `method`
 
 ##### Summary
@@ -83,12 +83,12 @@ TODO: Add unit test documentation here
 
 This method has no parameters.
 
-<a name='T-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests'></a>
+<a name='T-MFR-Settings-Configuration-Commands-Tests-SaveStringToRegistryCommandTests'></a>
 ## SaveStringToRegistryCommandTests `type`
 
 ##### Namespace
 
-MFR.Replacers.Factories.Tests
+MFR.Settings.Configuration.Commands.Tests
 
 ##### Summary
 
@@ -96,7 +96,7 @@ Provides unit tests for the methods, properties, and events of the
 [SaveStringToRegistryCommand](#T-MFR-SaveStringToRegistryCommand 'MFR.SaveStringToRegistryCommand')
 class.
 
-<a name='M-MFR-Replacers-Factories-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry'></a>
+<a name='M-MFR-Settings-Configuration-Commands-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry'></a>
 ### Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry() `method`
 
 ##### Summary

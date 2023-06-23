@@ -4,6 +4,7 @@
 ## Contents
 
 - [ITextValueRetriever](#T-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever')
+  - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.Interfaces.ITextValueRetriever.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [Resources](#T-MFR-TextValues-Retrievers-Interfaces-Properties-Resources 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Interfaces-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Interfaces.Properties.Resources.Culture')
@@ -35,27 +36,56 @@ upon which a find/replace operation is based.
 The specific data to be utilized varies from one type of operation to
 the other.
 
-<a name='M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
-### GetTextValueAsync(entry) `method`
+<a name='M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### GetTextValue(entry) `method`
 
 ##### Summary
 
-Gets a string containing the text to be searched, from the
-file-system `entry` provided, given the current
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') now being processed.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
 
 ##### Returns
 
-String containing the value data to be searched for the current
-operation type, or the empty string if the data source has no data.
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
-interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+
+<a name='M-MFR-TextValues-Retrievers-Interfaces-ITextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### GetTextValueAsync(entry) `method`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
 
 ##### Exceptions
 
