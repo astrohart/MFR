@@ -1,5 +1,5 @@
 ﻿using MFR.Engines.Constants;
-using MFR.Engines.Interfaces;
+using MFR.Engines.Operations.Interfaces;
 using MFR.Operations.Events;
 
 namespace MFR.Engines

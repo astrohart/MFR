@@ -139,6 +139,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Identifiers\MFR.Messages.Identifiers.csproj">
+      <Project>{43B1DC10-906C-4B02-87D7-154F43FEAF6C}</Project>
+      <Name>MFR.Messages.Identifiers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

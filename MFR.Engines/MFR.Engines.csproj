@@ -110,7 +110,6 @@
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OperationEngine.cs" />
     <Compile Include="OperationEngineBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -166,9 +165,9 @@
       <Project>{6991D784-1E07-471C-BA54-CB9C1A723D09}</Project>
       <Name>MFR.Engines.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Engines.Interfaces\MFR.Engines.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Engines.Operations.Interfaces\MFR.Engines.Operations.Interfaces.csproj">
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
-      <Name>MFR.Engines.Interfaces</Name>
+      <Name>MFR.Engines.Operations.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>

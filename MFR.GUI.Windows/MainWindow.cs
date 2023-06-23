@@ -3,7 +3,7 @@ using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
 using MFR.Engines.Constants;
 using MFR.Engines.Factories;
-using MFR.Engines.Interfaces;
+using MFR.Engines.Operations.Interfaces;
 using MFR.Events.Common;
 using MFR.FileSystem.Enumerators.Actions;
 using MFR.GUI.Constants;

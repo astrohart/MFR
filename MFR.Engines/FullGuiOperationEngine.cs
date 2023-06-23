@@ -1,5 +1,5 @@
 ﻿using MFR.Engines.Constants;
-using MFR.Engines.Interfaces;
+using MFR.Engines.Operations.Interfaces;
 using MFR.Engines.Properties;
 using MFR.Events.Common;
 using MFR.GUI.Dialogs.Factories;

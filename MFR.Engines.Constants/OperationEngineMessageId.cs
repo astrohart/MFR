@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MFR.Messages.Identifiers;
+using System;
 
 namespace MFR.Engines.Constants
 {

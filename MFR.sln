@@ -602,7 +602,7 @@ Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj
 		{F1AA54DD-684F-45CC-A5B7-766AE9E75634} = {F1AA54DD-684F-45CC-A5B7-766AE9E75634}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Interfaces", "MFR.Engines.Interfaces\MFR.Engines.Interfaces.csproj", "{172B8D17-9511-411F-A0EA-F5F1C12C8600}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Operations.Interfaces", "MFR.Engines.Operations.Interfaces\MFR.Engines.Operations.Interfaces.csproj", "{172B8D17-9511-411F-A0EA-F5F1C12C8600}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Factories", "MFR.Engines.Factories\MFR.Engines.Factories.csproj", "{4F6FED29-A3F6-47B6-826E-8B371E34FCEE}"
 EndProject

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MFR.Messages.Identifiers.Interfaces;
+using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Messages.Identifiers
 {

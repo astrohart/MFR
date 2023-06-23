@@ -63,7 +63,7 @@
     <ROW Component="MFR.Engines.Actions.dll" ComponentId="{D2250869-643B-4E63-A2DB-855025E9E82C}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Actions.dll"/>
     <ROW Component="MFR.Engines.Constants.dll" ComponentId="{1C524876-D0F6-4295-A959-BDF5171ADDA4}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Constants.dll"/>
     <ROW Component="MFR.Engines.Factories.dll" ComponentId="{2B8EFF5F-DF33-49CB-BC0C-4E739C674480}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Factories.dll"/>
-    <ROW Component="MFR.Engines.Interfaces.dll" ComponentId="{7B1B1B43-2CB9-4867-A4CB-3661719F167B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Interfaces.dll"/>
+    <ROW Component="MFR.Engines.Operations.Interfaces.dll" ComponentId="{7B1B1B43-2CB9-4867-A4CB-3661719F167B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Operations.Interfaces.dll"/>
     <ROW Component="MFR.Engines.Matching.Factories.dll" ComponentId="{15E5CF68-08CB-4E7F-B2A2-395DE26D5030}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Matching.Factories.dll"/>
     <ROW Component="MFR.Engines.Matching.Interfaces.dll" ComponentId="{A7BD5217-7BAC-46FC-BBF8-44975D9AEBC9}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Matching.Interfaces.dll"/>
     <ROW Component="MFR.Engines.Matching.dll" ComponentId="{B026A1F4-8FCC-441B-A9BE-4877820FD2A5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Engines.Matching.dll"/>
@@ -374,8 +374,8 @@
     <ROW File="MFR.Engines.dll.config" Component_="config.json" FileName="MFRENG~3.CON|MFR.Engines.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.dll.config" SelfReg="false"/>
     <ROW File="MFR.Engines.Factories.dll" Component_="MFR.Engines.Factories.dll" FileName="MFRENG~4.DLL|MFR.Engines.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Factories.dll" SelfReg="false"/>
     <ROW File="MFR.Engines.Factories.dll.config" Component_="config.json" FileName="MFRENG~4.CON|MFR.Engines.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Factories.dll.config" SelfReg="false"/>
-    <ROW File="MFR.Engines.Interfaces.dll" Component_="MFR.Engines.Interfaces.dll" FileName="MFRENG~5.DLL|MFR.Engines.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Interfaces.dll" SelfReg="false"/>
-    <ROW File="MFR.Engines.Interfaces.dll.config" Component_="config.json" FileName="MFRENG~5.CON|MFR.Engines.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Engines.Operations.Interfaces.dll" Component_="MFR.Engines.Operations.Interfaces.dll" FileName="MFRENG~5.DLL|MFR.Engines.Operations.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Operations.Interfaces.dll" SelfReg="false"/>
+    <ROW File="MFR.Engines.Operations.Interfaces.dll.config" Component_="config.json" FileName="MFRENG~5.CON|MFR.Engines.Operations.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Operations.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="MFR.Engines.Matching.dll" Component_="MFR.Engines.Matching.dll" FileName="MFRENG~6.DLL|MFR.Engines.Matching.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Matching.dll" SelfReg="false"/>
     <ROW File="MFR.Engines.Matching.dll.config" Component_="config.json" FileName="MFRENG~6.CON|MFR.Engines.Matching.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Matching.dll.config" SelfReg="false"/>
     <ROW File="MFR.Engines.Matching.Factories.dll" Component_="MFR.Engines.Matching.Factories.dll" FileName="MFRENG~7.DLL|MFR.Engines.Matching.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Engines.Matching.Factories.dll" SelfReg="false"/>
@@ -967,7 +967,7 @@
     <ROW Feature_="MainFeature" Component_="MFR.Engines.Constants.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Engines.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Engines.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.Engines.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Engines.Operations.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Engines.Matching.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Engines.Matching.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Engines.Matching.Interfaces.dll"/>
