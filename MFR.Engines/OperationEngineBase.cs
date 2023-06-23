@@ -90,7 +90,9 @@ namespace MFR.Engines
         /// children of the <see cref="T:MFR.Engines.OperationEngineBase" /> class.
         /// </remarks>
         protected static IFileRenamer FileRenamer
-            => GetFileRenamer.SoleInstance();
+        {
+            get;
+        } = GetFileRenamer.SoleInstance();
 
         /// <summary>
         /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration

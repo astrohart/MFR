@@ -142,21 +142,9 @@
       <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
       <Name>xyLOGIX.Queues.Messages.Senders</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
-      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
-      <Name>xyLOGIX.Queues.Messages</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls\xyLOGIX.UI.Dark.Controls.csproj">
       <Project>{9190559B-FB22-4E74-9130-5BFD3FFD6DAE}</Project>
       <Name>xyLOGIX.UI.Dark.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
-      <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
-      <Name>MFR.Directories.Validators.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
-      <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
-      <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Constants\MFR.Engines.Constants.csproj">
       <Project>{6991D784-1E07-471C-BA54-CB9C1A723D09}</Project>
@@ -177,6 +165,10 @@
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Factories\MFR.Renamers.Files.Factories.csproj">
+      <Project>{A93C6F56-DF58-45F1-8C4B-03C63F013E7F}</Project>
+      <Name>MFR.Renamers.Files.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
       <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
@@ -273,10 +265,6 @@
     <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
       <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
       <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
-      <Project>{9D0A59C5-A814-45CA-88B3-DAE6E6462D07}</Project>
-      <Name>MFR.Validators.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

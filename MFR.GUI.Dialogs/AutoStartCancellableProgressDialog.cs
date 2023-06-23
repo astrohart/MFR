@@ -85,7 +85,9 @@ namespace MFR.GUI.Dialogs
         /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
         /// </summary>
         private static IFileRenamer FileRenamer
-            => GetFileRenamer.SoleInstance();
+        {
+            get;
+        } = GetFileRenamer.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the

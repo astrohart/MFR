@@ -15,6 +15,7 @@ using MFR.GUI.Windows.Presenters.Interfaces;
 using MFR.GUI.Windows.Presenters.Properties;
 using MFR.Managers.History.Interfaces;
 using MFR.Operations.Events;
+using MFR.Renamers.Files.Factories;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Events;
@@ -32,7 +33,6 @@ using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
 using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.Queues.Messages.Senders;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
@@ -126,8 +126,7 @@ namespace MFR.GUI.Windows.Presenters
         private IFileRenamer FileRenamer
         {
             get;
-            set;
-        }
+        } = GetFileRenamer.SoleInstance();
 
         /// <summary>
         /// Gets the text to be searched for during the operations.
@@ -1006,10 +1005,10 @@ namespace MFR.GUI.Windows.Presenters
         {
             DataOperationFinished?.Invoke(this, EventArgs.Empty);
             SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(
-                           MainWindowPresenterMessages
-                               .MWP_DATA_OPERATION_FINISHED
-                       );
+                                  .ForMessageId(
+                                      MainWindowPresenterMessages
+                                          .MWP_DATA_OPERATION_FINISHED
+                                  );
         }
 
         /// <summary>
@@ -1113,18 +1112,12 @@ namespace MFR.GUI.Windows.Presenters
                                             OperationEngineMessages
                                                 .OE_PROCESSING_STARTED
                                         )
-                                        .AndHandler(
-                                            new EventHandler(OnOperationStarted)
-                                        );
+                                        .AndEventHandler(OnOperationStarted);
             NewMessageMapping<EventArgs>.Associate.WithMessageId(
                                             OperationEngineMessages
                                                 .OE_PROCESSING_FINISHED
                                         )
-                                        .AndHandler(
-                                            new EventHandler(
-                                                OnProcessingFinished
-                                            )
-                                        );
+                                        .AndEventHandler(OnOperationFinished);
         }
 
         /// <summary>
@@ -1147,7 +1140,10 @@ namespace MFR.GUI.Windows.Presenters
             object sender,
             EventArgs e
         )
-            => FileRenamer.RequestAbort();
+            => FileRenamer?.RequestAbort();
+
+        private void OnOperationFinished(object sender, EventArgs e)
+            => OnProcessingFinished(sender, e);
 
         /// <summary>
         /// This method is called when the Operation Engine sends the
