@@ -1,7 +1,8 @@
 ﻿using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories.Actions;
-using MFR.TextValues.Retrievers.Actions.Interfaces;
+using MFR.TextValues.Retrievers.Synchronization.Factories;
+using MFR.TextValues.Retrievers.Synchronization.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
@@ -18,15 +19,6 @@ namespace MFR.TextValues.Retrievers.Actions
     public static class Get
     {
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the <see cref="T:MFR.TextValues.Retrievers.Actions.Interfaces.ISemaphoreLocker" /> interface.
-        /// </summary>
-        private static ISemaphoreLocker SemaphoreLocker
-        {
-            get;
-        } = GetSemaphoreLocker.SoleInstance();
-
-
-        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
         /// interface.
@@ -37,6 +29,21 @@ namespace MFR.TextValues.Retrievers.Actions
         } = GetFileStreamProvider.SoleInstance();
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker" />
+        /// interface.
+        /// </summary>
+        private static ISemaphoreLocker SemaphoreLocker
+        {
+            get;
+        } = GetSemaphoreLocker.SoleInstance();
+
+        private static SemaphoreSlim StreamReadSemaphore
+        {
+            get;
+        } = new SemaphoreSlim(0);
+
+        /// <summary>
         /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
         /// used for thread synchronization.
         /// </summary>
@@ -44,11 +51,6 @@ namespace MFR.TextValues.Retrievers.Actions
         {
             get;
         } = new object();
-
-        private static SemaphoreSlim StreamReadSemaphore
-        {
-            get;
-        } = new SemaphoreSlim(0);
 
         /// <summary>
         /// Extracts the data from the file having a stream open on it that corresponds to
@@ -76,17 +78,16 @@ namespace MFR.TextValues.Retrievers.Actions
             StreamReader stream = default;
 
             lock (SyncRoot)
-            {
                 try
                 {
                     if (ticket.IsZero()) return result;
+
                     /*
                      * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
                      * that we "redeem" with the FileStreamProvider object to get a reference
                      * to a FileStream object that had been opened on the file previously.
                      *
                      */
-
                     stream = FileStreamProvider.RedeemTicket(ticket);
                     if (stream == null) return result;
 
@@ -105,7 +106,6 @@ namespace MFR.TextValues.Retrievers.Actions
                  * Reset the stream to the beginning
                  * and discard the buffered data.
                  */
-
                     if (!dispose && stream != null)
                     {
                         stream.BaseStream.Position = 0L;
@@ -117,7 +117,6 @@ namespace MFR.TextValues.Retrievers.Actions
                             ticket /* remove from the collection */
                         );
                 }
-            }
 
             return result;
         }
@@ -163,9 +162,8 @@ namespace MFR.TextValues.Retrievers.Actions
                  * the file's content so that the application can perform faster.
                  */
 
-                
-                    stream = FileStreamProvider.RedeemTicket(ticket);
-                    if (stream == null) return result;
+                stream = FileStreamProvider.RedeemTicket(ticket);
+                if (stream == null) return result;
 
                 result = await stream.ReadToEndAsync();
             }

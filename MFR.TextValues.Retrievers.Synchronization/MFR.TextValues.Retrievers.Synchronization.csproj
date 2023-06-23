@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="SemaphoreLocker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +130,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Synchronization.Interfaces\MFR.TextValues.Retrievers.Synchronization.Interfaces.csproj">
+      <Project>{466BA4D9-C469-45E6-8857-1E604CCAB1C6}</Project>
+      <Name>MFR.TextValues.Retrievers.Synchronization.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

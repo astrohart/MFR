@@ -131,6 +131,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Synchronization.Interfaces\MFR.TextValues.Retrievers.Synchronization.Interfaces.csproj">
+      <Project>{466BA4D9-C469-45E6-8857-1E604CCAB1C6}</Project>
+      <Name>MFR.TextValues.Retrievers.Synchronization.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Synchronization\MFR.TextValues.Retrievers.Synchronization.csproj">
+      <Project>{F078F962-113F-4BC3-8400-C437CA80F6F7}</Project>
+      <Name>MFR.TextValues.Retrievers.Synchronization</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"

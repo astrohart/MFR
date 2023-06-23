@@ -1,9 +1,9 @@
-﻿using MFR.TextValues.Retrievers.Actions.Interfaces;
+﻿using MFR.TextValues.Retrievers.Synchronization.Interfaces;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MFR.TextValues.Retrievers.Actions
+namespace MFR.TextValues.Retrievers.Synchronization
 {
     /// <summary>
     /// Allows the caller to put a mutex or critical section around calls to
@@ -26,7 +26,7 @@ namespace MFR.TextValues.Retrievers.Actions
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
-        /// <see cref="T:MFR.TextValues.Retrievers.Actions.Interfaces.ISemaphoreLocker" />
+        /// <see cref="T:MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker" />
         /// interface.
         /// </summary>
         public static ISemaphoreLocker Instance
@@ -43,6 +43,12 @@ namespace MFR.TextValues.Retrievers.Actions
             get;
         }
 
+        /// <summary>
+        /// Uses a semaphore instead of a critical section to ensure that only one thread
+        /// at a time runs an asynchronous operation.
+        /// </summary>
+        /// <param name="worker">(Required.) Thread that must be synchronized.</param>
+        /// <returns>An awaitable <see cref="T:System.Threading.Tasks.Task" />.</returns>
         public async Task LockAsync(Func<Task> worker)
         {
             var isTaken = false;
@@ -65,7 +71,16 @@ namespace MFR.TextValues.Retrievers.Actions
             }
         }
 
-        // overloading variant for non-void methods with return type (generic T)
+        /// <summary>
+        /// Uses a semaphore instead of a critical section to ensure that only one thread
+        /// at a time runs an asynchronous operation.
+        /// </summary>
+        /// <typeparam name="T">
+        /// (Required.) Data type of the return value of the specified
+        /// <paramref name="worker" /> thread.
+        /// </typeparam>
+        /// <param name="worker">(Required.) Thread that must be synchronized.</param>
+        /// <returns>An awaitable <see cref="T:System.Threading.Tasks.Task" />.</returns>
         public async Task<T> LockAsync<T>(Func<Task<T>> worker)
         {
             var isTaken = false;

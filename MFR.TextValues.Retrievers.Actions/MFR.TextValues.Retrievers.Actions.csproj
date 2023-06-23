@@ -105,7 +105,6 @@
   <ItemGroup>
     <Compile Include="Get.cs" />
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="SemaphoreLocker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,9 +149,13 @@
       <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
       <Name>MFR.FileSystem.Factories.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions.Interfaces\MFR.TextValues.Retrievers.Actions.Interfaces.csproj">
-      <Project>{B74598BE-E5A1-4998-8E73-1CADF7A49FF8}</Project>
-      <Name>MFR.TextValues.Retrievers.Actions.Interfaces</Name>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Synchronization.Factories\MFR.TextValues.Retrievers.Synchronization.Factories.csproj">
+      <Project>{B97F12EA-2F10-4D00-813A-E0014DDA6CB4}</Project>
+      <Name>MFR.TextValues.Retrievers.Synchronization.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Synchronization.Interfaces\MFR.TextValues.Retrievers.Synchronization.Interfaces.csproj">
+      <Project>{466BA4D9-C469-45E6-8857-1E604CCAB1C6}</Project>
+      <Name>MFR.TextValues.Retrievers.Synchronization.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
