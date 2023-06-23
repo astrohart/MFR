@@ -40,6 +40,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -1429,16 +1430,20 @@ namespace MFR.Renamers.Files
 
             try
             {
-                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .All(
+                var tasks = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .Select(
                                               entry
                                                   => ReplaceTextInFileForEntry(
                                                       findWhat, replaceWith,
                                                       entry
                                                   )
                                           );
+                if (tasks == null || !tasks.Any()) return result;
 
-                result &= !AbortRequested;
+                result = Task.WhenAll(tasks)
+                             .GetAwaiter()
+                             .GetResult()
+                             .All(x => true) & !AbortRequested;
             }
             catch (OperationAbortedException)
             {
@@ -2222,7 +2227,7 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private string GetTextInFileReplacementData(
+        private async Task<string> GetTextInFileReplacementDataAsync(
             IFileSystemEntry entry,
             string findWhat,
             string replaceWith
@@ -2253,10 +2258,10 @@ namespace MFR.Renamers.Files
                         .AndAttachConfiguration(CurrentConfiguration);
                 if (matchExpressionFactory == null) return result;
 
-                var textToBeSearched = GetTextValueRetriever.For(
+                var textToBeSearched = await GetTextValueRetriever.For(
                         OperationType.ReplaceTextInFiles
                     )
-                    .GetTextValue(entry);
+                    .GetTextValueAsync(entry);
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
 
                 // release the stream or the OS won't let us perform the
@@ -3124,7 +3129,7 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private bool ReplaceTextInFileForEntry(
+        private async Task<bool> ReplaceTextInFileForEntry(
             string findWhat,
             string replaceWith,
             IFileSystemEntry entry
@@ -3152,7 +3157,7 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var replacementData = GetTextInFileReplacementData(
+                var replacementData = await GetTextInFileReplacementDataAsync(
                     entry, findWhat, replaceWith
                 );
                 if (string.IsNullOrWhiteSpace(replacementData))
