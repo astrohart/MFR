@@ -1,11 +1,10 @@
 ﻿using MFR.Detectors.Constants;
-using MFR.Detectors.Models;
 using MFR.Detectors.Models.Interfaces;
 using MFR.FileSystem.Factories.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Detectors.Factories
+namespace MFR.Detectors.Models.Factories
 {
     /// <summary>
     /// Creates new instances of objects that implement the

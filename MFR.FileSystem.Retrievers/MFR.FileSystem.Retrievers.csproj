@@ -134,6 +134,22 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Constants\MFR.Detectors.Constants.csproj">
+      <Project>{08C20B36-A98E-49E0-BBC0-56C8DE2511A7}</Project>
+      <Name>MFR.Detectors.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Factories\MFR.Detectors.Factories.csproj">
+      <Project>{8921A08B-8304-438E-81C6-815523B6956C}</Project>
+      <Name>MFR.Detectors.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Interfaces\MFR.Detectors.Interfaces.csproj">
+      <Project>{A2898340-15E4-4602-9F9D-3207BC017291}</Project>
+      <Name>MFR.Detectors.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Models.Interfaces\MFR.Detectors.Models.Interfaces.csproj">
+      <Project>{eeb9ad5e-3afb-4fcf-bade-db27d5c4d889}</Project>
+      <Name>MFR.Detectors.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
       <Name>MFR.FileSystem.Enumerators</Name>

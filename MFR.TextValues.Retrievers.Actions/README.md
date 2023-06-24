@@ -5,6 +5,7 @@
 
 - [Get](#T-MFR-TextValues-Retrievers-Actions-Get 'MFR.TextValues.Retrievers.Actions.Get')
   - [FileStreamProvider](#P-MFR-TextValues-Retrievers-Actions-Get-FileStreamProvider 'MFR.TextValues.Retrievers.Actions.Get.FileStreamProvider')
+  - [SemaphoreLocker](#P-MFR-TextValues-Retrievers-Actions-Get-SemaphoreLocker 'MFR.TextValues.Retrievers.Actions.Get.SemaphoreLocker')
   - [SyncRoot](#P-MFR-TextValues-Retrievers-Actions-Get-SyncRoot 'MFR.TextValues.Retrievers.Actions.Get.SyncRoot')
   - [FileData(ticket,dispose)](#M-MFR-TextValues-Retrievers-Actions-Get-FileData-System-Guid,System-Boolean- 'MFR.TextValues.Retrievers.Actions.Get.FileData(System.Guid,System.Boolean)')
   - [FileDataAsync(ticket,dispose)](#M-MFR-TextValues-Retrievers-Actions-Get-FileDataAsync-System-Guid,System-Boolean- 'MFR.TextValues.Retrievers.Actions.Get.FileDataAsync(System.Guid,System.Boolean)')
@@ -12,8 +13,6 @@
 - [Resources](#T-MFR-TextValues-Retrievers-Actions-Properties-Resources 'MFR.TextValues.Retrievers.Actions.Properties.Resources')
   - [Culture](#P-MFR-TextValues-Retrievers-Actions-Properties-Resources-Culture 'MFR.TextValues.Retrievers.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-TextValues-Retrievers-Actions-Properties-Resources-ResourceManager 'MFR.TextValues.Retrievers.Actions.Properties.Resources.ResourceManager')
-- [SemaphoreLocker](#T-MFR-TextValues-Retrievers-Actions-SemaphoreLocker 'MFR.TextValues.Retrievers.Actions.SemaphoreLocker')
-  - [Finalize()](#M-MFR-TextValues-Retrievers-Actions-SemaphoreLocker-Finalize 'MFR.TextValues.Retrievers.Actions.SemaphoreLocker.Finalize')
 
 <a name='T-MFR-TextValues-Retrievers-Actions-Get'></a>
 ## Get `type`
@@ -22,6 +21,10 @@
 
 MFR.TextValues.Retrievers.Actions
 
+##### Summary
+
+Exposes static methods, e.g., to retrieve data from text files.
+
 <a name='P-MFR-TextValues-Retrievers-Actions-Get-FileStreamProvider'></a>
 ### FileStreamProvider `property`
 
@@ -29,6 +32,15 @@ MFR.TextValues.Retrievers.Actions
 
 Gets a reference to an instance of an object that implements the
 [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+interface.
+
+<a name='P-MFR-TextValues-Retrievers-Actions-Get-SemaphoreLocker'></a>
+### SemaphoreLocker `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ISemaphoreLocker](#T-MFR-TextValues-Retrievers-Synchronization-Interfaces-ISemaphoreLocker 'MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker')
 interface.
 
 <a name='P-MFR-TextValues-Retrievers-Actions-Get-SyncRoot'></a>
@@ -137,21 +149,3 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
-
-<a name='T-MFR-TextValues-Retrievers-Actions-SemaphoreLocker'></a>
-## SemaphoreLocker `type`
-
-##### Namespace
-
-MFR.TextValues.Retrievers.Actions
-
-<a name='M-MFR-TextValues-Retrievers-Actions-SemaphoreLocker-Finalize'></a>
-### Finalize() `method`
-
-##### Summary
-
-Releases the system resources associated with this object.
-
-##### Parameters
-
-This method has no parameters.

@@ -103,8 +103,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dispose.cs" />
     <Compile Include="Get.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="Rewind.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

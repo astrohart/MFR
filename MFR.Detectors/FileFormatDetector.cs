@@ -1,6 +1,7 @@
 ﻿using MFR.Detectors.Actions;
 using MFR.Detectors.Constants;
-using MFR.Detectors.Factories;
+using MFR.Detectors.Interfaces;
+using MFR.Detectors.Models.Factories;
 using MFR.Detectors.Models.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
@@ -21,8 +22,18 @@ namespace MFR.Detectors
     /// file, we use this object to screen out those files that would not make sense to
     /// be included in a <c>Replace Text in Files</c> operation.
     /// </remarks>
-    public class FileFormatDetector
+    public class FileFormatDetector : IFileFormatDetector
     {
+        /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        static FileFormatDetector() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        protected FileFormatDetector() { }
+
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
@@ -36,6 +47,15 @@ namespace MFR.Detectors
         {
             get;
         } = GetFileStreamProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Detectors.Interfaces.IFileFormatDetector" /> interface.
+        /// </summary>
+        public static IFileFormatDetector Instance
+        {
+            get;
+        } = new FileFormatDetector();
 
         /// <summary>
         /// Reference to an instance of an object that can be used for thread
@@ -83,6 +103,23 @@ namespace MFR.Detectors
             return result;
         }
 
+        /// <summary>
+        /// Examines the file having the specified <paramref name="pathname" /> and
+        /// attempts to determine its format (binary or ASCII).
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that
+        /// contains the fully-qualified pathname of the file to have detection run on it.
+        /// </param>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that is
+        /// used to access the file stream that is open on the desired file.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Detectors.Models.IFileFormatDetectionResult" /> interface that
+        /// contains data on the file's format.
+        /// </returns>
         public IFileFormatDetectionResult DetectFileFormat(
             string pathname,
             Guid ticket

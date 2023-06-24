@@ -1,3 +1,6 @@
+using MFR.Detectors.Constants;
+using MFR.Detectors.Factories;
+using MFR.Detectors.Interfaces;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
@@ -30,6 +33,15 @@ namespace MFR.FileSystem.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         protected TextInFilesRetriever() { }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Detectors.Interfaces.IFileFormatDetector" /> interface.
+        /// </summary>
+        private static IFileFormatDetector FileFormatDetector
+        {
+            get;
+        } = GetFileFormatDetector.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -161,8 +173,8 @@ namespace MFR.FileSystem.Retrievers
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
 
-                    var fileTicket = Get.FileTicket(entry.Path);
-                    if (fileTicket.IsZero())
+                    var ticket = Get.FileTicket(entry.Path);
+                    if (ticket.IsZero())
                     {
                         DebugUtils.WriteLine(
                             DebugLevel.Error,
@@ -171,7 +183,39 @@ namespace MFR.FileSystem.Retrievers
                         continue;
                     }
 
-                    entry.SetUserState(fileTicket);
+                    var detectedFileFormat =
+                        FileFormatDetector.DetectFileFormat(ticket);
+                    if (detectedFileFormat != DetectedFileFormat.ASCII)
+                    {
+                        /*
+                         * We've detected a binary file, or file whose format we could not
+                         * detect but we assume is NOT a text file.
+                         *
+                         * Since we are doing TEXTUAL replacement in files, for the purposes
+                         * of keeping the Solution buildable, we want to screen out any
+                         * binary files that are encountered in our search,  from being
+                         * included in the operation.
+                         *
+                         * Furthermore, let's dispose of the stream found to be referring
+                         * to a binary file, so that system resources are not overly consumed.
+                         */
+
+                        Dispose.FileStream(ticket);
+                        continue;
+                    }
+
+                    /*
+                     * If we are here, then the file in question has been ascertained
+                     * to have a textual format, which is suited to our purposes.  Therefore,
+                     * we will rewind its file stream, and then we will add its ticket to
+                     * the 'user state' of the current file system entry, which then gets added
+                     * to the collection of files to be processed by the Replace Text in Files
+                     * operation.
+                     */
+
+                    Rewind.FileStream(ticket);
+
+                    entry.SetUserState(ticket);
 
                     result.Add(entry);
                 }

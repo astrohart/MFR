@@ -157,13 +157,15 @@ namespace MFR.TextValues.Retrievers.Actions
                         if (ticket.IsZero()) return result;
 
                         /*
-                     * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
-                     * that we "redeem" with the FileStreamProvider object to get a reference
-                     * to a FileStream object that had been opened on the file previously.
-                     *
-                     * This FileStream object provides the service of asynchronously reading
-                     * the file's content so that the application can perform faster.
-                     */
+                         * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
+                         * that we "redeem" with the FileStreamProvider object to get a reference
+                         * to a FileStream object that had been opened on the file previously.
+                         *
+                         * This FileStream object provides the service of asynchronously reading
+                         * the file's content so that the application can perform faster.
+                         */
+
+                        FileStreamProvider.RewindStream(ticket);    // just in case
 
                         stream = FileStreamProvider.RedeemTicket(ticket);
                         if (stream == null) return result;
@@ -181,17 +183,6 @@ namespace MFR.TextValues.Retrievers.Actions
             }
             finally
             {
-                /*
-                 * Reset the stream to the beginning
-                 * and discard the buffered data.
-                 */
-
-                if (!dispose && stream != null)
-                {
-                    stream.BaseStream.Position = 0L;
-                    stream.DiscardBufferedData();
-                }
-
                 if (dispose)
                     FileStreamProvider.DisposeStream(
                         ticket /* remove from the collection */

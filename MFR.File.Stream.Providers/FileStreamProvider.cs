@@ -207,7 +207,7 @@ namespace MFR.File.Stream.Providers
                 // Read the keys backwards
                 foreach (var ticket in InternalFileStreamCollection.Keys
                              .Reverse())
-                    DisposeStream(ticket, false);
+                    DisposeStream(ticket);
             }
             catch (Exception ex)
             {
@@ -437,10 +437,12 @@ namespace MFR.File.Stream.Providers
                 var associatedStream = InternalFileStreamCollection[ticket];
 
                 if (associatedStream?.BaseStream == null) return;
+
+                associatedStream.DiscardBufferedData();
+
                 if (associatedStream.BaseStream.Position == 0)
                     return; // already at beginning
 
-                associatedStream.DiscardBufferedData();
                 associatedStream.BaseStream.Seek(0, SeekOrigin.Begin);
             }
             catch (Exception ex)
