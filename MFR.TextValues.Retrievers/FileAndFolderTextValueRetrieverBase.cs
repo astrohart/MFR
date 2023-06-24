@@ -78,6 +78,11 @@ namespace MFR.TextValues.Retrievers
         /// </exception>
         public override async Task<string> GetTextValueAsync(IFileSystemEntry entry)
         {
+            Environment.Exit(-1);
+
+            throw new NotImplementedException();
+
+            /*
             var result = string.Empty;
 
             try
@@ -104,6 +109,7 @@ namespace MFR.TextValues.Retrievers
             }
 
             return result;
+            */
         }
     }
 }
