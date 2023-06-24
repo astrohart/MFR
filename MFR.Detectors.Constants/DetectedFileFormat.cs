@@ -17,8 +17,11 @@
         Binary,
 
         /// <summary>
-        /// We were unable to determine the type of the file.
+        /// We were unable to determine the format of the file.
         /// </summary>
+        /// <remarks>
+        /// When a file-format detection yields a value of 
+        /// </remarks>
         Unknown = -1
     }
 }
