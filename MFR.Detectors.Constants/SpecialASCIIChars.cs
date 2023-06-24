@@ -3,7 +3,7 @@
     /// <summary>
     /// Values for special ASCII characters.
     /// </summary>
-    public static class Chars
+    public static class SpecialASCIIChars
     {
         /// <summary>
         /// The <c>BS</c> character (backspace).
