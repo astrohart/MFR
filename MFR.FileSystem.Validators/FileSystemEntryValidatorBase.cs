@@ -132,6 +132,14 @@ namespace MFR.FileSystem.Validators
             => !ShouldSkip(path);
 
         /// <summary>
+        /// Array of extensions of files we won't search ever.
+        /// </summary>
+        private static string[] DISALLOWED_EXTENSIONS = {
+            ".dll", ".exe", ".pif", ".bsc", ".obj", ".lib", ".bin", ".pdb",
+            ".pspdb", ".resx", ".bsc", ".ilk", ".lnk", ".res", ".aps"
+        };
+
+        /// <summary>
         /// Determines whether the file-system entry with the specified
         /// <paramref name="path" /> should be skipped during an operation.
         /// </summary>
@@ -157,7 +165,8 @@ namespace MFR.FileSystem.Validators
                          path.Contains("packages") || path.Contains(".git") ||
                          path.Contains(".vs") || path.Contains(@"\bin") ||
                          path.Contains(@"\obj") || Path.GetFileName(path)
-                             .StartsWith(".");
+                             .StartsWith(".") || Path.GetExtension(path)
+                             .IsAnyOf(DISALLOWED_EXTENSIONS);
             }
             catch (Exception ex)
             {

@@ -161,8 +161,6 @@ namespace MFR.FileSystem.Retrievers
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
 
-                    if (!SatisfiesSearchCritieria(entry)) continue;
-
                     var fileTicket = Get.FileTicket(entry.Path);
                     if (fileTicket.IsZero())
                     {
