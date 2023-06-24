@@ -107,6 +107,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chars.cs" />
     <Compile Include="DetectedFileFormat.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
