@@ -1,6 +1,6 @@
 ﻿using MFR.Detectors.Constants;
 
-namespace MFR.Detectors.Models
+namespace MFR.Detectors.Models.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that

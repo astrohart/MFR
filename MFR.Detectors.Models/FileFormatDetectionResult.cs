@@ -1,4 +1,5 @@
 ﻿using MFR.Detectors.Constants;
+using MFR.Detectors.Models.Interfaces;
 using System;
 
 namespace MFR.Detectors.Models
@@ -18,7 +19,7 @@ namespace MFR.Detectors.Models
         {
             get;
             set;
-        }
+        } = DetectedFileFormat.Unknown;
 
         /// <summary>
         /// Gets or sets a <see cref="T:System.Guid" /> value that serves as a

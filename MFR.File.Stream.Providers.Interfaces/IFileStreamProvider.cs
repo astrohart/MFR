@@ -141,6 +141,51 @@ namespace MFR.File.Stream.Providers.Interfaces
         void DisposeStream(Guid ticket, bool remove = true);
 
         /// <summary>
+        /// Attempts to look up the fully-qualified pathname of the file on whom a file
+        /// stream corresponding to the specified <paramref name="ticket" /> has been
+        /// opened.
+        /// </summary>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that
+        /// should correspond to a file that currently has a stream opened upon it.
+        /// </param>
+        /// <returns>
+        /// If successful, a <see cref="T:System.String" /> containing the
+        /// fully-qualified pathname of the file on whom the file stream corresponding to
+        /// the specified <paramref name="ticket" /> is opened.
+        /// </returns>
+        /// <remarks>
+        /// If this method cannot locate the corresponding pathname of the file
+        /// stream that goes with the <paramref name="ticket" />, or if the
+        /// <paramref name="ticket" /> provided is not mapped to any open file stream, then
+        /// this method returns the <see cref="F:System.String.Empty" /> value.
+        /// </remarks>
+        string GetPathnameForTicket(Guid ticket);
+
+        /// <summary>
+        /// Given a fully-qualified <paramref name="pathname" /> of a file on the disk,
+        /// upon which a file stream has been opened, or we think has been opened, and
+        /// finds the corresponding ticket that can be redeemed to access a reference
+        /// to that stream. .
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file on which you think a stream might be open.
+        /// </param>
+        /// <returns>
+        /// If a file stream is open on the file having the specified
+        /// <paramref name="pathname" />, the <see cref="T:System.Guid" /> value that
+        /// indicates which ticket can be redeemed to this object in order to get access to
+        /// that stream, is returned.
+        /// <para />
+        /// Otherwise, if there is no file stream currently open upon the file having the
+        /// specified <paramref name="pathname" />, or if the specified
+        /// <paramref name="pathname" /> is invalid or refers to a file that does not
+        /// exist, then the <see cref="F:System.Guid.Empty" /> value is returned.
+        /// </returns>
+        Guid GetTicketForPathname(string pathname);
+
+        /// <summary>
         /// Opens a file stream, represented by a <see cref="T:System.IO.TextReader" />
         /// instance, on the text file having the specified <paramref name="pathname" />.
         /// </summary>

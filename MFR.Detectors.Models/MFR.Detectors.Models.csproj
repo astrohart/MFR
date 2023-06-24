@@ -101,17 +101,13 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileFormatDetectionResult.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFileFormatDetectionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +132,10 @@
     <ProjectReference Include="..\MFR.Detectors.Constants\MFR.Detectors.Constants.csproj">
       <Project>{08C20B36-A98E-49E0-BBC0-56C8DE2511A7}</Project>
       <Name>MFR.Detectors.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Models.Interfaces\MFR.Detectors.Models.Interfaces.csproj">
+      <Project>{EEB9AD5E-3AFB-4FCF-BADE-DB27D5C4D889}</Project>
+      <Name>MFR.Detectors.Models.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
