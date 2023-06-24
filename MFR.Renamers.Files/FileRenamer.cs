@@ -3159,11 +3159,11 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var replacementData =
+                var dataContainingTextToBeReplaced =
                     await GetTextInFileReplacementDataAsync(
                         entry, findWhat, replaceWith
                     );
-                if (string.IsNullOrWhiteSpace(replacementData))
+                if (string.IsNullOrWhiteSpace(dataContainingTextToBeReplaced))
                     return result;
 
                 if (Does.FileExist(entry.Path))
@@ -3186,8 +3186,8 @@ namespace MFR.Renamers.Files
                  * entire contents with nothing, that is the same as deleting the file
                  * entirely.
                  */
-                if (!string.IsNullOrEmpty(replacementData))
-                    Write.FileContent(entry.Path, replacementData);
+                if (!string.IsNullOrEmpty(dataContainingTextToBeReplaced))
+                    Write.FileContent(entry.Path, dataContainingTextToBeReplaced);
 
                 result = true;
             }
