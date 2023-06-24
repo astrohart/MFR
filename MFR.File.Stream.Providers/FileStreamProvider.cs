@@ -248,7 +248,7 @@ namespace MFR.File.Stream.Providers
                 if (Guid.Empty.Equals(ticket)) return;
                 lock (SyncRoot)
                 {
-                    pathname = RemotePathnameMappingFor(ticket);
+                    pathname = RemovePathnameMappingFor(ticket);
 
                     if (!InternalFileStreamCollection.ContainsKey(ticket))
                         return;
@@ -307,12 +307,10 @@ namespace MFR.File.Stream.Providers
                 if (!Alphaleonis.Win32.Filesystem.File.Exists(pathname))
                     return result;
 
+                OnFileStreamOpening(new FileStreamOpeningEventArgs(pathname));
+
                 lock (SyncRoot)
                 {
-                    OnFileStreamOpening(
-                        new FileStreamOpeningEventArgs(pathname)
-                    );
-
                     // Create a ticket that can be used to access this file stream
                     result = Guid.NewGuid();
 
@@ -328,13 +326,11 @@ namespace MFR.File.Stream.Providers
                         );
 
                     InternalFileStreamCollection[result] = newReader;
-
-                    OnFileStreamOpened(
-                        new FileStreamOpenedEventArgs(
-                            pathname, newReader, result
-                        )
-                    );
                 }
+
+                OnFileStreamOpened(
+                    new FileStreamOpenedEventArgs(pathname, newReader, result)
+                );
             }
             catch (Exception ex)
             {
@@ -442,6 +438,26 @@ namespace MFR.File.Stream.Providers
             }
         }
 
+        /// <summary>
+        /// Attempts to look up the fully-qualified pathname of the file on whom a file
+        /// stream corresponding to the specified <paramref name="ticket" /> has been
+        /// opened.
+        /// </summary>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that
+        /// should correspond to a file that currently has a stream opened upon it.
+        /// </param>
+        /// <returns>
+        /// If successful, a <see cref="T:System.String" /> containing the
+        /// fully-qualified pathname of the file on whom the file stream corresponding to
+        /// the specified <paramref name="ticket" /> is opened.
+        /// </returns>
+        /// <remarks>
+        /// If this method cannot locate the corresponding pathname of the file
+        /// stream that goes with the <paramref name="ticket" />, or if the
+        /// <paramref name="ticket" /> provided is not mapped to any open file stream, then
+        /// this method returns the <see cref="F:System.String.Empty" /> value.
+        /// </remarks>
         public string GetPathnameForTicket(Guid ticket)
         {
             var result = string.Empty;
@@ -470,6 +486,27 @@ namespace MFR.File.Stream.Providers
             return result;
         }
 
+        /// <summary>
+        /// Given a fully-qualified <paramref name="pathname" /> of a file on the disk,
+        /// upon which a file stream has been opened, or we think has been opened, and
+        /// finds the corresponding ticket that can be redeemed to access a reference
+        /// to that stream. .
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file on which you think a stream might be open.
+        /// </param>
+        /// <returns>
+        /// If a file stream is open on the file having the specified
+        /// <paramref name="pathname" />, the <see cref="T:System.Guid" /> value that
+        /// indicates which ticket can be redeemed to this object in order to get access to
+        /// that stream, is returned.
+        /// <para />
+        /// Otherwise, if there is no file stream currently open upon the file having the
+        /// specified <paramref name="pathname" />, or if the specified
+        /// <paramref name="pathname" /> is invalid or refers to a file that does not
+        /// exist, then the <see cref="F:System.Guid.Empty" /> value is returned.
+        /// </returns>
         public Guid GetTicketForPathname(string pathname)
         {
             var result = Guid.Empty;
@@ -499,8 +536,7 @@ namespace MFR.File.Stream.Providers
                 if (!result.IsZero() &&
                     !InternalFileStreamCollection.ContainsKey(result))
                 {
-                    MapOfPathnamesToTickets.Remove(pathname);
-                    MapOfTicketsToPathnames.Remove(result);
+                    RemovePathnameMappingFor(result);
                     result = Guid.Empty;
                 }
             }
@@ -549,7 +585,14 @@ namespace MFR.File.Stream.Providers
         /// that contains the event data.
         /// </param>
         protected virtual void OnFileStreamOpened(FileStreamOpenedEventArgs e)
-            => FileStreamOpened?.Invoke(this, e);
+        {
+            /*
+             * Tie together the pathname with the new ticket.
+             */
+            CreateTicketToPathnameMapping(e.Pathname, e.Ticket);
+
+            FileStreamOpened?.Invoke(this, e);
+        }
 
         /// <summary>
         /// Raises the
@@ -580,9 +623,45 @@ namespace MFR.File.Stream.Providers
             => FileStreamOpening?.Invoke(this, e);
 
         /// <summary>
+        /// Associates the specified <paramref name="pathname" /> with the corresponding
+        /// file stream <paramref name="ticket" />.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that
+        /// contains the fully-qualified pathname of a file on the disk, on which a file
+        /// stream has been opened and which has the specified <paramref name="ticket" />.
+        /// </param>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> that is the
+        /// ticket for the open file stream on the file having the specified
+        /// <paramref name="pathname" />.
+        /// </param>
+        private void CreateTicketToPathnameMapping(string pathname, Guid ticket)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return;
+                if (ticket.IsZero()) return;
+
+                if (MapOfTicketsToPathnames == null) return;
+                if (MapOfPathnamesToTickets == null) return;
+
+                lock (SyncRoot)
+                {
+                    MapOfTicketsToPathnames[ticket] = pathname;
+                    MapOfPathnamesToTickets[pathname] = ticket;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Breaks the link between a file's fully-qualified pathname and the particular
-        /// <paramref name="ticket"/ that can be redeemed for its corresopnding file
-        ///           stream.
+        /// <paramref name="ticket"/> that can be redeemed for its corresponding file stream.
         /// </summary>
         /// <param name="ticket">
         /// (Required.) A <see cref="T:System.Guid" /> value that can
@@ -593,7 +672,7 @@ namespace MFR.File.Stream.Providers
         /// fully-qualified pathname of the file on who the stream corresponding to the
         /// specified <paramref name="ticket" />  was initially opened.
         /// </returns>
-        private string RemotePathnameMappingFor(Guid ticket)
+        private string RemovePathnameMappingFor(Guid ticket)
         {
             var result = string.Empty;
 
