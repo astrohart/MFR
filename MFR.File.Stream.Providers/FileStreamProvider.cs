@@ -62,79 +62,6 @@ namespace MFR.File.Stream.Providers
             get;
         } = new Dictionary<string, Guid>();
 
-        public string GetPathnameForTicket(Guid ticket)
-        {
-            var result = string.Empty;
-
-            try
-            {
-                if (ticket.IsZero()) return result;
-                if (InternalFileStreamCollection == null) return result;
-                if (Count == 0) return result;
-                if (!InternalFileStreamCollection.ContainsKey(ticket))
-                    return result;
-                if (MapOfTicketsToPathnames == null) return result;
-                if (!MapOfTicketsToPathnames.Any()) return result;
-                if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
-
-                result = MapOfTicketsToPathnames[ticket];
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = string.Empty;
-            }
-
-            return result;
-        }
-
-        public Guid GetTicketForPathname(string pathname)
-        {
-            var result = Guid.Empty;
-
-            try
-            {
-                if (string.IsNullOrWhiteSpace(pathname)) return result; 
-                if (InternalFileStreamCollection == null) return result;
-                if (Count == 0) return result;
-                if(MapOfPathnamesToTickets == null) return result;
-                if (!MapOfPathnamesToTickets.Any()) return result;
-                if (!MapOfPathnamesToTickets.ContainsKey(pathname))
-                    return result;
-
-                result = MapOfPathnamesToTickets[pathname];
-
-                /*
-                 * OKAY, check whether there is an orphaned pathname-ticket association
-                 * present.  This is true if there is/are entry(ies) in the maps of
-                 * pathnames to tickets or vice versa, but there is not an open file stream
-                 * stored in our internal collection associated with the ticket that
-                 * corresponds to the supplied pathname.
-                 *
-                 * This keeps our bijective maps referentially consistent. 
-                 */
-
-                if (!result.IsZero()
-                    && !InternalFileStreamCollection.ContainsKey(result))
-                {
-                    MapOfPathnamesToTickets.Remove(pathname);
-                    MapOfTicketsToPathnames.Remove(result);
-                    result = Guid.Empty;
-                }
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = Guid.Empty;
-            }
-
-            return result;
-        }
-
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
         /// fully-qualified pathname of the associated file on the disk.
@@ -316,9 +243,13 @@ namespace MFR.File.Stream.Providers
         {
             try
             {
+                string pathname;
+
                 if (Guid.Empty.Equals(ticket)) return;
                 lock (SyncRoot)
                 {
+                    pathname = RemotePathnameMappingFor(ticket);
+
                     if (!InternalFileStreamCollection.ContainsKey(ticket))
                         return;
 
@@ -327,30 +258,16 @@ namespace MFR.File.Stream.Providers
                     if (correspondingReader == null)
                         return;
 
-                    var pathname = GetPathnameForTicket(ticket);
-                    if (!string.IsNullOrWhiteSpace(pathname))
-                    {
-                        /*
-                         * Keep the bijective map consistent by removing
-                         * the 1-to-1 correspondence between the pathname
-                         * and the ticket corresponding to the stream that
-                         * is about to be disposed.
-                         */
-
-                        MapOfTicketsToPathnames.Remove(ticket);
-                        MapOfPathnamesToTickets.Remove(pathname);
-                    }
-
                     correspondingReader.Close();
                     correspondingReader.Dispose();
 
                     if (remove)
                         InternalFileStreamCollection.Remove(ticket);
-
-                    OnFileStreamDisposed(
-                        new FileStreamDisposedEventArgs(pathname, ticket)
-                    );
                 }
+
+                OnFileStreamDisposed(
+                    new FileStreamDisposedEventArgs(pathname, ticket)
+                );
             }
             catch (Exception ex)
             {
@@ -525,6 +442,79 @@ namespace MFR.File.Stream.Providers
             }
         }
 
+        public string GetPathnameForTicket(Guid ticket)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                if (ticket.IsZero()) return result;
+                if (InternalFileStreamCollection == null) return result;
+                if (Count == 0) return result;
+                if (!InternalFileStreamCollection.ContainsKey(ticket))
+                    return result;
+                if (MapOfTicketsToPathnames == null) return result;
+                if (!MapOfTicketsToPathnames.Any()) return result;
+                if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
+
+                result = MapOfTicketsToPathnames[ticket];
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
+
+        public Guid GetTicketForPathname(string pathname)
+        {
+            var result = Guid.Empty;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+                if (InternalFileStreamCollection == null) return result;
+                if (Count == 0) return result;
+                if (MapOfPathnamesToTickets == null) return result;
+                if (!MapOfPathnamesToTickets.Any()) return result;
+                if (!MapOfPathnamesToTickets.ContainsKey(pathname))
+                    return result;
+
+                result = MapOfPathnamesToTickets[pathname];
+
+                /*
+                 * OKAY, check whether there is an orphaned pathname-ticket association
+                 * present.  This is true if there is/are entry(ies) in the maps of
+                 * pathnames to tickets or vice versa, but there is not an open file stream
+                 * stored in our internal collection associated with the ticket that
+                 * corresponds to the supplied pathname.
+                 *
+                 * This keeps our bijective maps referentially consistent.
+                 */
+
+                if (!result.IsZero() &&
+                    !InternalFileStreamCollection.ContainsKey(result))
+                {
+                    MapOfPathnamesToTickets.Remove(pathname);
+                    MapOfTicketsToPathnames.Remove(result);
+                    result = Guid.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = Guid.Empty;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Raises the
         /// <see cref="E:MFR.File.Stream.Providers.FileStreamProvider.CountChanged" />
@@ -588,5 +578,50 @@ namespace MFR.File.Stream.Providers
         /// </param>
         protected virtual void OnFileStreamOpening(FileStreamOpeningEventArgs e)
             => FileStreamOpening?.Invoke(this, e);
+
+        /// <summary>
+        /// Breaks the link between a file's fully-qualified pathname and the particular
+        /// <paramref name="ticket"/ that can be redeemed for its corresopnding file
+        ///           stream.
+        /// </summary>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that can
+        /// ordinarily be redeemed to acquire the stream for a corresponding file.
+        /// </param>
+        /// <returns>
+        /// If successful, a <see cref="T:System.String" /> that contains the
+        /// fully-qualified pathname of the file on who the stream corresponding to the
+        /// specified <paramref name="ticket" />  was initially opened.
+        /// </returns>
+        private string RemotePathnameMappingFor(Guid ticket)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                result = GetPathnameForTicket(ticket);
+                if (string.IsNullOrWhiteSpace(result)) return result;
+                if (MapOfTicketsToPathnames == null) return result;
+                if (!MapOfTicketsToPathnames.Any()) return result;
+                if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
+
+                MapOfTicketsToPathnames.Remove(ticket);
+
+                if (MapOfPathnamesToTickets == null) return result;
+                if (!MapOfPathnamesToTickets.Any()) return result;
+                if (!MapOfPathnamesToTickets.ContainsKey(result)) return result;
+
+                MapOfPathnamesToTickets.Remove(result);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
     }
 }
