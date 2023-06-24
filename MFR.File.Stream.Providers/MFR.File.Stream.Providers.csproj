@@ -132,6 +132,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Events\MFR.File.Stream.Providers.Events.csproj">
       <Project>{84DAD0BC-CF38-4A68-BA05-EDB73DABBD52}</Project>
       <Name>MFR.File.Stream.Providers.Events</Name>

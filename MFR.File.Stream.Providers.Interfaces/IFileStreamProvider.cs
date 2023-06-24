@@ -181,5 +181,26 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// instance has already been disposed or removed from the internal collection.
         /// </returns>
         StreamReader RedeemTicket(Guid ticket);
+
+        /// <summary>
+        /// Rewinds the file stream associated with the specified
+        /// <paramref name="ticket" />, if any corresponding stream is even present in the
+        /// internal collection.
+        /// </summary>
+        /// <param name="ticket">
+        /// A <see cref="T:System.Guid" /> value that corresponds to
+        /// the already-open file stream that is to be rewound.
+        /// </param>
+        /// <remarks>
+        /// If successful, this method retrieves the file stream open on a file
+        /// that corresponds to the specified <paramref name="ticket" />, and then moves
+        /// its file pointer to the beginning of the stream.
+        /// <para />
+        /// If an I/O exception or other error occurs, if the stream that corresponds to
+        /// the specified <paramref name="ticket" /> cannot be obtained from the internal
+        /// collection, or if the stream is already positioned at the beginning of the
+        /// data, then the method does nothing.
+        /// </remarks>
+        void RewindStream(Guid ticket);
     }
 }

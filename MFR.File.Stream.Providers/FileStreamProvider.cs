@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.File.Stream.Providers
 {
@@ -53,6 +54,97 @@ namespace MFR.File.Stream.Providers
         } = new Dictionary<Guid, StreamReader>();
 
         /// <summary>
+        /// Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
+        /// created for it.
+        /// </summary>
+        private IDictionary<string, Guid> MapOfPathnamesToTickets
+        {
+            get;
+        } = new Dictionary<string, Guid>();
+
+        public string GetPathnameForTicket(Guid ticket)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                if (ticket.IsZero()) return result;
+                if (InternalFileStreamCollection == null) return result;
+                if (Count == 0) return result;
+                if (!InternalFileStreamCollection.ContainsKey(ticket))
+                    return result;
+                if (MapOfTicketsToPathnames == null) return result;
+                if (!MapOfTicketsToPathnames.Any()) return result;
+                if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
+
+                result = MapOfTicketsToPathnames[ticket];
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+        }
+
+        public Guid GetTicketForPathname(string pathname)
+        {
+            var result = Guid.Empty;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return result; 
+                if (InternalFileStreamCollection == null) return result;
+                if (Count == 0) return result;
+                if(MapOfPathnamesToTickets == null) return result;
+                if (!MapOfPathnamesToTickets.Any()) return result;
+                if (!MapOfPathnamesToTickets.ContainsKey(pathname))
+                    return result;
+
+                result = MapOfPathnamesToTickets[pathname];
+
+                /*
+                 * OKAY, check whether there is an orphaned pathname-ticket association
+                 * present.  This is true if there is/are entry(ies) in the maps of
+                 * pathnames to tickets or vice versa, but there is not an open file stream
+                 * stored in our internal collection associated with the ticket that
+                 * corresponds to the supplied pathname.
+                 *
+                 * This keeps our bijective maps referentially consistent. 
+                 */
+
+                if (!result.IsZero()
+                    && !InternalFileStreamCollection.ContainsKey(result))
+                {
+                    MapOfPathnamesToTickets.Remove(pathname);
+                    MapOfTicketsToPathnames.Remove(result);
+                    result = Guid.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = Guid.Empty;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
+        /// fully-qualified pathname of the associated file on the disk.
+        /// </summary>
+        private IDictionary<Guid, string> MapOfTicketsToPathnames
+        {
+            get;
+        } = new Dictionary<Guid, string>();
+
+        /// <summary>
         /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
         /// used for thread synchronization.
         /// </summary>
@@ -79,6 +171,12 @@ namespace MFR.File.Stream.Providers
         /// on a particular file.
         /// </summary>
         public event FileStreamOpenedEventHandler FileStreamOpened;
+
+        /// <summary>
+        /// Occurs when an exception was caught during an attempt to open a
+        /// <c>FileStream</c> upon a particular file.
+        /// </summary>
+        public event FileStreamOpenFailedEventHandler FileStreamOpenFailed;
 
         /// <summary>
         /// Occurs when a <c>FileStream</c> is about to be opened upon a particular file.
@@ -229,8 +327,19 @@ namespace MFR.File.Stream.Providers
                     if (correspondingReader == null)
                         return;
 
-                    var pathname = ((FileStream)correspondingReader.BaseStream)
-                        .Name;
+                    var pathname = GetPathnameForTicket(ticket);
+                    if (!string.IsNullOrWhiteSpace(pathname))
+                    {
+                        /*
+                         * Keep the bijective map consistent by removing
+                         * the 1-to-1 correspondence between the pathname
+                         * and the ticket corresponding to the stream that
+                         * is about to be disposed.
+                         */
+
+                        MapOfTicketsToPathnames.Remove(ticket);
+                        MapOfPathnamesToTickets.Remove(pathname);
+                    }
 
                     correspondingReader.Close();
                     correspondingReader.Dispose();
@@ -373,10 +482,48 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Occurs when an exception was caught during an attempt to open a
-        /// <c>FileStream</c> upon a particular file.
+        /// Rewinds the file stream associated with the specified
+        /// <paramref name="ticket" />, if any corresponding stream is even present in the
+        /// internal collection.
         /// </summary>
-        public event FileStreamOpenFailedEventHandler FileStreamOpenFailed;
+        /// <param name="ticket">
+        /// A <see cref="T:System.Guid" /> value that corresponds to
+        /// the already-open file stream that is to be rewound.
+        /// </param>
+        /// <remarks>
+        /// If successful, this method retrieves the file stream open on a file
+        /// that corresponds to the specified <paramref name="ticket" />, and then moves
+        /// its file pointer to the beginning of the stream.
+        /// <para />
+        /// If an I/O exception or other error occurs, if the stream that corresponds to
+        /// the specified <paramref name="ticket" /> cannot be obtained from the internal
+        /// collection, or if the stream is already positioned at the beginning of the
+        /// data, then the method does nothing.
+        /// </remarks>
+        public void RewindStream(Guid ticket)
+        {
+            try
+            {
+                if (ticket.IsZero()) return;
+                if (InternalFileStreamCollection == null) return;
+                if (!InternalFileStreamCollection.Any()) return;
+                if (!InternalFileStreamCollection.ContainsKey(ticket)) return;
+
+                var associatedStream = InternalFileStreamCollection[ticket];
+
+                if (associatedStream?.BaseStream == null) return;
+                if (associatedStream.BaseStream.Position == 0)
+                    return; // already at beginning
+
+                associatedStream.DiscardBufferedData();
+                associatedStream.BaseStream.Seek(0, SeekOrigin.Begin);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Raises the

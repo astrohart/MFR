@@ -107,6 +107,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileFormatDetector.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,24 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Models\MFR.Detectors.Models.csproj">
+      <Project>{084DBF77-B959-4592-A2C4-1179BC8CA15C}</Project>
+      <Name>MFR.Detectors.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
+      <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
+      <Name>MFR.File.Stream.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Interfaces\MFR.File.Stream.Providers.Interfaces.csproj">
+      <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
+      <Name>MFR.File.Stream.Providers.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
