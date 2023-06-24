@@ -148,6 +148,10 @@
       <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
       <Name>MFR.File.Stream.Providers.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
+      <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
+      <Name>MFR.FileSystem.Factories.Actions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

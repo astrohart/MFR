@@ -1,6 +1,7 @@
 ﻿using MFR.Detectors.Models;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
+using MFR.FileSystem.Factories.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -33,6 +34,15 @@ namespace MFR.Detectors
         } = GetFileStreamProvider.SoleInstance();
 
         /// <summary>
+        /// Reference to an instance of an object that can be used for thread
+        /// synchronization.
+        /// </summary>
+        private static object SyncRoot
+        {
+            get;
+        } = new object();
+
+        /// <summary>
         /// Examines the file having the specified <paramref name="pathname" /> and
         /// attempts to determine its format (binary or ASCII).
         /// </summary>
@@ -51,7 +61,7 @@ namespace MFR.Detectors
 
             try
             {
-                // TODO: Add the code that may potentially throw an exception here
+                if (!Does.FileExist(pathname)) return result; s
             }
             catch (Exception ex)
             {
@@ -64,14 +74,6 @@ namespace MFR.Detectors
             return result;
         }
 
-        /// <summary>
-        /// Reference to an instance of an object that can be used for thread synchronization.
-        /// </summary>
-        private static object SyncRoot
-        {
-            get;
-        } = new object();
-
         public IFileFormatDetectionResult DetectFileFormat(Guid ticket)
         {
             IFileFormatDetectionResult result = default;
@@ -83,8 +85,6 @@ namespace MFR.Detectors
                     // obtain the file stream that corresponds to the ticket and rewind it
                     var stream = FileStreamProvider.RedeemTicket(ticket);
                     if (stream == null) return result;
-
-
                 }
             }
             catch (Exception ex)
@@ -93,6 +93,27 @@ namespace MFR.Detectors
                 DebugUtils.LogException(ex);
 
                 result = default;
+            }
+
+            return result;
+        }
+
+        private Guid GetFileStreamForFile(string pathname)
+        {
+            var result = Guid.Empty;
+
+            try
+            {
+                // this call won't open a duplicate stream on the 
+                // file if one is already open.
+                result = FileStreamProvider.OpenStreamFor(pathname);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = Guid.Empty;
             }
 
             return result;

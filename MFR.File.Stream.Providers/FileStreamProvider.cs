@@ -296,6 +296,11 @@ namespace MFR.File.Stream.Providers
         /// <paramref name="pathname" /> does not refer to a file or the file that is
         /// referred to does not exist..
         /// </returns>
+        /// <remarks>
+        /// If the file having the specified <paramref name="pathname" /> already
+        /// has a stream opened upon it, then the ticket that corresponds to that stream is
+        /// returned.
+        /// </remarks>
         public Guid OpenStreamFor(string pathname)
         {
             var result = Guid.Empty;
@@ -306,6 +311,13 @@ namespace MFR.File.Stream.Providers
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
                 if (!Alphaleonis.Win32.Filesystem.File.Exists(pathname))
                     return result;
+
+                /*
+                 * No sense in re-opening a stream on a file for which a stream is already open.
+                 */
+
+                if (FileStreamAlreadyOpenedFor(pathname))
+                    return GetTicketForPathname(pathname);
 
                 OnFileStreamOpening(new FileStreamOpeningEventArgs(pathname));
 
@@ -514,14 +526,13 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
+
                 if (InternalFileStreamCollection == null) return result;
                 if (Count == 0) return result;
                 if (MapOfPathnamesToTickets == null) return result;
                 if (!MapOfPathnamesToTickets.Any()) return result;
                 if (!MapOfPathnamesToTickets.ContainsKey(pathname))
                     return result;
-
-                result = MapOfPathnamesToTickets[pathname];
 
                 /*
                  * OKAY, check whether there is an orphaned pathname-ticket association
@@ -659,9 +670,38 @@ namespace MFR.File.Stream.Providers
             }
         }
 
+        private bool FileStreamAlreadyOpenedFor(string pathname)
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+
+                var ticket = GetTicketForPathname(pathname);
+                if (ticket.IsZero()) return result;
+
+                if (InternalFileStreamCollection == null) return result;
+                if (!InternalFileStreamCollection.Any() == null)
+                    return result;
+
+                result = InternalFileStreamCollection.ContainsKey(ticket);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Breaks the link between a file's fully-qualified pathname and the particular
-        /// <paramref name="ticket"/> that can be redeemed for its corresponding file stream.
+        /// <paramref name="ticket" /> that can be redeemed for its corresponding file
+        /// stream.
         /// </summary>
         /// <param name="ticket">
         /// (Required.) A <see cref="T:System.Guid" /> value that can
@@ -684,13 +724,15 @@ namespace MFR.File.Stream.Providers
                 if (!MapOfTicketsToPathnames.Any()) return result;
                 if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
 
-                MapOfTicketsToPathnames.Remove(ticket);
+                lock (SyncRoot)
+                    MapOfTicketsToPathnames.Remove(ticket);
 
                 if (MapOfPathnamesToTickets == null) return result;
                 if (!MapOfPathnamesToTickets.Any()) return result;
                 if (!MapOfPathnamesToTickets.ContainsKey(result)) return result;
 
-                MapOfPathnamesToTickets.Remove(result);
+                lock (SyncRoot)
+                    MapOfPathnamesToTickets.Remove(result);
             }
             catch (Exception ex)
             {
