@@ -27,6 +27,7 @@
 - [IOptionsDialogBox](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox')
   - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-AutoQuitOnCompletion 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.AutoQuitOnCompletion')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.ConfigPathname')
+  - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.DontPromptUserToReloadOpenSolution')
   - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.IsModified')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.ReOpenSolution')
 - [IProfileNameDialog](#T-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog')
@@ -302,6 +303,15 @@ checkbox.
 ##### Summary
 
 Gets or sets the text of the Configuration File Pathname text box.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-DontPromptUserToReloadOpenSolution'></a>
+### DontPromptUserToReloadOpenSolution `property`
+
+##### Summary
+
+Gets or sets the value of the
+
+checkbox
 
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-IsModified'></a>
 ### IsModified `property`

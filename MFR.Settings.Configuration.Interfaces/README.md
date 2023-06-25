@@ -20,6 +20,7 @@
   - [IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
+  - [PromptUserToReloadOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.PromptUserToReloadOpenSolution')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders')
@@ -266,6 +267,26 @@ found text.
 
 Gets or sets a value indicating whether we should match the whole
 word on found text.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution'></a>
+### PromptUserToReloadOpenSolution `property`
+
+##### Summary
+
+Gets or sets a value indicating whether the application should prompt the user
+if it detects that one or more instances of Visual Studio are open, but none of
+them have the target Solution(s) loaded.
+
+##### Remarks
+
+The default value of this property is `true`.
+
+
+
+Set to `false` to suppress the display of the warning message
+box.  If users suppress the message box, and one or more of the
+target Solution(s) are indeed loaded by a running instance of Visual Studio,
+then there may be file-sharing/permissions issues during the operation(s).
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`
