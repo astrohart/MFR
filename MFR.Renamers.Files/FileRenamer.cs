@@ -2264,6 +2264,11 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
 
                 /*
+                 * NOTE: We ASSUME that the ITextValueRetriever.GetTextValueAsync
+                 * method called above for the Replace Text in Files operation
+                 * also called IFileStreamProvider.DisposeStream on the
+                 * file stream after it obtained the text to be searched.
+                 *
                  * Search for control characters to determine whether the
                  * text to be searched is from a binary file or an ASCII
                  * one.
@@ -2277,11 +2282,20 @@ namespace MFR.Renamers.Files
                  * If we are still here, then the textToBeSearched is really
                  * from an ASCII text file.  We can proceed with the Replace
                  * Text in Files operation on this file.
+                 *
+                 * The whole point of doing the scan above is to weed out files
+                 * that somehow made it past our initial set of filters, but
+                 * who obviously should not have text replacement done in them
+                 * because they are images, videos, or other media, or because they
+                 * are dll and exe files and/or other types of compiler and/or linker
+                 * output.
+                 *
+                 * We are primarily focused on performing text replacement in
+                 * project files, configuration files, solution files, and source
+                 * code files here.
+                 *
+                 * This weeding out process makes the application more scalable.
                  */
-
-                // release the stream or the OS won't let us perform the
-                // text replacement operation
-                FileStreamProvider.DisposeStream(entry.UserState);
 
                 IMatchExpression expression = matchExpressionFactory
                                               .ForTextValue(textToBeSearched)
