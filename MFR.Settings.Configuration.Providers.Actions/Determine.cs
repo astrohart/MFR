@@ -95,5 +95,28 @@ namespace MFR.Settings.Configuration.Providers.Actions
 
             return result;
         }
+
+        public static bool IsConfigFilenameValid(string fileName)
+        {
+            var result = false;
+
+            try
+            {
+                result =
+                    !string.IsNullOrWhiteSpace(fileName)
+                    && ConfigFile.DefaultFilename.Equals(
+                        Path.GetFileName(fileName)
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

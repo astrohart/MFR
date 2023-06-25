@@ -6,7 +6,6 @@ using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Events;
 using MFR.Managers.History.Interfaces;
 using MFR.Operations.Events;
-using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration.Events;
 using System;
 
@@ -124,19 +123,6 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter AndHistoryManager(IHistoryManager historyManager);
 
         /// <summary>
-        /// Fluent-builder method for initializing the operation engine object.  This is the object that actually schedules and runs the file-renaming tasks and provides user feedback.
-        /// </summary>
-        /// <param name="operationEngine">
-        /// (Required.) Reference to an instance of an object that implements the <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface on which this Presenter should depend.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        IMainWindowPresenter WithOperationEngine(
-            IFullGuiOperationEngine operationEngine);
-
-        /// <summary>
         /// Clears all the history lists in the configuration.
         /// </summary>
         void ClearAllHistory();
@@ -162,6 +148,21 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void ExportConfiguration(string pathname);
 
         /// <summary>
+        /// Determines whether the file having the specified <paramref name="pathname" />
+        /// exists.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the file to be searched for.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the <paramref name="pathname" /> is
+        /// non-blank and contains the fully-qualified pathname of a file that exists;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        bool FileExist(string pathname);
+
+        /// <summary>
         /// This method is called to populate the Profiles combo box.
         /// </summary>
         void FillProfileDropDownList();
@@ -179,7 +180,8 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// that exists on the user's hard drive and has the <c>.json</c> extension.
         /// </remarks>
         void ImportConfiguration(
-            string pathname /* path of the file to be imported */);
+            string pathname /* path of the file to be imported */
+        );
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
@@ -209,6 +211,16 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         bool ProfileAlreadyExist(string profileName);
 
         /// <summary>
+        /// If the user has changed the pathname of where the configuration file is to be
+        /// stored, this method renames the existing configuration file to match.
+        /// </summary>
+        /// <param name="newConfigFilePath">
+        /// (Required.) A <see cref="T:System.String" /> that contains the new value of the
+        /// fully-qualified pathname of the configuration file.
+        /// </param>
+        void RenameConfigFileToMatchNewName(string newConfigFilePath);
+
+        /// <summary>
         /// Saves data from the screen control and then saves the
         /// configuration to the persistence location.
         /// </summary>
@@ -218,15 +230,15 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// Runs code that should execute when either the OK or Apply buttons
         /// are clicked on the Tools -&gt; Options dialog box.
         /// </summary>
-        /// <param name="dialog">
+        /// <param name="dialogBox">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialog" /> interface.
+        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox" /> interface.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// Thrown if the required parameter, <paramref name="dialogBox" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        void SaveConfigurationDataFrom(IOptionsDialog dialog);
+        void SaveConfigurationDataFrom(IOptionsDialogBox dialogBox);
 
         /// <summary>
         /// Transforms the current value of the
@@ -242,5 +254,23 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// new Profile.
         /// </param>
         void SaveCurrentConfigurationAsProfile(string profileName);
+
+        /// <summary>
+        /// Fluent-builder method for initializing the operation engine object.  This is
+        /// the object that actually schedules and runs the file-renaming tasks and
+        /// provides user feedback.
+        /// </summary>
+        /// <param name="operationEngine">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface on
+        /// which this Presenter should depend.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        IMainWindowPresenter WithOperationEngine(
+            IFullGuiOperationEngine operationEngine
+        );
     }
 }

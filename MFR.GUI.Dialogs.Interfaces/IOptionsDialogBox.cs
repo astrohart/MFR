@@ -7,7 +7,7 @@ namespace MFR.GUI.Dialogs.Interfaces
     /// Defines the publicly-exposed methods and properties of a dialog box that
     /// allows the user to configure the application.
     /// </summary>
-    public interface IOptionsDialog : IForm
+    public interface IOptionsDialogBox : IForm
     {
         /// <summary>
         /// Gets or sets the value of the
@@ -23,6 +23,17 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// Gets or sets the text of the Configuration File Pathname text box.
         /// </summary>
         string ConfigPathname
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the
+        /// <b>Do not warn when Visual Studio is open but target Solution(s) aren't loaded</b>
+        /// checkbox
+        /// </summary>
+        bool DontPromptUserToReloadOpenSolution
         {
             get;
             set;

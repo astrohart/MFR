@@ -3362,7 +3362,8 @@ namespace MFR.Renamers.Files
                 // need to re-load the solution by hand after the operation has
                 // been completed.
 
-                if (DialogResult.No == MessageBox.Show(
+                if (CurrentConfiguration.PromptUserToReloadOpenSolution
+                    && DialogResult.No == MessageBox.Show(
                         Resources.Confirm_PerformRename,
                         Application.ProductName,
                         MessageBoxButtons.YesNo,

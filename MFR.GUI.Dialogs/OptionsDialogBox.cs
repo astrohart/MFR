@@ -15,15 +15,15 @@ namespace MFR.GUI.Dialogs
     /// Provides options to the user that allow the user to modify the
     /// application's behavior.
     /// </summary>
-    public partial class OptionsDialog : DarkForm, IOptionsDialog
+    public partial class OptionsDialogBox : DarkForm, IOptionsDialogBox
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.GUI.Dialogs.OptionsDialog" />
+        ///     cref="T:MFR.GUI.Dialogs.OptionsDialogBox" />
         /// and returns a reference to it.
         /// </summary>
-        public OptionsDialog()
+        public OptionsDialogBox()
         {
             InitializeComponent();
 
@@ -73,6 +73,17 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         private static IProjectFileRenamerConfiguration CurrentConfiguration
             => ConfigProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Gets or sets the value of the
+        /// <b>Do not warn when Visual Studio is open but target Solution(s) aren't loaded</b>
+        /// checkbox
+        /// </summary>
+        public bool DontPromptUserToReloadOpenSolution
+        {
+            get => dontPromptUserToReloadOpenSolutionCheckBox.Checked;
+            set => dontPromptUserToReloadOpenSolutionCheckBox.Checked = value;
+        }
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
@@ -127,7 +138,7 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
+        /// Raises the <see cref="E:MFR.GUI.OptionsDialogBox.Modified" /> event.
         /// </summary>
         /// <param name="e">
         /// A <see cref="T:MFR.ModifiedEventArgs" /> that contains the
@@ -136,12 +147,14 @@ namespace MFR.GUI.Dialogs
         /// <remarks>
         /// If the <see cref="P:MFR.ModifiedEventArgs.Handled" />
         /// property is set <see langword="true" /> by the event's handler, then
-        /// the <see cref="P:MFR.GUI.OptionsDialog.IsModified" /> will be set to
+        /// the <see cref="P:MFR.GUI.OptionsDialogBox.IsModified" /> will be set to
         /// <see langword="false" />.
         /// </remarks>
         protected virtual void OnModified(ModifiedEventArgs e)
         {
             if (Modified == null) return;
+
+            UpdateData(); // save data from the screen
 
             Modified.Invoke(this, e);
             SetModifiedFlag(!e.Handled);
@@ -161,6 +174,33 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
+        /// This method handles the
+        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event for all of
+        /// the check boxes on the tabs of this property sheet.
+        /// </summary>
+        /// <param name="sender">
+        /// (Required.) Reference to the object that raised this
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// (Required.) A <see cref="T:System.EventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by calling the
+        /// <see cref="M:MFR.GUI.Dialogs.OptionsDialogBox.SetModifiedFlag" /> method to
+        /// mark this property sheet as dirty, so that the <b>Apply</b> button becomes
+        /// available.
+        /// <para />
+        /// <b>NOTE:</b> When developers add a new checkbox to any of the tabs of this
+        /// property sheet, they should bind this handler to the
+        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event of that
+        /// checkbox.
+        /// </remarks>
+        private void OnAnyCheckBoxCheckedChanged(object sender, EventArgs e)
+            => SetModifiedFlag();
+
+        /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event.
         /// </summary>
         /// <param name="sender">
@@ -173,12 +213,16 @@ namespace MFR.GUI.Dialogs
         /// This method is called in response to the user clicking the Apply
         /// button. We merely raise the
         /// <see
-        ///     cref="E:MFR.GUI.OptionsDialog.Modified" />
+        ///     cref="E:MFR.GUI.OptionsDialogBox.Modified" />
         /// event in order to prompt
         /// the client of this dialog box to update data.
         /// </remarks>
         private void OnClickApply(object sender, EventArgs e)
-            => OnModified(new ModifiedEventArgs());
+        {
+            cancelButton.Enabled =
+                false; // now that we've "applied" options, the Cancel button doesn't mean anything
+            OnModified(new ModifiedEventArgs());
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
@@ -229,13 +273,13 @@ namespace MFR.GUI.Dialogs
         /// CurrentConfiguration File Pathname text box being changed. This method
         /// responds to such a happenstance by updating the value of the
         /// <see
-        ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />
+        ///     cref="P:MFR.GUI.OptionsDialogBox.IsModified" />
         /// property to be
         /// <see
         ///     langword="true" />
         /// by calling the
         /// <see
-        ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
+        ///     cref="M:MFR.GUI.OptionsDialogBox.SetModifiedFlag" />
         /// method.
         /// </remarks>
         private void OnTextChangedConfiguraitonFilePathname(
@@ -288,9 +332,13 @@ namespace MFR.GUI.Dialogs
                     AutoQuitOnCompletion;
                 CurrentConfiguration.ReOpenSolution = ReOpenSolution;
                 ConfigProvider.ConfigFilePath = ConfigPathname;
+                CurrentConfiguration.PromptUserToReloadOpenSolution =
+                    !DontPromptUserToReloadOpenSolution;
             }
             else
             {
+                DontPromptUserToReloadOpenSolution = !CurrentConfiguration
+                    .PromptUserToReloadOpenSolution;
                 ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 ConfigPathname = ConfigProvider.ConfigFilePath;
                 AutoQuitOnCompletion =
