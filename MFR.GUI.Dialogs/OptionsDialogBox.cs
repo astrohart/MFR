@@ -299,9 +299,13 @@ namespace MFR.GUI.Dialogs
                     AutoQuitOnCompletion;
                 CurrentConfiguration.ReOpenSolution = ReOpenSolution;
                 ConfigProvider.ConfigFilePath = ConfigPathname;
+                CurrentConfiguration.PromptUserToReloadOpenSolution =
+                    !DontPromptUserToReloadOpenSolution;
             }
             else
             {
+                DontPromptUserToReloadOpenSolution = !CurrentConfiguration
+                    .PromptUserToReloadOpenSolution;
                 ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 ConfigPathname = ConfigProvider.ConfigFilePath;
                 AutoQuitOnCompletion =
