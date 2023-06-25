@@ -134,6 +134,7 @@
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialogBox-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialogBox.ReOpenSolution')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialogBox-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialogBox.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-OptionsDialogBox-InitializeComponent 'MFR.GUI.Dialogs.OptionsDialogBox.InitializeComponent')
+  - [OnAnyCheckBoxCheckedChanged(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnAnyCheckBoxCheckedChanged-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnAnyCheckBoxCheckedChanged(System.Object,System.EventArgs)')
   - [OnClickApply(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickApply-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnClickApply(System.Object,System.EventArgs)')
   - [OnClickConfigPathnameBrowseButton(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnClickConfigPathnameBrowseButton(System.Object,System.EventArgs)')
   - [OnFormClosing(e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
@@ -1941,6 +1942,38 @@ the contents of this method with the code editor.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnAnyCheckBoxCheckedChanged-System-Object,System-EventArgs-'></a>
+### OnAnyCheckBoxCheckedChanged(sender,e) `method`
+
+##### Summary
+
+This method handles the
+[](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event for all of
+the check boxes on the tabs of this property sheet.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) Reference to the object that raised this
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains
+the event data. |
+
+##### Remarks
+
+This method responds by calling the
+[SetModifiedFlag](#M-MFR-GUI-Dialogs-OptionsDialogBox-SetModifiedFlag 'MFR.GUI.Dialogs.OptionsDialogBox.SetModifiedFlag') method to
+mark this property sheet as dirty, so that the button becomes
+available.
+
+
+
+When developers add a new checkbox to any of the tabs of this
+property sheet, they should bind this handler to the
+[](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event of that
+checkbox.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickApply-System-Object,System-EventArgs-'></a>
 ### OnClickApply(sender,e) `method`
