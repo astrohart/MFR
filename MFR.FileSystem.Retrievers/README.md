@@ -64,6 +64,7 @@
   - [UsingSearchPattern()](#M-MFR-FileSystem-Retrievers-SolutionFoldersToRenameRetriever-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.SolutionFoldersToRenameRetriever.UsingSearchPattern(System.String)')
 - [TextInFilesRetriever](#T-MFR-FileSystem-Retrievers-TextInFilesRetriever 'MFR.FileSystem.Retrievers.TextInFilesRetriever')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#ctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#ctor')
+  - [FileFormatDetector](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-FileFormatDetector 'MFR.FileSystem.Retrievers.TextInFilesRetriever.FileFormatDetector')
   - [Instance](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance 'MFR.FileSystem.Retrievers.TextInFilesRetriever.Instance')
   - [OperationType](#P-MFR-FileSystem-Retrievers-TextInFilesRetriever-OperationType 'MFR.FileSystem.Retrievers.TextInFilesRetriever.OperationType')
   - [#cctor()](#M-MFR-FileSystem-Retrievers-TextInFilesRetriever-#cctor 'MFR.FileSystem.Retrievers.TextInFilesRetriever.#cctor')
@@ -1330,6 +1331,14 @@ Empty, protected constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-FileFormatDetector'></a>
+### FileFormatDetector `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFileFormatDetector](#T-MFR-Detectors-Interfaces-IFileFormatDetector 'MFR.Detectors.Interfaces.IFileFormatDetector') interface.
 
 <a name='P-MFR-FileSystem-Retrievers-TextInFilesRetriever-Instance'></a>
 ### Instance `property`

@@ -6,6 +6,7 @@ using MFR.Detectors.Models.Interfaces;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Factories.Actions;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -27,11 +28,13 @@ namespace MFR.Detectors
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static FileFormatDetector() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected FileFormatDetector() { }
 
         /// <summary>
@@ -43,6 +46,7 @@ namespace MFR.Detectors
         /// This object is used to retrieve file streams that have already been
         /// opened on files in order to more quickly and efficiently run detection on them.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private static IFileStreamProvider FileStreamProvider
         {
             get;
@@ -52,6 +56,7 @@ namespace MFR.Detectors
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see cref="T:MFR.Detectors.Interfaces.IFileFormatDetector" /> interface.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public static IFileFormatDetector Instance
         {
             get;
@@ -61,6 +66,7 @@ namespace MFR.Detectors
         /// Reference to an instance of an object that can be used for thread
         /// synchronization.
         /// </summary>
+        [Log(AttributeExclude = true)]
         private static object SyncRoot
         {
             get;

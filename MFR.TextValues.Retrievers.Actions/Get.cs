@@ -82,6 +82,8 @@ namespace MFR.TextValues.Retrievers.Actions
                 {
                     if (ticket.IsZero()) return result;
 
+                    FileStreamProvider.RewindStream(ticket);    // just in case
+
                     /*
                      * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
                      * that we "redeem" with the FileStreamProvider object to get a reference

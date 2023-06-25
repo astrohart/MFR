@@ -35,15 +35,6 @@ namespace MFR.FileSystem.Retrievers
         protected TextInFilesRetriever() { }
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Detectors.Interfaces.IFileFormatDetector" /> interface.
-        /// </summary>
-        private static IFileFormatDetector FileFormatDetector
-        {
-            get;
-        } = GetFileFormatDetector.SoleInstance();
-
-        /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see
         ///     cref="T:MFR.FileSystem.Retrievers.Interfaces.IFileSystemEntryListRetriever" />

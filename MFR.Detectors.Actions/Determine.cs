@@ -1,6 +1,7 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using MFR.Detectors.Constants;
 using MFR.FileSystem.Factories.Actions;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -9,6 +10,7 @@ namespace MFR.Detectors.Actions
     /// <summary>
     /// Exposes static methods to determine things about files.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Determine
     {
         /// <summary>
