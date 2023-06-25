@@ -454,7 +454,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </returns>
         public bool FileExist(string pathname)
         {
-            var result = false;
+            bool result;
 
             try
             {
