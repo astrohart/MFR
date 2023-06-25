@@ -29,6 +29,17 @@ namespace MFR.GUI.Dialogs.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets the value of the
+        /// <b>Do not warn when Visual Studio is open but target Solution(s) aren't loaded</b>
+        /// checkbox
+        /// </summary>
+        bool DontPromptUserToReloadOpenSolution
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
         /// been modified.
         /// </summary>
