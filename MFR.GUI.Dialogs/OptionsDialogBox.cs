@@ -75,6 +75,17 @@ namespace MFR.GUI.Dialogs
             => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
+        /// Gets or sets the value of the
+        /// <b>Do not warn when Visual Studio is open but target Solution(s) aren't loaded</b>
+        /// checkbox
+        /// </summary>
+        public bool DontPromptUserToReloadOpenSolution
+        {
+            get => dontPromptUserToReloadOpenSolutionCheckBox.Checked;
+            set => dontPromptUserToReloadOpenSolutionCheckBox.Checked = value;
+        }
+
+        /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
         /// been modified.
         /// </summary>

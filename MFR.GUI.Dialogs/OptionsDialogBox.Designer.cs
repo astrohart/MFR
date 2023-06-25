@@ -44,10 +44,12 @@ namespace MFR.GUI.Dialogs
             this.configPathnameBrowseButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.configPathnameLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.visualStudioTabPage = new System.Windows.Forms.TabPage();
+            this.darkLabel1 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
-            this.darkLabel1 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.darkLabel2 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.dontPromptUserToReloadOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -191,6 +193,8 @@ namespace MFR.GUI.Dialogs
             // visualStudioTabPage
             // 
             this.visualStudioTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.visualStudioTabPage.Controls.Add(this.darkLabel2);
+            this.visualStudioTabPage.Controls.Add(this.dontPromptUserToReloadOpenSolutionCheckBox);
             this.visualStudioTabPage.Controls.Add(this.darkLabel1);
             this.visualStudioTabPage.Controls.Add(this.reOpenSolutionLabel);
             this.visualStudioTabPage.Controls.Add(this.reOpenSolutionCheckBox);
@@ -200,6 +204,27 @@ namespace MFR.GUI.Dialogs
             this.visualStudioTabPage.Size = new System.Drawing.Size(436, 347);
             this.visualStudioTabPage.TabIndex = 1;
             this.visualStudioTabPage.Text = "Visual Studio";
+            // 
+            // darkLabel1
+            // 
+            this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkLabel1.IsDarkTheme = false;
+            this.darkLabel1.Location = new System.Drawing.Point(15, 63);
+            this.darkLabel1.Name = "darkLabel1";
+            this.darkLabel1.Size = new System.Drawing.Size(405, 38);
+            this.darkLabel1.TabIndex = 2;
+            this.darkLabel1.Text = "NOTE: This setting is ignored if the Rename Folder(s) that Contain Solution(s) op" +
+    "eration is enabled.";
+            // 
+            // reOpenSolutionLabel
+            // 
+            this.reOpenSolutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.reOpenSolutionLabel.IsDarkTheme = false;
+            this.reOpenSolutionLabel.Location = new System.Drawing.Point(42, 14);
+            this.reOpenSolutionLabel.Name = "reOpenSolutionLabel";
+            this.reOpenSolutionLabel.Size = new System.Drawing.Size(331, 38);
+            this.reOpenSolutionLabel.TabIndex = 1;
+            this.reOpenSolutionLabel.Text = "Close and then re-open containing solution before\r\nand after operation(s)";
             // 
             // reOpenSolutionCheckBox
             // 
@@ -219,28 +244,25 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
-            // reOpenSolutionLabel
+            // darkLabel2
             // 
-            this.reOpenSolutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.reOpenSolutionLabel.IsDarkTheme = false;
-            this.reOpenSolutionLabel.Location = new System.Drawing.Point(42, 14);
-            this.reOpenSolutionLabel.Name = "reOpenSolutionLabel";
-            this.reOpenSolutionLabel.Size = new System.Drawing.Size(331, 38);
-            this.reOpenSolutionLabel.TabIndex = 1;
-            this.reOpenSolutionLabel.Text = "Close and then re-open containing solution before\r\nand after operation(s)";
+            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkLabel2.IsDarkTheme = false;
+            this.darkLabel2.Location = new System.Drawing.Point(42, 112);
+            this.darkLabel2.Name = "darkLabel2";
+            this.darkLabel2.Size = new System.Drawing.Size(331, 38);
+            this.darkLabel2.TabIndex = 4;
+            this.darkLabel2.Text = "Do not warn when Visual Studio is open but target Solution(s) aren\'t loaded";
             // 
-            // darkLabel1
+            // dontPromptUserToReloadOpenSolutionCheckBox
             // 
-            this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.darkLabel1.IsDarkTheme = false;
-            this.darkLabel1.Location = new System.Drawing.Point(15, 63);
-            this.darkLabel1.Name = "darkLabel1";
-            this.darkLabel1.Size = new System.Drawing.Size(405, 38);
-            this.darkLabel1.TabIndex = 2;
-            this.darkLabel1.Text = "NOTE: This setting is ignored if the Rename Folder(s) that Contain Solution(s) op" +
-    "eration is enabled.";
+            this.dontPromptUserToReloadOpenSolutionCheckBox.IsDarkTheme = false;
+            this.dontPromptUserToReloadOpenSolutionCheckBox.Location = new System.Drawing.Point(18, 116);
+            this.dontPromptUserToReloadOpenSolutionCheckBox.Name = "dontPromptUserToReloadOpenSolutionCheckBox";
+            this.dontPromptUserToReloadOpenSolutionCheckBox.Size = new System.Drawing.Size(18, 14);
+            this.dontPromptUserToReloadOpenSolutionCheckBox.TabIndex = 3;
             // 
-            // OptionsDialog
+            // OptionsDialogBox
             // 
             this.AcceptButton = this.okayButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -257,7 +279,7 @@ namespace MFR.GUI.Dialogs
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "OptionsDialog";
+            this.Name = "OptionsDialogBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -289,5 +311,7 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox autoQuitOnCompletionCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkLabel reOpenSolutionLabel;
         private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel1;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel2;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox dontPromptUserToReloadOpenSolutionCheckBox;
     }
 }
