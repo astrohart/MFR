@@ -1,5 +1,4 @@
 using MFR.Constants;
-using MFR.Detectors.Actions;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;
@@ -2270,11 +2269,15 @@ namespace MFR.Renamers.Files
                  * one.
                  */
 
-                if (textToBeSearched.Any(
-                        c => Determine.WhetherCharacterIsControlCharacter(c)
-                    ))
+                if (Scan.FileDataForBinaryControlCharacters(textToBeSearched))
                     return SpecializedFileData
-                        .BinaryFileSkipped; // special GUID letting callers know to skip this file
+                        .BinaryFileSkipped;
+                
+                /*
+                 * If we are still here, then the textToBeSearched is really
+                 * from an ASCII text file.  We can proceed with the Replace
+                 * Text in Files operation on this file.
+                 */
 
                 // release the stream or the OS won't let us perform the
                 // text replacement operation
@@ -3362,8 +3365,9 @@ namespace MFR.Renamers.Files
                 // need to re-load the solution by hand after the operation has
                 // been completed.
 
-                if (CurrentConfiguration.PromptUserToReloadOpenSolution
-                    && DialogResult.No == MessageBox.Show(
+                if (CurrentConfiguration
+                        .PromptUserToReloadOpenSolution &&
+                    DialogResult.No == MessageBox.Show(
                         Resources.Confirm_PerformRename,
                         Application.ProductName,
                         MessageBoxButtons.YesNo,
