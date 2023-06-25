@@ -25,7 +25,6 @@
   - [IsFromCommandLine](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchExactWord')
-  - [PromptUserToReloadOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.PromptUserToReloadOpenSolution')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFilesInFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFilesInFolder')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSolutionFolders')
@@ -382,26 +381,6 @@ found text.
 
 Gets or sets a value indicating whether we should match the whole
 word on found text.
-
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution'></a>
-### PromptUserToReloadOpenSolution `property`
-
-##### Summary
-
-Gets or sets a value indicating whether the application should prompt the user
-if it detects that one or more instances of Visual Studio are open, but none of
-them have the target Solution(s) loaded.
-
-##### Remarks
-
-The default value of this property is `true`.
-
-
-
-Set to `false` to suppress the display of the warning message
-box.  If users suppress the message box, and one or more of the
-target Solution(s) are indeed loaded by a running instance of Visual Studio,
-then there may be file-sharing/permissions issues during the operation(s).
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`
