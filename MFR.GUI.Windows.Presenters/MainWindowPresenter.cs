@@ -21,6 +21,7 @@ using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Events;
 using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Factories;
@@ -67,6 +68,15 @@ namespace MFR.GUI.Windows.Presenters
         public MainWindowPresenter()
         {
             InitializeConfiguration();
+        }
+
+        /// <summary>
+        /// Gets or sets the pathname of the configuration file.
+        /// </summary>
+        private static string ConfigFilePath
+        {
+            get => ConfigurationProvider.ConfigFilePath;
+            set => ConfigurationProvider.ConfigFilePath = value;
         }
 
         /// <summary>
@@ -146,7 +156,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
         public bool IsProfileLoaded
-            => !ConfigurationProvider.CurrentConfiguration.IsTemporaryProfile();
+            => !CurrentConfiguration.IsTemporaryProfile();
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -430,6 +440,39 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Determines whether the file having the specified <paramref name="pathname" />
+        /// exists.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the file to be searched for.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the <paramref name="pathname" /> is
+        /// non-blank and contains the fully-qualified pathname of a file that exists;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public bool FileExist(string pathname)
+        {
+            var result = false;
+
+            try
+            {
+                result = !string.IsNullOrWhiteSpace(pathname) &&
+                         File.Exists(pathname);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// This method is called to populate the Profiles combo box.
         /// </summary>
         public void FillProfileDropDownList()
@@ -589,18 +632,14 @@ namespace MFR.GUI.Windows.Presenters
         /// </exception>
         public void SaveConfigurationDataFrom(IOptionsDialogBox dialogBox)
         {
-            if (dialogBox == null) throw new ArgumentNullException(nameof(dialogBox));
+            if (dialogBox == null)
+                throw new ArgumentNullException(nameof(dialogBox));
 
-            if (ConfigurationProvider.ConfigFilePath != dialogBox.ConfigPathname)
-                MakeNewFileInfo.ForPath(ConfigurationProvider.ConfigFilePath)
-                               .RenameTo(dialogBox.ConfigPathname);
-
-            ConfigurationProvider.CurrentConfiguration.AutoQuitOnCompletion =
+            CurrentConfiguration.AutoQuitOnCompletion =
                 dialogBox.AutoQuitOnCompletion;
             ConfigurationProvider.ConfigFilePath = dialogBox.ConfigPathname;
-            ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
-                dialogBox.ReOpenSolution;
-            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
+            CurrentConfiguration.ReOpenSolution = dialogBox.ReOpenSolution;
+            UpdateConfiguration(CurrentConfiguration);
         }
 
         /// <summary>
@@ -622,10 +661,7 @@ namespace MFR.GUI.Windows.Presenters
 
             if (Does.ProfileAlreadyExist(profileName)) return;
 
-            var newProfile =
-                ConfigurationProvider.CurrentConfiguration.ToProfile(
-                    profileName
-                );
+            var newProfile = CurrentConfiguration.ToProfile(profileName);
             ProfileProvider.Profiles.Add(newProfile);
             ProfileProvider.Save();
 
@@ -634,7 +670,7 @@ namespace MFR.GUI.Windows.Presenters
              * loaded configuration.
              */
 
-            ConfigurationProvider.CurrentConfiguration = newProfile;
+            CurrentConfiguration = newProfile;
             ConfigurationProvider.Save();
         }
 
@@ -801,6 +837,43 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// If the user has changed the pathname of where the configuration file is to be
+        /// stored, this method renames the existing configuration file to match.
+        /// </summary>
+        /// <param name="newConfigFilePath">
+        /// (Required.) A <see cref="T:System.String" /> that contains the new value of the
+        /// fully-qualified pathname of the configuration file.
+        /// </param>
+        public void RenameConfigFileToMatchNewName(string newConfigFilePath)
+        {
+            try
+            {
+                if (!Determine.IsConfigFilenameValid(newConfigFilePath)) return;
+
+                if (ConfigFilePath != newConfigFilePath)
+                    MakeNewFileInfo.ForPath(ConfigFilePath)
+                                   .RenameTo(newConfigFilePath);
+
+                /*
+                 * If the rename operation was successful, then the file's pathname
+                 * is now newConfigFilePath. Check whether it exists at that pathname;
+                 * if so, then update the value of the ConfigFilePath property with that
+                 * value.
+                 *
+                 * The configuration provider object will then proceed to store the new
+                 * pathname in the system Registry right away.
+                 */
+                if (Does.FileExist(newConfigFilePath))
+                    ConfigFilePath = newConfigFilePath;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
         /// box into the
         /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
@@ -931,7 +1004,7 @@ namespace MFR.GUI.Windows.Presenters
                     MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
                 );
 
-            UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
+            UpdateConfiguration(CurrentConfiguration);
 
             UpdateData(false);
 

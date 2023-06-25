@@ -154,6 +154,8 @@ namespace MFR.GUI.Dialogs
         {
             if (Modified == null) return;
 
+            UpdateData();   // save data from the screen
+
             Modified.Invoke(this, e);
             SetModifiedFlag(!e.Handled);
         }

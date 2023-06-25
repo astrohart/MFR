@@ -1115,7 +1115,9 @@ namespace MFR.GUI.Windows
             var dialog = (OptionsDialogBox)sender;
             if (dialog == null) return;
 
-            Presenter.SaveConfigurationDataFrom(dialog);
+            Presenter.RenameConfigFileToMatchNewName(dialog.ConfigPathname);
+
+            UpdateData();
 
             e.Handled =
                 true; // instruct the Options dialog box to re-gray out the Apply button
@@ -1571,7 +1573,11 @@ namespace MFR.GUI.Windows
             using (var dialog = new OptionsDialogBox())
             {
                 dialog.Modified += OnOptionsModified;
-                dialog.ShowDialog(this);
+                if (dialog.ShowDialog(this) != DialogResult.OK) return;
+
+                Presenter.RenameConfigFileToMatchNewName(dialog.ConfigPathname);
+
+                UpdateData();
             }
         }
 
@@ -1661,6 +1667,22 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnViewToolBar(object sender, EventArgs e)
             => standardToolStrip.Visible = !standardToolStrip.Visible;
+
+        /// <summary>
+        /// Moves data from this dialog's controls to the configuration object.
+        /// </summary>
+        /// <param name="bSaveAndValidate">
+        /// (Required.) A <see cref="T:System.Boolean" />
+        /// that specifies whether to save information from the screen into data variables.
+        /// <see langword="false" /> to load data to the screen.
+        /// </param>
+        private void UpdateData(bool bSaveAndValidate = true)
+        {
+            if (bSaveAndValidate)
+                Presenter.UpdateConfiguration(CurrentConfiguration);
+
+            Presenter.UpdateData(bSaveAndValidate);
+        }
 
         /// <summary>
         /// Resizes the form to that specified in the <paramref name="newSize" />
