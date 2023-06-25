@@ -129,6 +129,7 @@
   - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialogBox-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialogBox.ConfigPathname')
   - [ConfigProvider](#P-MFR-GUI-Dialogs-OptionsDialogBox-ConfigProvider 'MFR.GUI.Dialogs.OptionsDialogBox.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialogBox-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialogBox.CurrentConfiguration')
+  - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialogBox-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.OptionsDialogBox.DontPromptUserToReloadOpenSolution')
   - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialogBox-IsModified 'MFR.GUI.Dialogs.OptionsDialogBox.IsModified')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialogBox-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialogBox.ReOpenSolution')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialogBox-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialogBox.Dispose(System.Boolean)')
@@ -1891,6 +1892,15 @@ associated with it.
 Gets a reference to an instance of an object that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
+
+<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-DontPromptUserToReloadOpenSolution'></a>
+### DontPromptUserToReloadOpenSolution `property`
+
+##### Summary
+
+Gets or sets the value of the
+
+checkbox
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialogBox-IsModified'></a>
 ### IsModified `property`
