@@ -181,15 +181,6 @@ namespace MFR.Renamers.Files
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Detectors.Interfaces.IFileFormatDetector" /> interface.
-        /// </summary>
-        private static IFileFormatDetector FileFormatDetector
-        {
-            get;
-        } = GetFileFormatDetector.SoleInstance();
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
         /// interface.
         /// </summary>
@@ -3170,11 +3161,6 @@ namespace MFR.Renamers.Files
                         entry, OperationType.ReplaceTextInFiles
                     )
                 );
-
-                if (FileFormatDetector.DetectFileFormat(
-                        entry.UserState
-                    ) != DetectedFileFormat.ASCII)
-                    return result;
 
                 var newFileData =
                     await GetTextInFileReplacementDataAsync(
