@@ -912,6 +912,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Detectors.Constants", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Detectors.Actions", "MFR.Detectors.Actions\MFR.Detectors.Actions.csproj", "{F87E7DAC-85FC-4346-B476-134CAFC0CD18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Renamers.Files.Constants", "MFR.Renamers.Files.Constants\MFR.Renamers.Files.Constants.csproj", "{65B74163-A2F2-4E09-886D-288774E22DA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -8106,6 +8108,22 @@ Global
 		{F87E7DAC-85FC-4346-B476-134CAFC0CD18}.Release|x64.Build.0 = Release|x64
 		{F87E7DAC-85FC-4346-B476-134CAFC0CD18}.Release|x86.ActiveCfg = Release|x86
 		{F87E7DAC-85FC-4346-B476-134CAFC0CD18}.Release|x86.Build.0 = Release|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.All|x64.ActiveCfg = Debug|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.All|x64.Build.0 = Debug|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.All|x86.ActiveCfg = Debug|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.All|x86.Build.0 = Debug|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Debug|x64.ActiveCfg = Debug|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Debug|x64.Build.0 = Debug|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Debug|x86.ActiveCfg = Debug|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Debug|x86.Build.0 = Debug|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.DefaultBuild|x64.Build.0 = Debug|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.DefaultBuild|x86.Build.0 = Debug|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Release|x64.ActiveCfg = Release|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Release|x64.Build.0 = Release|x64
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Release|x86.ActiveCfg = Release|x86
+		{65B74163-A2F2-4E09-886D-288774E22DA4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
