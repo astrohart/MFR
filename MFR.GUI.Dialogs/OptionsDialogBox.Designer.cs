@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace MFR.GUI.Dialogs
 {
-    partial class OptionsDialog
+    partial class OptionsDialogBox
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsDialogBox));
             this.applyButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.cancelButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.okayButton = new xyLOGIX.UI.Dark.Controls.DarkButton();

@@ -7,7 +7,7 @@ namespace MFR.GUI.Dialogs.Interfaces
     /// Defines the publicly-exposed methods and properties of a dialog box that
     /// allows the user to configure the application.
     /// </summary>
-    public interface IOptionsDialog : IForm
+    public interface IOptionsDialogBox : IForm
     {
         /// <summary>
         /// Gets or sets the value of the

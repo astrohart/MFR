@@ -218,15 +218,15 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// Runs code that should execute when either the OK or Apply buttons
         /// are clicked on the Tools -&gt; Options dialog box.
         /// </summary>
-        /// <param name="dialog">
+        /// <param name="dialogBox">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialog" /> interface.
+        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox" /> interface.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// Thrown if the required parameter, <paramref name="dialogBox" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        void SaveConfigurationDataFrom(IOptionsDialog dialog);
+        void SaveConfigurationDataFrom(IOptionsDialogBox dialogBox);
 
         /// <summary>
         /// Transforms the current value of the

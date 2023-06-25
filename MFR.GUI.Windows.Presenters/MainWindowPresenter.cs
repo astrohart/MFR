@@ -579,27 +579,27 @@ namespace MFR.GUI.Windows.Presenters
         /// Runs code that should execute when either the OK or Apply buttons
         /// are clicked on the Tools -&gt; Options dialog box.
         /// </summary>
-        /// <param name="dialog">
+        /// <param name="dialogBox">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialog" /> interface.
+        /// the <see cref="T:MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox" /> interface.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="dialog" />, is
+        /// Thrown if the required parameter, <paramref name="dialogBox" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public void SaveConfigurationDataFrom(IOptionsDialog dialog)
+        public void SaveConfigurationDataFrom(IOptionsDialogBox dialogBox)
         {
-            if (dialog == null) throw new ArgumentNullException(nameof(dialog));
+            if (dialogBox == null) throw new ArgumentNullException(nameof(dialogBox));
 
-            if (ConfigurationProvider.ConfigFilePath != dialog.ConfigPathname)
+            if (ConfigurationProvider.ConfigFilePath != dialogBox.ConfigPathname)
                 MakeNewFileInfo.ForPath(ConfigurationProvider.ConfigFilePath)
-                               .RenameTo(dialog.ConfigPathname);
+                               .RenameTo(dialogBox.ConfigPathname);
 
             ConfigurationProvider.CurrentConfiguration.AutoQuitOnCompletion =
-                dialog.AutoQuitOnCompletion;
-            ConfigurationProvider.ConfigFilePath = dialog.ConfigPathname;
+                dialogBox.AutoQuitOnCompletion;
+            ConfigurationProvider.ConfigFilePath = dialogBox.ConfigPathname;
             ConfigurationProvider.CurrentConfiguration.ReOpenSolution =
-                dialog.ReOpenSolution;
+                dialogBox.ReOpenSolution;
             UpdateConfiguration(ConfigurationProvider.CurrentConfiguration);
         }
 

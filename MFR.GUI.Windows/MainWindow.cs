@@ -1098,7 +1098,7 @@ namespace MFR.GUI.Windows
             => performOperationButton.PerformClick();
 
         /// <summary>
-        /// Handles the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
+        /// Handles the <see cref="E:MFR.GUI.OptionsDialogBox.Modified" /> event.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -1112,7 +1112,7 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnOptionsModified(object sender, ModifiedEventArgs e)
         {
-            var dialog = (OptionsDialog)sender;
+            var dialog = (OptionsDialogBox)sender;
             if (dialog == null) return;
 
             Presenter.SaveConfigurationDataFrom(dialog);
@@ -1568,7 +1568,7 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnToolsOptions(object sender, EventArgs e)
         {
-            using (var dialog = new OptionsDialog())
+            using (var dialog = new OptionsDialogBox())
             {
                 dialog.AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;

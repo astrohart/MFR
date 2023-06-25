@@ -15,15 +15,15 @@ namespace MFR.GUI.Dialogs
     /// Provides options to the user that allow the user to modify the
     /// application's behavior.
     /// </summary>
-    public partial class OptionsDialog : DarkForm, IOptionsDialog
+    public partial class OptionsDialogBox : DarkForm, IOptionsDialogBox
     {
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.GUI.Dialogs.OptionsDialog" />
+        ///     cref="T:MFR.GUI.Dialogs.OptionsDialogBox" />
         /// and returns a reference to it.
         /// </summary>
-        public OptionsDialog()
+        public OptionsDialogBox()
         {
             InitializeComponent();
 
@@ -127,7 +127,7 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Raises the <see cref="E:MFR.GUI.OptionsDialog.Modified" /> event.
+        /// Raises the <see cref="E:MFR.GUI.OptionsDialogBox.Modified" /> event.
         /// </summary>
         /// <param name="e">
         /// A <see cref="T:MFR.ModifiedEventArgs" /> that contains the
@@ -136,7 +136,7 @@ namespace MFR.GUI.Dialogs
         /// <remarks>
         /// If the <see cref="P:MFR.ModifiedEventArgs.Handled" />
         /// property is set <see langword="true" /> by the event's handler, then
-        /// the <see cref="P:MFR.GUI.OptionsDialog.IsModified" /> will be set to
+        /// the <see cref="P:MFR.GUI.OptionsDialogBox.IsModified" /> will be set to
         /// <see langword="false" />.
         /// </remarks>
         protected virtual void OnModified(ModifiedEventArgs e)
@@ -173,7 +173,7 @@ namespace MFR.GUI.Dialogs
         /// This method is called in response to the user clicking the Apply
         /// button. We merely raise the
         /// <see
-        ///     cref="E:MFR.GUI.OptionsDialog.Modified" />
+        ///     cref="E:MFR.GUI.OptionsDialogBox.Modified" />
         /// event in order to prompt
         /// the client of this dialog box to update data.
         /// </remarks>
@@ -229,13 +229,13 @@ namespace MFR.GUI.Dialogs
         /// CurrentConfiguration File Pathname text box being changed. This method
         /// responds to such a happenstance by updating the value of the
         /// <see
-        ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />
+        ///     cref="P:MFR.GUI.OptionsDialogBox.IsModified" />
         /// property to be
         /// <see
         ///     langword="true" />
         /// by calling the
         /// <see
-        ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
+        ///     cref="M:MFR.GUI.OptionsDialogBox.SetModifiedFlag" />
         /// method.
         /// </remarks>
         private void OnTextChangedConfiguraitonFilePathname(
