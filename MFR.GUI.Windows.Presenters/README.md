@@ -45,7 +45,7 @@
   - [OnProcessingFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProcessingFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnProcessingFinished(System.Object,System.EventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
-  - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
+  - [SaveConfigurationDataFrom(dialogBox)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox)')
   - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
   - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
@@ -683,8 +683,8 @@ persistence location.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-'></a>
-### SaveConfigurationDataFrom(dialog) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-'></a>
+### SaveConfigurationDataFrom(dialogBox) `method`
 
 ##### Summary
 
@@ -695,14 +695,14 @@ are clicked on the Tools -> Options dialog box.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dialog | [MFR.GUI.Dialogs.Interfaces.IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog') | (Required.) Reference to an instance of an object that implements
-the [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog') interface. |
+| dialogBox | [MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox') | (Required.) Reference to an instance of an object that implements
+the [IOptionsDialogBox](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox') interface. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialog`, is
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialogBox`, is
 passed a `null` value. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String-'></a>

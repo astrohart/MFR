@@ -743,7 +743,7 @@ is delegated to the Perform Operation button.
 
 ##### Summary
 
-Handles the [](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified') event.
+Handles the [](#E-MFR-GUI-OptionsDialogBox-Modified 'MFR.GUI.OptionsDialogBox.Modified') event.
 
 ##### Parameters
 

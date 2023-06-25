@@ -1231,7 +1231,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Looks up a localized string similar to We've noticed that you have one or more instances of Visual Studio 2019 open.
 
-It doesn't appear that the solution contaiing the project to be renamed is open in any of them.
+It doesn't appear that the solution containing the project to be renamed is open in any of them.
 
 Choose File -> Reopen Workspace when the selected rename operation(s) have completed if the solution is open and we missed it.
 
