@@ -26,7 +26,8 @@ namespace MFR.TextValues.Retrievers.Synchronization
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
-        /// <see cref="T:MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker" />
+        /// <see
+        ///     cref="T:MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker" />
         /// interface.
         /// </summary>
         public static ISemaphoreLocker Instance
@@ -101,14 +102,6 @@ namespace MFR.TextValues.Retrievers.Synchronization
             {
                 if (isTaken) Semaphore.Release();
             }
-        }
-
-        /// <summary>
-        /// Releases the system resources associated with this object.
-        /// </summary>
-        ~SemaphoreLocker()
-        {
-            Semaphore?.Dispose();
         }
     }
 }
