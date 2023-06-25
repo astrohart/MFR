@@ -208,6 +208,10 @@
       <Project>{49d0e080-cb0e-4548-981b-7fbf33ba981c}</Project>
       <Name>MFR.Renamers.Files.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Constants\MFR.Renamers.Files.Constants.csproj">
+      <Project>{65B74163-A2F2-4E09-886D-288774E22DA4}</Project>
+      <Name>MFR.Renamers.Files.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Events\MFR.Renamers.Files.Events.csproj">
       <Project>{BE83F4D8-3F0B-4754-9885-F7ABD2401D2A}</Project>
       <Name>MFR.Renamers.Files.Events</Name>

@@ -24,6 +24,7 @@ using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Actions;
+using MFR.Renamers.Files.Constants;
 using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
