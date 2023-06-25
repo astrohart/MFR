@@ -218,7 +218,10 @@ namespace MFR.GUI.Dialogs
         /// the client of this dialog box to update data.
         /// </remarks>
         private void OnClickApply(object sender, EventArgs e)
-            => OnModified(new ModifiedEventArgs());
+        {
+            cancelButton.Enabled = false;   // now that we've "applied" options, the Cancel button doesn't mean anything
+            OnModified(new ModifiedEventArgs());
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
