@@ -221,6 +221,26 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the application should prompt the user
+        /// if it detects that one or more instances of Visual Studio are open, but none of
+        /// them have the target Solution(s) loaded.
+        /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// <para />
+        /// Set to <see langword="false" /> to suppress the display of the warning message
+        /// box.  <b>NOTE:</b> If users suppress the message box, and one or more of the
+        /// target Solution(s) are indeed loaded by a running instance of Visual Studio,
+        /// then there may be file-sharing/permissions issues during the operation(s).
+        /// </remarks>
+        [JsonProperty("promptUserToReloadOpenSolution")]
+        public bool PromptUserToReloadOpenSolution
+        {
+            get;
+            set;
+        } = true;
+
+        /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
         /// in the folders encountered.
         /// </summary>
