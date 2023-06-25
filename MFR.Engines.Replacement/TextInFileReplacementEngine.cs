@@ -105,8 +105,11 @@ namespace MFR.Engines.Replacement
         /// be matched inside the content of a text file, which is what we
         /// expect to be passed for the <paramref name="value" /> parameter.
         /// </exception>
-        public override string Replace(string value, string pattern,
-            string dest = "")
+        [return: NotLogged]
+        public override string Replace(
+            [NotLogged] string value, 
+            [NotLogged] string pattern,
+            [NotLogged] string dest = "")
         {
             var result = value; // no replacement if error
 
