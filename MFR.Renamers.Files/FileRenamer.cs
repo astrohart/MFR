@@ -1,7 +1,5 @@
 using MFR.Constants;
-using MFR.Detectors.Constants;
-using MFR.Detectors.Factories;
-using MFR.Detectors.Interfaces;
+using MFR.Detectors.Actions;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;
@@ -26,6 +24,7 @@ using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Actions;
+using MFR.Renamers.Files.Constants;
 using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
@@ -2265,6 +2264,16 @@ namespace MFR.Renamers.Files
                     .GetTextValueAsync(entry);
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
 
+                /*
+                 * Search for control characters to determine whether the
+                 * text to be searched is from a binary file or an ASCII
+                 * one.
+                 */
+
+                if (textToBeSearched.Any(
+                        c => Determine.WhetherCharacterIsControlCharacter(c)
+                    )) return SpecializedFileData.BinaryFileSkipped;    // special GUID letting callers know to skip this file
+
                 // release the stream or the OS won't let us perform the
                 // text replacement operation
                 FileStreamProvider.DisposeStream(entry.UserState);
@@ -3168,6 +3177,8 @@ namespace MFR.Renamers.Files
                     );
                 if (string.IsNullOrWhiteSpace(newFileData))
                     return result;
+                if (SpecializedFileData.BinaryFileSkipped.Equals(newFileData))
+                    return true;    // "succeed" but don't process any further
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);
