@@ -1,4 +1,4 @@
-﻿namespace MFR.Detectors.Constants
+namespace MFR.Detectors.Constants
 {
     /// <summary>
     /// Values for special ASCII characters.

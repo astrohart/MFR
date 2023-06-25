@@ -1,4 +1,4 @@
-﻿using MFR.Messages.Actions.Interfaces;
+using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Interfaces;
 
 namespace MFR.Settings.Profiles.Actions.Factories

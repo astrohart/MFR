@@ -1,4 +1,4 @@
-﻿using MFR.Messages.Identifiers.Interfaces;
+using MFR.Messages.Identifiers.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;

@@ -1,4 +1,4 @@
-﻿using MFR.Engines.Operations.Jobs.Interfaces;
+using MFR.Engines.Operations.Jobs.Interfaces;
 using System;
 
 namespace MFR.Engines.Operations.Jobs.Factories

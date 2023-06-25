@@ -167,7 +167,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Filters.Search.Interfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Operations.Exceptions", "MFR.Operations.Exceptions\MFR.Operations.Exceptions.csproj", "{12CC9C12-26AD-4D61-B59E-0A1932214ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Common", "MFR.Common\MFR.Common.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foo.Common", "Foo.Common\Foo.Common.csproj", "{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Filters.Search", "MFR.Filters.Search\MFR.Filters.Search.csproj", "{66851DA3-B5BF-4992-B627-80D7EAC3084E}"
 EndProject

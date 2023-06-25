@@ -1,4 +1,4 @@
-﻿namespace MFR.Detectors.Constants
+namespace MFR.Detectors.Constants
 {
     /// <summary>
     /// Values that specify the format of a file that we have ascertained from looking

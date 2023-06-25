@@ -1,4 +1,4 @@
-﻿using MFR.File.Stream.Providers.Events;
+using MFR.File.Stream.Providers.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;

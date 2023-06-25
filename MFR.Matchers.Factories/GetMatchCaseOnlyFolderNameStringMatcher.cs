@@ -1,4 +1,4 @@
-﻿using MFR.Matchers.Interfaces;
+using MFR.Matchers.Interfaces;
 
 namespace MFR.Matchers.Factories
 {

@@ -1,4 +1,4 @@
-﻿using MFR.Engines.Constants;
+using MFR.Engines.Constants;
 using MFR.Events.Common;
 using MFR.Settings.Configuration.Interfaces;
 using System;

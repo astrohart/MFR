@@ -915,7 +915,7 @@
       ]
     },
     {
-      "name": "MFR.Common",
+      "name": "Foo.Common",
       "approved_packages": [
         {
           "name": "AlphaFS",

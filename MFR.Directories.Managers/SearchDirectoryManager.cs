@@ -1,4 +1,4 @@
-﻿using MFR.Directories.Managers.Interfaces;
+using MFR.Directories.Managers.Interfaces;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories.Actions;
 using System;

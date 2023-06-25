@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Models.Constants;
+using MFR.GUI.Models.Constants;
 using MFR.Operations.Constants;
 
 namespace MFR.GUI.Models.Converters.Factories

@@ -1,4 +1,4 @@
-﻿namespace MFR.Constants
+namespace MFR.Constants
 {
     /// <summary>
     /// String constants for the default names of files and folders relating to the

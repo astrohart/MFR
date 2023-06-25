@@ -1,4 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
+using Alphaleonis.Win32.Filesystem;
 using MFR.Paths.Config.Provider.Factories;
 using MFR.Paths.Config.Provider.Interfaces;
 using MFR.Settings.Configuration.Factories;

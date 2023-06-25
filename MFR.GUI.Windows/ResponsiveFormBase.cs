@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Windows.Actions;
+using MFR.GUI.Windows.Actions;
 using System;
 using System.Collections;
 using System.Linq;

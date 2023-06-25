@@ -1,10 +1,10 @@
-using MFR.Common.Properties;
+using Foo.Common.Properties;
 using System;
 using System.Linq;
 using System.Reflection;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Common
+namespace Foo.Common
 {
     /// <summary>
     /// This class is from the Front-End for <c>Dosbox</c> and is used to present a
@@ -513,7 +513,7 @@ namespace MFR.Common
         }
 
         /// <summary>
-        /// Sets up the value of the <see cref="P:MFR.Common.Reflector.TargetAssembly" />
+        /// Sets up the value of the <see cref="P:Foo.Common.Reflector.TargetAssembly" />
         /// property from the specified <paramref name="targetAssembly" /> value, using the
         /// assemblies that are referenced by the executing assembly.
         /// </summary>

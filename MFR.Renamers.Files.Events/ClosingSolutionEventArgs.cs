@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
 namespace MFR.Renamers.Files.Events

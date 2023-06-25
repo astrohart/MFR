@@ -1,4 +1,4 @@
-﻿using MFR.Events.Common;
+using MFR.Events.Common;
 using MFR.GUI.Constants;
 using MFR.Paths.Config.Provider.Actions;
 using MFR.Paths.Config.Provider.Interfaces;

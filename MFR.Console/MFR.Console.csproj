@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -124,9 +124,9 @@
       <Project>{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}</Project>
       <Name>MFR.CommandLine.Translators</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
+    <ProjectReference Include="..\Foo.Common\Foo.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
+      <Name>Foo.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>

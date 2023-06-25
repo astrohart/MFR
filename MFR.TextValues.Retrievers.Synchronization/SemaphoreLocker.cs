@@ -1,4 +1,4 @@
-﻿using MFR.TextValues.Retrievers.Synchronization.Interfaces;
+using MFR.TextValues.Retrievers.Synchronization.Interfaces;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

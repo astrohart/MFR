@@ -1,4 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
+using Alphaleonis.Win32.Filesystem;
 using MFR.Detectors.Constants;
 using MFR.FileSystem.Factories.Actions;
 using PostSharp.Patterns.Diagnostics;

@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Dialogs
+namespace MFR.GUI.Dialogs
 {
     partial class CustomizeOperationsDialog
     {

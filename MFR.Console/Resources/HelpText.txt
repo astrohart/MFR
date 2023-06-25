@@ -1,4 +1,4 @@
-﻿xyLOGIX Project File Renamer - Command Line Tool
+xyLOGIX Project File Renamer - Command Line Tool
 Copyright (c) 2021-22 by xyLOGIX, LLC.  All rights reserved.
 
 This utility basically serves as a "find and replace but for Solution Explorer" whereby

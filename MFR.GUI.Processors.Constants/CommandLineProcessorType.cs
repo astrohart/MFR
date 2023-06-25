@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Processors.Constants
+namespace MFR.GUI.Processors.Constants
 {
     /// <summary>
     /// Values to indicate how we are going to process the application's command line.

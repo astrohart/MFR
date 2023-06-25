@@ -1,4 +1,4 @@
-﻿using MFR.CommandLine.Models.Interfaces;
+using MFR.CommandLine.Models.Interfaces;
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;

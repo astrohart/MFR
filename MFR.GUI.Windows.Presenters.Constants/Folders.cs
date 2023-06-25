@@ -1,4 +1,4 @@
-﻿namespace MFR.GUI.Windows.Presenters.Constants
+namespace MFR.GUI.Windows.Presenters.Constants
 {
     /// <summary>
     /// Provides string constants that allow access to special folders.

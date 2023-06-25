@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Models.Interfaces;
+using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Converters.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;

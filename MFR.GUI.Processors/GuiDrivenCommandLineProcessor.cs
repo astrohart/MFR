@@ -1,4 +1,4 @@
-﻿using MFR.CommandLine.Translators;
+using MFR.CommandLine.Translators;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
 using MFR.GUI.Windows.Factories;

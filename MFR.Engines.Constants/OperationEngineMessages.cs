@@ -1,4 +1,4 @@
-﻿using MFR.Messages.Identifiers.Factories;
+using MFR.Messages.Identifiers.Factories;
 using System;
 
 namespace MFR.Engines.Constants

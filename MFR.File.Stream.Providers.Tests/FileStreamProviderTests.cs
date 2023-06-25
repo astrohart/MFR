@@ -1,4 +1,4 @@
-﻿using MFR.File.Stream.Providers.Events;
+using MFR.File.Stream.Providers.Events;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Enumerators;

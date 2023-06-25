@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Windows.Presenters.Constants

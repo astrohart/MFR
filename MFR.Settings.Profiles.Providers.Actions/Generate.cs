@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Factories;
+using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Profiles.Actions.Constants;

@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -152,9 +152,9 @@
       <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
       <Name>xyLOGIX.VisualStudio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
+    <ProjectReference Include="..\Foo.Common\Foo.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
+      <Name>Foo.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>

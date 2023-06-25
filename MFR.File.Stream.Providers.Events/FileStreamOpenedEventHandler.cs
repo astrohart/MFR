@@ -1,4 +1,4 @@
-﻿namespace MFR.File.Stream.Providers.Events
+namespace MFR.File.Stream.Providers.Events
 {
     /// <summary>
     /// Represents a handler for a <c>FileStreamOpened</c> event.

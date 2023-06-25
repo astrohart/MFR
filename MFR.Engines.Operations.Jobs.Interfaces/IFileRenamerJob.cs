@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MFR.Engines.Operations.Jobs.Interfaces
 {

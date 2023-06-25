@@ -1,4 +1,4 @@
-﻿using MFR.FileSystem.Factories.Actions;
+using MFR.FileSystem.Factories.Actions;
 using System;
 using xyLOGIX.Core.Debug;
 

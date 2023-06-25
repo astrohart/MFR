@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MFR.File.Stream.Providers.Events
 {

@@ -1,7 +1,7 @@
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace MFR.Common
+namespace Foo.Common
 {
     /// <summary>
     /// Methods to revoke things from being in a registered status with the operating

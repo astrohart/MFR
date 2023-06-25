@@ -1,4 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
+using Alphaleonis.Win32.Filesystem;
 using NUnit.Framework;
 using System;
 using xyLOGIX.Core.Assemblies.Info;

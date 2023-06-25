@@ -1,4 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
+using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Creators;
 using System;
 using xyLOGIX.Core.Debug;

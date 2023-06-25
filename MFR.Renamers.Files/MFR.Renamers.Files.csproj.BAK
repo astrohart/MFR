@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -167,9 +167,9 @@
       <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
       <Name>MFR.CommandLine.Validators.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
+    <ProjectReference Include="..\Foo.Common\Foo.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
+      <Name>Foo.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>

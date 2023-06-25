@@ -1,4 +1,4 @@
-﻿using MFR.Operations.Constants;
+using MFR.Operations.Constants;
 using System;
 
 namespace MFR.Renamers.Files.Events

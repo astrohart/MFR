@@ -1,4 +1,4 @@
-﻿using MFR.GUI.Processors.Constants;
+using MFR.GUI.Processors.Constants;
 
 namespace MFR.GUI.Actions
 {

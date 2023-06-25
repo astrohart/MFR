@@ -1,4 +1,4 @@
-﻿using MFR.File.Stream.Providers.Interfaces;
+using MFR.File.Stream.Providers.Interfaces;
 
 namespace MFR.File.Stream.Providers.Factories
 {

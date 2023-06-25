@@ -2,7 +2,7 @@ using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
 using MFR.CommandLine.Parsers.Interfaces;
 using MFR.CommandLine.Translators;
-using MFR.Common;
+using Foo.Common;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Constants;

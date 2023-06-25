@@ -1,4 +1,4 @@
-﻿using MFR.Solutions.Providers.Interfaces;
+using MFR.Solutions.Providers.Interfaces;
 using System.Collections.Generic;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 

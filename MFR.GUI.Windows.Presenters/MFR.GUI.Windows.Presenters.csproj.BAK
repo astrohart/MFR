@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -137,9 +137,9 @@
       <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
       <Name>xyLOGIX.Queues.Messages</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
+    <ProjectReference Include="..\Foo.Common\Foo.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
+      <Name>Foo.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Errors.Reports.Commands.Constants\MFR.Errors.Reports.Commands.Constants.csproj">
       <Project>{12421A60-E923-47AB-84B5-B8D556594C7A}</Project>
