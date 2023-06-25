@@ -154,7 +154,7 @@ namespace MFR.GUI.Dialogs
         {
             if (Modified == null) return;
 
-            UpdateData();   // save data from the screen
+            UpdateData(); // save data from the screen
 
             Modified.Invoke(this, e);
             SetModifiedFlag(!e.Handled);
@@ -172,6 +172,33 @@ namespace MFR.GUI.Dialogs
 
             SetModifiedFlag(false); // start us off as having no modified values
         }
+
+        /// <summary>
+        /// This method handles the
+        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event for all of
+        /// the check boxes on the tabs of this property sheet.
+        /// </summary>
+        /// <param name="sender">
+        /// (Required.) Reference to the object that raised this
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// (Required.) A <see cref="T:System.EventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by calling the
+        /// <see cref="M:MFR.GUI.Dialogs.OptionsDialogBox.SetModifiedFlag" /> method to
+        /// mark this property sheet as dirty, so that the <b>Apply</b> button becomes
+        /// available.
+        /// <para />
+        /// <b>NOTE:</b> When developers add a new checkbox to any of the tabs of this
+        /// property sheet, they should bind this handler to the
+        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event of that
+        /// checkbox.
+        /// </remarks>
+        private void OnAnyCheckBoxCheckedChanged(object sender, EventArgs e)
+            => SetModifiedFlag();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event.

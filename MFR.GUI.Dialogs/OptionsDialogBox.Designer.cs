@@ -44,12 +44,12 @@ namespace MFR.GUI.Dialogs
             this.configPathnameBrowseButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.configPathnameLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.visualStudioTabPage = new System.Windows.Forms.TabPage();
+            this.darkLabel2 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.dontPromptUserToReloadOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.darkLabel1 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.darkLabel2 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
-            this.dontPromptUserToReloadOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -131,6 +131,7 @@ namespace MFR.GUI.Dialogs
             this.autoQuitOnCompletionCheckBox.Size = new System.Drawing.Size(304, 17);
             this.autoQuitOnCompletionCheckBox.TabIndex = 0;
             this.autoQuitOnCompletionCheckBox.Text = "E&xit the application when operations are completed";
+            this.autoQuitOnCompletionCheckBox.CheckedChanged += new System.EventHandler(this.OnAnyCheckBoxCheckedChanged);
             // 
             // configurationTabPage
             // 
@@ -205,6 +206,25 @@ namespace MFR.GUI.Dialogs
             this.visualStudioTabPage.TabIndex = 1;
             this.visualStudioTabPage.Text = "Visual Studio";
             // 
+            // darkLabel2
+            // 
+            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkLabel2.IsDarkTheme = false;
+            this.darkLabel2.Location = new System.Drawing.Point(42, 112);
+            this.darkLabel2.Name = "darkLabel2";
+            this.darkLabel2.Size = new System.Drawing.Size(331, 38);
+            this.darkLabel2.TabIndex = 4;
+            this.darkLabel2.Text = "Do not warn when Visual Studio is open but target Solution(s) aren\'t loaded";
+            // 
+            // dontPromptUserToReloadOpenSolutionCheckBox
+            // 
+            this.dontPromptUserToReloadOpenSolutionCheckBox.IsDarkTheme = false;
+            this.dontPromptUserToReloadOpenSolutionCheckBox.Location = new System.Drawing.Point(18, 116);
+            this.dontPromptUserToReloadOpenSolutionCheckBox.Name = "dontPromptUserToReloadOpenSolutionCheckBox";
+            this.dontPromptUserToReloadOpenSolutionCheckBox.Size = new System.Drawing.Size(18, 14);
+            this.dontPromptUserToReloadOpenSolutionCheckBox.TabIndex = 3;
+            this.dontPromptUserToReloadOpenSolutionCheckBox.CheckedChanged += new System.EventHandler(this.OnAnyCheckBoxCheckedChanged);
+            // 
             // darkLabel1
             // 
             this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -235,6 +255,7 @@ namespace MFR.GUI.Dialogs
             this.reOpenSolutionCheckBox.Name = "reOpenSolutionCheckBox";
             this.reOpenSolutionCheckBox.Size = new System.Drawing.Size(18, 14);
             this.reOpenSolutionCheckBox.TabIndex = 0;
+            this.reOpenSolutionCheckBox.CheckedChanged += new System.EventHandler(this.OnAnyCheckBoxCheckedChanged);
             // 
             // configPathBrowseBox
             // 
@@ -243,24 +264,6 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
-            // 
-            // darkLabel2
-            // 
-            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.darkLabel2.IsDarkTheme = false;
-            this.darkLabel2.Location = new System.Drawing.Point(42, 112);
-            this.darkLabel2.Name = "darkLabel2";
-            this.darkLabel2.Size = new System.Drawing.Size(331, 38);
-            this.darkLabel2.TabIndex = 4;
-            this.darkLabel2.Text = "Do not warn when Visual Studio is open but target Solution(s) aren\'t loaded";
-            // 
-            // dontPromptUserToReloadOpenSolutionCheckBox
-            // 
-            this.dontPromptUserToReloadOpenSolutionCheckBox.IsDarkTheme = false;
-            this.dontPromptUserToReloadOpenSolutionCheckBox.Location = new System.Drawing.Point(18, 116);
-            this.dontPromptUserToReloadOpenSolutionCheckBox.Name = "dontPromptUserToReloadOpenSolutionCheckBox";
-            this.dontPromptUserToReloadOpenSolutionCheckBox.Size = new System.Drawing.Size(18, 14);
-            this.dontPromptUserToReloadOpenSolutionCheckBox.TabIndex = 3;
             // 
             // OptionsDialogBox
             // 
