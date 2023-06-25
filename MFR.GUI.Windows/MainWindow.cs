@@ -1570,16 +1570,8 @@ namespace MFR.GUI.Windows
         {
             using (var dialog = new OptionsDialogBox())
             {
-                dialog.AutoQuitOnCompletion =
-                    CurrentConfiguration.AutoQuitOnCompletion;
-                dialog.ConfigPathname = ConfigProvider.ConfigFilePath;
-                dialog.ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 dialog.Modified += OnOptionsModified;
-
-                if (dialog.ShowDialog(this) != DialogResult.OK)
-                    return;
-
-                Presenter.SaveConfigurationDataFrom(dialog);
+                dialog.ShowDialog(this);
             }
         }
 
