@@ -214,7 +214,7 @@ namespace MFR.Managers.Solutions
                                             )
                                             .ToList();
 
-                if (!visualStudioInstances.Any())
+                if (visualStudioInstances == null || !visualStudioInstances.Any())
                     return result;
 
                 result = visualStudioInstances.Select(
@@ -226,6 +226,11 @@ namespace MFR.Managers.Solutions
 
                                                       try
                                                       {
+                                                          if (instanceData == null)
+                                                              return solutionObject;
+                                                          if (instanceData.Dte == null)
+                                                              return solutionObject;
+
                                                           solutionObject =
                                                               GetNewVisualStudioSolutionObject
                                                                   .ForVisualStudioInstance(
