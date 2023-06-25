@@ -219,7 +219,8 @@ namespace MFR.GUI.Dialogs
         /// </remarks>
         private void OnClickApply(object sender, EventArgs e)
         {
-            cancelButton.Enabled = false;   // now that we've "applied" options, the Cancel button doesn't mean anything
+            cancelButton.Enabled =
+                false; // now that we've "applied" options, the Cancel button doesn't mean anything
             OnModified(new ModifiedEventArgs());
         }
 
