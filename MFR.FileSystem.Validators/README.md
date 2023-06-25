@@ -10,6 +10,7 @@
 - [FileSystemEntryValidator](#T-MFR-FileSystem-Validators-FileSystemEntryValidator 'MFR.FileSystem.Validators.FileSystemEntryValidator')
   - [ValidateFileSystemEntry(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidator-ValidateFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidator.ValidateFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FileSystemEntryValidatorBase](#T-MFR-FileSystem-Validators-FileSystemEntryValidatorBase 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase')
+  - [DISALLOWED_EXTENSIONS](#F-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DISALLOWED_EXTENSIONS 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DISALLOWED_EXTENSIONS')
   - [DoesExist(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [DoesExist(pathname)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-System-String- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DoesExist(System.String)')
   - [IsValid(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
@@ -121,6 +122,13 @@ MFR.FileSystem.Validators
 
 Defines the common methods, properties, events, and other functionality
 for all types of file-system-entry validator object.
+
+<a name='F-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DISALLOWED_EXTENSIONS'></a>
+### DISALLOWED_EXTENSIONS `constants`
+
+##### Summary
+
+Array of extensions of files we won't search ever.
 
 <a name='M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DoesExist-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### DoesExist(entry) `method`

@@ -8,12 +8,17 @@
   - [Count](#P-MFR-File-Stream-Providers-FileStreamProvider-Count 'MFR.File.Stream.Providers.FileStreamProvider.Count')
   - [Instance](#P-MFR-File-Stream-Providers-FileStreamProvider-Instance 'MFR.File.Stream.Providers.FileStreamProvider.Instance')
   - [InternalFileStreamCollection](#P-MFR-File-Stream-Providers-FileStreamProvider-InternalFileStreamCollection 'MFR.File.Stream.Providers.FileStreamProvider.InternalFileStreamCollection')
+  - [MapOfPathnamesToTickets](#P-MFR-File-Stream-Providers-FileStreamProvider-MapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileStreamProvider.MapOfPathnamesToTickets')
+  - [MapOfTicketsToPathnames](#P-MFR-File-Stream-Providers-FileStreamProvider-MapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileStreamProvider.MapOfTicketsToPathnames')
   - [SyncRoot](#P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot 'MFR.File.Stream.Providers.FileStreamProvider.SyncRoot')
   - [#cctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#cctor 'MFR.File.Stream.Providers.FileStreamProvider.#cctor')
   - [BatchDispose(tickets)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchDispose-System-Collections-Generic-IReadOnlyCollection{System-Guid}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchDispose(System.Collections.Generic.IReadOnlyCollection{System.Guid})')
   - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
+  - [CreateTicketToPathnameMapping(pathname,ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-CreateTicketToPathnameMapping-System-String,System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.CreateTicketToPathnameMapping(System.String,System.Guid)')
   - [DisposeAll()](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeAll 'MFR.File.Stream.Providers.FileStreamProvider.DisposeAll')
   - [DisposeStream(ticket,remove)](#M-MFR-File-Stream-Providers-FileStreamProvider-DisposeStream-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.FileStreamProvider.DisposeStream(System.Guid,System.Boolean)')
+  - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.GetPathnameForTicket(System.Guid)')
+  - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.GetTicketForPathname(System.String)')
   - [OnCountChanged()](#M-MFR-File-Stream-Providers-FileStreamProvider-OnCountChanged 'MFR.File.Stream.Providers.FileStreamProvider.OnCountChanged')
   - [OnFileStreamDisposed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamDisposed(MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
   - [OnFileStreamOpenFailed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpenFailed-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpenFailed(MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs)')
@@ -21,6 +26,8 @@
   - [OnFileStreamOpening(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpening-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpening(MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs)')
   - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.OpenStreamFor(System.String)')
   - [RedeemTicket(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RedeemTicket-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RedeemTicket(System.Guid)')
+  - [RemovePathnameMappingFor(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RemovePathnameMappingFor-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RemovePathnameMappingFor(System.Guid)')
+  - [RewindStream(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RewindStream-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RewindStream(System.Guid)')
 - [Resources](#T-MFR-File-Stream-Providers-Properties-Resources 'MFR.File.Stream.Providers.Properties.Resources')
   - [Culture](#P-MFR-File-Stream-Providers-Properties-Resources-Culture 'MFR.File.Stream.Providers.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-File-Stream-Providers-Properties-Resources-ResourceManager 'MFR.File.Stream.Providers.Properties.Resources.ResourceManager')
@@ -76,6 +83,22 @@ interface.
 Dictionary that maps a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value (serving as a
 `ticket`) to a reference to an instance of
 [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') that can be used to access a text file.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-MapOfPathnamesToTickets'></a>
+### MapOfPathnamesToTickets `property`
+
+##### Summary
+
+Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
+created for it.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-MapOfTicketsToPathnames'></a>
+### MapOfTicketsToPathnames `property`
+
+##### Summary
+
+Sets up a 1-to-1 correspondence between a specific file stream ticket and the
+fully-qualified pathname of the associated file on the disk.
 
 <a name='P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot'></a>
 ### SyncRoot `property`
@@ -153,6 +176,25 @@ If the `pathnames` collection is
 `null` or the empty collection, then this method returns the
 empty collection.
 
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-CreateTicketToPathnameMapping-System-String,System-Guid-'></a>
+### CreateTicketToPathnameMapping(pathname,ticket) `method`
+
+##### Summary
+
+Associates the specified `pathname` with the corresponding
+file stream `ticket`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the fully-qualified pathname of a file on the disk, on which a file
+stream has been opened and which has the specified `ticket`. |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') that is the
+ticket for the open file stream on the file having the specified
+`pathname`. |
+
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-DisposeAll'></a>
 ### DisposeAll() `method`
 
@@ -191,6 +233,66 @@ collection.  `true` is the default. |
 If the Zero GUID is passed as the argument of the `ticket`
 parameter, or if the specified `ticket` is not present in the
 internal list.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-GetPathnameForTicket-System-Guid-'></a>
+### GetPathnameForTicket(ticket) `method`
+
+##### Summary
+
+Attempts to look up the fully-qualified pathname of the file on whom a file
+stream corresponding to the specified `ticket` has been
+opened.
+
+##### Returns
+
+If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the
+fully-qualified pathname of the file on whom the file stream corresponding to
+the specified `ticket` is opened.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that
+should correspond to a file that currently has a stream opened upon it. |
+
+##### Remarks
+
+If this method cannot locate the corresponding pathname of the file
+stream that goes with the `ticket`, or if the
+`ticket` provided is not mapped to any open file stream, then
+this method returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-GetTicketForPathname-System-String-'></a>
+### GetTicketForPathname(pathname) `method`
+
+##### Summary
+
+Given a fully-qualified `pathname` of a file on the disk,
+upon which a file stream has been opened, or we think has been opened, and
+finds the corresponding ticket that can be redeemed to access a reference
+to that stream. .
+
+##### Returns
+
+If a file stream is open on the file having the specified
+`pathname`, the [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that
+indicates which ticket can be redeemed to this object in order to get access to
+that stream, is returned.
+
+
+
+Otherwise, if there is no file stream currently open upon the file having the
+specified `pathname`, or if the specified
+`pathname` is invalid or refers to a file that does not
+exist, then the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty') value is returned.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file on which you think a stream might be open. |
 
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnCountChanged'></a>
 ### OnCountChanged() `method`
@@ -300,6 +402,12 @@ referred to does not exist..
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a file to have a stream opened for it. |
 
+##### Remarks
+
+If the file having the specified `pathname` already
+has a stream opened upon it, then the ticket that corresponds to that stream is
+returned.
+
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-RedeemTicket-System-Guid-'></a>
 ### RedeemTicket(ticket) `method`
 
@@ -325,6 +433,57 @@ instance has already been disposed or removed from the internal collection.
 represents a `ticket` that can be redeemed for a particular
 [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader') instance that corresponds to a file
 stream. |
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-RemovePathnameMappingFor-System-Guid-'></a>
+### RemovePathnameMappingFor(ticket) `method`
+
+##### Summary
+
+Breaks the link between a file's fully-qualified pathname and the particular
+`ticket` that can be redeemed for its corresponding file
+stream.
+
+##### Returns
+
+If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the
+fully-qualified pathname of the file on who the stream corresponding to the
+specified `ticket` was initially opened.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that can
+ordinarily be redeemed to acquire the stream for a corresponding file. |
+
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-RewindStream-System-Guid-'></a>
+### RewindStream(ticket) `method`
+
+##### Summary
+
+Rewinds the file stream associated with the specified
+`ticket`, if any corresponding stream is even present in the
+internal collection.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that corresponds to
+the already-open file stream that is to be rewound. |
+
+##### Remarks
+
+If successful, this method retrieves the file stream open on a file
+that corresponds to the specified `ticket`, and then moves
+its file pointer to the beginning of the stream.
+
+
+
+If an I/O exception or other error occurs, if the stream that corresponds to
+the specified `ticket` cannot be obtained from the internal
+collection, or if the stream is already positioned at the beginning of the
+data, then the method does nothing.
 
 <a name='T-MFR-File-Stream-Providers-Properties-Resources'></a>
 ## Resources `type`

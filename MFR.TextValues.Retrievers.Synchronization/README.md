@@ -11,7 +11,6 @@
   - [Instance](#P-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-Instance 'MFR.TextValues.Retrievers.Synchronization.SemaphoreLocker.Instance')
   - [Semaphore](#P-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-Semaphore 'MFR.TextValues.Retrievers.Synchronization.SemaphoreLocker.Semaphore')
   - [#cctor()](#M-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-#cctor 'MFR.TextValues.Retrievers.Synchronization.SemaphoreLocker.#cctor')
-  - [Finalize()](#M-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-Finalize 'MFR.TextValues.Retrievers.Synchronization.SemaphoreLocker.Finalize')
   - [LockAsync(worker)](#M-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-LockAsync-System-Func{System-Threading-Tasks-Task}- 'MFR.TextValues.Retrievers.Synchronization.SemaphoreLocker.LockAsync(System.Func{System.Threading.Tasks.Task})')
   - [LockAsync\`\`1(worker)](#M-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-LockAsync``1-System-Func{System-Threading-Tasks-Task{``0}}- 'MFR.TextValues.Retrievers.Synchronization.SemaphoreLocker.LockAsync``1(System.Func{System.Threading.Tasks.Task{``0}})')
 
@@ -87,17 +86,6 @@ that provides a semaphore to be used for asynchronous thread synchronization.
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-TextValues-Retrievers-Synchronization-SemaphoreLocker-Finalize'></a>
-### Finalize() `method`
-
-##### Summary
-
-Releases the system resources associated with this object.
 
 ##### Parameters
 
