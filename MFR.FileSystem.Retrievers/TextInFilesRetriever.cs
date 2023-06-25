@@ -1,6 +1,3 @@
-using MFR.Detectors.Constants;
-using MFR.Detectors.Factories;
-using MFR.Detectors.Interfaces;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;

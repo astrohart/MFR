@@ -134,10 +134,6 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Detectors.Constants\MFR.Detectors.Constants.csproj">
-      <Project>{08C20B36-A98E-49E0-BBC0-56C8DE2511A7}</Project>
-      <Name>MFR.Detectors.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
       <Name>MFR.FileSystem.Enumerators</Name>
