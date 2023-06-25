@@ -1,7 +1,7 @@
 using System;
 using xyLOGIX.Core.Debug;
 
-namespace Foo.Common
+namespace MFR.Common
 {
     /// <summary>
     /// Provides methods to register with the Windows operating system.

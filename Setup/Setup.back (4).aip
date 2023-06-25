@@ -51,7 +51,7 @@
     <ROW Component="MFR.CommandLine.Validators.Factories.dll" ComponentId="{00662E13-0F69-4317-9112-B155A1488F76}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Validators.Factories.dll"/>
     <ROW Component="MFR.CommandLine.Validators.Interfaces.dll" ComponentId="{48CE9976-C5C3-4487-84DE-79885E35C433}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Validators.Interfaces.dll"/>
     <ROW Component="MFR.CommandLine.Validators.dll" ComponentId="{EDB0039F-E2C6-4FA1-9D1C-B9BD82B0C62B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Validators.dll"/>
-    <ROW Component="Foo.Common.dll" ComponentId="{4BA1091B-0EF8-4167-A24A-AFA43875D967}" Directory_="APPDIR" Attributes="256" KeyPath="Foo.Common.dll"/>
+    <ROW Component="MFR.Common.dll" ComponentId="{4BA1091B-0EF8-4167-A24A-AFA43875D967}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Common.dll"/>
     <ROW Component="MFR.Constants.dll" ComponentId="{865DCCDF-CF07-490F-8BBA-D2AC57F957B7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Constants.dll"/>
     <ROW Component="MFR.Directories.Constants.dll" ComponentId="{DE2509ED-5FA5-4A54-99E4-3474928344D5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Constants.dll"/>
     <ROW Component="MFR.Directories.Validators.Constants.Generators.dll" ComponentId="{F11DC5E6-0FAE-4979-B8C1-0EA9E01A059E}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Validators.Constants.Generators.dll"/>
@@ -389,8 +389,8 @@
     <ROW File="MFR.CommandLine.Validators.Factories.dll.config" Component_="config.json" FileName="MFRCO~13.CON|MFR.CommandLine.Validators.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.CommandLine.Validators.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.CommandLine.Validators.Interfaces.dll" Component_="MFR.CommandLine.Validators.Interfaces.dll" FileName="MFRCO~14.DLL|MFR.CommandLine.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.CommandLine.Validators.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.CommandLine.Validators.Interfaces.dll.config" Component_="config.json" FileName="MFRCO~14.CON|MFR.CommandLine.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.CommandLine.Validators.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="Foo.Common.dll" Component_="Foo.Common.dll" FileName="MFRCO~15.DLL|Foo.Common.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Foo.Common.dll" SelfReg="false"/>
-    <ROW File="Foo.Common.dll.config" Component_="config.json" FileName="MFRCO~15.CON|Foo.Common.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Foo.Common.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Common.dll" Component_="MFR.Common.dll" FileName="MFRCO~15.DLL|MFR.Common.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Common.dll" SelfReg="false"/>
+    <ROW File="MFR.Common.dll.config" Component_="config.json" FileName="MFRCO~15.CON|MFR.Common.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Common.dll.config" SelfReg="false"/>
     <ROW File="MFR.Constants.dll" Component_="MFR.Constants.dll" FileName="MFRCON~1.DLL|MFR.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Constants.dll" SelfReg="false"/>
     <ROW File="MFR.Constants.dll.config" Component_="config.json" FileName="MFRCON~1.CON|MFR.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Constants.dll.config" SelfReg="false"/>
     <ROW File="MFR.Directories.Constants.dll" Component_="MFR.Directories.Constants.dll" FileName="MFRDIR~1.DLL|MFR.Directories.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Directories.Constants.dll" SelfReg="false"/>
@@ -1077,7 +1077,7 @@
     <ROW Feature_="MainFeature" Component_="MFR.CommandLine.Validators.Events.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.CommandLine.Validators.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.CommandLine.Validators.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="Foo.Common.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Common.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Constants.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Directories.Constants.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Directories.Validators.Constants.dll"/>

@@ -1,5 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
-using Foo.Common;
+using MFR.Common;
 using MFR.GUI.Application.Factories;
 using MFR.GUI.Application.Interfaces;
 using MFR.GUI.Properties;

@@ -322,9 +322,9 @@
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
       <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Foo.Common\Foo.Common.csproj">
+    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>Foo.Common</Name>
+      <Name>MFR.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
       <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>

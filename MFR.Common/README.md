@@ -1,39 +1,39 @@
 <a name='assembly'></a>
-# Foo.Common
+# MFR.Common
 
 ## Contents
 
-- [Reflector](#T-MFR-Common-Reflector 'Foo.Common.Reflector')
-  - [#ctor(targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String- 'Foo.Common.Reflector.#ctor(System.String)')
-  - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String,System-String- 'Foo.Common.Reflector.#ctor(System.String,System.String)')
-  - [TargetAssembly](#P-MFR-Common-Reflector-TargetAssembly 'Foo.Common.Reflector.TargetAssembly')
-  - [TargetNamespace](#P-MFR-Common-Reflector-TargetNamespace 'Foo.Common.Reflector.TargetNamespace')
-  - [Call(obj,func,parameters)](#M-MFR-Common-Reflector-Call-System-Object,System-String,System-Object[]- 'Foo.Common.Reflector.Call(System.Object,System.String,System.Object[])')
-  - [Call2(obj,func,parameters)](#M-MFR-Common-Reflector-Call2-System-Object,System-String,System-Object[]- 'Foo.Common.Reflector.Call2(System.Object,System.String,System.Object[])')
-  - [CallAs(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'Foo.Common.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
-  - [CallAs2(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]- 'Foo.Common.Reflector.CallAs2(System.Type,System.Object,System.String,System.Object[])')
-  - [Get(obj,propertyName)](#M-MFR-Common-Reflector-Get-System-Object,System-String- 'Foo.Common.Reflector.Get(System.Object,System.String)')
-  - [GetAs(type,obj,propertyName)](#M-MFR-Common-Reflector-GetAs-System-Type,System-Object,System-String- 'Foo.Common.Reflector.GetAs(System.Type,System.Object,System.String)')
-  - [GetEnum(typeName,name)](#M-MFR-Common-Reflector-GetEnum-System-String,System-String- 'Foo.Common.Reflector.GetEnum(System.String,System.String)')
-  - [GetType(typeName)](#M-MFR-Common-Reflector-GetType-System-String- 'Foo.Common.Reflector.GetType(System.String)')
-  - [InitializeTargetAssembly(targetAssembly)](#M-MFR-Common-Reflector-InitializeTargetAssembly-System-String- 'Foo.Common.Reflector.InitializeTargetAssembly(System.String)')
-  - [New(typeName,parameters)](#M-MFR-Common-Reflector-New-System-String,System-Object[]- 'Foo.Common.Reflector.New(System.String,System.Object[])')
-- [Register](#T-MFR-Common-Register 'Foo.Common.Register')
-  - [WindowsMessageFilter()](#M-MFR-Common-Register-WindowsMessageFilter 'Foo.Common.Register.WindowsMessageFilter')
-- [Resources](#T-MFR-Common-Properties-Resources 'Foo.Common.Properties.Resources')
-  - [Culture](#P-MFR-Common-Properties-Resources-Culture 'Foo.Common.Properties.Resources.Culture')
-  - [Error_DesiredTargetAssemblyNotReferenced](#P-MFR-Common-Properties-Resources-Error_DesiredTargetAssemblyNotReferenced 'Foo.Common.Properties.Resources.Error_DesiredTargetAssemblyNotReferenced')
-  - [Error_NoAssembliesReferencedByExecutingAssembly](#P-MFR-Common-Properties-Resources-Error_NoAssembliesReferencedByExecutingAssembly 'Foo.Common.Properties.Resources.Error_NoAssembliesReferencedByExecutingAssembly')
-  - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'Foo.Common.Properties.Resources.ResourceManager')
-- [Revoke](#T-MFR-Common-Revoke 'Foo.Common.Revoke')
-  - [WindowsMessageFilter()](#M-MFR-Common-Revoke-WindowsMessageFilter 'Foo.Common.Revoke.WindowsMessageFilter')
+- [Reflector](#T-MFR-Common-Reflector 'MFR.Common.Reflector')
+  - [#ctor(targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String- 'MFR.Common.Reflector.#ctor(System.String)')
+  - [#ctor(targetAssembly,targetNamespace)](#M-MFR-Common-Reflector-#ctor-System-String,System-String- 'MFR.Common.Reflector.#ctor(System.String,System.String)')
+  - [TargetAssembly](#P-MFR-Common-Reflector-TargetAssembly 'MFR.Common.Reflector.TargetAssembly')
+  - [TargetNamespace](#P-MFR-Common-Reflector-TargetNamespace 'MFR.Common.Reflector.TargetNamespace')
+  - [Call(obj,func,parameters)](#M-MFR-Common-Reflector-Call-System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.Call(System.Object,System.String,System.Object[])')
+  - [Call2(obj,func,parameters)](#M-MFR-Common-Reflector-Call2-System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.Call2(System.Object,System.String,System.Object[])')
+  - [CallAs(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs-System-Type,System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.CallAs(System.Type,System.Object,System.String,System.Object[])')
+  - [CallAs2(type,obj,func,parameters)](#M-MFR-Common-Reflector-CallAs2-System-Type,System-Object,System-String,System-Object[]- 'MFR.Common.Reflector.CallAs2(System.Type,System.Object,System.String,System.Object[])')
+  - [Get(obj,propertyName)](#M-MFR-Common-Reflector-Get-System-Object,System-String- 'MFR.Common.Reflector.Get(System.Object,System.String)')
+  - [GetAs(type,obj,propertyName)](#M-MFR-Common-Reflector-GetAs-System-Type,System-Object,System-String- 'MFR.Common.Reflector.GetAs(System.Type,System.Object,System.String)')
+  - [GetEnum(typeName,name)](#M-MFR-Common-Reflector-GetEnum-System-String,System-String- 'MFR.Common.Reflector.GetEnum(System.String,System.String)')
+  - [GetType(typeName)](#M-MFR-Common-Reflector-GetType-System-String- 'MFR.Common.Reflector.GetType(System.String)')
+  - [InitializeTargetAssembly(targetAssembly)](#M-MFR-Common-Reflector-InitializeTargetAssembly-System-String- 'MFR.Common.Reflector.InitializeTargetAssembly(System.String)')
+  - [New(typeName,parameters)](#M-MFR-Common-Reflector-New-System-String,System-Object[]- 'MFR.Common.Reflector.New(System.String,System.Object[])')
+- [Register](#T-MFR-Common-Register 'MFR.Common.Register')
+  - [WindowsMessageFilter()](#M-MFR-Common-Register-WindowsMessageFilter 'MFR.Common.Register.WindowsMessageFilter')
+- [Resources](#T-MFR-Common-Properties-Resources 'MFR.Common.Properties.Resources')
+  - [Culture](#P-MFR-Common-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
+  - [Error_DesiredTargetAssemblyNotReferenced](#P-MFR-Common-Properties-Resources-Error_DesiredTargetAssemblyNotReferenced 'MFR.Common.Properties.Resources.Error_DesiredTargetAssemblyNotReferenced')
+  - [Error_NoAssembliesReferencedByExecutingAssembly](#P-MFR-Common-Properties-Resources-Error_NoAssembliesReferencedByExecutingAssembly 'MFR.Common.Properties.Resources.Error_NoAssembliesReferencedByExecutingAssembly')
+  - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
+- [Revoke](#T-MFR-Common-Revoke 'MFR.Common.Revoke')
+  - [WindowsMessageFilter()](#M-MFR-Common-Revoke-WindowsMessageFilter 'MFR.Common.Revoke.WindowsMessageFilter')
 
 <a name='T-MFR-Common-Reflector'></a>
 ## Reflector `type`
 
 ##### Namespace
 
-Foo.Common
+MFR.Common
 
 ##### Summary
 
@@ -356,7 +356,7 @@ passed a blank or `null` string for a value. |
 
 ##### Summary
 
-Sets up the value of the [TargetAssembly](#P-MFR-Common-Reflector-TargetAssembly 'Foo.Common.Reflector.TargetAssembly')
+Sets up the value of the [TargetAssembly](#P-MFR-Common-Reflector-TargetAssembly 'MFR.Common.Reflector.TargetAssembly')
 property from the specified `targetAssembly` value, using the
 assemblies that are referenced by the executing assembly.
 
@@ -414,7 +414,7 @@ passed a blank or `null` string for a value. |
 
 ##### Namespace
 
-Foo.Common
+MFR.Common
 
 ##### Summary
 
@@ -441,7 +441,7 @@ This method has no parameters.
 
 ##### Namespace
 
-Foo.Common.Properties
+MFR.Common.Properties
 
 ##### Summary
 
@@ -481,7 +481,7 @@ Returns the cached ResourceManager instance used by this class.
 
 ##### Namespace
 
-Foo.Common
+MFR.Common
 
 ##### Summary
 

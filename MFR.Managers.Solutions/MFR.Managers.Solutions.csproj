@@ -152,9 +152,9 @@
       <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
       <Name>xyLOGIX.VisualStudio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Foo.Common\Foo.Common.csproj">
+    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>Foo.Common</Name>
+      <Name>MFR.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
       <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
