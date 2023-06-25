@@ -592,7 +592,7 @@ namespace MFR.Engines.Operations
             => HandleFilesCountedEvent(e.Count);
 
         private void OnFileRenamerFinished()
-            => SendMessage.Having.Args(this, EventArgs.Empty)
+            => SendMessage<EventArgs>.Having.Args(this, EventArgs.Empty)
                           .ForMessageId(
                               OperationEngineMessages.OE_PROCESSING_FINISHED
                           );
