@@ -242,9 +242,13 @@
       <Project>{A9C55463-4815-4CC5-84BA-4058440521F4}</Project>
       <Name>MFR.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Engines.Actions\MFR.Engines.Actions.csproj">
-      <Project>{AAA05D77-6BDD-43CD-83F3-1ADC63788569}</Project>
-      <Name>MFR.Engines.Actions</Name>
+    <ProjectReference Include="..\MFR.Engines.Operations.Jobs.Factories\MFR.Engines.Operations.Jobs.Factories.csproj">
+      <Project>{7975C619-D94C-4922-8715-1D3C7F22C6C1}</Project>
+      <Name>MFR.Engines.Operations.Jobs.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Engines.Operations.Jobs.Interfaces\MFR.Engines.Operations.Jobs.Interfaces.csproj">
+      <Project>{74C997AA-6E76-46CE-B73B-74471A92A2C6}</Project>
+      <Name>MFR.Engines.Operations.Jobs.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Events.Common\MFR.Events.Common.csproj">
       <Project>{84C1F71A-AAA4-4A08-9728-19E710965E4D}</Project>

@@ -1,5 +1,6 @@
 using MFR.Constants;
-using MFR.Engines.Actions;
+using MFR.Engines.Operations.Jobs.Factories;
+using MFR.Engines.Operations.Jobs.Interfaces;
 using MFR.Events;
 using MFR.Events.Common;
 using MFR.GUI.Dialogs.Interfaces;
@@ -212,12 +213,11 @@ namespace MFR.GUI.Dialogs
             FileRenamer.UpdateConfiguration(CurrentConfiguration);
 
             _processingWorker.RunWorkerAsync(
-                new FileRenamerJob {
-                    RootDirectory = CurrentConfiguration.StartingFolder,
-                    FindWhat = CurrentConfiguration.FindWhat,
-                    ReplaceWith = CurrentConfiguration.ReplaceWith,
-                    PathFilter = null
-                }
+                MakeNewFileRenamerJob
+                    .ForRootDirectory(CurrentConfiguration.StartingFolder)
+                    .HavingPathFilter(null)
+                    .ToFindWhat(CurrentConfiguration.FindWhat)
+                    .AndReplaceItWith(CurrentConfiguration.ReplaceWith)
             );
         }
 
@@ -242,7 +242,7 @@ namespace MFR.GUI.Dialogs
             DoWorkEventArgs e
         )
         {
-            if (!(e.Argument is FileRenamerJob job)) return; // no job data
+            if (!(e.Argument is IFileRenamerJob job)) return; // no job data
 
             FileRenamer.ProcessAll(
                 job.RootDirectory, job.FindWhat, job.ReplaceWith, job.PathFilter

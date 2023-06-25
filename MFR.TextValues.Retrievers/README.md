@@ -5,6 +5,7 @@
 
 - [FileAndFolderTextValueRetrieverBase](#T-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FilenameTextValueRetriever](#T-MFR-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.TextValues.Retrievers.FilenameTextValueRetriever')
   - [#ctor()](#M-MFR-TextValues-Retrievers-FilenameTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.#ctor')
   - [Instance](#P-MFR-TextValues-Retrievers-FilenameTextValueRetriever-Instance 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.Instance')
@@ -29,10 +30,12 @@
   - [OperationType](#P-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-OperationType 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.OperationType')
   - [#cctor()](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.#cctor')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [TextValueRetrieverBase](#T-MFR-TextValues-Retrievers-TextValueRetrieverBase 'MFR.TextValues.Retrievers.TextValueRetrieverBase')
   - [FileSystemEntryValidatorSays](#P-MFR-TextValues-Retrievers-TextValueRetrieverBase-FileSystemEntryValidatorSays 'MFR.TextValues.Retrievers.TextValueRetrieverBase.FileSystemEntryValidatorSays')
   - [OperationType](#P-MFR-TextValues-Retrievers-TextValueRetrieverBase-OperationType 'MFR.TextValues.Retrievers.TextValueRetrieverBase.OperationType')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 
 <a name='T-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase'></a>
 ## FileAndFolderTextValueRetrieverBase `type`
@@ -43,27 +46,66 @@ MFR.TextValues.Retrievers
 
 ##### Summary
 
-Implements functionality common to retrievers of data for both files and folders.
+Implements functionality common to retrievers of data for both files and
+folders.
 
 <a name='M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### GetTextValue(entry) `method`
 
 ##### Summary
 
-Gets a string containing the text to be searched, from the
-file-system `entry` provided, given the current
-[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') now being processed.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
 
 ##### Returns
 
-String containing the value data to be searched for the current
-operation type, or the empty string if the data source has no data.
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+
+<a name='M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### GetTextValueAsync(entry) `method`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
 
 <a name='T-MFR-TextValues-Retrievers-FilenameTextValueRetriever'></a>
 ## FilenameTextValueRetriever `type`
@@ -304,6 +346,38 @@ This method has no parameters.
 
 ##### Summary
 
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
+.
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+
+<a name='M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### GetTextValueAsync(entry) `method`
+
+##### Summary
+
 Gets a string containing the text to be searched, from the
 file-system `entry` provided, given the current
 [OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
@@ -369,14 +443,45 @@ that corresponds to the type of operation being performed.
 
 ##### Summary
 
-Gets a string containing the text to be searched, from the
-file-system `entry` provided, given the current
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
 [OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
 
 ##### Returns
 
-String containing the value data to be searched for the current
-operation type, or the empty string if the data source has no data.
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
+passed a `null` value. |
+
+<a name='M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### GetTextValueAsync(entry) `method`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
+
+##### Returns
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
 
 ##### Parameters
 

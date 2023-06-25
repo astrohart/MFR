@@ -188,8 +188,10 @@ namespace MFR.FileSystem.Retrievers
                                          Path.GetDirectoryName(filePath)
                                      )
                              )
-                             .Where(entry => entry != null)
-                             .Where(SearchCriteriaMatch)
+                             .Where(
+                                 entry => entry != null &&
+                                          SatisfiesSearchCritieria(entry)
+                             )
                 );
             }
             catch (Exception ex)

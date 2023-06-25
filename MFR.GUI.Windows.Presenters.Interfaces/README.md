@@ -17,7 +17,7 @@
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
   - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
-  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithOperationEngine(MFR.Engines.Interfaces.IFullGuiOperationEngine)')
+  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithOperationEngine(MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.ResourceManager')
@@ -268,7 +268,7 @@ nothing.
 | profileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the name to give the
 new Profile. |
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine-'></a>
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine-'></a>
 ### WithOperationEngine(operationEngine) `method`
 
 ##### Summary
@@ -284,7 +284,7 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationEngine | [MFR.Engines.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the [IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface on which this Presenter should depend. |
+| operationEngine | [MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the [IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface on which this Presenter should depend. |
 
 <a name='T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources'></a>
 ## Resources `type`

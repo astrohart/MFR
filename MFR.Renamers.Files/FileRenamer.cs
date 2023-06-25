@@ -1,4 +1,5 @@
 using MFR.Constants;
+using MFR.Detectors.Actions;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;
@@ -23,6 +24,7 @@ using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Actions;
+using MFR.Renamers.Files.Constants;
 using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
@@ -40,10 +42,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Queues.Messages;
 using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
@@ -411,6 +413,12 @@ namespace MFR.Renamers.Files
         /// has been renamed.
         /// </summary>
         public event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
+        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
+        /// a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
 
         /// <summary>
         /// Occurs when the processing has started.
@@ -1429,16 +1437,19 @@ namespace MFR.Renamers.Files
 
             try
             {
-                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .All(
-                                              entry
-                                                  => ReplaceTextInFileForEntry(
-                                                      findWhat, replaceWith,
-                                                      entry
-                                                  )
-                                          );
+                var tasks = fileSystemEntries
+                            .TakeWhile(entry => !AbortRequested)
+                            .Select(
+                                entry => ReplaceTextInFileForEntry(
+                                    findWhat, replaceWith, entry
+                                )
+                            );
+                if (tasks == null || !tasks.Any()) return result;
 
-                result &= !AbortRequested;
+                result = Task.WhenAll(tasks)
+                             .GetAwaiter()
+                             .GetResult()
+                             .All(x => true) & !AbortRequested;
             }
             catch (OperationAbortedException)
             {
@@ -1550,12 +1561,6 @@ namespace MFR.Renamers.Files
         /// </summary>
         public event FilesOrFoldersCountedEventHandler
             SolutionFoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
-        /// a running instance of Visual Studio has failed.
-        /// </summary>
-        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
 
         /// <summary>
         /// Enables this object to perform some or all of the operations specified.
@@ -2222,7 +2227,7 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private string GetTextInFileReplacementData(
+        private async Task<string> GetTextInFileReplacementDataAsync(
             IFileSystemEntry entry,
             string findWhat,
             string replaceWith
@@ -2253,11 +2258,23 @@ namespace MFR.Renamers.Files
                         .AndAttachConfiguration(CurrentConfiguration);
                 if (matchExpressionFactory == null) return result;
 
-                var textToBeSearched = GetTextValueRetriever.For(
+                var textToBeSearched = await GetTextValueRetriever.For(
                         OperationType.ReplaceTextInFiles
                     )
-                    .GetTextValue(entry);
+                    .GetTextValueAsync(entry);
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
+
+                /*
+                 * Search for control characters to determine whether the
+                 * text to be searched is from a binary file or an ASCII
+                 * one.
+                 */
+
+                if (textToBeSearched.Any(
+                        c => Determine.WhetherCharacterIsControlCharacter(c)
+                    ))
+                    return SpecializedFileData
+                        .BinaryFileSkipped; // special GUID letting callers know to skip this file
 
                 // release the stream or the OS won't let us perform the
                 // text replacement operation
@@ -3060,6 +3077,7 @@ namespace MFR.Renamers.Files
                 )
             );
 
+            var numFailed = 0;
             foreach (var solution in LoadedSolutions)
             {
                 if (solution == null) continue;
@@ -3067,6 +3085,9 @@ namespace MFR.Renamers.Files
                 if (Is.SolutionOpen(solution)) continue;
 
                 if (ReopenSolution(solution)) continue;
+
+                Interlocked.Increment(ref numFailed);
+                ReportSolutionOpenFailed(solution.FullName);
             }
 
             /* Wait for the solution to be opened/loaded.
@@ -3124,7 +3145,7 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private bool ReplaceTextInFileForEntry(
+        private async Task<bool> ReplaceTextInFileForEntry(
             string findWhat,
             string replaceWith,
             IFileSystemEntry entry
@@ -3152,11 +3173,17 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var replacementData = GetTextInFileReplacementData(
-                    entry, findWhat, replaceWith
-                );
-                if (string.IsNullOrWhiteSpace(replacementData))
+                var newFileData =
+                    await GetTextInFileReplacementDataAsync(
+                        entry, findWhat, replaceWith
+                    );
+                if (string.IsNullOrWhiteSpace(newFileData))
                     return result;
+                if (SpecializedFileData.BinaryFileSkipped.Equals(
+                        newFileData
+                    ))
+                    return
+                        true; // "succeed" but don't process any further
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);
@@ -3167,7 +3194,7 @@ namespace MFR.Renamers.Files
                  * file whose data is being replaced.
                  *
                  * We only will carry out the writing of data to the file on the disk
-                 * in the event that the replacementData variable has more than zero byte
+                 * in the event that the dataContainingTextToBeReplaced variable has more than zero byte
                  * length.  We are willing to write whitespace to the file, in order to
                  * support the Whitespace programming language.
                  *
@@ -3178,8 +3205,8 @@ namespace MFR.Renamers.Files
                  * entire contents with nothing, that is the same as deleting the file
                  * entirely.
                  */
-                if (!string.IsNullOrEmpty(replacementData))
-                    Write.FileContent(entry.Path, replacementData);
+                if (!string.IsNullOrEmpty(newFileData))
+                    Write.FileContent(entry.Path, newFileData);
 
                 result = true;
             }
@@ -3230,7 +3257,22 @@ namespace MFR.Renamers.Files
             );
         }
 
-        private void ReportSolutionOpenFailed(string pathname) { }
+        private void ReportSolutionOpenFailed(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            OnSolutionOpenFailed(
+                new SolutionOpenFailedEventArgs(
+                    new Exception(
+                        string.Format(
+                            Resources
+                                .Error_AttemptToOpenSolutionFailed,
+                            pathname
+                        )
+                    )
+                )
+            );
+        }
 
         private bool SearchForLoadedSolutions()
         {

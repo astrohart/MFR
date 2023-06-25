@@ -184,13 +184,13 @@
       <Project>{6991D784-1E07-471C-BA54-CB9C1A723D09}</Project>
       <Name>MFR.Engines.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Engines.Factories\MFR.Engines.Factories.csproj">
+    <ProjectReference Include="..\MFR.Engines.Operations.Factories\MFR.Engines.Operations.Factories.csproj">
       <Project>{4F6FED29-A3F6-47B6-826E-8B371E34FCEE}</Project>
-      <Name>MFR.Engines.Factories</Name>
+      <Name>MFR.Engines.Operations.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Engines.Interfaces\MFR.Engines.Interfaces.csproj">
+    <ProjectReference Include="..\MFR.Engines.Operations.Interfaces\MFR.Engines.Operations.Interfaces.csproj">
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
-      <Name>MFR.Engines.Interfaces</Name>
+      <Name>MFR.Engines.Operations.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Enumerators.Actions\MFR.FileSystem.Enumerators.Actions.csproj">
       <Project>{29914A76-5AEE-4A3B-BD8F-6F7AE2B0A3CA}</Project>

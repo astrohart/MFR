@@ -152,10 +152,6 @@
       <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
       <Name>xyLOGIX.Queues.Messages.Senders</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
-      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
-      <Name>xyLOGIX.Queues.Messages</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
       <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
       <Name>xyLOGIX.VisualStudio.Actions</Name>
@@ -163,6 +159,10 @@
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Detectors.Actions\MFR.Detectors.Actions.csproj">
+      <Project>{F87E7DAC-85FC-4346-B476-134CAFC0CD18}</Project>
+      <Name>MFR.Detectors.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
       <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
@@ -207,6 +207,10 @@
     <ProjectReference Include="..\MFR.Renamers.Files.Actions\MFR.Renamers.Files.Actions.csproj">
       <Project>{49d0e080-cb0e-4548-981b-7fbf33ba981c}</Project>
       <Name>MFR.Renamers.Files.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Constants\MFR.Renamers.Files.Constants.csproj">
+      <Project>{65B74163-A2F2-4E09-886D-288774E22DA4}</Project>
+      <Name>MFR.Renamers.Files.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Events\MFR.Renamers.Files.Events.csproj">
       <Project>{BE83F4D8-3F0B-4754-9885-F7ABD2401D2A}</Project>

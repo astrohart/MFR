@@ -52,7 +52,7 @@
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
   - [WindowReference(mainWindow)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
-  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithOperationEngine(MFR.Engines.Interfaces.IFullGuiOperationEngine)')
+  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithOperationEngine(MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Properties-Resources 'MFR.GUI.Windows.Presenters.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Properties.Resources.Culture')
   - [Error_FindWhatRequired](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Error_FindWhatRequired 'MFR.GUI.Windows.Presenters.Properties.Resources.Error_FindWhatRequired')
@@ -862,7 +862,7 @@ represents the main window of the application. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `mainWindow`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine-'></a>
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine-'></a>
 ### WithOperationEngine(operationEngine) `method`
 
 ##### Summary
@@ -880,7 +880,7 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationEngine | [MFR.Engines.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the
+| operationEngine | [MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the
 [IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface on
 which this Presenter should depend. |
 

@@ -67,6 +67,7 @@
   - [Confirm_PerformRename](#P-MFR-Renamers-Files-Properties-Resources-Confirm_PerformRename 'MFR.Renamers.Files.Properties.Resources.Confirm_PerformRename')
   - [Culture](#P-MFR-Renamers-Files-Properties-Resources-Culture 'MFR.Renamers.Files.Properties.Resources.Culture')
   - [Error_AttemptToCloseSolutionFailed](#P-MFR-Renamers-Files-Properties-Resources-Error_AttemptToCloseSolutionFailed 'MFR.Renamers.Files.Properties.Resources.Error_AttemptToCloseSolutionFailed')
+  - [Error_AttemptToOpenSolutionFailed](#P-MFR-Renamers-Files-Properties-Resources-Error_AttemptToOpenSolutionFailed 'MFR.Renamers.Files.Properties.Resources.Error_AttemptToOpenSolutionFailed')
   - [Error_NoSolutionsInRootDirectory](#P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory 'MFR.Renamers.Files.Properties.Resources.Error_NoSolutionsInRootDirectory')
   - [Error_OperationAborted](#P-MFR-Renamers-Files-Properties-Resources-Error_OperationAborted 'MFR.Renamers.Files.Properties.Resources.Error_OperationAborted')
   - [ResourceManager](#P-MFR-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
@@ -1249,7 +1250,14 @@ Overrides the current thread's CurrentUICulture property for all
 
 ##### Summary
 
-Looks up a localized string similar to The attempt to close the solution '{0}' has failed..
+Looks up a localized string similar to The attempt to close the Solution '{0}' has failed..
+
+<a name='P-MFR-Renamers-Files-Properties-Resources-Error_AttemptToOpenSolutionFailed'></a>
+### Error_AttemptToOpenSolutionFailed `property`
+
+##### Summary
+
+Looks up a localized string similar to The attempt to open the Solution '{0}' has failed..
 
 <a name='P-MFR-Renamers-Files-Properties-Resources-Error_NoSolutionsInRootDirectory'></a>
 ### Error_NoSolutionsInRootDirectory `property`

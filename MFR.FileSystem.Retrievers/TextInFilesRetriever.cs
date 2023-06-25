@@ -161,8 +161,8 @@ namespace MFR.FileSystem.Retrievers
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
 
-                    var fileTicket = Get.FileTicket(entry.Path);
-                    if (fileTicket.IsZero())
+                    var ticket = Get.FileTicket(entry.Path);
+                    if (ticket.IsZero())
                     {
                         DebugUtils.WriteLine(
                             DebugLevel.Error,
@@ -171,9 +171,7 @@ namespace MFR.FileSystem.Retrievers
                         continue;
                     }
 
-                    entry.SetUserState(fileTicket);
-
-                    if (!SearchCriteriaMatch(entry)) continue;
+                    entry.SetUserState(ticket);
 
                     result.Add(entry);
                 }

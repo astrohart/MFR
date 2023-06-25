@@ -1,29 +1,37 @@
 using MFR.FileSystem.Interfaces;
-using MFR.FileSystem.Validators.Factories;
-using MFR.FileSystem.Validators.Interfaces;
 using System;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.TextValues.Retrievers
 {
     /// <summary>
-    /// Implements functionality common to retrievers of data for both files and folders.
+    /// Implements functionality common to retrievers of data for both files and
+    /// folders.
     /// </summary>
-    public abstract class FileAndFolderTextValueRetrieverBase : TextValueRetrieverBase
+    public abstract class
+        FileAndFolderTextValueRetrieverBase : TextValueRetrieverBase
     {
         /// <summary>
-        /// Gets a string containing the text to be searched, from the
-        /// file-system <paramref name="entry" /> provided, given the current
-        /// <see cref="T:MFR.Operations.Constants.OperationType"/> now being processed.
+        /// Gets a <see cref="T:System.String" /> containing the text to be
+        /// searched, from the file-system <paramref name="entry"/> provided,
+        /// given the current
+        /// <see
+        /// cref="P:MFR.FileAndFolderTextValueRetriever.OperationType"/> .
         /// </summary>
         /// <param name="entry">
         /// Reference to an instance of an object that implements the <see
         /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/> interface.
         /// </param>
         /// <returns>
-        /// String containing the value data to be searched for the current
-        /// operation type, or the empty string if the data source has no data.
+        /// A <see cref="T:System.String" /> containing the value data to be searched
+        /// for the current operation type, or the empty string if the data source has
+        /// no data.
         /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="entry"/>, is
+        /// passed a <see langword="null"/> value.
+        /// </exception>
         public override string GetTextValue(IFileSystemEntry entry)
         {
             var result = string.Empty;
@@ -35,7 +43,7 @@ namespace MFR.TextValues.Retrievers
 
                 // the text value in which replacement should be done
                 // for a file or a folder, is merely its pathname
-                result = entry.Path;    
+                result = entry.Path;
             }
             catch (Exception ex)
             {
@@ -46,6 +54,62 @@ namespace MFR.TextValues.Retrievers
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> containing the text to be
+        /// searched, from the file-system <paramref name="entry"/> provided,
+        /// given the current
+        /// <see
+        /// cref="P:MFR.FileAndFolderTextValueRetriever.OperationType"/> .
+        /// </summary>
+        /// <param name="entry">
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/> interface.
+        /// </param>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing the value data to be searched
+        /// for the current operation type, or the empty string if the data source has
+        /// no data.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="entry"/>, is
+        /// passed a <see langword="null"/> value.
+        /// </exception>
+        public override async Task<string> GetTextValueAsync(IFileSystemEntry entry)
+        {
+            Environment.Exit(-1);
+
+            throw new NotImplementedException();
+
+            /*
+            var result = string.Empty;
+
+            try
+            {
+                result = await Task.Run(
+                    () =>
+                    {
+                        if (entry == null) return result;
+                        if (!FileSystemEntryValidatorSays.IsValid(entry))
+                            return result;
+
+                        // the text value in which replacement should be done
+                        // for a file or a folder, is merely its pathname
+                        return entry.Path;
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            return result;
+            */
         }
     }
 }

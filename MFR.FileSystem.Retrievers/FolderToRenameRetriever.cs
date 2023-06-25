@@ -120,7 +120,7 @@ namespace MFR.FileSystem.Retrievers
                 {
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
-                    if (!SearchCriteriaMatch(entry)) continue;
+                    if (!SatisfiesSearchCritieria(entry)) continue;
 
                     result.Add(entry);
                 }

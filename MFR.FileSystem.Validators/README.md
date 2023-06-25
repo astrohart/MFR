@@ -193,7 +193,8 @@ the disk at the pathname indicated.
 
 ##### Returns
 
-`true` if the provided filesystem `entry` is valid; `false` otherwise.
+`true` if the provided filesystem
+`entry` is valid; `false` otherwise.
 
 ##### Parameters
 

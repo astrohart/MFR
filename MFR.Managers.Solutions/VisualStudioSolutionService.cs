@@ -1,5 +1,4 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.Common;
 using MFR.Managers.Solutions.Actions;
 using MFR.Managers.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -121,7 +120,10 @@ namespace MFR.Managers.Solutions
                     );
 
                     // Dump the variable FolderToSearch to the log
-                    DebugUtils.WriteLine(DebugLevel.Info, $"VisualStudioSolutionService.ContainsLoadedSolutions: FolderToSearch = '{FolderToSearch}'");
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"VisualStudioSolutionService.ContainsLoadedSolutions: FolderToSearch = '{FolderToSearch}'"
+                    );
 
                     folder = FolderToSearch;
                     if (string.IsNullOrWhiteSpace(folder) ||
@@ -188,7 +190,8 @@ namespace MFR.Managers.Solutions
         /// <paramref name="folder" /> parameter cannot be found on the disk.
         /// </exception>
         public IReadOnlyList<IVisualStudioSolution> GetLoadedSolutionsInFolder(
-            string folder)
+            string folder
+        )
         {
             var result = Enumerable.Empty<IVisualStudioSolution>()
                                    .ToList();
@@ -207,25 +210,59 @@ namespace MFR.Managers.Solutions
                 var visualStudioInstances = files
                                             .Select(
                                                 VisualStudioManager
-                                                    .GetVsProcessHavingSolutionOpened)
+                                                    .GetVsProcessHavingSolutionOpened
+                                            )
                                             .ToList();
 
                 if (!visualStudioInstances.Any())
                     return result;
 
                 result = visualStudioInstances.Select(
-                                                  instanceData
-                                                      => GetNewVisualStudioSolutionObject
-                                                          .ForVisualStudioInstance(
-                                                              instanceData
-                                                                  .Dte
-                                                          )
-                                                          .AndPath(
-                                                              instanceData.SolutionPath
-                                                          )
-                                                          .AndPID(
-                                                              instanceData.PID
-                                                          )
+                                                  instanceData =>
+                                                  {
+                                                      IVisualStudioSolution
+                                                          solutionObject =
+                                                              default;
+
+                                                      try
+                                                      {
+                                                          solutionObject =
+                                                              GetNewVisualStudioSolutionObject
+                                                                  .ForVisualStudioInstance(
+                                                                      instanceData
+                                                                          .Dte
+                                                                  );
+                                                          if (solutionObject ==
+                                                           null)
+                                                              return null;
+
+                                                          solutionObject =
+                                                              solutionObject
+                                                                  .SetPath(
+                                                                      instanceData
+                                                                          .SolutionPath
+                                                                  )
+                                                                  .AndPID(
+                                                                      instanceData
+                                                                          .PID
+                                                                  );
+                                                      }
+                                                      catch (Exception ex)
+                                                      {
+                                                          // dump all the exception info to the log
+                                                          DebugUtils
+                                                              .LogException(ex);
+
+                                                          solutionObject =
+                                                              default;
+                                                      }
+
+                                                      return solutionObject;
+                                                  }
+                                              )
+                                              .Where(
+                                                  solutionObject
+                                                      => solutionObject != null
                                               )
                                               .ToList();
             }

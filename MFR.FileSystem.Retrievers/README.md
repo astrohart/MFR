@@ -22,7 +22,7 @@
   - [ForFileSystemEntry(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ForFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ForFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [GetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-GetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.GetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
   - [Reset()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.Reset')
-  - [SearchCriteriaMatch(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchCriteriaMatch-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SearchCriteriaMatch(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [SatisfiesSearchCritieria(entry)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SatisfiesSearchCritieria-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.SatisfiesSearchCritieria(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ShouldDoPath(path,pathFilter)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ShouldDoPath-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ShouldDoPath(System.String,System.Predicate{System.String})')
   - [ToFindWhat(findWhat)](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ToFindWhat-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ToFindWhat(System.String)')
   - [UsingSearchPattern()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-UsingSearchPattern-System-String- 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.UsingSearchPattern(System.String)')
@@ -461,8 +461,8 @@ This method has no parameters.
 
 This method typically is called from a class constructor.
 
-<a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SearchCriteriaMatch-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
-### SearchCriteriaMatch(entry) `method`
+<a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-SatisfiesSearchCritieria-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### SatisfiesSearchCritieria(entry) `method`
 
 ##### Summary
 
