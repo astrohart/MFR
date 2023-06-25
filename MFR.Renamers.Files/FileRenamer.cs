@@ -24,7 +24,6 @@ using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
 using MFR.Renamers.Files.Actions;
-using MFR.Renamers.Files.Constants;
 using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
@@ -2272,7 +2271,9 @@ namespace MFR.Renamers.Files
 
                 if (textToBeSearched.Any(
                         c => Determine.WhetherCharacterIsControlCharacter(c)
-                    )) return SpecializedFileData.BinaryFileSkipped;    // special GUID letting callers know to skip this file
+                    ))
+                    return SpecializedFileData
+                        .BinaryFileSkipped; // special GUID letting callers know to skip this file
 
                 // release the stream or the OS won't let us perform the
                 // text replacement operation
@@ -3177,8 +3178,11 @@ namespace MFR.Renamers.Files
                     );
                 if (string.IsNullOrWhiteSpace(newFileData))
                     return result;
-                if (SpecializedFileData.BinaryFileSkipped.Equals(newFileData))
-                    return true;    // "succeed" but don't process any further
+                if (SpecializedFileData.BinaryFileSkipped.Equals(
+                        newFileData
+                    ))
+                    return
+                        true; // "succeed" but don't process any further
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);
