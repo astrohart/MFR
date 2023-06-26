@@ -2757,24 +2757,12 @@ namespace MFR.Renamers.Files
         }
 
         private bool RenameSolutionFolderForEntry(
-            string findWhat,
-            string replaceWith,
-            IFileSystemEntry entry
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] IFileSystemEntry entry
         )
         {
             var result = false;
-
-            // Dump the variable findWhat to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.RenameSolutionFolderForEntry: findWhat = '{findWhat}'"
-            );
-
-            // Dump the variable replaceWith to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.RenameSolutionFolderForEntry: replaceWith = '{replaceWith}'"
-            );
 
             if (string.IsNullOrWhiteSpace(findWhat)) return result;
             if (string.IsNullOrWhiteSpace(replaceWith))
@@ -2782,12 +2770,6 @@ namespace MFR.Renamers.Files
             if (entry == null || !Directory.Exists(entry.Path))
                 return result;
             if (AbortRequested) return result;
-
-            // Dump the variable entry.FullName to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.RenameSolutionFolderForEntry: entry.FullName = '{entry.Path}'"
-            );
 
             try
             {
@@ -2917,6 +2899,7 @@ namespace MFR.Renamers.Files
                 );
 
                 // Quit the instance of Visual Studio that formerly had the Solution open
+                // NOTE: We only get here if a particular Solution's folder needs renaming
                 foreach (var solution in LoadedSolutions)
                 {
                     if (!solution.FullName.StartsWith(source))
