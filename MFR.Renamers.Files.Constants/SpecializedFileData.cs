@@ -13,5 +13,12 @@ namespace MFR.Renamers.Files.Constants
         /// </summary>
         public const string BinaryFileSkipped =
             "197cce64-a5d0-4129-a959-89803191c09f";
+
+        /// <summary>
+        /// A <see cref="T:System.String" /> that contains a specialized GUID that
+        /// indicates that the replacement operation did not change the contents of the
+        /// file.  This should clue the calling method to skip to the next file.
+        /// </summary>
+        public const string NoChange = "1286c452-d691-4d20-b772-f5f90f15deba";
     }
 }

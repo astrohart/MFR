@@ -2276,9 +2276,8 @@ namespace MFR.Renamers.Files
                  */
 
                 if (Scan.FileDataForBinaryControlCharacters(textToBeSearched))
-                    return SpecializedFileData
-                        .BinaryFileSkipped;
-                
+                    return SpecializedFileData.BinaryFileSkipped;
+
                 /*
                  * If we are still here, then the textToBeSearched is really
                  * from an ASCII text file.  We can proceed with the Replace
@@ -2308,6 +2307,18 @@ namespace MFR.Renamers.Files
                 if (expression == null) return result;
 
                 result = engine.Replace(expression);
+
+                /*
+                 * OKAY, if the text to be searched and the result of the "replacement"
+                 * operation are identical, then nothing was actually replaced in the
+                 * file and we should instead return the specialized GUID indicating so --
+                 * this way, the file will be skipped and not overwritten, but also
+                 * a Boolean true value will be returned so as to not indicate an error
+                 * occurred.
+                 */
+
+                if (textToBeSearched.Equals(result))
+                    result = SpecializedFileData.NoChange;
             }
             catch (Exception ex)
             {
@@ -3197,11 +3208,10 @@ namespace MFR.Renamers.Files
                     );
                 if (string.IsNullOrWhiteSpace(newFileData))
                     return result;
-                if (SpecializedFileData.BinaryFileSkipped.Equals(
-                        newFileData
-                    ))
-                    return
-                        true; // "succeed" but don't process any further
+                if (SpecializedFileData.BinaryFileSkipped.Equals(newFileData)) 
+                    return true; // "succeed" but don't process any further
+                if (SpecializedFileData.NoChange.Equals(newFileData))
+                    return true; // "succeed" but don't process any further
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);
