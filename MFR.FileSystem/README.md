@@ -9,6 +9,7 @@
   - [Exists](#P-MFR-FileSystem-FileSystemEntry-Exists 'MFR.FileSystem.FileSystemEntry.Exists')
   - [OperationType](#P-MFR-FileSystem-FileSystemEntry-OperationType 'MFR.FileSystem.FileSystemEntry.OperationType')
   - [Path](#P-MFR-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path')
+  - [ShortPath](#P-MFR-FileSystem-FileSystemEntry-ShortPath 'MFR.FileSystem.FileSystemEntry.ShortPath')
   - [UserState](#P-MFR-FileSystem-FileSystemEntry-UserState 'MFR.FileSystem.FileSystemEntry.UserState')
   - [SetUserState(userState)](#M-MFR-FileSystem-FileSystemEntry-SetUserState-System-Object- 'MFR.FileSystem.FileSystemEntry.SetUserState(System.Object)')
   - [ToString()](#M-MFR-FileSystem-FileSystemEntry-ToString 'MFR.FileSystem.FileSystemEntry.ToString')
@@ -86,6 +87,14 @@ corresponds to the type of operation being performed.
 ##### Summary
 
 Gets or sets the pathname of the file-system entry.
+
+<a name='P-MFR-FileSystem-FileSystemEntry-ShortPath'></a>
+### ShortPath `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains a truncated version of the
+value of the [Path](#P-MFR-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path') property.
 
 <a name='P-MFR-FileSystem-FileSystemEntry-UserState'></a>
 ### UserState `property`

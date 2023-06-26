@@ -10,6 +10,8 @@
 - [Resources](#T-MFR-Renamers-Files-Actions-Properties-Resources 'MFR.Renamers.Files.Actions.Properties.Resources')
   - [Culture](#P-MFR-Renamers-Files-Actions-Properties-Resources-Culture 'MFR.Renamers.Files.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
+- [Scan](#T-MFR-Renamers-Files-Actions-Scan 'MFR.Renamers.Files.Actions.Scan')
+  - [FileDataForBinaryControlCharacters(textToBeSearched)](#M-MFR-Renamers-Files-Actions-Scan-FileDataForBinaryControlCharacters-System-String- 'MFR.Renamers.Files.Actions.Scan.FileDataForBinaryControlCharacters(System.String)')
 - [Write](#T-MFR-Renamers-Files-Actions-Write 'MFR.Renamers.Files.Actions.Write')
   - [FileContent(path,contents)](#M-MFR-Renamers-Files-Actions-Write-FileContent-System-String,System-String- 'MFR.Renamers.Files.Actions.Write.FileContent(System.String,System.String)')
 
@@ -100,6 +102,45 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-Renamers-Files-Actions-Scan'></a>
+## Scan `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+##### Summary
+
+Exposes static methods to scan file data for patterns.
+
+<a name='M-MFR-Renamers-Files-Actions-Scan-FileDataForBinaryControlCharacters-System-String-'></a>
+### FileDataForBinaryControlCharacters(textToBeSearched) `method`
+
+##### Summary
+
+Scans the `textToBeSearched`, one character at a time, for
+any non-text ASCII control character bytes.
+
+##### Returns
+
+`true` if any non-text ASCII control characters are
+present in the specified `textToBeSearched`, or
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| textToBeSearched | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
+containing the character-string representation of the contents of a file that
+is to be scanned. |
+
+##### Remarks
+
+If this method returns `true`, then it can be safely
+assumed that the file from which the specified
+`textToBeSearched` came is not an ASCII text file.
 
 <a name='T-MFR-Renamers-Files-Actions-Write'></a>
 ## Write `type`

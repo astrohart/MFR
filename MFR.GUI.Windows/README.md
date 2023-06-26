@@ -73,6 +73,7 @@
   - [OnViewToolBar(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnViewToolBar-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnViewToolBar(System.Object,System.EventArgs)')
   - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ResetProfileCollectionComboBox')
   - [SelectAllOperations()](#M-MFR-GUI-Windows-MainWindow-SelectAllOperations 'MFR.GUI.Windows.MainWindow.SelectAllOperations')
+  - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Windows-MainWindow-UpdateData-System-Boolean- 'MFR.GUI.Windows.MainWindow.UpdateData(System.Boolean)')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
 - [Resources](#T-MFR-GUI-Windows-Properties-Resources 'MFR.GUI.Windows.Properties.Resources')
@@ -743,7 +744,7 @@ is delegated to the Perform Operation button.
 
 ##### Summary
 
-Handles the [](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified') event.
+Handles the [](#E-MFR-GUI-OptionsDialogBox-Modified 'MFR.GUI.OptionsDialogBox.Modified') event.
 
 ##### Parameters
 
@@ -1239,6 +1240,21 @@ tab.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-UpdateData-System-Boolean-'></a>
+### UpdateData(bSaveAndValidate) `method`
+
+##### Summary
+
+Moves data from this dialog's controls to the configuration object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| bSaveAndValidate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
+that specifies whether to save information from the screen into data variables.
+`false` to load data to the screen. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size-'></a>
 ### UpdateSize(newSize) `method`
