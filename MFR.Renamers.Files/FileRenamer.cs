@@ -2898,14 +2898,14 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                // Quit the instance of Visual Studio that formerly had the Solution open
+                // Quit ALL of the instance(s) of Visual Studio that formerly had any of the
+                // Solution(s) anywhere in the directory tree of the 'source' folder open
                 // NOTE: We only get here if a particular Solution's folder needs renaming
                 foreach (var solution in LoadedSolutions)
                 {
-                    if (!solution.FullName.StartsWith(source))
+                    if (!solution.ContainingFolder.StartsWith(source))
                         continue;
                     solution.Quit();
-                    break;
                 }
 
                 do
