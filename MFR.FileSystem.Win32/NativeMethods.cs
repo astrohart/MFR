@@ -38,6 +38,7 @@ namespace MFR.FileSystem.Win32
 
                 var length = path.Length;
                 if (length <= 0) return result;
+                if (length < MAX_LENGTH) return path;
 
                 var sb = new StringBuilder(length + 1);
                 PathCompactPathEx(sb, path, MAX_LENGTH + 1, 0);
