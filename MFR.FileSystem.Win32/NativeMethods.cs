@@ -17,7 +17,7 @@ namespace MFR.FileSystem.Win32
         /// Gets the maximum length of a shortened path, in characters, not counting the
         /// terminating null character.
         /// </summary>
-        private const int MAX_LENGTH = 50;
+        private const int MAX_LENGTH = 75;
 
         /// <summary>
         /// Truncates a path to fit within a certain number of characters by replacing path
