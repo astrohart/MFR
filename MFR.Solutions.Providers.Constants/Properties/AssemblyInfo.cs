@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides objects and functionality to manage the various running instances of Visual Studio that have Visual Studio Solution (*.sln) files loaded; i.e., currently open in the IDE.  This particular library holds the named constants and enumerations for this component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2023 by xyLOGIX, LLC.  All rights reserved.")]

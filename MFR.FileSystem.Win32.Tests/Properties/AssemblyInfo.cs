@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides unit tests for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("MFR.FileSystem.Win32.Tests")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides unit tests for ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("Unit Tests Library for the Profile Provider")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]

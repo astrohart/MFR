@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides objects and functionality to allocate a StreamReader for a file, given its path, and then return to the caller a GUID that is associated with the currently-allocated StreamReader.  This GUID can then be used as a 'ticket' of sorts, to request access to the corresponding StreamReader reference for use in processing the file.   We are creating this module since the currentl method of full-text search and replace for the Replace Text in Files operation is not scalable the way it is currently written, where the entire contents of text files are simply read into memory and then later searched.  This particular library holds the factories for this component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2019-23 by xyLOGIX, LLC.  All rights reserved.")]

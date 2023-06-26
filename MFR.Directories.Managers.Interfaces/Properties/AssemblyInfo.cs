@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides objects and functionality to manage search folders for the operations that the user requests to perform.  This particular library holds the C# interfaces for this component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2023 by xyLOGIX, LLC.  All rights reserved.")]

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides objects and functionality to translate instances of ICommandLineInfo-implementing objects to other objects, such as that which implements the IProjectFileRenamerConfiguration interface.  This particular library holds the concrete classes and implementations of the component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Project File Renamer")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2022-23 by xyLOGIX, LLC.  All rights reserved.")]

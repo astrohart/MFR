@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Command-line version of the graphical user interface of the Project File Renamer.  Call this directly from the command line with the proper arguments.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Project File Renamer Command Line Tool")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly: AssemblyCopyright("Copyright © 2021-22 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

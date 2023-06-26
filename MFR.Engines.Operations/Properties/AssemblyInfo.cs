@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides an object that can be used from anywhere in the software system itself, to invoke the file and folder renaming operations, as well as those operations to update the contents of solution and project files, that the user has specified.  This particular library holds the concrete classes and implementations of the component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Project File Renamer Operation Engine Library")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2022-23 by xyLOGIX, LLC.  All rights reserved.")]

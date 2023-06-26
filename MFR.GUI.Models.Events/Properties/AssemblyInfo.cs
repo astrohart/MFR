@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides objects and functionality for events that represent notifications, e.g., that the value of a property has been updated on a GUI Model object, such as OperationTypeInfo.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Events Relating to GUI Model Objects")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
 "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]

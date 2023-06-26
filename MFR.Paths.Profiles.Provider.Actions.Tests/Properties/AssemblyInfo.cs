@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides unit tests for the Obtain/Generate/Execute/Formulate etc. static classes exposed by the MFR.Paths.Profiles.Provider.Actions library.  These classes facilitate the execution of actions that comprise the loading and storing of informating regarding the pathname of a list of profiles to/from the system Registry.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("Unit Tests Library for Profile List Path Provider Actions")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
 "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]

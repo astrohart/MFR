@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides unit tests for the object that manages the search folders for performing the operations requested by the user to rename projects, files, and folders.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("Unit Tests Library for the Project File Renamer's Search Directory Manager Component")]
+[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
 "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
