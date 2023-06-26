@@ -470,9 +470,9 @@ namespace MFR.Renamers.Files
         /// filtering is done.
         /// </param>
         public bool ProcessAll(
-            string findWhat,
-            string replaceWith,
-            Predicate<string> pathFilter = null
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
         )
         {
             var result = false;
@@ -603,10 +603,10 @@ namespace MFR.Renamers.Files
         /// string for a value.
         /// </exception>
         public void ProcessAll(
-            string rootDirectoryPath,
-            string findWhat,
-            string replaceWith,
-            Predicate<string> pathFilter = null
+            [NotLogged] string rootDirectoryPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
         )
         {
             if (CurrentConfiguration == null)
@@ -717,10 +717,10 @@ namespace MFR.Renamers.Files
         /// Thrown if a file operation does not succeed.
         /// </exception>
         public bool RenameFilesInFolder(
-            string rootFolderPath,
-            string findWhat,
-            string replaceWith,
-            Predicate<string> pathFilter = null
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
         )
         {
             var result = false;
@@ -931,10 +931,10 @@ namespace MFR.Renamers.Files
         /// Thrown if a file operation does not succeed.
         /// </exception>
         public bool RenameSolutionFolders(
-            string rootFolderPath,
-            string findWhat,
-            string replaceWith,
-            Predicate<string> pathFilter = null
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
         )
         {
             var result = false;
@@ -1151,10 +1151,10 @@ namespace MFR.Renamers.Files
         /// Thrown if a file operation does not succeed.
         /// </exception>
         public bool RenameSubFoldersOf(
-            string rootFolderPath,
-            string findWhat,
-            string replaceWith,
-            Predicate<string> pathFilter = null
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
         )
         {
             var result = false;
