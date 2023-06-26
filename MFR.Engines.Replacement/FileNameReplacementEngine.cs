@@ -2,6 +2,7 @@ using MFR.Settings.Configuration.Helpers;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -78,8 +79,11 @@ namespace MFR.Engines.Replacement
         /// , are passed blank or <see langword="null" /> string
         /// for values.
         /// </exception>
-        public override string Replace(string value, string pattern,
-            string dest = "")
+        [return: NotLogged]
+        public override string Replace(
+            [NotLogged] string value, 
+            [NotLogged] string pattern,
+            [NotLogged] string dest = "")
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(

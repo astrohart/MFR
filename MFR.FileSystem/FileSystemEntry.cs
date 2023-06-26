@@ -1,5 +1,6 @@
 using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Win32;
 using MFR.Operations;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
@@ -92,6 +93,13 @@ namespace MFR.FileSystem
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains a truncated version of the
+        /// value of the <see cref="P:MFR.FileSystem.FileSystemEntry.Path" /> property.
+        /// </summary>
+        public string ShortPath
+            => NativeMethods.PathCompactPathEx(Path);
 
         /// <summary>
         /// Gets or sets user state.

@@ -100,8 +100,11 @@ namespace MFR.Engines.Replacement
         /// Thrown if the <paramref name="value" /> parameter does not contain
         /// the fully-qualified, absolute pathname to a folder.
         /// </exception>
-        public override string Replace(string value, string pattern,
-            string dest = "")
+        [return: NotLogged]
+        public override string Replace(
+            [NotLogged] string value,
+            [NotLogged] string pattern,
+            [NotLogged] string dest = "")
         {
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException(

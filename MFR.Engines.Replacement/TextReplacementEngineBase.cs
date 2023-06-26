@@ -145,6 +145,7 @@ namespace MFR.Engines.Replacement
         /// <returns>
         /// String containing the new data.
         /// </returns>
+        [return: NotLogged]
         public string Replace(IMatchExpression expression)
         {
             var result = string.Empty;

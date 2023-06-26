@@ -39,6 +39,15 @@ namespace MFR.FileSystem.Interfaces
         }
 
         /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains a truncated version of the
+        /// value of the <see cref="P:MFR.FileSystem.FileSystemEntry.Path" /> property.
+        /// </summary>
+        string ShortPath
+        {
+            get;
+        }
+
+        /// <summary>
         /// Gets or sets user state.
         /// </summary>
         /// <remarks>

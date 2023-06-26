@@ -542,7 +542,7 @@ namespace MFR.GUI.Dialogs
             if (e.OperationType == OperationType.Unknown) return;
             if (e.Entry == null) return;
 
-            var currentFilePathname = e.Entry.Path;
+            var currentFilePathname = e.Entry.ShortPath;
             if (string.IsNullOrWhiteSpace(currentFilePathname)) return;
 
             var statusLabelText =

@@ -2226,10 +2226,11 @@ namespace MFR.Renamers.Files
             return result;
         }
 
+        [return: NotLogged]
         private async Task<string> GetTextInFileReplacementDataAsync(
-            IFileSystemEntry entry,
-            string findWhat,
-            string replaceWith
+            [NotLogged] IFileSystemEntry entry,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith
         )
         {
             var result = string.Empty;

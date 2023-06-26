@@ -423,7 +423,7 @@ namespace MFR.Engines.Operations
 
             IncrementProgressBar(
                 GetOperationDescription.For(e.OperationType)
-                                       .Text, e.Entry.Path
+                                       .Text, e.Entry.ShortPath
             );
         }
 
