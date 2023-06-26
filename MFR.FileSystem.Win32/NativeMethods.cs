@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Runtime.InteropServices;
 using System.Text;
 using xyLOGIX.Core.Debug;
@@ -9,6 +10,7 @@ namespace MFR.FileSystem.Win32
     /// Definitions of native Win32 API method calls that can be used to activate
     /// functionality found in the Microsoft Windows operating system.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class NativeMethods
     {
         /// <summary>
