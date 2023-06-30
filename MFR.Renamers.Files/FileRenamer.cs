@@ -16,9 +16,9 @@ using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;
-using MFR.Managers.Solutions.Actions;
-using MFR.Managers.Solutions.Factories;
-using MFR.Managers.Solutions.Interfaces;
+using MFR.Services.Solutions.Actions;
+using MFR.Services.Solutions.Factories;
+using MFR.Services.Solutions.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
@@ -327,7 +327,7 @@ namespace MFR.Renamers.Files
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Managers.Solutions.Interfaces.IVisualStudioSolutionService" />
+        /// <see cref="T:MFR.Services.Solutions.Interfaces.IVisualStudioSolutionService" />
         /// interface.
         /// </summary>
         /// <remarks>

@@ -479,15 +479,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Processes.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Processes.Tests.Constants", "..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Tests.Constants\xyLOGIX.Interop.Processes.Tests.Constants.csproj", "{2E7AEEAF-A675-494D-921B-63870DFD5BA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions", "MFR.Managers.Solutions\MFR.Managers.Solutions.csproj", "{E1078BC5-24EB-44E8-81BD-09310D81FBD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions", "MFR.Services.Solutions\MFR.Services.Solutions.csproj", "{E1078BC5-24EB-44E8-81BD-09310D81FBD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Actions.Constants", "MFR.Managers.Solutions.Actions.Constants\MFR.Managers.Solutions.Actions.Constants.csproj", "{CB27A2F5-FD98-4192-8F23-CC0D9B00DCE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Actions.Constants", "MFR.Services.Solutions.Actions.Constants\MFR.Services.Solutions.Actions.Constants.csproj", "{CB27A2F5-FD98-4192-8F23-CC0D9B00DCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Factories", "MFR.Managers.Solutions.Factories\MFR.Managers.Solutions.Factories.csproj", "{DE593641-0BE4-447B-B779-CF7D1CD9DD60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Factories", "MFR.Services.Solutions.Factories\MFR.Services.Solutions.Factories.csproj", "{DE593641-0BE4-447B-B779-CF7D1CD9DD60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Interfaces", "MFR.Managers.Solutions.Interfaces\MFR.Managers.Solutions.Interfaces.csproj", "{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Interfaces", "MFR.Services.Solutions.Interfaces\MFR.Services.Solutions.Interfaces.csproj", "{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Tests", "MFR.Managers.Solutions.Tests\MFR.Managers.Solutions.Tests.csproj", "{88C655C3-FBB9-49E3-AAD2-A245622DDC29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Tests", "MFR.Services.Solutions.Tests\MFR.Services.Solutions.Tests.csproj", "{88C655C3-FBB9-49E3-AAD2-A245622DDC29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio", "..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj", "{1FD23594-1FB9-49E6-851E-E104AA80E797}"
 EndProject
@@ -628,7 +628,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Application.Interfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Application.Factories", "MFR.GUI.Application.Factories\MFR.GUI.Application.Factories.csproj", "{B7F34926-8B59-4B9F-94B9-FD7D70F0CF23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Actions", "MFR.Managers.Solutions.Actions\MFR.Managers.Solutions.Actions.csproj", "{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Actions", "MFR.Services.Solutions.Actions\MFR.Services.Solutions.Actions.csproj", "{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.UI.Dark.Forms", "..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj", "{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}"
 EndProject
@@ -906,7 +906,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Win32.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Files.Actions", "..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj", "{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Factories.Actions", "MFR.Managers.Solutions.Factories.Actions\MFR.Managers.Solutions.Factories.Actions.csproj", "{A3D59B0F-5972-4537-A958-2CD1A1220847}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Factories.Actions", "MFR.Services.Solutions.Factories.Actions\MFR.Services.Solutions.Factories.Actions.csproj", "{A3D59B0F-5972-4537-A958-2CD1A1220847}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

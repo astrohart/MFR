@@ -176,10 +176,10 @@
     <ROW Component="MFR.Managers.RootFolders.Factories.dll" ComponentId="{669F6315-F584-4B82-B013-2D7BCEFFFBC1}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.RootFolders.Factories.dll"/>
     <ROW Component="MFR.Managers.RootFolders.Interfaces.dll" ComponentId="{8501F6C9-95D4-4A58-BFDB-230E834D02A6}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.RootFolders.Interfaces.dll"/>
     <ROW Component="MFR.Managers.RootFolders.dll" ComponentId="{E6870A4C-2E19-479C-9A9D-987389C960AB}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.RootFolders.dll"/>
-    <ROW Component="MFR.Managers.Solutions.Actions.dll" ComponentId="{475A6BE5-CE33-4AA2-BA4B-CD8F44E22915}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.Solutions.Actions.dll"/>
-    <ROW Component="MFR.Managers.Solutions.Factories.dll" ComponentId="{BD2778C6-4277-4DAF-8866-D38962AE65B3}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.Solutions.Factories.dll"/>
-    <ROW Component="MFR.Managers.Solutions.Interfaces.dll" ComponentId="{2C470D4B-B8C2-482E-ADE0-1F296A2FDD59}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.Solutions.Interfaces.dll"/>
-    <ROW Component="MFR.Managers.Solutions.dll" ComponentId="{82E4B49B-1918-4FD5-A605-036B7F4D09C0}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.Solutions.dll"/>
+    <ROW Component="MFR.Services.Solutions.Actions.dll" ComponentId="{475A6BE5-CE33-4AA2-BA4B-CD8F44E22915}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Actions.dll"/>
+    <ROW Component="MFR.Services.Solutions.Factories.dll" ComponentId="{BD2778C6-4277-4DAF-8866-D38962AE65B3}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Factories.dll"/>
+    <ROW Component="MFR.Services.Solutions.Interfaces.dll" ComponentId="{2C470D4B-B8C2-482E-ADE0-1F296A2FDD59}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Interfaces.dll"/>
+    <ROW Component="MFR.Services.Solutions.dll" ComponentId="{82E4B49B-1918-4FD5-A605-036B7F4D09C0}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.dll"/>
     <ROW Component="MFR.Matchers.Factories.Interfaces.dll" ComponentId="{BCBE1BCD-BF6D-4051-8777-FD48D4A71EDC}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Matchers.Factories.Interfaces.dll"/>
     <ROW Component="MFR.Matchers.Factories.dll" ComponentId="{DA42023F-EA3B-4D03-BC8E-3BD0B68FB189}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Matchers.Factories.dll"/>
     <ROW Component="MFR.Matchers.Interfaces.dll" ComponentId="{A619F3CB-B1A6-4DE8-A0C1-1118A0C66B67}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Matchers.Interfaces.dll"/>
@@ -640,14 +640,14 @@
     <ROW File="MFR.Managers.RootFolders.Factories.dll.config" Component_="config.json" FileName="MFRMAN~6.CON|MFR.Managers.RootFolders.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.RootFolders.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.Managers.RootFolders.Interfaces.dll" Component_="MFR.Managers.RootFolders.Interfaces.dll" FileName="MFRMAN~7.DLL|MFR.Managers.RootFolders.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.RootFolders.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.Managers.RootFolders.Interfaces.dll.config" Component_="config.json" FileName="MFRMAN~7.CON|MFR.Managers.RootFolders.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.RootFolders.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.Actions.dll" Component_="MFR.Managers.Solutions.Actions.dll" FileName="MFRMAN~8.DLL|MFR.Managers.Solutions.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.Actions.dll" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.Actions.dll.config" Component_="config.json" FileName="MFRMAN~8.CON|MFR.Managers.Solutions.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.Actions.dll.config" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.dll" Component_="MFR.Managers.Solutions.dll" FileName="MFRMAN~9.DLL|MFR.Managers.Solutions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.dll" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.dll.config" Component_="config.json" FileName="MFRMAN~9.CON|MFR.Managers.Solutions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.dll.config" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.Factories.dll" Component_="MFR.Managers.Solutions.Factories.dll" FileName="MFRMA~10.DLL|MFR.Managers.Solutions.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.Factories.dll" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.Factories.dll.config" Component_="config.json" FileName="MFRMA~10.CON|MFR.Managers.Solutions.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.Factories.dll.config" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.Interfaces.dll" Component_="MFR.Managers.Solutions.Interfaces.dll" FileName="MFRMA~11.DLL|MFR.Managers.Solutions.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.Interfaces.dll" SelfReg="false"/>
-    <ROW File="MFR.Managers.Solutions.Interfaces.dll.config" Component_="config.json" FileName="MFRMA~11.CON|MFR.Managers.Solutions.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Managers.Solutions.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.Actions.dll" Component_="MFR.Services.Solutions.Actions.dll" FileName="MFRMAN~8.DLL|MFR.Services.Solutions.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.Actions.dll" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.Actions.dll.config" Component_="config.json" FileName="MFRMAN~8.CON|MFR.Services.Solutions.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.Actions.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.dll" Component_="MFR.Services.Solutions.dll" FileName="MFRMAN~9.DLL|MFR.Services.Solutions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.dll" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.dll.config" Component_="config.json" FileName="MFRMAN~9.CON|MFR.Services.Solutions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.Factories.dll" Component_="MFR.Services.Solutions.Factories.dll" FileName="MFRMA~10.DLL|MFR.Services.Solutions.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.Factories.dll" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.Factories.dll.config" Component_="config.json" FileName="MFRMA~10.CON|MFR.Services.Solutions.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.Factories.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.Interfaces.dll" Component_="MFR.Services.Solutions.Interfaces.dll" FileName="MFRMA~11.DLL|MFR.Services.Solutions.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.Interfaces.dll" SelfReg="false"/>
+    <ROW File="MFR.Services.Solutions.Interfaces.dll.config" Component_="config.json" FileName="MFRMA~11.CON|MFR.Services.Solutions.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Services.Solutions.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="MFR.Matchers.dll" Component_="MFR.Matchers.dll" FileName="MFRMAT~1.DLL|MFR.Matchers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Matchers.dll" SelfReg="false"/>
     <ROW File="MFR.Matchers.dll.config" Component_="config.json" FileName="MFRMAT~1.CON|MFR.Matchers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Matchers.dll.config" SelfReg="false"/>
     <ROW File="MFR.Matchers.Factories.dll" Component_="MFR.Matchers.Factories.dll" FileName="MFRMAT~2.DLL|MFR.Matchers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Matchers.Factories.dll" SelfReg="false"/>
@@ -1203,10 +1203,10 @@
     <ROW Feature_="MainFeature" Component_="MFR.Managers.RootFolders.Events.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Managers.RootFolders.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Managers.RootFolders.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.Managers.Solutions.Actions.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.Managers.Solutions.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.Managers.Solutions.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.Managers.Solutions.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Services.Solutions.Actions.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Services.Solutions.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Services.Solutions.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Services.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Matchers.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Matchers.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Matchers.Factories.Interfaces.dll"/>

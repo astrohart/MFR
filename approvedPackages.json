@@ -9104,7 +9104,7 @@
       ]
     },
     {
-      "name": "MFR.Managers.Solutions",
+      "name": "MFR.Services.Solutions",
       "approved_packages": [
         {
           "name": "AlphaFS",
@@ -9169,7 +9169,7 @@
       ]
     },
     {
-      "name": "MFR.Managers.Solutions.Actions.Constants",
+      "name": "MFR.Services.Solutions.Actions.Constants",
       "approved_packages": [
         {
           "name": "AlphaFS",
@@ -9234,7 +9234,7 @@
       ]
     },
     {
-      "name": "MFR.Managers.Solutions.Factories",
+      "name": "MFR.Services.Solutions.Factories",
       "approved_packages": [
         {
           "name": "AlphaFS",
@@ -9299,7 +9299,7 @@
       ]
     },
     {
-      "name": "MFR.Managers.Solutions.Interfaces",
+      "name": "MFR.Services.Solutions.Interfaces",
       "approved_packages": [
         {
           "name": "AlphaFS",
@@ -9364,7 +9364,7 @@
       ]
     },
     {
-      "name": "MFR.Managers.Solutions.Tests",
+      "name": "MFR.Services.Solutions.Tests",
       "approved_packages": [
         {
           "name": "AlphaFS",
