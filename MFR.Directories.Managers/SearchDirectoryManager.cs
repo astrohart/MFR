@@ -1,12 +1,12 @@
 using MFR.Directories.Managers.Interfaces;
 using MFR.FileSystem.Enumerators;
-using MFR.FileSystem.Factories.Actions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.Directories.Managers
 {
@@ -37,7 +37,8 @@ namespace MFR.Directories.Managers
         } = new SearchDirectoryManager();
 
         /// <summary>
-        /// Gets a collection of fully-qualified pathnames of folders found by this object, that
+        /// Gets a collection of fully-qualified pathnames of folders found by this object,
+        /// that
         /// should be searched for projects, files, and folders whose names should be
         /// changed.
         /// </summary>
@@ -45,6 +46,16 @@ namespace MFR.Directories.Managers
         {
             get;
         } = new List<string>();
+
+        /// <summary>
+        /// Clears the list of search folders.
+        /// </summary>
+        public void Clear()
+        {
+            if (SearchDirectories == null || !SearchDirectories.Any()) return;
+
+            SearchDirectories.Clear();
+        }
 
         /// <summary>
         /// Scans the folder having the specified <paramref name="pathname" /> for Visual
@@ -89,16 +100,6 @@ namespace MFR.Directories.Managers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-        }
-
-        /// <summary>
-        /// Clears the list of search folders.
-        /// </summary>
-        public void Clear()
-        {
-            if (SearchDirectories == null || !SearchDirectories.Any()) return;
-
-            SearchDirectories.Clear();
         }
     }
 }

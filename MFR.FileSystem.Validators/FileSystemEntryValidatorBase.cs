@@ -1,11 +1,11 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.FileSystem.Validators
 {
@@ -17,6 +17,14 @@ namespace MFR.FileSystem.Validators
     public abstract class
         FileSystemEntryValidatorBase : IFileSystemEntryValidator
     {
+        /// <summary>
+        /// Array of extensions of files we won't search ever.
+        /// </summary>
+        private static readonly string[] DISALLOWED_EXTENSIONS = {
+            ".dll", ".exe", ".pif", ".bsc", ".obj", ".lib", ".bin", ".pdb",
+            ".pspdb", ".resx", ".bsc", ".ilk", ".lnk", ".res", ".aps"
+        };
+
         /// <summary>
         /// Determines whether the specified file-system
         /// <paramref
@@ -130,14 +138,6 @@ namespace MFR.FileSystem.Validators
         [Log(AttributeExclude = true)]
         public bool ShouldNotSkip(string path)
             => !ShouldSkip(path);
-
-        /// <summary>
-        /// Array of extensions of files we won't search ever.
-        /// </summary>
-        private static string[] DISALLOWED_EXTENSIONS = {
-            ".dll", ".exe", ".pif", ".bsc", ".obj", ".lib", ".bin", ".pdb",
-            ".pspdb", ".resx", ".bsc", ".ilk", ".lnk", ".res", ".aps"
-        };
 
         /// <summary>
         /// Determines whether the file-system entry with the specified

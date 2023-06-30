@@ -1,10 +1,8 @@
-using MFR.FileSystem.Factories.Actions;
 using MFR.Renamers.Files.Actions.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using xyLOGIX.Core.Debug;
 
 namespace MFR.Renamers.Files.Actions
 {

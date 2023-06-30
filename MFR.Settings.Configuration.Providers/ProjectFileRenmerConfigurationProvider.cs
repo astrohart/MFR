@@ -1,5 +1,4 @@
 using MFR.FileSystem.Factories;
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.Paths.Config.Provider.Factories;
 using MFR.Paths.Config.Provider.Interfaces;
@@ -11,6 +10,7 @@ using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.Settings.Configuration.Providers
 {

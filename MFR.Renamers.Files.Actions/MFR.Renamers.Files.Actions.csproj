@@ -136,6 +136,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Detectors.Actions\MFR.Detectors.Actions.csproj">
       <Project>{F87E7DAC-85FC-4346-B476-134CAFC0CD18}</Project>
       <Name>MFR.Detectors.Actions</Name>

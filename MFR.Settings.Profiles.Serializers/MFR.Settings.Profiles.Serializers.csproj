@@ -130,6 +130,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Converters\MFR.Settings.Configuration.Converters.csproj">
       <Project>{EB94927D-3E4C-4167-BFF4-440DEDE945A6}</Project>
       <Name>MFR.Settings.Configuration.Converters</Name>

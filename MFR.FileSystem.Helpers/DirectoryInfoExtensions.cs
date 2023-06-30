@@ -1,8 +1,8 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.FileSystem.Factories.Actions;
 using System;
 using System.Threading;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.FileSystem.Helpers
 {

@@ -1,11 +1,11 @@
 using Alphaleonis.Win32.Filesystem;
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Helpers;
 using MFR.Settings.Configuration.Converters;
 using MFR.Settings.Profiles.Collections.Factories;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.Settings.Profiles.Serializers
 {

@@ -1,10 +1,11 @@
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Win32;
 using MFR.Operations;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.FileSystem
 {
@@ -68,7 +69,28 @@ namespace MFR.FileSystem
         /// <see langword="false" /> otherwise.
         /// </returns>
         public bool Exists
-            => Does.FileSystemEntryExist(Path);
+        {
+            get {
+                var result = false;
+
+                try
+                {
+                    // Obviously, a blank path does not exist
+                    if (string.IsNullOrWhiteSpace(Path)) return result;
+
+                    result = Does.FileSystemEntryExist(Path);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets one of the

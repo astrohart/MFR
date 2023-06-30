@@ -1,9 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.Detectors.Constants;
-using MFR.FileSystem.Factories.Actions;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.Detectors.Actions
 {

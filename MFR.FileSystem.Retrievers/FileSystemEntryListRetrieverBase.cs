@@ -4,7 +4,6 @@ using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.FileSystem.Factories;
-using MFR.FileSystem.Factories.Actions;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.FileSystem.Validators.Factories;
@@ -22,6 +21,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -33,27 +33,6 @@ namespace MFR.FileSystem.Retrievers
     public abstract class FileSystemEntryListRetrieverBase :
         ConfigurationComposedObjectBase, IFileSystemEntryListRetriever
     {
-        protected bool SatisfiesPathFilter(string value, Predicate<string> pathFilter)
-        {
-            var result = true;
-
-            try
-            {
-                if (pathFilter == null) return result;
-
-                result = pathFilter.Invoke(value);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = true;
-            }
-
-            return result;
-        }
-
         /// <summary>
         /// Constructs a new instance of
         /// <see
@@ -211,7 +190,8 @@ namespace MFR.FileSystem.Retrievers
         /// allowed by some implementations to be blank.
         /// </remarks>
         public abstract IFileSystemEntryListRetriever AndReplaceItWith(
-            string replaceWith);
+            string replaceWith
+        );
 
         /// <summary>
         /// Gets a list of the files that match the criteria specified by this
@@ -257,7 +237,9 @@ namespace MFR.FileSystem.Retrievers
         /// ' parameter cannot be located on the disk.
         /// </exception>
         public IEnumerable<IFileSystemEntry> GetMatchingFileSystemPaths(
-            string rootFolderPath, Predicate<string> pathFilter = null)
+            string rootFolderPath,
+            Predicate<string> pathFilter = null
+        )
         {
             var result = Enumerable.Empty<IFileSystemEntry>();
 
@@ -367,7 +349,8 @@ namespace MFR.FileSystem.Retrievers
         /// is passed a blank or <see langword="null" /> string for a value.
         /// </exception>
         public virtual IFileSystemEntryListRetriever UsingSearchPattern(
-            string searchPattern)
+            string searchPattern
+        )
         {
             if (string.IsNullOrWhiteSpace(searchPattern))
                 throw new ArgumentException(
@@ -411,7 +394,8 @@ namespace MFR.FileSystem.Retrievers
         /// enumeration.
         /// </exception>
         public IFileSystemEntryListRetriever WithSearchOption(
-            SearchOption option)
+            SearchOption option
+        )
         {
             if (!Enum.IsDefined(typeof(SearchOption), option))
                 throw new InvalidEnumArgumentException(
@@ -485,8 +469,10 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if no configuration data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
-            DoGetMatchingFileSystemPaths(string rootFolderPath,
-                Predicate<string> pathFilter = null);
+            DoGetMatchingFileSystemPaths(
+                string rootFolderPath,
+                Predicate<string> pathFilter = null
+            );
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -582,6 +568,30 @@ namespace MFR.FileSystem.Retrievers
             return result;
         }
 
+        protected bool SatisfiesPathFilter(
+            string value,
+            Predicate<string> pathFilter
+        )
+        {
+            var result = true;
+
+            try
+            {
+                if (pathFilter == null) return result;
+
+                result = pathFilter.Invoke(value);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = true;
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Determines whether the path and/or user-state data in the specified
         /// file system <paramref name="entry" /> object matches search and
@@ -640,8 +650,10 @@ namespace MFR.FileSystem.Retrievers
         /// </param>
         /// <returns></returns>
         [Log(AttributeExclude = true)]
-        protected bool ShouldDoPath(string path,
-            Predicate<string> pathFilter = null)
+        protected bool ShouldDoPath(
+            string path,
+            Predicate<string> pathFilter = null
+        )
         {
             bool result;
 

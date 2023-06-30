@@ -1,6 +1,5 @@
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
-using MFR.FileSystem.Factories.Actions;
 using MFR.TextValues.Retrievers.Synchronization.Factories;
 using MFR.TextValues.Retrievers.Synchronization.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -10,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.TextValues.Retrievers.Actions
 {

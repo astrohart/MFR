@@ -45,15 +45,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
 using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
-using Does = MFR.FileSystem.Factories.Actions.Does;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
-using Wait = MFR.FileSystem.Factories.Actions.Wait;
+using Wait = xyLOGIX.Files.Actions.Wait;
 
 namespace MFR.Renamers.Files
 {

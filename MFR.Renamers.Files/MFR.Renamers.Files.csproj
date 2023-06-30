@@ -148,6 +148,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Senders\xyLOGIX.Queues.Messages.Senders.csproj">
       <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
       <Name>xyLOGIX.Queues.Messages.Senders</Name>
@@ -159,10 +163,6 @@
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Detectors.Actions\MFR.Detectors.Actions.csproj">
-      <Project>{F87E7DAC-85FC-4346-B476-134CAFC0CD18}</Project>
-      <Name>MFR.Detectors.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
       <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
