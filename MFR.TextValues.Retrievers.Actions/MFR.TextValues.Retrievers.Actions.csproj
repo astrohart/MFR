@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -146,10 +146,6 @@
     <ProjectReference Include="..\MFR.File.Stream.Providers.Interfaces\MFR.File.Stream.Providers.Interfaces.csproj">
       <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
       <Name>MFR.File.Stream.Providers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
-      <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
-      <Name>MFR.FileSystem.Factories.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Synchronization.Factories\MFR.TextValues.Retrievers.Synchronization.Factories.csproj">
       <Project>{B97F12EA-2F10-4D00-813A-E0014DDA6CB4}</Project>

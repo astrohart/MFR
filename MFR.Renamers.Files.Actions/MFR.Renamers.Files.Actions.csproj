@@ -140,10 +140,6 @@
       <Project>{F87E7DAC-85FC-4346-B476-134CAFC0CD18}</Project>
       <Name>MFR.Detectors.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Factories.Actions\MFR.FileSystem.Factories.Actions.csproj">
-      <Project>{0CACCBC8-35E7-408A-8A12-970D402D695E}</Project>
-      <Name>MFR.FileSystem.Factories.Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Actions.Win32\MFR.Renamers.Files.Actions.Win32.csproj">
       <Project>{72001CA0-CABA-48DB-B21E-EE8A43BE7E1A}</Project>
       <Name>MFR.Renamers.Files.Actions.Win32</Name>
