@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8577.18583" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8581.26354" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -100,9 +100,7 @@
     <ROW Component="MFR.File.Stream.Providers.Interfaces.dll" ComponentId="{FDF4DFCF-DC24-4B52-A3F6-5993B0DA13D5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Interfaces.dll"/>
     <ROW Component="MFR.File.Stream.Providers.dll" ComponentId="{C2A82100-D45A-40B9-89DD-9CF46AF42D47}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.dll"/>
     <ROW Component="MFR.FileSystem.Creators.dll" ComponentId="{E9494259-52D6-4F04-B7C8-452FBDA5DCA3}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Creators.dll"/>
-    <ROW Component="MFR.FileSystem.Enumerators.Actions.dll" ComponentId="{CDBFDD65-D8BF-4A42-A193-88B442073B92}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Enumerators.Actions.dll"/>
     <ROW Component="MFR.FileSystem.Enumerators.dll" ComponentId="{E71984DB-A69A-4AA5-9F4D-C0A7CD870B7F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Enumerators.dll"/>
-    <ROW Component="MFR.FileSystem.Factories.Actions.dll" ComponentId="{881ADC1C-A46C-4ADB-B80F-391E9968DD90}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Factories.Actions.dll"/>
     <ROW Component="MFR.FileSystem.Factories.dll" ComponentId="{BAFBF09C-69D2-4116-8C97-EF194C1BA0C2}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Factories.dll"/>
     <ROW Component="MFR.FileSystem.Helpers.dll" ComponentId="{67725C1C-3910-4197-AC95-8DFD5742D419}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Helpers.dll"/>
     <ROW Component="MFR.FileSystem.Interfaces.dll" ComponentId="{3809ED03-70C3-490B-9AD3-A65796817B8A}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Interfaces.dll"/>
@@ -311,6 +309,7 @@
     <ROW Component="xyLOGIX.FileSystem.Enumerable.Factories.dll" ComponentId="{B3A159AE-1CE4-4893-B6E0-E942194DA4E9}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.Factories.dll"/>
     <ROW Component="xyLOGIX.FileSystem.Enumerable.Interfaces.dll" ComponentId="{38912E39-DC6D-4188-9F7E-F0DA803ED0DF}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.Interfaces.dll"/>
     <ROW Component="xyLOGIX.FileSystem.Enumerable.dll" ComponentId="{12C3FC19-BC8D-4287-9E80-B8153EC4FB27}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.dll"/>
+    <ROW Component="xyLOGIX.Files.Actions.dll" ComponentId="{A8316C55-01CB-4054-8F45-952E88D211D2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.Actions.dll"/>
     <ROW Component="xyLOGIX.Generators.Constants.dll" ComponentId="{1AF8295E-8424-43F9-B5F4-97239B16083F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Constants.dll"/>
     <ROW Component="xyLOGIX.Generators.Interfaces.dll" ComponentId="{DFF23674-E75F-47BB-8B16-8CB3312B81CE}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Generators.dll" ComponentId="{5359EFC3-7500-495F-97D4-67903D8B85CD}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.dll"/>
@@ -509,12 +508,8 @@
     <ROW File="MFR.FileSystem.Creators.dll.config" Component_="config.json" FileName="MFRFIL~5.CON|MFR.FileSystem.Creators.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Creators.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.dll" Component_="MFR.FileSystem.dll" FileName="MFRFIL~6.DLL|MFR.FileSystem.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.dll" SelfReg="false"/>
     <ROW File="MFR.FileSystem.dll.config" Component_="config.json" FileName="MFRFIL~6.CON|MFR.FileSystem.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.dll.config" SelfReg="false"/>
-    <ROW File="MFR.FileSystem.Enumerators.Actions.dll" Component_="MFR.FileSystem.Enumerators.Actions.dll" FileName="MFRFIL~7.DLL|MFR.FileSystem.Enumerators.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Enumerators.Actions.dll" SelfReg="false"/>
-    <ROW File="MFR.FileSystem.Enumerators.Actions.dll.config" Component_="config.json" FileName="MFRFIL~7.CON|MFR.FileSystem.Enumerators.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Enumerators.Actions.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Enumerators.dll" Component_="MFR.FileSystem.Enumerators.dll" FileName="MFRFIL~8.DLL|MFR.FileSystem.Enumerators.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Enumerators.dll" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Enumerators.dll.config" Component_="config.json" FileName="MFRFIL~8.CON|MFR.FileSystem.Enumerators.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Enumerators.dll.config" SelfReg="false"/>
-    <ROW File="MFR.FileSystem.Factories.Actions.dll" Component_="MFR.FileSystem.Factories.Actions.dll" FileName="MFRFIL~9.DLL|MFR.FileSystem.Factories.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Factories.Actions.dll" SelfReg="false"/>
-    <ROW File="MFR.FileSystem.Factories.Actions.dll.config" Component_="config.json" FileName="MFRFIL~9.CON|MFR.FileSystem.Factories.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Factories.Actions.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Factories.dll" Component_="MFR.FileSystem.Factories.dll" FileName="MFRFI~10.DLL|MFR.FileSystem.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Factories.dll" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Factories.dll.config" Component_="config.json" FileName="MFRFI~10.CON|MFR.FileSystem.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Helpers.dll" Component_="MFR.FileSystem.Helpers.dll" FileName="MFRFI~11.DLL|MFR.FileSystem.Helpers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Helpers.dll" SelfReg="false"/>
@@ -1039,6 +1034,8 @@
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLOG~72.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Win32.dll" Component_="MFR.FileSystem.Win32.dll" FileName="MFRFI~19.DLL|MFR.FileSystem.Win32.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Win32.dll" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Win32.dll.config" Component_="config.json" FileName="MFRFI~19.CON|MFR.FileSystem.Win32.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Win32.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.Actions.dll" Component_="xyLOGIX.Files.Actions.dll" FileName="XYLOG~73.DLL|xyLOGIX.Files.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.Actions.dll.config" Component_="config.json" FileName="XYLOG~73.CON|xyLOGIX.Files.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.Actions.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1194,9 +1191,7 @@
     <ROW Feature_="MainFeature" Component_="MFR.File.Stream.Providers.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Creators.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Enumerators.Actions.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Enumerators.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Factories.Actions.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Helpers.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Interfaces.dll"/>
@@ -1463,6 +1458,7 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Win32.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Files.Actions.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>

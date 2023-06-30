@@ -2,7 +2,7 @@ using Alphaleonis.Win32.Filesystem;
 using MFR.Managers.Solutions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
-using Does = MFR.Managers.Solutions.Actions.Does;
+using Does = MFR.Managers.Solutions.Factories.Actions.Does;
 
 namespace MFR.Managers.Solutions.Tests
 {

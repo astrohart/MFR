@@ -141,6 +141,10 @@
       <Project>{880b4b2a-09a8-4f6b-80f1-83393aeba0e4}</Project>
       <Name>MFR.Managers.Solutions.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Managers.Solutions.Factories.Actions\MFR.Managers.Solutions.Factories.Actions.csproj">
+      <Project>{a3d59b0f-5972-4537-a958-2cd1a1220847}</Project>
+      <Name>MFR.Managers.Solutions.Factories.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Managers.Solutions.Factories\MFR.Managers.Solutions.Factories.csproj">
       <Project>{DE593641-0BE4-447B-B779-CF7D1CD9DD60}</Project>
       <Name>MFR.Managers.Solutions.Factories</Name>

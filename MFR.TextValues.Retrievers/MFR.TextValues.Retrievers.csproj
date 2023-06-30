@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -98,10 +98,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2023.0.4\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileAndFolderTextValueRetrieverBase.cs" />
@@ -156,10 +153,6 @@
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Renamers.Files.Actions\MFR.Renamers.Files.Actions.csproj">
-      <Project>{49D0E080-CB0E-4548-981B-7FBF33BA981C}</Project>
-      <Name>MFR.Renamers.Files.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
       <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>

@@ -906,6 +906,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.FileSystem.Win32.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Files.Actions", "..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj", "{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Managers.Solutions.Factories.Actions", "MFR.Managers.Solutions.Factories.Actions\MFR.Managers.Solutions.Factories.Actions.csproj", "{A3D59B0F-5972-4537-A958-2CD1A1220847}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -5595,9 +5597,7 @@ Global
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.ActiveCfg = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x64.ActiveCfg = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x64.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x86.ActiveCfg = DefaultBuild
@@ -8054,6 +8054,22 @@ Global
 		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x64.Build.0 = Release|x64
 		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x86.ActiveCfg = Release|x86
 		{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}.Release|x86.Build.0 = Release|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.All|x64.ActiveCfg = Debug|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.All|x64.Build.0 = Debug|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.All|x86.ActiveCfg = Debug|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.All|x86.Build.0 = Debug|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Debug|x64.ActiveCfg = Debug|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Debug|x64.Build.0 = Debug|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Debug|x86.ActiveCfg = Debug|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Debug|x86.Build.0 = Debug|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.DefaultBuild|x64.Build.0 = Debug|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.DefaultBuild|x86.Build.0 = Debug|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Release|x64.ActiveCfg = Release|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Release|x64.Build.0 = Release|x64
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Release|x86.ActiveCfg = Release|x86
+		{A3D59B0F-5972-4537-A958-2CD1A1220847}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

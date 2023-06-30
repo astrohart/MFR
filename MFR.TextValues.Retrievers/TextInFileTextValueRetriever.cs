@@ -101,8 +101,9 @@ namespace MFR.TextValues.Retrievers
         }
 
         /// <summary>
-        /// Gets a string containing the text to be searched, from the
-        /// file-system <paramref name="entry" /> provided, given the current
+        /// Gets a <see cref="T:System.String" /> containing the text to be
+        /// searched, from the file-system <paramref name="entry" /> provided,
+        /// given the current
         /// <see
         ///     cref="P:MFR.FileAndFolderTextValueRetriever.OperationType" />
         /// .
@@ -114,9 +115,19 @@ namespace MFR.TextValues.Retrievers
         /// interface.
         /// </param>
         /// <returns>
-        /// String containing the value data to be searched for the current
-        /// operation type, or the empty string if the data source has no data.
+        /// A <see cref="T:System.String" /> containing the value data to be searched
+        /// for the current operation type, or the empty string if the data source has
+        /// no data.
         /// </returns>
+        /// <remarks>
+        /// The base-class version of this method does nothing but always return
+        /// the return value of the
+        /// <see cref="M:MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue" />
+        /// method.
+        /// <para />
+        /// Override this method if you want to do something else.  Child classes need not
+        /// call the base-class version of this method.
+        /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.

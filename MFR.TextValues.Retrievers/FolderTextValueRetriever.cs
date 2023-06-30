@@ -36,6 +36,8 @@ namespace MFR.TextValues.Retrievers
         /// that corresponds to the type of operation being performed.
         /// </summary>
         public override OperationType OperationType
-            { get; } = OperationType.RenameSubFolders;
+        {
+            get;
+        } = OperationType.RenameSubFolders;
     }
 }
