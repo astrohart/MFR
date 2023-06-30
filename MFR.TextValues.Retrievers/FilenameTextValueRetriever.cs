@@ -1,6 +1,8 @@
+using MFR.FileSystem.Interfaces;
 using MFR.Operations.Constants;
 using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MFR.TextValues.Retrievers
 {
@@ -43,5 +45,28 @@ namespace MFR.TextValues.Retrievers
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
             { get; } = OperationType.RenameFilesInFolder;
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> containing the text to be
+        /// searched, from the file-system <paramref name="entry"/> provided,
+        /// given the current
+        /// <see
+        /// cref="P:MFR.FileAndFolderTextValueRetriever.OperationType"/> .
+        /// </summary>
+        /// <param name="entry">
+        /// Reference to an instance of an object that implements the <see
+        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/> interface.
+        /// </param>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing the value data to be searched
+        /// for the current operation type, or the empty string if the data source has
+        /// no data.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="entry"/>, is
+        /// passed a <see langword="null"/> value.
+        /// </exception>
+        public override Task<string> GetTextValueAsync(IFileSystemEntry entry)
+            => Task.FromResult(string.Empty);
     }
 }
