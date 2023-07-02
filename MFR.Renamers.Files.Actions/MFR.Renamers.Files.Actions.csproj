@@ -140,9 +140,9 @@
       <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Detectors.Actions\MFR.Detectors.Actions.csproj">
-      <Project>{F87E7DAC-85FC-4346-B476-134CAFC0CD18}</Project>
-      <Name>MFR.Detectors.Actions</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Text.Actions.VS2019\xyLOGIX.Text.Actions\xyLOGIX.Text.Actions.csproj">
+      <Project>{538e597f-bd95-49c9-8147-4b3b614daa89}</Project>
+      <Name>xyLOGIX.Text.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Actions.Win32\MFR.Renamers.Files.Actions.Win32.csproj">
       <Project>{72001CA0-CABA-48DB-B21E-EE8A43BE7E1A}</Project>

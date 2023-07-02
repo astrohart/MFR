@@ -1,8 +1,8 @@
-﻿using MFR.Detectors.Actions;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using Is = xyLOGIX.Text.Actions.Is;
 
 namespace MFR.Renamers.Files.Actions
 {
@@ -41,9 +41,7 @@ namespace MFR.Renamers.Files.Actions
                 if (string.IsNullOrWhiteSpace(textToBeSearched))
                     return result;
 
-                result = textToBeSearched.Any(
-                    c => Determine.WhetherCharacterIsControlCharacter(c)
-                );
+                result = textToBeSearched.Any(c => Is.ControlCharacter(c));
             }
             catch (Exception ex)
             {
