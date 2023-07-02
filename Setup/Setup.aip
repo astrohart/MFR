@@ -179,10 +179,6 @@
     <ROW Component="MFR.Managers.History.Factories.dll" ComponentId="{5DCA0CF9-5BAE-47F0-BD89-83AB001065BD}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.History.Factories.dll"/>
     <ROW Component="MFR.Managers.History.Interfaces.dll" ComponentId="{F296E535-C23B-42C8-9A27-2687C0CFC169}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.History.Interfaces.dll"/>
     <ROW Component="MFR.Managers.History.dll" ComponentId="{56038E9D-22E7-474D-93EF-2EA5A7BEEE6F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Managers.History.dll"/>
-    <ROW Component="MFR.Services.Solutions.Actions.dll" ComponentId="{E411DF9A-25D1-47A0-9704-497DD504CA13}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Actions.dll"/>
-    <ROW Component="MFR.Services.Solutions.Factories.dll" ComponentId="{CFB0E828-E095-41B8-AF9D-BD8B0086918B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Factories.dll"/>
-    <ROW Component="MFR.Services.Solutions.Interfaces.dll" ComponentId="{D007A971-458D-4E00-B101-562C4543BB76}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Interfaces.dll"/>
-    <ROW Component="MFR.Services.Solutions.dll" ComponentId="{0B68BF55-299F-4FB9-976D-1255A2C2E583}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.dll"/>
     <ROW Component="MFR.Matchers.Factories.Interfaces.dll" ComponentId="{18F80730-503B-4A75-96EC-888DEA336433}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Matchers.Factories.Interfaces.dll"/>
     <ROW Component="MFR.Matchers.Factories.dll" ComponentId="{112F5879-C0FC-43C5-83DF-CDBDD0B569E2}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Matchers.Factories.dll"/>
     <ROW Component="MFR.Matchers.Interfaces.dll" ComponentId="{4F7522F4-794F-4EBF-BD7D-7624B1D3473E}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Matchers.Interfaces.dll"/>
@@ -238,6 +234,10 @@
     <ROW Component="MFR.Replacers.Factories.dll" ComponentId="{7F52678D-74F5-4B00-8521-57CF00D08451}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Replacers.Factories.dll"/>
     <ROW Component="MFR.Replacers.Interfaces.dll" ComponentId="{64C78208-8B58-49CB-8358-F4261E7546C3}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Replacers.Interfaces.dll"/>
     <ROW Component="MFR.Replacers.dll" ComponentId="{7ACF9820-E4DE-44B9-9068-30525ADF5FAA}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Replacers.dll"/>
+    <ROW Component="MFR.Services.Solutions.Actions.dll" ComponentId="{E411DF9A-25D1-47A0-9704-497DD504CA13}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Actions.dll"/>
+    <ROW Component="MFR.Services.Solutions.Factories.dll" ComponentId="{CFB0E828-E095-41B8-AF9D-BD8B0086918B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Factories.dll"/>
+    <ROW Component="MFR.Services.Solutions.Interfaces.dll" ComponentId="{D007A971-458D-4E00-B101-562C4543BB76}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.Interfaces.dll"/>
+    <ROW Component="MFR.Services.Solutions.dll" ComponentId="{0B68BF55-299F-4FB9-976D-1255A2C2E583}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Services.Solutions.dll"/>
     <ROW Component="MFR.Settings.Configuration.Actions.Constants.dll" ComponentId="{174B4774-CFDE-48F3-8930-F470005C52B4}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Settings.Configuration.Actions.Constants.dll"/>
     <ROW Component="MFR.Settings.Configuration.Actions.Factories.dll" ComponentId="{BC7A0FE4-D973-4855-873E-BDEF9360F18F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Settings.Configuration.Actions.Factories.dll"/>
     <ROW Component="MFR.Settings.Configuration.Actions.dll" ComponentId="{B79DCA9E-2555-4199-9452-17A92144355A}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Settings.Configuration.Actions.dll"/>

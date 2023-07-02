@@ -104,7 +104,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Determine.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,10 +143,6 @@
     <ProjectReference Include="..\MFR.Detectors.Constants\MFR.Detectors.Constants.csproj">
       <Project>{08C20B36-A98E-49E0-BBC0-56C8DE2511A7}</Project>
       <Name>MFR.Detectors.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Detectors.Interfaces\MFR.Detectors.Interfaces.csproj">
-      <Project>{A2898340-15E4-4602-9F9D-3207BC017291}</Project>
-      <Name>MFR.Detectors.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
       <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
