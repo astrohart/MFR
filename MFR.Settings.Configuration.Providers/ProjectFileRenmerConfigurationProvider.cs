@@ -11,6 +11,7 @@ using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
+using Determine = MFR.Settings.Configuration.Providers.Actions.Determine;
 
 namespace MFR.Settings.Configuration.Providers
 {
