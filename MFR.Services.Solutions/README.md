@@ -3,21 +3,21 @@
 
 ## Contents
 
-- [Resources](#T-MFR-Managers-Solutions-Properties-Resources 'MFR.Services.Solutions.Properties.Resources')
-  - [Culture](#P-MFR-Managers-Solutions-Properties-Resources-Culture 'MFR.Services.Solutions.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-Managers-Solutions-Properties-Resources-ResourceManager 'MFR.Services.Solutions.Properties.Resources.ResourceManager')
-- [VisualStudioSolutionService](#T-MFR-Managers-Solutions-VisualStudioSolutionService 'MFR.Services.Solutions.VisualStudioSolutionService')
-  - [#ctor()](#M-MFR-Managers-Solutions-VisualStudioSolutionService-#ctor 'MFR.Services.Solutions.VisualStudioSolutionService.#ctor')
-  - [FolderToSearch](#P-MFR-Managers-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Services.Solutions.VisualStudioSolutionService.FolderToSearch')
-  - [Instance](#P-MFR-Managers-Solutions-VisualStudioSolutionService-Instance 'MFR.Services.Solutions.VisualStudioSolutionService.Instance')
-  - [#cctor()](#M-MFR-Managers-Solutions-VisualStudioSolutionService-#cctor 'MFR.Services.Solutions.VisualStudioSolutionService.#cctor')
-  - [ContainLoadedSolutions()](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainLoadedSolutions')
-  - [ContainsLoadedSolutions(folder)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
-  - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Services.Solutions.VisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
-  - [LoadAll(solutions)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Services.Solutions.VisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
-  - [UnloadAll(solutions)](#M-MFR-Managers-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Services.Solutions.VisualStudioSolutionService.UnloadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
+- [Resources](#T-MFR-Services-Solutions-Properties-Resources 'MFR.Services.Solutions.Properties.Resources')
+  - [Culture](#P-MFR-Services-Solutions-Properties-Resources-Culture 'MFR.Services.Solutions.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-Services-Solutions-Properties-Resources-ResourceManager 'MFR.Services.Solutions.Properties.Resources.ResourceManager')
+- [VisualStudioSolutionService](#T-MFR-Services-Solutions-VisualStudioSolutionService 'MFR.Services.Solutions.VisualStudioSolutionService')
+  - [#ctor()](#M-MFR-Services-Solutions-VisualStudioSolutionService-#ctor 'MFR.Services.Solutions.VisualStudioSolutionService.#ctor')
+  - [FolderToSearch](#P-MFR-Services-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Services.Solutions.VisualStudioSolutionService.FolderToSearch')
+  - [Instance](#P-MFR-Services-Solutions-VisualStudioSolutionService-Instance 'MFR.Services.Solutions.VisualStudioSolutionService.Instance')
+  - [#cctor()](#M-MFR-Services-Solutions-VisualStudioSolutionService-#cctor 'MFR.Services.Solutions.VisualStudioSolutionService.#cctor')
+  - [ContainLoadedSolutions()](#M-MFR-Services-Solutions-VisualStudioSolutionService-ContainLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainLoadedSolutions')
+  - [ContainsLoadedSolutions(folder)](#M-MFR-Services-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
+  - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Services-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Services.Solutions.VisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
+  - [LoadAll(solutions)](#M-MFR-Services-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Services.Solutions.VisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
+  - [UnloadAll(solutions)](#M-MFR-Services-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Services.Solutions.VisualStudioSolutionService.UnloadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
 
-<a name='T-MFR-Managers-Solutions-Properties-Resources'></a>
+<a name='T-MFR-Services-Solutions-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -28,7 +28,7 @@ MFR.Services.Solutions.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-Managers-Solutions-Properties-Resources-Culture'></a>
+<a name='P-MFR-Services-Solutions-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -36,14 +36,14 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-Managers-Solutions-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-Services-Solutions-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
 
-<a name='T-MFR-Managers-Solutions-VisualStudioSolutionService'></a>
+<a name='T-MFR-Services-Solutions-VisualStudioSolutionService'></a>
 ## VisualStudioSolutionService `type`
 
 ##### Namespace
@@ -55,7 +55,7 @@ MFR.Services.Solutions
 Manages running instances of Visual Studio that have solutions in
 specified folder(s) loaded.
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-#ctor'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -66,7 +66,7 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='P-MFR-Managers-Solutions-VisualStudioSolutionService-FolderToSearch'></a>
+<a name='P-MFR-Services-Solutions-VisualStudioSolutionService-FolderToSearch'></a>
 ### FolderToSearch `property`
 
 ##### Summary
@@ -74,15 +74,15 @@ This constructor has no parameters.
 Gets or sets the fully-qualified pathname of the folder that is to be searched
 for `.sln` files.
 
-<a name='P-MFR-Managers-Solutions-VisualStudioSolutionService-Instance'></a>
+<a name='P-MFR-Services-Solutions-VisualStudioSolutionService-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
 Gets a reference to the one and only instance of
-[VisualStudioSolutionService](#T-MFR-Managers-Solutions-VisualStudioSolutionService 'MFR.Services.Solutions.VisualStudioSolutionService').
+[VisualStudioSolutionService](#T-MFR-Services-Solutions-VisualStudioSolutionService 'MFR.Services.Solutions.VisualStudioSolutionService').
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-#cctor'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -93,13 +93,13 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainLoadedSolutions'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-ContainLoadedSolutions'></a>
 ### ContainLoadedSolutions() `method`
 
 ##### Summary
 
 Alias for the
-[ContainsLoadedSolutions](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions')
+[ContainsLoadedSolutions](#M-MFR-Services-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions')
 method.
 
 
@@ -109,14 +109,14 @@ This serves to make this class more fluent.
 ##### Returns
 
 This method returns the same value as the
-[ContainsLoadedSolutions](#M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions')
+[ContainsLoadedSolutions](#M-MFR-Services-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions')
 method does when a blank value is passed for its input.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String-'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String-'></a>
 ### ContainsLoadedSolutions(folder) `method`
 
 ##### Summary
@@ -143,10 +143,10 @@ folder that should be scanned for `*.sln` files.
 
 If this parameter is passed a blank value, then the method tries to utilize the
 value of the
-[FolderToSearch](#P-MFR-Managers-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Services.Solutions.VisualStudioSolutionService.FolderToSearch')
+[FolderToSearch](#P-MFR-Services-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Services.Solutions.VisualStudioSolutionService.FolderToSearch')
 property. |
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String-'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String-'></a>
 ### GetLoadedSolutionsInFolder(folder) `method`
 
 ##### Summary
@@ -185,7 +185,7 @@ passed a blank or `null` string for a value. |
 | [DirectoryNotFoundException](#T-DirectoryNotFoundException 'DirectoryNotFoundException') | Thrown if the directory whose fully-qualified path is passed in the
 `folder` parameter cannot be found on the disk. |
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
 ### LoadAll(solutions) `method`
 
 ##### Summary
@@ -203,7 +203,7 @@ objects that implement the
 [IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
 interface that represent the solution(s) to be loaded. |
 
-<a name='M-MFR-Managers-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
 ### UnloadAll(solutions) `method`
 
 ##### Summary

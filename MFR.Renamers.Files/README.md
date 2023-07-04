@@ -325,7 +325,7 @@ Synchronization root object for creating critical sections.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IVisualStudioSolutionService](#T-MFR-Managers-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Services.Solutions.Interfaces.IVisualStudioSolutionService')
+[IVisualStudioSolutionService](#T-MFR-Services-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Services.Solutions.Interfaces.IVisualStudioSolutionService')
 interface.
 
 ##### Remarks

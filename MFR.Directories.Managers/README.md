@@ -77,7 +77,8 @@ interface.
 
 ##### Summary
 
-Gets a collection of fully-qualified pathnames of folders found by this object, that
+Gets a collection of fully-qualified pathnames of folders found by this object,
+that
 should be searched for projects, files, and folders whose names should be
 changed.
 

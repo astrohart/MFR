@@ -5,7 +5,6 @@
 
 - [FileAndFolderTextValueRetrieverBase](#T-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.FileAndFolderTextValueRetrieverBase.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FilenameTextValueRetriever](#T-MFR-TextValues-Retrievers-FilenameTextValueRetriever 'MFR.TextValues.Retrievers.FilenameTextValueRetriever')
   - [#ctor()](#M-MFR-TextValues-Retrievers-FilenameTextValueRetriever-#ctor 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.#ctor')
   - [Instance](#P-MFR-TextValues-Retrievers-FilenameTextValueRetriever-Instance 'MFR.TextValues.Retrievers.FilenameTextValueRetriever.Instance')
@@ -51,35 +50,6 @@ folders.
 
 <a name='M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### GetTextValue(entry) `method`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
-searched, from the file-system `entry` provided,
-given the current
-[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
-
-##### Returns
-
-A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
-for the current operation type, or the empty string if the data source has
-no data.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
-passed a `null` value. |
-
-<a name='M-MFR-TextValues-Retrievers-FileAndFolderTextValueRetrieverBase-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
-### GetTextValueAsync(entry) `method`
 
 ##### Summary
 
@@ -378,15 +348,17 @@ passed a `null` value. |
 
 ##### Summary
 
-Gets a string containing the text to be searched, from the
-file-system `entry` provided, given the current
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
+searched, from the file-system `entry` provided,
+given the current
 [OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
 .
 
 ##### Returns
 
-String containing the value data to be searched for the current
-operation type, or the empty string if the data source has no data.
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
+for the current operation type, or the empty string if the data source has
+no data.
 
 ##### Parameters
 
@@ -403,6 +375,18 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
 
+##### Remarks
+
+The base-class version of this method does nothing but always return
+the return value of the
+[GetTextValue](#M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue')
+method.
+
+
+
+Override this method if you want to do something else.  Child classes need not
+call the base-class version of this method.
+
 <a name='T-MFR-TextValues-Retrievers-TextValueRetrieverBase'></a>
 ## TextValueRetrieverBase `type`
 
@@ -412,8 +396,12 @@ MFR.TextValues.Retrievers
 
 ##### Summary
 
-Defines the events, methods, properties, and behaviors for all `Text
-            Value Retriever` objects.
+Defines the events, methods, properties, and behaviors for all
+`
+            Text
+            Value Retriever
+            `
+objects.
 
 <a name='P-MFR-TextValues-Retrievers-TextValueRetrieverBase-FileSystemEntryValidatorSays'></a>
 ### FileSystemEntryValidatorSays `property`
@@ -446,7 +434,8 @@ that corresponds to the type of operation being performed.
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
 searched, from the file-system `entry` provided,
 given the current
-[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
+.
 
 ##### Returns
 
@@ -458,7 +447,9 @@ no data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface. |
 
 ##### Exceptions
 
@@ -475,7 +466,8 @@ passed a `null` value. |
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
 searched, from the file-system `entry` provided,
 given the current
-[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType') .
+[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
+.
 
 ##### Returns
 
@@ -487,7 +479,9 @@ no data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
+interface. |
 
 ##### Exceptions
 
@@ -495,3 +489,15 @@ no data.
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
+
+##### Remarks
+
+The base-class version of this method does nothing but always return
+the return value of the
+[GetTextValue](#M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue')
+method.
+
+
+
+Override this method if you want to do something else.  Child classes need not
+call the base-class version of this method.
