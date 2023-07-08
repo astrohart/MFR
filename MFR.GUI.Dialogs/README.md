@@ -35,7 +35,6 @@
   - [OnFileRenamerOperationFinished(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationFinished-System-Object,MFR-Operations-Events-OperationFinishedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationFinished(System.Object,MFR.Operations.Events.OperationFinishedEventArgs)')
   - [OnFileRenamerOperationStarted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerOperationStarted-System-Object,MFR-Operations-Events-OperationStartedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerOperationStarted(System.Object,MFR.Operations.Events.OperationStartedEventArgs)')
   - [OnFileRenamerProcessingOperation(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerProcessingOperation-System-Object,MFR-Operations-Events-ProcessingOperationEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerProcessingOperation(System.Object,MFR.Operations.Events.ProcessingOperationEventArgs)')
-  - [OnFileRenamerSolutionFoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSolutionFoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerSolutionFoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnFileRenamerStatusUpdate(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerStatusUpdate(System.Object,MFR.Events.Common.StatusUpdateEventArgs)')
   - [OnFileRenamerSubfoldersToBeRenamedCounted(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSubfoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnFileRenamerSubfoldersToBeRenamedCounted(System.Object,MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [OnProcessingWorkerDoWork(sender,e)](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnProcessingWorkerDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.OnProcessingWorkerDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
@@ -65,12 +64,6 @@
   - [OnShown(e)](#M-MFR-GUI-Dialogs-CancellableProgressDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.CancellableProgressDialog.OnShown(System.EventArgs)')
   - [RedrawDisplay()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-RedrawDisplay 'MFR.GUI.Dialogs.CancellableProgressDialog.RedrawDisplay')
   - [Reset()](#M-MFR-GUI-Dialogs-CancellableProgressDialog-Reset 'MFR.GUI.Dialogs.CancellableProgressDialog.Reset')
-- [CustomizeOperationsDialog](#T-MFR-GUI-Dialogs-CustomizeOperationsDialog 'MFR.GUI.Dialogs.CustomizeOperationsDialog')
-  - [#ctor()](#M-MFR-GUI-Dialogs-CustomizeOperationsDialog-#ctor 'MFR.GUI.Dialogs.CustomizeOperationsDialog.#ctor')
-  - [components](#F-MFR-GUI-Dialogs-CustomizeOperationsDialog-components 'MFR.GUI.Dialogs.CustomizeOperationsDialog.components')
-  - [OperationListBuilder](#P-MFR-GUI-Dialogs-CustomizeOperationsDialog-OperationListBuilder 'MFR.GUI.Dialogs.CustomizeOperationsDialog.OperationListBuilder')
-  - [Dispose(disposing)](#M-MFR-GUI-Dialogs-CustomizeOperationsDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.CustomizeOperationsDialog.Dispose(System.Boolean)')
-  - [InitializeComponent()](#M-MFR-GUI-Dialogs-CustomizeOperationsDialog-InitializeComponent 'MFR.GUI.Dialogs.CustomizeOperationsDialog.InitializeComponent')
 - [ErrorReportDialog](#T-MFR-GUI-Dialogs-ErrorReportDialog 'MFR.GUI.Dialogs.ErrorReportDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-ErrorReportDialog-#ctor 'MFR.GUI.Dialogs.ErrorReportDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-ErrorReportDialog-components 'MFR.GUI.Dialogs.ErrorReportDialog.components')
@@ -122,29 +115,27 @@
   - [RedrawDisplay()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-RedrawDisplay 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.RedrawDisplay')
   - [Reset()](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-Reset 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.Reset')
   - [UpdateCaption(caption)](#M-MFR-GUI-Dialogs-OperationDrivenProgressDialog-UpdateCaption-System-String- 'MFR.GUI.Dialogs.OperationDrivenProgressDialog.UpdateCaption(System.String)')
-- [OptionsDialogBox](#T-MFR-GUI-Dialogs-OptionsDialogBox 'MFR.GUI.Dialogs.OptionsDialogBox')
-  - [#ctor()](#M-MFR-GUI-Dialogs-OptionsDialogBox-#ctor 'MFR.GUI.Dialogs.OptionsDialogBox.#ctor')
-  - [components](#F-MFR-GUI-Dialogs-OptionsDialogBox-components 'MFR.GUI.Dialogs.OptionsDialogBox.components')
-  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-OptionsDialogBox-AutoQuitOnCompletion 'MFR.GUI.Dialogs.OptionsDialogBox.AutoQuitOnCompletion')
-  - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialogBox-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialogBox.ConfigPathname')
-  - [ConfigProvider](#P-MFR-GUI-Dialogs-OptionsDialogBox-ConfigProvider 'MFR.GUI.Dialogs.OptionsDialogBox.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialogBox-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialogBox.CurrentConfiguration')
-  - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialogBox-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.OptionsDialogBox.DontPromptUserToReloadOpenSolution')
-  - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialogBox-IsModified 'MFR.GUI.Dialogs.OptionsDialogBox.IsModified')
-  - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialogBox-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialogBox.ReOpenSolution')
-  - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialogBox-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialogBox.Dispose(System.Boolean)')
-  - [InitializeComponent()](#M-MFR-GUI-Dialogs-OptionsDialogBox-InitializeComponent 'MFR.GUI.Dialogs.OptionsDialogBox.InitializeComponent')
-  - [OnAnyCheckBoxCheckedChanged(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnAnyCheckBoxCheckedChanged-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnAnyCheckBoxCheckedChanged(System.Object,System.EventArgs)')
-  - [OnClickApply(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickApply-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnClickApply(System.Object,System.EventArgs)')
-  - [OnClickConfigPathnameBrowseButton(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnClickConfigPathnameBrowseButton(System.Object,System.EventArgs)')
-  - [OnFormClosing(e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
-  - [OnLoad(e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnLoad(System.EventArgs)')
-  - [OnModified(e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnModified(MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
-  - [OnShown(e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnShown(System.EventArgs)')
-  - [OnTextChangedConfiguraitonFilePathname(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnTextChangedConfiguraitonFilePathname(System.Object,System.EventArgs)')
-  - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialogBox-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialogBox.OnUpdateCmdUI(System.Object,System.EventArgs)')
-  - [SetModifiedFlag(dirty)](#M-MFR-GUI-Dialogs-OptionsDialogBox-SetModifiedFlag-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialogBox.SetModifiedFlag(System.Boolean)')
-  - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Dialogs-OptionsDialogBox-UpdateData-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialogBox.UpdateData(System.Boolean)')
+- [OptionsDialog](#T-MFR-GUI-Dialogs-OptionsDialog 'MFR.GUI.Dialogs.OptionsDialog')
+  - [#ctor()](#M-MFR-GUI-Dialogs-OptionsDialog-#ctor 'MFR.GUI.Dialogs.OptionsDialog.#ctor')
+  - [components](#F-MFR-GUI-Dialogs-OptionsDialog-components 'MFR.GUI.Dialogs.OptionsDialog.components')
+  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.OptionsDialog.AutoQuitOnCompletion')
+  - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialog.ConfigPathname')
+  - [ConfigurationProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigurationProvider')
+  - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
+  - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialog-IsModified 'MFR.GUI.Dialogs.OptionsDialog.IsModified')
+  - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
+  - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.Dispose(System.Boolean)')
+  - [InitializeComponent()](#M-MFR-GUI-Dialogs-OptionsDialog-InitializeComponent 'MFR.GUI.Dialogs.OptionsDialog.InitializeComponent')
+  - [OnClickApply(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickApply-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickApply(System.Object,System.EventArgs)')
+  - [OnClickConfigPathnameBrowseButton(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickConfigPathnameBrowseButton(System.Object,System.EventArgs)')
+  - [OnFormClosing(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
+  - [OnLoad(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnLoad(System.EventArgs)')
+  - [OnModified(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnModified(MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
+  - [OnShown(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnShown(System.EventArgs)')
+  - [OnTextChangedConfiguraitonFilePathname(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnTextChangedConfiguraitonFilePathname(System.Object,System.EventArgs)')
+  - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnUpdateCmdUI(System.Object,System.EventArgs)')
+  - [SetModifiedFlag(dirty)](#M-MFR-GUI-Dialogs-OptionsDialog-SetModifiedFlag-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.SetModifiedFlag(System.Boolean)')
+  - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Dialogs-OptionsDialog-UpdateData-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.UpdateData(System.Boolean)')
 - [ProfileManagementDialogBox](#T-MFR-GUI-Dialogs-ProfileManagementDialogBox 'MFR.GUI.Dialogs.ProfileManagementDialogBox')
   - [#ctor()](#M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor 'MFR.GUI.Dialogs.ProfileManagementDialogBox.#ctor')
   - [components](#F-MFR-GUI-Dialogs-ProfileManagementDialogBox-components 'MFR.GUI.Dialogs.ProfileManagementDialogBox.components')
@@ -165,7 +156,7 @@
 - [Resources](#T-MFR-GUI-Dialogs-Properties-Resources 'MFR.GUI.Dialogs.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Properties-Resources-Culture 'MFR.GUI.Dialogs.Properties.Resources.Culture')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-GUI-Dialogs-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.GUI.Dialogs.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
-  - [FolderSelectDialogFilters](#P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFilters 'MFR.GUI.Dialogs.Properties.Resources.FolderSelectDialogFilters')
+  - [FolderSelectDialogFIlters](#P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFIlters 'MFR.GUI.Dialogs.Properties.Resources.FolderSelectDialogFIlters')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-GUI-Dialogs-AboutDialog'></a>
@@ -634,31 +625,6 @@ progress bar to the next notch, and updating the text of the lower
 status label in the progress dialog to contain the path to the file
 currently being worked on.
 
-<a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerSolutionFoldersToBeRenamedCounted-System-Object,MFR-Events-FilesOrFoldersCountedEventArgs-'></a>
-### OnFileRenamerSolutionFoldersToBeRenamedCounted(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-Renamers-Files-Interfaces-IFileRenamer-SubfoldersToBeRenamedCounted 'MFR.Renamers.Files.Interfaces.IFileRenamer.SubfoldersToBeRenamedCounted')
-event raised by the File Renamer object.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [MFR.Events.FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') | A [FilesOrFoldersCountedEventArgs](#T-MFR-Events-FilesOrFoldersCountedEventArgs 'MFR.Events.FilesOrFoldersCountedEventArgs') that
-contains the event data. |
-
-##### Remarks
-
-This method responds by resetting the progress dialog's progress bar
-back to zero, and then updating the value of its
-[Maximum](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ProgressBar.Maximum 'System.Windows.Forms.ProgressBar.Maximum')
-property to have
-the same value as the count of file system entries.
-
 <a name='M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-OnFileRenamerStatusUpdate-System-Object,MFR-Events-Common-StatusUpdateEventArgs-'></a>
 ### OnFileRenamerStatusUpdate(sender,e) `method`
 
@@ -1082,77 +1048,6 @@ This method has no parameters.
 ##### Summary
 
 Clears the status text and progress bar.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='T-MFR-GUI-Dialogs-CustomizeOperationsDialog'></a>
-## CustomizeOperationsDialog `type`
-
-##### Namespace
-
-MFR.GUI.Dialogs
-
-##### Summary
-
-Dialog box that is displayed when the user clicks the button
-in the tab of the main window.
-
-##### Remarks
-
-This dialog box allows the user to customize the list of primary operations tha
-this application performs, to make some operations available and others not.
-
-<a name='M-MFR-GUI-Dialogs-CustomizeOperationsDialog-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[CustomizeOperationsDialog](#T-MFR-GUI-Dialogs-CustomizeOperationsDialog 'MFR.GUI.Dialogs.CustomizeOperationsDialog') and returns a
-reference to it.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='F-MFR-GUI-Dialogs-CustomizeOperationsDialog-components'></a>
-### components `constants`
-
-##### Summary
-
-Required designer variable.
-
-<a name='P-MFR-GUI-Dialogs-CustomizeOperationsDialog-OperationListBuilder'></a>
-### OperationListBuilder `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IDarkListBuilderControl](#T-xyLOGIX-UI-Dark-Controls-Interfaces-IDarkListBuilderControl 'xyLOGIX.UI.Dark.Controls.Interfaces.IDarkListBuilderControl')
-interface.
-
-<a name='M-MFR-GUI-Dialogs-CustomizeOperationsDialog-Dispose-System-Boolean-'></a>
-### Dispose(disposing) `method`
-
-##### Summary
-
-Clean up any resources being used.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
-
-<a name='M-MFR-GUI-Dialogs-CustomizeOperationsDialog-InitializeComponent'></a>
-### InitializeComponent() `method`
-
-##### Summary
-
-Required method for Designer support - do not modify
-the contents of this method with the code editor.
 
 ##### Parameters
 
@@ -1823,8 +1718,8 @@ If the blank string is passed for the `caption`
 parameter, then this method sets the window caption to match the value of the
 [ProductName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Application.ProductName 'System.Windows.Forms.Application.ProductName') property.
 
-<a name='T-MFR-GUI-Dialogs-OptionsDialogBox'></a>
-## OptionsDialogBox `type`
+<a name='T-MFR-GUI-Dialogs-OptionsDialog'></a>
+## OptionsDialog `type`
 
 ##### Namespace
 
@@ -1835,27 +1730,27 @@ MFR.GUI.Dialogs
 Provides options to the user that allow the user to modify the
 application's behavior.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-#ctor'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[OptionsDialogBox](#T-MFR-GUI-Dialogs-OptionsDialogBox 'MFR.GUI.Dialogs.OptionsDialogBox')
+[OptionsDialog](#T-MFR-GUI-Dialogs-OptionsDialog 'MFR.GUI.Dialogs.OptionsDialog')
 and returns a reference to it.
 
 ##### Parameters
 
 This constructor has no parameters.
 
-<a name='F-MFR-GUI-Dialogs-OptionsDialogBox-components'></a>
+<a name='F-MFR-GUI-Dialogs-OptionsDialog-components'></a>
 ### components `constants`
 
 ##### Summary
 
 Required designer variable.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-AutoQuitOnCompletion'></a>
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion'></a>
 ### AutoQuitOnCompletion `property`
 
 ##### Summary
@@ -1863,15 +1758,15 @@ Required designer variable.
 Gets or sets the value of the
 checkbox.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-ConfigPathname'></a>
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`
 
 ##### Summary
 
 Gets or sets the text of the configuration File Pathname text box.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-ConfigProvider'></a>
-### ConfigProvider `property`
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
 
 ##### Summary
 
@@ -1881,11 +1776,11 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-CurrentConfiguration'></a>
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration'></a>
 ### CurrentConfiguration `property`
 
 ##### Summary
@@ -1894,16 +1789,7 @@ Gets a reference to an instance of an object that implements the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-DontPromptUserToReloadOpenSolution'></a>
-### DontPromptUserToReloadOpenSolution `property`
-
-##### Summary
-
-Gets or sets the value of the
-
-checkbox
-
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-IsModified'></a>
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-IsModified'></a>
 ### IsModified `property`
 
 ##### Summary
@@ -1911,14 +1797,14 @@ checkbox
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialogBox-ReOpenSolution'></a>
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution'></a>
 ### ReOpenSolution `property`
 
 ##### Summary
 
 Gets or sets the value of the Reopen Visual Studio Solution checkbox
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-Dispose-System-Boolean-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-Dispose-System-Boolean-'></a>
 ### Dispose(disposing) `method`
 
 ##### Summary
@@ -1931,7 +1817,7 @@ Clean up any resources being used.
 | ---- | ---- | ----------- |
 | disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if managed resources should be disposed; otherwise, false. |
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-InitializeComponent'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-InitializeComponent'></a>
 ### InitializeComponent() `method`
 
 ##### Summary
@@ -1943,39 +1829,7 @@ the contents of this method with the code editor.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnAnyCheckBoxCheckedChanged-System-Object,System-EventArgs-'></a>
-### OnAnyCheckBoxCheckedChanged(sender,e) `method`
-
-##### Summary
-
-This method handles the
-[](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event for all of
-the check boxes on the tabs of this property sheet.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | (Required.) Reference to the object that raised this
-event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains
-the event data. |
-
-##### Remarks
-
-This method responds by calling the
-[SetModifiedFlag](#M-MFR-GUI-Dialogs-OptionsDialogBox-SetModifiedFlag 'MFR.GUI.Dialogs.OptionsDialogBox.SetModifiedFlag') method to
-mark this property sheet as dirty, so that the button becomes
-available.
-
-
-
-When developers add a new checkbox to any of the tabs of this
-property sheet, they should bind this handler to the
-[](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event of that
-checkbox.
-
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickApply-System-Object,System-EventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnClickApply-System-Object,System-EventArgs-'></a>
 ### OnClickApply(sender,e) `method`
 
 ##### Summary
@@ -1993,11 +1847,11 @@ Handles the [](#E-System-Windows-Forms-Control-Click 'System.Windows.Forms.Contr
 
 This method is called in response to the user clicking the Apply
 button. We merely raise the
-[](#E-MFR-GUI-OptionsDialogBox-Modified 'MFR.GUI.OptionsDialogBox.Modified')
+[](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified')
 event in order to prompt
 the client of this dialog box to update data.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs-'></a>
 ### OnClickConfigPathnameBrowseButton(sender,e) `method`
 
 ##### Summary
@@ -2016,9 +1870,9 @@ for the Browse button on the configuration File Pathname text box..
 
 This method responds to a click of the '...' button that lies next
 to the text box that accepts the pathname of the application's
-configuration file.
+projectFileRenamerConfiguration file.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
 ### OnFormClosing(e) `method`
 
 ##### Summary
@@ -2033,7 +1887,7 @@ event.
 | e | [System.Windows.Forms.FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') | A [FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs')
 that contains the event data. |
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnLoad-System-EventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnLoad-System-EventArgs-'></a>
 ### OnLoad(e) `method`
 
 ##### Summary
@@ -2047,12 +1901,12 @@ Raises the [](#E-System-Windows-Forms-Form-Load 'System.Windows.Forms.Form.Load'
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
 data. |
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs-'></a>
 ### OnModified(e) `method`
 
 ##### Summary
 
-Raises the [](#E-MFR-GUI-OptionsDialogBox-Modified 'MFR.GUI.OptionsDialogBox.Modified') event.
+Raises the [](#E-MFR-GUI-OptionsDialog-Modified 'MFR.GUI.OptionsDialog.Modified') event.
 
 ##### Parameters
 
@@ -2065,10 +1919,10 @@ event data. |
 
 If the [Handled](#P-MFR-ModifiedEventArgs-Handled 'MFR.ModifiedEventArgs.Handled')
 property is set `true` by the event's handler, then
-the [IsModified](#P-MFR-GUI-OptionsDialogBox-IsModified 'MFR.GUI.OptionsDialogBox.IsModified') will be set to
+the [IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified') will be set to
 `false`.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnShown-System-EventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnShown-System-EventArgs-'></a>
 ### OnShown(e) `method`
 
 ##### Summary
@@ -2081,7 +1935,7 @@ Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Show
 | ---- | ---- | ----------- |
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs-'></a>
 ### OnTextChangedConfiguraitonFilePathname(sender,e) `method`
 
 ##### Summary
@@ -2100,14 +1954,14 @@ Handles the [](#E-System-Windows-Forms-Control-TextChanged 'System.Windows.Forms
 This method is called to respond to the value of the text inside the
 CurrentConfiguration File Pathname text box being changed. This method
 responds to such a happenstance by updating the value of the
-[IsModified](#P-MFR-GUI-OptionsDialogBox-IsModified 'MFR.GUI.OptionsDialogBox.IsModified')
+[IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified')
 property to be
 `true`
 by calling the
-[SetModifiedFlag](#M-MFR-GUI-OptionsDialogBox-SetModifiedFlag 'MFR.GUI.OptionsDialogBox.SetModifiedFlag')
+[SetModifiedFlag](#M-MFR-GUI-OptionsDialog-SetModifiedFlag 'MFR.GUI.OptionsDialog.SetModifiedFlag')
 method.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-OnUpdateCmdUI-System-Object,System-EventArgs-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnUpdateCmdUI-System-Object,System-EventArgs-'></a>
 ### OnUpdateCmdUI(sender,e) `method`
 
 ##### Summary
@@ -2125,7 +1979,7 @@ Handles the [](#E-System-Windows-Forms-Application-Idle 'System.Windows.Forms.Ap
 
 This method is called to update the enabled or disabled state of controls.
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-SetModifiedFlag-System-Boolean-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-SetModifiedFlag-System-Boolean-'></a>
 ### SetModifiedFlag(dirty) `method`
 
 ##### Summary
@@ -2140,7 +1994,7 @@ Sets the dirty state of the data of this dialog box.
 `false`
 otherwise. Default is `true`. |
 
-<a name='M-MFR-GUI-Dialogs-OptionsDialogBox-UpdateData-System-Boolean-'></a>
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-UpdateData-System-Boolean-'></a>
 ### UpdateData(bSaveAndValidate) `method`
 
 ##### Summary
@@ -2164,7 +2018,7 @@ MFR.GUI.Dialogs
 
 ##### Summary
 
-Dialog box to assist the user in managing configuration profiles.
+Dialog box to assist the user in managing projectFileRenamerConfiguration profiles.
 
 <a name='M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor'></a>
 ### #ctor() `constructor`
@@ -2408,8 +2262,8 @@ Overrides the current thread's CurrentUICulture property for all
 
 Looks up a localized string similar to Value cannot be null or whitespace..
 
-<a name='P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFilters'></a>
-### FolderSelectDialogFilters `property`
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFIlters'></a>
+### FolderSelectDialogFIlters `property`
 
 ##### Summary
 

@@ -7,8 +7,6 @@
 - [ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
   - [CanCancel](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CanCancel 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CanCancel')
   - [CurrentFile](#P-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog-CurrentFile 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog.CurrentFile')
-- [ICustomizeOperationsDialog](#T-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog 'MFR.GUI.Dialogs.Interfaces.ICustomizeOperationsDialog')
-  - [OperationListBuilder](#P-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog-OperationListBuilder 'MFR.GUI.Dialogs.Interfaces.ICustomizeOperationsDialog.OperationListBuilder')
 - [IErrorReportDialog](#T-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog')
   - [ErrorReportContents](#P-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog-ErrorReportContents 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.ErrorReportContents')
   - [Exception](#P-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog-Exception 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.Exception')
@@ -24,12 +22,11 @@
   - [Argument](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Argument 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Argument')
   - [Proc](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Proc 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Proc')
   - [Result](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Result 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Result')
-- [IOptionsDialogBox](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox')
-  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-AutoQuitOnCompletion 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.AutoQuitOnCompletion')
-  - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.ConfigPathname')
-  - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.DontPromptUserToReloadOpenSolution')
-  - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.IsModified')
-  - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox.ReOpenSolution')
+- [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog')
+  - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.AutoQuitOnCompletion')
+  - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ConfigPathname')
+  - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.IsModified')
+  - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ReOpenSolution')
 - [IProfileNameDialog](#T-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog')
   - [OperationType](#P-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog-OperationType 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog.OperationType')
   - [ProfileName](#P-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog-ProfileName 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog.ProfileName')
@@ -82,22 +79,6 @@ Gets or sets a value indicating whether the operation can be cancelled.
 ##### Summary
 
 Gets or sets a string containing the new detailed status.
-
-<a name='T-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog'></a>
-## ICustomizeOperationsDialog `type`
-
-##### Namespace
-
-MFR.GUI.Dialogs.Interfaces
-
-<a name='P-MFR-GUI-Dialogs-Interfaces-ICustomizeOperationsDialog-OperationListBuilder'></a>
-### OperationListBuilder `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IDarkListBuilderControl](#T-xyLOGIX-UI-Dark-Controls-Interfaces-IDarkListBuilderControl 'xyLOGIX.UI.Dark.Controls.Interfaces.IDarkListBuilderControl')
-interface.
 
 <a name='T-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog'></a>
 ## IErrorReportDialog `type`
@@ -277,8 +258,8 @@ is dismissed.
 Gets a reference to an instance of an object that is supplied as the result of
 the code that is executed by this dialog.
 
-<a name='T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox'></a>
-## IOptionsDialogBox `type`
+<a name='T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog'></a>
+## IOptionsDialog `type`
 
 ##### Namespace
 
@@ -289,7 +270,7 @@ MFR.GUI.Dialogs.Interfaces
 Defines the publicly-exposed methods and properties of a dialog box that
 allows the user to configure the application.
 
-<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-AutoQuitOnCompletion'></a>
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-AutoQuitOnCompletion'></a>
 ### AutoQuitOnCompletion `property`
 
 ##### Summary
@@ -297,23 +278,14 @@ allows the user to configure the application.
 Gets or sets the value of the
 checkbox.
 
-<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-ConfigPathname'></a>
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`
 
 ##### Summary
 
 Gets or sets the text of the Configuration File Pathname text box.
 
-<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-DontPromptUserToReloadOpenSolution'></a>
-### DontPromptUserToReloadOpenSolution `property`
-
-##### Summary
-
-Gets or sets the value of the
-
-checkbox
-
-<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-IsModified'></a>
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified'></a>
 ### IsModified `property`
 
 ##### Summary
@@ -321,7 +293,7 @@ checkbox
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
-<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-ReOpenSolution'></a>
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution'></a>
 ### ReOpenSolution `property`
 
 ##### Summary

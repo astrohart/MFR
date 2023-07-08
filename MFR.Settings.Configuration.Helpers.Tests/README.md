@@ -35,10 +35,10 @@ Asserts that the
 method returns the
 [MatchCaseAndExactWord](#T-MFR-TextMatchingConfiguration-MatchCaseAndExactWord 'MFR.TextMatchingConfiguration.MatchCaseAndExactWord')
 enum value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase')
 property is set to
 `true` and whose
-[IConfigurationMatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `true`.
 
@@ -57,10 +57,10 @@ method returns the
 [MatchCaseOnly](#T-MFR-TextMatchingConfiguration-MatchCaseOnly 'MFR.TextMatchingConfiguration.MatchCaseOnly')
 enum
 value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase')
 property is set to
 `true` and whose
-[IConfigurationMatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `false`.
 
@@ -78,10 +78,10 @@ Asserts that the
 method returns the
 [MatchExactWordOnly](#T-MFR-TextMatchingConfiguration-MatchExactWordOnly 'MFR.TextMatchingConfiguration.MatchExactWordOnly')
 enum value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase')
 property is set to
 `false` and whose
-[IConfigurationMatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `true`.
 
@@ -99,10 +99,10 @@ Asserts that the
 method returns the
 [NeitherMatchCaseNorExactWord](#T-MFR-TextMatchingConfiguration-NeitherMatchCaseNorExactWord 'MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord')
 enum value for a configuration object whose
-[IConfigurationMatchCase](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchCase 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase')
+[IConfigurationMatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchCase')
 property is set to
 `false` and whose
-[IConfigurationMatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.Configuration.Interfaces.IConfigurationMatchExactWord')
+[IConfigurationMatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IConfigurationMatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IConfigurationMatchExactWord')
 property is set
 to `false`.
 

@@ -63,11 +63,6 @@ given pathname must be included in the search results.
 If this parameter is passed a `null` reference as an argument,
 then no path filter is applied. |
 
-##### Remarks
-
-This method searches either the top-level folder only, or all subfolders, as
-dictated by the argument of the `searchOption` parameter.
-
 <a name='M-MFR-FileSystem-Enumerators-Enumerate-Directories-System-String-'></a>
 ### Directories(path) `method`
 
@@ -145,7 +140,7 @@ pathname is passed in the `path`.
 
 
 
-This method only returns those files in the top level of the folder whose
+This method only returns those folders in the top level of the folder whose
 fully-qualified pathname is specified for the `path`
 parameter's value.
 
@@ -173,7 +168,7 @@ pathname is passed in the `path`.
 
 
 
-This method only returns those files in the top level of the folder whose
+This method only returns those folders in the top level of the folder whose
 fully-qualified pathname is specified for the `path`
 parameter's value.
 
@@ -207,8 +202,9 @@ pathname is passed in the `path`.
 
 
 
-This method searches either the top-level folder only, or all subfolders, as
-dictated by the argument of the `searchOption` parameter.
+This method only returns those folders in the top level of the folder whose
+fully-qualified pathname is specified for the `path`
+parameter's value.
 
 ##### Parameters
 

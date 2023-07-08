@@ -5,19 +5,13 @@
 
 - [Folders](#T-MFR-GUI-Windows-Presenters-Constants-Folders 'MFR.GUI.Windows.Presenters.Constants.Folders')
   - [QuickAccess](#F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess 'MFR.GUI.Windows.Presenters.Constants.Folders.QuickAccess')
-- [MainWindowPresenterMessageId](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId')
-  - [MessageId](#P-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-MessageId 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.MessageId')
-  - [Name](#P-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-Name 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.Name')
-  - [IsZero()](#M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-IsZero 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.IsZero')
-  - [ToString()](#M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-ToString 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.ToString')
-  - [op_Implicit(id)](#M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-op_Implicit-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-~System-Guid 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.op_Implicit(MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId)~System.Guid')
 - [MainWindowPresenterMessages](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages')
   - [MWP_ADD_NEW_PROFILE_FAILED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ADD_NEW_PROFILE_FAILED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ADD_NEW_PROFILE_FAILED')
   - [MWP_ALL_HISTORY_CLEARED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_ALL_HISTORY_CLEARED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED')
   - [MWP_CONFIGURATION_EXPORTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CONFIGURATION_EXPORTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_CONFIGURATION_EXPORTED')
   - [MWP_CONFIGURATION_IMPORTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CONFIGURATION_IMPORTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED')
   - [MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_CREATE_NEW_BLANK_PROFILE_REQUESTED')
-  - [MWP_DATA_OPERATION_ERROR](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_ERROR 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_ERROR')
+  - [MWP_DATA_OPERAITON_ERROR](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERAITON_ERROR 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERAITON_ERROR')
   - [MWP_DATA_OPERATION_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_FINISHED')
   - [MWP_DATA_OPERATION_STARTED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_STARTED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED')
   - [MWP_FINISHED](#F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_FINISHED 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages.MWP_FINISHED')
@@ -44,83 +38,6 @@ Provides string constants that allow access to special folders.
 ##### Summary
 
 Path to the area of Windows.
-
-<a name='T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId'></a>
-## MainWindowPresenterMessageId `type`
-
-##### Namespace
-
-MFR.GUI.Windows.Presenters.Constants
-
-##### Summary
-
-Encapsulates a unique identifier for a message, as well as its name.
-
-<a name='P-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-MessageId'></a>
-### MessageId `property`
-
-##### Summary
-
-Gets or sets a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that uniquely identifies the
-message.
-
-<a name='P-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-Name'></a>
-### Name `property`
-
-##### Summary
-
-Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that names this message
-identifier.
-
-<a name='M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-IsZero'></a>
-### IsZero() `method`
-
-##### Summary
-
-Determines whether the value of the
-[MessageId](#P-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-MessageId 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.MessageId') property is set
-to the Zero GUID.
-
-##### Returns
-
-`true` if the value of the
-[MessageId](#P-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-MessageId 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.MessageId') property is set
-to the Zero GUID; `false` otherwise.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-ToString'></a>
-### ToString() `method`
-
-##### Summary
-
-Returns a string that represents the current object.
-
-##### Returns
-
-A string that represents the current object.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-op_Implicit-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-~System-Guid'></a>
-### op_Implicit(id) `method`
-
-##### Summary
-
-s
-Allows us to pass instances of this class to methods that accept a
-[Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') as an input parameter.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| id | [MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId)~System.Guid](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-~System-Guid 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId)~System.Guid') | (Required.) Reference to an instance of
-[MainWindowPresenterMessageId](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId') to be converted. |
 
 <a name='T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages'></a>
 ## MainWindowPresenterMessages `type`
@@ -176,8 +93,8 @@ imported from a file.
 Unique identifier for the message that is sent by the Presenter for the main
 application window when the user has clicked the Add New Profile button.
 
-<a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERATION_ERROR'></a>
-### MWP_DATA_OPERATION_ERROR `constants`
+<a name='F-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages-MWP_DATA_OPERAITON_ERROR'></a>
+### MWP_DATA_OPERAITON_ERROR `constants`
 
 ##### Summary
 

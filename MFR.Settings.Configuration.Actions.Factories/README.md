@@ -3,8 +3,8 @@
 
 ## Contents
 
-- [GetConfigAction](#T-MFR-Settings-Configuration-Actions-Factories-GetConfigAction 'MFR.Settings.Configuration.Actions.Factories.GetConfigAction')
-  - [For\`\`2(actionType)](#M-MFR-Settings-Configuration-Actions-Factories-GetConfigAction-For``2-MFR-Settings-Configuration-Actions-Constants-ConfigActionType- 'MFR.Settings.Configuration.Actions.Factories.GetConfigAction.For``2(MFR.Settings.Configuration.Actions.Constants.ConfigActionType)')
+- [GetConfigurationAction](#T-MFR-Settings-Configuration-Actions-Factories-GetConfigurationAction 'MFR.Settings.Configuration.Actions.Factories.GetConfigurationAction')
+  - [For\`\`2(actionType)](#M-MFR-Settings-Configuration-Actions-Factories-GetConfigurationAction-For``2-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType- 'MFR.Settings.Configuration.Actions.Factories.GetConfigurationAction.For``2(MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType)')
 - [GetLoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFilePathFromRegistryAction')
   - [SoleInstance()](#M-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFilePathFromRegistryAction-SoleInstance 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFilePathFromRegistryAction.SoleInstance')
 - [GetLoadConfigurationFromFileAction](#T-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFromFileAction 'MFR.Settings.Configuration.Actions.Factories.GetLoadConfigurationFromFileAction')
@@ -13,8 +13,8 @@
   - [Culture](#P-MFR-Settings-Configuration-Actions-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Actions.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Actions-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Actions.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Configuration-Actions-Factories-GetConfigAction'></a>
-## GetConfigAction `type`
+<a name='T-MFR-Settings-Configuration-Actions-Factories-GetConfigurationAction'></a>
+## GetConfigurationAction `type`
 
 ##### Namespace
 
@@ -26,7 +26,7 @@ Creates instances of objects that implement the
 [IAction](#T-MFR-Messages-Actions-Interfaces-IAction 'MFR.Messages.Actions.Interfaces.IAction')
 interface.
 
-<a name='M-MFR-Settings-Configuration-Actions-Factories-GetConfigAction-For``2-MFR-Settings-Configuration-Actions-Constants-ConfigActionType-'></a>
+<a name='M-MFR-Settings-Configuration-Actions-Factories-GetConfigurationAction-For``2-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType-'></a>
 ### For\`\`2(actionType) `method`
 
 ##### Summary
@@ -47,7 +47,7 @@ that corresponds to the specified
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| actionType | [MFR.Settings.Configuration.Actions.Constants.ConfigActionType](#T-MFR-Settings-Configuration-Actions-Constants-ConfigActionType 'MFR.Settings.Configuration.Actions.Constants.ConfigActionType') | (Required.) A
+| actionType | [MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType](#T-MFR-Settings-Configuration-Actions-Constants-ConfigurationActionType 'MFR.Settings.Configuration.Actions.Constants.ConfigurationActionType') | (Required.) A
 [MessageType](#T-MFR-Messages-Constants-MessageType 'MFR.Messages.Constants.MessageType')
 value that
 indicates what action to execute. |

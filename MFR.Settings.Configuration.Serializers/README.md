@@ -47,6 +47,16 @@ if a problem occurred.
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a
 JSON-formatted data file on the disk that contains the configuration data. |
 
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `pathname`, is
+passed a blank or `null` string for a value. |
+| [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
+`pathname`
+parameter, cannot be located on the disk. |
+
 <a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
 ### Save(pathname,configuration) `method`
 

@@ -6,7 +6,6 @@
 - [MainWindowPresenter](#T-MFR-GUI-Windows-Presenters-MainWindowPresenter 'MFR.GUI.Windows.Presenters.MainWindowPresenter')
   - [#ctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#ctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#ctor')
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
-  - [ConfigFilePath](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigFilePath')
   - [ConfigurationProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
@@ -19,6 +18,7 @@
   - [ProfileProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileProvider')
   - [ReplaceWith](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWith 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWith')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ReplaceWithComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ReplaceWithComboBox')
+  - [RootDirectoryPathValidator](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryPathValidator 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RootDirectoryPathValidator')
   - [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolderComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolderComboBox')
   - [View](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-View 'MFR.GUI.Windows.Presenters.MainWindowPresenter.View')
@@ -27,7 +27,6 @@
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ClearAllHistory')
   - [DoSelectedOperations()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-DoSelectedOperations 'MFR.GUI.Windows.Presenters.MainWindowPresenter.DoSelectedOperations')
   - [ExportConfiguration(pathname)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ExportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ExportConfiguration(System.String)')
-  - [FileExist(pathname)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileExist(System.String)')
   - [FillProfileDropDownList()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FillProfileDropDownList 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FillProfileDropDownList')
   - [HavingWindowReference(view)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-HavingWindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.HavingWindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
   - [ImportConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ImportConfiguration-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ImportConfiguration(System.String)')
@@ -38,24 +37,24 @@
   - [OnCancellableProgressDialogRequestedCancel(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCancellableProgressDialogRequestedCancel-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCancellableProgressDialogRequestedCancel(System.Object,System.EventArgs)')
   - [OnConfigurationExported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationExported(MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs)')
   - [OnConfigurationImported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationImported(MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs)')
+  - [OnConfigurationStartingFolderChanged(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationStartingFolderChanged-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationStartingFolderChanged(System.Object,System.EventArgs)')
   - [OnCreateNewBlankProfileRequested(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCreateNewBlankProfileRequested(MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs)')
   - [OnDataOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationError-MFR-Operations-Events-DataOperationErrorEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationError(MFR.Operations.Events.DataOperationErrorEventArgs)')
   - [OnDataOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationFinished')
   - [OnDataOperationStarted(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnDataOperationStarted-MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnDataOperationStarted(MFR.Operations.Events.DataOperationEventArgs)')
   - [OnFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnFinished 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnFinished')
   - [OnOperationError(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationError-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationError(MFR.Events.Common.ExceptionRaisedEventArgs)')
-  - [OnProcessingFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProcessingFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnProcessingFinished(System.Object,System.EventArgs)')
+  - [OnOperationFinished()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnOperationFinished(System.Object,System.EventArgs)')
   - [ProfileAlreadyExist(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileAlreadyExist-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileAlreadyExist(System.String)')
-  - [RenameConfigFileToMatchNewName(newConfigFilePath)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-RenameConfigFileToMatchNewName-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RenameConfigFileToMatchNewName(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
-  - [SaveConfigurationDataFrom(dialogBox)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox)')
+  - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
   - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
   - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
   - [WindowReference(mainWindow)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
-  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithOperationEngine(MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine)')
+  - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WithOperationEngine(MFR.Engines.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Properties-Resources 'MFR.GUI.Windows.Presenters.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Properties.Resources.Culture')
   - [Error_FindWhatRequired](#P-MFR-GUI-Windows-Presenters-Properties-Resources-Error_FindWhatRequired 'MFR.GUI.Windows.Presenters.Properties.Resources.Error_FindWhatRequired')
@@ -104,13 +103,6 @@ This object's sole purpose in life is to provide the service of
 maintaining the history lists in the configuration data
 source.
 
-<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath'></a>
-### ConfigFilePath `property`
-
-##### Summary
-
-Gets or sets the pathname of the configuration file.
-
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider'></a>
 ### ConfigurationProvider `property`
 
@@ -122,7 +114,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 
@@ -224,6 +216,15 @@ Gets a reference to an instance of an object that implements the
 [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') interface
 that plays the role of the Replace With combo box on the main user interface.
 
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
+interface.
+
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder'></a>
 ### StartingFolder `property`
 
@@ -260,7 +261,7 @@ This object provides the functionality of the main window of the application.
 ##### Summary
 
 Creates a 'profile' (really a way of saving a group of
-configuration
+projectFileRenamerConfiguration
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -335,7 +336,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current configuration data to a file on the
+Exports the current projectFileRenamerConfiguration data to a file on the
 user's hard drive.
 
 ##### Parameters
@@ -350,27 +351,6 @@ pathname of a file to which the configuration should be exported. |
 If a file having the specified `pathname` already
 exists on the disk at the time the export operation is performed, it will be
 overwritten.
-
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileExist-System-String-'></a>
-### FileExist(pathname) `method`
-
-##### Summary
-
-Determines whether the file having the specified `pathname`
-exists.
-
-##### Returns
-
-`true` if the `pathname` is
-non-blank and contains the fully-qualified pathname of a file that exists;
-`false` otherwise.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of the file to be searched for. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FillProfileDropDownList'></a>
 ### FillProfileDropDownList() `method`
@@ -432,7 +412,7 @@ that exists on the user's hard drive and has the `.json` extension.
 
 ##### Summary
 
-Initializes the currently-loaded configuration object.
+Initializes the currently-loaded projectFileRenamerConfiguration object.
 
 ##### Parameters
 
@@ -444,7 +424,7 @@ This method has no parameters.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on configuration settings.
+based on projectFileRenamerConfiguration settings.
 
 ##### Parameters
 
@@ -538,6 +518,35 @@ event.
 | e | [MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs](#T-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs 'MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs') | A [ConfigurationImportedEventArgs](#T-MFR-Settings-ConfigurationImportedEventArgs 'MFR.Settings.ConfigurationImportedEventArgs') that
 contains the event data. |
 
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationStartingFolderChanged-System-Object,System-EventArgs-'></a>
+### OnConfigurationStartingFolderChanged(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
+event raised by the configuration object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by checking whether the entry is a valid folder
+pathname; if so, then the folder pathname is added to the history of
+starting-folder entries in the history.
+
+
+
+Starting-folder pathname entries aren't added to the configuration's history
+list if an entry having the same content already exists in the history.
+
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs-'></a>
 ### OnCreateNewBlankProfileRequested(e) `method`
 
@@ -590,7 +599,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation,
+projectFileRenamerConfiguration data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
 
@@ -616,7 +625,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation,
+projectFileRenamerConfiguration data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
 
@@ -657,8 +666,8 @@ event.
 | e | [MFR.Events.Common.ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs') | A [ExceptionRaisedEventArgs](#T-MFR-Events-Common-ExceptionRaisedEventArgs 'MFR.Events.Common.ExceptionRaisedEventArgs')
 that contains the event data. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnProcessingFinished-System-Object,System-EventArgs-'></a>
-### OnProcessingFinished() `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnOperationFinished-System-Object,System-EventArgs-'></a>
+### OnOperationFinished() `method`
 
 ##### Summary
 
@@ -701,36 +710,21 @@ to search for. |
 `profileName`, is passed a blank or `null`
 string for a value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-RenameConfigFileToMatchNewName-System-String-'></a>
-### RenameConfigFileToMatchNewName(newConfigFilePath) `method`
-
-##### Summary
-
-If the user has changed the pathname of where the configuration file is to be
-stored, this method renames the existing configuration file to match.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| newConfigFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the new value of the
-fully-qualified pathname of the configuration file. |
-
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration'></a>
 ### SaveConfiguration() `method`
 
 ##### Summary
 
 Saves data from the screen control and then saves the
-configuration to the
+projectFileRenamerConfiguration to the
 persistence location.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox-'></a>
-### SaveConfigurationDataFrom(dialogBox) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-'></a>
+### SaveConfigurationDataFrom(dialog) `method`
 
 ##### Summary
 
@@ -741,14 +735,14 @@ are clicked on the Tools -> Options dialog box.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dialogBox | [MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox') | (Required.) Reference to an instance of an object that implements
-the [IOptionsDialogBox](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialogBox 'MFR.GUI.Dialogs.Interfaces.IOptionsDialogBox') interface. |
+| dialog | [MFR.GUI.Dialogs.Interfaces.IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog') | (Required.) Reference to an instance of an object that implements
+the [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog') interface. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialogBox`, is
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialog`, is
 passed a `null` value. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String-'></a>
@@ -757,7 +751,7 @@ passed a `null` value. |
 ##### Summary
 
 Transforms the current value of the
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfiguration](#P-MFR-Settings-ProjectFileRenamerConfiguration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.ProjectFileRenamerConfiguration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration')
 property into a Profile with the `profileName` specified.
 
 
@@ -908,7 +902,7 @@ represents the main window of the application. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `mainWindow`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine-'></a>
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WithOperationEngine-MFR-Engines-Interfaces-IFullGuiOperationEngine-'></a>
 ### WithOperationEngine(operationEngine) `method`
 
 ##### Summary
@@ -926,7 +920,7 @@ method, for fluent use.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationEngine | [MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the
+| operationEngine | [MFR.Engines.Interfaces.IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') | (Required.) Reference to an instance of an object that implements the
 [IFullGuiOperationEngine](#T-MFR-Engines-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Interfaces.IFullGuiOperationEngine') interface on
 which this Presenter should depend. |
 

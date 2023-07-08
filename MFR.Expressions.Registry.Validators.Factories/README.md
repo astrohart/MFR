@@ -4,7 +4,7 @@
 ## Contents
 
 - [GetRegistryExpressionValidator\`1](#T-MFR-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1 'MFR.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1')
-  - [SoleInstance()](#M-MFR-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1-SoleInstance 'MFR.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1.SoleInstance')
+  - [Instance()](#M-MFR-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1-Instance 'MFR.Expressions.Registry.Validators.Factories.GetRegistryExpressionValidator`1.Instance')
 - [Resources](#T-MFR-Expressions-Registry-Validators-Factories-Properties-Resources 'MFR.Expressions.Registry.Validators.Factories.Properties.Resources')
   - [Culture](#P-MFR-Expressions-Registry-Validators-Factories-Properties-Resources-Culture 'MFR.Expressions.Registry.Validators.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Expressions-Registry-Validators-Factories-Properties-Resources-ResourceManager 'MFR.Expressions.Registry.Validators.Factories.Properties.Resources.ResourceManager')
@@ -28,8 +28,8 @@ interface.
 | ---- | ----------- |
 | T | Name of the type of the data that is to be retrieved from the system Registry. |
 
-<a name='M-MFR-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1-SoleInstance'></a>
-### SoleInstance() `method`
+<a name='M-MFR-Expressions-Registry-Validators-Factories-GetRegistryExpressionValidator`1-Instance'></a>
+### Instance() `method`
 
 ##### Summary
 

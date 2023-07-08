@@ -14,10 +14,6 @@
 - [Resources](#T-MFR-Settings-Configuration-Events-Properties-Resources 'MFR.Settings.Configuration.Events.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Events-Properties-Resources-Culture 'MFR.Settings.Configuration.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Events-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Events.Properties.Resources.ResourceManager')
-- [StartingFolderChangedEventArgs](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs')
-  - [#ctor(oldPath,newPath)](#M-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-#ctor-System-String,System-String- 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs.#ctor(System.String,System.String)')
-  - [NewPath](#P-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-NewPath 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs.NewPath')
-  - [OldPath](#P-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-OldPath 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs.OldPath')
 - [StartingFolderChangedEventHandler](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventHandler 'MFR.Settings.Configuration.Events.StartingFolderChangedEventHandler')
 
 <a name='T-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs'></a>
@@ -164,55 +160,6 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
-
-<a name='T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs'></a>
-## StartingFolderChangedEventArgs `type`
-
-##### Namespace
-
-MFR.Settings.Configuration.Events
-
-##### Summary
-
-Provides information for `StartingFolderChanged` event handlers.
-
-<a name='M-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-#ctor-System-String,System-String-'></a>
-### #ctor(oldPath,newPath) `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[StartingFolderChangedEventArgs](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs')
-and returns a reference to it.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| oldPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the former value of
-the fully-qualified pathname of the folder in which this application's
-operations are started. |
-| newPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the current value of
-the fully-qualified pathname  of the folder in which this application's
-operations are started. |
-
-<a name='P-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-NewPath'></a>
-### NewPath `property`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the current value of the
-fully-qualified pathname of the folder in which this application's operations
-are started.
-
-<a name='P-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-OldPath'></a>
-### OldPath `property`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the former value of the
-fully-qualified pathname of the folder in which this application's operations
-are started.
 
 <a name='T-MFR-Settings-Configuration-Events-StartingFolderChangedEventHandler'></a>
 ## StartingFolderChangedEventHandler `type`

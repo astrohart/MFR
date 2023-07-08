@@ -117,7 +117,7 @@ This method has no parameters.
 
 ##### Summary
 
-Asserts that the [ToTempFile](#M-MFR-FileSystem-Helpers-FileHelpers-ToTempFile 'MFR.FileSystem.Helpers.FileHelpers.ToTempFile') method dumps text to a temporary file.
+Asserts that the [DumpTextToTempFile](#M-MFR-FileSystem-Helpers-FileHelpers-DumpTextToTempFile 'MFR.FileSystem.Helpers.FileHelpers.DumpTextToTempFile') method dumps text to a temporary file.
 
 ##### Parameters
 
@@ -129,7 +129,7 @@ This method has no parameters.
 ##### Summary
 
 Asserts that the
-[WithJunk](#M-MFR-FileSystem-Helpers-FillTextFile-WithJunk 'MFR.FileSystem.Helpers.FillTextFile.WithJunk') method
+[FillTextFileWithJunk](#M-MFR-FileSystem-Helpers-FileHelpers-FillTextFileWithJunk 'MFR.FileSystem.Helpers.FileHelpers.FillTextFileWithJunk') method
 creates a new file of nonzero length.
 
 ##### Parameters
@@ -142,7 +142,7 @@ This method has no parameters.
 ##### Summary
 
 Calls the
-[WithJunk](#M-MFR-FileSystem-Helpers-FillTextFile-WithJunk 'MFR.FileSystem.Helpers.FillTextFile.WithJunk') method
+[FillTextFileWithJunk](#M-MFR-FileSystem-Helpers-FileHelpers-FillTextFileWithJunk 'MFR.FileSystem.Helpers.FileHelpers.FillTextFileWithJunk') method
 to fill a temporary file with random data, and then makes sure that the
 [GetTextContent](#M-MFR-FileSystem-Helpers-FileHelpers-GetTextContent 'MFR.FileSystem.Helpers.FileHelpers.GetTextContent') method
 successfully reads the data.

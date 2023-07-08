@@ -3,14 +3,13 @@
 
 ## Contents
 
-- [GetBlankProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Factories.GetBlankProjectFileRenamerConfiguration')
-  - [SoleInstance()](#M-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration-SoleInstance 'MFR.Settings.Configuration.Factories.GetBlankProjectFileRenamerConfiguration.SoleInstance')
 - [MakeNewProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration')
   - [AndFindWhat(self,findWhat)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndFindWhat-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndFindWhat(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [AndFindWhatHistory(self,findWhatHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndFindWhatHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndFindWhatHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
   - [AndIsFolded(self,isFolded)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndIsFolded-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndIsFolded(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndMatchCase(self,matchCase)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndMatchCase-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndMatchCase(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndMatchExactWord(self,matchExactWord)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndMatchExactWord-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndMatchExactWord(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
+  - [AndOperationsToPerform(self,operationsToPerform)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndOperationsToPerform-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{MFR-GUI-Models-OperationTypeInfo}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndOperationsToPerform(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{MFR.GUI.Models.OperationTypeInfo})')
   - [AndReOpenSolution(self,reOpenSolution)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReOpenSolution(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndReplaceWith(self,replaceWith)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWith-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReplaceWith(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [AndReplaceWithHistory(self,replaceWithHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWithHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReplaceWithHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
@@ -21,48 +20,12 @@
   - [AndStartingFolderHistory(self,startingFolderHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndStartingFolderHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndStartingFolderHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
   - [ForStartingFolder(self,startingFolder)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ForStartingFolder-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.ForStartingFolder(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [FromScratch()](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-FromScratch 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch')
-  - [HavingInvokableOperations(self,operationsToPerform)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-HavingInvokableOperations-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-IList{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.HavingInvokableOperations(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [SetIsFromCommandLine(self,isFromCommandLine)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.SetIsFromCommandLine(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [SetRenameFilesTo(self,renameFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-SetRenameFilesTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.SetRenameFilesTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [ShouldAutoStart(self,autoStart)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ShouldAutoStart-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.ShouldAutoStart(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
 - [Resources](#T-MFR-Settings-Configuration-Factories-Properties-Resources 'MFR.Settings.Configuration.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Factories.Properties.Resources.ResourceManager')
-
-<a name='T-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration'></a>
-## GetBlankProjectFileRenamerConfiguration `type`
-
-##### Namespace
-
-MFR.Settings.Configuration.Factories
-
-##### Summary
-
-Gets the sole reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the blank configuration initialized with the default
-invokable operations and other settings.
-
-<a name='M-MFR-Settings-Configuration-Factories-GetBlankProjectFileRenamerConfiguration-SoleInstance'></a>
-### SoleInstance() `method`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the blank configuration initialized with the default
-invokable operations and other settings.
-
-##### Returns
-
-Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the blank configuration initialized with the default
-invokable operations and other settings.
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='T-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration'></a>
 ## MakeNewProjectFileRenamerConfiguration `type`
@@ -83,7 +46,7 @@ interface, and returns references to them.
 ##### Summary
 
 Builder extension method that initializes the
-[FindWhat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
+[FindWhat](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
 property.
 
 ##### Returns
@@ -114,7 +77,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
+[FindWhatHistory](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
 property.
 
 ##### Returns
@@ -146,7 +109,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[IsFolded](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFolded')
+[IsFolded](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.IsFolded')
 property.
 
 ##### Returns
@@ -177,7 +140,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[MatchCase](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
+[MatchCase](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
 property.
 
 ##### Returns
@@ -208,7 +171,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[MatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
+[MatchExactWord](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
 property.
 
 ##### Returns
@@ -233,13 +196,46 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndOperationsToPerform-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{MFR-GUI-Models-OperationTypeInfo}-'></a>
+### AndOperationsToPerform(self,operationsToPerform) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[OperationsToPerform](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.OperationsToPerform')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface. |
+| operationsToPerform | [System.Collections.Generic.List{MFR.GUI.Models.OperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{MFR.GUI.Models.OperationTypeInfo}') | (Required.) Reference to an instance of an enumerable collection of instances
+of [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') that contains the desired
+value. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
+
 <a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
 ### AndReOpenSolution(self,reOpenSolution) `method`
 
 ##### Summary
 
 Builder extension method that initializes the
-[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
+[ReOpenSolution](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
 property.
 
 ##### Returns
@@ -270,7 +266,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReplaceWith](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith')
+[ReplaceWith](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWith 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith')
 property.
 
 ##### Returns
@@ -301,7 +297,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReplaceWithHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWithHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory')
+[ReplaceWithHistory](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReplaceWithHistory 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory')
 property.
 
 ##### Returns
@@ -333,7 +329,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[SelectedOptionTab](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab')
+[SelectedOptionTab](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab')
 property.
 
 ##### Returns
@@ -365,7 +361,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[RenameSubFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders')
+[RenameSubFolders](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders')
 property.
 
 ##### Returns
@@ -396,7 +392,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReplaceTextInFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles')
+[ReplaceTextInFiles](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles')
 property.
 
 ##### Returns
@@ -427,7 +423,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
+[ReOpenSolution](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
 property.
 
 ##### Returns
@@ -459,7 +455,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[StartingFolderHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory')
+[StartingFolderHistory](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory')
 property.
 
 ##### Returns
@@ -491,7 +487,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[StartingFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder')
+[StartingFolder](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder')
 property.
 
 ##### Returns
@@ -522,8 +518,7 @@ passed a `null` value. |
 ##### Summary
 
 Creates a new instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
 and returns a reference to it.
 
 ##### Returns
@@ -536,46 +531,13 @@ interface.
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-HavingInvokableOperations-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-IList{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
-### HavingInvokableOperations(self,operationsToPerform) `method`
-
-##### Summary
-
-Builder extension method that initializes the
-[InvokableOperations](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations')
-property.
-
-##### Returns
-
-Reference to the same instance of the object that called this
-method, for fluent use.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface. |
-| operationsToPerform | [System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo}') | (Required.) Reference to an instance of an enumerable collection of instances
-of [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') that contains the desired
-value. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
-passed a `null` value. |
-
 <a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
 ### SetIsFromCommandLine(self,isFromCommandLine) `method`
 
 ##### Summary
 
 Builder extension method that initializes the
-[IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
+[IsFromCommandLine](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
 property.
 
 ##### Returns
@@ -606,7 +568,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
+[RenameFiles](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.RenameFiles')
 property.
 
 ##### Returns
@@ -637,7 +599,7 @@ passed a `null` value. |
 ##### Summary
 
 Builder extension method that initializes the
-[AutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
+[AutoStart](#P-MFR-Settings-ProjectFileRenamerConfiguration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.ProjectFileRenamerConfiguration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
 property.
 
 ##### Returns

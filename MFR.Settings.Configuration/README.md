@@ -14,20 +14,18 @@
 - [ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
   - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.#ctor(System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [_startingFolder](#F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration._startingFolder')
   - [AutoQuitOnCompletion](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoQuitOnCompletion 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoQuitOnCompletion')
   - [AutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.FindWhatHistory')
-  - [InvokableOperations](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.InvokableOperations')
   - [IsFolded](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFolded')
   - [IsFromCommandLine](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.MatchExactWord')
-  - [PromptUserToReloadOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.PromptUserToReloadOpenSolution')
+  - [OperationsToPerform](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OperationsToPerform')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReOpenSolution')
-  - [RenameFilesInFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFilesInFolder')
+  - [RenameFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameFiles')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSolutionFolders')
   - [RenameSubFolders](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.ReplaceTextInFiles')
@@ -36,10 +34,7 @@
   - [SelectedOptionTab](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-SelectedOptionTab 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.SelectedOptionTab')
   - [StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder')
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolderHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolderHistory')
-  - [Equals(obj)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Equals-System-Object- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Equals(System.Object)')
-  - [GetHashCode()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-GetHashCode 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.GetHashCode')
-  - [IsBlankOrNull(configuration)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.IsBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
-  - [OnStartingFolderChanged(e)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs- 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged(MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs)')
+  - [OnStartingFolderChanged()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.OnStartingFolderChanged')
   - [Reset()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.Reset')
 - [Resources](#T-MFR-Settings-Configuration-Properties-Resources 'MFR.Settings.Configuration.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Properties-Resources-Culture 'MFR.Settings.Configuration.Properties.Resources.Culture')
@@ -277,19 +272,6 @@ that contains existing configuration settings to copy into this object. |
 parameter, `source`, is passed a `null`
 value. |
 
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-#ctor-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration') and
-returns a reference to it.
-
-##### Parameters
-
-This constructor has no parameters.
-
 <a name='F-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-_startingFolder'></a>
 ### _startingFolder `constants`
 
@@ -338,15 +320,6 @@ by the user.
 Gets or sets a collection of strings consisting of the most-recently
 utilized values for Find What.
 
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-InvokableOperations'></a>
-### InvokableOperations `property`
-
-##### Summary
-
-Gets or sets a reference to a collection of instances of
-[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that represents
-all the operations the user can perform with this application.
-
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsFolded'></a>
 ### IsFolded `property`
 
@@ -383,25 +356,14 @@ found text.
 Gets or sets a value indicating whether we should match the whole
 word on found text.
 
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution'></a>
-### PromptUserToReloadOpenSolution `property`
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OperationsToPerform'></a>
+### OperationsToPerform `property`
 
 ##### Summary
 
-Gets or sets a value indicating whether the application should prompt the user
-if it detects that one or more instances of Visual Studio are open, but none of
-them have the target Solution(s) loaded.
-
-##### Remarks
-
-The default value of this property is `true`.
-
-
-
-Set to `false` to suppress the display of the warning message
-box.  If users suppress the message box, and one or more of the
-target Solution(s) are indeed loaded by a running instance of Visual Studio,
-then there may be file-sharing/permissions issues during the operation(s).
+Gets or sets a reference to a collection of instances of
+[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that can turn the
+operations to be performed on or off.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`
@@ -418,8 +380,8 @@ If this is set to `true`, and the containing solution is open,
 then the solution will be closed prior to the start of the selected
 operation(s) and then re-opened when the selected operation(s) are complete.
 
-<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFilesInFolder'></a>
-### RenameFilesInFolder `property`
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameFiles'></a>
+### RenameFiles `property`
 
 ##### Summary
 
@@ -431,8 +393,8 @@ in the folders encountered.
 
 ##### Summary
 
-Gets or sets a value that indicates whether we should rename folders that
-contain Visual Studio Solution (`*.sln`) files.
+Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
+containing folder(s) of solution(s) contained in the search should be renamed.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-RenameSubFolders'></a>
 ### RenameSubFolders `property`
@@ -488,64 +450,8 @@ the search.
 Gets or sets a collection of strings that correspond to the
 most-recently-used values for Starting Folder.
 
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Equals-System-Object-'></a>
-### Equals(obj) `method`
-
-##### Summary
-
-Determines whether the specified object is equal to the current
-object.
-
-##### Returns
-
-`true` if the specified object  is equal to the current
-object; otherwise, `false`.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| obj | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to compare with the current object. |
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-GetHashCode'></a>
-### GetHashCode() `method`
-
-##### Summary
-
-Serves as the default hash function.
-
-##### Returns
-
-A hash code for the current object.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### IsBlankOrNull(configuration) `method`
-
-##### Summary
-
-Determines whether the specified `configuration` object
-instance is blank or a `null` reference.
-
-##### Returns
-
-`true` if the specified
-`configuration` object instance is blank or a
-`null` reference.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the object instance that is to be examined. |
-
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs-'></a>
-### OnStartingFolderChanged(e) `method`
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-OnStartingFolderChanged'></a>
+### OnStartingFolderChanged() `method`
 
 ##### Summary
 
@@ -555,17 +461,7 @@ event.
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs') | (Required.) A
-[StartingFolderChangedEventArgs](#T-MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs 'MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs')
-that contains the event's data. |
-
-##### Remarks
-
-This event is supposed to be raised when the value of the
-[StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder')
-property is updated.
+This method has no parameters.
 
 <a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfiguration-Reset'></a>
 ### Reset() `method`

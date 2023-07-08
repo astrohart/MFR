@@ -22,22 +22,6 @@ Creates instances of objects that implement the
 [IRegOperationMetadata{T}](#T-MFR-IRegOperationMetadata{T} 'MFR.IRegOperationMetadata{T}')
 interface.
 
-##### Remarks
-
-You may ask, what is the difference between this and a Registry Query
-Expression object?
-
-
-
-The difference is in semantics only; the two types of object have exactly the
-same structure in terms of methods and properties.
-
-
-
-A Registry Operation Metadata object is for
-, whereas a
-object is for
-
 <a name='M-MFR-Metadata-Registry-Factories-MakeNewRegOperationMetadata-FromScatch``1'></a>
 ### FromScatch\`\`1() `method`
 

@@ -166,9 +166,7 @@ the `pathname` specified, and returns a reference to it.
 Reference to an instance of an object that implements the
 [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface,
-initialized with the specified `pathname`, or
-`null` if either an exception is thrown during the create
-operation or if `pathname` is a blank value.
+initialized with the specified `pathname`, or `null` if either an exception is thrown during the create operation or if `pathname` is a blank value.
 
 ##### Parameters
 

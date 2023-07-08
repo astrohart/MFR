@@ -9,8 +9,6 @@
   - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewFileNameReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewFileNameReplacementEngine.FromScratch')
 - [MakeNewFolderNameReplacementEngine](#T-MFR-Engines-Replacement-Factories-MakeNewFolderNameReplacementEngine 'MFR.Engines.Replacement.Factories.MakeNewFolderNameReplacementEngine')
   - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewFolderNameReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewFolderNameReplacementEngine.FromScratch')
-- [MakeNewSolutionFolderNameReplacementEngine](#T-MFR-Engines-Replacement-Factories-MakeNewSolutionFolderNameReplacementEngine 'MFR.Engines.Replacement.Factories.MakeNewSolutionFolderNameReplacementEngine')
-  - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewSolutionFolderNameReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewSolutionFolderNameReplacementEngine.FromScratch')
 - [MakeNewTextInFileReplacementEngine](#T-MFR-Engines-Replacement-Factories-MakeNewTextInFileReplacementEngine 'MFR.Engines.Replacement.Factories.MakeNewTextInFileReplacementEngine')
   - [FromScratch()](#M-MFR-Engines-Replacement-Factories-MakeNewTextInFileReplacementEngine-FromScratch 'MFR.Engines.Replacement.Factories.MakeNewTextInFileReplacementEngine.FromScratch')
 - [Resources](#T-MFR-Engines-Replacement-Factories-Properties-Resources 'MFR.Engines.Replacement.Factories.Properties.Resources')
@@ -132,41 +130,6 @@ Reference to an instance of an object that implements the
 [ITextReplacementEngine](#T-MFR-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine')
 interface that renames folders according to the parameters supplied by the
 user.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='T-MFR-Engines-Replacement-Factories-MakeNewSolutionFolderNameReplacementEngine'></a>
-## MakeNewSolutionFolderNameReplacementEngine `type`
-
-##### Namespace
-
-MFR.Engines.Replacement.Factories
-
-##### Summary
-
-Creates new instances of objects that implement the
-[ITextReplacementEngine](#T-MFR-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine')
-interface that renames solution folders according to the parameters supplied by
-the user.
-them.
-
-<a name='M-MFR-Engines-Replacement-Factories-MakeNewSolutionFolderNameReplacementEngine-FromScratch'></a>
-### FromScratch() `method`
-
-##### Summary
-
-Creates a new instance of an object that implements the
-[ITextReplacementEngine](#T-MFR-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine')
-interface and returns a reference to it.
-
-##### Returns
-
-Reference to an instance of an object that implements the
-[ITextReplacementEngine](#T-MFR-Engines-Replacement-Intefaces-ITextReplacementEngine 'MFR.Engines.Replacement.Intefaces.ITextReplacementEngine')
-interface that renames solution folders according to the parameters supplied by
-the user.
 
 ##### Parameters
 

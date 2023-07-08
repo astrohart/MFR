@@ -11,13 +11,12 @@
   - [CommandLineParser](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineParser 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineParser')
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
-  - [ConfigProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigProvider')
+  - [ConfigurationProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigurationProvider')
   - [FileStreamProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileStreamProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileStreamProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
   - [RootDirectoryPathValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryPathValidator')
   - [#cctor()](#M-MFR-GUI-Application-ProjectFileRenamerApp-#cctor 'MFR.GUI.Application.ProjectFileRenamerApp.#cctor')
-  - [ExitApplication()](#M-MFR-GUI-Application-ProjectFileRenamerApp-ExitApplication 'MFR.GUI.Application.ProjectFileRenamerApp.ExitApplication')
   - [InitApplication(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-InitApplication-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.InitApplication(System.String[])')
   - [IsAutoStarted(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-IsAutoStarted-System-Collections-Generic-IEnumerable{System-String}- 'MFR.GUI.Application.ProjectFileRenamerApp.IsAutoStarted(System.Collections.Generic.IEnumerable{System.String})')
   - [OnCommandLineInfoInvalid(sender,e)](#M-MFR-GUI-Application-ProjectFileRenamerApp-OnCommandLineInfoInvalid-System-Object,MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.GUI.Application.ProjectFileRenamerApp.OnCommandLineInfoInvalid(System.Object,MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
@@ -30,6 +29,7 @@
   - [SetDisplayParameters()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetDisplayParameters 'MFR.GUI.Application.ProjectFileRenamerApp.SetDisplayParameters')
   - [SetUpCommandLineValidation()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpCommandLineValidation 'MFR.GUI.Application.ProjectFileRenamerApp.SetUpCommandLineValidation')
   - [SetUpExceptionHandling()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpExceptionHandling 'MFR.GUI.Application.ProjectFileRenamerApp.SetUpExceptionHandling')
+  - [SetUpLogging()](#M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpLogging 'MFR.GUI.Application.ProjectFileRenamerApp.SetUpLogging')
   - [ShowValidationFailureMessage(message)](#M-MFR-GUI-Application-ProjectFileRenamerApp-ShowValidationFailureMessage-System-String- 'MFR.GUI.Application.ProjectFileRenamerApp.ShowValidationFailureMessage(System.String)')
   - [WinInit(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-WinInit-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.WinInit(System.String[])')
 - [Resources](#T-MFR-GUI-Application-Properties-Resources 'MFR.GUI.Application.Properties.Resources')
@@ -108,8 +108,8 @@ Gets a reference to an instance of an object that implements the
 [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
 interface.
 
-<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider'></a>
-### ConfigProvider `property`
+<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigurationProvider'></a>
+### ConfigurationProvider `property`
 
 ##### Summary
 
@@ -119,7 +119,7 @@ interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user projectFileRenamerConfiguration and the
 actions
 associated with it.
 
@@ -164,17 +164,6 @@ interface.
 ##### Summary
 
 Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-GUI-Application-ProjectFileRenamerApp-ExitApplication'></a>
-### ExitApplication() `method`
-
-##### Summary
-
-Performs operations that should be undertaken when the application exits.
 
 ##### Parameters
 
@@ -408,6 +397,17 @@ This method has no parameters.
 
 Configures the application's handling of exceptions that are not
 caught elsewhere.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Application-ProjectFileRenamerApp-SetUpLogging'></a>
+### SetUpLogging() `method`
+
+##### Summary
+
+Configures the logging infrastructure.
 
 ##### Parameters
 
