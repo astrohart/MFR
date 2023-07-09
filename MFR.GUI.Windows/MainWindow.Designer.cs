@@ -1,6 +1,7 @@
 using PostSharp.Patterns.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Forms;
+using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Windows
 {
@@ -98,7 +99,7 @@ namespace MFR.GUI.Windows
             this.clearAllHistoryButton = new System.Windows.Forms.ToolStripButton();
             this.standardToolStrip = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
             this.switchButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.statusBar = new xyLOGIX.UI.Dark.Controls.DarkStatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.menuBar.SuspendLayout();
@@ -977,9 +978,9 @@ namespace MFR.GUI.Windows
         private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolStrip;
         private xyLOGIX.UI.Dark.Controls.DarkButton switchButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton customizeOperationsButton;
-        private StatusStrip statusBar;
-        private ToolStripStatusLabel statusBarMessage;
-        private ToolStripProgressBar statusBarProgressBar;
+        private xyLOGIX.UI.Dark.Controls.DarkStatusStrip statusBar;
+        private System.Windows.Forms.ToolStripStatusLabel statusBarMessage;
+        private System.Windows.Forms.ToolStripProgressBar statusBarProgressBar;
     }
 }
 
