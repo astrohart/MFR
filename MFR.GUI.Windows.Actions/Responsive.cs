@@ -1,6 +1,5 @@
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Configuration;
 using System.Drawing;
 using xyLOGIX.Core.Debug;
 
@@ -27,9 +26,7 @@ namespace MFR.GUI.Windows.Actions
         /// <c>DESIGN_TIME_SCREEN_WIDTH</c> metric from the <c>app.config</c> file, or
         /// zero if not found.
         /// </summary>
-        private readonly float _designTimeWidth = (float)Convert.ToDouble(
-            ConfigurationManager.AppSettings["DESIGN_TIME_SCREEN_WIDTH"]
-        );
+        private readonly float _designTimeWidth = Get.DesignTimeScreenWidth();
 
         /// <summary>
         /// A <see cref="T:System.Single" /> value that contains the multiplication factor
