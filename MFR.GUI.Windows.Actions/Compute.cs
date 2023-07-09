@@ -23,18 +23,20 @@ namespace MFR.GUI.Windows.Actions
             float multiplicationFactor
         )
         {
-            int result;
+            var result = componentValue;
 
             try
             {
-                result = (int)Math.Floor(componentValue * multiplicationFactor);
+                var product = componentValue * multiplicationFactor;
+
+                result = (int)Math.Floor(product);
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = 0;
+                result = componentValue;
             }
 
             return result;

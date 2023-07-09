@@ -47,18 +47,9 @@ namespace MFR.GUI.Windows.Actions
         /// <see cref="T:MFR.GUI.Windows.Actions.Responsive" /> and returns a reference to
         /// it.
         /// </summary>
-        public Responsive(Rectangle resolution) : this()
+        public Responsive(Rectangle resolution)
         {
             Resolution = resolution;
-        }
-
-        /// <summary>
-        /// Constructs a new instance of
-        /// <see cref="T:MFR.GUI.Windows.Actions.Responsive" /> and returns a reference to
-        /// it.
-        /// </summary>
-        public Responsive()
-        {
             SetMultiplicationFactors();
         }
 
@@ -109,7 +100,7 @@ namespace MFR.GUI.Windows.Actions
             return result;
         }
 
-        public void SetMultiplicationFactors()
+        private void SetMultiplicationFactors()
         {
             try
             {

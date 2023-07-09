@@ -8,12 +8,12 @@
 - [Get](#T-MFR-GUI-Windows-Actions-Get 'MFR.GUI.Windows.Actions.Get')
   - [DesignTimeScreenHeight()](#M-MFR-GUI-Windows-Actions-Get-DesignTimeScreenHeight 'MFR.GUI.Windows.Actions.Get.DesignTimeScreenHeight')
   - [DesignTimeScreenWidth()](#M-MFR-GUI-Windows-Actions-Get-DesignTimeScreenWidth 'MFR.GUI.Windows.Actions.Get.DesignTimeScreenWidth')
+  - [ReferenceScreenBounds()](#M-MFR-GUI-Windows-Actions-Get-ReferenceScreenBounds 'MFR.GUI.Windows.Actions.Get.ReferenceScreenBounds')
 - [Resources](#T-MFR-GUI-Windows-Actions-Properties-Resources 'MFR.GUI.Windows.Actions.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Actions-Properties-Resources-Culture 'MFR.GUI.Windows.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Actions-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Actions.Properties.Resources.ResourceManager')
 - [Responsive](#T-MFR-GUI-Windows-Actions-Responsive 'MFR.GUI.Windows.Actions.Responsive')
   - [#ctor()](#M-MFR-GUI-Windows-Actions-Responsive-#ctor-System-Drawing-Rectangle- 'MFR.GUI.Windows.Actions.Responsive.#ctor(System.Drawing.Rectangle)')
-  - [#ctor()](#M-MFR-GUI-Windows-Actions-Responsive-#ctor 'MFR.GUI.Windows.Actions.Responsive.#ctor')
   - [_designTimeHeight](#F-MFR-GUI-Windows-Actions-Responsive-_designTimeHeight 'MFR.GUI.Windows.Actions.Responsive._designTimeHeight')
   - [_designTimeWidth](#F-MFR-GUI-Windows-Actions-Responsive-_designTimeWidth 'MFR.GUI.Windows.Actions.Responsive._designTimeWidth')
   - [_heightMultiplicationFactor](#F-MFR-GUI-Windows-Actions-Responsive-_heightMultiplicationFactor 'MFR.GUI.Windows.Actions.Responsive._heightMultiplicationFactor')
@@ -96,6 +96,28 @@ metric from the `app.config` file; otherwise zero..
 
 This method has no parameters.
 
+<a name='M-MFR-GUI-Windows-Actions-Get-ReferenceScreenBounds'></a>
+### ReferenceScreenBounds() `method`
+
+##### Summary
+
+Gets a [Rectangle](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Drawing.Rectangle 'System.Drawing.Rectangle') that expresses the bounds of
+the first element of the
+[AllScreens](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Screen.AllScreens 'System.Windows.Forms.Screen.AllScreens') list --- which, itself,
+represents the set of all monitors that the user has connected to this machine.
+
+##### Returns
+
+If successful, a [Rectangle](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Drawing.Rectangle 'System.Drawing.Rectangle') that expresses the
+bounds of the first element of the
+[AllScreens](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Screen.AllScreens 'System.Windows.Forms.Screen.AllScreens') list --- which, itself,
+represents the set of all monitors that the user has connected to this machine;
+otherwise, the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Drawing.Rectangle.Empty 'System.Drawing.Rectangle.Empty') value.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-MFR-GUI-Windows-Actions-Properties-Resources'></a>
 ## Resources `type`
 
@@ -137,19 +159,6 @@ dragged from a monitor with one screen resolution to another monitor having a
 different screen resolution.
 
 <a name='M-MFR-GUI-Windows-Actions-Responsive-#ctor-System-Drawing-Rectangle-'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Constructs a new instance of
-[Responsive](#T-MFR-GUI-Windows-Actions-Responsive 'MFR.GUI.Windows.Actions.Responsive') and returns a reference to
-it.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='M-MFR-GUI-Windows-Actions-Responsive-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
