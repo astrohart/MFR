@@ -3,8 +3,11 @@
 
 ## Contents
 
+- [Is](#T-MFR-Settings-Configuration-Actions-Is 'MFR.Settings.Configuration.Actions.Is')
+  - [ConfigurationBlankOrNull(configuration)](#M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Actions.Is.ConfigurationBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
 - [LoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction')
   - [#ctor()](#M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.#ctor')
+  - [AccessTheRegueryExpressionValidator](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-AccessTheRegueryExpressionValidator 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.AccessTheRegueryExpressionValidator')
   - [Instance](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-Instance 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.Instance')
   - [MessageType](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-MessageType 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.MessageType')
   - [#cctor()](#M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#cctor 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.#cctor')
@@ -18,6 +21,37 @@
 - [Resources](#T-MFR-Settings-Configuration-Actions-Properties-Resources 'MFR.Settings.Configuration.Actions.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Actions-Properties-Resources-Culture 'MFR.Settings.Configuration.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Actions-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Actions.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Settings-Configuration-Actions-Is'></a>
+## Is `type`
+
+##### Namespace
+
+MFR.Settings.Configuration.Actions
+
+<a name='M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### ConfigurationBlankOrNull(configuration) `method`
+
+##### Summary
+
+Determines whether the specified `configuration` is blank or
+not.
+
+##### Returns
+
+`true` if the specified
+`configuration` is the blank application configuration or if
+a `null` reference is passed as the argument of the
+`configuration` parameter; `false`
+otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface. |
 
 <a name='T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction'></a>
 ## LoadConfigurationFilePathFromRegistryAction `type`
@@ -41,6 +75,14 @@ Empty, protected constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-AccessTheRegueryExpressionValidator'></a>
+### AccessTheRegueryExpressionValidator `property`
+
+##### Summary
+
+Gets the one and only instance of the Registry query expression validator that
+read [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values  from the system Registry.
 
 <a name='P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-Instance'></a>
 ### Instance `property`

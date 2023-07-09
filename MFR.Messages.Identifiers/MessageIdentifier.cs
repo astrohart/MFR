@@ -1,4 +1,5 @@
 using MFR.Messages.Identifiers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -9,6 +10,7 @@ namespace MFR.Messages.Identifiers
     /// Defines the events, methods, properties, and behaviors for all message
     /// identifier objects.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class MessageIdentifier : IMessageIdentifier
     {
         /// <summary>

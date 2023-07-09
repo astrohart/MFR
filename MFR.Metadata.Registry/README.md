@@ -120,6 +120,22 @@ within a key in the Windows system Registry database.
 | ---- | ----------- |
 | T | Type of the data to be accessed. |
 
+##### Remarks
+
+You may ask, what is the difference between this and a Registry Query
+Expression object?
+
+
+
+The difference is in semantics only; the two types of object have exactly the
+same structure in terms of methods and properties.
+
+
+
+A Registry Operation Metadata object is for
+, whereas a
+object is for
+
 <a name='P-MFR-Metadata-Registry-RegOperationMetadata`1-Value'></a>
 ### Value `property`
 

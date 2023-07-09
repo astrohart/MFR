@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.GUI.Windows.Presenters.Constants
@@ -6,6 +7,7 @@ namespace MFR.GUI.Windows.Presenters.Constants
     /// Unique identifiers for the messages that are sent by the Presenter of
     /// the main application window.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MainWindowPresenterMessages
     {
         /// <summary>

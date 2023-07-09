@@ -106,6 +106,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignTimeScreenMetric.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="ScalingDirection.cs" />
   </ItemGroup>

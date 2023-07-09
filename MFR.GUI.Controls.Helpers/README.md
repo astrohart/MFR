@@ -19,7 +19,8 @@ MFR.GUI.Controls.Helpers
 
 ##### Summary
 
-Helper methods that augment the functionality of a [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox').
+Helper methods that augment the functionality of a
+[EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox').
 
 <a name='M-MFR-GUI-Controls-Helpers-EntryRespectingComboBoxExtensions-Clear-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox-'></a>
 ### Clear(box) `method`

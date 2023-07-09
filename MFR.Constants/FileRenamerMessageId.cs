@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -6,6 +7,7 @@ namespace MFR.Constants
     /// <summary>
     /// Encapsulates a unique identifier for a message, as well as its name.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class FileRenamerMessageId
     {
         /// <summary>

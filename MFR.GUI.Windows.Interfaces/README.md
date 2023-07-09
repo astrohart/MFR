@@ -12,7 +12,6 @@
   - [MatchExactWord](#P-MFR-GUI-Windows-Interfaces-IMainWindow-MatchExactWord 'MFR.GUI.Windows.Interfaces.IMainWindow.MatchExactWord')
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.Interfaces.IMainWindow.OperationsCheckedListBox')
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ProfileCollectionComboBox')
-  - [RenameSolutionFolders](#P-MFR-GUI-Windows-Interfaces-IMainWindow-RenameSolutionFolders 'MFR.GUI.Windows.Interfaces.IMainWindow.RenameSolutionFolders')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ReplaceWithComboBox')
   - [SelectAll](#P-MFR-GUI-Windows-Interfaces-IMainWindow-SelectAll 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-Interfaces-IMainWindow-SelectedOptionTab 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectedOptionTab')
@@ -96,13 +95,6 @@ that has the list of operations.
 
 Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
 that has a drop-down list of the profiles that the user has created.
-
-<a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-RenameSolutionFolders'></a>
-### RenameSolutionFolders `property`
-
-##### Summary
-
-Gets or sets the value of the checkbox
 
 <a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`

@@ -220,6 +220,10 @@
       <Project>{0C6EA02B-6B23-4517-A06C-4F3D3C4CEA16}</Project>
       <Name>MFR.GUI.Windows.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Constants\MFR.GUI.Windows.Constants.csproj">
+      <Project>{ecbd0ebb-f4be-47d7-8a6e-2884244755f1}</Project>
+      <Name>MFR.GUI.Windows.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>
@@ -227,6 +231,10 @@
     <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Identifiers\MFR.Messages.Identifiers.csproj">
+      <Project>{43B1DC10-906C-4B02-87D7-154F43FEAF6C}</Project>
+      <Name>MFR.Messages.Identifiers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
