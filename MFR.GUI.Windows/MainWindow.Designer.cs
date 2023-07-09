@@ -37,9 +37,6 @@ namespace MFR.GUI.Windows
             this.findWhatLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.replaceWithLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.performOperationButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.statusBar = new xyLOGIX.UI.Dark.Controls.DarkStatusStrip();
-            this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.menuBar = new xyLOGIX.UI.Dark.Controls.DarkMenuStrip();
             this.fileMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.fileExit = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
@@ -101,12 +98,15 @@ namespace MFR.GUI.Windows
             this.clearAllHistoryButton = new System.Windows.Forms.ToolStripButton();
             this.standardToolStrip = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
             this.switchButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.statusBar.SuspendLayout();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
             this.findReplaceOptionsTabPage.SuspendLayout();
             this.operationsTabPage.SuspendLayout();
             this.standardToolStrip.SuspendLayout();
+            this.statusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // startingFolderLabel
@@ -169,39 +169,6 @@ namespace MFR.GUI.Windows
             this.performOperationButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.performOperationButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.performOperationButton.Click += new System.EventHandler(this.OnClickPerformOperation);
-            // 
-            // statusBar
-            // 
-            this.statusBar.AutoSize = false;
-            this.statusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.statusBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.statusBar.IsDarkTheme = false;
-            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusBarMessage,
-            this.statusBarProgressBar});
-            this.statusBar.Location = new System.Drawing.Point(0, 483);
-            this.statusBar.Name = "statusBar";
-            this.statusBar.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
-            this.statusBar.Size = new System.Drawing.Size(596, 22);
-            this.statusBar.SizingGrip = false;
-            this.statusBar.TabIndex = 9;
-            this.statusBar.Text = "statusStrip1";
-            // 
-            // statusBarMessage
-            // 
-            this.statusBarMessage.Name = "statusBarMessage";
-            this.statusBarMessage.Size = new System.Drawing.Size(596, 9);
-            this.statusBarMessage.Spring = true;
-            this.statusBarMessage.Text = "Ready";
-            this.statusBarMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // statusBarProgressBar
-            // 
-            this.statusBarProgressBar.MarqueeAnimationSpeed = 300;
-            this.statusBarProgressBar.Name = "statusBarProgressBar";
-            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 8);
-            this.statusBarProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.statusBarProgressBar.Visible = false;
             // 
             // menuBar
             // 
@@ -498,7 +465,7 @@ namespace MFR.GUI.Windows
             this.optionsTabControl.Location = new System.Drawing.Point(15, 262);
             this.optionsTabControl.Name = "optionsTabControl";
             this.optionsTabControl.SelectedIndex = 0;
-            this.optionsTabControl.Size = new System.Drawing.Size(569, 210);
+            this.optionsTabControl.Size = new System.Drawing.Size(569, 200);
             this.optionsTabControl.TabBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             this.optionsTabControl.TabIndex = 11;
             this.optionsTabControl.TabWellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
@@ -511,7 +478,7 @@ namespace MFR.GUI.Windows
             this.findReplaceOptionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.findReplaceOptionsTabPage.Name = "findReplaceOptionsTabPage";
             this.findReplaceOptionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 184);
+            this.findReplaceOptionsTabPage.Size = new System.Drawing.Size(561, 174);
             this.findReplaceOptionsTabPage.TabIndex = 0;
             this.findReplaceOptionsTabPage.Text = "Find/Replace Options";
             // 
@@ -545,7 +512,7 @@ namespace MFR.GUI.Windows
             this.operationsTabPage.Location = new System.Drawing.Point(4, 22);
             this.operationsTabPage.Name = "operationsTabPage";
             this.operationsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.operationsTabPage.Size = new System.Drawing.Size(561, 184);
+            this.operationsTabPage.Size = new System.Drawing.Size(561, 174);
             this.operationsTabPage.TabIndex = 1;
             this.operationsTabPage.Text = "Operations";
             // 
@@ -607,7 +574,7 @@ namespace MFR.GUI.Windows
             this.inclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.inclusionsTabPage.Name = "inclusionsTabPage";
             this.inclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.inclusionsTabPage.Size = new System.Drawing.Size(561, 184);
+            this.inclusionsTabPage.Size = new System.Drawing.Size(561, 174);
             this.inclusionsTabPage.TabIndex = 2;
             this.inclusionsTabPage.Text = "Inclusions";
             // 
@@ -617,7 +584,7 @@ namespace MFR.GUI.Windows
             this.exclusionsTabPage.Location = new System.Drawing.Point(4, 22);
             this.exclusionsTabPage.Name = "exclusionsTabPage";
             this.exclusionsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.exclusionsTabPage.Size = new System.Drawing.Size(561, 184);
+            this.exclusionsTabPage.Size = new System.Drawing.Size(561, 174);
             this.exclusionsTabPage.TabIndex = 3;
             this.exclusionsTabPage.Text = "Exclusions";
             // 
@@ -625,7 +592,7 @@ namespace MFR.GUI.Windows
             // 
             this.foldButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.foldButton.FormFoldedSize = new System.Drawing.Size(612, 318);
-            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 544);
+            this.foldButton.FormUnfoldedSize = new System.Drawing.Size(612, 552);
             this.foldButton.IsDarkTheme = true;
             this.foldButton.Location = new System.Drawing.Point(15, 219);
             this.foldButton.Name = "foldButton";
@@ -873,16 +840,40 @@ namespace MFR.GUI.Windows
             this.switchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchButton.Click += new System.EventHandler(this.OnClickSwitchButton);
             // 
+            // statusBar
+            // 
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusBarMessage,
+            this.statusBarProgressBar});
+            this.statusBar.Location = new System.Drawing.Point(0, 472);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(596, 22);
+            this.statusBar.TabIndex = 15;
+            this.statusBar.Text = "statusStrip1";
+            // 
+            // statusBarMessage
+            // 
+            this.statusBarMessage.Name = "statusBarMessage";
+            this.statusBarMessage.Size = new System.Drawing.Size(448, 17);
+            this.statusBarMessage.Spring = true;
+            this.statusBarMessage.Text = "Ready";
+            this.statusBarMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // statusBarProgressBar
+            // 
+            this.statusBarProgressBar.Name = "statusBarProgressBar";
+            this.statusBarProgressBar.Size = new System.Drawing.Size(100, 16);
+            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(596, 505);
+            this.ClientSize = new System.Drawing.Size(596, 494);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.switchButton);
             this.Controls.Add(this.standardToolStrip);
             this.Controls.Add(this.hiddenFocusLabel);
-            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.replaceWithComboBox);
             this.Controls.Add(this.findWhatcomboBox);
@@ -901,11 +892,9 @@ namespace MFR.GUI.Windows
             this.MainMenuStrip = this.menuBar;
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[AppTitle]";
-            this.statusBar.ResumeLayout(false);
-            this.statusBar.PerformLayout();
             this.menuBar.ResumeLayout(false);
             this.menuBar.PerformLayout();
             this.optionsTabControl.ResumeLayout(false);
@@ -915,6 +904,8 @@ namespace MFR.GUI.Windows
             this.operationsTabPage.PerformLayout();
             this.standardToolStrip.ResumeLayout(false);
             this.standardToolStrip.PerformLayout();
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -929,13 +920,11 @@ namespace MFR.GUI.Windows
         private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
         private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
         private MFR.GUI.Controls.EntryRespectingComboBox replaceWithComboBox;
-        private xyLOGIX.UI.Dark.Controls.DarkStatusStrip statusBar;
         private xyLOGIX.UI.Dark.Controls.DarkMenuStrip menuBar;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem fileMenu;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem fileExit;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsMenu;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsOptions;
-        private System.Windows.Forms.ToolStripStatusLabel statusBarMessage;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem viewMenu;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsConfigMenu;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsConfigImport;
@@ -955,7 +944,6 @@ namespace MFR.GUI.Windows
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox matchCaseCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem helpMenu;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem helpAbout;
-        private System.Windows.Forms.ToolStripProgressBar statusBarProgressBar;
         private xyLOGIX.UI.Dark.Controls.DarkLabel hiddenFocusLabel;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator toolStripSeparator2;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem toolsConfigApplyProfile;
@@ -989,6 +977,9 @@ namespace MFR.GUI.Windows
         private xyLOGIX.UI.Dark.Controls.DarkToolStrip standardToolStrip;
         private xyLOGIX.UI.Dark.Controls.DarkButton switchButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton customizeOperationsButton;
+        private StatusStrip statusBar;
+        private ToolStripStatusLabel statusBarMessage;
+        private ToolStripProgressBar statusBarProgressBar;
     }
 }
 
