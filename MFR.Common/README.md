@@ -427,6 +427,11 @@ Provides methods to register with the Windows operating system.
 
 Registers an OLE Message Filter with the Windows operating system.
 
+##### Returns
+
+`true` if the registration attempt succeeded;
+`false` otherwise.
+
 ##### Parameters
 
 This method has no parameters.
@@ -480,7 +485,8 @@ MFR.Common
 
 ##### Summary
 
-Methods to revoke things from being in a registered status with the operating system.
+Methods to revoke things from being in a registered status with the operating
+system.
 
 <a name='M-MFR-Common-Revoke-WindowsMessageFilter'></a>
 ### WindowsMessageFilter() `method`
@@ -488,6 +494,10 @@ Methods to revoke things from being in a registered status with the operating sy
 ##### Summary
 
 Revokes the most-recently-registered OLE message filter.
+
+##### Returns
+
+`true` if the operation succeeds; `false` otherwise.
 
 ##### Parameters
 

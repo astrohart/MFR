@@ -28,6 +28,22 @@ Defines the public-exposed methods and properties of an object that
 contains the metadata for a write operation to be performed on the
 system Registry.
 
+##### Remarks
+
+You may ask, what is the difference between this and a Registry Query
+Expression object?
+
+
+
+The difference is in semantics only; the two types of object have exactly the
+same structure in terms of methods and properties.
+
+
+
+A Registry Operation Metadata object is for
+, whereas a
+object is for
+
 <a name='P-MFR-Metadata-Registry-Interfaces-IRegOperationMetadata`1-Hive'></a>
 ### Hive `property`
 
