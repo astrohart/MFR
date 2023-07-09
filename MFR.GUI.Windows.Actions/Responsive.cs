@@ -15,21 +15,31 @@ namespace MFR.GUI.Windows.Actions
     [Log(AttributeExclude = true)]
     public class Responsive
     {
-        private readonly float _designTimeHeight = (float)Convert.ToDouble(
-            ConfigurationManager.AppSettings["DESIGN_TIME_SCREEN_HEIGHT"]
-        );
+        /// <summary>
+        /// A <see cref="T:System.Single" /> value that contains the value of the
+        /// <c>DESIGN_TIME_SCREEN_HEIGHT</c> metric from the <c>app.config</c> file, or
+        /// zero if not found.
+        /// </summary>
+        private readonly float _designTimeHeight = Get.DesignTimeScreenHeight();
 
+        /// <summary>
+        /// A <see cref="T:System.Single" /> value that contains the value of the
+        /// <c>DESIGN_TIME_SCREEN_WIDTH</c> metric from the <c>app.config</c> file, or
+        /// zero if not found.
+        /// </summary>
         private readonly float _designTimeWidth = (float)Convert.ToDouble(
             ConfigurationManager.AppSettings["DESIGN_TIME_SCREEN_WIDTH"]
         );
 
         /// <summary>
-        /// A <see cref="T:System.Single"/> value that contains the multiplication factor for responsive heights.
+        /// A <see cref="T:System.Single" /> value that contains the multiplication factor
+        /// for responsive heights.
         /// </summary>
         private float _heightMultiplicationFactor;
 
         /// <summary>
-        /// A <see cref="T:System.Single"/> value that contains the multiplication factor for responsive widths.
+        /// A <see cref="T:System.Single" /> value that contains the multiplication factor
+        /// for responsive widths.
         /// </summary>
         private float _widthMultiplicationFactor;
 
@@ -57,8 +67,6 @@ namespace MFR.GUI.Windows.Actions
 
         public int GetMetrics(int ComponentValue, string Direction)
         {
-
-
             if (Direction.Equals("Width") || Direction.Equals("Left"))
                 return (int)Math.Floor(
                     ComponentValue * _widthMultiplicationFactor
