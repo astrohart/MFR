@@ -232,6 +232,10 @@
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Identifiers\MFR.Messages.Identifiers.csproj">
+      <Project>{43B1DC10-906C-4B02-87D7-154F43FEAF6C}</Project>
+      <Name>MFR.Messages.Identifiers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
       <Name>MFR.Messages.Interfaces</Name>

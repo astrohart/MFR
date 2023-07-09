@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Windows.Actions
@@ -6,6 +7,7 @@ namespace MFR.GUI.Windows.Actions
     /// <summary>
     /// Exposes static methods to compute the value of certain quantities.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Compute
     {
         /// <summary>
@@ -29,7 +31,9 @@ namespace MFR.GUI.Windows.Actions
             {
                 var product = componentValue * multiplicationFactor;
 
-                result = (int)Math.Floor(product);
+                result = int.MinValue.Equals((int)Math.Floor(product))
+                    ? componentValue
+                    : (int)Math.Floor(product);
             }
             catch (Exception ex)
             {

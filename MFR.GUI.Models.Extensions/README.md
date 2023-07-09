@@ -4,8 +4,8 @@
 ## Contents
 
 - [OperationTypeInfoHelpers](#T-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers 'MFR.GUI.Models.Extensions.OperationTypeInfoHelpers')
-  - [HasAnyOperations(source)](#M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-HasAnyOperations-System-Collections-Generic-IList{MFR-GUI-Models-OperationTypeInfo}- 'MFR.GUI.Models.Extensions.OperationTypeInfoHelpers.HasAnyOperations(System.Collections.Generic.IList{MFR.GUI.Models.OperationTypeInfo})')
-  - [IsOfType(operationTypeInfo,operationType)](#M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-IsOfType-MFR-GUI-Models-OperationTypeInfo,MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Extensions.OperationTypeInfoHelpers.IsOfType(MFR.GUI.Models.OperationTypeInfo,MFR.Operations.Constants.OperationType)')
+  - [HasAnyOperations(source)](#M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-HasAnyOperations-System-Collections-Generic-IList{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.GUI.Models.Extensions.OperationTypeInfoHelpers.HasAnyOperations(System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
+  - [IsOfType(operationTypeInfo,operationType)](#M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-IsOfType-MFR-GUI-Models-Interfaces-IOperationTypeInfo,MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Extensions.OperationTypeInfoHelpers.IsOfType(MFR.GUI.Models.Interfaces.IOperationTypeInfo,MFR.Operations.Constants.OperationType)')
 - [Resources](#T-MFR-GUI-Models-Extensions-Properties-Resources 'MFR.GUI.Models.Extensions.Properties.Resources')
   - [Culture](#P-MFR-GUI-Models-Extensions-Properties-Resources-Culture 'MFR.GUI.Models.Extensions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Models-Extensions-Properties-Resources-ResourceManager 'MFR.GUI.Models.Extensions.Properties.Resources.ResourceManager')
@@ -22,7 +22,7 @@ MFR.GUI.Models.Extensions
 Exposes static methods that extend the
 [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') class.
 
-<a name='M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-HasAnyOperations-System-Collections-Generic-IList{MFR-GUI-Models-OperationTypeInfo}-'></a>
+<a name='M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-HasAnyOperations-System-Collections-Generic-IList{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
 ### HasAnyOperations(source) `method`
 
 ##### Summary
@@ -39,10 +39,10 @@ than zero elements; `false` otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [System.Collections.Generic.IList{MFR.GUI.Models.OperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{MFR.GUI.Models.OperationTypeInfo}') | (Required.) A collection of instances of
+| source | [System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo}') | (Required.) A collection of instances of
 [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances. |
 
-<a name='M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-IsOfType-MFR-GUI-Models-OperationTypeInfo,MFR-Operations-Constants-OperationType-'></a>
+<a name='M-MFR-GUI-Models-Extensions-OperationTypeInfoHelpers-IsOfType-MFR-GUI-Models-Interfaces-IOperationTypeInfo,MFR-Operations-Constants-OperationType-'></a>
 ### IsOfType(operationTypeInfo,operationType) `method`
 
 ##### Summary
@@ -61,7 +61,7 @@ otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| operationTypeInfo | [MFR.GUI.Models.OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') | (Required.) An
+| operationTypeInfo | [MFR.GUI.Models.Interfaces.IOperationTypeInfo](#T-MFR-GUI-Models-Interfaces-IOperationTypeInfo 'MFR.GUI.Models.Interfaces.IOperationTypeInfo') | (Required.) An
 [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') that specifies the, e.g.,
 enabled/disabled state for the specified operation. |
 | operationType | [MFR.Operations.Constants.OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') | (Required.) One of the

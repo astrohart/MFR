@@ -8,7 +8,7 @@
 - [Get](#T-MFR-GUI-Windows-Actions-Get 'MFR.GUI.Windows.Actions.Get')
   - [DesignTimeScreenHeight()](#M-MFR-GUI-Windows-Actions-Get-DesignTimeScreenHeight 'MFR.GUI.Windows.Actions.Get.DesignTimeScreenHeight')
   - [DesignTimeScreenWidth()](#M-MFR-GUI-Windows-Actions-Get-DesignTimeScreenWidth 'MFR.GUI.Windows.Actions.Get.DesignTimeScreenWidth')
-  - [ReferenceScreenBounds()](#M-MFR-GUI-Windows-Actions-Get-ReferenceScreenBounds 'MFR.GUI.Windows.Actions.Get.ReferenceScreenBounds')
+  - [ReferenceScreenBounds(control)](#M-MFR-GUI-Windows-Actions-Get-ReferenceScreenBounds-System-Windows-Forms-Control- 'MFR.GUI.Windows.Actions.Get.ReferenceScreenBounds(System.Windows.Forms.Control)')
 - [Resources](#T-MFR-GUI-Windows-Actions-Properties-Resources 'MFR.GUI.Windows.Actions.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Actions-Properties-Resources-Culture 'MFR.GUI.Windows.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Actions-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Actions.Properties.Resources.ResourceManager')
@@ -96,8 +96,8 @@ metric from the `app.config` file; otherwise zero..
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Actions-Get-ReferenceScreenBounds'></a>
-### ReferenceScreenBounds() `method`
+<a name='M-MFR-GUI-Windows-Actions-Get-ReferenceScreenBounds-System-Windows-Forms-Control-'></a>
+### ReferenceScreenBounds(control) `method`
 
 ##### Summary
 
@@ -116,7 +116,15 @@ otherwise, the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14ID
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| control | [System.Windows.Forms.Control](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Control 'System.Windows.Forms.Control') | (Optional.) A [Control](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.Control 'System.Windows.Forms.Control') that is on the
+screen that you wish to get the bounds for.
+
+
+
+The default value of this property is `null`.  In that event,
+then the method finds the first screen in the list, and returns its bounds. |
 
 <a name='T-MFR-GUI-Windows-Actions-Properties-Resources'></a>
 ## Resources `type`

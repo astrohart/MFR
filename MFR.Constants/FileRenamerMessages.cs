@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Constants
@@ -6,10 +7,9 @@ namespace MFR.Constants
     /// Contains the identifiers to be utilized in order to tag those messages
     /// sent by the File Renamer object.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class FileRenamerMessages
     {
-
-
         /// <summary>
         /// Unique identifier for a message that indicates that the operation that is
         /// currently being executed by the application has changed.
@@ -25,7 +25,7 @@ namespace MFR.Constants
         /// raised by the File Renamer component.
         /// </summary>
         public static readonly FileRenamerMessageId FRM_EXCEPTION_RAISED =
-            new FileRenamerMessageId() {
+            new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_EXCEPTION_RAISED"
             };
 
@@ -41,34 +41,37 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates a file system entry
         /// (file or folder) has been skipped by the current operation.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_FILE_SYSTEM_ENTRY_SKIPPED =
-            new FileRenamerMessageId {
-                MessageId = Guid.NewGuid(), Name = "FRM_FILE_SYSTEM_ENTRY_SKIPPED"
+        public static readonly FileRenamerMessageId
+            FRM_FILE_SYSTEM_ENTRY_SKIPPED = new FileRenamerMessageId {
+                MessageId = Guid.NewGuid(),
+                Name = "FRM_FILE_SYSTEM_ENTRY_SKIPPED"
             };
 
         /// <summary>
         /// Unique identifier for a message that indicates that the number of
         /// files that are to be renamed has been counted.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_FILES_TO_BE_RENAMED_COUNTED =
-            new FileRenamerMessageId {
-                MessageId = Guid.NewGuid(), Name = "FRM_FILES_TO_BE_RENAMED_COUNTED"
+        public static readonly FileRenamerMessageId
+            FRM_FILES_TO_BE_RENAMED_COUNTED = new FileRenamerMessageId {
+                MessageId = Guid.NewGuid(),
+                Name = "FRM_FILES_TO_BE_RENAMED_COUNTED"
             };
 
         /// <summary>
         /// Unique identifier for a message that indicates that the number of
         /// files to have text within them replaced has been counted.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED =
-            new FileRenamerMessageId {
-                MessageId = Guid.NewGuid(), Name = "FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED"
+        public static readonly FileRenamerMessageId
+            FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED = new FileRenamerMessageId {
+                MessageId = Guid.NewGuid(),
+                Name = "FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED"
             };
 
         /// <summary>
         /// Unique identifier for a message that indicates that the File Renamer
         /// component has completed all of the requested operations.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_FINISHED = 
+        public static readonly FileRenamerMessageId FRM_FINISHED =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_FINISHED"
             };
@@ -85,7 +88,7 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that a particular
         /// File Renamer component operation has been completed.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_OPERATION_FINISHED = 
+        public static readonly FileRenamerMessageId FRM_OPERATION_FINISHED =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_OPERATION_FINISHED"
             };
@@ -94,7 +97,7 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that a particular
         /// File Renamer component operation has been started.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_OPERATION_STARTED = 
+        public static readonly FileRenamerMessageId FRM_OPERATION_STARTED =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_OPERATION_STARTED"
             };
@@ -103,7 +106,7 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that the current
         /// operation is being processed.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_PROCESSING_OPERATION = 
+        public static readonly FileRenamerMessageId FRM_PROCESSING_OPERATION =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_PROCESSING_OPERATION"
             };
@@ -112,9 +115,10 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that the root directory, i.e.,
         /// the starting directory, of the File Renamer component has been altered.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_ROOT_DIRECTORY_PATH_CHANGED =
-            new FileRenamerMessageId {
-                MessageId = Guid.NewGuid(), Name = "FRM_ROOT_DIRECTORY_PATH_CHANGED"
+        public static readonly FileRenamerMessageId
+            FRM_ROOT_DIRECTORY_PATH_CHANGED = new FileRenamerMessageId {
+                MessageId = Guid.NewGuid(),
+                Name = "FRM_ROOT_DIRECTORY_PATH_CHANGED"
             };
 
         /// <summary>
@@ -122,7 +126,7 @@ namespace MFR.Constants
         /// Visual Studio Solution (<c>*.sln</c>) file loaded into a running instance of
         /// Visual Studio has failed.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_SOLUTION_CLOSE_FAILED = 
+        public static readonly FileRenamerMessageId FRM_SOLUTION_CLOSE_FAILED =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_SOLUTION_CLOSE_FAILED"
             };
@@ -131,27 +135,28 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that a folder has been renamed.
         /// </summary>
         public static readonly FileRenamerMessageId
-            FRM_SOLUTION_FOLDER_RENAMED = 
-                new FileRenamerMessageId {
-                    MessageId = Guid.NewGuid(), Name = "FRM_SOLUTION_FOLDER_RENAMED"
-                };
+            FRM_SOLUTION_FOLDER_RENAMED = new FileRenamerMessageId {
+                MessageId = Guid.NewGuid(), Name = "FRM_SOLUTION_FOLDER_RENAMED"
+            };
 
         /// <summary>
         /// Unique identifier for a message that indicates that the File Renamer
         /// component has determined the number of subfolders that need to be
         /// operated on.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED =
-            new FileRenamerMessageId {
-                MessageId = Guid.NewGuid(), Name = "FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED"
-            };
+        public static readonly FileRenamerMessageId
+            FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED =
+                new FileRenamerMessageId {
+                    MessageId = Guid.NewGuid(),
+                    Name = "FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED"
+                };
 
         /// <summary>
         /// Unique identifier for a message that indicates that aa attempt to close a
         /// Visual Studio Solution (<c>*.sln</c>) file loaded into a running instance of
         /// Visual Studio has failed.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_SOLUTION_OPEN_FAILED = 
+        public static readonly FileRenamerMessageId FRM_SOLUTION_OPEN_FAILED =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_SOLUTION_OPEN_FAILED"
             };
@@ -160,7 +165,7 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that the set of all
         /// requested File Renamer operations has started.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_STARTED = 
+        public static readonly FileRenamerMessageId FRM_STARTED =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_STARTED"
             };
@@ -169,7 +174,7 @@ namespace MFR.Constants
         /// Unique identifier for a message that indicates that the set of all
         /// requested File Renamer operations are about to begin.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_STARTING = 
+        public static readonly FileRenamerMessageId FRM_STARTING =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_STARTED"
             };
@@ -179,7 +184,7 @@ namespace MFR.Constants
         /// component has a status update available that should be displayed to
         /// the user.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_STATUS_UPDATE = 
+        public static readonly FileRenamerMessageId FRM_STATUS_UPDATE =
             new FileRenamerMessageId {
                 MessageId = Guid.NewGuid(), Name = "FRM_STATUS_UPDATE"
             };
@@ -189,9 +194,10 @@ namespace MFR.Constants
         /// component has determined the number of subfolders that need to be
         /// operated on.
         /// </summary>
-        public static readonly FileRenamerMessageId FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED =
-            new FileRenamerMessageId {
-                MessageId = Guid.NewGuid(), Name = "FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED"
+        public static readonly FileRenamerMessageId
+            FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED = new FileRenamerMessageId {
+                MessageId = Guid.NewGuid(),
+                Name = "FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED"
             };
     }
 }

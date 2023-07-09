@@ -23,6 +23,11 @@
 
 MFR.Engines.Constants
 
+##### Summary
+
+Identifiers of messages that the operation engines raise to other parts of the
+application.
+
 <a name='F-MFR-Engines-Constants-OperationEngineMessages-OE_OPERATION_ERROR'></a>
 ### OE_OPERATION_ERROR `constants`
 

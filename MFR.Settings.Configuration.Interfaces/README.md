@@ -15,13 +15,14 @@
   - [AutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-AutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart')
   - [FindWhat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory')
+  - [InvokableOperations](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations')
   - [IsFolded](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFolded 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFolded')
   - [IsFromCommandLine](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFromCommandLine 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine')
   - [MatchCase](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchCase 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase')
   - [MatchExactWord](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-MatchExactWord 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord')
-  - [OperationsToPerform](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.OperationsToPerform')
+  - [PromptUserToReloadOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.PromptUserToReloadOpenSolution')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
-  - [RenameFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFiles')
+  - [RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders')
   - [RenameSubFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSubFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReplaceTextInFiles 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles')
@@ -221,6 +222,15 @@ by the user.
 Gets or sets a collection of strings consisting of the most-recently
 utilized values for Find What.
 
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-InvokableOperations'></a>
+### InvokableOperations `property`
+
+##### Summary
+
+Gets or sets a reference to a collection of instances of
+[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that represents
+all the operations the user can perform with this application.
+
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-IsFolded'></a>
 ### IsFolded `property`
 
@@ -258,14 +268,25 @@ found text.
 Gets or sets a value indicating whether we should match the whole
 word on found text.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-OperationsToPerform'></a>
-### OperationsToPerform `property`
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution'></a>
+### PromptUserToReloadOpenSolution `property`
 
 ##### Summary
 
-Gets or sets a reference to a collection of instances of
-[OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo') instances, that can turn the
-operations to be performed on or off.
+Gets or sets a value indicating whether the application should prompt the user
+if it detects that one or more instances of Visual Studio are open, but none of
+them have the target Solution(s) loaded.
+
+##### Remarks
+
+The default value of this property is `true`.
+
+
+
+Set to `false` to suppress the display of the warning message
+box.  If users suppress the message box, and one or more of the
+target Solution(s) are indeed loaded by a running instance of Visual Studio,
+then there may be file-sharing/permissions issues during the operation(s).
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`
@@ -282,8 +303,8 @@ If this is set to `true`, and the containing solution is open,
 then the solution will be closed prior to the start of the selected
 operation(s) and then re-opened when the selected operation(s) are complete.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFiles'></a>
-### RenameFiles `property`
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder'></a>
+### RenameFilesInFolder `property`
 
 ##### Summary
 
@@ -343,6 +364,12 @@ tabs, of the one that is currently selected.
 
 Gets or sets a string containing the path to the starting folder of
 the search.
+
+##### Remarks
+
+The
+[](#E-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderChanged 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderChanged')
+event is raised when this property's value is updated.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-StartingFolderHistory'></a>
 ### StartingFolderHistory `property`

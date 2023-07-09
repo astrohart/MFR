@@ -1,4 +1,5 @@
 ﻿using MFR.GUI.Windows.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Configuration;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace MFR.GUI.Windows.Actions
     /// <summary>
     /// Exposes static methods to obtain various quantities.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Get
     {
         /// <summary>
@@ -109,6 +111,13 @@ namespace MFR.GUI.Windows.Actions
         /// <see cref="P:System.Windows.Forms.Screen.AllScreens" /> list --- which, itself,
         /// represents the set of all monitors that the user has connected to this machine.
         /// </summary>
+        /// <param name="control">
+        /// (Optional.) A <see cref="T:System.Windows.Forms.Control" /> that is on the
+        /// screen that you wish to get the bounds for.
+        /// <para />
+        /// The default value of this property is <see langword="null" />.  In that event,
+        /// then the method finds the first screen in the list, and returns its bounds.
+        /// </param>
         /// <returns>
         /// If successful, a <see cref="T:System.Drawing.Rectangle" /> that expresses the
         /// bounds of the first element of the
@@ -116,7 +125,7 @@ namespace MFR.GUI.Windows.Actions
         /// represents the set of all monitors that the user has connected to this machine;
         /// otherwise, the <see cref="F:System.Drawing.Rectangle.Empty" /> value.
         /// </returns>
-        public static Rectangle ReferenceScreenBounds()
+        public static Rectangle ReferenceScreenBounds(Control control = null)
         {
             var result = Rectangle.Empty;
 
@@ -124,7 +133,15 @@ namespace MFR.GUI.Windows.Actions
             {
                 if (!Screen.AllScreens.Any()) return result;
 
-                result = Screen.AllScreens[0]
+                /*
+                result = control == null
+                    ? Screen.AllScreens[0]
+                            .Bounds
+                    : Screen.FromControl(control)
+                            .Bounds;
+                */
+
+                result = Screen.AllScreens.First()
                                .Bounds;
             }
             catch (Exception ex)

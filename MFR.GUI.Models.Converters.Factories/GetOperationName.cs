@@ -1,11 +1,13 @@
 using MFR.GUI.Models.Constants;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Models.Converters.Factories
 {
     /// <summary>
     /// Exposes methods to obtain the names of operations.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetOperationName
     {
         /// <summary>

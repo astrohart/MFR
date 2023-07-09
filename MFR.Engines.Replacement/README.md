@@ -16,6 +16,10 @@
 - [Resources](#T-MFR-Engines-Replacement-Properties-Resources 'MFR.Engines.Replacement.Properties.Resources')
   - [Culture](#P-MFR-Engines-Replacement-Properties-Resources-Culture 'MFR.Engines.Replacement.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Replacement-Properties-Resources-ResourceManager 'MFR.Engines.Replacement.Properties.Resources.ResourceManager')
+- [SolutionFolderNameReplacementEngine](#T-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine 'MFR.Engines.Replacement.SolutionFolderNameReplacementEngine')
+  - [#ctor()](#M-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine-#ctor 'MFR.Engines.Replacement.SolutionFolderNameReplacementEngine.#ctor')
+  - [#ctor(configuration)](#M-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.SolutionFolderNameReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [OperationType](#P-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine-OperationType 'MFR.Engines.Replacement.SolutionFolderNameReplacementEngine.OperationType')
 - [TextInFileReplacementEngine](#T-MFR-Engines-Replacement-TextInFileReplacementEngine 'MFR.Engines.Replacement.TextInFileReplacementEngine')
   - [#ctor()](#M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor')
   - [#ctor(configuration)](#M-MFR-Engines-Replacement-TextInFileReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Replacement.TextInFileReplacementEngine.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
@@ -246,6 +250,70 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine'></a>
+## SolutionFolderNameReplacementEngine `type`
+
+##### Namespace
+
+MFR.Engines.Replacement
+
+##### Summary
+
+Contains rules to replace text in the pathnames of folders.
+
+<a name='M-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[SolutionFolderNameReplacementEngine](#T-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine 'MFR.Engines.Replacement.SolutionFolderNameReplacementEngine')
+and
+returns a reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+### #ctor(configuration) `constructor`
+
+##### Summary
+
+Constructs a new instance of
+[TextReplacementEngineBase](#T-MFR-TextReplacementEngineBase 'MFR.TextReplacementEngineBase')
+and
+returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an
+instance of an object that implements the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface that
+holds settings that are specified by the user. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `configuration`, is passed a
+`null`
+value. |
+
+<a name='P-MFR-Engines-Replacement-SolutionFolderNameReplacementEngine-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
 
 <a name='T-MFR-Engines-Replacement-TextInFileReplacementEngine'></a>
 ## TextInFileReplacementEngine `type`

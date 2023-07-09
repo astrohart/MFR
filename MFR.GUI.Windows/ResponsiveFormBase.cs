@@ -30,7 +30,7 @@ namespace MFR.GUI.Windows
         protected ResponsiveFormBase()
         {
             _responsiveObj = new Responsive(
-                Get.ReferenceScreenBounds()
+                Get.ReferenceScreenBounds(this)
             );
         }
 
