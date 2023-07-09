@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Configuration;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace MFR.GUI.Windows.Actions
     /// dragged from a monitor with one screen resolution to another monitor having a
     /// different screen resolution.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class Responsive
     {
         private readonly float _designTimeHeight = (float)Convert.ToDouble(
@@ -21,8 +23,14 @@ namespace MFR.GUI.Windows.Actions
             ConfigurationManager.AppSettings["DESIGN_TIME_SCREEN_WIDTH"]
         );
 
+        /// <summary>
+        /// A <see cref="T:System.Single"/> value that contains the multiplication factor for responsive heights.
+        /// </summary>
         private float _heightMultiplicationFactor;
 
+        /// <summary>
+        /// A <see cref="T:System.Single"/> value that contains the multiplication factor for responsive widths.
+        /// </summary>
         private float _widthMultiplicationFactor;
 
         /// <summary>
@@ -49,6 +57,8 @@ namespace MFR.GUI.Windows.Actions
 
         public int GetMetrics(int ComponentValue, string Direction)
         {
+
+
             if (Direction.Equals("Width") || Direction.Equals("Left"))
                 return (int)Math.Floor(
                     ComponentValue * _widthMultiplicationFactor

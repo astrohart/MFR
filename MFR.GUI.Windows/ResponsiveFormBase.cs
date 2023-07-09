@@ -1,4 +1,5 @@
 using MFR.GUI.Windows.Actions;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace MFR.GUI.Windows
     /// This class is designed to be inherited from when you need a Windows Form to
     /// look the same on monitors of different resolutions.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class ResponsiveFormBase : DarkForm
     {
         /// <summary>
