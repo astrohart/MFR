@@ -1,7 +1,9 @@
+using MFR.GUI.Windows.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Drawing;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Windows.Actions
 {
@@ -45,9 +47,19 @@ namespace MFR.GUI.Windows.Actions
         /// <see cref="T:MFR.GUI.Windows.Actions.Responsive" /> and returns a reference to
         /// it.
         /// </summary>
-        public Responsive(Rectangle resolution)
+        public Responsive(Rectangle resolution) : this()
         {
             Resolution = resolution;
+        }
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.GUI.Windows.Actions.Responsive" /> and returns a reference to
+        /// it.
+        /// </summary>
+        public Responsive()
+        {
+            SetMultiplicationFactors();
         }
 
         /// <summary>
@@ -59,72 +71,59 @@ namespace MFR.GUI.Windows.Actions
             get;
         }
 
-        public int GetMetrics(int ComponentValue)
-            => (int)Math.Floor(ComponentValue * _widthMultiplicationFactor);
-
-        public int GetMetrics(int ComponentValue, string Direction)
+        public int GetSizeMetrics(
+            int componentValue,
+            ScalingDirection direction
+        )
         {
-            if (Direction.Equals("Width") || Direction.Equals("Left"))
-                return (int)Math.Floor(
-                    ComponentValue * _widthMultiplicationFactor
-                );
-            if (Direction.Equals("Height") || Direction.Equals("Top"))
-                return (int)Math.Floor(
-                    ComponentValue * _heightMultiplicationFactor
-                );
-            return 1;
+            var result = componentValue;
+
+            try
+            {
+                if (!Enum.IsDefined(typeof(ScalingDirection), direction))
+                    return result;
+                if (ScalingDirection.Unknown == direction) return result;
+                if (componentValue <= 0) return result;
+
+                if (direction.IsAnyOf(
+                        ScalingDirection.Width, ScalingDirection.Left
+                    ))
+                    result = Compute.ScaledComponentValue(
+                        componentValue, _widthMultiplicationFactor
+                    );
+                else if (direction.IsAnyOf(
+                             ScalingDirection.Height, ScalingDirection.Top
+                         ))
+                    result = Compute.ScaledComponentValue(
+                        componentValue, _heightMultiplicationFactor
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = componentValue;
+            }
+
+            return result;
         }
 
-        public void SetMultiplicationFactor()
+        public void SetMultiplicationFactors()
         {
-            // write the name of the current class and method we are now entering, into the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "In Responsive.SetMultiplicationFactor"
-            );
+            try
+            {
+                _widthMultiplicationFactor =
+                    Resolution.Width / _designTimeWidth;
 
-            // Dump the variable Resolution.Width to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"Responsive.SetMultiplicationFactor: Resolution.Width = {Resolution.Width}"
-            );
-
-            // Dump the variable _designTimeWidth to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"Responsive.SetMultiplicationFactor: _designTimeWidth = {_designTimeWidth}"
-            );
-
-            _widthMultiplicationFactor = Resolution.Width / _designTimeWidth;
-
-            // Dump the variable _widthMultiplicationFactor to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"Responsive.SetMultiplicationFactor: _widthMultiplicationFactor = {_widthMultiplicationFactor}"
-            );
-
-            // Dump the variable Resolution.Height to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"Responsive.SetMultiplicationFactor: Resolution.Height = {Resolution.Height}"
-            );
-
-            // Dump the variable _designTimeHeight to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"Responsive.SetMultiplicationFactor: _designTimeHeight = {_designTimeHeight}"
-            );
-
-            _heightMultiplicationFactor = Resolution.Height / _designTimeHeight;
-
-            // Dump the variable _heightMultiplicationFactor to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"Responsive.SetMultiplicationFactor: _heightMultiplicationFactor = {_heightMultiplicationFactor}"
-            );
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug, "Responsive.SetMultiplicationFactor: Done."
-            );
+                _heightMultiplicationFactor =
+                    Resolution.Height / _designTimeHeight;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }

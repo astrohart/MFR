@@ -220,6 +220,10 @@
       <Project>{0C6EA02B-6B23-4517-A06C-4F3D3C4CEA16}</Project>
       <Name>MFR.GUI.Windows.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Constants\MFR.GUI.Windows.Constants.csproj">
+      <Project>{ecbd0ebb-f4be-47d7-8a6e-2884244755f1}</Project>
+      <Name>MFR.GUI.Windows.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
       <Name>MFR.GUI.Windows.Presenters.Events</Name>

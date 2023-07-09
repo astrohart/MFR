@@ -1,4 +1,5 @@
 using MFR.GUI.Windows.Actions;
+using MFR.GUI.Windows.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections;
@@ -29,10 +30,8 @@ namespace MFR.GUI.Windows
         protected ResponsiveFormBase()
         {
             _responsiveObj = new Responsive(
-                Screen.AllScreens[0]
-                      .Bounds
+                Get.ReferenceScreenBounds()
             );
-            _responsiveObj.SetMultiplicationFactor();
         }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Load" /> event.</summary>
@@ -59,10 +58,13 @@ namespace MFR.GUI.Windows
             Location = Screen.AllScreens[1]
                              .WorkingArea.Location;
 
-            Width = _responsiveObj.GetMetrics(
-                Width, "Width"
-            ); // Form width and height set up.
-            Height = _responsiveObj.GetMetrics(Height, "Height");
+            // Form width and height set up.
+            Width = _responsiveObj.GetSizeMetrics(
+                Width, ScalingDirection.Width
+            ); 
+            Height = _responsiveObj.GetSizeMetrics(Height, 
+                ScalingDirection.Height
+            );
 
             StartPosition = previousStartPosition;
 
@@ -85,11 +87,11 @@ namespace MFR.GUI.Windows
 
             foreach (var control in controls.Cast<Control>())
             {
-                control.Width = _responsiveObj.GetMetrics(
-                    control.Width, "Width"
+                control.Width = _responsiveObj.GetSizeMetrics(
+                    control.Width, ScalingDirection.Width
                 );
-                control.Height = _responsiveObj.GetMetrics(
-                    control.Height, "Height"
+                control.Height = _responsiveObj.GetSizeMetrics(
+                    control.Height, ScalingDirection.Height
                 );
 
                 InstallMetrics(
