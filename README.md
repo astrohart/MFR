@@ -235,14 +235,14 @@ The folllowing command-line arguments are all optional.  They are all `Boolean`,
 
 If one of the arguments below is specified on the command line, then its corresponding `Boolean` setting is turned on.  Otherwise, the setting is deactivated.
 
-| **Flag**           | **Meaning**                                                                                                                                                  |
-|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--autoStart`      | (Optional.) Specify this flag to automatically start the specified operation(s) when the application starts and then quit when done.  Default is `false`.    |
-| `--reOpenSolution` | (Optional.) Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed.  Default is `false`. |
-| `--matchCase`      | (Optional.) Indicates a case-sensitive search should be performed.  Default is `true`.                                                                       |
-| `--matchWholeWord` | (Optional.) Indicates that a whole-word search (respecting periods) should be performed.  Default is `false`.                                                |
-| `--renameFiles`    | (Optional.) Indicates that files should be renamed.  Default is `true`.                                                                                      |
-| `-?`               | (Optional.) Displays a Help message about all the command-line arguments and flags.                                                                          |
+| **Flag**             | **Meaning**                                                                                                                                                  |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--autoStart`        | (Optional.) Specify this flag to automatically start the specified operation(s) when the application starts and then quit when done.  Default is `false`.    |
+| `--reOpenSolution`   | (Optional.) Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed.  Default is `false`. |
+| `--matchCase`        | (Optional.) Indicates a case-sensitive search should be performed.  Default is `true`.                                                                       |
+| `--matchWholeWord`   | (Optional.) Indicates that a whole-word search (respecting periods) should be performed.  Default is `false`.                                                |
+| `--renameFiles`      | (Optional.) Indicates that files should be renamed.  Default is `true`.                                                                                      |
+| `-?`                 | (Optional.) Displays a Help message about all the command-line arguments and flags.                                                                          |
 
 **Table 2.** Command-line flags to turn settings on or off.
 
