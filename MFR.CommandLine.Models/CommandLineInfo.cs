@@ -29,7 +29,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = string.Empty;
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether a case-sensitive search should be done.
