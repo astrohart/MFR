@@ -19,7 +19,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = false;
+        }
 
         /// <summary>
         /// Gets or sets a string containing the content to be found in the file system
