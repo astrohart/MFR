@@ -34,6 +34,9 @@ namespace MFR.CommandLine.Models
         /// <summary>
         /// Gets or sets a value indicating whether a case-sensitive search should be done.
         /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// </remarks>
         public bool MatchCase
         {
             get;
