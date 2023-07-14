@@ -50,7 +50,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = false;
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether the files are to be renamed.
