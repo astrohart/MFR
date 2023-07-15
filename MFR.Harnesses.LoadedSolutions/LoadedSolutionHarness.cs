@@ -5,8 +5,25 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
 namespace MFR.Harnesses.LoadedSolutions
 {
+    /// <summary>
+    /// A harness object to associate a Visual Studio Solution (<c>*.sln</c>) file that
+    /// is loaded in a target running instance of Visual Studio with additional
+    /// parameters and options that make ti possible for the Project File Renamer
+    /// application to effectively manage it, regardless of whether the Visual Studio
+    /// Solution (<c>*.sln</c>) in question is in or out of the directory tree of the
+    /// root directory (i.e., the folder that the user has chosen to start the Project
+    /// File Renamer operations in).
+    /// </summary>
     public class LoadedSolutionHarness : ILoadedSolutionHarness
     {
+        /// <summary>
+        /// Constructs a new instance of <see cref="T:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness" /> and returns a reference to it.
+        /// </summary>
+        public LoadedSolutionHarness(IVisualStudioSolution targetSolution)
+        {
+            
+        }
+
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the target Visual Studio Solution (<c>*.sln</c>) file.
