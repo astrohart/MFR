@@ -17,11 +17,29 @@ namespace MFR.Harnesses.LoadedSolutions
     public class LoadedSolutionHarness : ILoadedSolutionHarness
     {
         /// <summary>
-        /// Constructs a new instance of <see cref="T:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness" /> and returns a reference to it.
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface that represents the Visual Studio Solution (<c>*.sln</c>) that is
+        /// targeted by this harness.
         /// </summary>
+        private IVisualStudioSolution _targetSolution;
+
+        /// <summary>
+        /// Constructs a new instance of
+        /// <see cref="T:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness" /> and
+        /// returns a reference to it.
+        /// </summary>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="targetSolution" />, is passed a
+        /// <see langword="null" /> value.
+        /// </exception>
         public LoadedSolutionHarness(IVisualStudioSolution targetSolution)
         {
-            
+            TargetSolution = targetSolution ??
+                             throw new ArgumentNullException(
+                                 nameof(targetSolution)
+                             );
         }
 
         /// <summary>
@@ -70,11 +88,16 @@ namespace MFR.Harnesses.LoadedSolutions
         /// <remarks>
         /// Such an object is utilized to automate the instance of Visual Studio that
         /// controls the particular Visual Studio Solution (<c>*.sln</c>) file.
+        /// <para />
+        /// When the value of this property is updated, the
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolutionChanged" />
+        /// event is raised.
         /// </remarks>
-        public IVisualStudioSolution SolutionObject
+        public IVisualStudioSolution TargetSolution
         {
-            get;
-            set;
+            get => _targetSolution;
+            set => _targetSolution = value;
         }
 
         /// <summary>
@@ -178,5 +201,22 @@ namespace MFR.Harnesses.LoadedSolutions
         /// </summary>
         public void Unload()
             => throw new NotImplementedException();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolution" />
+        /// property is changed.
+        /// </summary>
+        public event EventHandler TargetSolutionChanged;
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolutionChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnTargetSolutionChanged()
+            => TargetSolutionChanged?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -29,6 +29,11 @@ namespace MFR.Harnesses.LoadedSolutions.Factories
         /// <see cref="T:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness" />
         /// interface
         /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required
+        /// parameter, <paramref name="solution" />, is passed a <see langword="null" />
+        /// value.
+        /// </exception>
         public static ILoadedSolutionHarness ToLoadedSolutionHanress(
             this IVisualStudioSolution solution
         )

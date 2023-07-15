@@ -50,8 +50,13 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <remarks>
         /// Such an object is utilized to automate the instance of Visual Studio that
         /// controls the particular Visual Studio Solution (<c>*.sln</c>) file.
+        /// <para />
+        /// When the value of this property is updated, the
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolutionChanged" />
+        /// event is raised.
         /// </remarks>
-        IVisualStudioSolution SolutionObject
+        IVisualStudioSolution TargetSolution
         {
             get;
             set;
@@ -108,6 +113,14 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// to prevent the operation from being carried out.
         /// </remarks>
         event CancelEventHandler ShellOpening;
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolution" />
+        /// property is changed.
+        /// </summary>
+        event EventHandler TargetSolutionChanged;
 
         /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
