@@ -1,18 +1,20 @@
+using MFR.Harnesses.LoadedSolutions.Interfaces;
 using System;
 using System.ComponentModel;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
-namespace MFR.Harnesses.LoadedSolutions.Interfaces
+namespace MFR.Harnesses.LoadedSolutions
 {
-    public interface ILoadedSolutionHarness
+    public class LoadedSolutionHarness : ILoadedSolutionHarness
     {
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the target Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
-        string FileName
+        public string FileName
         {
             get;
+            private set;
         }
 
         /// <summary>
@@ -27,7 +29,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// underneath the starting folder selected by the user in the Project File
         /// Renamer.
         /// </remarks>
-        bool IsInRootDirectoryTree
+        public bool IsInRootDirectoryTree
         {
             get;
             set;
@@ -37,9 +39,10 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// Gets a value that indicates whether the target Visual Studio Solution (
         /// <c>*.sln</c>) file is loaded in a running instance of Visual Studio.
         /// </summary>
-        bool IsLoaded
+        public bool IsLoaded
         {
             get;
+            private set;
         }
 
         /// <summary>
@@ -51,7 +54,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// Such an object is utilized to automate the instance of Visual Studio that
         /// controls the particular Visual Studio Solution (<c>*.sln</c>) file.
         /// </remarks>
-        IVisualStudioSolution SolutionObject
+        public IVisualStudioSolution SolutionObject
         {
             get;
             set;
@@ -61,7 +64,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// Occurs when the target running instance of Visual Studio has finished loading
         /// the target Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
-        event EventHandler Loaded;
+        public event EventHandler Loaded;
 
         /// <summary>
         /// Occurs when the target running instance of Visual Studio is about to begin
@@ -72,12 +75,12 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <see cref="P:System.ComponentModel.CancelEventHandler.Cancel" /> property to
         /// <see langword="true" /> to prevent the operation from being carried out.
         /// </remarks>
-        event CancelEventHandler Loading;
+        public event CancelEventHandler Loading;
 
         /// <summary>
         /// Occurs when the target running instance of Visual Studio has been exited.
         /// </summary>
-        event EventHandler Quitted;
+        public event EventHandler Quitted;
 
         /// <summary>
         /// Occurs when we are about to shut down the target running instance of Visual
@@ -89,13 +92,13 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <see langword="true" />
         /// to prevent the operation from being carried out.
         /// </remarks>
-        event CancelEventHandler Quitting;
+        public event CancelEventHandler Quitting;
 
         /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
         /// opened using the Windows Shell.
         /// </summary>
-        event EventHandler ShellOpened;
+        public event EventHandler ShellOpened;
 
         /// <summary>
         /// Occurs when we are about to open the target Visual Studio Solution (
@@ -107,13 +110,13 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <see langword="true" />
         /// to prevent the operation from being carried out.
         /// </remarks>
-        event CancelEventHandler ShellOpening;
+        public event CancelEventHandler ShellOpening;
 
         /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
         /// unloaded from the target running instance of Visual Studio.
         /// </summary>
-        event EventHandler Unloaded;
+        public event EventHandler Unloaded;
 
         /// <summary>
         /// Occurs when we are about to unload the target Visual Studio Solution (
@@ -125,19 +128,21 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <see langword="true" />
         /// to prevent the operation from being carried out.
         /// </remarks>
-        event CancelEventHandler Unloading;
+        public event CancelEventHandler Unloading;
 
         /// <summary>
         /// Opens the target Visual Studio Solution (<c>*.sln</c>) file in the target
         /// running instance of Visual Studio.
         /// </summary>
-        void Load();
+        public void Load()
+            => throw new NotImplementedException();
 
         /// <summary>
         /// Exits the running instance of Visual Studio that has the target Visual Studio
         /// Solution (<c>*.sln</c>) file open.
         /// </summary>
-        void Quit();
+        public void Quit()
+            => throw new NotImplementedException();
 
         /// <summary>
         /// Open the target Visual Studio Solution (<c>*.sln</c>) file (if it exists) using
@@ -147,12 +152,14 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <see langword="true" /> if the operation succeeded;
         /// <see langword="false" /> otherwise, or if the operation is cancelled.
         /// </returns>
-        bool ShellOpen();
+        public bool ShellOpen()
+            => throw new NotImplementedException();
 
         /// <summary>
         /// Unloads the target Visual Studio Solution (<c>*.sln</c>) file from the running
         /// instance of Visual Studio that has it open.
         /// </summary>
-        void Unload();
+        public void Unload()
+            => throw new NotImplementedException();
     }
 }
