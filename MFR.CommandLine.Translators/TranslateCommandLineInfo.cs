@@ -84,7 +84,9 @@ namespace MFR.CommandLine.Translators
                    .ShouldRenameFilesInFolder(cmdInfo.RenameFilesInFolder)
                    .AndShouldRenameSubFolders(cmdInfo.RenameSubFolders)
                    .AndShouldReplaceTextInFiles(cmdInfo.ReplaceTextInFiles)
-                   .AndShouldRenameSolutionFolders(cmdInfo.RenameSolutionFolder)
+                   .AndShouldRenameSolutionFolders(
+                       cmdInfo.RenameSolutionFolders
+                   )
                    .AndShouldReOpenSolution(cmdInfo.ReOpenSolution)
                    .SetIsFromCommandLine(
                        true
