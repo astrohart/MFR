@@ -118,6 +118,13 @@ namespace MFR.CommandLine.Parsers
                  )
                  .SetDefault(true);
 
+                p.Setup(arg => arg.RenameSolutionFolders)
+                 .As("renameSolutionFolders")
+                 .WithDescription(
+                     "Indication that the search text should be found and replaced in the same of those folder(s) in the directory tree that contain .sln files."
+                 )
+                 .SetDefault(false);
+
                 p.Setup(arg => arg.ReOpenSolution)
                  .As("reOpenSolution")
                  .WithDescription(
