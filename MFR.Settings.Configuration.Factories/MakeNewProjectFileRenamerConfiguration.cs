@@ -354,7 +354,7 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndSetRenameSubFoldersTo(
+        public static IProjectFileRenamerConfiguration AndShouldRenameSubFolders(
             this IProjectFileRenamerConfiguration self, bool renameSubFolders)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
@@ -388,7 +388,7 @@ namespace MFR.Settings.Configuration.Factories
         /// passed a <see langword="null" /> value.
         /// </exception>
         public static IProjectFileRenamerConfiguration
-            AndSetReplaceTextInFilesTo(
+            AndShouldReplaceTextInFiles(
                 this IProjectFileRenamerConfiguration self,
                 bool replaceTextInFiles)
         {
@@ -577,7 +577,7 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration SetRenameFilesTo(
+        public static IProjectFileRenamerConfiguration ShouldRenameFilesInFolder(
             this IProjectFileRenamerConfiguration self, bool renameFiles)
         {
             if (self == null) throw new ArgumentNullException(nameof(self));

@@ -99,5 +99,10 @@ namespace MFR.CommandLine.Models.Interfaces
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether we are to rename folder(s) that contain Solution(s).
+        /// </summary>
+        bool RenameSolutionFolders { get; set; }
     }
 }
