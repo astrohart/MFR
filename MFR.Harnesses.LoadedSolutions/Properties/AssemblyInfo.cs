@@ -4,8 +4,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.Params.LoadedSolutions.Interfaces")]
-[assembly: AssemblyDescription("Provides POCOs that package a IVisualStudioSolution interface together with stats such as whether it is inside or out of the root directory (i.e., the directory that the Project File Renamer strats its operations in) directory tree, etc.  This particular library holds the C# interfaces for this component.")]
+[assembly: AssemblyTitle("MFR.Harnesses.LoadedSolutions")]
+[assembly: AssemblyDescription("Provides POCOs that package a IVisualStudioSolution interface together with stats such as whether it is inside or out of the root directory (i.e., the directory that the Project File Renamer strats its operations in) directory tree, etc.  This particular library holds the concrete classes and implementations of the component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ffc3ecf2-52a5-4df3-9243-0ca7757fd06b")]
+[assembly: Guid("8073fecc-1902-41f6-a4bc-9bb6274de0be")]
 
 // Version information for an assembly consists of the following four values:
 //

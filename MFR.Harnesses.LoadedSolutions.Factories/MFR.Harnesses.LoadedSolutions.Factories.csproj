@@ -1,11 +1,11 @@
-﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <ProjectGuid>{91F09DE3-1397-43B6-9D3B-AD6C9AD0B532}</ProjectGuid>
+    <ProjectGuid>{C4D3226D-74ED-4E80-BC16-9CEEDFF352C5}</ProjectGuid>
     <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.Params.LoadedSolutions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.Harnesses.LoadedSolutions.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.Params.LoadedSolutions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.Harnesses.LoadedSolutions.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -49,7 +49,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.Params.LoadedSolutions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.Harnesses.LoadedSolutions.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -63,7 +63,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.Params.LoadedSolutions.Interfaces.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.Harnesses.LoadedSolutions.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,10 +73,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.Params.LoadedSolutions.Interfaces</AssemblyName>
+    <AssemblyName>MFR.Harnesses.LoadedSolutions.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.Params.LoadedSolutions.Interfaces</RootNamespace>
+    <RootNamespace>MFR.Harnesses.LoadedSolutions.Factories</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">

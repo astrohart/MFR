@@ -912,11 +912,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Text.Actions", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Windows.Constants", "MFR.GUI.Windows.Constants\MFR.GUI.Windows.Constants.csproj", "{ECBD0EBB-F4BE-47D7-8A6E-2884244755F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.LoadedSolutions", "MFR.Params.LoadedSolutions\MFR.Params.LoadedSolutions.csproj", "{3287CA7D-FCF7-4661-BF4B-DB144E263B76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Harnesses.LoadedSolutions", "MFR.Harnesses.LoadedSolutions\MFR.Harnesses.LoadedSolutions.csproj", "{3287CA7D-FCF7-4661-BF4B-DB144E263B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.LoadedSolutions.Factories", "MFR.Params.LoadedSolutions.Factories\MFR.Params.LoadedSolutions.Factories.csproj", "{C4D3226D-74ED-4E80-BC16-9CEEDFF352C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Harnesses.LoadedSolutions.Factories", "MFR.Harnesses.LoadedSolutions.Factories\MFR.Harnesses.LoadedSolutions.Factories.csproj", "{C4D3226D-74ED-4E80-BC16-9CEEDFF352C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Params.LoadedSolutions.Interfaces", "MFR.Params.LoadedSolutions.Interfaces\MFR.Params.LoadedSolutions.Interfaces.csproj", "{91F09DE3-1397-43B6-9D3B-AD6C9AD0B532}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Harnesses.LoadedSolutions.Interfaces", "MFR.Harnesses.LoadedSolutions.Interfaces\MFR.Harnesses.LoadedSolutions.Interfaces.csproj", "{91F09DE3-1397-43B6-9D3B-AD6C9AD0B532}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

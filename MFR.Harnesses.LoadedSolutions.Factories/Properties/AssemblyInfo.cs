@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFR.Params.LoadedSolutions.Factories")]
+[assembly: AssemblyTitle("MFR.Harnesses.LoadedSolutions.Factories")]
 [assembly: AssemblyDescription("Provides POCOs that package a IVisualStudioSolution interface together with stats such as whether it is inside or out of the root directory (i.e., the directory that the Project File Renamer strats its operations in) directory tree, etc.  This particular library holds the factories for this component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
