@@ -78,7 +78,7 @@ namespace MFR.CommandLine.Translators
                                        )
                                        .AndFindWhat(cmdInfo.FindWhat)
                                        .AndReplaceWith(cmdInfo.ReplaceWith)
-                                       .SetRenameFilesTo(cmdInfo.RenameFiles)
+                                       .SetRenameFilesTo(cmdInfo.RenameFilesInFolder)
                                        .AndSetRenameSubFoldersTo(
                                            cmdInfo.RenameSubFolders
                                        )

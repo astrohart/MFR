@@ -58,7 +58,7 @@ namespace MFR.CommandLine.Models
         /// <remarks>
         /// The default value of this property is <see langword="true" />.
         /// </remarks>
-        public bool RenameFiles
+        public bool RenameFilesInFolder
         {
             get;
             set;

@@ -101,7 +101,7 @@ namespace MFR.CommandLine.Parsers
                      "Sets the string to be substituted in file system entry names."
                  );
 
-                p.Setup(arg => arg.RenameFiles)
+                p.Setup(arg => arg.RenameFilesInFolder)
                  .As("renameFiles")
                  .WithDescription("Indicates that files should be renamed.")
                  .SetDefault(true);
@@ -164,9 +164,9 @@ namespace MFR.CommandLine.Parsers
                  * on the command line, assume that the user wants to perform
                  * all of them.
                  */
-                if (!result.RenameFiles && !result.RenameSubFolders &&
+                if (!result.RenameFilesInFolder && !result.RenameSubFolders &&
                     !result.ReplaceTextInFiles)
-                    result.RenameFiles = result.RenameSubFolders =
+                    result.RenameFilesInFolder = result.RenameSubFolders =
                         result.ReplaceTextInFiles = true;
             }
             catch (Exception ex)
