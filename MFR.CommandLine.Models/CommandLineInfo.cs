@@ -65,6 +65,15 @@ namespace MFR.CommandLine.Models
         } = true;
 
         /// <summary>
+        /// Gets or sets a value indicating whether we are to rename folder(s) that contain Solution(s).
+        /// </summary>
+        public bool RenameSolutionFolders
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether sub folders should be renamed.
         /// </summary>
         /// <remarks>
