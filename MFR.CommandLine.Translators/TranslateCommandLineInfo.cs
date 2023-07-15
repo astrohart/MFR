@@ -16,7 +16,8 @@ namespace MFR.CommandLine.Translators
     /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
     /// into instances of objects of other types, such as an instance of an object that
     /// implements the
-    /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    /// <see
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface, for example.
     /// </remarks>
     public static class TranslateCommandLineInfo
@@ -48,12 +49,13 @@ namespace MFR.CommandLine.Translators
             get => ConfigurationProvider.CurrentConfiguration;
             set => ConfigurationProvider.CurrentConfiguration = value;
         }
-        
+
         /// <summary>
         /// Translates an instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
         /// to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
         /// interface.
         /// </summary>
         /// <param name="cmdInfo">
@@ -62,36 +64,36 @@ namespace MFR.CommandLine.Translators
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface
         /// whose properties have been initialized with the values specified in the
         /// properties of the <paramref name="cmdInfo" /> object.
         /// </returns>
         public static IProjectFileRenamerConfiguration ToConfiguration(
-            this ICommandLineInfo cmdInfo)
+            this ICommandLineInfo cmdInfo
+        )
         {
             if (cmdInfo == null)
                 throw new ArgumentNullException(nameof(cmdInfo));
 
             return CurrentConfiguration
-                                       .ForStartingFolder(
-                                           cmdInfo.StartingFolder
-                                       )
-                                       .AndFindWhat(cmdInfo.FindWhat)
-                                       .AndReplaceWith(cmdInfo.ReplaceWith)
-                                       .SetRenameFilesTo(cmdInfo.RenameFiles)
-                                       .AndSetRenameSubFoldersTo(
-                                           cmdInfo.RenameSubFolders
-                                       )
-                                       .AndSetReplaceTextInFilesTo(
-                                           cmdInfo.ReplaceTextInFiles
-                                       )
-                                       .AndShouldReOpenSolution(
-                                           cmdInfo.ReOpenSolution
-                                       )
-                                       .SetIsFromCommandLine(true)  // flag the configuration as being from the command line
-                                       .ShouldAutoStart(
-                                           cmdInfo.AutoStart
-                                       ); // mark this as a command-line specified configuration
+                   .ForStartingFolder(cmdInfo.StartingFolder)
+                   .AndFindWhat(cmdInfo.FindWhat)
+                   .AndReplaceWith(cmdInfo.ReplaceWith)
+                   .ShouldRenameFilesInFolder(cmdInfo.RenameFilesInFolder)
+                   .AndShouldRenameSubFolders(cmdInfo.RenameSubFolders)
+                   .AndShouldReplaceTextInFiles(cmdInfo.ReplaceTextInFiles)
+                   .AndShouldRenameSolutionFolders(
+                       cmdInfo.RenameSolutionFolders
+                   )
+                   .AndShouldReOpenSolution(cmdInfo.ReOpenSolution)
+                   .SetIsFromCommandLine(
+                       true
+                   ) // flag the configuration as being from the command line
+                   .ShouldAutoStart(
+                       cmdInfo.AutoStart
+                   ); // mark this as a command-line specified configuration
         }
     }
 }

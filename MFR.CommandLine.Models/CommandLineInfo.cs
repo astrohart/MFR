@@ -58,11 +58,20 @@ namespace MFR.CommandLine.Models
         /// <remarks>
         /// The default value of this property is <see langword="true" />.
         /// </remarks>
-        public bool RenameFiles
+        public bool RenameFilesInFolder
         {
             get;
             set;
         } = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether we are to rename folder(s) that contain Solution(s).
+        /// </summary>
+        public bool RenameSolutionFolders
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether sub folders should be renamed.

@@ -47,7 +47,7 @@ namespace MFR.CommandLine.Models.Interfaces
         /// <summary>
         /// Gets or sets a value indicating whether the files are to be renamed.
         /// </summary>
-        bool RenameFiles
+        bool RenameFilesInFolder
         {
             get;
             set;
@@ -99,5 +99,10 @@ namespace MFR.CommandLine.Models.Interfaces
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether we are to rename folder(s) that contain Solution(s).
+        /// </summary>
+        bool RenameSolutionFolders { get; set; }
     }
 }
