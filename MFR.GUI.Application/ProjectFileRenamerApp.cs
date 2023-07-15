@@ -78,7 +78,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static ICommandLineParser CommandLineParser
-            => GetCommandLineParser.SoleInstance();
+        {
+            get;
+        } = GetCommandLineParser.SoleInstance();
 
         /// <summary>
         /// Gets or sets a value that indicates whether the user specified any arguments on
