@@ -65,6 +65,8 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </remarks>
         event CancelEventHandler Loading;
 
+        
+
         /// <summary>
         /// Opens the target Visual Studio Solution (<c>*.sln</c>) file in the target
         /// running instance of Visual Studio.
