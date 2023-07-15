@@ -19,7 +19,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = false;
+        }
 
         /// <summary>
         /// Gets or sets a string containing the content to be found in the file system
@@ -29,11 +29,14 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = string.Empty;
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether a case-sensitive search should be done.
         /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// </remarks>
         public bool MatchCase
         {
             get;
@@ -47,11 +50,14 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = false;
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether the files are to be renamed.
         /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// </remarks>
         public bool RenameFiles
         {
             get;
@@ -61,6 +67,9 @@ namespace MFR.CommandLine.Models
         /// <summary>
         /// Gets or sets a value indicating whether sub folders should be renamed.
         /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// </remarks>
         public bool RenameSubFolders
         {
             get;
@@ -71,6 +80,9 @@ namespace MFR.CommandLine.Models
         /// Gets or sets a value that indicates that the Solution is to be reloaded when
         /// the operations are finished.
         /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// </remarks>
         public bool ReOpenSolution
         {
             get;
@@ -80,6 +92,9 @@ namespace MFR.CommandLine.Models
         /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.
         /// </summary>
+        /// <remarks>
+        /// The default value of this property is <see langword="true" />.
+        /// </remarks>
         public bool ReplaceTextInFiles
         {
             get;
@@ -94,7 +109,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        } = string.Empty;
+        }
 
         /// <summary>
         /// Gets or sets a string that contains the starting folder.
