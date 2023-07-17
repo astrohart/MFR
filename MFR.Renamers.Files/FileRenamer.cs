@@ -16,9 +16,6 @@ using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;
-using MFR.Services.Solutions.Actions;
-using MFR.Services.Solutions.Factories;
-using MFR.Services.Solutions.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
@@ -27,6 +24,9 @@ using MFR.Renamers.Files.Constants;
 using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
+using MFR.Services.Solutions.Actions;
+using MFR.Services.Solutions.Factories;
+using MFR.Services.Solutions.Interfaces;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
@@ -1034,6 +1034,18 @@ namespace MFR.Renamers.Files
                     )
                 );
 
+                // Quit ALL of the instance(s) of Visual Studio that formerly had any of the
+                // Solution(s) anywhere in the directory tree of the 'source' folder open
+                // NOTE: We only get here if a particular Solution's folder needs renaming
+
+                /*
+                 * NOTE: This is not good enough.  EVERY running instance of Visual Studio, regardless of
+                 * whether they have Solution(s) loaded or not, must be closed in order for
+                 * this operation to succeed.
+                 */
+                foreach (var solution in LoadedSolutions) 
+                    solution.Quit();
+
                 /*
                  * OKAY, this is the loop over the list of the folders that we've found
                  * underneath the Root Directory, that contain Visual Studio Solution (<c>*.sln</c>)
@@ -1594,27 +1606,21 @@ namespace MFR.Renamers.Files
                                                  );
         }
 
-        public void SearchForRenamedSolution(
+        private void SearchForRenamedSolution(
             string oldFolderPath,
             string newFolderPath
         )
         {
             try
             {
-                // Dump the variable oldFolderPath to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileRenamer.SearchForRenamedSolution: oldFolderPath = '{oldFolderPath}'"
-                );
-
-                // Dump the variable newFolderPath to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"FileRenamer.SearchForRenamedSolution: newFolderPath = '{newFolderPath}'"
-                );
-
                 /*
-                 * Now that the folder that the Solution(s) itself are contained
+                 * This method is supposed to be called as part of the Rename Folder(s)
+                 * that Contain Solution(s) operation.
+                 *
+                 * We assume that this method has been called after the folder(s) that
+                 * contain Solution(s) have been renamed.
+                 *
+                 * Now that the folder(s) that the Solution(s) themselves are contained
                  * in has been renamed, update the pathname of any of the Solution(s)
                  * in our list of loaded Solution(s) to have the new pathname.
                  *
@@ -1806,8 +1812,9 @@ namespace MFR.Renamers.Files
              * might not necessarily be operating on the starting folder set
              * by the user in the application configuration.
              */
-
             CurrentConfiguration.StartingFolder = e.NewPath;
+
+            LoadedSolutionProvider.SetRootDirectoryPath(e.NewPath);
         }
 
         /// <summary>
@@ -2898,16 +2905,6 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                // Quit ALL of the instance(s) of Visual Studio that formerly had any of the
-                // Solution(s) anywhere in the directory tree of the 'source' folder open
-                // NOTE: We only get here if a particular Solution's folder needs renaming
-                foreach (var solution in LoadedSolutions)
-                {
-                    if (!solution.ContainingFolder.StartsWith(source))
-                        continue;
-                    solution.Quit();
-                }
-
                 do
                 {
                     try
@@ -3092,18 +3089,23 @@ namespace MFR.Renamers.Files
             var numFailed = 0;
             foreach (var solution in LoadedSolutions)
             {
-                if (solution == null) continue;
-                if (!Does.FileExist(solution.FullName)) continue;
-                if (Is.SolutionOpen(solution)) continue;
+                try
+                {
+                    if (solution == null) continue;
+                    if (!Does.FileExist(solution.FullName)) continue;
+                    if (Is.SolutionOpen(solution)) continue;
 
-                if (ReopenSolution(solution)) continue;
+                    if (ReopenSolution(solution)) continue;
 
-                Interlocked.Increment(ref numFailed);
-                ReportSolutionOpenFailed(solution.FullName);
+                    Interlocked.Increment(ref numFailed);
+                    ReportSolutionOpenFailed(solution.FullName);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
             }
-
-            /* Wait for the solution to be opened/loaded.
-                    while (!dte.Solution.IsOpen) Thread.Sleep(50); */
 
             OnOperationFinished(
                 new OperationFinishedEventArgs(
@@ -3191,10 +3193,15 @@ namespace MFR.Renamers.Files
                     );
                 if (string.IsNullOrWhiteSpace(newFileData))
                     return result;
-                if (SpecializedFileData.BinaryFileSkipped.Equals(newFileData)) 
-                    return true; // "succeed" but don't process any further
-                if (SpecializedFileData.NoChange.Equals(newFileData))
-                    return true; // "succeed" but don't process any further
+                if (SpecializedFileData.BinaryFileSkipped.Equals(
+                        newFileData
+                    ))
+                    return
+                        true; // "succeed" but don't process any further
+                if (SpecializedFileData.NoChange
+                                       .Equals(newFileData))
+                    return
+                        true; // "succeed" but don't process any further
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);

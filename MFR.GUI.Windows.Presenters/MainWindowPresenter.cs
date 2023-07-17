@@ -1105,12 +1105,20 @@ namespace MFR.GUI.Windows.Presenters
         /// </remarks>
         protected virtual void OnDataOperationStarted(DataOperationEventArgs e)
         {
-            DataOperationStarted?.Invoke(this, e);
-            SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
-                                                    .ForMessageId(
-                                                        MainWindowPresenterMessages
-                                                            .MWP_DATA_OPERATION_STARTED
-                                                    );
+            try
+            {
+                DataOperationStarted?.Invoke(this, e);
+                SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
+                    .ForMessageId(
+                        MainWindowPresenterMessages
+                            .MWP_DATA_OPERATION_STARTED
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>

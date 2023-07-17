@@ -59,6 +59,20 @@ namespace MFR.GUI.Windows
     public partial class MainWindow : ResponsiveFormBase, IMainWindow
     {
         /// <summary>
+        /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// Needed to make the
+        /// <see cref="P:MFR.GUI.Windows.MainWindow.OperationEngine" /> property
+        /// compute-once and store without having to use a static context.
+        /// <para />
+        /// This is due to the use of <see langword="dynamic" /> in the computation.
+        /// </remarks>
+        private IFullGuiOperationEngine _operationEngine;
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -78,6 +92,8 @@ namespace MFR.GUI.Windows
             InitializeConfiguration();
 
             InitializeStyles();
+
+            InitializeOperationEngine();
 
             InitializePresenter();
 
@@ -176,7 +192,6 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)] // do not log this method
         public bool IsDataValid
             => !string.IsNullOrWhiteSpace(StartingFolderComboBox.EnteredText) &&
-               Directory.Exists(StartingFolderComboBox.EnteredText) &&
                !string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText) &&
                !string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText);
 
@@ -223,6 +238,43 @@ namespace MFR.GUI.Windows
         private bool OnlyReplaceInFilesOperationIsEnabled
             => OperationsCheckedListBox.CheckedItems.Count == 1 &&
                OperationsCheckedListBox.GetItemChecked(2);
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine" />
+        /// interface that represents the engine that carries out the user's requested
+        /// operations..
+        /// </summary>
+        private IFullGuiOperationEngine OperationEngine
+        {
+            get {
+                var result = _operationEngine;
+
+                try
+                {
+                    if (_operationEngine == null)
+                        result = _operationEngine = GetOperationEngine
+                                                    .OfType<
+                                                        IFullGuiOperationEngine>(
+                                                        OperationEngineType
+                                                            .FullGUI
+                                                    )
+                                                    .AndAttachConfiguration(
+                                                        CurrentConfiguration
+                                                    ) as
+                            IFullGuiOperationEngine;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = _operationEngine;
+                }
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets a reference to the
@@ -689,18 +741,16 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Sets up the operation engine object.
+        /// </summary>
+        private void InitializeOperationEngine()
+            => OperationEngine.SetDialogOwner(this);
+
+        /// <summary>
         /// Sets up the presenter object and attaches handlers to events that it exposes.
         /// </summary>
         private void InitializePresenter()
         {
-            IFullGuiOperationEngine fullGuiOperationEngine = GetOperationEngine
-                .OfType<IFullGuiOperationEngine>(OperationEngineType.FullGUI)
-                .AndAttachConfiguration(CurrentConfiguration);
-            if (fullGuiOperationEngine == null) return;
-
-            // Set the DialogOwner property for the progress dialogs displayed by the component
-            fullGuiOperationEngine.SetDialogOwner(this);
-
             Presenter = AssociatePresenter<IMainWindowPresenter>.WithView()
                 .HavingWindowReference(this)
                 .AndHistoryManager(
@@ -709,7 +759,7 @@ namespace MFR.GUI.Windows
                                           CurrentConfiguration
                                       )
                 )
-                .WithOperationEngine(fullGuiOperationEngine);
+                .WithOperationEngine(OperationEngine);
 
             Presenter.UpdateConfiguration(CurrentConfiguration);
 
