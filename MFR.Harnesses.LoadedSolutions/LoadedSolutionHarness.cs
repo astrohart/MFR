@@ -1,6 +1,10 @@
+using Alphaleonis.Win32.Filesystem;
 using MFR.Harnesses.LoadedSolutions.Interfaces;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
 namespace MFR.Harnesses.LoadedSolutions
@@ -153,6 +157,14 @@ namespace MFR.Harnesses.LoadedSolutions
         public event CancelEventHandler ShellOpening;
 
         /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolution" />
+        /// property is changed.
+        /// </summary>
+        public event EventHandler TargetSolutionChanged;
+
+        /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
         /// unloaded from the target running instance of Visual Studio.
         /// </summary>
@@ -192,8 +204,46 @@ namespace MFR.Harnesses.LoadedSolutions
         /// <see langword="true" /> if the operation succeeded;
         /// <see langword="false" /> otherwise, or if the operation is cancelled.
         /// </returns>
+        /// <remarks>
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.ShellOpening" />
+        /// event is raised before the operation is carried out.  Handlers have a chance to
+        /// request that the operation be cancelled.
+        /// <para />
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.ShellOpened" />
+        /// event is raised when this method has completed executing the requested
+        /// operations.
+        /// </remarks>
         public bool ShellOpen()
-            => throw new NotImplementedException();
+        {
+            var result = false;
+
+            try
+            {
+                if (!Does.FileExist(FileName)) return result;
+                if (!".sln".Equals(Path.GetExtension(FileName))) return result;
+
+                var ce = new CancelEventArgs();
+                OnShellOpening(ce);
+                if (ce.Cancel) return result;
+
+                var proc = Process.Start(FileName);
+
+                result = proc != null;
+
+                OnShellOpened();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Unloads the target Visual Studio Solution (<c>*.sln</c>) file from the running
@@ -203,12 +253,28 @@ namespace MFR.Harnesses.LoadedSolutions
             => throw new NotImplementedException();
 
         /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolution" />
-        /// property is changed.
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.ShellOpened" />
+        /// event.
         /// </summary>
-        public event EventHandler TargetSolutionChanged;
+        protected virtual void OnShellOpened()
+            => ShellOpened?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.ShellOpening" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnShellOpening(CancelEventArgs e)
+            => ShellOpening?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
