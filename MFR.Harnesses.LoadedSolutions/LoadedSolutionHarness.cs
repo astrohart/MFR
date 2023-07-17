@@ -186,15 +186,75 @@ namespace MFR.Harnesses.LoadedSolutions
         /// Opens the target Visual Studio Solution (<c>*.sln</c>) file in the target
         /// running instance of Visual Studio.
         /// </summary>
-        public void Load()
-            => throw new NotImplementedException();
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise or if the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolution" />
+        /// property is <see langword="null" />.
+        /// </returns>
+        /// <remarks>
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Loading" />
+        /// event is raised before the operation is carried out.  Handlers have a chance to
+        /// request that the operation be cancelled.
+        /// <para />
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Loaded" />
+        /// event is raised when this method has completed executing the requested
+        /// operations.
+        /// </remarks>
+        public bool Load()
+        {
+            var result = false;
+
+            try
+            {
+                if (TargetSolution == null) return result;
+
+                var ce = new CancelEventArgs();
+                OnLoading(ce);
+                if (ce.Cancel) return result;
+
+                result = TargetSolution.Load();
+
+                if (result) OnLoaded();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Exits the running instance of Visual Studio that has the target Visual Studio
         /// Solution (<c>*.sln</c>) file open.
         /// </summary>
         public void Quit()
-            => throw new NotImplementedException();
+        {
+            try
+            {
+                if (TargetSolution == null) return;
+
+                var ce = new CancelEventArgs();
+                OnQuitting(ce);
+                if (ce.Cancel) return;
+
+                TargetSolution.Quit();
+
+                OnQuitted();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Open the target Visual Studio Solution (<c>*.sln</c>) file (if it exists) using
@@ -249,8 +309,100 @@ namespace MFR.Harnesses.LoadedSolutions
         /// Unloads the target Visual Studio Solution (<c>*.sln</c>) file from the running
         /// instance of Visual Studio that has it open.
         /// </summary>
-        public void Unload()
-            => throw new NotImplementedException();
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise or if the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.TargetSolution" />
+        /// property is <see langword="null" />.
+        /// </returns>
+        /// <remarks>
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Unloading" />
+        /// event is raised before the operation is carried out.  Handlers have a chance to
+        /// request that the operation be cancelled.
+        /// <para />
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Unloaded" />
+        /// event is raised when this method has completed executing the requested
+        /// operations.
+        /// </remarks>
+        public bool Unload()
+        {
+            var result = false;
+
+            try
+            {
+                if (TargetSolution == null) return result;
+
+                var ce = new CancelEventArgs();
+                OnUnloading(ce);
+                if (ce.Cancel) return result;
+
+                if (!IsLoaded) return true; // already unloaded
+
+                result = TargetSolution.Unload();
+
+                OnUnloaded();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Loaded" />
+        /// event.
+        /// </summary>
+        protected virtual void OnLoaded()
+            => Loaded?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Loading" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnLoading(CancelEventArgs e)
+            => Loading?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Quitted" />
+        /// event.
+        /// </summary>
+        protected virtual void OnQuitted()
+            => Quitted?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Quitting" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnQuitting(CancelEventArgs e)
+            => Quitting?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -284,5 +436,29 @@ namespace MFR.Harnesses.LoadedSolutions
         /// </summary>
         protected virtual void OnTargetSolutionChanged()
             => TargetSolutionChanged?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Unloaded" />
+        /// event.
+        /// </summary>
+        protected virtual void OnUnloaded()
+            => Unloaded?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Unloading" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.ComponentModel.CancelEventArgs" /> that
+        /// allows us to cancel the operation that this event is notifying the caller of.
+        /// <para />
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected virtual void OnUnloading(CancelEventArgs e)
+            => Unloading?.Invoke(this, e);
     }
 }

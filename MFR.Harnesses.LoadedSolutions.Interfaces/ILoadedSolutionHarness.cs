@@ -144,7 +144,14 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// Opens the target Visual Studio Solution (<c>*.sln</c>) file in the target
         /// running instance of Visual Studio.
         /// </summary>
-        void Load();
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise or if the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.TargetSolution" />
+        /// property is <see langword="null" />.
+        /// </returns>
+        bool Load();
 
         /// <summary>
         /// Exits the running instance of Visual Studio that has the target Visual Studio
@@ -160,12 +167,41 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// <see langword="true" /> if the operation succeeded;
         /// <see langword="false" /> otherwise, or if the operation is cancelled.
         /// </returns>
+        /// <remarks>
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpening" />
+        /// event is raised before the operation is carried out.  Handlers have a chance to
+        /// request that the operation be cancelled.
+        /// <para />
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpened" />
+        /// event is raised when this method has completed executing the requested
+        /// operations.
+        /// </remarks>
         bool ShellOpen();
 
         /// <summary>
         /// Unloads the target Visual Studio Solution (<c>*.sln</c>) file from the running
         /// instance of Visual Studio that has it open.
         /// </summary>
-        void Unload();
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise or if the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.TargetSolution" />
+        /// property is <see langword="null" />.
+        /// </returns>
+        /// <remarks>
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unloading" />
+        /// event is raised before the operation is carried out.  Handlers have a chance to
+        /// request that the operation be cancelled.
+        /// <para />
+        /// The
+        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unloaded" />
+        /// event is raised when this method has completed executing the requested
+        /// operations.
+        /// </remarks>
+        bool Unload();
     }
 }
