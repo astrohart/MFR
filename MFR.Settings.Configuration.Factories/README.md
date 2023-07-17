@@ -11,20 +11,20 @@
   - [AndIsFolded(self,isFolded)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndIsFolded-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndIsFolded(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndMatchCase(self,matchCase)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndMatchCase-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndMatchCase(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndMatchExactWord(self,matchExactWord)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndMatchExactWord-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndMatchExactWord(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
-  - [AndReOpenSolution(self,reOpenSolution)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReOpenSolution(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndReplaceWith(self,replaceWith)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWith-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReplaceWith(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [AndReplaceWithHistory(self,replaceWithHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWithHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndReplaceWithHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
   - [AndSelectedOptionTab(self,selectedOptionTab)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndSelectedOptionTab-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Int32- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndSelectedOptionTab(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Int32)')
-  - [AndSetRenameSubFoldersTo(self,renameSubFolders)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndSetRenameSubFoldersTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndSetRenameSubFoldersTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
-  - [AndSetReplaceTextInFilesTo(self,replaceTextInFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndSetReplaceTextInFilesTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndSetReplaceTextInFilesTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndShouldReOpenSolution(self,reOpenSolution)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndShouldReOpenSolution(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
+  - [AndShouldRenameSolutionFolders(self,renameSolutionFolders)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldRenameSolutionFolders-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndShouldRenameSolutionFolders(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
+  - [AndShouldRenameSubFolders(self,renameSubFolders)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldRenameSubFolders-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndShouldRenameSubFolders(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
+  - [AndShouldReplaceTextInFiles(self,replaceTextInFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldReplaceTextInFiles-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndShouldReplaceTextInFiles(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [AndStartingFolderHistory(self,startingFolderHistory)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndStartingFolderHistory-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-List{System-String}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.AndStartingFolderHistory(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.List{System.String})')
   - [ForStartingFolder(self,startingFolder)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ForStartingFolder-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.ForStartingFolder(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
   - [FromScratch()](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-FromScratch 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.FromScratch')
   - [HavingInvokableOperations(self,operationsToPerform)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-HavingInvokableOperations-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Collections-Generic-IList{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.HavingInvokableOperations(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [SetIsFromCommandLine(self,isFromCommandLine)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.SetIsFromCommandLine(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
-  - [SetRenameFilesTo(self,renameFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-SetRenameFilesTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.SetRenameFilesTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
   - [ShouldAutoStart(self,autoStart)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ShouldAutoStart-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.ShouldAutoStart(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
+  - [ShouldRenameFilesInFolder(self,renameFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ShouldRenameFilesInFolder-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration.ShouldRenameFilesInFolder(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.Boolean)')
 - [Resources](#T-MFR-Settings-Configuration-Factories-Properties-Resources 'MFR.Settings.Configuration.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Factories.Properties.Resources.ResourceManager')
@@ -233,37 +233,6 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
-### AndReOpenSolution(self,reOpenSolution) `method`
-
-##### Summary
-
-Builder extension method that initializes the
-[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
-property.
-
-##### Returns
-
-Reference to the same instance of the object that called this
-method, for fluent use.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface. |
-| reOpenSolution | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that contains the desired value. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
-passed a `null` value. |
-
 <a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndReplaceWith-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String-'></a>
 ### AndReplaceWith(self,replaceWith) `method`
 
@@ -359,8 +328,73 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndSetRenameSubFoldersTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
-### AndSetRenameSubFoldersTo(self,renameSubFolders) `method`
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
+### AndShouldReOpenSolution(self,reOpenSolution) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface. |
+| reOpenSolution | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) Value indicating whether any currently-loaded Solution in the
+target directory should be re-loaded when the operation(s) are completed. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
+
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldRenameSolutionFolders-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
+### AndShouldRenameSolutionFolders(self,renameSolutionFolders) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[RenameSolutionFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface. |
+| renameSolutionFolders | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
+application should process the `Rename Folder(s) that Contain Solution(s)`
+operation. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
+
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldRenameSubFolders-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
+### AndShouldRenameSubFolders(self,renameSubFolders) `method`
 
 ##### Summary
 
@@ -390,8 +424,8 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndSetReplaceTextInFilesTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
-### AndSetReplaceTextInFilesTo(self,replaceTextInFiles) `method`
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldReplaceTextInFiles-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
+### AndShouldReplaceTextInFiles(self,replaceTextInFiles) `method`
 
 ##### Summary
 
@@ -413,38 +447,6 @@ the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface. |
 | replaceTextInFiles | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that contains the desired value. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
-passed a `null` value. |
-
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-AndShouldReOpenSolution-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
-### AndShouldReOpenSolution(self,reOpenSolution) `method`
-
-##### Summary
-
-Builder extension method that initializes the
-[ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
-property.
-
-##### Returns
-
-Reference to the same instance of the object that called this
-method, for fluent use.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface. |
-| reOpenSolution | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) Value indicating whether any currently-loaded Solution in the
-target directory should be re-loaded when the operation(s) are completed. |
 
 ##### Exceptions
 
@@ -600,37 +602,6 @@ interface. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-SetRenameFilesTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
-### SetRenameFilesTo(self,renameFiles) `method`
-
-##### Summary
-
-Builder extension method that initializes the
-[RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
-property.
-
-##### Returns
-
-Reference to the same instance of the object that called this
-method, for fluent use.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface. |
-| renameFiles | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that contains the desired value. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
-passed a `null` value. |
-
 <a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ShouldAutoStart-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
 ### ShouldAutoStart(self,autoStart) `method`
 
@@ -655,6 +626,37 @@ the
 interface. |
 | autoStart | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) Sets a value indicating whether the specified operation(s) should
 be automatically processed when the application starts. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
+passed a `null` value. |
+
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfiguration-ShouldRenameFilesInFolder-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-Boolean-'></a>
+### ShouldRenameFilesInFolder(self,renameFiles) `method`
+
+##### Summary
+
+Builder extension method that initializes the
+[RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
+property.
+
+##### Returns
+
+Reference to the same instance of the object that called this
+method, for fluent use.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| self | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+the
+[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+interface. |
+| renameFiles | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') that contains the desired value. |
 
 ##### Exceptions
 
