@@ -23,7 +23,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the target Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
-        string FileName
+        string FullName
         {
             get;
         }
@@ -171,6 +171,25 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// Solution (<c>*.sln</c>) file open.
         /// </summary>
         void Quit();
+
+        /// <summary>
+        /// Updates the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.FullName" />
+        /// property.
+        /// </summary>
+        /// <param name="fullName">
+        /// (Required.) A <see cref="T:System.String" /> containing
+        /// the fully-qualified pathname of the Visual Studio Solution (<c>*.sln</c>) file
+        /// that is represented by the target solution.
+        /// </param>
+        /// <remarks>
+        /// This method is used when the Project File Renamer algorithms have
+        /// renamed the Visual Studio Solution (<c>*.sln</c>) file that corresponds to the
+        /// Solution that is currently loaded in the target running instance of Visual
+        /// Studio.
+        /// </remarks>
+        void SetFullName(string fullName);
 
         /// <summary>
         /// Open the target Visual Studio Solution (<c>*.sln</c>) file (if it exists) using

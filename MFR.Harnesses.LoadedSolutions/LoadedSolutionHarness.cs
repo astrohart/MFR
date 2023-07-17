@@ -75,6 +75,8 @@ namespace MFR.Harnesses.LoadedSolutions
                 {
                     // dump all the exception info to the log
                     DebugUtils.LogException(ex);
+
+                    result = string.Empty;
                 }
 
                 return result;
@@ -85,10 +87,28 @@ namespace MFR.Harnesses.LoadedSolutions
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the target Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
-        public string FileName
+        public string FullName
         {
-            get;
-            private set;
+            get {
+                var result = string.Empty;
+
+                try
+                {
+                    if (TargetSolution == null) return result;
+                    if (!Does.FileExist(TargetSolution.FullName)) return result;
+
+                    result = TargetSolution.FullName;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
         }
 
         /// <summary>
@@ -115,8 +135,28 @@ namespace MFR.Harnesses.LoadedSolutions
         /// </summary>
         public bool IsLoaded
         {
-            get;
-            private set;
+            get {
+                var result = false;
+
+                try
+                {
+                    if (TargetSolution == null) return result;
+                    if (string.IsNullOrWhiteSpace(TargetSolution.FullName))
+                        return result;
+                    if (!Does.FileExist(TargetSolution.FullName)) return result;
+
+                    result = TargetSolution.IsLoaded;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
         }
 
         /// <summary>
@@ -136,7 +176,11 @@ namespace MFR.Harnesses.LoadedSolutions
         public IVisualStudioSolution TargetSolution
         {
             get => _targetSolution;
-            set => _targetSolution = value;
+            set {
+                var changed = _targetSolution != value;
+                _targetSolution = value;
+                if (changed) OnTargetSolutionChanged();
+            }
         }
 
         /// <summary>
@@ -292,6 +336,40 @@ namespace MFR.Harnesses.LoadedSolutions
         }
 
         /// <summary>
+        /// Updates the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.FullName" />
+        /// property.
+        /// </summary>
+        /// <param name="fullName">
+        /// (Required.) A <see cref="T:System.String" /> containing
+        /// the fully-qualified pathname of the Visual Studio Solution (<c>*.sln</c>) file
+        /// that is represented by the target solution.
+        /// </param>
+        /// <remarks>
+        /// This method is used when the Project File Renamer algorithms have
+        /// renamed the Visual Studio Solution (<c>*.sln</c>) file that corresponds to the
+        /// Solution that is currently loaded in the target running instance of Visual
+        /// Studio.
+        /// </remarks>
+        public void SetFullName(string fullName)
+        {
+            try
+            {
+                if (TargetSolution == null) return;
+                if (!Does.FileExist(fullName)) return;
+                if (!".sln".Equals(Path.GetExtension(fullName))) return;
+
+                TargetSolution.FullName = fullName;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Open the target Visual Studio Solution (<c>*.sln</c>) file (if it exists) using
         /// the Windows Shell.
         /// </summary>
@@ -316,14 +394,14 @@ namespace MFR.Harnesses.LoadedSolutions
 
             try
             {
-                if (!Does.FileExist(FileName)) return result;
-                if (!".sln".Equals(Path.GetExtension(FileName))) return result;
+                if (!Does.FileExist(FullName)) return result;
+                if (!".sln".Equals(Path.GetExtension(FullName))) return result;
 
                 var ce = new CancelEventArgs();
                 OnShellOpening(ce);
                 if (ce.Cancel) return result;
 
-                var proc = Process.Start(FileName);
+                var proc = Process.Start(FullName);
 
                 result = proc != null;
 
