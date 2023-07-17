@@ -8,6 +8,19 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
     {
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the folder that the target Solution is located in.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// in the case that the value cannot be determined.
+        /// </remarks>
+        string ContainingFolder
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the target Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
         string FileName
@@ -169,12 +182,14 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </returns>
         /// <remarks>
         /// The
-        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpening" />
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpening" />
         /// event is raised before the operation is carried out.  Handlers have a chance to
         /// request that the operation be cancelled.
         /// <para />
         /// The
-        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpened" />
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpened" />
         /// event is raised when this method has completed executing the requested
         /// operations.
         /// </remarks>
@@ -193,12 +208,14 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </returns>
         /// <remarks>
         /// The
-        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unloading" />
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unloading" />
         /// event is raised before the operation is carried out.  Handlers have a chance to
         /// request that the operation be cancelled.
         /// <para />
         /// The
-        /// <see cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unloaded" />
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unloaded" />
         /// event is raised when this method has completed executing the requested
         /// operations.
         /// </remarks>

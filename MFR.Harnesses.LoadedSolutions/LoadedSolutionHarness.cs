@@ -10,6 +10,10 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 namespace MFR.Harnesses.LoadedSolutions
 {
     /// <summary>
+    /// Provides a harness that links a Visual Studio Solution (<c>*.sln</c>) file
+    /// together with the
+    /// </summary>
+    /// <remarks>
     /// A harness object to associate a Visual Studio Solution (<c>*.sln</c>) file that
     /// is loaded in a target running instance of Visual Studio with additional
     /// parameters and options that make ti possible for the Project File Renamer
@@ -17,7 +21,7 @@ namespace MFR.Harnesses.LoadedSolutions
     /// Solution (<c>*.sln</c>) in question is in or out of the directory tree of the
     /// root directory (i.e., the folder that the user has chosen to start the Project
     /// File Renamer operations in).
-    /// </summary>
+    /// </remarks>
     public class LoadedSolutionHarness : ILoadedSolutionHarness
     {
         /// <summary>
@@ -44,6 +48,37 @@ namespace MFR.Harnesses.LoadedSolutions
                              throw new ArgumentNullException(
                                  nameof(targetSolution)
                              );
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of the folder that the target Solution is located in.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// in the case that the value cannot be determined.
+        /// </remarks>
+        public string ContainingFolder
+        {
+            get {
+                var result = string.Empty;
+
+                try
+                {
+                    if (TargetSolution == null) return result;
+                    if (!Does.FolderExist(TargetSolution.ContainingFolder))
+                        return result;
+
+                    result = TargetSolution.ContainingFolder;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+
+                return result;
+            }
         }
 
         /// <summary>
