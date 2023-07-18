@@ -7,6 +7,7 @@
   - [SolutionFIle(pathname)](#M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String- 'MFR.GUI.Windows.MainWindow.Is.SolutionFIle(System.String)')
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
+  - [_operationEngine](#F-MFR-GUI-Windows-MainWindow-_operationEngine 'MFR.GUI.Windows.MainWindow._operationEngine')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
   - [ConfigProvider](#P-MFR-GUI-Windows-MainWindow-ConfigProvider 'MFR.GUI.Windows.MainWindow.ConfigProvider')
   - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
@@ -20,6 +21,7 @@
   - [IsHistoryClear](#P-MFR-GUI-Windows-MainWindow-IsHistoryClear 'MFR.GUI.Windows.MainWindow.IsHistoryClear')
   - [MatchCase](#P-MFR-GUI-Windows-MainWindow-MatchCase 'MFR.GUI.Windows.MainWindow.MatchCase')
   - [MatchExactWord](#P-MFR-GUI-Windows-MainWindow-MatchExactWord 'MFR.GUI.Windows.MainWindow.MatchExactWord')
+  - [OperationEngine](#P-MFR-GUI-Windows-MainWindow-OperationEngine 'MFR.GUI.Windows.MainWindow.OperationEngine')
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.MainWindow.OperationsCheckedListBox')
   - [Presenter](#P-MFR-GUI-Windows-MainWindow-Presenter 'MFR.GUI.Windows.MainWindow.Presenter')
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ProfileCollectionComboBox')
@@ -39,6 +41,7 @@
   - [DoesDirectoryContainSolutionFile(path)](#M-MFR-GUI-Windows-MainWindow-DoesDirectoryContainSolutionFile-System-String- 'MFR.GUI.Windows.MainWindow.DoesDirectoryContainSolutionFile(System.String)')
   - [InitializeComponent()](#M-MFR-GUI-Windows-MainWindow-InitializeComponent 'MFR.GUI.Windows.MainWindow.InitializeComponent')
   - [InitializeConfiguration()](#M-MFR-GUI-Windows-MainWindow-InitializeConfiguration 'MFR.GUI.Windows.MainWindow.InitializeConfiguration')
+  - [InitializeOperationEngine()](#M-MFR-GUI-Windows-MainWindow-InitializeOperationEngine 'MFR.GUI.Windows.MainWindow.InitializeOperationEngine')
   - [InitializePresenter()](#M-MFR-GUI-Windows-MainWindow-InitializePresenter 'MFR.GUI.Windows.MainWindow.InitializePresenter')
   - [OnCheckedChangedSelectDeselectAllCheckBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnCheckedChangedSelectDeselectAllCheckBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnCheckedChangedSelectDeselectAllCheckBox(System.Object,System.EventArgs)')
   - [OnClickBrowseForStartingFolder(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickBrowseForStartingFolder-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickBrowseForStartingFolder(System.Object,System.EventArgs)')
@@ -158,6 +161,25 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='F-MFR-GUI-Windows-MainWindow-_operationEngine'></a>
+### _operationEngine `constants`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine')
+interface.
+
+##### Remarks
+
+Needed to make the
+[OperationEngine](#P-MFR-GUI-Windows-MainWindow-OperationEngine 'MFR.GUI.Windows.MainWindow.OperationEngine') property
+compute-once and store without having to use a static context.
+
+
+
+This is due to the use of `dynamic` in the computation.
+
 <a name='F-MFR-GUI-Windows-MainWindow-components'></a>
 ### components `constants`
 
@@ -271,6 +293,16 @@ Gets or sets the value of the Match Case checkbox.
 ##### Summary
 
 Gets or sets the value of the Match Exact Word checkbox.
+
+<a name='P-MFR-GUI-Windows-MainWindow-OperationEngine'></a>
+### OperationEngine `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine')
+interface that represents the engine that carries out the user's requested
+operations..
 
 <a name='P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox'></a>
 ### OperationsCheckedListBox `property`
@@ -490,6 +522,17 @@ Checks whether the value of the
 If so, then calls the
 [Load](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-Load 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load')
 method to load the application configuration.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-InitializeOperationEngine'></a>
+### InitializeOperationEngine() `method`
+
+##### Summary
+
+Sets up the operation engine object.
 
 ##### Parameters
 
