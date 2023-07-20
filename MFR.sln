@@ -944,6 +944,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Collections.Constan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Collections", "..\xyLOGIX.Collections\xyLOGIX.Collections\xyLOGIX.Collections.csproj", "{96108EB4-F759-4478-AE23-517FDF9F18A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider.Events", "..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Events\xyLOGIX.TicketedProvider.Events.csproj", "{3F217E7B-37D2-46B9-8417-60E5B301D032}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -8394,6 +8396,22 @@ Global
 		{96108EB4-F759-4478-AE23-517FDF9F18A8}.Release|x64.Build.0 = Release|x64
 		{96108EB4-F759-4478-AE23-517FDF9F18A8}.Release|x86.ActiveCfg = Release|x86
 		{96108EB4-F759-4478-AE23-517FDF9F18A8}.Release|x86.Build.0 = Release|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.All|x64.ActiveCfg = Debug|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.All|x64.Build.0 = Debug|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.All|x86.ActiveCfg = Debug|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.All|x86.Build.0 = Debug|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Debug|x64.ActiveCfg = Debug|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Debug|x64.Build.0 = Debug|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Debug|x86.ActiveCfg = Debug|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Debug|x86.Build.0 = Debug|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.DefaultBuild|x64.Build.0 = Debug|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.DefaultBuild|x86.Build.0 = Debug|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Release|x64.ActiveCfg = Release|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Release|x64.Build.0 = Release|x64
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Release|x86.ActiveCfg = Release|x86
+		{3F217E7B-37D2-46B9-8417-60E5B301D032}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -40,17 +40,6 @@ namespace MFR.File.Stream.Providers
         } = new FileStreamProvider();
 
         /// <summary>
-        /// Internal dictionary that maps a <see cref="T:System.Guid" /> value (serving as
-        /// a <c>ticket</c>) to a reference to an instance of
-        /// <see cref="T:System.IO.StreamReader" /> that refers to the instance of the
-        /// object that corresponds with the specified <c>ticket</c>.
-        /// </summary>
-        protected override IDictionary<Guid, StreamReader> InternalCollection
-        {
-            get;
-        } = new Dictionary<Guid, StreamReader>();
-
-        /// <summary>
         /// Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
         /// created for it.
         /// </summary>
@@ -90,45 +79,6 @@ namespace MFR.File.Stream.Providers
         /// Occurs when a <c>FileStream</c> is about to be opened upon a particular file.
         /// </summary>
         public event FileStreamOpeningEventHandler FileStreamOpening;
-
-        /// <summary>
-        /// Batch-disposes the open file streams that correspond to the
-        /// <paramref name="tickets" /> provided.
-        /// </summary>
-        /// <param name="tickets">
-        /// (Required.) A collection of one or more <see cref="T:System.Guid" /> values
-        /// that represent the file stream(s) to be disposed.
-        /// </param>
-        /// <remarks>
-        /// If the <paramref name="tickets" /> is <see langword="null" /> or
-        /// contains zero elements, then this method does nothing.
-        /// <para />
-        /// <b>NOTE:</b> Users of this object who want to dispose of all the file streams
-        /// that this object manages in one go should use the
-        /// <see
-        ///     cref="M:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeAll" />
-        /// method instead.
-        /// </remarks>
-        public override void BatchDispose(IReadOnlyCollection<Guid> tickets)
-        {
-            try
-            {
-                if (tickets == null || !tickets.Any()) return;
-                if (tickets.All(ticket => Guid.Empty.Equals(ticket)))
-                    return;
-                if (!tickets.Intersect(InternalCollection.Keys)
-                            .Any())
-                    return;
-
-                foreach (var ticket in tickets)
-                    DisposeObject(ticket);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
 
         /// <summary>
         /// Opens file streams for the files specified in the <paramref name="pathnames" />
@@ -172,33 +122,6 @@ namespace MFR.File.Stream.Providers
             }
 
             return result;
-        }
-
-        /// <summary>
-        /// Removes all allocated <see cref="T:System.IO.StreamReader" /> instances
-        /// allocated thus far, from memory, and frees resources associated with them.
-        /// </summary>
-        /// <remarks>After calling this method, all tickets will be invalid.</remarks>
-        public override void DisposeAll()
-        {
-            try
-            {
-                if (!InternalCollection.Any()) return;
-
-                // Read the keys backwards
-                foreach (var ticket in InternalCollection.Keys.Reverse())
-                    DisposeObject(ticket);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-            finally
-            {
-                if (Count > 0)
-                    InternalCollection.Clear(); // get rid of any stragglers
-            }
         }
 
         /// <summary>
