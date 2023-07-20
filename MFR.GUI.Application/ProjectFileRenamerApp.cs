@@ -6,7 +6,6 @@ using MFR.CommandLine.Parsers.Interfaces;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
 using MFR.CommandLine.Validators.Interfaces;
-using MFR.Common;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
