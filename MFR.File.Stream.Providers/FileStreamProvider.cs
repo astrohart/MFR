@@ -7,6 +7,7 @@ using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.TicketedProvider;
+using xyLOGIX.TicketedProvider.Events;
 
 namespace MFR.File.Stream.Providers
 {
@@ -38,6 +39,17 @@ namespace MFR.File.Stream.Providers
         {
             get;
         } = new FileStreamProvider();
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> containing the most-recently
+        /// removed pathname of a file stream mapped to a given ticket.
+        /// </summary>
+        /// <remarks>This property is for internal use only.</remarks>
+        private string LastPathnameRemoved
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
@@ -122,59 +134,6 @@ namespace MFR.File.Stream.Providers
             }
 
             return result;
-        }
-
-        /// <summary>
-        /// Disposes, i.e., closes the file and releases all resources, for the file stream
-        /// that corresponds to the specified <paramref name="ticket" />.
-        /// </summary>
-        /// <param name="ticket">
-        /// A <see cref="T:System.Guid" /> value that corresponds to
-        /// the file stream you wish to close.
-        /// </param>
-        /// <param name="remove">
-        /// (Optional.) Indicates whether to remove the disposed stream from our internal
-        /// collection.  <see langword="true" /> is the default.
-        /// </param>
-        /// <remarks>
-        /// If the Zero GUID is passed as the argument of the <paramref name="ticket" />
-        /// parameter, or if the specified <paramref name="ticket" /> is not present in the
-        /// internal list.
-        /// </remarks>
-        public override void DisposeObject(Guid ticket, bool remove = true)
-        {
-            try
-            {
-                string pathname;
-
-                if (Guid.Empty.Equals(ticket)) return;
-                lock (SyncRoot)
-                {
-                    pathname = RemovePathnameMappingFor(ticket);
-
-                    if (!InternalCollection.ContainsKey(ticket))
-                        return;
-
-                    var correspondingReader = InternalCollection[ticket];
-                    if (correspondingReader == null)
-                        return;
-
-                    correspondingReader.Close();
-                    correspondingReader.Dispose();
-
-                    if (remove)
-                        InternalCollection.Remove(ticket);
-                }
-
-                OnFileStreamDisposed(
-                    new FileStreamDisposedEventArgs(pathname, ticket)
-                );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         /// <summary>
@@ -372,62 +331,6 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Provides a reference to an instance of a
-        /// <see cref="T:System.IO.StreamReader" /> that
-        /// corresponds to the specified <paramref name="ticket" /> value.
-        /// </summary>
-        /// <param name="ticket">
-        /// (Required.) A <see cref="T:System.Guid" /> value that represents a
-        /// <c>ticket</c> that can be redeemed for a particular
-        /// <see cref="T:System.IO.StreamReader" />
-        /// instance that corresponds to an object stored in the internal collection.
-        /// </param>
-        /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.StreamReader" /> that
-        /// corresponds to the
-        /// specified <paramref name="ticket" />, or <see langword="null" /> if either no
-        /// corresponding object can be found in the internal collection, or
-        /// <see langword="null" /> if the corresponding object instance has already been
-        /// disposed or removed from the internal collection.
-        /// </returns>
-        /// <remarks>
-        /// If the <see cref="F:System.Guid.Empty" /> value is passed as the
-        /// argument of the <paramref name="ticket" /> parameter, then the method returns
-        /// <see langword="null" />.
-        /// <para />
-        /// If an error occurs or an exception is caught during the retrieval process,
-        /// <see langword="null" /> is also returned.
-        /// <para />
-        /// If the internal collection is empty, then this method will also return
-        /// <see langword="null" />.
-        /// </remarks>
-        public override StreamReader Redeem(Guid ticket)
-        {
-            lock (SyncRoot)
-            {
-                StreamReader result = default;
-
-                try
-                {
-                    if (Guid.Empty.Equals(ticket)) return result;
-                    if (!InternalCollection.ContainsKey(ticket))
-                        return result;
-
-                    result = InternalCollection[ticket];
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = default;
-                }
-
-                return result;
-            }
-        }
-
-        /// <summary>
         /// Rewinds the file stream associated with the specified
         /// <paramref name="ticket" />, if any corresponding stream is even present in the
         /// internal collection.
@@ -451,12 +354,8 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (ticket.IsZero()) return;
-                if (InternalCollection == null) return;
-                if (!InternalCollection.Any()) return;
-                if (!InternalCollection.ContainsKey(ticket)) return;
 
-                var associatedStream = InternalCollection[ticket];
-
+                var associatedStream = Redeem(ticket);
                 if (associatedStream?.BaseStream == null) return;
 
                 associatedStream.DiscardBufferedData();
@@ -474,51 +373,28 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Stores the specified <paramref name="objectToStore" /> in the internal
-        /// collection.
-        /// <para />
-        /// In exchange, the caller of this method is provided with a
-        /// <see cref="T:System.Guid" /> value that is to be used as a <c>ticket</c> to be
-        /// redeemed to obtain the object reference again.
+        /// Raises the
+        /// <see
+        ///     cref="E:xyLOGIX.TicketedProvider.TicketedObjectProviderBase`1.DisposingTicketedObject" />
+        /// event.
         /// </summary>
-        /// <param name="objectToStore">
-        /// (Required.) Instance of <see cref="T:System.IO.StreamReader" />
-        /// that is to be stored.
-        /// </param>
-        /// <returns></returns>
-        /// <remarks>
-        /// If the value of the <paramref name="objectToStore" /> parameter is a
-        /// <see langword="null" /> reference, then nothing happens and the
-        /// <see cref="F:System.Guid.Empty" /> value is returned by the method.
+        /// <param name="e">
+        /// A
+        /// <see cref="T:xyLOGIX.TicketedProvider.Events.DisposingTicketedObjectEventArgs" />
+        /// that
+        /// allows us to cancel the operation that this event is notifying the caller of.
         /// <para />
-        /// This method is atomic.
-        /// </remarks>
-        public override Guid Store(StreamReader objectToStore)
+        /// To cancel the operation, handlers should set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" />.
+        /// </param>
+        protected override void OnDisposingTicketedObject(
+            DisposingTicketedObjectEventArgs e
+        )
         {
-            var result = Guid.Empty;
+            base.OnDisposingTicketedObject(e);
 
-            try
-            {
-                if (objectToStore == null)
-                    return result; // do not store a null reference
-                if (InternalCollection == null) return result;
-
-                lock (SyncRoot)
-                {
-                    result = Guid.NewGuid();
-
-                    InternalCollection[result] = objectToStore;
-                }
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = Guid.Empty;
-            }
-
-            return result;
+            LastPathnameRemoved = RemovePathnameMappingFor(e.Ticket);
         }
 
         /// <summary>
@@ -585,6 +461,54 @@ namespace MFR.File.Stream.Providers
             => FileStreamOpening?.Invoke(this, e);
 
         /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:xyLOGIX.TicketedProvider.TicketedObjectProviderBase.TicketedObjectDisposalRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see
+        ///     cref="T:xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs`1" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnTicketedObjectDisposalRequested(
+            TicketedObjectDisposalRequestedEventArgs<StreamReader> e
+        )
+        {
+            base.OnTicketedObjectDisposalRequested(e);
+
+            e.Value.DiscardBufferedData();
+            e.Value.Close();
+            e.Value.Dispose();
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:xyLOGIX.TicketedProvider.TicketedObjectProviderBase.TicketedObjectDisposed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:xyLOGIX.TicketedProvider.Events.TicketedObjectDisposedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnTicketedObjectDisposed(
+            TicketedObjectDisposedEventArgs e
+        )
+        {
+            base.OnTicketedObjectDisposed(e);
+
+            OnFileStreamDisposed(
+                new FileStreamDisposedEventArgs(LastPathnameRemoved, e.Ticket)
+            );
+
+            LastPathnameRemoved =
+                string.Empty; // clear out the LastPathnameRemoved property since we've used it now
+        }
+
+        /// <summary>
         /// Associates the specified <paramref name="pathname" /> with the corresponding
         /// file stream <paramref name="ticket" />.
         /// </summary>
@@ -621,6 +545,20 @@ namespace MFR.File.Stream.Providers
             }
         }
 
+        /// <summary>
+        /// Determines whether a file stream has already been opened for a file having the
+        /// specified <paramref name="pathname" />.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file that should be checked for having an active file stream
+        /// opened on it.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if an open file stream exists on the file
+        /// having the specified <paramref name="pathname" />; <see langword="false" />
+        /// otherwise.
+        /// </returns>
         private bool FileStreamAlreadyOpenedFor(string pathname)
         {
             var result = false;
