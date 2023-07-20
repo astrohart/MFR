@@ -48,6 +48,8 @@ using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
 using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
+using xyLOGIX.VisualStudio.Providers.Factories;
+using xyLOGIX.VisualStudio.Providers.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
@@ -1055,6 +1057,8 @@ namespace MFR.Renamers.Files
                  * the folders, in order for this operation to be considered a success.
                  */
 
+                VisualStudioInstanceProvider.QuitAll();
+
                 result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
                                           .All(
                                               entry
@@ -1063,6 +1067,9 @@ namespace MFR.Renamers.Files
                                                       entry
                                                   )
                                           );
+
+                if (!AbortRequested)
+                    VisualStudioInstanceProvider.LaunchAll();
 
                 /*
                  * If we are here, then the operation succeeded -- EXCEPT if the
@@ -2762,6 +2769,12 @@ namespace MFR.Renamers.Files
 
             return result;
         }
+
+        private static IVisualStudioInstanceProvider
+            VisualStudioInstanceProvider
+        {
+            get;
+        } = GetVisualStudioInstanceProvider.SoleInstance();
 
         private bool RenameSolutionFolderForEntry(
             [NotLogged] string findWhat,

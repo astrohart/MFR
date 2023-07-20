@@ -164,6 +164,14 @@
       <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
       <Name>xyLOGIX.VisualStudio.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Providers.Factories\xyLOGIX.VisualStudio.Providers.Factories.csproj">
+      <Project>{26C2F9C1-B43D-4E13-A3EA-6353C61834EB}</Project>
+      <Name>xyLOGIX.VisualStudio.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Providers.Interfaces\xyLOGIX.VisualStudio.Providers.Interfaces.csproj">
+      <Project>{4F3CB8B0-D9CF-438A-B89C-643C3D03C284}</Project>
+      <Name>xyLOGIX.VisualStudio.Providers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
