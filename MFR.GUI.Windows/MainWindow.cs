@@ -1023,7 +1023,7 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnFileExit(object sender, EventArgs e)
         {
-            Presenter.UpdateData();
+            SaveUserSettingsOnExit();
 
             Close();
         }
@@ -1706,6 +1706,18 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnViewToolBar(object sender, EventArgs e)
             => standardToolStrip.Visible = !standardToolStrip.Visible;
+
+        private void SaveUserSettingsOnExit()
+        {
+            using (var dialog =
+                   MakeNewOperationDrivenProgressDialog.FromScratch())
+            {
+                dialog.Proc = new Action(() => Presenter.UpdateData());
+                dialog.Status = "Saving user configuration settings...";
+
+                dialog.ShowDialog(this);
+            }
+        }
 
         /// <summary>
         /// Moves data from this dialog's controls to the configuration object.
