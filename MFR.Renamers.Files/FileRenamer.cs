@@ -2274,7 +2274,7 @@ namespace MFR.Renamers.Files
                 /*
                  * NOTE: We ASSUME that the ITextValueRetriever.GetTextValueAsync
                  * method called above for the Replace Text in Files operation
-                 * also called IFileStreamProvider.DisposeStream on the
+                 * also called IFileStreamProvider.DisposeObject on the
                  * file stream after it obtained the text to be searched.
                  *
                  * Search for control characters to determine whether the
@@ -2348,7 +2348,7 @@ namespace MFR.Renamers.Files
                 // dispose the file system entry that is currently being worked on
                 if (entry != null &&
                     !((Guid)entry.UserState).Equals(Guid.Empty))
-                    FileStreamProvider.DisposeStream(entry.UserState);
+                    FileStreamProvider.DisposeObject(entry.UserState);
             }
 
             return result;

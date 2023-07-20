@@ -107,7 +107,7 @@ namespace MFR.File.Stream.Providers.Tests
             var currentFileContent = "";
             foreach (var ticket in tickets)
             {
-                var stream = FileStreamProvider.RedeemTicket(ticket);
+                var stream = FileStreamProvider.Redeem(ticket);
                 Assert.IsNotNull(stream);
 
                 Assert.DoesNotThrow(

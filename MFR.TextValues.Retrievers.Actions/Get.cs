@@ -90,7 +90,7 @@ namespace MFR.TextValues.Retrievers.Actions
                      * to a FileStream object that had been opened on the file previously.
                      *
                      */
-                    stream = FileStreamProvider.RedeemTicket(ticket);
+                    stream = FileStreamProvider.Redeem(ticket);
                     if (stream == null) return result;
 
                     result = stream.ReadToEnd();
@@ -115,7 +115,7 @@ namespace MFR.TextValues.Retrievers.Actions
                     }
 
                     if (dispose)
-                        FileStreamProvider.DisposeStream(
+                        FileStreamProvider.DisposeObject(
                             ticket /* remove from the collection */
                         );
                 }
@@ -169,7 +169,7 @@ namespace MFR.TextValues.Retrievers.Actions
 
                         FileStreamProvider.RewindStream(ticket);    // just in case
 
-                        stream = FileStreamProvider.RedeemTicket(ticket);
+                        stream = FileStreamProvider.Redeem(ticket);
                         if (stream == null) return result;
 
                         return await stream.ReadToEndAsync();
@@ -186,7 +186,7 @@ namespace MFR.TextValues.Retrievers.Actions
             finally
             {
                 if (dispose)
-                    FileStreamProvider.DisposeStream(
+                    FileStreamProvider.DisposeObject(
                         ticket /* remove from the collection */
                     );
             }

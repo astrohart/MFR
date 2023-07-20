@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.TicketedProvider;
 
 namespace MFR.File.Stream.Providers
 {
@@ -15,7 +16,7 @@ namespace MFR.File.Stream.Providers
     /// Allows disparate parts of the application to access these file streams through
     /// a ticket system.
     /// </summary>
-    public class FileStreamProvider : IFileStreamProvider
+    public class FileStreamProvider : TicketedObjectProviderBase<StreamReader>, IFileStreamProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -30,7 +31,7 @@ namespace MFR.File.Stream.Providers
         /// <summary>
         /// Gets the count of file streams that are currently available.
         /// </summary>
-        public int Count
+        public override int Count
             => InternalFileStreamCollection.Count;
 
         /// <summary>
@@ -72,20 +73,11 @@ namespace MFR.File.Stream.Providers
         } = new Dictionary<Guid, string>();
 
         /// <summary>
-        /// Gets a reference to an instance of <see cref="T:System.Object" /> that is to be
-        /// used for thread synchronization.
-        /// </summary>
-        public object SyncRoot
-        {
-            get;
-        } = new object();
-
-        /// <summary>
         /// Raised when the value of the
         /// <see cref="P:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Count" />
         /// property has been updated.
         /// </summary>
-        public event EventHandler CountChanged;
+        public override event EventHandler CountChanged;
 
         /// <summary>
         /// Raised when any of the file streams that are managed by this object are
@@ -128,7 +120,7 @@ namespace MFR.File.Stream.Providers
         ///     cref="M:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeAll" />
         /// method instead.
         /// </remarks>
-        public void BatchDispose(IReadOnlyCollection<Guid> tickets)
+        public override void BatchDispose(IReadOnlyCollection<Guid> tickets)
         {
             try
             {
@@ -140,7 +132,7 @@ namespace MFR.File.Stream.Providers
                     return;
 
                 foreach (var ticket in tickets)
-                    DisposeStream(ticket);
+                    DisposeObject(ticket);
             }
             catch (Exception ex)
             {
@@ -198,7 +190,7 @@ namespace MFR.File.Stream.Providers
         /// allocated thus far, from memory, and frees resources associated with them.
         /// </summary>
         /// <remarks>After calling this method, all tickets will be invalid.</remarks>
-        public void DisposeAll()
+        public override void DisposeAll()
         {
             try
             {
@@ -207,7 +199,7 @@ namespace MFR.File.Stream.Providers
                 // Read the keys backwards
                 foreach (var ticket in InternalFileStreamCollection.Keys
                              .Reverse())
-                    DisposeStream(ticket);
+                    DisposeObject(ticket);
             }
             catch (Exception ex)
             {
@@ -239,7 +231,7 @@ namespace MFR.File.Stream.Providers
         /// parameter, or if the specified <paramref name="ticket" /> is not present in the
         /// internal list.
         /// </remarks>
-        public void DisposeStream(Guid ticket, bool remove = true)
+        public override void DisposeObject(Guid ticket, bool remove = true)
         {
             try
             {
@@ -268,182 +260,6 @@ namespace MFR.File.Stream.Providers
                 OnFileStreamDisposed(
                     new FileStreamDisposedEventArgs(pathname, ticket)
                 );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
-
-        /// <summary>
-        /// Opens a file stream, represented by a <see cref="T:System.IO.StreamReader" />
-        /// instance, on the text file having the specified <paramref name="pathname" />.
-        /// </summary>
-        /// <param name="pathname">
-        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a file to have a stream opened for it.
-        /// </param>
-        /// <returns>
-        /// A <see cref="T:System.Guid" /> value that represents a <c>ticket</c> that can
-        /// be redeemed later on with the
-        /// <see
-        ///     cref="M:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.RedeemTicket" />
-        /// method to access the corresponding file stream, or
-        /// <see cref="F:System.Guid.Empty" /> if the file could not be accessed or if the
-        /// <paramref name="pathname" /> parameters' argument is the blank or
-        /// <see langword="null" /> <see cref="T:System.String" />, or if the
-        /// <paramref name="pathname" /> does not refer to a file or the file that is
-        /// referred to does not exist..
-        /// </returns>
-        /// <remarks>
-        /// If the file having the specified <paramref name="pathname" /> already
-        /// has a stream opened upon it, then the ticket that corresponds to that stream is
-        /// returned.
-        /// </remarks>
-        public Guid OpenStreamFor(string pathname)
-        {
-            var result = Guid.Empty;
-            StreamReader newReader = default;
-
-            try
-            {
-                if (string.IsNullOrWhiteSpace(pathname)) return result;
-                if (!Alphaleonis.Win32.Filesystem.File.Exists(pathname))
-                    return result;
-
-                /*
-                 * No sense in re-opening a stream on a file for which a stream is already open.
-                 */
-
-                if (FileStreamAlreadyOpenedFor(pathname))
-                    return GetTicketForPathname(pathname);
-
-                OnFileStreamOpening(new FileStreamOpeningEventArgs(pathname));
-
-                lock (SyncRoot)
-                {
-                    // Create a ticket that can be used to access this file stream
-                    result = Guid.NewGuid();
-
-                    newReader = new StreamReader(pathname);
-                    if (newReader == null)
-                        OnFileStreamOpenFailed(
-                            new FileStreamOpenFailedEventArgs(
-                                pathname,
-                                new Exception(
-                                    $"Failed to open a new FileStream upon the file '{pathname}'."
-                                )
-                            )
-                        );
-
-                    InternalFileStreamCollection[result] = newReader;
-                }
-
-                OnFileStreamOpened(
-                    new FileStreamOpenedEventArgs(pathname, newReader, result)
-                );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                OnFileStreamOpenFailed(
-                    new FileStreamOpenFailedEventArgs(pathname, ex)
-                );
-
-                result = Guid.Empty;
-
-                newReader
-                    ?.Dispose(); // attempt to dispose the new file stream in the event that open failed.
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Provides a reference to an instance of <see cref="T:System.IO.StreamReader" />
-        /// that corresponds to the specified <paramref name="ticket" />.
-        /// </summary>
-        /// <param name="ticket">
-        /// (Required.) A <see cref="T:System.Guid" /> value that
-        /// represents a <c>ticket</c> that can be redeemed for a particular
-        /// <see cref="T:System.IO.StreamReader" /> instance that corresponds to a file
-        /// stream.
-        /// </param>
-        /// <returns>
-        /// Reference to an instance of <see cref="T:System.IO.StreamReader" />
-        /// that corresponds to the specified <paramref name="ticket" />, or
-        /// <see langword="null" /> if either no corresponding
-        /// <see cref="T:System.IO.StreamReader" /> can be found in the internal
-        /// collection, or if the corresponding <see cref="T:System.IO.StreamReader" />
-        /// instance has already been disposed or removed from the internal collection.
-        /// </returns>
-        public StreamReader RedeemTicket(Guid ticket)
-        {
-            lock (SyncRoot)
-            {
-                StreamReader result = default;
-
-                try
-                {
-                    if (Guid.Empty.Equals(ticket)) return result;
-                    if (!InternalFileStreamCollection.ContainsKey(ticket))
-                        return result;
-
-                    result = InternalFileStreamCollection[ticket];
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = default;
-                }
-
-                return result;
-            }
-        }
-
-        /// <summary>
-        /// Rewinds the file stream associated with the specified
-        /// <paramref name="ticket" />, if any corresponding stream is even present in the
-        /// internal collection.
-        /// </summary>
-        /// <param name="ticket">
-        /// A <see cref="T:System.Guid" /> value that corresponds to
-        /// the already-open file stream that is to be rewound.
-        /// </param>
-        /// <remarks>
-        /// If successful, this method retrieves the file stream open on a file
-        /// that corresponds to the specified <paramref name="ticket" />, and then moves
-        /// its file pointer to the beginning of the stream.
-        /// <para />
-        /// If an I/O exception or other error occurs, if the stream that corresponds to
-        /// the specified <paramref name="ticket" /> cannot be obtained from the internal
-        /// collection, or if the stream is already positioned at the beginning of the
-        /// data, then the method does nothing.
-        /// </remarks>
-        public void RewindStream(Guid ticket)
-        {
-            try
-            {
-                if (ticket.IsZero()) return;
-                if (InternalFileStreamCollection == null) return;
-                if (!InternalFileStreamCollection.Any()) return;
-                if (!InternalFileStreamCollection.ContainsKey(ticket)) return;
-
-                var associatedStream = InternalFileStreamCollection[ticket];
-
-                if (associatedStream?.BaseStream == null) return;
-
-                associatedStream.DiscardBufferedData();
-
-                if (associatedStream.BaseStream.Position == 0)
-                    return; // already at beginning
-
-                associatedStream.BaseStream.Seek(0, SeekOrigin.Begin);
             }
             catch (Exception ex)
             {
@@ -565,11 +381,241 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
+        /// Opens a file stream, represented by a <see cref="T:System.IO.StreamReader" />
+        /// instance, on the text file having the specified <paramref name="pathname" />.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file to have a stream opened for it.
+        /// </param>
+        /// <returns>
+        /// A <see cref="T:System.Guid" /> value that represents a <c>ticket</c> that can
+        /// be redeemed later on with the
+        /// <see
+        ///     cref="M:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Redeem" />
+        /// method to access the corresponding file stream, or
+        /// <see cref="F:System.Guid.Empty" /> if the file could not be accessed or if the
+        /// <paramref name="pathname" /> parameters' argument is the blank or
+        /// <see langword="null" /> <see cref="T:System.String" />, or if the
+        /// <paramref name="pathname" /> does not refer to a file or the file that is
+        /// referred to does not exist..
+        /// </returns>
+        /// <remarks>
+        /// If the file having the specified <paramref name="pathname" /> already
+        /// has a stream opened upon it, then the ticket that corresponds to that stream is
+        /// returned.
+        /// </remarks>
+        public Guid OpenStreamFor(string pathname)
+        {
+            var result = Guid.Empty;
+            StreamReader newReader = default;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+                if (!Alphaleonis.Win32.Filesystem.File.Exists(pathname))
+                    return result;
+
+                /*
+                 * No sense in re-opening a stream on a file for which a stream is already open.
+                 */
+
+                if (FileStreamAlreadyOpenedFor(pathname))
+                    return GetTicketForPathname(pathname);
+
+                OnFileStreamOpening(new FileStreamOpeningEventArgs(pathname));
+
+                lock (SyncRoot)
+                {
+                    newReader = new StreamReader(pathname);
+                    if (newReader == null)
+                        OnFileStreamOpenFailed(
+                            new FileStreamOpenFailedEventArgs(
+                                pathname,
+                                new Exception(
+                                    $"Failed to open a new FileStream upon the file '{pathname}'."
+                                )
+                            )
+                        );
+                }
+
+                result = Store(newReader);
+
+                OnFileStreamOpened(
+                    new FileStreamOpenedEventArgs(pathname, newReader, result)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnFileStreamOpenFailed(
+                    new FileStreamOpenFailedEventArgs(pathname, ex)
+                );
+
+                result = Guid.Empty;
+
+                newReader
+                    ?.Dispose(); // attempt to dispose the new file stream in the event that open failed.
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Provides a reference to an instance of a <typeparamref name="T" /> that
+        /// corresponds to the specified <paramref name="ticket" /> value.
+        /// </summary>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that represents a
+        /// <c>ticket</c> that can be redeemed for a particular <typeparamref name="T" />
+        /// instance that corresponds to an object stored in the internal collection.
+        /// </param>
+        /// <returns>
+        /// Reference to an instance of <typeparamref name="T" /> that corresponds to the
+        /// specified <paramref name="ticket" />, or <see langword="null" /> if either no
+        /// corresponding object can be found in the internal collection, or
+        /// <see langword="null" /> if the corresponding object instance has already been
+        /// disposed or removed from the internal collection.
+        /// </returns>
+        /// <remarks>
+        /// If the <see cref="F:System.Guid.Empty" /> value is passed as the
+        /// argument of the <paramref name="ticket" /> parameter, then the method returns
+        /// <see langword="null" />.
+        /// <para />
+        /// If an error occurs or an exception is caught during the retrieval process,
+        /// <see langword="null" /> is also returned.
+        /// <para />
+        /// If the internal collection is empty, then this method will also return
+        /// <see langword="null" />.
+        /// </remarks>
+        public override StreamReader Redeem(Guid ticket)
+        {
+            lock (SyncRoot)
+            {
+                StreamReader result = default;
+
+                try
+                {
+                    if (Guid.Empty.Equals(ticket)) return result;
+                    if (!InternalFileStreamCollection.ContainsKey(ticket))
+                        return result;
+
+                    result = InternalFileStreamCollection[ticket];
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = default;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Rewinds the file stream associated with the specified
+        /// <paramref name="ticket" />, if any corresponding stream is even present in the
+        /// internal collection.
+        /// </summary>
+        /// <param name="ticket">
+        /// A <see cref="T:System.Guid" /> value that corresponds to
+        /// the already-open file stream that is to be rewound.
+        /// </param>
+        /// <remarks>
+        /// If successful, this method retrieves the file stream open on a file
+        /// that corresponds to the specified <paramref name="ticket" />, and then moves
+        /// its file pointer to the beginning of the stream.
+        /// <para />
+        /// If an I/O exception or other error occurs, if the stream that corresponds to
+        /// the specified <paramref name="ticket" /> cannot be obtained from the internal
+        /// collection, or if the stream is already positioned at the beginning of the
+        /// data, then the method does nothing.
+        /// </remarks>
+        public void RewindStream(Guid ticket)
+        {
+            try
+            {
+                if (ticket.IsZero()) return;
+                if (InternalFileStreamCollection == null) return;
+                if (!InternalFileStreamCollection.Any()) return;
+                if (!InternalFileStreamCollection.ContainsKey(ticket)) return;
+
+                var associatedStream = InternalFileStreamCollection[ticket];
+
+                if (associatedStream?.BaseStream == null) return;
+
+                associatedStream.DiscardBufferedData();
+
+                if (associatedStream.BaseStream.Position == 0)
+                    return; // already at beginning
+
+                associatedStream.BaseStream.Seek(0, SeekOrigin.Begin);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Stores the specified <paramref name="objectToStore" /> in the internal
+        /// collection.
+        /// <para />
+        /// In exchange, the caller of this method is provided with a
+        /// <see cref="T:System.Guid" /> value that is to be used as a <c>ticket</c> to be
+        /// redeemed to obtain the object reference again.
+        /// </summary>
+        /// <param name="objectToStore">
+        /// (Required.) Instance of <typeparamref name="T" />
+        /// that is to be stored.
+        /// </param>
+        /// <returns></returns>
+        /// <remarks>
+        /// If the value of the <paramref name="objectToStore" /> parameter is a
+        /// <see langword="null" /> reference, then nothing happens and the
+        /// <see cref="F:System.Guid.Empty" /> value is returned by the method.
+        /// <para/>
+        /// This method is atomic.
+        /// </remarks>
+        public override Guid Store(StreamReader objectToStore)
+        {
+            var result = Guid.Empty;
+
+            try
+            {
+                if (objectToStore == null)
+                    return result; // do not store a null reference
+                if (InternalFileStreamCollection == null) return result;
+
+                lock (SyncRoot)
+                {
+                    result = Guid.NewGuid();
+
+                    InternalFileStreamCollection[result] = objectToStore;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = Guid.Empty;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Raises the
         /// <see cref="E:MFR.File.Stream.Providers.FileStreamProvider.CountChanged" />
         /// event.
         /// </summary>
-        protected virtual void OnCountChanged()
+        protected override void OnCountChanged()
             => CountChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>

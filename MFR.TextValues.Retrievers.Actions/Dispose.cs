@@ -40,7 +40,7 @@ namespace MFR.TextValues.Retrievers.Actions
             {
                 if (ticket.IsZero()) return;
 
-                FileStreamProvider.DisposeStream(ticket);
+                FileStreamProvider.DisposeObject(ticket);
             }
             catch (Exception ex)
             {
