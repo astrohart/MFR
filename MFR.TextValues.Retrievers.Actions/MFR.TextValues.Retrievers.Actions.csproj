@@ -143,6 +143,10 @@
       <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
+      <Project>{BF8E6621-8EDC-44AB-A191-5D559C6F2D1E}</Project>
+      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
       <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
       <Name>MFR.File.Stream.Providers.Factories</Name>

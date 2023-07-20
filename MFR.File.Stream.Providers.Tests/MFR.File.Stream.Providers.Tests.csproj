@@ -145,6 +145,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
+      <Project>{BF8E6621-8EDC-44AB-A191-5D559C6F2D1E}</Project>
+      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Events\MFR.File.Stream.Providers.Events.csproj">
       <Project>{84DAD0BC-CF38-4A68-BA05-EDB73DABBD52}</Project>
       <Name>MFR.File.Stream.Providers.Events</Name>

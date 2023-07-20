@@ -16,7 +16,8 @@ namespace MFR.File.Stream.Providers
     /// Allows disparate parts of the application to access these file streams through
     /// a ticket system.
     /// </summary>
-    public class FileStreamProvider : TicketedObjectProviderBase<StreamReader>, IFileStreamProvider
+    public class FileStreamProvider : TicketedObjectProviderBase<StreamReader>,
+        IFileStreamProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -29,12 +30,6 @@ namespace MFR.File.Stream.Providers
         protected FileStreamProvider() { }
 
         /// <summary>
-        /// Gets the count of file streams that are currently available.
-        /// </summary>
-        public override int Count
-            => InternalFileStreamCollection.Count;
-
-        /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
         /// interface.
@@ -45,11 +40,12 @@ namespace MFR.File.Stream.Providers
         } = new FileStreamProvider();
 
         /// <summary>
-        /// Dictionary that maps a <see cref="T:System.Guid" /> value (serving as a
-        /// <c>ticket</c>) to a reference to an instance of
-        /// <see cref="T:System.IO.StreamReader" /> that can be used to access a text file.
+        /// Internal dictionary that maps a <see cref="T:System.Guid" /> value (serving as
+        /// a <c>ticket</c>) to a reference to an instance of
+        /// <see cref="T:System.IO.StreamReader" /> that refers to the instance of the
+        /// object that corresponds with the specified <c>ticket</c>.
         /// </summary>
-        private IDictionary<Guid, StreamReader> InternalFileStreamCollection
+        protected override IDictionary<Guid, StreamReader> InternalCollection
         {
             get;
         } = new Dictionary<Guid, StreamReader>();
@@ -71,13 +67,6 @@ namespace MFR.File.Stream.Providers
         {
             get;
         } = new Dictionary<Guid, string>();
-
-        /// <summary>
-        /// Raised when the value of the
-        /// <see cref="P:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Count" />
-        /// property has been updated.
-        /// </summary>
-        public override event EventHandler CountChanged;
 
         /// <summary>
         /// Raised when any of the file streams that are managed by this object are
@@ -127,7 +116,7 @@ namespace MFR.File.Stream.Providers
                 if (tickets == null || !tickets.Any()) return;
                 if (tickets.All(ticket => Guid.Empty.Equals(ticket)))
                     return;
-                if (!tickets.Intersect(InternalFileStreamCollection.Keys)
+                if (!tickets.Intersect(InternalCollection.Keys)
                             .Any())
                     return;
 
@@ -194,11 +183,10 @@ namespace MFR.File.Stream.Providers
         {
             try
             {
-                if (!InternalFileStreamCollection.Any()) return;
+                if (!InternalCollection.Any()) return;
 
                 // Read the keys backwards
-                foreach (var ticket in InternalFileStreamCollection.Keys
-                             .Reverse())
+                foreach (var ticket in InternalCollection.Keys.Reverse())
                     DisposeObject(ticket);
             }
             catch (Exception ex)
@@ -209,8 +197,7 @@ namespace MFR.File.Stream.Providers
             finally
             {
                 if (Count > 0)
-                    InternalFileStreamCollection
-                        .Clear(); // get rid of any stragglers
+                    InternalCollection.Clear(); // get rid of any stragglers
             }
         }
 
@@ -242,11 +229,10 @@ namespace MFR.File.Stream.Providers
                 {
                     pathname = RemovePathnameMappingFor(ticket);
 
-                    if (!InternalFileStreamCollection.ContainsKey(ticket))
+                    if (!InternalCollection.ContainsKey(ticket))
                         return;
 
-                    var correspondingReader =
-                        InternalFileStreamCollection[ticket];
+                    var correspondingReader = InternalCollection[ticket];
                     if (correspondingReader == null)
                         return;
 
@@ -254,7 +240,7 @@ namespace MFR.File.Stream.Providers
                     correspondingReader.Dispose();
 
                     if (remove)
-                        InternalFileStreamCollection.Remove(ticket);
+                        InternalCollection.Remove(ticket);
                 }
 
                 OnFileStreamDisposed(
@@ -295,9 +281,9 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (ticket.IsZero()) return result;
-                if (InternalFileStreamCollection == null) return result;
+                if (InternalCollection == null) return result;
                 if (Count == 0) return result;
-                if (!InternalFileStreamCollection.ContainsKey(ticket))
+                if (!InternalCollection.ContainsKey(ticket))
                     return result;
                 if (MapOfTicketsToPathnames == null) return result;
                 if (!MapOfTicketsToPathnames.Any()) return result;
@@ -345,7 +331,7 @@ namespace MFR.File.Stream.Providers
             {
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
 
-                if (InternalFileStreamCollection == null) return result;
+                if (InternalCollection == null) return result;
                 if (Count == 0) return result;
                 if (MapOfPathnamesToTickets == null) return result;
                 if (!MapOfPathnamesToTickets.Any()) return result;
@@ -362,8 +348,7 @@ namespace MFR.File.Stream.Providers
                  * This keeps our bijective maps referentially consistent.
                  */
 
-                if (!result.IsZero() &&
-                    !InternalFileStreamCollection.ContainsKey(result))
+                if (!result.IsZero() && !InternalCollection.ContainsKey(result))
                 {
                     RemovePathnameMappingFor(result);
                     result = Guid.Empty;
@@ -464,16 +449,19 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Provides a reference to an instance of a <typeparamref name="T" /> that
+        /// Provides a reference to an instance of a
+        /// <see cref="T:System.IO.StreamReader" /> that
         /// corresponds to the specified <paramref name="ticket" /> value.
         /// </summary>
         /// <param name="ticket">
         /// (Required.) A <see cref="T:System.Guid" /> value that represents a
-        /// <c>ticket</c> that can be redeemed for a particular <typeparamref name="T" />
+        /// <c>ticket</c> that can be redeemed for a particular
+        /// <see cref="T:System.IO.StreamReader" />
         /// instance that corresponds to an object stored in the internal collection.
         /// </param>
         /// <returns>
-        /// Reference to an instance of <typeparamref name="T" /> that corresponds to the
+        /// Reference to an instance of <see cref="T:System.IO.StreamReader" /> that
+        /// corresponds to the
         /// specified <paramref name="ticket" />, or <see langword="null" /> if either no
         /// corresponding object can be found in the internal collection, or
         /// <see langword="null" /> if the corresponding object instance has already been
@@ -499,10 +487,10 @@ namespace MFR.File.Stream.Providers
                 try
                 {
                     if (Guid.Empty.Equals(ticket)) return result;
-                    if (!InternalFileStreamCollection.ContainsKey(ticket))
+                    if (!InternalCollection.ContainsKey(ticket))
                         return result;
 
-                    result = InternalFileStreamCollection[ticket];
+                    result = InternalCollection[ticket];
                 }
                 catch (Exception ex)
                 {
@@ -540,11 +528,11 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (ticket.IsZero()) return;
-                if (InternalFileStreamCollection == null) return;
-                if (!InternalFileStreamCollection.Any()) return;
-                if (!InternalFileStreamCollection.ContainsKey(ticket)) return;
+                if (InternalCollection == null) return;
+                if (!InternalCollection.Any()) return;
+                if (!InternalCollection.ContainsKey(ticket)) return;
 
-                var associatedStream = InternalFileStreamCollection[ticket];
+                var associatedStream = InternalCollection[ticket];
 
                 if (associatedStream?.BaseStream == null) return;
 
@@ -571,7 +559,7 @@ namespace MFR.File.Stream.Providers
         /// redeemed to obtain the object reference again.
         /// </summary>
         /// <param name="objectToStore">
-        /// (Required.) Instance of <typeparamref name="T" />
+        /// (Required.) Instance of <see cref="T:System.IO.StreamReader" />
         /// that is to be stored.
         /// </param>
         /// <returns></returns>
@@ -579,7 +567,7 @@ namespace MFR.File.Stream.Providers
         /// If the value of the <paramref name="objectToStore" /> parameter is a
         /// <see langword="null" /> reference, then nothing happens and the
         /// <see cref="F:System.Guid.Empty" /> value is returned by the method.
-        /// <para/>
+        /// <para />
         /// This method is atomic.
         /// </remarks>
         public override Guid Store(StreamReader objectToStore)
@@ -590,13 +578,13 @@ namespace MFR.File.Stream.Providers
             {
                 if (objectToStore == null)
                     return result; // do not store a null reference
-                if (InternalFileStreamCollection == null) return result;
+                if (InternalCollection == null) return result;
 
                 lock (SyncRoot)
                 {
                     result = Guid.NewGuid();
 
-                    InternalFileStreamCollection[result] = objectToStore;
+                    InternalCollection[result] = objectToStore;
                 }
             }
             catch (Exception ex)
@@ -609,14 +597,6 @@ namespace MFR.File.Stream.Providers
 
             return result;
         }
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.File.Stream.Providers.FileStreamProvider.CountChanged" />
-        /// event.
-        /// </summary>
-        protected override void OnCountChanged()
-            => CountChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
@@ -729,11 +709,11 @@ namespace MFR.File.Stream.Providers
                 var ticket = GetTicketForPathname(pathname);
                 if (ticket.IsZero()) return result;
 
-                if (InternalFileStreamCollection == null) return result;
-                if (!InternalFileStreamCollection.Any() == null)
+                if (InternalCollection == null) return result;
+                if (!InternalCollection.Any() == null)
                     return result;
 
-                result = InternalFileStreamCollection.ContainsKey(ticket);
+                result = InternalCollection.ContainsKey(ticket);
             }
             catch (Exception ex)
             {

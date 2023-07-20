@@ -2,6 +2,7 @@ using MFR.File.Stream.Providers.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using xyLOGIX.TicketedProvider.Interfaces;
 
 namespace MFR.File.Stream.Providers.Interfaces
 {

@@ -156,6 +156,10 @@
       <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
       <Name>xyLOGIX.Queues.Messages.Senders</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
+      <Project>{BF8E6621-8EDC-44AB-A191-5D559C6F2D1E}</Project>
+      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
       <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
       <Name>xyLOGIX.VisualStudio.Actions</Name>
