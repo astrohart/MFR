@@ -1347,30 +1347,30 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
         {
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                "*** INFO: Running operation-finished processing..."
-            );
+            //DebugUtils.WriteLine(
+            //    DebugLevel.Info,
+            //    "*** INFO: Running presenter-finished processing..."
+            //);
 
-            this.InvokeIfRequired(
-                () =>
-                {
-                    if (CurrentConfiguration.AutoQuitOnCompletion)
-                        Close();
-                }
-            );
+            //this.InvokeIfRequired(
+            //    () =>
+            //    {
+            //        if (CurrentConfiguration.AutoQuitOnCompletion)
+            //            Close();
+            //    }
+            //);
 
-            /*
-             * If this application was invoked using command-line
-             * arguments to set the configuration settings, and
-             * if the --autoStart flag is also passed on the command
-             * line, then automatically exit the application once
-             * processing is done.
-             */
+            ///*
+            // * If this application was invoked using command-line
+            // * arguments to set the configuration settings, and
+            // * if the --autoStart flag is also passed on the command
+            // * line, then automatically exit the application once
+            // * processing is done.
+            // */
 
-            if (CurrentConfiguration.IsFromCommandLine &&
-                CurrentConfiguration.AutoStart)
-                this.InvokeIfRequired(Close);
+            //if (CurrentConfiguration.IsFromCommandLine &&
+            //    CurrentConfiguration.AutoStart)
+            //    this.InvokeIfRequired(Close);
         }
 
         /// <summary>

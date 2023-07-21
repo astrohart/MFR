@@ -2333,16 +2333,7 @@ namespace MFR.Renamers.Files
 
                 if (textToBeSearched.Equals(result))
                     result = SpecializedFileData.NoChange;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
 
-                result = string.Empty;
-            }
-            finally
-            {
                 // if an exception occurs, we need to dispose the most-recently-
                 // opened/accessed file stream.  We need this block to be here
                 // since there is a high risk of exceptions occurring whenever
@@ -2356,6 +2347,13 @@ namespace MFR.Renamers.Files
                 if (entry != null &&
                     !((Guid)entry.UserState).Equals(Guid.Empty))
                     FileStreamProvider.DisposeObject(entry.UserState);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
             }
 
             return result;

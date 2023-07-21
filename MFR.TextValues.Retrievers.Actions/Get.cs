@@ -30,7 +30,8 @@ namespace MFR.TextValues.Retrievers.Actions
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker" />
+        /// <see
+        ///     cref="T:MFR.TextValues.Retrievers.Synchronization.Interfaces.ISemaphoreLocker" />
         /// interface.
         /// </summary>
         private static ISemaphoreLocker SemaphoreLocker
@@ -75,14 +76,13 @@ namespace MFR.TextValues.Retrievers.Actions
         public static string FileData(Guid ticket, bool dispose = false)
         {
             var result = string.Empty;
-            StreamReader stream = default;
 
             lock (SyncRoot)
                 try
                 {
                     if (ticket.IsZero()) return result;
 
-                    FileStreamProvider.RewindStream(ticket);    // just in case
+                    FileStreamProvider.RewindStream(ticket); // just in case
 
                     /*
                      * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
@@ -90,10 +90,15 @@ namespace MFR.TextValues.Retrievers.Actions
                      * to a FileStream object that had been opened on the file previously.
                      *
                      */
-                    stream = FileStreamProvider.Redeem(ticket);
+                    var stream = FileStreamProvider.Redeem(ticket);
                     if (stream == null) return result;
 
                     result = stream.ReadToEnd();
+
+                    FileStreamProvider.RewindStream(ticket);
+
+                    if (dispose) 
+                        FileStreamProvider.DisposeObject(ticket);
                 }
                 catch (Exception ex)
                 {
@@ -101,23 +106,6 @@ namespace MFR.TextValues.Retrievers.Actions
                     DebugUtils.LogException(ex);
 
                     result = string.Empty;
-                }
-                finally
-                {
-                    /*
-                 * Reset the stream to the beginning
-                 * and discard the buffered data.
-                 */
-                    if (!dispose && stream != null)
-                    {
-                        stream.BaseStream.Position = 0L;
-                        stream.DiscardBufferedData();
-                    }
-
-                    if (dispose)
-                        FileStreamProvider.DisposeObject(
-                            ticket /* remove from the collection */
-                        );
                 }
 
             return result;
@@ -167,12 +155,19 @@ namespace MFR.TextValues.Retrievers.Actions
                          * the file's content so that the application can perform faster.
                          */
 
-                        FileStreamProvider.RewindStream(ticket);    // just in case
+                        FileStreamProvider.RewindStream(ticket); // just in case
 
                         stream = FileStreamProvider.Redeem(ticket);
                         if (stream == null) return result;
 
-                        return await stream.ReadToEndAsync();
+                        result = await stream.ReadToEndAsync();
+
+                        if (dispose)
+                            FileStreamProvider.DisposeObject(
+                                ticket /* remove from the collection */
+                            );
+
+                        return result;
                     }
                 );
             }
@@ -182,13 +177,6 @@ namespace MFR.TextValues.Retrievers.Actions
                 DebugUtils.LogException(ex);
 
                 result = string.Empty;
-            }
-            finally
-            {
-                if (dispose)
-                    FileStreamProvider.DisposeObject(
-                        ticket /* remove from the collection */
-                    );
             }
 
             return result;
