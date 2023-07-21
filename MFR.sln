@@ -954,6 +954,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Tests.Logging.Manag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Tests.Logging", "..\xyLOGIX.Tests.Logging\xyLOGIX.Tests.Logging\xyLOGIX.Tests.Logging.csproj", "{52243153-1A0D-409A-91A8-638DBD7CF23F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Application.Semaphores", "..\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores.csproj", "{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -8484,6 +8486,22 @@ Global
 		{52243153-1A0D-409A-91A8-638DBD7CF23F}.Release|x64.Build.0 = Release|x64
 		{52243153-1A0D-409A-91A8-638DBD7CF23F}.Release|x86.ActiveCfg = Release|x86
 		{52243153-1A0D-409A-91A8-638DBD7CF23F}.Release|x86.Build.0 = Release|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.All|x64.ActiveCfg = Debug|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.All|x64.Build.0 = Debug|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.All|x86.ActiveCfg = Debug|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.All|x86.Build.0 = Debug|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Debug|x64.ActiveCfg = Debug|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Debug|x64.Build.0 = Debug|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Debug|x86.ActiveCfg = Debug|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Debug|x86.Build.0 = Debug|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.DefaultBuild|x64.Build.0 = Debug|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.DefaultBuild|x86.Build.0 = Debug|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Release|x64.ActiveCfg = Release|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Release|x64.Build.0 = Release|x64
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Release|x86.ActiveCfg = Release|x86
+		{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
