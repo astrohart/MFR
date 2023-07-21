@@ -1022,10 +1022,15 @@ namespace MFR.GUI.Windows
         /// the application, closing this window ends the lifecycle of the application.
         /// </remarks>
         private void OnFileExit(object sender, EventArgs e)
-        {
-            SaveUserSettingsOnExit();
+            => Close();
 
-            Close();
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.</summary>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.FormClosingEventArgs" /> that contains the event data.</param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            SaveUserSettingsOnExit();
         }
 
         /// <summary>
@@ -1707,12 +1712,16 @@ namespace MFR.GUI.Windows
         private void OnViewToolBar(object sender, EventArgs e)
             => standardToolStrip.Visible = !standardToolStrip.Visible;
 
+        /// <summary>
+        /// Saves the user's settings to the configuration object in memory, and shows a
+        /// progress dialog to the user while doing so.
+        /// </summary>
         private void SaveUserSettingsOnExit()
         {
             using (var dialog =
                    MakeNewOperationDrivenProgressDialog.FromScratch())
             {
-                dialog.Proc = new Action(() => Presenter.UpdateData());
+                dialog.Proc = new Action(() => UpdateData());
                 dialog.Status = "Saving user configuration settings...";
 
                 dialog.ShowDialog(this);
@@ -1728,12 +1737,15 @@ namespace MFR.GUI.Windows
         /// <see langword="false" /> to load data to the screen.
         /// </param>
         private void UpdateData(bool bSaveAndValidate = true)
-        {
-            if (bSaveAndValidate)
-                Presenter.UpdateConfiguration(CurrentConfiguration);
+            => this.InvokeIfRequired(
+                () =>
+                {
+                    if (bSaveAndValidate)
+                        Presenter.UpdateConfiguration(CurrentConfiguration);
 
-            Presenter.UpdateData(bSaveAndValidate);
-        }
+                    Presenter.UpdateData(bSaveAndValidate);
+                }
+            );
 
         /// <summary>
         /// Resizes the form to that specified in the <paramref name="newSize" />
