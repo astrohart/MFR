@@ -478,6 +478,8 @@ namespace MFR.File.Stream.Providers
         {
             base.OnTicketedObjectDisposalRequested(e);
 
+            if (e.Value == null) return;
+
             e.Value.DiscardBufferedData();
             e.Value.Close();
             e.Value.Dispose();
