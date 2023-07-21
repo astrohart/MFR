@@ -49,7 +49,6 @@
   - [OnClickSwitchButton(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickSwitchButton-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickSwitchButton(System.Object,System.EventArgs)')
   - [OnConfiguredStartingFolderChanged(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnConfiguredStartingFolderChanged-System-Object,MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs- 'MFR.GUI.Windows.MainWindow.OnConfiguredStartingFolderChanged(System.Object,MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs)')
   - [OnFileExit(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFileExit-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnFileExit(System.Object,System.EventArgs)')
-  - [OnFormClosed(e)](#M-MFR-GUI-Windows-MainWindow-OnFormClosed-System-Windows-Forms-FormClosedEventArgs- 'MFR.GUI.Windows.MainWindow.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)')
   - [OnFormFolded(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFormFolded-System-Object,MFR-GUI-Controls-Events-FormFoldedEventArgs- 'MFR.GUI.Windows.MainWindow.OnFormFolded(System.Object,MFR.GUI.Controls.Events.FormFoldedEventArgs)')
   - [OnHelpAbout(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpAbout-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpAbout(System.Object,System.EventArgs)')
   - [OnHelpMenuDropDownOpening(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpMenuDropDownOpening-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpMenuDropDownOpening(System.Object,System.EventArgs)')
@@ -680,21 +679,6 @@ This method is called to handle the message of the user clicking the
 Exit command on the File menu. This method saves the configuration
 and then closes this window. Since this window is the main window of
 the application, closing this window ends the lifecycle of the application.
-
-<a name='M-MFR-GUI-Windows-MainWindow-OnFormClosed-System-Windows-Forms-FormClosedEventArgs-'></a>
-### OnFormClosed(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-FormClosed 'System.Windows.Forms.Form.FormClosed')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.Windows.Forms.FormClosedEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosedEventArgs 'System.Windows.Forms.FormClosedEventArgs') | A [FormClosedEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosedEventArgs 'System.Windows.Forms.FormClosedEventArgs')
-that contains the event data. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnFormFolded-System-Object,MFR-GUI-Controls-Events-FormFoldedEventArgs-'></a>
 ### OnFormFolded(sender,e) `method`

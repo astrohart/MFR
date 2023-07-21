@@ -144,6 +144,10 @@
       <Project>{3F217E7B-37D2-46B9-8417-60E5B301D032}</Project>
       <Name>xyLOGIX.TicketedProvider.Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
+      <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
+      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.csproj">
       <Project>{9CACED8C-C58E-4C38-94A6-4CE07C92D156}</Project>
       <Name>xyLOGIX.TicketedProvider</Name>
