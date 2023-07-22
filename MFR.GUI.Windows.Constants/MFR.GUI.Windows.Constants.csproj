@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="DesignTimeScreenMetric.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="MainWindowState.cs" />
     <Compile Include="ScalingDirection.cs" />
   </ItemGroup>
   <ItemGroup>
