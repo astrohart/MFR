@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8597.40441" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8602.17691" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -299,6 +299,10 @@
     <ROW Component="config.json" ComponentId="{01FB03AC-2C26-4E86-B391-151D1F24E1F3}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
     <ROW Component="log4net.dll" ComponentId="{1E9A89B5-30AD-4F7A-9A17-49D7547DF16D}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
     <ROW Component="mfr.exe" ComponentId="{9132EC2B-533F-4742-A0A3-68CF02698C01}" Directory_="APPDIR" Attributes="256" KeyPath="mfr.exe"/>
+    <ROW Component="xyLOGIX.Collections.Constants.dll" ComponentId="{11D42F05-D0EC-4797-9C52-EC7EC60E5064}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Constants.dll"/>
+    <ROW Component="xyLOGIX.Collections.Events.dll" ComponentId="{D7CF776F-5A16-4087-B7C1-99E1F37C6046}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Events.dll"/>
+    <ROW Component="xyLOGIX.Collections.Interfaces.dll" ComponentId="{587564BF-6670-4D8D-A09F-A10F38D5D038}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Collections.dll" ComponentId="{3779823B-971B-451A-8858-9646527F76CE}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.dll"/>
     <ROW Component="xyLOGIX.Core.Assemblies.Info.dll" ComponentId="{947B1A1A-ED37-450D-B0AC-0590702F0C59}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Assemblies.Info.dll"/>
     <ROW Component="xyLOGIX.Core.Debug.dll" ComponentId="{CFC5FBBC-159C-4869-8165-C8D96B04F61C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Debug.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.Factories.dll" ComponentId="{78D471FE-60EB-4084-A544-A636164E369A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.Factories.dll"/>
@@ -313,6 +317,7 @@
     <ROW Component="xyLOGIX.Generators.Constants.dll" ComponentId="{0EADAA38-050C-429C-A135-75BBC0F92D48}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Constants.dll"/>
     <ROW Component="xyLOGIX.Generators.Interfaces.dll" ComponentId="{CAEA0D58-4F87-4CB7-91D5-9FA5A633C912}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Generators.dll" ComponentId="{3EF7FD18-BCCC-409E-919B-12E6DFF9E32B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.dll"/>
+    <ROW Component="xyLOGIX.Interop.Processes.Actions.dll" ComponentId="{9C46C510-8B24-4F58-9CC4-16E6455CE0F4}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Actions.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.Factories.dll" ComponentId="{E68E5EBF-BCA3-472C-9CAE-0731AAE9D236}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Factories.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.Interfaces.dll" ComponentId="{41B13CCB-68FA-4F7E-8407-B57D49666D51}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.Monikers.Factories.dll" ComponentId="{EE9EEE3D-8ADD-4084-A5B3-CF0F1D0016CC}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.Factories.dll"/>
@@ -337,6 +342,9 @@
     <ROW Component="xyLOGIX.Queues.Messages.Senders.dll" ComponentId="{60CA3F4D-5196-4DE3-87C5-BB6AA8EFE580}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.Senders.dll"/>
     <ROW Component="xyLOGIX.Queues.Messages.dll" ComponentId="{0FBFE677-D7B7-4E8E-A9F3-8951DBDD20B6}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.dll"/>
     <ROW Component="xyLOGIX.Text.Actions.dll" ComponentId="{894DCC1A-F027-4C56-B52F-C41B15D5E958}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Text.Actions.dll"/>
+    <ROW Component="xyLOGIX.TicketedProvider.Events.dll" ComponentId="{48B576F9-3114-4DE8-B5CA-CC6A70C64257}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TicketedProvider.Events.dll"/>
+    <ROW Component="xyLOGIX.TicketedProvider.Interfaces.dll" ComponentId="{364FFBAC-A083-43D9-8265-535D07D67A9E}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TicketedProvider.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.TicketedProvider.dll" ComponentId="{5E57B51A-CFC9-42CC-9C3D-AB74E41CA1F6}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TicketedProvider.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Collections.Events.dll" ComponentId="{37B91EFB-3A66-4302-84EF-400F97EE969B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Collections.Events.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Collections.Interfaces.dll" ComponentId="{03B0F71C-A78A-4F9C-B203-36F8D573B214}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Collections.Interfaces.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Collections.dll" ComponentId="{216B1999-80E1-408D-BC0A-C5C9FCB9EEE2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Collections.dll"/>
@@ -359,9 +367,15 @@
     <ROW Component="xyLOGIX.UI.Dark.Win32.dll" ComponentId="{18FE4634-DA2B-473F-9B48-EDE375E3015B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Win32.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Actions.dll" ComponentId="{AE43AF6D-06BE-414C-908E-99B7A7F5C9A6}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Actions.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Constants.dll" ComponentId="{83ECBAD6-241A-4693-9192-9F85CD791565}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Constants.dll"/>
+    <ROW Component="xyLOGIX.VisualStudio.Instances.States.Constants.dll" ComponentId="{F15ABE8E-BFFD-4AEC-8E8B-06BEE9B7670A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Instances.States.Constants.dll"/>
+    <ROW Component="xyLOGIX.VisualStudio.Instances.States.Events.dll" ComponentId="{7B59CFAB-50C1-4D64-ABCE-EFBE88480E4F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Instances.States.Events.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Models.Factories.dll" ComponentId="{91D9B58A-FA60-430F-879E-A34B839DD6CA}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Models.Factories.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Models.Interfaces.dll" ComponentId="{9FEFDF45-5F3C-413B-BE9F-67070F8E4572}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Models.Interfaces.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Models.dll" ComponentId="{D43A3B3A-C92B-4A7F-996F-516A2A587868}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Models.dll"/>
+    <ROW Component="xyLOGIX.VisualStudio.Providers.Actions.dll" ComponentId="{E3C0A633-0487-427C-805F-BABEAF15A895}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Providers.Actions.dll"/>
+    <ROW Component="xyLOGIX.VisualStudio.Providers.Factories.dll" ComponentId="{DF6BAB82-989E-407B-A033-24447376FA29}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Providers.Factories.dll"/>
+    <ROW Component="xyLOGIX.VisualStudio.Providers.Interfaces.dll" ComponentId="{05729965-1DAA-44AD-909C-5F1705C59731}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Providers.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.VisualStudio.Providers.dll" ComponentId="{CBC5709D-0D9A-4DE1-A2F6-BEBB1BE39023}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Providers.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Setup.Providers.Actions.dll" ComponentId="{502CFE93-C598-4C9E-9E05-AA70C63AC011}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Setup.Providers.Actions.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Setup.Providers.Factories.dll" ComponentId="{19E31FCC-0623-494D-B60C-16559253F02A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Setup.Providers.Factories.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll" ComponentId="{A744DF95-7633-434D-8594-AAF4CF64FCB8}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll"/>
@@ -1039,6 +1053,34 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLOG~73.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLOG~74.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLOG~74.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Constants.dll" Component_="xyLOGIX.Collections.Constants.dll" FileName="XYLOG~75.DLL|xyLOGIX.Collections.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Constants.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Constants.dll.config" Component_="config.json" FileName="XYLOG~75.CON|xyLOGIX.Collections.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Constants.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.dll" Component_="xyLOGIX.Collections.dll" FileName="XYLOG~76.DLL|xyLOGIX.Collections.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.dll.config" Component_="config.json" FileName="XYLOG~76.CON|xyLOGIX.Collections.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Events.dll" Component_="xyLOGIX.Collections.Events.dll" FileName="XYLOG~77.DLL|xyLOGIX.Collections.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Events.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Events.dll.config" Component_="config.json" FileName="XYLOG~77.CON|xyLOGIX.Collections.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Events.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Interfaces.dll" Component_="xyLOGIX.Collections.Interfaces.dll" FileName="XYLOG~78.DLL|xyLOGIX.Collections.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~78.CON|xyLOGIX.Collections.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.Actions.dll" Component_="xyLOGIX.Interop.Processes.Actions.dll" FileName="XYLOG~79.DLL|xyLOGIX.Interop.Processes.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.Actions.dll.config" Component_="config.json" FileName="XYLOG~79.CON|xyLOGIX.Interop.Processes.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Actions.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.TicketedProvider.dll" Component_="xyLOGIX.TicketedProvider.dll" FileName="XYLOG~80.DLL|xyLOGIX.TicketedProvider.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.TicketedProvider.dll.config" Component_="config.json" FileName="XYLOG~80.CON|xyLOGIX.TicketedProvider.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.TicketedProvider.Events.dll" Component_="xyLOGIX.TicketedProvider.Events.dll" FileName="XYLOG~81.DLL|xyLOGIX.TicketedProvider.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Events.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.TicketedProvider.Events.dll.config" Component_="config.json" FileName="XYLOG~81.CON|xyLOGIX.TicketedProvider.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Events.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.TicketedProvider.Interfaces.dll" Component_="xyLOGIX.TicketedProvider.Interfaces.dll" FileName="XYLOG~82.DLL|xyLOGIX.TicketedProvider.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.TicketedProvider.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~82.CON|xyLOGIX.TicketedProvider.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Instances.States.Constants.dll" Component_="xyLOGIX.VisualStudio.Instances.States.Constants.dll" FileName="XYLOG~83.DLL|xyLOGIX.VisualStudio.Instances.States.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Instances.States.Constants.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Instances.States.Constants.dll.config" Component_="config.json" FileName="XYLOG~83.CON|xyLOGIX.VisualStudio.Instances.States.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Instances.States.Constants.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Instances.States.Events.dll" Component_="xyLOGIX.VisualStudio.Instances.States.Events.dll" FileName="XYLOG~84.DLL|xyLOGIX.VisualStudio.Instances.States.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Instances.States.Events.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Instances.States.Events.dll.config" Component_="config.json" FileName="XYLOG~84.CON|xyLOGIX.VisualStudio.Instances.States.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Instances.States.Events.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.Actions.dll" Component_="xyLOGIX.VisualStudio.Providers.Actions.dll" FileName="XYLOG~85.DLL|xyLOGIX.VisualStudio.Providers.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.Actions.dll.config" Component_="config.json" FileName="XYLOG~85.CON|xyLOGIX.VisualStudio.Providers.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.Actions.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.dll" Component_="xyLOGIX.VisualStudio.Providers.dll" FileName="XYLOG~86.DLL|xyLOGIX.VisualStudio.Providers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.dll.config" Component_="config.json" FileName="XYLOG~86.CON|xyLOGIX.VisualStudio.Providers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.Factories.dll" Component_="xyLOGIX.VisualStudio.Providers.Factories.dll" FileName="XYLOG~87.DLL|xyLOGIX.VisualStudio.Providers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.Factories.dll.config" Component_="config.json" FileName="XYLOG~87.CON|xyLOGIX.VisualStudio.Providers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.Interfaces.dll" Component_="xyLOGIX.VisualStudio.Providers.Interfaces.dll" FileName="XYLOG~88.DLL|xyLOGIX.VisualStudio.Providers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.VisualStudio.Providers.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~88.CON|xyLOGIX.VisualStudio.Providers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Providers.Interfaces.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1463,6 +1505,20 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Constants.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Events.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Actions.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.TicketedProvider.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.TicketedProvider.Events.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.TicketedProvider.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Instances.States.Constants.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Instances.States.Events.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Providers.Actions.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Providers.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Providers.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Providers.Interfaces.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
