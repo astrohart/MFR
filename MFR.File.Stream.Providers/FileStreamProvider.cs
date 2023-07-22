@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
 using xyLOGIX.TicketedProvider;
 using xyLOGIX.TicketedProvider.Events;
 
@@ -294,7 +295,8 @@ namespace MFR.File.Stream.Providers
 
                 lock (SyncRoot)
                 {
-                    newReader = new StreamReader(pathname);
+                    var fileEncoding = Determine.FileEncoding(pathname);
+                    newReader = new StreamReader(pathname, fileEncoding);
                     if (newReader == null)
                         OnFileStreamOpenFailed(
                             new FileStreamOpenFailedEventArgs(

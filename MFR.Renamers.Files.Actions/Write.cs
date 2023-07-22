@@ -1,5 +1,6 @@
 using System;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.Renamers.Files.Actions
 {
@@ -10,11 +11,11 @@ namespace MFR.Renamers.Files.Actions
     {
         /// <summary>
         /// Writes the specified <paramref name="contents" /> to the file having the
-        /// specified <paramref name="path" />.
+        /// specified <paramref name="pathname" />.
         /// <para />
         /// If the file already exists, then it is deleted.
         /// </summary>
-        /// <param name="path">
+        /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of a file to be written to the disk.
         /// </param>
@@ -22,14 +23,16 @@ namespace MFR.Renamers.Files.Actions
         /// (Required.) A <see cref="T:System.String" /> containing the contents of the new
         /// file.
         /// </param>
-        public static void FileContent(string path, string contents)
+        public static void FileContent(string pathname, string contents)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(path)) return;
+                if (string.IsNullOrWhiteSpace(pathname)) return;
                 if (string.IsNullOrWhiteSpace(contents)) return;
 
-                Alphaleonis.Win32.Filesystem.File.WriteAllText(path, contents);
+                var fileEncoding = Determine.FileEncoding(pathname);
+
+                Alphaleonis.Win32.Filesystem.File.WriteAllText(pathname, contents, fileEncoding);
             }
             catch (Exception ex)
             {

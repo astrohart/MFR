@@ -140,6 +140,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Events\xyLOGIX.TicketedProvider.Events.csproj">
       <Project>{3F217E7B-37D2-46B9-8417-60E5B301D032}</Project>
       <Name>xyLOGIX.TicketedProvider.Events</Name>

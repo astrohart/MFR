@@ -6,6 +6,7 @@ using MFR.Settings.Configuration.Interfaces;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 using Initialize = MFR.GUI.Models.Actions.Initialize;
 
 namespace MFR.Settings.Configuration.Serializers
@@ -43,7 +44,8 @@ namespace MFR.Settings.Configuration.Serializers
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
                 if (!File.Exists(pathname)) return result;
 
-                var content = File.ReadAllText(pathname);
+                var encoding = Determine.FileEncoding(pathname);
+                var content = File.ReadAllText(pathname, encoding);
                 if (string.IsNullOrWhiteSpace(content))
                     return result;
 
