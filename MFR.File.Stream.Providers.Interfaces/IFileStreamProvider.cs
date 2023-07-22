@@ -24,26 +24,6 @@ namespace MFR.File.Stream.Providers.Interfaces
     public interface IFileStreamProvider : ITicketedObjectProvider<StreamReader>
     {
         /// <summary>
-        /// Disposes, i.e., closes the file and releases all resources, for the file stream
-        /// that corresponds to the specified <paramref name="ticket" />.
-        /// </summary>
-        /// <param name="ticket">
-        /// A <see cref="T:System.Guid" /> value that corresponds to
-        /// the file stream you wish to close.
-        /// </param>
-        /// <param name="remove">
-        /// (Optional.) Indicates whether to remove the disposed stream from our internal
-        /// collection.  <see langword="true" /> is the default.
-        /// </param>
-        /// <remarks>
-        /// If the Zero GUID is passed as the argument of the <paramref name="ticket" />
-        /// parameter, or if the specified <paramref name="ticket" /> is not present in the
-        /// internal list.
-        /// </remarks>
-        new void DisposeObject(Guid ticket, bool remove = true);
-
-
-        /// <summary>
         /// Raised when any of the file streams that are managed by this object are
         /// disposed by it.
         /// </summary>
@@ -90,6 +70,25 @@ namespace MFR.File.Stream.Providers.Interfaces
         IReadOnlyCollection<Guid> BatchOpenStreams(
             IReadOnlyCollection<string> pathnames
         );
+
+        /// <summary>
+        /// Disposes, i.e., closes the file and releases all resources, for the file stream
+        /// that corresponds to the specified <paramref name="ticket" />.
+        /// </summary>
+        /// <param name="ticket">
+        /// A <see cref="T:System.Guid" /> value that corresponds to
+        /// the file stream you wish to close.
+        /// </param>
+        /// <param name="remove">
+        /// (Optional.) Indicates whether to remove the disposed stream from our internal
+        /// collection.  <see langword="true" /> is the default.
+        /// </param>
+        /// <remarks>
+        /// If the Zero GUID is passed as the argument of the <paramref name="ticket" />
+        /// parameter, or if the specified <paramref name="ticket" /> is not present in the
+        /// internal list.
+        /// </remarks>
+        new void DisposeObject(Guid ticket, bool remove = true);
 
         /// <summary>
         /// Attempts to look up the fully-qualified pathname of the file on whom a file

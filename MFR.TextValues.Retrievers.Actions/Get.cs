@@ -96,9 +96,6 @@ namespace MFR.TextValues.Retrievers.Actions
                     result = stream.ReadToEnd();
 
                     FileStreamProvider.RewindStream(ticket);
-
-                    if (dispose) 
-                        FileStreamProvider.DisposeObject(ticket);
                 }
                 catch (Exception ex)
                 {
@@ -106,6 +103,11 @@ namespace MFR.TextValues.Retrievers.Actions
                     DebugUtils.LogException(ex);
 
                     result = string.Empty;
+                }
+                finally
+                {
+                    if (dispose) 
+                        Dispose.FileStream(ticket);
                 }
 
             return result;

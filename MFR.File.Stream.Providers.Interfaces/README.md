@@ -165,7 +165,7 @@ instance, on the text file having the specified `pathname`.
 
 A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that represents a `ticket` that can
 be redeemed later on with the
-[Redeem](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-Redeem 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Redeem')
+[Redeem](#M-xyLOGIX-TicketedProvider-Interfaces-ITicketedObjectProvider`1-Redeem 'xyLOGIX.TicketedProvider.Interfaces.ITicketedObjectProvider`1.Redeem')
 method to access the corresponding object, or
 [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid.Empty 'System.Guid.Empty') if the file could not be accessed or if the
 `pathname` parameters' argument is the blank or

@@ -33,6 +33,7 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Solutions.Providers.Factories;
 using MFR.Solutions.Providers.Interfaces;
+using MFR.TextValues.Retrievers.Actions;
 using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -53,6 +54,7 @@ using xyLOGIX.VisualStudio.Providers.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using Get = MFR.Services.Solutions.Actions.Get;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 using Wait = xyLOGIX.Files.Actions.Wait;
@@ -2326,7 +2328,16 @@ namespace MFR.Renamers.Files
 
                 if (textToBeSearched.Equals(result))
                     result = SpecializedFileData.NoChange;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
 
+                result = string.Empty;
+            }
+            finally
+            {
                 // if an exception occurs, we need to dispose the most-recently-
                 // opened/accessed file stream.  We need this block to be here
                 // since there is a high risk of exceptions occurring whenever
@@ -2337,16 +2348,8 @@ namespace MFR.Renamers.Files
                 // triggered this finally clause just for the file system entry
                 // that is currently being processed; therefore, we just try to
                 // dispose the file system entry that is currently being worked on
-                if (entry != null &&
-                    !((Guid)entry.UserState).Equals(Guid.Empty))
-                    FileStreamProvider.DisposeObject(entry.UserState);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = string.Empty;
+                if (entry != null)
+                    Dispose.FileStream(entry.UserState);
             }
 
             return result;

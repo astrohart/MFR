@@ -316,6 +316,10 @@
       <Project>{D314E4C5-41C3-40DF-8FE6-CA69EF731724}</Project>
       <Name>MFR.Solutions.Providers.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
+      <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>
+      <Name>MFR.TextValues.Retrievers.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
       <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
       <Name>MFR.TextValues.Retrievers.Factories</Name>
