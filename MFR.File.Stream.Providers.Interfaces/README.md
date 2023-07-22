@@ -5,6 +5,7 @@
 
 - [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
   - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
+  - [DisposeObject(ticket,remove)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeObject-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeObject(System.Guid,System.Boolean)')
   - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.GetPathnameForTicket(System.Guid)')
   - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.GetTicketForPathname(System.String)')
   - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.OpenStreamFor(System.String)')
@@ -68,6 +69,29 @@ each of which represents a file to be opened. |
 If the `pathnames` collection is
 `null` or the empty collection, then this method returns the
 empty collection.
+
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeObject-System-Guid,System-Boolean-'></a>
+### DisposeObject(ticket,remove) `method`
+
+##### Summary
+
+Disposes, i.e., closes the file and releases all resources, for the file stream
+that corresponds to the specified `ticket`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that corresponds to
+the file stream you wish to close. |
+| remove | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Optional.) Indicates whether to remove the disposed stream from our internal
+collection.  `true` is the default. |
+
+##### Remarks
+
+If the Zero GUID is passed as the argument of the `ticket`
+parameter, or if the specified `ticket` is not present in the
+internal list.
 
 <a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetPathnameForTicket-System-Guid-'></a>
 ### GetPathnameForTicket(ticket) `method`

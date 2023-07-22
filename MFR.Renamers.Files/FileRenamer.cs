@@ -540,13 +540,6 @@ namespace MFR.Renamers.Files
 
                 result = true;
             }
-            finally
-            {
-                // make sure there are no open file streams before
-                // proceeding
-                if (FileStreamProvider.Count > 0)
-                    FileStreamProvider.DisposeAll();
-            }
 
             DebugUtils.WriteLine(
                 DebugLevel.Info, $"FileRenamer.ProcessAll: Result = {result}"

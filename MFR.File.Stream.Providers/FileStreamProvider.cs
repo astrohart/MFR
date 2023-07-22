@@ -259,7 +259,7 @@ namespace MFR.File.Stream.Providers
         /// A <see cref="T:System.Guid" /> value that represents a <c>ticket</c> that can
         /// be redeemed later on with the
         /// <see
-        ///     cref="M:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.Redeem" />
+        ///     cref="M:xyLOGIX.TicketedProvider.Interfaces.ITicketedObjectProvider`1.Redeem" />
         /// method to access the corresponding file stream, or
         /// <see cref="F:System.Guid.Empty" /> if the file could not be accessed or if the
         /// <paramref name="pathname" /> parameters' argument is the blank or
