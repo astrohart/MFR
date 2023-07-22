@@ -140,6 +140,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores.csproj">
+      <Project>{c8a55975-00b3-4bdc-a52b-54d9fae4770d}</Project>
+      <Name>xyLOGIX.Application.Semaphores</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
@@ -151,6 +155,14 @@
     <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
       <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
+      <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
+      <Name>xyLOGIX.Pools.Tasks.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.Interfaces\xyLOGIX.Pools.Tasks.Interfaces.csproj">
+      <Project>{7C6341AC-4CB9-40B3-87CA-1BE4120F2F62}</Project>
+      <Name>xyLOGIX.Pools.Tasks.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Mappings\xyLOGIX.Queues.Messages.Mappings.csproj">
       <Project>{EF6CFC30-5D1D-42D8-B386-C1519427A80A}</Project>

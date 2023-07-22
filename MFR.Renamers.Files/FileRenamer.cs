@@ -47,6 +47,8 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
+using xyLOGIX.Pools.Tasks.Factories;
+using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
 using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Providers.Factories;
@@ -328,6 +330,21 @@ namespace MFR.Renamers.Files
         {
             get;
         } = new object();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Pools.Tasks.Interfaces.ITaskPool" /> interface.
+        /// </summary>
+        private static ITaskPool TaskPool
+        {
+            get;
+        } = GetTaskPool.SoleInstance();
+
+        private static IVisualStudioInstanceProvider
+            VisualStudioInstanceProvider
+        {
+            get;
+        } = GetVisualStudioInstanceProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -1040,7 +1057,7 @@ namespace MFR.Renamers.Files
                  * whether they have Solution(s) loaded or not, must be closed in order for
                  * this operation to succeed.
                  */
-                foreach (var solution in LoadedSolutions) 
+                foreach (var solution in LoadedSolutions)
                     solution.Quit();
 
                 /*
@@ -1459,10 +1476,15 @@ namespace MFR.Renamers.Files
                             );
                 if (tasks == null || !tasks.Any()) return result;
 
+                TaskPool.AddTasks(tasks);
+
                 result = Task.WhenAll(tasks)
                              .GetAwaiter()
                              .GetResult()
                              .All(x => true) & !AbortRequested;
+
+                TaskPool.SetTasksFinished(true);
+                TaskPool.Clear();
             }
             catch (OperationAbortedException)
             {
@@ -1606,80 +1628,6 @@ namespace MFR.Renamers.Files
                                                      FileRenamerMessages
                                                          .FRM_EXCEPTION_RAISED
                                                  );
-        }
-
-        private void SearchForRenamedSolution(
-            string oldFolderPath,
-            string newFolderPath
-        )
-        {
-            try
-            {
-                /*
-                 * This method is supposed to be called as part of the Rename Folder(s)
-                 * that Contain Solution(s) operation.
-                 *
-                 * We assume that this method has been called after the folder(s) that
-                 * contain Solution(s) have been renamed.
-                 *
-                 * Now that the folder(s) that the Solution(s) themselves are contained
-                 * in has been renamed, update the pathname of any of the Solution(s)
-                 * in our list of loaded Solution(s) to have the new pathname.
-                 *
-                 * If the RootDirectoryPath is also formerly set to the oldFolderPath,
-                 * update it as well.
-                 */
-
-                if (string.IsNullOrWhiteSpace(oldFolderPath)) return;
-                if (!Does.FolderExist(newFolderPath)) return;
-                if (!LoadedSolutions.Any()) return;
-
-                if (oldFolderPath.Equals(RootDirectoryPath))
-                    RootDirectoryPath = newFolderPath;
-
-                foreach (var currentSolution in LoadedSolutions)
-                {
-                    var currentSolutionPath = currentSolution.FullName;
-                    if (string.IsNullOrWhiteSpace(currentSolutionPath))
-                        continue;
-
-                    var currentSolutionFolder =
-                        Path.GetDirectoryName(currentSolutionPath);
-                    if (string.IsNullOrWhiteSpace(currentSolutionFolder))
-                        continue;
-
-                    if (!currentSolutionFolder.Equals(oldFolderPath)) continue;
-
-                    var newSolutionPath = currentSolutionPath.Replace(
-                        oldFolderPath, newFolderPath
-                    );
-                    if (!Does.FileExist(newSolutionPath)) continue;
-
-                    currentSolution.FullName = newSolutionPath;
-
-                    // Dump the variable currentSolution.FullName to the log
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"FileRenamer.SearchForRenamedSolution: currentSolution.FullName = '{currentSolution.FullName}'"
-                    );
-
-                    // Dump the variable currentSolution.WasVisualStudioClosed to the log
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"FileRenamer.SearchForRenamedSolution: currentSolution.WasVisualStudioClosed = {currentSolution.WasVisualStudioClosed}"
-                    );
-
-                    if (currentSolution.WasVisualStudioClosed)
-                        currentSolution.Launch(true);
-
-                    break;
-                }
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         /// <summary>
@@ -2764,12 +2712,6 @@ namespace MFR.Renamers.Files
             return result;
         }
 
-        private static IVisualStudioInstanceProvider
-            VisualStudioInstanceProvider
-        {
-            get;
-        } = GetVisualStudioInstanceProvider.SoleInstance();
-
         private bool RenameSolutionFolderForEntry(
             [NotLogged] string findWhat,
             [NotLogged] string replaceWith,
@@ -3099,7 +3041,8 @@ namespace MFR.Renamers.Files
                 try
                 {
                     if (solution == null) continue;
-                    if (!Does.FileExist(solution.FullName)) continue;
+                    if (!Does.FileExist(solution.FullName))
+                        continue;
                     if (Is.SolutionOpen(solution)) continue;
 
                     if (ReopenSolution(solution)) continue;
@@ -3418,6 +3361,89 @@ namespace MFR.Renamers.Files
                 )
             );
             return true;
+        }
+
+        private void SearchForRenamedSolution(
+            string oldFolderPath,
+            string newFolderPath
+        )
+        {
+            try
+            {
+                /*
+                 * This method is supposed to be called as part of the Rename Folder(s)
+                 * that Contain Solution(s) operation.
+                 *
+                 * We assume that this method has been called after the folder(s) that
+                 * contain Solution(s) have been renamed.
+                 *
+                 * Now that the folder(s) that the Solution(s) themselves are contained
+                 * in has been renamed, update the pathname of any of the Solution(s)
+                 * in our list of loaded Solution(s) to have the new pathname.
+                 *
+                 * If the RootDirectoryPath is also formerly set to the oldFolderPath,
+                 * update it as well.
+                 */
+
+                if (string.IsNullOrWhiteSpace(oldFolderPath))
+                    return;
+                if (!Does.FolderExist(newFolderPath)) return;
+                if (!LoadedSolutions.Any()) return;
+
+                if (oldFolderPath.Equals(RootDirectoryPath))
+                    RootDirectoryPath = newFolderPath;
+
+                foreach (var currentSolution in LoadedSolutions)
+                {
+                    var currentSolutionPath =
+                        currentSolution.FullName;
+                    if (string.IsNullOrWhiteSpace(
+                            currentSolutionPath
+                        ))
+                        continue;
+
+                    var currentSolutionFolder =
+                        Path.GetDirectoryName(currentSolutionPath);
+                    if (string.IsNullOrWhiteSpace(
+                            currentSolutionFolder
+                        ))
+                        continue;
+
+                    if (!currentSolutionFolder.Equals(
+                            oldFolderPath
+                        )) continue;
+
+                    var newSolutionPath =
+                        currentSolutionPath.Replace(
+                            oldFolderPath, newFolderPath
+                        );
+                    if (!Does.FileExist(newSolutionPath)) continue;
+
+                    currentSolution.FullName = newSolutionPath;
+
+                    // Dump the variable currentSolution.FullName to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.SearchForRenamedSolution: currentSolution.FullName = '{currentSolution.FullName}'"
+                    );
+
+                    // Dump the variable currentSolution.WasVisualStudioClosed to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.SearchForRenamedSolution: currentSolution.WasVisualStudioClosed = {currentSolution.WasVisualStudioClosed}"
+                    );
+
+                    if (currentSolution.WasVisualStudioClosed)
+                        currentSolution.Launch(true);
+
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         private void UpdateLoadedSolutionPaths(

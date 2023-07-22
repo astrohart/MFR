@@ -6,6 +6,11 @@
 - [DesignTimeScreenMetric](#T-MFR-GUI-Windows-Constants-DesignTimeScreenMetric 'MFR.GUI.Windows.Constants.DesignTimeScreenMetric')
   - [Height](#F-MFR-GUI-Windows-Constants-DesignTimeScreenMetric-Height 'MFR.GUI.Windows.Constants.DesignTimeScreenMetric.Height')
   - [Width](#F-MFR-GUI-Windows-Constants-DesignTimeScreenMetric-Width 'MFR.GUI.Windows.Constants.DesignTimeScreenMetric.Width')
+- [MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState')
+  - [Idle](#F-MFR-GUI-Windows-Constants-MainWindowState-Idle 'MFR.GUI.Windows.Constants.MainWindowState.Idle')
+  - [OperationsFinished](#F-MFR-GUI-Windows-Constants-MainWindowState-OperationsFinished 'MFR.GUI.Windows.Constants.MainWindowState.OperationsFinished')
+  - [PerformingOperations](#F-MFR-GUI-Windows-Constants-MainWindowState-PerformingOperations 'MFR.GUI.Windows.Constants.MainWindowState.PerformingOperations')
+  - [Unknown](#F-MFR-GUI-Windows-Constants-MainWindowState-Unknown 'MFR.GUI.Windows.Constants.MainWindowState.Unknown')
 - [Resources](#T-MFR-GUI-Windows-Constants-Properties-Resources 'MFR.GUI.Windows.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Constants-Properties-Resources-Culture 'MFR.GUI.Windows.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Constants.Properties.Resources.ResourceManager')
@@ -41,6 +46,45 @@ Configuration key for design-time screen height.
 ##### Summary
 
 Configuration key for design-time screen width.
+
+<a name='T-MFR-GUI-Windows-Constants-MainWindowState'></a>
+## MainWindowState `type`
+
+##### Namespace
+
+MFR.GUI.Windows.Constants
+
+##### Summary
+
+Values that describe the state of the main application window.
+
+<a name='F-MFR-GUI-Windows-Constants-MainWindowState-Idle'></a>
+### Idle `constants`
+
+##### Summary
+
+The main application window is waiting for user input.
+
+<a name='F-MFR-GUI-Windows-Constants-MainWindowState-OperationsFinished'></a>
+### OperationsFinished `constants`
+
+##### Summary
+
+The user-requested operations have finished.
+
+<a name='F-MFR-GUI-Windows-Constants-MainWindowState-PerformingOperations'></a>
+### PerformingOperations `constants`
+
+##### Summary
+
+The application is busy performing user-requested operations.
+
+<a name='F-MFR-GUI-Windows-Constants-MainWindowState-Unknown'></a>
+### Unknown `constants`
+
+##### Summary
+
+Unknown state.
 
 <a name='T-MFR-GUI-Windows-Constants-Properties-Resources'></a>
 ## Resources `type`

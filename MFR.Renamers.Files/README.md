@@ -25,6 +25,7 @@
   - [SearchDirectoryManager](#P-MFR-Renamers-Files-FileRenamer-SearchDirectoryManager 'MFR.Renamers.Files.FileRenamer.SearchDirectoryManager')
   - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
+  - [TaskPool](#P-MFR-Renamers-Files-FileRenamer-TaskPool 'MFR.Renamers.Files.FileRenamer.TaskPool')
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
@@ -318,6 +319,14 @@ completion of the operation.
 ##### Summary
 
 Synchronization root object for creating critical sections.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-TaskPool'></a>
+### TaskPool `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ITaskPool](#T-xyLOGIX-Pools-Tasks-Interfaces-ITaskPool 'xyLOGIX.Pools.Tasks.Interfaces.ITaskPool') interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService'></a>
 ### VisualStudioSolutionService `property`

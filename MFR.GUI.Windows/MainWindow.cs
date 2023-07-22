@@ -47,11 +47,15 @@ using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
+using xyLOGIX.Pools.Tasks.Factories;
+using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.UI.Dark.Controls;
+using xyLOGIX.Win32.Interact;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
+using Wait = xyLOGIX.Application.Semaphores.Wait;
 
 namespace MFR.GUI.Windows
 {
@@ -400,6 +404,15 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Pools.Tasks.Interfaces.ITaskPool" /> interface.
+        /// </summary>
+        private static ITaskPool TaskPool
+        {
+            get;
+        } = GetTaskPool.SoleInstance();
+
+        /// <summary>
         /// Gets a string containing this application's version.
         /// </summary>
         /// <remarks>
@@ -422,6 +435,19 @@ namespace MFR.GUI.Windows
                     .Version.ToString();
 
         /// <summary>
+        /// Occurs when the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
+        /// property is updated.
+        /// </summary>
+        public event MainWindowStateChangedEventHandler StateChanged;
+
+        /// <summary>
+        /// Deselects all the available operations that are listed on the <b>Operations</b>
+        /// tab.
+        /// </summary>
+        public void DeselectAllOperations()
+            => SelectAll = false;
+
+        /// <summary>
         /// Clears all the items from the Profile List combo box and then adds the
         /// <c>
         /// &lt;No profile selected&gt;
@@ -435,19 +461,6 @@ namespace MFR.GUI.Windows
             ProfileCollectionComboBox.Items.Add("<No profile selected>");
             ProfileCollectionComboBox.SelectedIndex = 0;
         }
-
-        /// <summary>
-        /// Occurs when the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
-        /// property is updated.
-        /// </summary>
-        public event MainWindowStateChangedEventHandler StateChanged;
-
-        /// <summary>
-        /// Deselects all the available operations that are listed on the <b>Operations</b>
-        /// tab.
-        /// </summary>
-        public void DeselectAllOperations()
-            => SelectAll = false;
 
         /// <summary>
         /// Selects all the available operations that are listed on the <b>Operations</b>
@@ -1418,32 +1431,49 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
         {
+            // Block this thread until there aren't any more pooled tasks running
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Awaiting the completion of all replace-in-file tasks..."
+            );
+
+            Wait.Until(() => !TaskPool.HasTasks, -1);
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: All replace-in-file tasks are reported as being completed."
+            );
+
+            // Asks the progress dialog to destroy itself
+            MessageHelper.DoRequestProgressClose();
+
             SetState(MainWindowState.OperationsFinished);
 
-            //DebugUtils.WriteLine(
-            //    DebugLevel.Info,
-            //    "*** INFO: Running presenter-finished processing..."
-            //);
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "*** INFO: Running presenter-finished processing..."
+            );
 
-            //this.InvokeIfRequired(
-            //    () =>
-            //    {
-            //        if (CurrentConfiguration.AutoQuitOnCompletion)
-            //            Close();
-            //    }
-            //);
+            this.InvokeIfRequired(
+                () =>
+                {
+                    if (!CurrentConfiguration.AutoQuitOnCompletion) return;
+                    UpdateData();
+                    Close();
+                }
+            );
 
-            ///*
-            // * If this application was invoked using command-line
-            // * arguments to set the configuration settings, and
-            // * if the --autoStart flag is also passed on the command
-            // * line, then automatically exit the application once
-            // * processing is done.
-            // */
+            /*
+             * If this application was invoked using command-line
+             * arguments to set the configuration settings, and
+             * if the --autoStart flag is also passed on the command
+             * line, then automatically exit the application once
+             * processing is done.
+             */
 
-            //if (CurrentConfiguration.IsFromCommandLine &&
-            //    CurrentConfiguration.AutoStart)
-            //    this.InvokeIfRequired(Close);
+            if (CurrentConfiguration.IsFromCommandLine &&
+                CurrentConfiguration.AutoStart)
+                this.InvokeIfRequired(Close);
         }
 
         /// <summary>
@@ -1791,6 +1821,8 @@ namespace MFR.GUI.Windows
         /// </summary>
         private void SaveUserSettingsOnExit()
         {
+            if (State == MainWindowState.ConfigurationSaved) return;
+
             using (var dialog =
                    MakeNewOperationDrivenProgressDialog.FromScratch())
             {
@@ -1817,6 +1849,8 @@ namespace MFR.GUI.Windows
                         Presenter.UpdateConfiguration(CurrentConfiguration);
 
                     Presenter.UpdateData(bSaveAndValidate);
+
+                    SetState(MainWindowState.ConfigurationSaved);
                 }
             );
 

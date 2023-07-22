@@ -8,6 +8,7 @@
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [_operationEngine](#F-MFR-GUI-Windows-MainWindow-_operationEngine 'MFR.GUI.Windows.MainWindow._operationEngine')
+  - [_state](#F-MFR-GUI-Windows-MainWindow-_state 'MFR.GUI.Windows.MainWindow._state')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
   - [ConfigProvider](#P-MFR-GUI-Windows-MainWindow-ConfigProvider 'MFR.GUI.Windows.MainWindow.ConfigProvider')
   - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
@@ -31,6 +32,8 @@
   - [SelectedOptionTab](#P-MFR-GUI-Windows-MainWindow-SelectedOptionTab 'MFR.GUI.Windows.MainWindow.SelectedOptionTab')
   - [StartingFolder](#P-MFR-GUI-Windows-MainWindow-StartingFolder 'MFR.GUI.Windows.MainWindow.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox 'MFR.GUI.Windows.MainWindow.StartingFolderComboBox')
+  - [State](#P-MFR-GUI-Windows-MainWindow-State 'MFR.GUI.Windows.MainWindow.State')
+  - [TaskPool](#P-MFR-GUI-Windows-MainWindow-TaskPool 'MFR.GUI.Windows.MainWindow.TaskPool')
   - [Version](#P-MFR-GUI-Windows-MainWindow-Version 'MFR.GUI.Windows.MainWindow.Version')
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
   - [ConfigureAutocompletionForFindWhatComboBox()](#M-MFR-GUI-Windows-MainWindow-ConfigureAutocompletionForFindWhatComboBox 'MFR.GUI.Windows.MainWindow.ConfigureAutocompletionForFindWhatComboBox')
@@ -65,6 +68,7 @@
   - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Windows.MainWindow.OnRootDirectoryInvalid(System.Object,MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
   - [OnSelChangeComboBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnSelChangeComboBox(System.Object,System.EventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnShown(System.EventArgs)')
+  - [OnStateChanged(e)](#M-MFR-GUI-Windows-MainWindow-OnStateChanged-MFR-GUI-Windows-Events-MainWindowStateChangedEventArgs- 'MFR.GUI.Windows.MainWindow.OnStateChanged(MFR.GUI.Windows.Events.MainWindowStateChangedEventArgs)')
   - [OnToolsConfigExport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigExport(System.Object,System.EventArgs)')
   - [OnToolsConfigImport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigImport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigImport(System.Object,System.EventArgs)')
   - [OnToolsConfigurationNewProfile(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigurationNewProfile-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigurationNewProfile(System.Object,System.EventArgs)')
@@ -77,6 +81,7 @@
   - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-MainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ResetProfileCollectionComboBox')
   - [SaveUserSettingsOnExit()](#M-MFR-GUI-Windows-MainWindow-SaveUserSettingsOnExit 'MFR.GUI.Windows.MainWindow.SaveUserSettingsOnExit')
   - [SelectAllOperations()](#M-MFR-GUI-Windows-MainWindow-SelectAllOperations 'MFR.GUI.Windows.MainWindow.SelectAllOperations')
+  - [SetState(newState)](#M-MFR-GUI-Windows-MainWindow-SetState-MFR-GUI-Windows-Constants-MainWindowState- 'MFR.GUI.Windows.MainWindow.SetState(MFR.GUI.Windows.Constants.MainWindowState)')
   - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Windows-MainWindow-UpdateData-System-Boolean- 'MFR.GUI.Windows.MainWindow.UpdateData(System.Boolean)')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
@@ -180,6 +185,14 @@ compute-once and store without having to use a static context.
 
 
 This is due to the use of `dynamic` in the computation.
+
+<a name='F-MFR-GUI-Windows-MainWindow-_state'></a>
+### _state `constants`
+
+##### Summary
+
+One of the [MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState')
+enumeration values that describes the current state of processing.
 
 <a name='F-MFR-GUI-Windows-MainWindow-components'></a>
 ### components `constants`
@@ -383,6 +396,22 @@ in which operations are to commence.
 
 Gets a reference to the control that allows the user to specify the
 path to the starting folder.
+
+<a name='P-MFR-GUI-Windows-MainWindow-State'></a>
+### State `property`
+
+##### Summary
+
+Gets  the [MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState')
+enumeration value that describes the current state.
+
+<a name='P-MFR-GUI-Windows-MainWindow-TaskPool'></a>
+### TaskPool `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ITaskPool](#T-xyLOGIX-Pools-Tasks-Interfaces-ITaskPool 'xyLOGIX.Pools.Tasks.Interfaces.ITaskPool') interface.
 
 <a name='P-MFR-GUI-Windows-MainWindow-Version'></a>
 ### Version `property`
@@ -687,13 +716,15 @@ the application, closing this window ends the lifecycle of the application.
 
 ##### Summary
 
-Raises the [](#E-System-Windows-Forms-Form-FormClosing 'System.Windows.Forms.Form.FormClosing') event.
+Raises the [](#E-System-Windows-Forms-Form-FormClosing 'System.Windows.Forms.Form.FormClosing')
+event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [System.Windows.Forms.FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') | A [FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') that contains the event data. |
+| e | [System.Windows.Forms.FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs') | A [FormClosingEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.FormClosingEventArgs 'System.Windows.Forms.FormClosingEventArgs')
+that contains the event data. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnFormFolded-System-Object,MFR-GUI-Controls-Events-FormFoldedEventArgs-'></a>
 ### OnFormFolded(sender,e) `method`
@@ -1043,6 +1074,21 @@ Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Show
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
 data. |
 
+<a name='M-MFR-GUI-Windows-MainWindow-OnStateChanged-MFR-GUI-Windows-Events-MainWindowStateChangedEventArgs-'></a>
+### OnStateChanged(e) `method`
+
+##### Summary
+
+Raises the [](#E-MFR-GUI-Windows-MainWindow-StateChanged 'MFR.GUI.Windows.MainWindow.StateChanged') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.GUI.Windows.Events.MainWindowStateChangedEventArgs](#T-MFR-GUI-Windows-Events-MainWindowStateChangedEventArgs 'MFR.GUI.Windows.Events.MainWindowStateChangedEventArgs') | (Required.) A
+[MainWindowStateChangedEventArgs](#T-MFR-GUI-Windows-Events-MainWindowStateChangedEventArgs 'MFR.GUI.Windows.Events.MainWindowStateChangedEventArgs') that
+contains the event data. |
+
 <a name='M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs-'></a>
 ### OnToolsConfigExport(sender,e) `method`
 
@@ -1294,6 +1340,22 @@ tab.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-SetState-MFR-GUI-Windows-Constants-MainWindowState-'></a>
+### SetState(newState) `method`
+
+##### Summary
+
+Updates the value of the [State](#P-MFR-GUI-Windows-MainWindow-State 'MFR.GUI.Windows.MainWindow.State')
+property.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| newState | [MFR.GUI.Windows.Constants.MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState') | (Required.) One of the
+[MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState') values that
+identifies the new state to be set. |
 
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateData-System-Boolean-'></a>
 ### UpdateData(bSaveAndValidate) `method`
