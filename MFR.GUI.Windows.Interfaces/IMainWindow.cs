@@ -1,5 +1,7 @@
 using MFR.GUI.Controls;
 using MFR.GUI.Controls.Interfaces;
+using MFR.GUI.Windows.Constants;
+using MFR.GUI.Windows.Events;
 using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Controls;
@@ -13,7 +15,7 @@ namespace MFR.GUI.Windows.Interfaces
     public interface IMainWindow : IWin32Window
     {
         /// <summary>
-        /// Gets a reference to the dropdown control that allows the user to
+        /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
         IEntryRespectingComboBox FindWhatComboBox
@@ -22,10 +24,15 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
-        /// Gets a reference to the <see cref="T:MFR.GUI.Controls.FoldUnfoldButton" />
-        /// that controls whether the form is the folded (smaller) size or
-        /// unfolded (larger, with more options visible) size.
+        /// Gets a reference to the
+        /// <see
+        ///     cref="T:MFR.GUI.Controls.FoldUnfoldButton" />
+        /// that controls whether
+        /// the form is the folded (smaller) size or unfolded (larger, with more
+        /// options visible) size.
         /// </summary>
+
+        // do not log this method
         FoldUnfoldButton FoldButton
         {
             [DebuggerStepThrough] get;
@@ -35,6 +42,14 @@ namespace MFR.GUI.Windows.Interfaces
         /// Gets the full name of this application, including the current version.
         /// </summary>
         string FullApplicationName
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the data entered on this form is valid.
+        /// </summary>
+        bool IsDataValid
         {
             get;
         }
@@ -115,12 +130,31 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> that is configured as the folder
+        /// in which operations are to commence.
+        /// </summary>
+        string StartingFolder
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to the control that allows the user to specify the
         /// path to the starting folder.
         /// </summary>
         IEntryRespectingComboBox StartingFolderComboBox
         {
             [DebuggerStepThrough] get;
+        }
+
+        /// <summary>
+        /// Gets  the <see cref="T:MFR.GUI.Windows.Constants.MainWindowState" />
+        /// enumeration value that describes the current state.
+        /// </summary>
+        MainWindowState State
+        {
+            get;
         }
 
         /// <summary>
@@ -143,6 +177,18 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
+        /// Occurs when the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
+        /// property is updated.
+        /// </summary>
+        event MainWindowStateChangedEventHandler StateChanged;
+
+        /// <summary>
+        /// Deselects all the available operations that are listed on the <b>Operations</b>
+        /// tab.
+        /// </summary>
+        void DeselectAllOperations();
+
+        /// <summary>
         /// Clears all the items from the Profile List combo box and then adds the
         /// <c>
         /// &lt;No profile selected&gt;
@@ -151,5 +197,22 @@ namespace MFR.GUI.Windows.Interfaces
         /// <see cref="P:System.Windows.Forms.ToolStripComboBox.Items" /> list.
         /// </summary>
         void ResetProfileCollectionComboBox();
+
+        /// <summary>
+        /// Selects all the available operations that are listed on the <b>Operations</b>
+        /// tab.
+        /// </summary>
+        void SelectAllOperations();
+
+        /// <summary>
+        /// Updates the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
+        /// property.
+        /// </summary>
+        /// <param name="newState">
+        /// (Required.) One of the
+        /// <see cref="T:MFR.GUI.Windows.Constants.MainWindowState" /> values that
+        /// identifies the new state to be set.
+        /// </param>
+        void SetState(MainWindowState newState);
     }
 }

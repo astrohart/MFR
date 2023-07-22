@@ -140,6 +140,14 @@
       <Project>{B4DAD65F-9F1B-4305-9DA2-763D6745924A}</Project>
       <Name>MFR.GUI.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Constants\MFR.GUI.Windows.Constants.csproj">
+      <Project>{ECBD0EBB-F4BE-47D7-8A6E-2884244755F1}</Project>
+      <Name>MFR.GUI.Windows.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Events\MFR.GUI.Windows.Events.csproj">
+      <Project>{57DE8AC0-7457-427F-B737-6B8DC64C6605}</Project>
+      <Name>MFR.GUI.Windows.Events</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

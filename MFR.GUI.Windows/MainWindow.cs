@@ -17,6 +17,8 @@ using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Displayers;
 using MFR.GUI.Presenters.Associators;
+using MFR.GUI.Windows.Constants;
+using MFR.GUI.Windows.Events;
 using MFR.GUI.Windows.Interfaces;
 using MFR.GUI.Windows.Presenters.Constants;
 using MFR.GUI.Windows.Presenters.Events;
@@ -73,6 +75,12 @@ namespace MFR.GUI.Windows
         private IFullGuiOperationEngine _operationEngine;
 
         /// <summary>
+        /// One of the <see cref="T:MFR.GUI.Windows.Constants.MainWindowState" />
+        /// enumeration values that describes the current state of processing.
+        /// </summary>
+        private MainWindowState _state;
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
@@ -87,6 +95,8 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)]
         protected MainWindow()
         {
+            SetState(MainWindowState.Unknown);
+
             InitializeComponent();
 
             InitializeConfiguration();
@@ -372,6 +382,24 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Gets  the <see cref="T:MFR.GUI.Windows.Constants.MainWindowState" />
+        /// enumeration value that describes the current state.
+        /// </summary>
+        public MainWindowState State
+        {
+            get => _state;
+            private set {
+                var changed = _state != value;
+                var oldState = _state;
+                _state = value;
+                if (changed)
+                    OnStateChanged(
+                        new MainWindowStateChangedEventArgs(oldState, value)
+                    );
+            }
+        }
+
+        /// <summary>
         /// Gets a string containing this application's version.
         /// </summary>
         /// <remarks>
@@ -409,6 +437,12 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Occurs when the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
+        /// property is updated.
+        /// </summary>
+        public event MainWindowStateChangedEventHandler StateChanged;
+
+        /// <summary>
         /// Deselects all the available operations that are listed on the <b>Operations</b>
         /// tab.
         /// </summary>
@@ -421,6 +455,33 @@ namespace MFR.GUI.Windows
         /// </summary>
         public void SelectAllOperations()
             => SelectAll = true;
+
+        /// <summary>
+        /// Updates the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
+        /// property.
+        /// </summary>
+        /// <param name="newState">
+        /// (Required.) One of the
+        /// <see cref="T:MFR.GUI.Windows.Constants.MainWindowState" /> values that
+        /// identifies the new state to be set.
+        /// </param>
+        public void SetState(MainWindowState newState)
+            => State = newState;
+
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:System.Windows.Forms.FormClosingEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            SaveUserSettingsOnExit();
+        }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>
         /// <param name="e">
@@ -443,10 +504,25 @@ namespace MFR.GUI.Windows
              */
             if (!CurrentConfiguration.IsFromCommandLine ||
                 !CurrentConfiguration.AutoStart)
+            {
+                SetState(MainWindowState.Idle);
+
                 return;
+            }
 
             performOperationButton.PerformClick();
         }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.GUI.Windows.MainWindow.StateChanged" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.GUI.Windows.Events.MainWindowStateChangedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnStateChanged(MainWindowStateChangedEventArgs e)
+            => StateChanged?.Invoke(this, e);
 
         // Give the button a transparent background.
         private static void MakeButtonBitmapTransparent(ButtonBase button)
@@ -912,6 +988,8 @@ namespace MFR.GUI.Windows
         {
             try
             {
+                SetState(MainWindowState.PerformingOperations);
+
                 Presenter.UpdateData();
 
                 /* Validation of data takes awhile...show a marquee
@@ -948,6 +1026,8 @@ namespace MFR.GUI.Windows
 
                 Enabled = true;
                 UseWaitCursor = false;
+
+                SetState(MainWindowState.Idle);
             }
         }
 
@@ -1023,15 +1103,6 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnFileExit(object sender, EventArgs e)
             => Close();
-
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" /> event.</summary>
-        /// <param name="e">A <see cref="T:System.Windows.Forms.FormClosingEventArgs" /> that contains the event data.</param>
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-
-            SaveUserSettingsOnExit();
-        }
 
         /// <summary>
         /// Handles the
@@ -1347,6 +1418,8 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnPresenterFinished(object sender, EventArgs e)
         {
+            SetState(MainWindowState.OperationsFinished);
+
             //DebugUtils.WriteLine(
             //    DebugLevel.Info,
             //    "*** INFO: Running presenter-finished processing..."
