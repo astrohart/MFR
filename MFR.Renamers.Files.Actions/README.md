@@ -13,7 +13,7 @@
 - [Scan](#T-MFR-Renamers-Files-Actions-Scan 'MFR.Renamers.Files.Actions.Scan')
   - [FileDataForBinaryControlCharacters(textToBeSearched)](#M-MFR-Renamers-Files-Actions-Scan-FileDataForBinaryControlCharacters-System-String- 'MFR.Renamers.Files.Actions.Scan.FileDataForBinaryControlCharacters(System.String)')
 - [Write](#T-MFR-Renamers-Files-Actions-Write 'MFR.Renamers.Files.Actions.Write')
-  - [FileContent(path,contents)](#M-MFR-Renamers-Files-Actions-Write-FileContent-System-String,System-String- 'MFR.Renamers.Files.Actions.Write.FileContent(System.String,System.String)')
+  - [FileContent(pathname,contents)](#M-MFR-Renamers-Files-Actions-Write-FileContent-System-String,System-String- 'MFR.Renamers.Files.Actions.Write.FileContent(System.String,System.String)')
 
 <a name='T-MFR-Renamers-Files-Actions-Delete'></a>
 ## Delete `type`
@@ -154,12 +154,12 @@ MFR.Renamers.Files.Actions
 Exposes static methods to write data, e.g., to files or other data sources.
 
 <a name='M-MFR-Renamers-Files-Actions-Write-FileContent-System-String,System-String-'></a>
-### FileContent(path,contents) `method`
+### FileContent(pathname,contents) `method`
 
 ##### Summary
 
 Writes the specified `contents` to the file having the
-specified `path`.
+specified `pathname`.
 
 
 
@@ -169,7 +169,7 @@ If the file already exists, then it is deleted.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a file to be written to the disk. |
 | contents | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the contents of the new
 file. |
