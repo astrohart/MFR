@@ -1,0 +1,56 @@
+xyLOGIX Project File Renamer - Command Line Tool
+Copyright (c) 2021-22 by xyLOGIX, LLC.  All rights reserved.
+
+This utility basically serves as a "find and replace but for Solution Explorer" whereby
+we can rename files and folders (and the references to them) in projects within the current
+solution or all Visual Studio solutions in a given folder.
+
+Usage:
+
+mfrc.exe --root="C:\path\to\root\dir" --findWhat "Hello world" --replaceWith "Boo hoo"
+	[--renameFiles|--renameSubFolders|--replaceInFiles]
+
+Command-line arguments:
+
+Parameter								Meaning
+----------								---------
+-r
+--root									(Required.) Sets the directory that this application begins in.
+										Defaults to the current working directory.  If the folder contains
+										more than one .sln file (searched recursively), then each 
+										solution found is processed.  If the folder contains no solution
+										files, then the application shows an error message and quits;
+										at least one solution file must be present in the folder indicated
+										in order for the software to work.
+
+
+--findWhat								(Required.) Sets the string to be found in file system entries.
+
+--replaceWith							(Optional.) May be the empty string.  Sets the string to be
+										substituted in file system entry names.
+
+--renameFiles							(Optional.) If specified, instructs the software to rename
+										files in accordance with the --findWhat and --replaceWith
+										values.  This operation is not done if this flag is not passed.
+
+--renameSubFolders						(Optional.) If specified, instructs the software to rename
+										subfolders of the starting folder in accordance with the
+										--findWhat and --replaceWith flags.  This operation is not
+										done if this flag is not passed.
+
+--replaceInFiles						(Optional.) If specified, performs replacement in files,
+										allowing for multi-dotted strings aka for Visual Studio
+										project names.  This operation is not done if this flag
+										is not passed.
+
+--matchCase								(Optional.) If specified, then the search for what to replace
+										is case-sensitive.  The default value is true.
+
+--matchWholeWord						(Optional.) If specified, then the search is done only for
+										whole-word matches.  The default value is false.
+
+-?
+--help									Displays this Help text.
+
+NOTE: If neither the --renameFiles, --renameSubFolders, nor the --replaceInFiles flags are specified,
+the program presumes the user wishes to do all these operations by default.

@@ -1,0 +1,4112 @@
+using MFR.Constants;
+using MFR.Directories.Managers.Factories;
+using MFR.Directories.Managers.Interfaces;
+using MFR.Directories.Validators.Factories;
+using MFR.Directories.Validators.Interfaces;
+using MFR.Engines.Replacement.Factories;
+using MFR.Engines.Replacement.Intefaces;
+using MFR.Events;
+using MFR.Events.Common;
+using MFR.Expressions.Matches.Factories;
+using MFR.Expressions.Matches.Factories.Interfaces;
+using MFR.Expressions.Matches.Interfaces;
+using MFR.File.Stream.Providers.Factories;
+using MFR.File.Stream.Providers.Interfaces;
+using MFR.FileSystem.Helpers;
+using MFR.FileSystem.Interfaces;
+using MFR.FileSystem.Retrievers.Factories;
+using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.Operations.Constants;
+using MFR.Operations.Events;
+using MFR.Operations.Exceptions;
+using MFR.Renamers.Files.Actions;
+using MFR.Renamers.Files.Constants;
+using MFR.Renamers.Files.Events;
+using MFR.Renamers.Files.Interfaces;
+using MFR.Renamers.Files.Properties;
+using MFR.Services.Solutions.Actions;
+using MFR.Services.Solutions.Factories;
+using MFR.Services.Solutions.Interfaces;
+using MFR.Settings.Configuration;
+using MFR.Settings.Configuration.Interfaces;
+using MFR.Settings.Configuration.Mappers;
+using MFR.Settings.Configuration.Mappers.Constants;
+using MFR.Settings.Configuration.Mappers.Interfaces;
+using MFR.Settings.Configuration.Providers.Factories;
+using MFR.Settings.Configuration.Providers.Interfaces;
+using MFR.Solutions.Providers.Factories;
+using MFR.Solutions.Providers.Interfaces;
+using MFR.TextValues.Retrievers.Actions;
+using MFR.TextValues.Retrievers.Factories;
+using PostSharp.Patterns.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
+using xyLOGIX.Interop.Git.Factories;
+using xyLOGIX.Interop.Git.Interfaces;
+using xyLOGIX.Interop.Processes.Actions;
+using xyLOGIX.Pools.Tasks.Factories;
+using xyLOGIX.Pools.Tasks.Interfaces;
+using xyLOGIX.Queues.Messages.Senders;
+using xyLOGIX.TimeZone.Extensions;
+using xyLOGIX.VisualStudio.Providers.Factories;
+using xyLOGIX.VisualStudio.Providers.Interfaces;
+using xyLOGIX.VisualStudio.Solutions.Interfaces;
+using xyLOGIX.Win32.Interact;
+using Delete = MFR.Renamers.Files.Actions.Delete;
+using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using Formulate = MFR.Renamers.Files.Actions.Formulate;
+using Get = MFR.Services.Solutions.Actions.Get;
+using Is = xyLOGIX.VisualStudio.Actions.Is;
+using Path = Alphaleonis.Win32.Filesystem.Path;
+
+namespace MFR.Renamers.Files
+{
+    /// <summary>
+    /// Provides file- and folder-rename services.
+    /// </summary>
+    /// <remarks>
+    /// NOTE: Instances of this class must be composed with an instance of an
+    /// object that implements the
+    /// <see
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    /// interface.
+    /// <para />
+    /// Such an object is necessary because it provides settings specified by
+    /// the user that change the behavior of this object.
+    /// </remarks>
+    public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
+    {
+        /// <summary>
+        /// An <see cref="T:MFR.Operations.Constants.OperationType" /> enumeration value
+        /// that describes what operation is currently being performed by the application.
+        /// </summary>
+        private OperationType _currentOperation;
+
+        /// <summary>
+        /// A <see cref="T:System.String" /> containing the full pathname of the folder
+        /// where all operations start.
+        /// </summary>
+        private string _rootDirectoryPath;
+
+        /// <summary>
+        /// Empty, static constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        static FileRenamer() { }
+
+        /// <summary>
+        /// Empty, protected constructor to prohibit direct allocation of this class.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        protected FileRenamer()
+        {
+            IsBusy = false;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether an abort of the current
+        /// operation has been requested.
+        /// </summary>
+        public bool AbortRequested
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Mappers.Interfaces.IConfigurationStringMapper" />
+        /// interface for commit messages.
+        /// </summary>
+        private static IConfigurationStringMapper CommitMessageMapper
+        {
+            get;
+        } = GetConfigurationStringMapper.OfType(
+            ConfigurationStringMapperType.CommitMessage
+        );
+
+        /// <summary>
+        /// Gets a reference to the sole instance of the object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object allows access to the user configuration and the
+        /// actions
+        /// associated with it.
+        /// </remarks>
+        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// interface.
+        /// </summary>
+        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        {
+            get;
+            set;
+        } = ConfigProvider.CurrentConfiguration;
+
+        /// <summary>
+        /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration value that indicates which operation is currently being performed.
+        /// </summary>
+        public OperationType CurrentOperation
+        {
+            get => _currentOperation;
+            set {
+                var changed = _currentOperation != value;
+                _currentOperation = value;
+                if (changed)
+                    OnCurrentOperationChanged(
+                        new CurrentOperationChangedEventArgs(value)
+                    );
+            }
+        }
+
+        /// <summary>
+        /// Gets a reference to a collection of of the
+        /// <see
+        ///     cref="T:MFR.Operations.Constants.OperationType" />
+        /// values.
+        /// </summary>
+        /// <remarks>
+        /// All the values in this collection identify operations that the user
+        /// wishes to perform.
+        /// <para />
+        /// This list should be cleared after every run.
+        /// <para />
+        /// If the list is empty when the
+        /// <see
+        ///     cref="M:MFR.FileRenamer.ProcessAll" />
+        /// method is called, do
+        /// nothing or throw an exception.
+        /// </remarks>
+        protected IList<OperationType> EnabledOperations
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// interface.
+        /// </summary>
+        private static IFileStreamProvider FileStreamProvider
+            => GetFileStreamProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
+        /// </summary>
+        [Log(AttributeExclude = true)]
+        public static IFileRenamer Instance
+        {
+            get;
+        } = new FileRenamer();
+
+        /// <summary>
+        /// Gets a value that indicates whether this component is currently processing
+        /// operation(s).
+        /// </summary>
+        public bool IsBusy
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether this component is currently processing
+        /// operation(s).
+        /// </summary>
+        public bool IsStarted
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets or sets the path to the folder in which last Visual Studio Solution that
+        /// we have worked with most recently resides.
+        /// </summary>
+        public string LastSolutionFolderPath
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Solutions.Providers.Interfaces.ILoadedSolutionProvider" />
+        /// interface.
+        /// </summary>
+        private static ILoadedSolutionProvider LoadedSolutionProvider
+        {
+            get;
+        } = GetLoadedSolutionProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to a collection, each element of which implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// Each element of the collection represents a Visual Studio Solution (*.sln) that
+        /// is loaded in a running instance of Visual Studio.
+        /// </remarks>
+        public IList<IVisualStudioSolution> LoadedSolutions
+            => LoadedSolutionProvider?.LoadedSolutions;
+
+        /// <summary>
+        /// Gets or sets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Interop.Git.Interfaces.ILocalGitInteropProvider" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object provides access to Git functionality on the local machine.
+        /// </remarks>
+        private ILocalGitInteropProvider LocalGitInteropProvider
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname
+        /// of the folder where all operations start.
+        /// </summary>
+        /// <remarks>
+        /// This property raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged" /> event
+        /// when its value is updated.
+        /// </remarks>
+        public string RootDirectoryPath
+        {
+            get => _rootDirectoryPath;
+            private set {
+                var formerValue = _rootDirectoryPath;
+                var changed = _rootDirectoryPath != value;
+                _rootDirectoryPath = value;
+                if (changed)
+                    OnRootDirectoryPathChanged(
+                        new RootDirectoryPathChangedEventArgs(
+                            formerValue, value
+                        )
+                    );
+            }
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This object runs validation rules to ensure, among other things, that the
+        /// pathname passed to it is that of a folder that exists on disk, and that
+        /// contains a <c>.sln</c> file.
+        /// </remarks>
+        private static IRootDirectoryPathValidator RootDirectoryPathValidator
+        {
+            get;
+        } = GetRootDirectoryPathValidator.SoleInstance();
+
+        /// <summary>
+        /// Gets a collection of fully-qualified pathnames of folders found by this object,
+        /// that
+        /// should be searched for projects, files, and folders whose names should be
+        /// changed.
+        /// </summary>
+        private IList<string> SearchDirectories
+            => SearchDirectoryManager.SearchDirectories;
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Directories.Managers.Interfaces.ISearchDirectoryManager" />
+        /// interface.
+        /// </summary>
+        private static ISearchDirectoryManager SearchDirectoryManager
+        {
+            get;
+        } = GetSearchDirectoryManager.SoleInstance();
+
+        /// <summary>
+        /// Gets a value determining whether the currently-open solution
+        /// in Visual Studio should be closed and then re-opened at the
+        /// completion of the operation.
+        /// </summary>
+        public bool ShouldReOpenSolutions
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Synchronization root object for creating critical sections.
+        /// </summary>
+        private static object SyncRoot
+        {
+            get;
+        } = new object();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Pools.Tasks.Interfaces.ITaskPool" /> interface.
+        /// </summary>
+        private static ITaskPool TaskPool
+        {
+            get;
+        } = GetTaskPool.SoleInstance();
+
+        private static IVisualStudioInstanceProvider
+            VisualStudioInstanceProvider
+        {
+            get;
+        } = GetVisualStudioInstanceProvider.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Services.Solutions.Interfaces.IVisualStudioSolutionService" />
+        /// interface.
+        /// </summary>
+        /// <remarks>
+        /// This property allows access to an object that helps us manage the Visual Studio
+        /// Solution(s) that may be in the starting folder, and to track which running
+        /// instance(s), if any, have said Solution(s) open, and to command the instance(s)
+        /// to load/unload the Solution(s).
+        /// </remarks>
+        private static IVisualStudioSolutionService VisualStudioSolutionService
+            => GetVisualStudioSolutionService.SoleInstance();
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.CurrentOperation" /> property is
+        /// updated.
+        /// </summary>
+        public event CurrentOperationChangedEventHandler
+            CurrentOperationChanged;
+
+        /// <summary>
+        /// Occurs when an exception is thrown from an operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler ExceptionRaised;
+
+        /// <summary>
+        /// Occurs when a file has been renamed.
+        /// </summary>
+        public event FileRenamedEventHandler FileRenamed;
+
+        /// <summary>
+        /// Occurs when files to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
+
+        /// <summary>
+        /// Occurs when files to be processed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            FilesToHaveTextReplacedCounted;
+
+        /// <summary>
+        /// Occurs when the processing is completely finished.
+        /// </summary>
+        public event EventHandler Finished;
+
+        /// <summary>
+        /// Occurs when a folder has been renamed.
+        /// </summary>
+        public event FolderRenamedEventHandler FolderRenamed;
+
+        /// <summary>
+        /// Occurs when an operation has completed.
+        /// </summary>
+        public event OperationFinishedEventHandler OperationFinished;
+
+        /// <summary>
+        /// Occurs when an operation has commenced.
+        /// </summary>
+        public event OperationStartedEventHandler OperationStarted;
+
+        /// <summary>
+        /// Occurs when the pending changes to be committed to Git have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            PendingChangesToBeCommittedCounted;
+
+        /// <summary>
+        /// Occurs when an operation is about to be processed for a file or a folder.
+        /// </summary>
+        public event ProcessingOperationEventHandler ProcessingOperation;
+
+        /// <summary>
+        /// Occurs when the results that are to be committed to Git have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            ResultsToBeCommittedToGitCounted;
+
+        /// <summary>
+        /// Occurs if the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
+        /// changed.
+        /// </summary>
+        public event RootDirectoryPathChangedEventHandler
+            RootDirectoryPathChanged;
+
+        /// <summary>
+        /// Occurs when an attempt to close a Visual Studio Solution (<c>*.sln</c>)  that
+        /// has been loaded into a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionCloseFailedEventHandler SolutionCloseFailed;
+
+        /// <summary>
+        /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
+        /// has been renamed.
+        /// </summary>
+        public event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
+        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
+        /// a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
+
+        /// <summary>
+        /// Occurs when the processing has started.
+        /// </summary>
+        public event EventHandler Started;
+
+        /// <summary>
+        /// Occurs just before the processing has started.
+        /// </summary>
+        public event EventHandler Starting;
+
+        /// <summary>
+        /// Occurs when a textual status message is available for display.
+        /// </summary>
+        public event StatusUpdateEventHandler StatusUpdate;
+
+        /// <summary>
+        /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+        /// Files operation on all the folders and files in the root folder with
+        /// the pathname stored in the
+        /// <see
+        ///     cref="P:MFR.FileRenamer.RootDirectoryPath" />
+        /// property.
+        /// </summary>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        public bool ProcessAll(
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(RootDirectoryPath))
+                    return result;
+                if (!Directory.Exists(RootDirectoryPath))
+                    return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+                if (string.IsNullOrWhiteSpace(replaceWith))
+                    return result;
+
+                if (CurrentConfiguration.ShouldCommitPendingChanges &&
+                    !CommitPendingChanges(
+                        RootDirectoryPath, findWhat, replaceWith
+                    ))
+                    Messages.ShowWarning(
+                        Resources.Warning_FailedCommitPendingChanges
+                    );
+
+                var renameFilesInFolderResult = true;
+                if (CurrentConfiguration.RenameFilesInFolder)
+                    renameFilesInFolderResult = RenameFilesInFolder(
+                        RootDirectoryPath, findWhat, replaceWith, pathFilter
+                    );
+
+                var renameSubFoldersResult = true;
+                if (CurrentConfiguration.RenameSubFolders)
+                    renameSubFoldersResult = RenameSubFoldersOf(
+                        RootDirectoryPath, findWhat, replaceWith, pathFilter
+                    );
+
+                var replaceTextInFilesResult = true;
+                if (CurrentConfiguration.ReplaceTextInFiles)
+                    replaceTextInFilesResult = ReplaceTextInFiles(
+                        RootDirectoryPath, findWhat,
+                        replaceWith /* filtering paths (besides the default) makes no sense for this operation */
+                    );
+
+                var renameSolutionFoldersResult = true;
+                if (CurrentConfiguration.RenameSolutionFolders)
+                    renameSolutionFoldersResult = RenameSolutionFolders(
+                        RootDirectoryPath, findWhat, replaceWith
+                    );
+
+                var commitResultsToGitResult = true;
+                if (CurrentConfiguration.ShouldCommitPostOperationChanges)
+                    commitResultsToGitResult = CommitResultsToGit(
+                        RootDirectoryPath, findWhat, replaceWith
+                    );
+
+                result = renameFilesInFolderResult && renameSubFoldersResult &&
+                         replaceTextInFilesResult &&
+                         renameSolutionFoldersResult &&
+                         commitResultsToGitResult;
+            }
+            catch (OperationAbortedException ex)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR *** The user has requested that the operation(s) be aborted immediately."
+                );
+
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                //Ignored.
+
+                result = true;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info, $"FileRenamer.ProcessAll: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Executes the Rename Subfolders, Rename Files, and Replace Text in
+        /// Files operation on all the folders and files in the root folder with
+        /// the pathname specified by the <paramref name="rootDirectoryPath" /> parameter.
+        /// </summary>
+        /// <param name="rootDirectoryPath">
+        /// (Required.) FullName to the recursion root.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <exception cref="T:System.InvalidOperationException">
+        /// Thrown if the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration" />
+        /// property has not been set prior to calling this method.
+        /// <para />
+        /// Call the
+        /// <see
+        ///     cref="M:MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration" />
+        /// method on this object prior to calling this method.
+        /// </exception>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="rootDirectoryPath" />
+        /// , is passed a blank or
+        /// <see
+        ///     langword="null" />
+        /// string for a value.
+        /// </exception>
+        public void ProcessAll(
+            [NotLogged] string rootDirectoryPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
+        )
+        {
+            if (CurrentConfiguration == null)
+                throw new InvalidOperationException(
+                    "The configuration has not been initialized."
+                );
+            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootDirectoryPath)
+                );
+
+            try
+            {
+                /*
+                 * OKAY, so the path parameter is understood to contain
+                 * the pathname of the folder that is filled in by the user in the
+                 * Starting Folder text box.
+                 *
+                 * In prior versions of this app, that folder was where we would simply
+                 * start our file and folder enumerations.  The primary use case of
+                 * this software is to be installed into the 'Tools' menu of Visual
+                 * Studio as an External Tool and to be configured to have the
+                 * folder containing the currently-opened solution inside of its
+                 * Starting Folder text box.  The thinking is that the user wants
+                 * to call up this tool from within Visual Studio in order to do
+                 * project-renaming on the currently open solution.
+                 *
+                 * However, there is a secondary use case: that of launching the tool
+                 * from the Start menu, with the option to specify whatever folder
+                 * we like in the Starting Folder text box.  Such a folder may, or
+                 * may not, contain a single .sln file.  It may be the root of a
+                 * whole directory TREE of solutions, that ALL need name changes.
+                 * Say, for instance, we have a whole bunch of projects with the name
+                 * of the company, XYZCorp, in them.  Say XYZCorp now goes through
+                 * a re-brand and becomes ABCorp.  So, perhaps the user may want
+                 * to launch this tool in their main dev folder, and specify that
+                 * the rename XYZCorp -> ABCorp has to happen for ALL the solutions
+                 * in ALL the subfolders of the folder specified.
+                 */
+
+                SearchDirectoryManager.Clear();
+
+                SearchDirectoryManager.Search(
+                    rootDirectoryPath, file => !Should.SkipSolutionFile(file)
+                );
+
+                foreach (var folder in SearchDirectories)
+                    DoProcessAll(folder, findWhat, replaceWith, pathFilter);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Renames all the files in the all the subfolders etc., recursively,
+        /// of the folder whose pathname is specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// parameter.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) String containing the full pathname of an existing
+        /// directory on the computer that is to be where the operation is started.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation was successful;
+        /// <see langword="false" /> if the operation failed or if the user cancelled the
+        /// operation.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public bool RenameFilesInFolder(
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
+        )
+        {
+            var result = false;
+
+            // write the name of the current class and method we are now
+            if (string.IsNullOrWhiteSpace(rootFolderPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootFolderPath)
+                );
+            if (!Directory.Exists(rootFolderPath))
+                throw new DirectoryNotFoundException(
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                );
+            if (string.IsNullOrWhiteSpace(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(findWhat)
+                );
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(replaceWith)
+                );
+
+            try
+            {
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.CalculateListOfFilesToBeRenamed
+                    )
+                );
+
+                /*
+                 * First, we obtain the set of all files that need to be
+                 * renamed.  Rules, that the user can define, are used to
+                 * narrow the search.
+                 */
+
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameFilesInFolder)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null)
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.CalculateListOfFilesToBeRenamed
+                            )
+                        );
+                        return result;
+                    }
+
+                var entryCollection = retriever.UsingSearchPattern("*")
+                                               .WithSearchOption(
+                                                   SearchOption.AllDirectories
+                                               )
+                                               .ToFindWhat(findWhat)
+                                               .AndReplaceItWith(replaceWith)
+                                               .GetMatchingFileSystemPaths(
+                                                   RootDirectoryPath, pathFilter
+                                               );
+                if (entryCollection == null || !entryCollection.Any())
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.CalculateListOfFilesToBeRenamed
+                            )
+                        );
+                        return result;
+                    }
+
+                var fileSystemEntries = entryCollection.ToList();
+                if (fileSystemEntries == null || !fileSystemEntries.Any())
+                    if (!AbortRequested)
+                    {
+                        OnOperationFinished(
+                            new OperationFinishedEventArgs(
+                                OperationType.CalculateListOfFilesToBeRenamed
+                            )
+                        );
+                        return result;
+                    }
+
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.CalculateListOfFilesToBeRenamed
+                    )
+                );
+
+                OnFilesToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        fileSystemEntries.Count,
+                        OperationType.RenameFilesInFolder
+                    )
+                );
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameFilesInFolder
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        string.Format(
+                            Resources.StatusUpdate_RenamingFilesInFolders,
+                            RootDirectoryPath, findWhat, replaceWith
+                        ), CurrentOperation
+                    )
+                );
+
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => RenameFileInFolderForEntry(
+                                                      findWhat, replaceWith,
+                                                      entry
+                                                  )
+                                          );
+
+                result &= !AbortRequested;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.RenameFilesInFolder
+                )
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished renaming files in subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation, true /* operation finished */
+                )
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFilesInFolder: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Iterates through the directory tree that is topped by the folder having the
+        /// specified <paramref name="rootFolderPath" />, and, for all Visual Studio
+        /// Solution (<c>*.sln</c>) file(s) found in the directory tree, renames them
+        /// according to the text-replacement pattern specified by the arguments of the
+        /// <paramref name="findWhat" /> and <paramref name="replaceWith" /> parameters.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a folder in which the operation is to start.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) Text to be found in each file contained in the directory tree.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) A <see cref="T:System.String" /> containing the text that the text
+        /// specified by the argument of the <paramref name="findWhat" /> parameter is to
+        /// be replaced with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public bool RenameSolutionFolders(
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(rootFolderPath)) return result;
+                if (!Directory.Exists(rootFolderPath)) return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+
+                // for a folder rename operation the replaceWith must be filled in
+                // however, if the replaceWith is blank, then return true regardless,
+                // so that this operation is merely skipped without the entire sequence
+                // of operations being deemed a failure
+                if (string.IsNullOrWhiteSpace(replaceWith)) return true;
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        string.Format(
+                            Resources
+                                .StatusUpdate_AttemptingRenameSolutionFolders,
+                            rootFolderPath
+                        ), CurrentOperation
+                    )
+                );
+
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameSolutionFolders)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
+
+                // build a list of solution folders to be processed
+                var fileSystemEntries = retriever.UsingSearchPattern("*")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath,
+                                                     pathFilter
+                                                 )
+                                                 .ToList();
+
+                // NOTE: There is a chance that this particular operation will
+                // alter the pathname that is stored in the value of the
+                // RootDirectoryPath property.  We should make sure to take this
+                // into account.
+
+                if (!fileSystemEntries.Any() && !AbortRequested)
+                {
+                    /*
+                     * If we are here, then no folders that contain Visual Studio Solution (<c>*.sln</c>)
+                     * were found whose names also match the user's search criteria, and the user has not
+                     * clicked the Cancel button in the progress dialog.  Therefore, just report
+                     * this operation as being finished, and then exit this method.
+                     */
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.RenameSolutionFolders
+                        )
+                    );
+
+                    return result;
+                }
+
+                /*
+                 * If, at this point, the AbortRequested property is true,
+                 * then the user must have cancelled the progress dialog.
+                 *
+                 * This indicates that the user wishes us to stop the operation
+                 * at this point.
+                 */
+
+                if (AbortRequested)
+                    throw new OperationAbortedException(
+                        Resources.Error_OperationAborted
+                    );
+
+                /*
+                 * Inform the user (and other parts of the application, such as the
+                 * progress dialog) of the count of folders that have been obtained.
+                 */
+
+                OnSolutionFoldersToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        fileSystemEntries.Count,
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                // Quit ALL of the instance(s) of Visual Studio that formerly had any of the
+                // Solution(s) anywhere in the directory tree of the 'source' folder open
+                // NOTE: We only get here if a particular Solution's folder needs renaming
+
+                /*
+                 * NOTE: This is not good enough.  EVERY running instance of Visual Studio, regardless of
+                 * whether they have Solution(s) loaded or not, must be closed in order for
+                 * this operation to succeed.
+                 */
+                foreach (var solution in LoadedSolutions)
+                    solution.Quit();
+
+                /*
+                 * OKAY, this is the loop over the list of the folders that we've found
+                 * underneath the Root Directory, that contain Visual Studio Solution (<c>*.sln</c>)
+                 * files, and whose names match the search criteria that was specified
+                 * by the user.  For each folder, rename it according to the settings
+                 * specified by the user.  NOTE: The method called must return TRUE for ALL
+                 * the folders, in order for this operation to be considered a success.
+                 */
+
+                VisualStudioInstanceProvider.QuitAll();
+
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => RenameSolutionFolderForEntry(
+                                                      findWhat, replaceWith,
+                                                      entry
+                                                  )
+                                          );
+
+                if (!AbortRequested)
+                    VisualStudioInstanceProvider.LaunchAll();
+
+                /*
+                 * If we are here, then the operation succeeded -- EXCEPT if the
+                 * AbortRequested property is set to TRUE.
+                 */
+
+                result &= !AbortRequested;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw; // just bubble the exception up to the next level
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+
+            /*
+             * We do a check of the AbortRequested property's value, and
+             * a subsequent throw of OperationAbortedException if the
+             * property is set to true, here.
+             *
+             * We do this in case a different thread set the property
+             * before we got here.
+             */
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.RenameSolutionFolders
+                )
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    string.Format(
+                        Resources.StatusUpdate_FinishedRenamingSolutionFolders,
+                        rootFolderPath
+                    ), CurrentOperation, true /* operation finished */
+                )
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Recursively renames all the subfolders in the folder having a
+        /// pathname specified by <paramref name="rootFolderPath" />, replacing
+        /// any occurrences of the text in the <paramref name="findWhat" />
+        /// parameter with the values in the <paramref name="replaceWith" /> parameter.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) String containing the full pathname of an existing
+        /// directory on the computer that is to be where the operation is started.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" />,
+        /// <paramref
+        ///     name="findWhat" />
+        /// , or <paramref name="replaceWith" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public bool RenameSubFoldersOf(
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] Predicate<string> pathFilter = null
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(rootFolderPath))
+                    return result;
+                if (!Directory.Exists(rootFolderPath))
+                    return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+                if (string.IsNullOrWhiteSpace(replaceWith))
+                    return result;
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.RenameSubFolders
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        string.Format(
+                            Resources.Info_AttemptingToRenameSubFolders,
+                            RootDirectoryPath, findWhat, replaceWith
+                        ), CurrentOperation
+                    )
+                );
+
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.RenameSubFolders)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
+
+                // Build list of folders to be processed
+                var fileSystemEntries = retriever.UsingSearchPattern("*")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .ToFindWhat(findWhat)
+                                                 .AndReplaceItWith(replaceWith)
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath,
+                                                     pathFilter
+                                                 )
+                                                 .ToList();
+
+                if (!fileSystemEntries.Any() && !AbortRequested)
+                {
+                    /*
+                     * If we are here, then no subfolders were found that match
+                     * the user's search criteria, and the user has not clicked
+                     * the Cancel button in the progress dialog.  Therefore,
+                     * just report this operation as being finished, and then
+                     * exit this method.
+                     */
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.RenameSubFolders
+                        )
+                    );
+                    return result;
+                }
+
+                /*
+                 * If, at this point, the AbortRequested property is true,
+                 * then the user must have cancelled the progress dialog.
+                 *
+                 * Therefore, we should throw OperationAbortedException.
+                 */
+
+                if (AbortRequested)
+                    throw new OperationAbortedException(
+                        Resources.Error_OperationAborted
+                    );
+
+                OnSubfoldersToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        fileSystemEntries.Count, OperationType.RenameSubFolders
+                    )
+                );
+
+                /*
+                 * OKAY, this is the loop over the list of the subfolders
+                 * whose pathnames match the search criteria specified by
+                 * the user.  For each folder, rename it according to the
+                 * settings specified by the user.
+                 */
+
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry => RenameSubFolderForEntry(
+                                                  findWhat, replaceWith, entry
+                                              )
+                                          );
+
+                /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
+                result &= !AbortRequested;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw; // just bubble the exception up to the next level
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+
+            /*
+             * We do a check of the AbortRequested property's value, and
+             * a subsequent throw of OperationAbortedException if the
+             * property is set to true, here.
+             *
+             * We do this in case a different thread set the property
+             * before we got here.
+             */
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(OperationType.RenameSubFolders)
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished processing subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation, true /* operation finished */
+                )
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFoldersOf: Result = {result}"
+            );
+
+            return result; /* result should be set to TRUE at this point */
+        }
+
+        /// <summary>
+        /// Iterates recursively through a directory tree, starting at the
+        /// folder with pathname <paramref name="rootFolderPath" /> and replacing
+        /// every occurrence of the text specified by the
+        /// <paramref
+        ///     name="findWhat" />
+        /// parameter with the text specified by the
+        /// <paramref
+        ///     name="replaceWith" />
+        /// parameter. A case-sensitive, not-in-exact-word
+        /// search is performed.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) Pathname of the folder where the operation is to start.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) Text to be found in each file contained in the directory tree.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Optional.) Text to replace all the instances of
+        /// <paramref
+        ///     name="findWhat" />
+        /// with. If this parameter is blank (the default),
+        /// then the text is deleted.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if either the <paramref name="rootFolderPath" /> or the
+        /// <paramref name="findWhat" /> parameters are blank.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder with pathname specified by the
+        /// <paramref
+        ///     name="rootFolderPath" />
+        /// does not exist.
+        /// </exception>
+        /// <exception cref="T:System.IO.IOException">
+        /// Thrown if a file operation does not succeed.
+        /// </exception>
+        public bool ReplaceTextInFiles(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith = "",
+            Predicate<string> pathFilter = null
+        )
+        {
+            var result = false;
+
+            if (string.IsNullOrWhiteSpace(rootFolderPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootFolderPath)
+                );
+            if (!Directory.Exists(rootFolderPath))
+                throw new DirectoryNotFoundException(
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                );
+            if (string.IsNullOrWhiteSpace(findWhat))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(findWhat)
+                );
+
+            OnOperationStarted(
+                new OperationStartedEventArgs(OperationType.ReplaceTextInFiles)
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
+                    CurrentOperation
+                )
+            );
+
+            IFileSystemEntryListRetriever retriever =
+                GetFileSystemEntryListRetriever
+                    .For(OperationType.ReplaceTextInFiles)
+                    .AndAttachConfiguration(CurrentConfiguration);
+            if (retriever == null) return result;
+
+            var fileSystemEntries = retriever.UsingSearchPattern("*")
+                                             .WithSearchOption(
+                                                 SearchOption.AllDirectories
+                                             )
+                                             .ToFindWhat(findWhat)
+                                             .AndReplaceItWith(replaceWith)
+                                             .GetMatchingFileSystemPaths(
+                                                 RootDirectoryPath, pathFilter
+                                             )
+                                             .ToList();
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFiles: {fileSystemEntries.Count} file(s) found to move forward on."
+            );
+
+            if (!fileSystemEntries.Any() && !AbortRequested)
+            {
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
+                        CurrentOperation, true /* operation finished */
+                    )
+                );
+
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.ReplaceTextInFiles
+                    )
+                );
+                return result;
+            }
+
+            OnFilesToHaveTextReplacedCounted(
+                new FilesOrFoldersCountedEventArgs(
+                    fileSystemEntries.Count, OperationType.ReplaceTextInFiles
+                )
+            );
+
+            try
+            {
+                var tasks = fileSystemEntries
+                            .TakeWhile(entry => !AbortRequested)
+                            .Select(
+                                entry => ReplaceTextInFileForEntry(
+                                    findWhat, replaceWith, entry
+                                )
+                            );
+                if (tasks == null || !tasks.Any()) return result;
+
+                TaskPool.AddTasks(tasks);
+
+                result = Task.WhenAll(tasks)
+                             .GetAwaiter()
+                             .GetResult()
+                             .All(x => true) & !AbortRequested;
+
+                TaskPool.SetTasksFinished();
+                TaskPool.Clear();
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                result = false;
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+            finally
+            {
+                // free memory resources from the Replace Text In Files operation
+                FileStreamProvider.DisposeAll();
+            }
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation, true /* operation finished */
+                )
+            );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(OperationType.ReplaceTextInFiles)
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFiles: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Called to ask the <c>File Renamer</c> object to stop operations.
+        /// </summary>
+        public void RequestAbort()
+            => AbortRequested = true;
+
+        /// <summary>
+        /// Sets the new root directory path from which searches should be started.
+        /// </summary>
+        /// <param name="path">
+        /// (Required.) String containing the fully-qualified pathname of the folder from
+        /// which searches should be started.
+        /// <para />
+        /// The fully-qualified pathname passed must reference a folder that currently
+        /// exists on the disk; otherwise,
+        /// <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref name="path" />, is passed a blank or <see langword="null" /> string
+        /// for a value.
+        /// </exception>
+        /// <exception cref="T:System.IO.DirectoryNotFoundException">
+        /// Thrown if the folder whose fully-qualified pathname is passed in the
+        /// <paramref name="path" /> parameter cannot be located on the disk.
+        /// </exception>
+        /// <remarks>
+        /// Upon successful validation of the fully-qualified folder pathname that is
+        /// specified as the value of the <paramref name="path" /> parameter, assigns the
+        /// value to the <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" />
+        /// property.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        public IFileRenamer StartingFrom(string path)
+        {
+            /*
+             * We do not perform any input validation here.  This is because
+             * this value may be being initialized from a default (blank)
+             * configuration.   the configuration may be blank for a number of
+             * reasons, but one of these is the issue that the configuration
+             * file on the disk may have gotten corrupted or erased.
+             */
+
+            RootDirectoryPath = path;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Occurs when a Solution is about to be closed/unloaded from a running instance
+        /// of Visual Studio.
+        /// </summary>
+        public event ClosingSolutionEventHandler ClosingSolution;
+
+        /// <summary>
+        /// Occurs when a running instance of Visual Studio has just closed/unloaded a
+        /// Visual Studio Solution (<c>*.sln</c>) file.
+        /// </summary>
+        public event SolutionClosedEventHandler SolutionClosed;
+
+        /// <summary>
+        /// Occurs when solution folders that are to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SolutionFoldersToBeRenamedCounted;
+
+        /// <summary>
+        /// Occurs when subfolders to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SubfoldersToBeRenamedCounted;
+
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ExceptionRaised" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ClosingSolution" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.ClosingSolutionEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// Handlers of this event can set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" /> to stop the operation from proceeding.
+        /// </remarks>
+        protected virtual void OnClosingSolution(ClosingSolutionEventArgs e)
+            => ClosingSolution?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.CurrentOperationChanged" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnCurrentOperationChanged(
+            CurrentOperationChangedEventArgs e
+        )
+        {
+            CurrentOperationChanged?.Invoke(this, e);
+            SendMessage<CurrentOperationChangedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_CURRENT_OPERATION_CHANGED
+                );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FileRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Renamers.Files.FileRenamer.FileRenamed" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnFileRenamed(FileRenamedEventArgs e)
+        {
+            FileRenamed?.Invoke(this, e);
+            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
+                                             .ForMessageId(
+                                                 FileRenamerMessages
+                                                     .FRM_FILE_RENAMED
+                                             );
+
+            /*
+             * custom processing.
+             *
+             * Sometimes, .sln files (the ones we close and then open before and after the
+             * operations) are renamed by the operations.
+             *
+             * We check if this is so.  If so, then we update the FullName property of any of
+             * the LoadedSolutions if we find one that matches, so that when we reload the
+             * solution, we open the correct file.
+             */
+
+            UpdateLoadedSolutionPaths(e);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnFolderRenamed(FolderRenamedEventArgs e)
+        {
+            FolderRenamed?.Invoke(this, e);
+            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
+                                             .ForMessageId(
+                                                 FileRenamerMessages
+                                                     .FRM_FOLDER_RENAMED
+                                             );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnRootDirectoryPathChanged(
+            RootDirectoryPathChangedEventArgs e
+        )
+        {
+            RootDirectoryPathChanged?.Invoke(this, e);
+
+            // Dump the variable e.OldPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.OnRootDirectoryPathChanged: e.OldPath = '{e.OldPath}'"
+            );
+
+            // Dump the variable e.NewPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.OnRootDirectoryPathChanged: e.NewPath = '{e.NewPath}'"
+            );
+
+            if (CurrentConfiguration == null) return;
+            if (string.IsNullOrWhiteSpace(CurrentConfiguration.StartingFolder))
+                return;
+            if (e == null) return;
+            if (string.IsNullOrWhiteSpace(e.OldPath)) return;
+            if (!e.OldPath.Equals(CurrentConfiguration.StartingFolder)) return;
+            if (!Does.FolderExist(e.NewPath)) return;
+
+            /*
+             * If the root directory path's old value coincides with the
+             * current setting of the StartingFolder property in the
+             * Current Configuration, then update the StartingFolder property
+             * of the Current Configuration to match the new value of the
+             * Root Directory Path.
+             *
+             * NOTE: This is not trivial, since we can process more than
+             * one .sln in a directory tree -- this means that this renamer
+             * might not necessarily be operating on the starting folder set
+             * by the user in the application configuration.
+             */
+            CurrentConfiguration.StartingFolder = e.NewPath;
+
+            LoadedSolutionProvider.SetRootDirectoryPath(e.NewPath);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionClosedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// The <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" /> event is
+        /// used to indicate that a running instance of Visual Studio has just finished
+        /// closing/unloading a Visual Studio Solution (<c>*.sln</c>) file.
+        /// </remarks>
+        protected virtual void OnSolutionClosed(SolutionClosedEventArgs e)
+            => SolutionClosed?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionCloseFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionCloseFailed(
+            SolutionCloseFailedEventArgs e
+        )
+        {
+            SolutionCloseFailed?.Invoke(this, e);
+            SendMessage<SolutionCloseFailedEventArgs>.Having.Args(this, e)
+                .ForMessageId(FileRenamerMessages.FRM_SOLUTION_CLOSE_FAILED);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionFolderRenamed(FolderRenamedEventArgs e)
+        {
+            SearchForRenamedSolution(e.Source, e.Destination);
+
+            SolutionFolderRenamed?.Invoke(this, e);
+            SendMessage<FolderRenamedEventArgs>.Having.Args(this, e)
+                                               .ForMessageId(
+                                                   FileRenamerMessages
+                                                       .FRM_SOLUTION_FOLDER_RENAMED
+                                               );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionOpenFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionOpenFailed(
+            SolutionOpenFailedEventArgs e
+        )
+        {
+            SolutionOpenFailed?.Invoke(this, e);
+            SendMessage<SolutionOpenFailedEventArgs>.Having.Args(this, e)
+                                                    .ForMessageId(
+                                                        FileRenamerMessages
+                                                            .FRM_SOLUTION_OPEN_FAILED
+                                                    );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
+        /// </summary>
+        protected virtual void OnStarting()
+        {
+            lock (SyncRoot)
+                IsBusy = true;
+
+            Starting?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(FileRenamerMessages.FRM_STARTING);
+        }
+
+        private static void AttemptToKillProcessesLockingFolder(string pathname)
+        {
+            TaskKillProcess(FileRenamingBlockingProcessName.PerfWatson2);
+
+            if (!Does.FolderExist(pathname)) return;
+
+            var procs = List.ProcessesLockingFileSystemEntry(pathname);
+            if (procs == null || !procs.Any()) return;
+
+            try
+            {
+                foreach (var proc in procs)
+                    try
+                    {
+                        proc.Kill();
+                    }
+                    finally
+                    {
+                        proc?.Dispose();
+                    }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        private static void TaskKillProcess(string filename)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(filename)) return;
+                if (!".exe".Equals(Path.GetExtension(filename))) return;
+
+                Run.SystemCommand($"taskkill /IM {filename} /F /T");
+
+                Thread.Sleep(5 * 500);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        private void CloseActiveSolutions()
+        {
+            try
+            {
+                if (!LoadedSolutions.Any())
+                    return;
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.CloseActiveSolutions
+                    )
+                );
+
+                var numFailed = 0;
+
+                foreach (var solution in LoadedSolutions)
+                {
+                    if (solution == null) continue;
+                    if (!Does.FileExist(solution.FullName)) continue;
+
+                    if (CloseSolution(solution)) continue;
+
+                    Interlocked.Increment(ref numFailed);
+                    ReportSolutionCloseFailed(solution.FullName);
+                }
+
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.CloseActiveSolutions
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+        }
+
+        /// <summary>
+        /// Calls upon the running Visual Studio instance (if any) that currently has the
+        /// specified <paramref name="solution" /> loaded, to close it.
+        /// </summary>
+        /// <param name="solution">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface that represents the Solution.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation was successful;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        /// <remarks>
+        /// If the specified <paramref name="solution" /> object does not contain
+        /// enough information to use to close the Solution, or if the Solution isn't
+        /// loaded in any of the currently-running instances of Visual Studio, then this
+        /// method returns <see langword="false" />.
+        /// <para />
+        /// This method also returns <see langword="false" /> if the Visual Studio Solution
+        /// (<c>*.sln</c>) file corresponding to the specified <paramref name="solution" />
+        /// object does not exist on the user's hard disk.
+        /// <para />
+        /// This method raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.ClosingSolution" /> event before it
+        /// performs the requested operation.  The specified <paramref name="solution" />
+        /// is included in the event data.  The handler(s) of this event may set the value
+        /// of the <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property
+        /// to <see langword="true" /> to block this operation from proceeding, but only
+        /// for the currently-specified <paramref name="solution" />.
+        /// </remarks>
+        private bool CloseSolution(IVisualStudioSolution solution)
+        {
+            var result = false;
+
+            try
+            {
+                if (solution == null) return result;
+                if (!Is.SolutionOpen(solution)) return result;
+                if (!Does.FileExist(solution.FullName)) return result;
+
+                var ce = new ClosingSolutionEventArgs(solution);
+                OnClosingSolution(ce);
+                if (ce.Cancel) return result;
+
+                UpdateStatus(
+                    $"Closing solution '{solution.FullName}'...",
+                    CurrentOperation
+                );
+
+                result = solution.Unload();
+
+                OnSolutionClosed(
+                    new SolutionClosedEventArgs(solution.FullName)
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        private bool CommitPendingChanges(
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (!Does.FolderExist(rootFolderPath))
+                    return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.CommitPendingChanges
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        Resources.Info_CommittingPendingChangesToGit,
+                        OperationType.CommitPendingChanges
+                    )
+                );
+
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.CommitPendingChanges)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
+
+                // Build list of folders to be processed
+                var fileSystemEntries = retriever.UsingSearchPattern(".git")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath
+                                                 )
+                                                 .ToList();
+
+                if (!fileSystemEntries.Any() && !AbortRequested)
+                {
+                    /*
+                     * If we are here, then no subfolders were found that match
+                     * the user's search criteria, and the user has not clicked
+                     * the Cancel button in the progress dialog.  Therefore,
+                     * just report this operation as being finished, and then
+                     * exit this method.
+                     */
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.CommitPendingChanges
+                        )
+                    );
+                    return result;
+                }
+
+                /*
+                 * If, at this point, the AbortRequested property is true,
+                 * then the user must have cancelled the progress dialog.
+                 *
+                 * Therefore, we should throw OperationAbortedException.
+                 */
+
+                if (AbortRequested)
+                    throw new OperationAbortedException(
+                        Resources.Error_OperationAborted
+                    );
+
+                OnPendingChangesToBeCommittedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        fileSystemEntries.Count *
+                        4, // there are 4 git operations performed per folder
+                        OperationType.CommitPendingChanges
+                    )
+                );
+
+                /*
+                 * OKAY, this is the loop over the list of the subfolders
+                 * whose pathnames match the search criteria specified by
+                 * the user.  For each folder, commit any pending change(s)
+                 * inside of it to the local Git repository that the folder
+                 * is likely to contain..
+                 */
+
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => CommitPendingChangesForEntry(
+                                                      rootFolderPath, findWhat,
+                                                      replaceWith, entry
+                                                  )
+                                          );
+
+                /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
+                result &= !AbortRequested;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw; // just bubble the exception up to the next level
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+
+            /*
+             * We do a check of the AbortRequested property's value, and
+             * a subsequent throw of OperationAbortedException if the
+             * property is set to true, here.
+             *
+             * We do this in case a different thread set the property
+             * before we got here.
+             */
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.CommitPendingChanges
+                )
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished processing subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation, true /* operation finished */
+                )
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.CommitPendingChanges: Result = {result}"
+            );
+
+            return result; /* result should be set to TRUE at this point */
+        }
+
+        private bool CommitPendingChangesForEntry(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
+        {
+            var result = false;
+
+            if (!Does.FolderExist(rootFolderPath))
+                return result;
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (entry == null || !Does.FolderExist(entry.Path))
+                return result;
+            if (!Does.FolderExist(Path.Combine(entry.Path, ".git")))
+                return true; /* just silently "succeed" */
+            if (AbortRequested) return false;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.CommitPendingChanges
+                    )
+                );
+
+                /*
+                 * Here is where we actually perform the indicated operations.
+                 *
+                 * First, we stage all unstaged changes in the repository, and then
+                 * we commit locally.  We do not do pulls or pushes or fetches because
+                 * we have no clue what branch the repo is on, or even if a remote
+                 * is configured.  The thinking is that the interactive user can
+                 * always pull or push as needed later.
+                 *
+                 * We're only concerned with committing here.
+                 */
+
+                LocalGitInteropProvider =
+                    MakeNewLocalGitInteropProvider
+                        .ForLocalGitFolder(entry.Path);
+
+                LocalGitInteropProvider.Stage();
+
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.CommitPendingChanges
+                    )
+                );
+
+                LocalGitInteropProvider.Commit(
+                    Formulate.CommitMessage(
+                        CommitMessageMapper.Map(
+                            CurrentConfiguration
+                                .PendingChangesCommitMessageFormat
+                        ), rootFolderPath, findWhat, replaceWith
+                    ),
+                    Formulate.CommitMessage(
+                        CommitMessageMapper.Map(
+                            CurrentConfiguration
+                                .PendingChangesDetailedCommitMessageFormat
+                        ), rootFolderPath, findWhat, replaceWith
+                    )
+                );
+
+                /*
+                 * Pull from the remote branch just in case the remote had changes that
+                 * need to be merged.  Assume that a remote is currently configured and that
+                 * it has the label 'origin'.
+                 */
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.CommitPendingChanges
+                    )
+                );
+
+                LocalGitInteropProvider.Pull(
+                    branch: LocalGitInteropProvider.GetCurrentBranch()
+                );
+
+                result = true; /* succeeded */
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+            finally
+            {
+                LocalGitInteropProvider?.Dispose();
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.CommitPendingChangesForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        private bool CommitResultsToGit(
+            [NotLogged] string rootFolderPath,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (!Does.FolderExist(rootFolderPath))
+                    return result;
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.CommitResultsToGit
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        Resources.Info_CommittingResultsToGit, CurrentOperation
+                    )
+                );
+
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.CommitResultsToGit)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
+
+                // Build list of folders to be processed
+                var fileSystemEntries = retriever.UsingSearchPattern(".git")
+                                                 .WithSearchOption(
+                                                     SearchOption.AllDirectories
+                                                 )
+                                                 .GetMatchingFileSystemPaths(
+                                                     RootDirectoryPath
+                                                 )
+                                                 .ToList();
+
+                if (!fileSystemEntries.Any() && !AbortRequested)
+                {
+                    /*
+                     * If we are here, then no subfolders were found that match
+                     * the user's search criteria, and the user has not clicked
+                     * the Cancel button in the progress dialog.  Therefore,
+                     * just report this operation as being finished, and then
+                     * exit this method.
+                     */
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.CommitResultsToGit
+                        )
+                    );
+                    return result;
+                }
+
+                /*
+                 * If, at this point, the AbortRequested property is true,
+                 * then the user must have cancelled the progress dialog.
+                 *
+                 * Therefore, we should throw OperationAbortedException.
+                 */
+
+                if (AbortRequested)
+                    throw new OperationAbortedException(
+                        Resources.Error_OperationAborted
+                    );
+
+                OnSubfoldersToBeRenamedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        fileSystemEntries.Count * 3,
+                        OperationType.CommitResultsToGit
+                    )
+                );
+
+                /*
+                 * OKAY, this is the loop over the list of the subfolders
+                 * whose pathnames match the search criteria specified by
+                 * the user.  For each folder, commit any pending change(s)
+                 * inside of it to the local Git repository that the folder
+                 * is likely to contain..
+                 */
+
+                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
+                                          .All(
+                                              entry
+                                                  => CommitResultsToGitForEntry(
+                                                      rootFolderPath, findWhat,
+                                                      replaceWith, entry
+                                                  )
+                                          );
+
+                /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
+                result &= !AbortRequested;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw; // just bubble the exception up to the next level
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+
+            /*
+             * We do a check of the AbortRequested property's value, and
+             * a subsequent throw of OperationAbortedException if the
+             * property is set to true, here.
+             *
+             * We do this in case a different thread set the property
+             * before we got here.
+             */
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(OperationType.CommitResultsToGit)
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished processing subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation, true /* operation finished */
+                )
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.CommitResultsToGit: Result = {result}"
+            );
+
+            return result; /* result should be set to TRUE at this point */
+        }
+
+        private bool CommitResultsToGitForEntry(
+            string rootFolderPath,
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
+        {
+            var result = false;
+
+            if (!Does.FolderExist(rootFolderPath))
+                return result;
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (entry == null || !Does.FolderExist(entry.Path))
+                return result;
+            if (!Does.FolderExist(Path.Combine(entry.Path, ".git")))
+                return true; /* just silently "succeed" */
+            if (AbortRequested) return false;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.CommitResultsToGit
+                    )
+                );
+
+                /*
+                 * Here is where we actually perform the indicated operations.
+                 *
+                 * First, we stage all unstaged changes in the repository, and then
+                 * we commit locally.  We do not do pulls or pushes or fetches because
+                 * we have no clue what branch the repo is on, or even if a remote
+                 * is configured.  The thinking is that the interactive user can
+                 * always pull or push as needed later.
+                 *
+                 * We're only concerned with committing here.
+                 */
+
+                LocalGitInteropProvider =
+                    MakeNewLocalGitInteropProvider
+                        .ForLocalGitFolder(entry.Path);
+
+                LocalGitInteropProvider.Stage();
+
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.CommitResultsToGit
+                    )
+                );
+
+                LocalGitInteropProvider.Commit(
+                    Formulate.CommitMessage(
+                        CommitMessageMapper.Map(
+                            CurrentConfiguration.PostOperationCommitMessageFormat
+                        ), rootFolderPath, findWhat, replaceWith
+                    ),
+                    Formulate.CommitMessage(
+                        CommitMessageMapper.Map(
+                            CurrentConfiguration
+                                .PostOperationDetailedCommitMessageFormat
+                        ), rootFolderPath, findWhat, replaceWith
+                    )
+                );
+
+                Run.SystemCommand(
+                    command: string.Format(
+                        Resources.CommitMessage_UsedProjectFileRenamer,
+                        DateTime.Now.ToShortTimeString(),
+                        DateTime.Now.ToShortDateString(), findWhat, replaceWith,
+                        rootFolderPath, TimeZoneInfo.Local.ToAbbreviation()
+                    ), workingDirectory: entry.Path
+                );
+
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.CommitResultsToGit
+                    )
+                );
+
+                /*
+                 * Do a push to the remote branch.  Only do this if a remote called 'origin' is
+                 * configured.  Not all local Git repos have remotes, and not all of those remotes
+                 * have to be called 'origin'.
+                 */
+
+                using (var localGitRepo =
+                       MakeNewLocalGitInteropProvider.ForLocalGitFolder(
+                           entry.Path
+                       ))
+                    if (localGitRepo.HasRemoteOrigin &&
+                        localGitRepo.HasCurrentBranch)
+                        Run.SystemCommand(
+                            $"git push -u origin {localGitRepo.GetCurrentBranch()}"
+                        );
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.CommitResultsToGitForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Provides the rename-processing services for just one out of potentially several
+        /// root directories.
+        /// </summary>
+        /// <param name="rootDirectoryPath">
+        /// (Required.) FullName to the recursion root.
+        /// </param>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        /// <exception cref="T:System.ArgumentException">
+        /// Thrown if the required parameter,
+        /// <paramref
+        ///     name="rootDirectoryPath" />
+        /// , is passed a blank or
+        /// <see
+        ///     langword="null" />
+        /// string for a value.
+        /// </exception>
+        private void DoProcessAll(
+            string rootDirectoryPath,
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter
+        )
+        {
+            if (string.IsNullOrWhiteSpace(rootDirectoryPath))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.",
+                    nameof(rootDirectoryPath)
+                );
+
+            try
+            {
+                OnStarting(); // before we even check the root directory path
+
+                /*
+                 * Set the RootDirectoryPath property to the
+                 * value that is passed in.
+                 */
+
+                RootDirectoryPath = rootDirectoryPath;
+
+                if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
+                    return;
+
+                OnStarted();
+
+                if (!SearchForLoadedSolutions())
+                    return;
+
+                CloseActiveSolutions();
+
+                if (!InvokeProcessing(findWhat, replaceWith, pathFilter))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The InvokeProcessing method returned FALSE."
+                    );
+
+                    ReopenActiveSolutions();
+
+                    OnFinished();
+
+                    return;
+                }
+
+                ReopenActiveSolutions();
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+            finally
+            {
+                OnFinished();
+            }
+        }
+
+        private string GetReplacementFileName(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
+        {
+            var result = string.Empty;
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith)) return result;
+            if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                !Does.FileExist(entry.Path)) return result;
+            if (AbortRequested) return result;
+
+            try
+            {
+                result = GetTextReplacementEngine.For(
+                                                     OperationType
+                                                         .RenameFilesInFolder
+                                                 )
+                                                 .AndAttachConfiguration(
+                                                     CurrentConfiguration
+                                                 )
+                                                 .Replace(
+                                                     GetMatchExpressionFactory
+                                                         .For(
+                                                             OperationType
+                                                                 .RenameFilesInFolder
+                                                         )
+                                                         .AndAttachConfiguration(
+                                                             CurrentConfiguration
+                                                         )
+                                                         .ForTextValue(
+                                                             GetTextValueRetriever
+                                                                 .For(
+                                                                     OperationType
+                                                                         .RenameFilesInFolder
+                                                                 )
+                                                                 .GetTextValue(
+                                                                     entry
+                                                                 )
+                                                         )
+                                                         .ToFindWhat(findWhat)
+                                                         .AndReplaceItWith(
+                                                             replaceWith
+                                                         )
+                                                 );
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                result = string.Empty;
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.GetReplacementFileName: Result = '{result}'"
+            );
+
+            return result;
+        }
+
+        [return: NotLogged]
+        private async Task<string> GetTextInFileReplacementDataAsync(
+            [NotLogged] IFileSystemEntry entry,
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith
+        )
+        {
+            var result = string.Empty;
+
+            try
+            {
+                if (entry == null) return result;
+                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
+                if (!Does.FileSystemEntryExist(entry.Path)) return result;
+                if (string.IsNullOrWhiteSpace(findWhat)) return result;
+
+                ITextReplacementEngine engine = GetTextReplacementEngine
+                                                .For(
+                                                    OperationType
+                                                        .ReplaceTextInFiles
+                                                )
+                                                .AndAttachConfiguration(
+                                                    CurrentConfiguration
+                                                );
+                if (engine == null) return result;
+
+                IMatchExpressionFactory matchExpressionFactory =
+                    GetMatchExpressionFactory
+                        .For(OperationType.ReplaceTextInFiles)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (matchExpressionFactory == null) return result;
+
+                var textToBeSearched = await GetTextValueRetriever.For(
+                        OperationType.ReplaceTextInFiles
+                    )
+                    .GetTextValueAsync(entry);
+                if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
+
+                /*
+                 * NOTE: We ASSUME that the ITextValueRetriever.GetTextValueAsync
+                 * method called above for the Replace Text in Files operation
+                 * also called IFileStreamProvider.DisposeObject on the
+                 * file stream after it obtained the text to be searched.
+                 *
+                 * Search for control characters to determine whether the
+                 * text to be searched is from a binary file or an ASCII
+                 * one.
+                 */
+
+                if (Scan.FileDataForBinaryControlCharacters(textToBeSearched))
+                    return SpecializedFileData.BinaryFileSkipped;
+
+                /*
+                 * If we are still here, then the textToBeSearched is really
+                 * from an ASCII text file.  We can proceed with the Replace
+                 * Text in Files operation on this file.
+                 *
+                 * The whole point of doing the scan above is to weed out files
+                 * that somehow made it past our initial set of filters, but
+                 * who obviously should not have text replacement done in them
+                 * because they are images, videos, or other media, or because they
+                 * are dll and exe files and/or other types of compiler and/or linker
+                 * output.
+                 *
+                 * We are primarily focused on performing text replacement in
+                 * project files, configuration files, solution files, and source
+                 * code files here.
+                 *
+                 * This weeding out process makes the application more scalable.
+                 */
+
+                IMatchExpression expression = matchExpressionFactory
+                                              .ForTextValue(textToBeSearched)
+                                              .AndAttachConfiguration(
+                                                  CurrentConfiguration
+                                              )
+                                              .ToFindWhat(findWhat)
+                                              .AndReplaceItWith(replaceWith);
+                if (expression == null) return result;
+
+                result = engine.Replace(expression);
+
+                /*
+                 * OKAY, if the text to be searched and the result of the "replacement"
+                 * operation are identical, then nothing was actually replaced in the
+                 * file and we should instead return the specialized GUID indicating so --
+                 * this way, the file will be skipped and not overwritten, but also
+                 * a Boolean true value will be returned so as to not indicate an error
+                 * occurred.
+                 */
+
+                if (textToBeSearched.Equals(result))
+                    result = SpecializedFileData.NoChange;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = string.Empty;
+            }
+            finally
+            {
+                // if an exception occurs, we need to dispose the most-recently-
+                // opened/accessed file stream.  We need this block to be here
+                // since there is a high risk of exceptions occurring whenever
+                // files are opened/accessed.
+                //
+                // NOTE: I was tempted to invoke the IFileStreamProvider.DisposeAll()
+                // method here; however, the thinking is that this exception has
+                // triggered this finally clause just for the file system entry
+                // that is currently being processed; therefore, we just try to
+                // dispose the file system entry that is currently being worked on
+                if (entry != null)
+                    Dispose.FileStream(entry.UserState);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Invokes the core processing of this file-renamer object.
+        /// </summary>
+        /// <param name="findWhat">
+        /// (Required.) String containing the text to search for.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) String containing the text to replace the text specified
+        /// by <paramref name="findWhat" /> with.
+        /// </param>
+        /// <param name="pathFilter">
+        /// (Optional.) Reference to an instance of <see cref="T:System.Func" />
+        /// that points to a delegate, accepting the current file or folder's
+        /// path as an argument, that returns <see langword="true" /> if the file
+        /// should be included in the operation or <see langword="false" /> otherwise.
+        /// <para />
+        /// This parameter is <see langword="null" /> by default. This method
+        /// should return <see langword="true" /> to specify that a given
+        /// file-system entry is to be included in the output collection --
+        /// barring other inclusion/exclusion criteria.
+        /// <para />
+        /// In the event that this parameter is <see langword="null" />, no path
+        /// filtering is done.
+        /// </param>
+        private bool InvokeProcessing(
+            string findWhat,
+            string replaceWith,
+            Predicate<string> pathFilter
+        )
+        {
+            var result = false;
+
+            try
+            {
+                /*
+                 * OKAY, check whether Find What and Replace With are the same,
+                 * apart from case.  This means that the user wants to use the same
+                 * name for a component(s), but with different letters capitalized.
+                 * If this is so, then we cannot have two files and/or
+                 * folders in the same parent folder with both names (per operating
+                 * system rules).  So in that event, we will need to do findWhat = old
+                 * name, replaceWith = guid, and then another process with findWhat = guid
+                 * and replaceWith = destination.
+                 */
+
+                if (!findWhat.EqualsNoCase(replaceWith))
+                    result = ProcessAll(findWhat, replaceWith, pathFilter);
+                else
+                {
+                    var guid = Guid.NewGuid()
+                                   .ToString("N");
+
+                    result = ProcessAll(findWhat, guid, pathFilter) &&
+                             ProcessAll(guid, replaceWith, pathFilter);
+                }
+            }
+            catch (OperationAbortedException ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                //Ignored.
+                result = true;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.InvokeProcessing: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.FilesToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnFilesToBeRenamedCounted(FilesOrFoldersCountedEventArgs e)
+        {
+            FilesToBeRenamedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_FILES_TO_BE_RENAMED_COUNTED
+                );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.FilesToHaveTextReplacedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnFilesToHaveTextReplacedCounted(
+            FilesOrFoldersCountedEventArgs e
+        )
+        {
+            FilesToHaveTextReplacedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_FILES_TO_HAVE_TEXT_REPLACED_COUNTED
+                );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.Finished" />
+        /// event.
+        /// </summary>
+        private void OnFinished()
+        {
+            IsBusy = false;
+            IsStarted = false;
+
+            /*
+             * If the user has requested that we rename the Solution's
+             * folder, here is the time to do it.
+             */
+
+            Finished?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.NoArgs()
+                       .ForMessageId(FileRenamerMessages.FRM_FINISHED);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.OperationFinished" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// An <see cref="T:MFR.Operations.Events.OperationFinishedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnOperationFinished(OperationFinishedEventArgs e)
+        {
+            CurrentOperation = e.OperationType;
+
+            OperationFinished?.Invoke(this, e);
+            SendMessage<OperationFinishedEventArgs>.Having.Args(this, e)
+                                                   .ForMessageId(
+                                                       FileRenamerMessages
+                                                           .FRM_OPERATION_FINISHED
+                                                   );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.OperationStarted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Operations.Events.OperationStartedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnOperationStarted(OperationStartedEventArgs e)
+        {
+            CurrentOperation = e.OperationType;
+
+            OperationStarted?.Invoke(this, e);
+            SendMessage<OperationStartedEventArgs>.Having.Args(this, e)
+                                                  .ForMessageId(
+                                                      FileRenamerMessages
+                                                          .FRM_OPERATION_STARTED
+                                                  );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.PendingChangesToBeCommittedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnPendingChangesToBeCommittedCounted(
+            FilesOrFoldersCountedEventArgs e
+        )
+        {
+            PendingChangesToBeCommittedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages
+                        .FRM_PENDING_CHANGES_TO_BE_COMMITTED_COUNTED
+                );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.ProcessingOperation" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ProcessingOperationEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnProcessingOperation(ProcessingOperationEventArgs e)
+        {
+            ProcessingOperation?.Invoke(this, e);
+            SendMessage<ProcessingOperationEventArgs>.Having.Args(this, e)
+                .ForMessageId(FileRenamerMessages.FRM_PROCESSING_OPERATION);
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.ResultsToBeCommittedToGitCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnResultsToBeCommittedToGitCounted(
+            FilesOrFoldersCountedEventArgs e
+        )
+        {
+            ResultsToBeCommittedToGitCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages
+                        .FRM_RESULTS_TO_BE_COMMITTED_TO_GIT_COUNTED
+                );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.SolutionFoldersToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnSolutionFoldersToBeRenamedCounted(
+            FilesOrFoldersCountedEventArgs e
+        )
+        {
+            SolutionFoldersToBeRenamedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages
+                        .FRM_SOLUTION_FOLDERS_TO_BE_RENAMED_COUNTED
+                );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.Started" />
+        /// event.
+        /// </summary>
+        private void OnStarted()
+        {
+            lock (SyncRoot)
+                IsStarted = true;
+
+            Started?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(FileRenamerMessages.FRM_STARTED);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.StatusUpdate" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.StatusUpdateEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        private void OnStatusUpdate(StatusUpdateEventArgs e)
+        {
+            StatusUpdate?.Invoke(this, e);
+            SendMessage<StatusUpdateEventArgs>.Having.Args(this, e)
+                                              .ForMessageId(
+                                                  FileRenamerMessages
+                                                      .FRM_STATUS_UPDATE
+                                              );
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Renamers.Files.FileRenamer.SubfoldersToBeRenamedCounted" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FilesOrFoldersCountedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        private void OnSubfoldersToBeRenamedCounted(
+            FilesOrFoldersCountedEventArgs e
+        )
+        {
+            SubfoldersToBeRenamedCounted?.Invoke(this, e);
+            SendMessage<FilesOrFoldersCountedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED
+                );
+        }
+
+        private bool RenameFileInFolderForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
+        {
+            var result = false;
+
+            /* validate inputs */
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "FileRenamer.RenameFileInFolderForEntry: Validating inputs..."
+            );
+
+            // Dump the variable findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: findWhat = '{findWhat}'"
+            );
+
+            // Dump the variable replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: replaceWith = '{replaceWith}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith)) return result;
+            if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                !Does.FileExist(entry.Path)) return result;
+
+            // Dump the variable entry.FullName to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: entry.FullName = '{entry.Path}'"
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "FileRenamer.RenameFileInFolderForEntry: Checking the value of the AbortRequested property...  If it is set to true, we'll stop and return false."
+            );
+
+            // Dump the variable AbortRequested to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: AbortRequested = {AbortRequested}"
+            );
+
+            if (AbortRequested) return false;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.RenameFilesInFolder
+                    )
+                );
+
+                var source = entry.Path;
+                if (string.IsNullOrWhiteSpace(source)) return result;
+                if (!Does.FileExist(source)) return result;
+
+                /*
+                 * OKAY, the code below is going to actually figure
+                 * out the new name of the file.  Not the entire new
+                 * PATH to the file...just the new NAME for the FILE
+                 * ITSELF.
+                 *
+                 * Since the FileInfoExtensions.RenameTo() method must
+                 * be passed the destination file as a fully-qualified,
+                 * absolute pathname, we do the combination with the
+                 * ContainingFolder property of the current
+                 * FileSystemEntry we are processing.  (The Containing
+                 * Folder property is filled during its construction.)
+                 *
+                 * This is done because we are operating under the assumption
+                 * that the file to be renamed should be left in the same
+                 * folder that we found it in.
+                 */
+
+                var newFileName = GetReplacementFileName(
+                    findWhat, replaceWith, entry
+                );
+
+                var destination = Path.Combine(
+                    entry.ContainingFolder, newFileName
+                );
+
+                if (entry.ToFileInfo()
+                         .RenameTo(destination))
+                    /*
+                     * Raise an event to let other parts of the application
+                     * know that a file has been renamed successfully.
+                     *
+                     * The RenameTo method above returns true if the rename
+                     * operation succeeded.
+                     */
+                {
+                    result = true; /* succeeded */
+                    OnFileRenamed(
+                        new FileRenamedEventArgs(source, destination)
+                    );
+                }
+            }
+            catch (OperationAbortedException)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR *** OperationAbortedException caught.  Setting AbortRequested to true."
+                );
+
+                AbortRequested = true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                return true; /* okay, an exception was caught, but
+                                 * we want to barrel through the remainder
+                                 * of the operation so we can process any other
+                                 * files that may need to be operated on.
+                                 * So, we return true here.*/
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameFileInFolderForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        private bool RenameSolutionFolderForEntry(
+            [NotLogged] string findWhat,
+            [NotLogged] string replaceWith,
+            [NotLogged] IFileSystemEntry entry
+        )
+        {
+            var result = false;
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                return result;
+            if (entry == null || !Directory.Exists(entry.Path))
+                return result;
+            if (AbortRequested) return result;
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.RenameSolutionFolders
+                    )
+                );
+
+                var destination =
+                    string
+                        .Empty; // new name for the solution folder
+
+                /*
+                 * This is the thing that actually does the replacement.
+                 */
+
+                ITextReplacementEngine engine =
+                    GetTextReplacementEngine.For(
+                                                OperationType
+                                                    .RenameSolutionFolders
+                                            )
+                                            .AndAttachConfiguration(
+                                                CurrentConfiguration
+                                            );
+                if (engine == null) return result;
+
+                /*
+                 * This combines the value to be replaced, with the search pattern in
+                 * the findWhat parameter, and the replaceWith parameter's text-replacement
+                 * parameter into a neat little package that can be then handed off
+                 * to the text-replacement engine object.
+                 */
+
+                IMatchExpressionFactory matchExpressionFactory =
+                    GetMatchExpressionFactory.For(
+                                                 OperationType
+                                                     .RenameSolutionFolders
+                                             )
+                                             .AndAttachConfiguration(
+                                                 CurrentConfiguration
+                                             );
+                if (matchExpressionFactory == null) return result;
+
+                /*
+                 * The text retriever object actually scans the folder pathname
+                 * and determines what text is to be targeted for the find-and-
+                 * replace operation.
+                 */
+
+                var retriever = GetTextValueRetriever.For(
+                    OperationType.RenameSolutionFolders
+                );
+                if (retriever == null) return result;
+
+                /*
+                 * Obtain the textual data to be targeted for the find-and-
+                 * replace operation.
+                 */
+
+                var source =
+                    retriever.GetTextValue(
+                        entry
+                    ); // target of the find-and-replace
+                if (string.IsNullOrWhiteSpace(source))
+                    return result;
+                if (!Directory.Exists(source)) return result;
+
+                /*
+                 * OKAY, now we use the MatchExpressionFactory object to
+                 * create a match expression object for our text-replacement
+                 * task.
+                 *
+                 * NOTE: We need a match expression factory that selects a
+                 * different means of creating match expressions depending on
+                 * the type of operation.
+                 */
+
+                var expression = matchExpressionFactory
+                                 .ForTextValue(source)
+                                 .ToFindWhat(findWhat)
+                                 .AndReplaceItWith(replaceWith);
+                if (expression == null) return result;
+
+                /*
+                 * Actually carry out the find-and-replace operation and
+                 * produce the new pathname (if any) of the Visual Studio
+                 * Solution (<c>*.sln</c>) folder.
+                 */
+
+                destination = engine.Replace(expression);
+                if (string.IsNullOrWhiteSpace(destination))
+                    return result;
+                if (destination.Equals(
+                        source, StringComparison.OrdinalIgnoreCase
+                    ))
+                    return
+                        result; // no change, so do not proceed with the Rename operation
+
+                /*
+                 * Actually perform the directory move operation.
+                 *
+                 * We avoid using a DirectoryInfo object here, since
+                 * it could open handles on the folder that we wish to
+                 * work on.
+                 *
+                 * We just try over and over again to rename the directory
+                 * until it works.
+                 */
+
+                if (!Does.FolderExist(source)) return result;
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Waiting for the Solution folder '{source}' to become available for renaming...",
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                Wait.ForFolderToBecomeWriteable(source);
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Attempting to rename Solution folder '{source}' -> '{destination}'...",
+                        OperationType.RenameSolutionFolders
+                    )
+                );
+
+                do
+                {
+                    try
+                    {
+                        Directory.Move(source, destination);
+                    }
+                    catch
+                    {
+                        //Ignored.
+                    }
+                    finally
+                    {
+                        Thread.Sleep(500);
+                    }
+                } while (Directory.Exists(source));
+
+                result = Does.FolderExist(destination);
+
+                /*
+                 * OKAY, if we get here, then we ASSUME that the folder-rename
+                 * operation took place.
+                 */
+
+                if (result)
+                    OnSolutionFolderRenamed(
+                        new FolderRenamedEventArgs(
+                            source, destination
+                        )
+                    );
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.RenameSolutionFolderForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        private bool RenameSubFolderForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
+        {
+            var result = false;
+
+            // Dump the variable findWhat to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: findWhat = '{findWhat}'"
+            );
+
+            // Dump the variable replaceWith to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: replaceWith = '{replaceWith}'"
+            );
+
+            if (string.IsNullOrWhiteSpace(findWhat)) return result;
+            if (string.IsNullOrWhiteSpace(replaceWith))
+                return result;
+            if (entry == null || !Directory.Exists(entry.Path))
+                return result;
+            if (AbortRequested) return false;
+
+            // Dump the variable entry.FullName to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: entry.FullName = '{entry.Path}'"
+            );
+
+            try
+            {
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.RenameSubFolders
+                    )
+                );
+
+                var destination = string.Empty;
+
+                ITextReplacementEngine engine =
+                    GetTextReplacementEngine.For(
+                                                OperationType.RenameSubFolders
+                                            )
+                                            .AndAttachConfiguration(
+                                                CurrentConfiguration
+                                            );
+                if (engine == null) return result;
+
+                IMatchExpressionFactory matchExpressionFactory =
+                    GetMatchExpressionFactory.For(
+                                                 OperationType.RenameSubFolders
+                                             )
+                                             .AndAttachConfiguration(
+                                                 CurrentConfiguration
+                                             );
+                if (matchExpressionFactory == null) return result;
+
+                var retriever = GetTextValueRetriever.For(
+                    OperationType.RenameSubFolders
+                );
+                if (retriever == null) return result;
+
+                var source = retriever.GetTextValue(entry);
+                if (string.IsNullOrWhiteSpace(source))
+                    return result;
+                if (!Directory.Exists(source)) return result;
+
+                var expression = matchExpressionFactory
+                                 .ForTextValue(source)
+                                 .ToFindWhat(findWhat)
+                                 .AndReplaceItWith(replaceWith);
+                if (expression == null) return result;
+
+                destination = engine.Replace(expression);
+                if (string.IsNullOrWhiteSpace(destination))
+                    return result;
+                if (destination.Equals(
+                        source, StringComparison.OrdinalIgnoreCase
+                    ))
+                    return
+                        result; // no change, so do not proceed with the Rename operation
+
+                if (entry.ToDirectoryInfo()
+                         .RenameTo(destination) &&
+                    !Directory.Exists(source))
+                {
+                    result = true; /* success */
+                    OnFolderRenamed(
+                        new FolderRenamedEventArgs(
+                            source, destination
+                        )
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.RenameSubFolderForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        private void ReopenActiveSolutions()
+        {
+            // If Visual Studio is open and it currently has the solution
+            // open, then close the solution before we perform the rename operation.
+            if (!ShouldReOpenSolutions ||
+                !LoadedSolutions.Any(
+                    solution => solution.ShouldReopen
+                ))
+                return;
+
+            OnOperationStarted(
+                new OperationStartedEventArgs(
+                    OperationType.OpenActiveSolutions
+                )
+            );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    "Instructing Visual Studio to reload the solution (maybe with its new path)...",
+                    CurrentOperation
+                )
+            );
+
+            var numFailed = 0;
+            foreach (var solution in LoadedSolutions)
+            {
+                try
+                {
+                    if (solution == null) continue;
+                    if (!Does.FileExist(solution.FullName))
+                        continue;
+                    if (Is.SolutionOpen(solution)) continue;
+
+                    if (ReopenSolution(solution)) continue;
+
+                    Interlocked.Increment(ref numFailed);
+                    ReportSolutionOpenFailed(solution.FullName);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.OpenActiveSolutions
+                )
+            );
+        }
+
+        /// <summary>
+        /// Tasks the associated instance of Visual Studio to load the specified
+        /// <paramref name="solution" />.
+        /// </summary>
+        /// <param name="solution">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface that represents the Visual Studio Solution (<c>*.sln</c>) file that
+        /// is to be loaded.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        private bool ReopenSolution(IVisualStudioSolution solution)
+        {
+            var result = false;
+
+            try
+            {
+                if (solution == null) return result;
+                if (Is.SolutionOpen(solution)) return true;
+                if (string.IsNullOrWhiteSpace(solution.FullName))
+                    return result;
+                if (!Does.FileExist(solution.FullName))
+                    return result;
+
+                UpdateStatus(
+                    $"Opening solution '{solution.FullName}'...",
+                    CurrentOperation
+                );
+
+                result = solution.Load();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        private async Task<bool> ReplaceTextInFileForEntry(
+            string findWhat,
+            string replaceWith,
+            IFileSystemEntry entry
+        )
+        {
+            var result = false;
+
+            try
+            {
+                /* validate inputs */
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    return result;
+                if (string.IsNullOrWhiteSpace(replaceWith))
+                    return result;
+                if (entry == null ||
+                    string.IsNullOrWhiteSpace(entry.Path) ||
+                    Guid.Empty.Equals(entry.UserState) ||
+                    !Does.FileExist(entry.Path))
+                    return result;
+                if (AbortRequested) return result;
+
+                OnProcessingOperation(
+                    new ProcessingOperationEventArgs(
+                        entry, OperationType.ReplaceTextInFiles
+                    )
+                );
+
+                var newFileData =
+                    await GetTextInFileReplacementDataAsync(
+                        entry, findWhat, replaceWith
+                    );
+                if (string.IsNullOrWhiteSpace(newFileData))
+                    return result;
+                if (SpecializedFileData.BinaryFileSkipped.Equals(
+                        newFileData
+                    ))
+                    return
+                        true; // "succeed" but don't process any further
+                if (SpecializedFileData.NoChange
+                                       .Equals(newFileData))
+                    return
+                        true; // "succeed" but don't process any further
+
+                if (Does.FileExist(entry.Path))
+                    Delete.File(entry.Path);
+
+                /*
+                 * OKAY, check whether the replacement file data has zero byte length.
+                 * If so, then the file-deletion operation above suffices to remove the
+                 * file whose data is being replaced.
+                 *
+                 * We only will carry out the writing of data to the file on the disk
+                 * in the event that the dataContainingTextToBeReplaced variable has more than zero byte
+                 * length.  We are willing to write whitespace to the file, in order to
+                 * support the Whitespace programming language.
+                 *
+                 * If the replacementData is a zero-length string, then the deletion
+                 * of the file (as performed by the code preceding this comment) will
+                 * be how the replacement of text in a file with zero-byte content is
+                 * carried out.  Meaning: if you ask us to replace a text file's
+                 * entire contents with nothing, that is the same as deleting the file
+                 * entirely.
+                 */
+                if (!string.IsNullOrEmpty(newFileData))
+                    Write.FileContent(entry.Path, newFileData);
+
+                result = true;
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+                return true;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"FileRenamer.ReplaceTextInFileForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Reports that an attempt to close a Visual Studio Solution (<c>*.sln</c>) file
+        /// having the specified <paramref name="pathname" /> that was loaded into a
+        /// running instance of Visual Studio has failed.
+        /// </summary>
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> containing
+        /// the fully-qualified pathname of the Visual Studio Solution (<c>*.sln</c>) that
+        /// could not be closed.
+        /// </param>
+        private void ReportSolutionCloseFailed(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            OnSolutionCloseFailed(
+                new SolutionCloseFailedEventArgs(
+                    new Exception(
+                        string.Format(
+                            Resources
+                                .Error_AttemptToCloseSolutionFailed,
+                            pathname
+                        )
+                    )
+                )
+            );
+        }
+
+        private void ReportSolutionOpenFailed(string pathname)
+        {
+            if (string.IsNullOrWhiteSpace(pathname)) return;
+
+            OnSolutionOpenFailed(
+                new SolutionOpenFailedEventArgs(
+                    new Exception(
+                        string.Format(
+                            Resources
+                                .Error_AttemptToOpenSolutionFailed,
+                            pathname
+                        )
+                    )
+                )
+            );
+        }
+
+        private bool SearchForLoadedSolutions()
+        {
+            OnOperationStarted(
+                new OperationStartedEventArgs(
+                    OperationType.FindVisualStudio
+                )
+            );
+
+            LoadedSolutions.Clear();
+
+            // This tool can potentially be run from Visual Studio (e.g.,
+            // configured via the Tools menu as an external tool, for instance).
+
+            // If the tool has been launched from an open instance of Visual
+            // Studio, and if there exists an open instance of Visual Studio
+            // that currently has the solution containing the items to be
+            // renamed open, then close the solution automatically for the user.
+
+            // Scan the folder in which we are starting for files ending with the
+            // .sln extension.  If any of them are open in Visual Studio, mark
+            // them all for reloading, and then reload them.
+            LoadedSolutions.AddRange(
+                new List<IVisualStudioSolution>(
+                    VisualStudioSolutionService
+                        .GetLoadedSolutionsInFolder(
+                            RootDirectoryPath
+                        )
+                )
+            );
+
+            if (LoadedSolutions != null && LoadedSolutions.Any())
+            {
+                /*
+                     * So, there are solution(s) in the root directory that are
+                     * currently loaded in running instance(s) of Visual Studio.
+                     * Determine whether they should be reopened by providing the
+                     * value of the configuration's ReOpenSolution flag.
+                     */
+
+                foreach (var solution in LoadedSolutions)
+                    solution.ShouldReopen = CurrentConfiguration
+                        .ReOpenSolution;
+
+                ShouldReOpenSolutions = LoadedSolutions.Any(
+                    solution => solution.ShouldReopen
+                );
+            }
+            else if (!Get.SolutionPathsInFolder(RootDirectoryPath)
+                         .Any())
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    string.Format(
+                        Resources.Error_NoSolutionsInRootDirectory,
+                        RootDirectoryPath
+                    )
+                );
+
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.FindVisualStudio
+                    )
+                );
+
+                return false;
+            }
+            else if (Process.GetProcessesByName("devenv")
+                            .Any())
+            {
+                /*
+                     * If we are here, then there are solutions in the root
+                     * directory folder, but there may also be open instances of
+                     * DevEnv.  In which case, we should detect if there are
+                     * any instances of DevEnv open in any event, so we can prompt
+                     * the user whether the user still wishes to proceed, so that
+                     * we may not disrupt the user's work.
+                     */
+
+                ShouldReOpenSolutions = false;
+
+                // One or more copies of VS are open, but it would seem unlikely
+                // that any of them have the solution open (unless its name
+                // differs from the convention). In this event, prompt the user
+                // that if the file(s) they are renaming are part of a solution
+                // that is currently open in Visual Studio, that the user will
+                // need to re-load the solution by hand after the operation has
+                // been completed.
+
+                if (CurrentConfiguration
+                        .PromptUserToReloadOpenSolution &&
+                    DialogResult.No == MessageBox.Show(
+                        Resources.Confirm_PerformRename,
+                        Application.ProductName,
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Exclamation,
+                        MessageBoxDefaultButton.Button1
+                    ))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.DoProcessAll: The user cancelled the rename operation."
+                    );
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.FindVisualStudio
+                        )
+                    );
+
+                    return false;
+                }
+            }
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(
+                    OperationType.FindVisualStudio
+                )
+            );
+            return true;
+        }
+
+        private void SearchForRenamedSolution(
+            string oldFolderPath,
+            string newFolderPath
+        )
+        {
+            try
+            {
+                /*
+                 * This method is supposed to be called as part of the Rename Folder(s)
+                 * that Contain Solution(s) operation.
+                 *
+                 * We assume that this method has been called after the folder(s) that
+                 * contain Solution(s) have been renamed.
+                 *
+                 * Now that the folder(s) that the Solution(s) themselves are contained
+                 * in has been renamed, update the pathname of any of the Solution(s)
+                 * in our list of loaded Solution(s) to have the new pathname.
+                 *
+                 * If the RootDirectoryPath is also formerly set to the oldFolderPath,
+                 * update it as well.
+                 */
+
+                if (string.IsNullOrWhiteSpace(oldFolderPath))
+                    return;
+                if (!Does.FolderExist(newFolderPath)) return;
+                if (!LoadedSolutions.Any()) return;
+
+                if (oldFolderPath.Equals(RootDirectoryPath))
+                    RootDirectoryPath = newFolderPath;
+
+                foreach (var currentSolution in LoadedSolutions)
+                {
+                    var currentSolutionPath =
+                        currentSolution.FullName;
+                    if (string.IsNullOrWhiteSpace(
+                            currentSolutionPath
+                        ))
+                        continue;
+
+                    var currentSolutionFolder =
+                        Path.GetDirectoryName(currentSolutionPath);
+                    if (string.IsNullOrWhiteSpace(
+                            currentSolutionFolder
+                        ))
+                        continue;
+
+                    if (!currentSolutionFolder.Equals(
+                            oldFolderPath
+                        )) continue;
+
+                    var newSolutionPath =
+                        currentSolutionPath.Replace(
+                            oldFolderPath, newFolderPath
+                        );
+                    if (!Does.FileExist(newSolutionPath)) continue;
+
+                    currentSolution.FullName = newSolutionPath;
+
+                    // Dump the variable currentSolution.FullName to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.SearchForRenamedSolution: currentSolution.FullName = '{currentSolution.FullName}'"
+                    );
+
+                    // Dump the variable currentSolution.WasVisualStudioClosed to the log
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.SearchForRenamedSolution: currentSolution.WasVisualStudioClosed = {currentSolution.WasVisualStudioClosed}"
+                    );
+
+                    if (currentSolution.WasVisualStudioClosed)
+                        currentSolution.Launch(true);
+
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        private void UpdateLoadedSolutionPaths(
+            FileRenamedEventArgs e
+        )
+        {
+            if (!LoadedSolutions.Any(
+                    solution => solution.FullName.ToLowerInvariant()
+                                        .Equals(
+                                            e.Source
+                                             .ToLowerInvariant()
+                                        )
+                )) return;
+
+            if (string.IsNullOrWhiteSpace(e.Source)) return;
+            if (string.IsNullOrWhiteSpace(e.Destination)) return;
+            if (!Is.SolutionPathnameValid(e.Source)) return;
+            if (!Is.SolutionPathnameValid(e.Destination)) return;
+
+            foreach (var solution in LoadedSolutions)
+                if (e.Source.EqualsNoCase(solution.FullName))
+                {
+                    solution.FullName = e.Destination;
+                }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.StatusUpdate" /> event.
+        /// </summary>
+        /// <param name="text">
+        /// (Required.) String containing the status message text that is meant for display
+        /// to the user.
+        /// </param>
+        /// <param name="operationType">
+        /// (Required.) One of the <see cref="T:MFR.Operations.Constants.OperationType" />
+        /// enumeration values that describes the operation that is currently being
+        /// performed.
+        /// </param>
+        /// <param name="operationFinished">
+        /// (Optional.) A <see cref="T:System.Boolean" /> value that indicates whether the
+        /// operation is finished.
+        /// <para />
+        /// Default value is <see langword="false" />.
+        /// </param>
+        private void UpdateStatus(
+            string text,
+            OperationType operationType,
+            bool operationFinished = false
+        )
+            => OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    text, operationType, operationFinished
+                )
+            );
+    }
+}
