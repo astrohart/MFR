@@ -958,7 +958,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Instan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Instances", "..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Instances\xyLOGIX.VisualStudio.Instances.csproj", "{E76D263E-40C2-440B-A56B-558409749ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TimeZone.Extensions", "..\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj", "{20BD940C-E833-4957-98C2-30CD14269AC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TimeZone.Extensions", "..\xyLOGIX.TimeZone.Extensions.VS2019\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj", "{20BD940C-E833-4957-98C2-30CD14269AC1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Git.Validators.Interfaces", "..\xyLOGIX.Interop.Git\xyLOGIX.Interop.Git.Validators.Interfaces\xyLOGIX.Interop.Git.Validators.Interfaces.csproj", "{853694AF-355E-4542-B791-3F9F23600C64}"
 EndProject
