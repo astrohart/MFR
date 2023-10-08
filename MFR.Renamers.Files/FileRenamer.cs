@@ -1533,7 +1533,7 @@ namespace MFR.Renamers.Files
                             );
                 if (tasks == null || !tasks.Any()) return result;
 
-                TaskPool.AddTasks(tasks);
+                TaskPool.AddRange(tasks);
 
                 result = Task.WhenAll(tasks)
                              .GetAwaiter()
@@ -2518,7 +2518,8 @@ namespace MFR.Renamers.Files
                 LocalGitInteropProvider.Commit(
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfiguration.PostOperationCommitMessageFormat
+                            CurrentConfiguration
+                                .PostOperationCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     ),
                     Formulate.CommitMessage(
@@ -2530,7 +2531,7 @@ namespace MFR.Renamers.Files
                 );
 
                 Run.SystemCommand(
-                    command: string.Format(
+                    string.Format(
                         Resources.CommitMessage_UsedProjectFileRenamer,
                         DateTime.Now.ToShortTimeString(),
                         DateTime.Now.ToShortDateString(), findWhat, replaceWith,
@@ -3308,10 +3309,10 @@ namespace MFR.Renamers.Files
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
 
                 return true; /* okay, an exception was caught, but
-                                 * we want to barrel through the remainder
-                                 * of the operation so we can process any other
-                                 * files that may need to be operated on.
-                                 * So, we return true here.*/
+                              * we want to barrel through the remainder
+                              * of the operation so we can process any other
+                              * files that may need to be operated on.
+                              * So, we return true here.*/
             }
 
             DebugUtils.WriteLine(
@@ -3346,21 +3347,20 @@ namespace MFR.Renamers.Files
                 );
 
                 var destination =
-                    string
-                        .Empty; // new name for the solution folder
+                    string.Empty; // new name for the solution folder
 
                 /*
                  * This is the thing that actually does the replacement.
                  */
 
-                ITextReplacementEngine engine =
-                    GetTextReplacementEngine.For(
-                                                OperationType
-                                                    .RenameSolutionFolders
-                                            )
-                                            .AndAttachConfiguration(
-                                                CurrentConfiguration
-                                            );
+                ITextReplacementEngine engine = GetTextReplacementEngine
+                                                .For(
+                                                    OperationType
+                                                        .RenameSolutionFolders
+                                                )
+                                                .AndAttachConfiguration(
+                                                    CurrentConfiguration
+                                                );
                 if (engine == null) return result;
 
                 /*
@@ -3414,10 +3414,9 @@ namespace MFR.Renamers.Files
                  * the type of operation.
                  */
 
-                var expression = matchExpressionFactory
-                                 .ForTextValue(source)
-                                 .ToFindWhat(findWhat)
-                                 .AndReplaceItWith(replaceWith);
+                var expression = matchExpressionFactory.ForTextValue(source)
+                    .ToFindWhat(findWhat)
+                    .AndReplaceItWith(replaceWith);
                 if (expression == null) return result;
 
                 /*
@@ -3465,6 +3464,8 @@ namespace MFR.Renamers.Files
                 );
 
                 do
+
+                    // ReSharper disable once RemoveRedundantBraces
                 {
                     try
                     {
@@ -3489,9 +3490,7 @@ namespace MFR.Renamers.Files
 
                 if (result)
                     OnSolutionFolderRenamed(
-                        new FolderRenamedEventArgs(
-                            source, destination
-                        )
+                        new FolderRenamedEventArgs(source, destination)
                     );
             }
             catch (Exception ex)
@@ -3552,13 +3551,14 @@ namespace MFR.Renamers.Files
 
                 var destination = string.Empty;
 
-                ITextReplacementEngine engine =
-                    GetTextReplacementEngine.For(
-                                                OperationType.RenameSubFolders
-                                            )
-                                            .AndAttachConfiguration(
-                                                CurrentConfiguration
-                                            );
+                ITextReplacementEngine engine = GetTextReplacementEngine
+                                                .For(
+                                                    OperationType
+                                                        .RenameSubFolders
+                                                )
+                                                .AndAttachConfiguration(
+                                                    CurrentConfiguration
+                                                );
                 if (engine == null) return result;
 
                 IMatchExpressionFactory matchExpressionFactory =
@@ -3580,10 +3580,9 @@ namespace MFR.Renamers.Files
                     return result;
                 if (!Directory.Exists(source)) return result;
 
-                var expression = matchExpressionFactory
-                                 .ForTextValue(source)
-                                 .ToFindWhat(findWhat)
-                                 .AndReplaceItWith(replaceWith);
+                var expression = matchExpressionFactory.ForTextValue(source)
+                    .ToFindWhat(findWhat)
+                    .AndReplaceItWith(replaceWith);
                 if (expression == null) return result;
 
                 destination = engine.Replace(expression);
@@ -3596,14 +3595,11 @@ namespace MFR.Renamers.Files
                         result; // no change, so do not proceed with the Rename operation
 
                 if (entry.ToDirectoryInfo()
-                         .RenameTo(destination) &&
-                    !Directory.Exists(source))
+                         .RenameTo(destination) && !Directory.Exists(source))
                 {
                     result = true; /* success */
                     OnFolderRenamed(
-                        new FolderRenamedEventArgs(
-                            source, destination
-                        )
+                        new FolderRenamedEventArgs(source, destination)
                     );
                 }
             }
@@ -3627,15 +3623,11 @@ namespace MFR.Renamers.Files
             // If Visual Studio is open and it currently has the solution
             // open, then close the solution before we perform the rename operation.
             if (!ShouldReOpenSolutions ||
-                !LoadedSolutions.Any(
-                    solution => solution.ShouldReopen
-                ))
+                !LoadedSolutions.Any(solution => solution.ShouldReopen))
                 return;
 
             OnOperationStarted(
-                new OperationStartedEventArgs(
-                    OperationType.OpenActiveSolutions
-                )
+                new OperationStartedEventArgs(OperationType.OpenActiveSolutions)
             );
 
             OnStatusUpdate(
@@ -3647,7 +3639,6 @@ namespace MFR.Renamers.Files
 
             var numFailed = 0;
             foreach (var solution in LoadedSolutions)
-            {
                 try
                 {
                     if (solution == null) continue;
@@ -3665,7 +3656,6 @@ namespace MFR.Renamers.Files
                     // dump all the exception info to the log
                     DebugUtils.LogException(ex);
                 }
-            }
 
             OnOperationFinished(
                 new OperationFinishedEventArgs(
@@ -3734,8 +3724,7 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
-                if (entry == null ||
-                    string.IsNullOrWhiteSpace(entry.Path) ||
+                if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
                     Guid.Empty.Equals(entry.UserState) ||
                     !Does.FileExist(entry.Path))
                     return result;
@@ -3747,21 +3736,15 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var newFileData =
-                    await GetTextInFileReplacementDataAsync(
-                        entry, findWhat, replaceWith
-                    );
+                var newFileData = await GetTextInFileReplacementDataAsync(
+                    entry, findWhat, replaceWith
+                );
                 if (string.IsNullOrWhiteSpace(newFileData))
                     return result;
-                if (SpecializedFileData.BinaryFileSkipped.Equals(
-                        newFileData
-                    ))
-                    return
-                        true; // "succeed" but don't process any further
-                if (SpecializedFileData.NoChange
-                                       .Equals(newFileData))
-                    return
-                        true; // "succeed" but don't process any further
+                if (SpecializedFileData.BinaryFileSkipped.Equals(newFileData))
+                    return true; // "succeed" but don't process any further
+                if (SpecializedFileData.NoChange.Equals(newFileData))
+                    return true; // "succeed" but don't process any further
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);
@@ -3826,8 +3809,7 @@ namespace MFR.Renamers.Files
                 new SolutionCloseFailedEventArgs(
                     new Exception(
                         string.Format(
-                            Resources
-                                .Error_AttemptToCloseSolutionFailed,
+                            Resources.Error_AttemptToCloseSolutionFailed,
                             pathname
                         )
                     )
@@ -3843,8 +3825,7 @@ namespace MFR.Renamers.Files
                 new SolutionOpenFailedEventArgs(
                     new Exception(
                         string.Format(
-                            Resources
-                                .Error_AttemptToOpenSolutionFailed,
+                            Resources.Error_AttemptToOpenSolutionFailed,
                             pathname
                         )
                     )
@@ -3855,9 +3836,7 @@ namespace MFR.Renamers.Files
         private bool SearchForLoadedSolutions()
         {
             OnOperationStarted(
-                new OperationStartedEventArgs(
-                    OperationType.FindVisualStudio
-                )
+                new OperationStartedEventArgs(OperationType.FindVisualStudio)
             );
 
             LoadedSolutions.Clear();
@@ -3875,25 +3854,23 @@ namespace MFR.Renamers.Files
             // them all for reloading, and then reload them.
             LoadedSolutions.AddRange(
                 new List<IVisualStudioSolution>(
-                    VisualStudioSolutionService
-                        .GetLoadedSolutionsInFolder(
-                            RootDirectoryPath
-                        )
+                    VisualStudioSolutionService.GetLoadedSolutionsInFolder(
+                        RootDirectoryPath
+                    )
                 )
             );
 
             if (LoadedSolutions != null && LoadedSolutions.Any())
             {
                 /*
-                     * So, there are solution(s) in the root directory that are
-                     * currently loaded in running instance(s) of Visual Studio.
-                     * Determine whether they should be reopened by providing the
-                     * value of the configuration's ReOpenSolution flag.
-                     */
+                 * So, there are solution(s) in the root directory that are
+                 * currently loaded in running instance(s) of Visual Studio.
+                 * Determine whether they should be reopened by providing the
+                 * value of the configuration's ReOpenSolution flag.
+                 */
 
                 foreach (var solution in LoadedSolutions)
-                    solution.ShouldReopen = CurrentConfiguration
-                        .ReOpenSolution;
+                    solution.ShouldReopen = CurrentConfiguration.ReOpenSolution;
 
                 ShouldReOpenSolutions = LoadedSolutions.Any(
                     solution => solution.ShouldReopen
@@ -3922,13 +3899,13 @@ namespace MFR.Renamers.Files
                             .Any())
             {
                 /*
-                     * If we are here, then there are solutions in the root
-                     * directory folder, but there may also be open instances of
-                     * DevEnv.  In which case, we should detect if there are
-                     * any instances of DevEnv open in any event, so we can prompt
-                     * the user whether the user still wishes to proceed, so that
-                     * we may not disrupt the user's work.
-                     */
+                 * If we are here, then there are solutions in the root
+                 * directory folder, but there may also be open instances of
+                 * DevEnv.  In which case, we should detect if there are
+                 * any instances of DevEnv open in any event, so we can prompt
+                 * the user whether the user still wishes to proceed, so that
+                 * we may not disrupt the user's work.
+                 */
 
                 ShouldReOpenSolutions = false;
 
@@ -3940,12 +3917,10 @@ namespace MFR.Renamers.Files
                 // need to re-load the solution by hand after the operation has
                 // been completed.
 
-                if (CurrentConfiguration
-                        .PromptUserToReloadOpenSolution &&
+                if (CurrentConfiguration.PromptUserToReloadOpenSolution &&
                     DialogResult.No == MessageBox.Show(
                         Resources.Confirm_PerformRename,
-                        Application.ProductName,
-                        MessageBoxButtons.YesNo,
+                        Application.ProductName, MessageBoxButtons.YesNo,
                         MessageBoxIcon.Exclamation,
                         MessageBoxDefaultButton.Button1
                     ))
@@ -3966,9 +3941,7 @@ namespace MFR.Renamers.Files
             }
 
             OnOperationFinished(
-                new OperationFinishedEventArgs(
-                    OperationType.FindVisualStudio
-                )
+                new OperationFinishedEventArgs(OperationType.FindVisualStudio)
             );
             return true;
         }
@@ -4005,28 +3978,20 @@ namespace MFR.Renamers.Files
 
                 foreach (var currentSolution in LoadedSolutions)
                 {
-                    var currentSolutionPath =
-                        currentSolution.FullName;
-                    if (string.IsNullOrWhiteSpace(
-                            currentSolutionPath
-                        ))
+                    var currentSolutionPath = currentSolution.FullName;
+                    if (string.IsNullOrWhiteSpace(currentSolutionPath))
                         continue;
 
                     var currentSolutionFolder =
                         Path.GetDirectoryName(currentSolutionPath);
-                    if (string.IsNullOrWhiteSpace(
-                            currentSolutionFolder
-                        ))
+                    if (string.IsNullOrWhiteSpace(currentSolutionFolder))
                         continue;
 
-                    if (!currentSolutionFolder.Equals(
-                            oldFolderPath
-                        )) continue;
+                    if (!currentSolutionFolder.Equals(oldFolderPath)) continue;
 
-                    var newSolutionPath =
-                        currentSolutionPath.Replace(
-                            oldFolderPath, newFolderPath
-                        );
+                    var newSolutionPath = currentSolutionPath.Replace(
+                        oldFolderPath, newFolderPath
+                    );
                     if (!Does.FileExist(newSolutionPath)) continue;
 
                     currentSolution.FullName = newSolutionPath;
@@ -4056,16 +4021,11 @@ namespace MFR.Renamers.Files
             }
         }
 
-        private void UpdateLoadedSolutionPaths(
-            FileRenamedEventArgs e
-        )
+        private void UpdateLoadedSolutionPaths(FileRenamedEventArgs e)
         {
             if (!LoadedSolutions.Any(
                     solution => solution.FullName.ToLowerInvariant()
-                                        .Equals(
-                                            e.Source
-                                             .ToLowerInvariant()
-                                        )
+                                        .Equals(e.Source.ToLowerInvariant())
                 )) return;
 
             if (string.IsNullOrWhiteSpace(e.Source)) return;
@@ -4075,9 +4035,7 @@ namespace MFR.Renamers.Files
 
             foreach (var solution in LoadedSolutions)
                 if (e.Source.EqualsNoCase(solution.FullName))
-                {
                     solution.FullName = e.Destination;
-                }
         }
 
         /// <summary>

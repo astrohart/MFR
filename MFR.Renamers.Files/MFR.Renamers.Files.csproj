@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -173,11 +173,11 @@
       <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Interop.Git\xyLOGIX.Interop.Git.Factories\xyLOGIX.Interop.Git.Factories.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Git.VS2019\xyLOGIX.Interop.Git.Factories\xyLOGIX.Interop.Git.Factories.csproj">
       <Project>{D60AA1EE-C6B6-49CA-B304-7B83330EE495}</Project>
       <Name>xyLOGIX.Interop.Git.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Interop.Git\xyLOGIX.Interop.Git.Interfaces\xyLOGIX.Interop.Git.Interfaces.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Git.VS2019\xyLOGIX.Interop.Git.Interfaces\xyLOGIX.Interop.Git.Interfaces.csproj">
       <Project>{7D690EDD-9BEA-4CBA-8303-6F599A380FC6}</Project>
       <Name>xyLOGIX.Interop.Git.Interfaces</Name>
     </ProjectReference>
@@ -185,27 +185,23 @@
       <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
       <Name>xyLOGIX.Interop.Processes.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
       <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
       <Name>xyLOGIX.Pools.Tasks.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.Interfaces\xyLOGIX.Pools.Tasks.Interfaces.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Interfaces\xyLOGIX.Pools.Tasks.Interfaces.csproj">
       <Project>{7C6341AC-4CB9-40B3-87CA-1BE4120F2F62}</Project>
       <Name>xyLOGIX.Pools.Tasks.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.csproj">
-      <Project>{594EF6F6-A5BB-4054-8580-D2A003D23B56}</Project>
-      <Name>xyLOGIX.Pools.Tasks</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Senders\xyLOGIX.Queues.Messages.Senders.csproj">
       <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
       <Name>xyLOGIX.Queues.Messages.Senders</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
-      <Project>{BF8E6621-8EDC-44AB-A191-5D559C6F2D1E}</Project>
+    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
+      <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj">
       <Project>{20BD940C-E833-4957-98C2-30CD14269AC1}</Project>
       <Name>xyLOGIX.TimeZone.Extensions</Name>
     </ProjectReference>

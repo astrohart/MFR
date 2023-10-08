@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -140,7 +140,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.Application.Semaphores.VS2019\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores.csproj">
       <Project>{c8a55975-00b3-4bdc-a52b-54d9fae4770d}</Project>
       <Name>xyLOGIX.Application.Semaphores</Name>
     </ProjectReference>
@@ -156,12 +156,12 @@
       <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
-      <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
+      <Project>{22a2a549-9587-430a-b9bc-fc33899bc488}</Project>
       <Name>xyLOGIX.Pools.Tasks.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.Interfaces\xyLOGIX.Pools.Tasks.Interfaces.csproj">
-      <Project>{7C6341AC-4CB9-40B3-87CA-1BE4120F2F62}</Project>
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Interfaces\xyLOGIX.Pools.Tasks.Interfaces.csproj">
+      <Project>{7c6341ac-4cb9-40b3-87ca-1be4120f2f62}</Project>
       <Name>xyLOGIX.Pools.Tasks.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Mappings\xyLOGIX.Queues.Messages.Mappings.csproj">

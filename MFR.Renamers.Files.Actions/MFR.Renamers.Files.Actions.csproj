@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -145,8 +145,8 @@
       <Project>{538e597f-bd95-49c9-8147-4b3b614daa89}</Project>
       <Name>xyLOGIX.Text.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj">
-      <Project>{20BD940C-E833-4957-98C2-30CD14269AC1}</Project>
+    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj">
+      <Project>{20bd940c-e833-4957-98c2-30cd14269ac1}</Project>
       <Name>xyLOGIX.TimeZone.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Actions.Win32\MFR.Renamers.Files.Actions.Win32.csproj">
