@@ -920,9 +920,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Instan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Actions.Tests", "..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions.Tests\xyLOGIX.VisualStudio.Actions.Tests.csproj", "{D7D48C53-0D18-4289-8CFE-669AEA122C68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider.Interfaces", "..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj", "{BF8E6621-8EDC-44AB-A191-5D559C6F2D1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider.Interfaces", "..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj", "{BF8E6621-8EDC-44AB-A191-5D559C6F2D1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider", "..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.csproj", "{9CACED8C-C58E-4C38-94A6-4CE07C92D156}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider", "..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.csproj", "{9CACED8C-C58E-4C38-94A6-4CE07C92D156}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Processes.Constants", "..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Constants\xyLOGIX.Interop.Processes.Constants.csproj", "{D12DE0F1-767F-4B1A-B2F5-B2DB5F549E3E}"
 EndProject
@@ -938,7 +938,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Collections.Constan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Collections", "..\xyLOGIX.Collections\xyLOGIX.Collections\xyLOGIX.Collections.csproj", "{96108EB4-F759-4478-AE23-517FDF9F18A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider.Events", "..\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.Events\xyLOGIX.TicketedProvider.Events.csproj", "{3F217E7B-37D2-46B9-8417-60E5B301D032}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TicketedProvider.Events", "..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Events\xyLOGIX.TicketedProvider.Events.csproj", "{3F217E7B-37D2-46B9-8417-60E5B301D032}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Application.Semaphores", "..\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores\xyLOGIX.Application.Semaphores.csproj", "{C8A55975-00B3-4BDC-A52B-54D9FAE4770D}"
 EndProject
