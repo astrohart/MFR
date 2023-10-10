@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
-[assembly: AssemblyCopyright("Copyright ? 2021-23 by xyLOGIX, LLC.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © 2021-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
