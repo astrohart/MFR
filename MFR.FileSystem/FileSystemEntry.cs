@@ -13,6 +13,7 @@ namespace MFR.FileSystem
     /// POCO to encapsulate the details of a file-system entry, such as a file
     /// or a folder.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class FileSystemEntry : OperationTypeSpecificObjectBase,
         IFileSystemEntry
     {

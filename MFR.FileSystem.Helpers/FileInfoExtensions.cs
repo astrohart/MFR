@@ -10,6 +10,7 @@ namespace MFR.FileSystem.Helpers
     /// Provides helper methods for working with instances of
     /// <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class FileInfoExtensions
     {
         /// <summary>
