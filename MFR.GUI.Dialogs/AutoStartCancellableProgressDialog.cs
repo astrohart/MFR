@@ -768,5 +768,25 @@ namespace MFR.GUI.Dialogs
             ProgressBarStyle = ProgressBarStyle.Marquee;
             Status = text;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AutoStartCancellableProgressDialog
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.CancelButton = null;
+            this.ClientSize = new System.Drawing.Size(417, 138);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = true;
+            this.Name = "AutoStartCancellableProgressDialog";
+            this.ShowIcon = true;
+            this.ShowInTaskbar = true;
+            this.Status = "Calculating files to be processed...";
+            this.Text = "Microsoft® Visual Studio®";
+            this.ResumeLayout(false);
+
+        }
     }
 }
