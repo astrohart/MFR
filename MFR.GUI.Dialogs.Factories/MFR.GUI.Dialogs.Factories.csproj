@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="GetAutoStartCancellableProgressDialog.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="MakeNewCancellableProgressDialog.cs" />
     <Compile Include="MakeNewCustomizeOperationsDialog.cs" />
     <Compile Include="MakeNewErrorReportDialog.cs" />
     <Compile Include="MakeNewFolderSelectDialog.cs" />
