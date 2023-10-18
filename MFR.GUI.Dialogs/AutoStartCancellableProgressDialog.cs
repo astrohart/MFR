@@ -16,6 +16,7 @@ using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -341,6 +342,26 @@ namespace MFR.GUI.Dialogs
 
             CurrentFile = currentFileLabelText;
             ProgressBarValue++;
+        }
+
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+
+            //
+            // AutoStartCancellableProgressDialog
+            //
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            CancelButton = null;
+            ClientSize = new Size(417, 138);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimizeBox = true;
+            Name = "AutoStartCancellableProgressDialog";
+            ShowIcon = true;
+            ShowInTaskbar = true;
+            Status = "Calculating files to be processed...";
+            Text = "Microsoft® Visual Studio®";
+            ResumeLayout(false);
         }
 
         /// <summary>
@@ -767,26 +788,6 @@ namespace MFR.GUI.Dialogs
 
             ProgressBarStyle = ProgressBarStyle.Marquee;
             Status = text;
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // AutoStartCancellableProgressDialog
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.CancelButton = null;
-            this.ClientSize = new System.Drawing.Size(417, 138);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MinimizeBox = true;
-            this.Name = "AutoStartCancellableProgressDialog";
-            this.ShowIcon = true;
-            this.ShowInTaskbar = true;
-            this.Status = "Calculating files to be processed...";
-            this.Text = "Microsoft® Visual Studio®";
-            this.ResumeLayout(false);
-
         }
     }
 }
