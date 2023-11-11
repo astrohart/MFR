@@ -88,7 +88,7 @@ namespace MFR.Engines.Operations
         /// This object provides access to the file- and folder-processing functionality of
         /// the application.
         /// <para />
-        /// It is marked as <c>protected</c> in the source code, allowing access to
+        /// It is marked as <see langword="protected" /> in the source code, allowing access to
         /// children of the <see cref="T:MFR.Engines.Operations.OperationEngineBase" />
         /// class.
         /// </remarks>

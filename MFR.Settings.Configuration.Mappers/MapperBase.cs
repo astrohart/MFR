@@ -19,7 +19,7 @@ namespace MFR.Settings.Configuration.Mappers
         /// reference to it.
         /// </summary>
         /// <remarks>
-        /// <strong>NOTE:</strong> This constructor is marked <c>protected</c> due to the
+        /// <strong>NOTE:</strong> This constructor is marked <see langword="protected" /> due to the
         /// fact that this class is marked <c>abstract</c>.
         /// </remarks>
         protected MapperBase()

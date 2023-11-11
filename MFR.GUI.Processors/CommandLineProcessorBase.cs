@@ -37,7 +37,7 @@ namespace MFR.GUI.Processors
         /// interface allows access to the configuration settings that the user can use to
         /// control the behavior of the application.
         /// <para />
-        /// As this class is an abstract base class, we made this property <c>protected</c>
+        /// As this class is an abstract base class, we made this property <see langword="protected" />
         /// so that our child classes can see it.
         /// </remarks>
         protected static IProjectFileRenamerConfigurationProvider
@@ -57,7 +57,7 @@ namespace MFR.GUI.Processors
         /// provider can be manipulated by simply setting this property.
         /// <para />
         /// Given that this class is an abstract base class, we have marked this property
-        /// as <c>protected</c> so that our child classes can see it.
+        /// as <see langword="protected" /> so that our child classes can see it.
         /// </remarks>
         protected static IProjectFileRenamerConfiguration CurrentConfiguration
         {
