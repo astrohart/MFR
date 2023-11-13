@@ -67,8 +67,8 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// <see langword="null" /> or the empty collection, then this method returns the
         /// empty collection.
         /// </remarks>
-        IReadOnlyCollection<Guid> BatchOpenStreams(
-            IReadOnlyCollection<string> pathnames
+        IList<Guid> BatchOpenStreams(
+            IList<string> pathnames
         );
 
         /// <summary>
