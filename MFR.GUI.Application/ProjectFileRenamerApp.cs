@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.CommandLine.Models.Factories;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Events;
@@ -158,6 +159,7 @@ namespace MFR.GUI.Application
         /// Occurs when the application has been initialized, but has not yet processed the
         /// command line.
         /// </summary>
+        [WeakEvent]
         public event EventHandler Initialized;
 
         /// <summary>

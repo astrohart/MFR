@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.Events.Common;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
@@ -87,6 +88,7 @@ namespace MFR.Settings.Profiles.Providers
         /// Occurs when we are about to begin the process of loading the user's saved
         /// configuration-setting profiles from the data source.
         /// </summary>
+        [WeakEvent]
         public event CancelEventHandler LoadingProfiles;
 
         /// <summary>
@@ -95,32 +97,38 @@ namespace MFR.Settings.Profiles.Providers
         ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
         /// property is updated.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
         /// Occurs when loading the collection of profiles has failed.
         /// </summary>
+        [WeakEvent]
         public event ExceptionRaisedEventHandler ProfileLoadFailed;
 
         /// <summary>
         /// Occurs when saving the collection of profiles has failed.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfileSaveFailed;
 
         /// <summary>
         /// Occurs when the collection of profiles has been loaded successfully.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfilesLoaded;
 
         /// <summary>
         /// Occurs when the collection of profiles has been saved successfully.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfilesSaved;
 
         /// <summary>
         /// Occurs when we are about to begin the process of saving the user's saved
         /// configuration-setting profiles from the data source.
         /// </summary>
+        [WeakEvent]
         public event CancelEventHandler SavingProfiles;
 
         /// <summary>

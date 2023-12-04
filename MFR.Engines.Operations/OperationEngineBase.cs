@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.Constants;
 using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
@@ -112,16 +113,19 @@ namespace MFR.Engines.Operations
         /// <summary>
         /// Occurs when an exception is thrown during a file operation.
         /// </summary>
+        [WeakEvent]
         public event ExceptionRaisedEventHandler ProcessingError;
 
         /// <summary>
         /// Occurs when the operation engine is finished.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProcessingFinished;
 
         /// <summary>
         /// Occurs when the processing has been started.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProcessingStarted;
 
         /// <summary>

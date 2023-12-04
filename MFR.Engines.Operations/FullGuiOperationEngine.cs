@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
 using MFR.Engines.Operations.Properties;
@@ -108,6 +109,7 @@ namespace MFR.Engines.Operations
         /// <see cref="P:MFR.Engines.Operations.FullGuiOperationEngine.DialogOwner" /> property is
         /// updated.
         /// </summary>
+        [WeakEvent]
         public event EventHandler DialogOwnerChanged;
 
         /// <summary>

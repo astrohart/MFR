@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Events;
@@ -82,6 +83,7 @@ namespace MFR.CommandLine.Validators
         /// <summary>
         /// Occurs once for each validation failure.
         /// </summary>
+        [WeakEvent]
         public event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
 
         /// <summary>

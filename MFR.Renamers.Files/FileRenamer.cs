@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.Constants;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
@@ -399,64 +400,76 @@ namespace MFR.Renamers.Files
         /// <see cref="P:MFR.Renamers.Files.FileRenamer.CurrentOperation" /> property is
         /// updated.
         /// </summary>
+        [WeakEvent]
         public event CurrentOperationChangedEventHandler
             CurrentOperationChanged;
 
         /// <summary>
         /// Occurs when an exception is thrown from an operation.
         /// </summary>
+        [WeakEvent]
         public event ExceptionRaisedEventHandler ExceptionRaised;
 
         /// <summary>
         /// Occurs when a file has been renamed.
         /// </summary>
+        [WeakEvent]
         public event FileRenamedEventHandler FileRenamed;
 
         /// <summary>
         /// Occurs when files to be renamed have been counted.
         /// </summary>
+        [WeakEvent]
         public event FilesOrFoldersCountedEventHandler FilesToBeRenamedCounted;
 
         /// <summary>
         /// Occurs when files to be processed have been counted.
         /// </summary>
+        [WeakEvent]
         public event FilesOrFoldersCountedEventHandler
             FilesToHaveTextReplacedCounted;
 
         /// <summary>
         /// Occurs when the processing is completely finished.
         /// </summary>
+        [WeakEvent]
         public event EventHandler Finished;
 
         /// <summary>
         /// Occurs when a folder has been renamed.
         /// </summary>
+        [WeakEvent]
         public event FolderRenamedEventHandler FolderRenamed;
 
         /// <summary>
         /// Occurs when an operation has completed.
         /// </summary>
+        [WeakEvent]
         public event OperationFinishedEventHandler OperationFinished;
 
         /// <summary>
         /// Occurs when an operation has commenced.
         /// </summary>
+        [WeakEvent]
         public event OperationStartedEventHandler OperationStarted;
 
         /// <summary>
         /// Occurs when the pending changes to be committed to Git have been counted.
         /// </summary>
+        [WeakEvent]
         public event FilesOrFoldersCountedEventHandler
             PendingChangesToBeCommittedCounted;
 
         /// <summary>
         /// Occurs when an operation is about to be processed for a file or a folder.
         /// </summary>
+        [WeakEvent]
         public event ProcessingOperationEventHandler ProcessingOperation;
 
         /// <summary>
         /// Occurs when the results that are to be committed to Git have been counted.
         /// </summary>
+        [WeakEvent]
         public event FilesOrFoldersCountedEventHandler
             ResultsToBeCommittedToGitCounted;
 
@@ -465,6 +478,7 @@ namespace MFR.Renamers.Files
         /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
         /// changed.
         /// </summary>
+        [WeakEvent]
         public event RootDirectoryPathChangedEventHandler
             RootDirectoryPathChanged;
 
@@ -472,33 +486,39 @@ namespace MFR.Renamers.Files
         /// Occurs when an attempt to close a Visual Studio Solution (<c>*.sln</c>)  that
         /// has been loaded into a running instance of Visual Studio has failed.
         /// </summary>
+        [WeakEvent]
         public event SolutionCloseFailedEventHandler SolutionCloseFailed;
 
         /// <summary>
         /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
         /// has been renamed.
         /// </summary>
+        [WeakEvent]
         public event FolderRenamedEventHandler SolutionFolderRenamed;
 
         /// <summary>
         /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
         /// a running instance of Visual Studio has failed.
         /// </summary>
+        [WeakEvent]
         public event SolutionOpenFailedEventHandler SolutionOpenFailed;
 
         /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
+        [WeakEvent]
         public event EventHandler Started;
 
         /// <summary>
         /// Occurs just before the processing has started.
         /// </summary>
+        [WeakEvent]
         public event EventHandler Starting;
 
         /// <summary>
         /// Occurs when a textual status message is available for display.
         /// </summary>
+        [WeakEvent]
         public event StatusUpdateEventHandler StatusUpdate;
 
         /// <summary>
@@ -1640,23 +1660,27 @@ namespace MFR.Renamers.Files
         /// Occurs when a Solution is about to be closed/unloaded from a running instance
         /// of Visual Studio.
         /// </summary>
+        [WeakEvent]
         public event ClosingSolutionEventHandler ClosingSolution;
 
         /// <summary>
         /// Occurs when a running instance of Visual Studio has just closed/unloaded a
         /// Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
+        [WeakEvent]
         public event SolutionClosedEventHandler SolutionClosed;
 
         /// <summary>
         /// Occurs when solution folders that are to be renamed have been counted.
         /// </summary>
+        [WeakEvent]
         public event FilesOrFoldersCountedEventHandler
             SolutionFoldersToBeRenamedCounted;
 
         /// <summary>
         /// Occurs when subfolders to be renamed have been counted.
         /// </summary>
+        [WeakEvent]
         public event FilesOrFoldersCountedEventHandler
             SubfoldersToBeRenamedCounted;
 

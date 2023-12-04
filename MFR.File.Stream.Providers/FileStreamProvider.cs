@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.File.Stream.Providers.Events;
 using MFR.File.Stream.Providers.Interfaces;
 using System;
@@ -83,23 +84,27 @@ namespace MFR.File.Stream.Providers
         /// Raised when any of the file streams that are managed by this object are
         /// disposed by it.
         /// </summary>
+        [WeakEvent]
         public event FileStreamDisposedEventHandler FileStreamDisposed;
 
         /// <summary>
         /// Raised when this object has successfully processed a request to open a stream
         /// on a particular file.
         /// </summary>
+        [WeakEvent]
         public event FileStreamOpenedEventHandler FileStreamOpened;
 
         /// <summary>
         /// Occurs when an exception was caught during an attempt to open a
         /// <c>FileStream</c> upon a particular file.
         /// </summary>
+        [WeakEvent]
         public event FileStreamOpenFailedEventHandler FileStreamOpenFailed;
 
         /// <summary>
         /// Occurs when a <c>FileStream</c> is about to be opened upon a particular file.
         /// </summary>
+        [WeakEvent]
         public event FileStreamOpeningEventHandler FileStreamOpening;
 
         /// <summary>

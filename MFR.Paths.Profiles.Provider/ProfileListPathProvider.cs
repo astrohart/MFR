@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.Events.Common;
 using MFR.GUI.Constants;
 using MFR.Paths.Profiles.Provider.Actions;
@@ -68,6 +69,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider.ProfileCollectionFilePath" />
         /// property from the system Registry is about to begin.
         /// </summary>
+        [WeakEvent]
         public event CancelEventHandler LoadingProfileCollectionFilePath;
 
         /// <summary>
@@ -76,6 +78,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Settings.Profiles.Providers.ProfileProvider.ProfileCollectionFilePath" />
         /// property is updated.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfileCollectionFilePathChanged;
 
         /// <summary>
@@ -84,6 +87,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider.ProfileCollectionFilePath" />
         /// property has been loaded from the system Registry.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfileCollectionFilePathLoaded;
 
         /// <summary>
@@ -92,6 +96,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider.ProfileCollectionFilePath" />
         /// property from the system Registry has failed.
         /// </summary>
+        [WeakEvent]
         public event ExceptionRaisedEventHandler
             ProfileCollectionFilePathLoadFailed;
 
@@ -101,6 +106,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider.ProfileCollectionFilePath" />
         /// property has been saved to the system Registry.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ProfileCollectionFilePathSaved;
 
         /// <summary>
@@ -109,6 +115,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider.ProfileCollectionFilePath" />
         /// property to the system Registry has failed.
         /// </summary>
+        [WeakEvent]
         public event ExceptionRaisedEventHandler
             ProfileCollectionFilePathSaveFailed;
 
@@ -118,6 +125,7 @@ namespace MFR.Paths.Profiles.Provider
         ///     cref="P:MFR.Paths.Profiles.Provider.Interfaces.IProfileListPathProvider.ProfileCollectionFilePath" />
         /// property to the system Registry is about to begin.
         /// </summary>
+        [WeakEvent]
         public event CancelEventHandler SavingProfileCollectionFilePath;
 
         /// <summary>

@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
 using MFR.Events.Common;
@@ -225,60 +226,71 @@ namespace MFR.GUI.Windows.Presenters
         /// Failed to add the requested profile. Parameter is a string containing the
         /// error message to display.
         /// </summary>
+        [WeakEvent]
         public event AddProfileFailedEventHandler AddProfileFailed;
 
         /// <summary>
         /// Occurs when all the history has been cleared.
         /// </summary>
+        [WeakEvent]
         public event EventHandler AllHistoryCleared;
 
         /// <summary>
         /// Occurs when the configuration has been exported to a file.
         /// </summary>
+        [WeakEvent]
         public event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
         /// Occurs when the configuration has been updated, say, by an
         /// import process.
         /// </summary>
+        [WeakEvent]
         public event ConfigurationImportedEventHandler ConfigurationImported;
 
         /// <summary>
         /// Occurs when the user issues a request to create a new, blank Profile.
         /// </summary>
+        [WeakEvent]
         public event CreateNewBlankProfileRequestedEventHandler
             CreateNewBlankProfileRequested;
 
         /// <summary>
         /// Occurs when an error happens during a data operation.
         /// </summary>
+        [WeakEvent]
         public event DataOperationErrorEventHandler DataOperationError;
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
         /// screen and the configuration data source.
         /// </summary>
+        [WeakEvent]
         public event EventHandler DataOperationFinished;
 
         /// <summary>
         /// Occurs when data is about to be moved to and fro between the screen
         /// and the configuration data source.
         /// </summary>
+        [WeakEvent]
         public event DataOperationEventHandler DataOperationStarted;
 
         /// <summary>
         /// Occurs when the processing is done.
         /// </summary>
+        [WeakEvent]
         public event EventHandler Finished;
 
         /// <summary>
         /// Occurs when an exception is thrown during a file operation.
         /// </summary>
+        [WeakEvent]
         public event ExceptionRaisedEventHandler OperationError;
 
         /// <summary>
         /// Occurs when the processing has started.
         /// </summary>
+        [WeakEvent]
         public event EventHandler Started;
 
         /// <summary>

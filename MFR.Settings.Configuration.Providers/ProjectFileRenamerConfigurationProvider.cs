@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.Paths.Config.Provider.Factories;
@@ -96,6 +97,7 @@ namespace MFR.Settings.Configuration.Providers
         ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
         /// property is updated.
         /// </summary>
+        [WeakEvent]
         public event EventHandler ConfigFilePathChanged;
 
         /// <summary>

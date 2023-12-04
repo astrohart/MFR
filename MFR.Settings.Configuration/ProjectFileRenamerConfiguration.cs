@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Model;
 using MFR.GUI.Models.Extensions;
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
@@ -609,6 +610,7 @@ namespace MFR.Settings.Configuration
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
         /// property has been updated.
         /// </summary>
+        [WeakEvent]
         public event StartingFolderChangedEventHandler StartingFolderChanged;
 
         /// <summary>
