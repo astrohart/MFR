@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using MFR.GUI.Models.Converters;
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
@@ -117,7 +116,6 @@ namespace MFR.GUI.Models
         /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.Enabled" /> property has been
         /// updated.
         /// </summary>
-        [WeakEvent]
         public event EventHandler EnabledChanged;
 
         /// <summary>
@@ -125,7 +123,6 @@ namespace MFR.GUI.Models
         /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.Name" /> property has been
         /// updated.
         /// </summary>
-        [WeakEvent]
         public event EventHandler NameChanged;
 
         /// <summary>
@@ -133,7 +130,6 @@ namespace MFR.GUI.Models
         /// <see cref="P:MFR.GUI.Models.OperationTypeInfo.OperationType" /> property has
         /// been updated.
         /// </summary>
-        [WeakEvent]
         public event EventHandler OperationTypeChanged;
 
         /// <summary>

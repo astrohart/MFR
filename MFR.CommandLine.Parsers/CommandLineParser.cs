@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using Alphaleonis.Win32.Filesystem;
 using Fclp;
 using MFR.CommandLine.Constants;
@@ -201,7 +200,6 @@ namespace MFR.CommandLine.Parsers
         /// <summary>
         /// Occurs when Help text is to be displayed.
         /// </summary>
-        [WeakEvent]
         public event DisplayHelpEventHandler DisplayHelp;
 
         /// <summary>

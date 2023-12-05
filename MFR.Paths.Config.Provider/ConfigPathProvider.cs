@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using MFR.Events.Common;
 using MFR.GUI.Constants;
 using MFR.Paths.Config.Provider.Actions;
@@ -68,7 +67,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Settings.Config.Providers.ConfigProvider.ConfigFilePath" />
         /// property is updated.
         /// </summary>
-        [WeakEvent]
         public event EventHandler ConfigFilePathChanged;
 
         /// <summary>
@@ -77,7 +75,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property has been loaded from the system Registry.
         /// </summary>
-        [WeakEvent]
         public event EventHandler ConfigFilePathLoaded;
 
         /// <summary>
@@ -86,7 +83,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property from the system Registry has failed.
         /// </summary>
-        [WeakEvent]
         public event ExceptionRaisedEventHandler ConfigFilePathLoadFailed;
 
         /// <summary>
@@ -95,7 +91,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property has been saved to the system Registry.
         /// </summary>
-        [WeakEvent]
         public event EventHandler ConfigFilePathSaved;
 
         /// <summary>
@@ -104,7 +99,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property to the system Registry has failed.
         /// </summary>
-        [WeakEvent]
         public event ExceptionRaisedEventHandler ConfigFilePathSaveFailed;
 
         /// <summary>
@@ -113,7 +107,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property from the system Registry is about to begin.
         /// </summary>
-        [WeakEvent]
         public event CancelEventHandler LoadingConfigFilePath;
 
         /// <summary>
@@ -122,7 +115,6 @@ namespace MFR.Paths.Config.Provider
         ///     cref="P:MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider.ConfigFilePath" />
         /// property to the system Registry is about to begin.
         /// </summary>
-        [WeakEvent]
         public event CancelEventHandler SavingConfigFilePath;
 
         /// <summary>

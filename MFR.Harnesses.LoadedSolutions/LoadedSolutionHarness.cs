@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Harnesses.LoadedSolutions.Interfaces;
 using System;
@@ -188,7 +187,6 @@ namespace MFR.Harnesses.LoadedSolutions
         /// Occurs when the target running instance of Visual Studio has finished loading
         /// the target Visual Studio Solution (<c>*.sln</c>) file.
         /// </summary>
-        [WeakEvent]
         public event EventHandler Loaded;
 
         /// <summary>
@@ -200,13 +198,11 @@ namespace MFR.Harnesses.LoadedSolutions
         /// <see cref="P:System.ComponentModel.CancelEventHandler.Cancel" /> property to
         /// <see langword="true" /> to prevent the operation from being carried out.
         /// </remarks>
-        [WeakEvent]
         public event CancelEventHandler Loading;
 
         /// <summary>
         /// Occurs when the target running instance of Visual Studio has been exited.
         /// </summary>
-        [WeakEvent]
         public event EventHandler Quitted;
 
         /// <summary>
@@ -219,14 +215,12 @@ namespace MFR.Harnesses.LoadedSolutions
         /// <see langword="true" />
         /// to prevent the operation from being carried out.
         /// </remarks>
-        [WeakEvent]
         public event CancelEventHandler Quitting;
 
         /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
         /// opened using the Windows Shell.
         /// </summary>
-        [WeakEvent]
         public event EventHandler ShellOpened;
 
         /// <summary>
@@ -239,7 +233,6 @@ namespace MFR.Harnesses.LoadedSolutions
         /// <see langword="true" />
         /// to prevent the operation from being carried out.
         /// </remarks>
-        [WeakEvent]
         public event CancelEventHandler ShellOpening;
 
         /// <summary>
@@ -248,14 +241,12 @@ namespace MFR.Harnesses.LoadedSolutions
         ///     cref="P:MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.TargetSolution" />
         /// property is changed.
         /// </summary>
-        [WeakEvent]
         public event EventHandler TargetSolutionChanged;
 
         /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
         /// unloaded from the target running instance of Visual Studio.
         /// </summary>
-        [WeakEvent]
         public event EventHandler Unloaded;
 
         /// <summary>
@@ -268,7 +259,6 @@ namespace MFR.Harnesses.LoadedSolutions
         /// <see langword="true" />
         /// to prevent the operation from being carried out.
         /// </remarks>
-        [WeakEvent]
         public event CancelEventHandler Unloading;
 
         /// <summary>

@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Interfaces;
 using PostSharp.Patterns.Diagnostics;
@@ -42,7 +41,6 @@ namespace MFR.GUI.Controls
         /// <summary>
         /// Occurs when the Folded state of the parent form is to be changed.
         /// </summary>
-        [WeakEvent]
         public event FormFoldedEventHandler FormFolded;
 
         /// <summary>

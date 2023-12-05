@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using MFR.Directories.Validators.Constants;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Interfaces;
@@ -74,7 +73,6 @@ namespace MFR.Directories.Validators
         ///     cref="P:MFR.CommandLine.CommandLineInfo.RootDirectory" />
         /// property is invalid.
         /// </summary>
-        [WeakEvent]
         public event RootDirectoryInvalidEventHandler RootDirectoryInvalid;
 
         /// <summary>

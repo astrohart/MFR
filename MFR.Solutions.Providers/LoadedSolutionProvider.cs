@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Model;
 using MFR.Solutions.Providers.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -81,7 +80,6 @@ namespace MFR.Solutions.Providers
         /// <see cref="P:MFR.Solutions.Providers.LoadedSolutionProvider.RootDirectoryPath" />
         /// property is updated.
         /// </summary>
-        [WeakEvent]
         public event EventHandler RootDirectoryPathChanged;
 
         /// <summary>
