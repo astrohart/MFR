@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Interfaces;
 using NUnit.Framework;
 
@@ -9,7 +10,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
     ///     cref="T:MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class MakeNewConfigurationTests
     {
         /// <summary>

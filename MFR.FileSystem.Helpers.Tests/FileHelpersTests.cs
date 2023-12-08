@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories;
 using MFR.Tests.Common;
@@ -13,7 +14,7 @@ namespace MFR.FileSystem.Helpers.Tests
     ///     cref="T:MFR.FileHelpers" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
     public class FileHelpersTests
     {

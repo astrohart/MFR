@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
@@ -20,7 +21,7 @@ namespace MFR.Settings.Configuration.Commands.Tests
     /// object reference, bundled together inside a File System Entry POCO, and
     /// it is serialized to disk.
     /// </remarks>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class SaveConfigurationToFileCommandTests
     {
         /// <summary>

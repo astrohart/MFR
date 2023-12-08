@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Microsoft.Win32;
 using NUnit.Framework;
 
@@ -9,7 +10,7 @@ namespace MFR.Registry.Helpers.Tests
     ///     cref="T:MFR.RegistryHiveExtensions" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class RegistryHiveExtensionsTests
     {
         /// <summary>

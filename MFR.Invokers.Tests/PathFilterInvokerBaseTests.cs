@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Invokers.Factories;
 using MFR.Invokers.Interfaces;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.Invokers.Tests
     ///     cref="T:MFR.PathFilterInvokerBase" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class PathFilterInvokerBaseTests
     {
         /// <summary>

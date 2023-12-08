@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Engines.Matching.Factories;
 using MFR.Engines.Matching.Interfaces;
@@ -15,7 +16,7 @@ namespace MFR.Engines.Matching.Tests
     ///     cref="T:MFR.Engines.Matching.TextInFilesMatchingEngine" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class TextInFilesMatchingEngineTests
     {
         /// <summary>

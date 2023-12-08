@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories.Interfaces;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.Replacers.Factories.Tests
     ///     cref="T:MFR.GetStringReplacer" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class GetStringReplacerTests
     {
         /// <summary>

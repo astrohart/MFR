@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.File.Stream.Providers.Events;
 using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
@@ -20,7 +21,7 @@ namespace MFR.File.Stream.Providers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.File.Stream.Providers.FileStreamProvider" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FileStreamProviderTests
     {
         /// <summary>

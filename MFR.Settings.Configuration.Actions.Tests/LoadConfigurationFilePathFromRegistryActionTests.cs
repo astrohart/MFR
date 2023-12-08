@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Constants;
 using MFR.Expressions.Registry.Factories;
@@ -21,7 +22,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
     ///     cref="T:MFR.LoadStringFromRegistryAction" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class
         LoadConfigurationFilePathFromRegistryActionTests :
             RegistryDataExchangeTestsBase

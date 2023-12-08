@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Constants;
 using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
@@ -11,7 +12,7 @@ namespace MFR.Matchers.Factories.Tests
     ///     cref="T:MFR.RenameFilesInFolderStringMatcherFactory" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class RenameFilesInFolderStringMatcherFactoryTests
     {
         /// <summary>

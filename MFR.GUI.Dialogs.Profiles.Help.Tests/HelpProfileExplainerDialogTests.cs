@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Dialogs.Profiles.Help.Factories;
 using MFR.GUI.Dialogs.Tests;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.GUI.Dialogs.Profiles.Help.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.GUI.Dialogs.HelpProfileExplainerDialog" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class HelpProfileExplainerDialogTests : DialogTestBase
     {
         /// <summary>

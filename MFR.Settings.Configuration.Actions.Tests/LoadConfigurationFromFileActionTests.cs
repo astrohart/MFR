@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Expressions.Registry.Factories;
 using MFR.Expressions.Registry.Interfaces;
@@ -17,7 +18,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
     ///     cref="T:MFR.LoadConfigurationFromFileAction" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class
         LoadConfigurationFromFileActionTests : RegistryDataExchangeTestsBase
     {

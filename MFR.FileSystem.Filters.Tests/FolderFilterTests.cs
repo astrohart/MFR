@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Filters.Factories;
 using NUnit.Framework;
 using System;
@@ -8,7 +9,7 @@ namespace MFR.FileSystem.Filters.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Filters.FolderFilter" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FolderFilterTests
     {
         private static readonly string SEARCH_PATH =

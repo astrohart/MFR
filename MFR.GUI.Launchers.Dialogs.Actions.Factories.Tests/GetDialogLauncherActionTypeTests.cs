@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Launchers.Dialogs.Actions.Constants;
 using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
 using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
@@ -12,7 +13,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests
     ///     cref="T:MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherActionType" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
     public class GetDialogLauncherActionTypeTests
     {

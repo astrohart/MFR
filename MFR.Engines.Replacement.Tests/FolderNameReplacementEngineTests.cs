@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.Engines.Replacement.Tests
     ///     cref="T:MFR.FolderNameReplacementEngine" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class
         FolderNameReplacementEngineTests : TextReplacementEngineTestBase
     {

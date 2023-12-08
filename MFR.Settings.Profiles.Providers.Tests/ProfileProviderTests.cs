@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Constants;
 using MFR.Settings.Profiles.Collections.Interfaces;
@@ -15,7 +16,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.Settings.Profiles.Providers.ProfileProvider" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class ProfileProviderTests
     {
         /// <summary>

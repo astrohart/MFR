@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Validators.Interfaces;
 using MFR.Tests.Common;
@@ -12,7 +13,7 @@ namespace MFR.FileSystem.Validators.Tests
     ///     cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
     public class ProjectFileValidatorTests
     {

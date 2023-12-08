@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using NUnit.Framework;
 
 namespace MFR.Renamers.Files.Tests
@@ -8,7 +9,7 @@ namespace MFR.Renamers.Files.Tests
     ///     cref="T:MFR.Renamers.Files.FileRenamer" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FileRenamerTests
     {
         /// <summary>

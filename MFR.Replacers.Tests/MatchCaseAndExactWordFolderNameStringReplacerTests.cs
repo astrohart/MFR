@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Constants;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories;
@@ -12,7 +13,7 @@ namespace MFR.Replacers.Tests
     ///     cref="T:MFR.MatchCaseAndExactWordFolderNameStringReplacer" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class MatchCaseAndExactWordFolderNameStringReplacerTests
     {
         /// <summary>

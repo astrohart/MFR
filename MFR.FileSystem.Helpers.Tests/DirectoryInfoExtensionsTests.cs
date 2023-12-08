@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
@@ -13,7 +14,7 @@ namespace MFR.FileSystem.Helpers.Tests
     ///     cref="T:MFR.DirectoryInfoExtensions" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class DirectoryInfoExtensionsTests
     {
         /// <summary>

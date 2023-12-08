@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
     ///     cref="T:MFR.GetFileSystemEntryListRetriever" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class GetFileSystemEntryListRetrieverTests
     {
 

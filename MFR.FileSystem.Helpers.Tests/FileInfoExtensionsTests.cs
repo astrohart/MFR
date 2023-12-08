@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -24,7 +25,7 @@ namespace MFR.FileSystem.Helpers.Tests
     ///     cref="T:MFR.FileInfoExtensions" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FileInfoExtensionsTests
     {
         /// <summary>

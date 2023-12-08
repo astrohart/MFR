@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Paths.Config.Provider.Factories;
 using MFR.Paths.Config.Provider.Interfaces;
@@ -16,7 +17,7 @@ namespace MFR.Settings.Configuration.Tests
     /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class ProjectFileRenamerConfigurationTests
     {
         /// <summary>

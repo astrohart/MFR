@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Factories;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.GUI.Dialogs.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.GUI.Dialogs.ProfileNameDialog" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class ProfileNameDialogTests : DialogTestBase
     {
         /// <summary>

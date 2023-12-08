@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Enumerators;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ namespace MFR.FileSystem.Win32.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Win32.NativeMethods" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class NativeMethodsTests
     {
         /// <summary>

@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using System;
@@ -13,7 +14,7 @@ namespace MFR.FileSystem.Factories.Tests
     ///     cref="T:MFR.MakeNewFileInfo" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class MakeNewFileInfoTests
     {
         /// <summary>

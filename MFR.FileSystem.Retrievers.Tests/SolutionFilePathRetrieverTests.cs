@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.Operations.Constants;
 using MFR.Tests;
@@ -15,7 +16,7 @@ namespace MFR.FileSystem.Retrievers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Retrievers.SolutionFilePathRetriever" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class SolutionFilePathRetrieverTests
     {
         /// <summary>

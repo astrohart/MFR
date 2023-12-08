@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Operations.Constants;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.Matchers.Factories.Tests
     ///     cref="T:MFR.GetStringMatcherFactory" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class GetStringMatcherFactoryTests
     {
         /// <summary>

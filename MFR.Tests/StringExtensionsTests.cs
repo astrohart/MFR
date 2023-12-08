@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using Alphaleonis.Win32.Filesystem;
@@ -11,7 +12,7 @@ namespace MFR.Tests
     ///     cref="T:xyLOGIX.Core.Extensions.StringExtensions" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class StringExtensionsTests
     {
         /// <summary>

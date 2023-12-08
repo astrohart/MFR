@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using NUnit.Framework;
 
@@ -9,7 +10,7 @@ namespace MFR.Engines.Matching.Tests
     ///     cref="T:MFR.FileNameMatchingEngine" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FileNameMatchingEngineTests : TextExpressionMatchingEngineTestBase
     {
         /// <summary>

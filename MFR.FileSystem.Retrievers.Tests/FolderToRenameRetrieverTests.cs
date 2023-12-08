@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;
@@ -17,7 +18,7 @@ namespace MFR.FileSystem.Retrievers.Tests
     ///     cref="T:MFR.FolderToRenameRetriever" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FolderToRenameRetrieverTests
     {
         /// <summary>

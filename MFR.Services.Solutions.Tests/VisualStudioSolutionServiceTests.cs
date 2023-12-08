@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Services.Solutions.Factories;
 using MFR.Tests.Common;
@@ -12,7 +13,7 @@ namespace MFR.Services.Solutions.Tests
     ///     cref="T:MFR.Services.Solutions.VisualStudioSolutionService" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class VisualStudioSolutionServiceTests
     {
         /// <summary>

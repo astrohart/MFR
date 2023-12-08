@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
@@ -13,7 +14,7 @@ namespace MFR.Directories.Managers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.Directories.Managers.SearchDirectoryManager" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class SearchDirectoryManagerTests
     {
         private readonly Stopwatch _stopwatch;

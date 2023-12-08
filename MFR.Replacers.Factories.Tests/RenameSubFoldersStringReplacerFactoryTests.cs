@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Constants;
 using MFR.Operations.Constants;
 using MFR.Replacers.Interfaces;
@@ -11,7 +12,7 @@ namespace MFR.Replacers.Factories.Tests
     ///     cref="T:MFR.RenameSubFoldersStringReplacerFactory" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class RenameSubFoldersStringReplacerFactoryTests
     {
         /// <summary>

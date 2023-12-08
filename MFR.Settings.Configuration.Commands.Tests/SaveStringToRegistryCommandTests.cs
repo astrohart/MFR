@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Registry.Helpers;
@@ -15,7 +16,7 @@ namespace MFR.Settings.Configuration.Commands.Tests
     ///     cref="T:MFR.SaveStringToRegistryCommand" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class
         SaveStringToRegistryCommandTests : RegistryDataExchangeTestsBase
     {

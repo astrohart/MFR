@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
     ///     cref="T:MFR.GetFileSystemEntryValidator" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class GetFileSystemEntryValidatorTests
     {
         /// <summary>

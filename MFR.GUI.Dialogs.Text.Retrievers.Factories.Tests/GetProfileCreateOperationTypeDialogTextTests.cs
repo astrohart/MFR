@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests.Properties;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests
     ///     cref="T:MFR.GUI.Dialogs.Text.Retrievers.Factories.GetProfileCreateOperationTypeDialogText" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class GetProfileCreateOperationTypeDialogTextTests
     {
         /// <summary>

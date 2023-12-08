@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Validators.Factories;
 using MFR.Operations.Constants;
@@ -15,7 +16,7 @@ namespace MFR.FileSystem.Validators.Tests
     ///     cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class DirectoryPathValidatorTests
     {
         /// <summary>

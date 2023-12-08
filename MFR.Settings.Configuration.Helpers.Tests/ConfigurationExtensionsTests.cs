@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;
@@ -10,7 +11,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
     ///     cref="T:MFR.Settings.ConfigurationExtensions" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class ConfigurationExtensionsTests
     {
         /// <summary>

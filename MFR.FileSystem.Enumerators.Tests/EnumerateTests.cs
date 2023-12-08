@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Enumerators.Tests.Constants;
 using NUnit.Framework;
 using System;
@@ -11,7 +12,7 @@ namespace MFR.FileSystem.Enumerators.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Enumerators.Enumerate" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class EnumerateTests
     {
         /// <summary>

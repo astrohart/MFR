@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using NUnit.Framework;
 using System;
@@ -10,7 +11,7 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.Settings.Profiles.Providers.Actions.Obtain" /> class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class ObtainTests
     {
         /// <summary>

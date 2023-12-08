@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Generators.RegularExpressions.Constants;
 using MFR.Generators.RegularExpressions.Interfaces;
 using MFR.Tests.Common;
@@ -11,7 +12,7 @@ namespace MFR.Generators.RegularExpressions.Factories.Tests
     ///     cref="T:MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class GetRegularExpressionGeneratorTests
     {
         /// <summary>

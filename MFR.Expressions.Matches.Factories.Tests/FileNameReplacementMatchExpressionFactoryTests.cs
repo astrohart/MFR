@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Operations.Constants;
@@ -14,7 +15,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
     ///     cref="T:MFR.FileNameReplacementMatchExpressionFactory" />
     /// class.
     /// </summary>
-    [TestFixture]
+    [TextFixture, ExplicitlySynchronized]
     public class FileNameReplacementMatchExpressionFactoryTests
     {
         /// <summary>
