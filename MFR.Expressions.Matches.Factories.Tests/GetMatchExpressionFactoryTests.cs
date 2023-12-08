@@ -11,7 +11,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
     ///     cref="T:MFR.GetMatchExpressionFactory" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetMatchExpressionFactoryTests
     {
         /// <summary>

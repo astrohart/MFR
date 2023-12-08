@@ -11,7 +11,7 @@ namespace MFR.Engines.Matching.Factories.Tests
     ///     cref="T:MFR.GetTextExpressionMatchingEngine" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetTextExpressionMatchingEngineTests
     {
         /// <summary>

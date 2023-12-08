@@ -11,7 +11,7 @@ namespace MFR.Replacers.Factories.Tests
     ///     cref="T:MFR.GetStringReplacer" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetStringReplacerTests
     {
         /// <summary>

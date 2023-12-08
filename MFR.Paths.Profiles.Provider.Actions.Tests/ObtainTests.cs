@@ -11,7 +11,7 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.Settings.Profiles.Providers.Actions.Obtain" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ObtainTests
     {
         /// <summary>

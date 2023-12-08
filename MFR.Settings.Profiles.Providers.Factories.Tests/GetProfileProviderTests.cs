@@ -10,7 +10,7 @@ namespace MFR.Settings.Profiles.Providers.Factories.Tests
     ///     cref="T:MFR.Settings.Profiles.Providers.Factories.GetProfileProvider" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetProfileProviderTests
     {
         /// <summary>

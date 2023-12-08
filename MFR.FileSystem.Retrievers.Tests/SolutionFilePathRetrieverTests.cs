@@ -16,7 +16,7 @@ namespace MFR.FileSystem.Retrievers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Retrievers.SolutionFilePathRetriever" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class SolutionFilePathRetrieverTests
     {
         /// <summary>

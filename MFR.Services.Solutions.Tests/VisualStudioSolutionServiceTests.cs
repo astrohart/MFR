@@ -13,7 +13,7 @@ namespace MFR.Services.Solutions.Tests
     ///     cref="T:MFR.Services.Solutions.VisualStudioSolutionService" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class VisualStudioSolutionServiceTests
     {
         /// <summary>

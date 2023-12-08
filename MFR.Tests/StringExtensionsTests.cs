@@ -12,7 +12,7 @@ namespace MFR.Tests
     ///     cref="T:xyLOGIX.Core.Extensions.StringExtensions" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class StringExtensionsTests
     {
         /// <summary>

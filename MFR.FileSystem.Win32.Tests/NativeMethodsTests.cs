@@ -11,7 +11,7 @@ namespace MFR.FileSystem.Win32.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Win32.NativeMethods" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class NativeMethodsTests
     {
         /// <summary>

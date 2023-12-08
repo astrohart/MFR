@@ -11,7 +11,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
     ///     cref="T:MFR.GetFileSystemEntryListRetriever" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetFileSystemEntryListRetrieverTests
     {
 

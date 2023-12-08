@@ -16,7 +16,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.Settings.Profiles.Providers.ProfileProvider" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ProfileProviderTests
     {
         /// <summary>

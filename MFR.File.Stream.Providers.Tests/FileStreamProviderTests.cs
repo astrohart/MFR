@@ -21,7 +21,7 @@ namespace MFR.File.Stream.Providers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.File.Stream.Providers.FileStreamProvider" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class FileStreamProviderTests
     {
         /// <summary>

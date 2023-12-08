@@ -14,7 +14,7 @@ namespace MFR.FileSystem.Helpers.Tests
     ///     cref="T:MFR.DirectoryInfoExtensions" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class DirectoryInfoExtensionsTests
     {
         /// <summary>

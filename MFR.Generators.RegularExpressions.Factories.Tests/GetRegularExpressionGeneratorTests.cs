@@ -12,7 +12,7 @@ namespace MFR.Generators.RegularExpressions.Factories.Tests
     ///     cref="T:MFR.Generators.RegularExpressions.Factories.GetRegularExpressionGenerator" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetRegularExpressionGeneratorTests
     {
         /// <summary>

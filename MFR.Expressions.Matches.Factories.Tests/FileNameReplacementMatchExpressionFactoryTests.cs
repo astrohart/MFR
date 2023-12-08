@@ -15,7 +15,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
     ///     cref="T:MFR.FileNameReplacementMatchExpressionFactory" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class FileNameReplacementMatchExpressionFactoryTests
     {
         /// <summary>

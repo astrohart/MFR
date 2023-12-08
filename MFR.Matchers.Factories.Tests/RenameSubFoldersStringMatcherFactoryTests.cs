@@ -12,7 +12,7 @@ namespace MFR.Matchers.Factories.Tests
     ///     cref="T:MFR.RenameSubFoldersStringMatcherFactory" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class RenameSubFoldersStringMatcherFactoryTests
     {
         /// <summary>

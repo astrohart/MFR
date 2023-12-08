@@ -11,7 +11,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
     ///     cref="T:MFR.GetFileSystemEntryValidator" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetFileSystemEntryValidatorTests
     {
         /// <summary>

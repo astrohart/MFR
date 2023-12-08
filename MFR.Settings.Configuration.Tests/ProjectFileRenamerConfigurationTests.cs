@@ -17,7 +17,7 @@ namespace MFR.Settings.Configuration.Tests
     /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ProjectFileRenamerConfigurationTests
     {
         /// <summary>

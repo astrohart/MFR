@@ -9,7 +9,7 @@ namespace MFR.Renamers.Files.Tests
     ///     cref="T:MFR.Renamers.Files.FileRenamer" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class FileRenamerTests
     {
         /// <summary>

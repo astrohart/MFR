@@ -14,7 +14,7 @@ namespace MFR.FileSystem.Helpers.Tests
     ///     cref="T:MFR.FileHelpers" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
     public class FileHelpersTests
     {

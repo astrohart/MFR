@@ -16,7 +16,7 @@ namespace MFR.Settings.Configuration.Commands.Tests
     ///     cref="T:MFR.SaveStringToRegistryCommand" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class
         SaveStringToRegistryCommandTests : RegistryDataExchangeTestsBase
     {

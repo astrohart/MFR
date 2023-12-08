@@ -16,7 +16,7 @@ namespace MFR.Engines.Matching.Tests
     ///     cref="T:MFR.Engines.Matching.TextInFilesMatchingEngine" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class TextInFilesMatchingEngineTests
     {
         /// <summary>

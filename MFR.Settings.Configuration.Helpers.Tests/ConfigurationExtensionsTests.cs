@@ -11,7 +11,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
     ///     cref="T:MFR.Settings.ConfigurationExtensions" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ConfigurationExtensionsTests
     {
         /// <summary>

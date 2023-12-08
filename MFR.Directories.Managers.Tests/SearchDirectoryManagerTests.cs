@@ -14,7 +14,7 @@ namespace MFR.Directories.Managers.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.Directories.Managers.SearchDirectoryManager" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class SearchDirectoryManagerTests
     {
         private readonly Stopwatch _stopwatch;

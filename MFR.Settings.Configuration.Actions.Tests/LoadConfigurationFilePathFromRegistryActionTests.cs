@@ -22,7 +22,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
     ///     cref="T:MFR.LoadStringFromRegistryAction" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class
         LoadConfigurationFilePathFromRegistryActionTests :
             RegistryDataExchangeTestsBase

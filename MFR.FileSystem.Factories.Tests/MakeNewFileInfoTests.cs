@@ -14,7 +14,7 @@ namespace MFR.FileSystem.Factories.Tests
     ///     cref="T:MFR.MakeNewFileInfo" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class MakeNewFileInfoTests
     {
         /// <summary>

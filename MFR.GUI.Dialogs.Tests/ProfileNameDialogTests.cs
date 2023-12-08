@@ -11,7 +11,7 @@ namespace MFR.GUI.Dialogs.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.GUI.Dialogs.ProfileNameDialog" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ProfileNameDialogTests : DialogTestBase
     {
         /// <summary>

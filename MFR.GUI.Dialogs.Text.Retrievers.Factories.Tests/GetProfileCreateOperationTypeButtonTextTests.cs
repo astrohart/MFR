@@ -11,7 +11,7 @@ namespace MFR.GUI.Dialogs.Text.Retrievers.Factories.Tests
     ///     cref="T:MFR.GUI.Dialogs.Text.Retrievers.Factories.GetProfileCreateOperationTypeButtonText" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class GetProfileCreateOperationTypeButtonTextTests
     {
         /// <summary>

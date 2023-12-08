@@ -18,7 +18,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
     ///     cref="T:MFR.LoadConfigurationFromFileAction" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class
         LoadConfigurationFromFileActionTests : RegistryDataExchangeTestsBase
     {

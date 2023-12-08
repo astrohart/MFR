@@ -10,7 +10,7 @@ namespace MFR.Engines.Matching.Tests
     ///     cref="T:MFR.FileNameMatchingEngine" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class FileNameMatchingEngineTests : TextExpressionMatchingEngineTestBase
     {
         /// <summary>

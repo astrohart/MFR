@@ -10,7 +10,7 @@ namespace MFR.Registry.Helpers.Tests
     ///     cref="T:MFR.RegistryHiveExtensions" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class RegistryHiveExtensionsTests
     {
         /// <summary>

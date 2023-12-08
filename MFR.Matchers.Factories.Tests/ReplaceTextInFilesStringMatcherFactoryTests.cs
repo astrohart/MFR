@@ -12,7 +12,7 @@ namespace MFR.Matchers.Factories.Tests
     ///     cref="T:MFR.ReplaceTextInFilesStringMatcherFactory" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class ReplaceTextInFilesStringMatcherFactoryTests
     {
         /// <summary>

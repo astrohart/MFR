@@ -13,7 +13,7 @@ namespace MFR.FileSystem.Validators.Tests
     ///     cref="T:MFR.FileSystem.Validators.ProjectFileValidator" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
     public class ProjectFileValidatorTests
     {

@@ -11,7 +11,7 @@ namespace MFR.Engines.Matching.Tests
     ///     cref="T:MFR.FolderNameMatchingEngine" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class FolderNameMatchingEngineTests : TextExpressionMatchingEngineTestBase
     {
         /// <summary>

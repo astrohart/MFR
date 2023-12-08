@@ -11,7 +11,7 @@ namespace MFR.Invokers.Tests
     ///     cref="T:MFR.PathFilterInvokerBase" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class PathFilterInvokerBaseTests
     {
         /// <summary>

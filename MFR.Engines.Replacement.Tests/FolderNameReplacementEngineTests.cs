@@ -11,7 +11,7 @@ namespace MFR.Engines.Replacement.Tests
     ///     cref="T:MFR.FolderNameReplacementEngine" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class
         FolderNameReplacementEngineTests : TextReplacementEngineTestBase
     {

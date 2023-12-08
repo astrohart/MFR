@@ -13,7 +13,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests
     ///     cref="T:MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherActionType" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
     public class GetDialogLauncherActionTypeTests
     {

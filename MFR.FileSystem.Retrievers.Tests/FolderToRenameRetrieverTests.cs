@@ -18,7 +18,7 @@ namespace MFR.FileSystem.Retrievers.Tests
     ///     cref="T:MFR.FolderToRenameRetriever" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class FolderToRenameRetrieverTests
     {
         /// <summary>

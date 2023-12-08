@@ -12,7 +12,7 @@ namespace MFR.FileSystem.Enumerators.Tests
     /// Provides unit tests for the methods, properties, and events of the
     /// <see cref="T:MFR.FileSystem.Enumerators.Enumerate" /> class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class EnumerateTests
     {
         /// <summary>

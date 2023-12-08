@@ -10,7 +10,7 @@ namespace MFR.Settings.Configuration.Factories.Tests
     ///     cref="T:MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfiguration" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class MakeNewConfigurationTests
     {
         /// <summary>

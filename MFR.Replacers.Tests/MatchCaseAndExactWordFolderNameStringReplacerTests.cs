@@ -13,7 +13,7 @@ namespace MFR.Replacers.Tests
     ///     cref="T:MFR.MatchCaseAndExactWordFolderNameStringReplacer" />
     /// class.
     /// </summary>
-    [TextFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized]
     public class MatchCaseAndExactWordFolderNameStringReplacerTests
     {
         /// <summary>
