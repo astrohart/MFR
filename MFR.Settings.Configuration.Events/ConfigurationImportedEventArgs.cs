@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Settings.Configuration.Events
@@ -5,6 +6,7 @@ namespace MFR.Settings.Configuration.Events
     /// <summary>
     /// Defines the data that is passed by all events of type <see cref="T:MFR.Settings.Configuration.Events.ConfigurationImportedEventHandler"/>.
     /// </summary>
+[ExplicitlySynchronized]
     public class ConfigurationImportedEventArgs : EventArgs
     {
         /// <summary>

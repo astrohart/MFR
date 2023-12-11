@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using System;
 
@@ -7,6 +8,7 @@ namespace MFR.Events.Common
     /// Defines the data that is passed by all events of type
     /// <see cref="T:MFR.Events.Common.StatusUpdateEventHandler" />.
     /// </summary>
+[ExplicitlySynchronized]
     public class StatusUpdateEventArgs : EventArgs
     {
         /// <summary>

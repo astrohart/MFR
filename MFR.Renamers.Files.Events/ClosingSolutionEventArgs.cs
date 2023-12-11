@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System.ComponentModel;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
@@ -11,6 +12,7 @@ namespace MFR.Renamers.Files.Events
     /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
     /// <see langword="true" /> as a means of stopping the operation from proceeding.
     /// </remarks>
+[ExplicitlySynchronized]
     public class ClosingSolutionEventArgs : CancelEventArgs
     {
         /// <summary>

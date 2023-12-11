@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 using PostSharp.Patterns.Diagnostics;
 
@@ -7,6 +8,7 @@ namespace MFR.Events
     /// Defines the data that is passed by all events of type <see cref="T:MFR.Events.FileSystemEntrySkippedEventHandler"/>.
     /// </summary>
     [Log(AttributeExclude = true)]
+[ExplicitlySynchronized]
     public class FileSystemEntrySkippedEventArgs : EventArgs
     {
         /// <summary>

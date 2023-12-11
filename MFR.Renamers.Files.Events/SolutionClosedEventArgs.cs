@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Renamers.Files.Events
@@ -10,6 +11,7 @@ namespace MFR.Renamers.Files.Events
     /// instance of Visual Studio has just finished closing/unloading a Visual Studio
     /// Solution (<c>*.sln</c>) file.
     /// </remarks>
+[ExplicitlySynchronized]
     public class SolutionClosedEventArgs : EventArgs
     {
         /// <summary>

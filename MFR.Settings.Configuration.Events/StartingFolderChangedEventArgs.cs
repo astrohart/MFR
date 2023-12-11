@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Settings.Configuration.Events
@@ -5,6 +6,7 @@ namespace MFR.Settings.Configuration.Events
     /// <summary>
     /// Provides information for <c>StartingFolderChanged</c> event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class StartingFolderChangedEventArgs : EventArgs
     {
         /// <summary>

@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Constants.Generators;
@@ -8,6 +9,7 @@ namespace MFR.CommandLine.Validators.Events
     /// <summary>
     /// Provides information for CommandLineInfoInvalid event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class CommandLineInfoInvalidEventArgs : EventArgs
     {
         /// <summary>

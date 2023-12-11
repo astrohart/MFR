@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using System.ComponentModel;
 
@@ -6,6 +7,7 @@ namespace MFR.Operations.Events
     /// <summary>
     /// Contains data for an OperationCanceled event.
     /// </summary>
+[ExplicitlySynchronized]
     public class OperationCancelEventArgs : CancelEventArgs
     {
         /// <summary>

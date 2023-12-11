@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Events
@@ -5,6 +6,7 @@ namespace MFR.Events
     /// <summary>
     /// Provides information for FileRenamed event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class FileRenamedEventArgs : EventArgs
     {
         /// <summary>

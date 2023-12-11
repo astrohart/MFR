@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Settings.Configuration.Events
@@ -5,6 +6,7 @@ namespace MFR.Settings.Configuration.Events
     /// <summary>
     /// Provides information for ConfigurationExported event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class ConfigurationExportedEventArgs : EventArgs
     {
         /// <summary>

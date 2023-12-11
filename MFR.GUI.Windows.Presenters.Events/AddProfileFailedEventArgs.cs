@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Windows.Presenters.Events.Properties;
 using System;
 
@@ -8,6 +9,7 @@ namespace MFR.GUI.Windows.Presenters.Events
     /// <see cref="T:MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventHandler" />
     /// .
     /// </summary>
+[ExplicitlySynchronized]
     public class AddProfileFailedEventArgs : EventArgs
     {
         /// <summary>

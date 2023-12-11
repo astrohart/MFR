@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.GUI.Windows.Presenters.Events
@@ -5,6 +6,7 @@ namespace MFR.GUI.Windows.Presenters.Events
     /// <summary>
     /// Provides information for CreateNewBlankProfileRequested event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class CreateNewBlankProfileRequestedEventArgs : EventArgs
     {
         /// <summary>

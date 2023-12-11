@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using System;
@@ -8,6 +9,7 @@ namespace MFR.Events
     /// Base class that provides common methods and properties for all
     /// event-argument objects for text pattern matches.
     /// </summary>
+[ExplicitlySynchronized]
     public class TextPatternMatchEventArgs : OperationEventArgs
     {
         /// <summary>

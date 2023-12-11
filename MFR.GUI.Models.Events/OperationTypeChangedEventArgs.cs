@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using System;
 
@@ -6,6 +7,7 @@ namespace MFR.GUI.Models.Events
     /// <summary>
     /// Provides information for <c>OperationTypeChanged</c> event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class OperationTypeChangedEventArgs : EventArgs
     {
         /// <summary>

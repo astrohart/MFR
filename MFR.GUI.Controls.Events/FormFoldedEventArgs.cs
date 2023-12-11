@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 using System.Drawing;
 
@@ -6,6 +7,7 @@ namespace MFR.GUI.Controls.Events
     /// <summary>
     /// Contains information for a Folded event.
     /// </summary>
+[ExplicitlySynchronized]
     public class FormFoldedEventArgs : EventArgs
     {
         /// <summary>

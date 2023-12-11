@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Windows.Constants;
 using System;
 
@@ -6,6 +7,7 @@ namespace MFR.GUI.Windows.Events
     /// <summary>
     /// Provides information for <c>MainWindowStateChanged</c> event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class MainWindowStateChangedEventArgs : EventArgs
     {
         /// <summary>

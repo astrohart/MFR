@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 
 namespace MFR.Operations.Events
@@ -5,6 +6,7 @@ namespace MFR.Operations.Events
     /// <summary>
     /// Contains the data for a OperationFinished event.
     /// </summary>
+[ExplicitlySynchronized]
     public class OperationFinishedEventArgs : OperationEventArgs
     {
         /// <summary>

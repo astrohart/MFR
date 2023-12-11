@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.GUI.Dialogs.Events
@@ -5,6 +6,7 @@ namespace MFR.GUI.Dialogs.Events
     /// <summary>
     /// Provides information for ViewErrorReportRequested event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class ViewErrorReportRequestedEventArgs : EventArgs
     {
         /// <summary>

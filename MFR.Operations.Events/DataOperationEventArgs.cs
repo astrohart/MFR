@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Operations.Events
@@ -5,6 +6,7 @@ namespace MFR.Operations.Events
     /// <summary>
     /// Provides information for DataOperation event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class DataOperationEventArgs : EventArgs
     {
         /// <summary> Constructs a new instance of <see

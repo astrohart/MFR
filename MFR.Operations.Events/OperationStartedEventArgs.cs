@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 
 namespace MFR.Operations.Events
@@ -5,6 +6,7 @@ namespace MFR.Operations.Events
     /// <summary>
     /// Defines the data that is passed by all events of type <see cref="T:MFR.Operations.Events.OperationStartedEventHandler"/>.
     /// </summary>
+[ExplicitlySynchronized]
     public class OperationStartedEventArgs : OperationEventArgs
     {
         /// <summary>

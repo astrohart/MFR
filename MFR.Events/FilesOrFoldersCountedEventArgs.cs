@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 
@@ -6,6 +7,7 @@ namespace MFR.Events
     /// <summary>
     /// Defines the data that is passed by all events of type <see cref="T:MFR.Events.FilesOrFoldersCountedEventHandler"/>.
     /// </summary>
+[ExplicitlySynchronized]
     public class FilesOrFoldersCountedEventArgs : OperationEventArgs
     {
         /// <summary>

@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 using System.IO;
 
@@ -6,6 +7,7 @@ namespace MFR.File.Stream.Providers.Events
     /// <summary>
     /// Provides information for <c>FileStreamOpened</c> event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class FileStreamOpenedEventArgs : EventArgs
     {
         /// <summary>

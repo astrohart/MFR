@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Renamers.Files.Events
@@ -5,6 +6,7 @@ namespace MFR.Renamers.Files.Events
     /// <summary>
     /// Provides information for <c>SolutionOpenFailed</c> event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class SolutionOpenFailedEventArgs : EventArgs
     {
         /// <summary>

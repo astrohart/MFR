@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Events.Common;
 using System;
 
@@ -6,6 +7,7 @@ namespace MFR.Operations.Events
     /// <summary>
     /// Provides information for DataOperationError event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class DataOperationErrorEventArgs : ExceptionRaisedEventArgs
     {
         /// <summary>

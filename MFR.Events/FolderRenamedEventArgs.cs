@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Events
@@ -22,6 +23,7 @@ namespace MFR.Events
     /// Callers of this class must use the class' constructor to initialize these
     /// properties.
     /// </remarks>
+[ExplicitlySynchronized]
     public class FolderRenamedEventArgs : EventArgs
     {
         /// <summary>

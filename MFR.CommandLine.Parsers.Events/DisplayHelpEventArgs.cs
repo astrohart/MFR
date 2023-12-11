@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.CommandLine.Parsers.Events
@@ -5,6 +6,7 @@ namespace MFR.CommandLine.Parsers.Events
     /// <summary>
     /// Provides information for DisplayHelp event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class DisplayHelpEventArgs : EventArgs
     {
         /// <summary>

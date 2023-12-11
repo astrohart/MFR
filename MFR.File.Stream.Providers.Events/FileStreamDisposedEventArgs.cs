@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.File.Stream.Providers.Events
@@ -5,6 +6,7 @@ namespace MFR.File.Stream.Providers.Events
     /// <summary>
     /// Provides information for <c>FileStreamDisposed</c> event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class FileStreamDisposedEventArgs : EventArgs
     {
         /// <summary>

@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Events
@@ -9,6 +10,7 @@ namespace MFR.Events
     /// The <c>Error</c> event is typically raised when an error occurs that's not
     /// triggered by an actual <see cref="T:System.Exception" />.
     /// </remarks>
+[ExplicitlySynchronized]
     public class ErrorEventArgs : EventArgs
     {
         /// <summary>

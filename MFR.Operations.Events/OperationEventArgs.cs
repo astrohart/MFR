@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
 using System;
 
@@ -7,6 +8,7 @@ namespace MFR.Operations.Events
     /// Provides methods and properties common to all event argument objects for
     /// a particular operation type.
     /// </summary>
+[ExplicitlySynchronized]
     public class OperationEventArgs : EventArgs
     {
         /// <summary>

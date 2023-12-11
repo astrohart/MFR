@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Interfaces;
 using MFR.Operations.Constants;
 
@@ -7,6 +8,7 @@ namespace MFR.Operations.Events
     /// Defines the data that is passed by all events of type
     /// <see cref="T:MFR.Operations.Events.ProcessingOperationEventHandler" />.
     /// </summary>
+[ExplicitlySynchronized]
     public class ProcessingOperationEventArgs : OperationCancelEventArgs
     {
         /// <summary>

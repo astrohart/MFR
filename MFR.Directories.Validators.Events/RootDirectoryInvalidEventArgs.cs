@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Directories.Validators.Constants;
 using MFR.Directories.Validators.Constants.Generators;
 using System;
@@ -8,6 +9,7 @@ namespace MFR.Directories.Validators.Events
     /// <summary>
     /// Provides information for RootDirectoryInvalid event handlers.
     /// </summary>
+[ExplicitlySynchronized]
     public class RootDirectoryInvalidEventArgs : CancelEventArgs
     {
         /// <summary>

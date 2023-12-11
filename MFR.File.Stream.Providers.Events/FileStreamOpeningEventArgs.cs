@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.File.Stream.Providers.Events
@@ -13,6 +14,7 @@ namespace MFR.File.Stream.Providers.Events
     /// This object conveys information about the fully-qualified pathname of the
     /// particular file on which the <c>FileStream</c> is to be opened.
     /// </remarks>
+[ExplicitlySynchronized]
     public class FileStreamOpeningEventArgs : EventArgs
     {
         /// <summary>
