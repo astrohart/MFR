@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 namespace MFR.GUI.Dialogs.Constants
 {
     /// <summary>
@@ -5,6 +6,7 @@ namespace MFR.GUI.Dialogs.Constants
     /// <see cref="T:MFR.GUI.Dialogs.Constants.ProfileCreateOperationType" />
     /// values to, e.g., display strings etc.
     /// </summary>
+    [ExplicitlySynchronized]
     public static class ConvertProfileCreateOperationType
     {
         /// <summary>

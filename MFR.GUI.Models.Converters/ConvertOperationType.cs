@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Models.Converters.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
@@ -11,6 +12,7 @@ namespace MFR.GUI.Models.Converters
     /// values to descriptive strings.
     /// </summary>
     [Log(AttributeExclude = true)]
+    [ExplicitlySynchronized]
     public static class ConvertOperationType
     {
         /// <summary>

@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Harnesses.LoadedSolutions.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
@@ -9,6 +10,7 @@ namespace MFR.Harnesses.LoadedSolutions.Factories
     /// interface by converting them from objects of other types, or that implement
     /// different (yet compatible) interfaces.
     /// </summary>
+    [ExplicitlySynchronized]
     public static class Convert
     {
         /// <summary>

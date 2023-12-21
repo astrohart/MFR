@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Models;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;
@@ -13,6 +14,7 @@ namespace MFR.Settings.Configuration.Converters
     /// implement the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
     /// interface.
     /// </summary>
+    [ExplicitlySynchronized]
     public static class ConvertProjectFileRenamerConfiguration
     {
         /// <summary>

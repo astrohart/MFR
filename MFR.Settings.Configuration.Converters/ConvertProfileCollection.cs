@@ -1,3 +1,4 @@
+using PostSharp.Patterns.Threading;
 using MFR.Settings.Profiles;
 using MFR.Settings.Profiles.Collections;
 using MFR.Settings.Profiles.Collections.Converters;
@@ -19,6 +20,7 @@ namespace MFR.Settings.Configuration.Converters
     /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProfileCollection" />
     /// interface.
     /// </summary>
+    [ExplicitlySynchronized]
     public static class ConvertProfileCollection
     {
         /// <summary>
