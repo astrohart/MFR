@@ -56,7 +56,7 @@ using xyLOGIX.Interop.Processes.Actions;
 using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
-using xyLOGIX.TimeZone.Extensions;
+using xyLOGIX.TimeZoneInfo.Extensions;
 using xyLOGIX.VisualStudio.Providers.Factories;
 using xyLOGIX.VisualStudio.Providers.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;

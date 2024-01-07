@@ -153,9 +153,9 @@
       <Project>{538e597f-bd95-49c9-8147-4b3b614daa89}</Project>
       <Name>xyLOGIX.Text.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj">
-      <Project>{20bd940c-e833-4957-98c2-30cd14269ac1}</Project>
-      <Name>xyLOGIX.TimeZone.Extensions</Name>
+    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZoneInfo.Extensions\xyLOGIX.TimeZoneInfo.Extensions.csproj">
+      <Project>{20BD940C-E833-4957-98C2-30CD14269AC1}</Project>
+      <Name>xyLOGIX.TimeZoneInfo.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Actions.Win32\MFR.Renamers.Files.Actions.Win32.csproj">
       <Project>{72001CA0-CABA-48DB-B21E-EE8A43BE7E1A}</Project>

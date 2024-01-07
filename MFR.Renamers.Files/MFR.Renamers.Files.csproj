@@ -210,9 +210,9 @@
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj">
+    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZoneInfo.Extensions\xyLOGIX.TimeZoneInfo.Extensions.csproj">
       <Project>{20BD940C-E833-4957-98C2-30CD14269AC1}</Project>
-      <Name>xyLOGIX.TimeZone.Extensions</Name>
+      <Name>xyLOGIX.TimeZoneInfo.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
       <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>

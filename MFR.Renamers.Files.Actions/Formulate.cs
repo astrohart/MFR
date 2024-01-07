@@ -1,7 +1,7 @@
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
-using xyLOGIX.TimeZone.Extensions;
+using xyLOGIX.TimeZoneInfo.Extensions;
 
 namespace MFR.Renamers.Files.Actions
 {

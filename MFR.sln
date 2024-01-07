@@ -950,8 +950,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Settings.Configuration.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Tests.Logging", "..\xyLOGIX.Tests.Logging.VS2019\xyLOGIX.Tests.Logging\xyLOGIX.Tests.Logging.csproj", "{52243153-1A0D-409A-91A8-638DBD7CF23F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TimeZone.Extensions", "..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZone.Extensions\xyLOGIX.TimeZone.Extensions.csproj", "{20BD940C-E833-4957-98C2-30CD14269AC1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Pools.Tasks", "..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks\xyLOGIX.Pools.Tasks.csproj", "{594EF6F6-A5BB-4054-8580-D2A003D23B56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Pools.Tasks.Events", "..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Events\xyLOGIX.Pools.Tasks.Events.csproj", "{F7963155-19D5-4760-96B9-D3D8CF1689D4}"
@@ -985,6 +983,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Git", "..\xyLOGIX.Interop.Git.VS2019\xyLOGIX.Interop.Git\xyLOGIX.Interop.Git.csproj", "{33E98D66-6939-44D3-9648-8819A5B928B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Collections.Synchronized", "..\xyLOGIX.Collections.Synchronized.VS2019\xyLOGIX.Collections.Synchronized\xyLOGIX.Collections.Synchronized.csproj", "{33FD8195-DDE4-4245-9EDA-35836CAA40C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.TimeZoneInfo.Extensions", "..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZoneInfo.Extensions\xyLOGIX.TimeZoneInfo.Extensions.csproj", "{20BD940C-E833-4957-98C2-30CD14269AC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8483,22 +8483,6 @@ Global
 		{52243153-1A0D-409A-91A8-638DBD7CF23F}.Release|x64.Build.0 = Release|x64
 		{52243153-1A0D-409A-91A8-638DBD7CF23F}.Release|x86.ActiveCfg = Release|x86
 		{52243153-1A0D-409A-91A8-638DBD7CF23F}.Release|x86.Build.0 = Release|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x64.ActiveCfg = Debug|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x64.Build.0 = Debug|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x86.ActiveCfg = Debug|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x86.Build.0 = Debug|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x64.ActiveCfg = Debug|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x64.Build.0 = Debug|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x86.ActiveCfg = Debug|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x86.Build.0 = Debug|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x64.ActiveCfg = Debug|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x64.Build.0 = Debug|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x86.ActiveCfg = Debug|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x86.Build.0 = Debug|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x64.ActiveCfg = Release|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x64.Build.0 = Release|x64
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x86.ActiveCfg = Release|x86
-		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x86.Build.0 = Release|x86
 		{594EF6F6-A5BB-4054-8580-D2A003D23B56}.All|x64.ActiveCfg = Debug|x64
 		{594EF6F6-A5BB-4054-8580-D2A003D23B56}.All|x64.Build.0 = Debug|x64
 		{594EF6F6-A5BB-4054-8580-D2A003D23B56}.All|x86.ActiveCfg = Debug|x86
@@ -8771,6 +8755,22 @@ Global
 		{33FD8195-DDE4-4245-9EDA-35836CAA40C5}.Release|x64.Build.0 = Release|x64
 		{33FD8195-DDE4-4245-9EDA-35836CAA40C5}.Release|x86.ActiveCfg = Release|x86
 		{33FD8195-DDE4-4245-9EDA-35836CAA40C5}.Release|x86.Build.0 = Release|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x64.ActiveCfg = Debug|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x64.Build.0 = Debug|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x86.ActiveCfg = Debug|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.All|x86.Build.0 = Debug|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x64.ActiveCfg = Debug|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x64.Build.0 = Debug|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x86.ActiveCfg = Debug|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Debug|x86.Build.0 = Debug|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x64.Build.0 = Debug|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.DefaultBuild|x86.Build.0 = Debug|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x64.ActiveCfg = Release|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x64.Build.0 = Release|x64
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x86.ActiveCfg = Release|x86
+		{20BD940C-E833-4957-98C2-30CD14269AC1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
