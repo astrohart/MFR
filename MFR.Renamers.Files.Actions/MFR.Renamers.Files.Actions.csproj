@@ -117,7 +117,6 @@
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="List.cs" />
     <Compile Include="Scan.cs" />
-    <Compile Include="Write.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
