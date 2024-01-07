@@ -1,5 +1,6 @@
 using MFR.File.Stream.Providers.Events;
 using MFR.File.Stream.Providers.Interfaces;
+using PostSharp.Patterns.Collections;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,6 +23,12 @@ namespace MFR.File.Stream.Providers
         IFileStreamProvider
     {
         /// <summary>
+        /// Dictionary that implements the internal collection.
+        /// </summary>
+        private readonly IDictionary<Guid, StreamReader> _internalCollection =
+            new AdvisableDictionary<Guid, StreamReader>();
+
+        /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         static FileStreamProvider() { }
@@ -40,6 +47,17 @@ namespace MFR.File.Stream.Providers
         {
             get;
         } = new FileStreamProvider();
+
+        /// <summary>
+        /// Gets a reference to an internal dictionary to be used for storing items.
+        /// </summary>
+        /// <remarks>
+        /// Child classes must statically initialize this property with an
+        /// instance of
+        /// <see cref="xyLOGIX.Collections.ObservableDictionary{TKey,TValue}" />.
+        /// </remarks>
+        protected override IDictionary<Guid, StreamReader> InternalCollection
+            => _internalCollection;
 
         /// <summary>
         /// Gets or sets a <see cref="T:System.String" /> containing the most-recently
@@ -101,6 +119,48 @@ namespace MFR.File.Stream.Providers
         /// Occurs when a <c>FileStream</c> is about to be opened upon a particular file.
         /// </summary>
         public event FileStreamOpeningEventHandler FileStreamOpening;
+
+        /// <summary>
+        /// Opens file streams for the files specified in the <paramref name="pathnames" />
+        /// collection, in batch.  Returns a collection of <see cref="T:System.Guid" />
+        /// values, each of which represents the corresponding opened file stream.  If a
+        /// </summary>
+        /// <param name="pathnames">
+        /// (Required.) A collection of one or more <see cref="T:System.String" /> values,
+        /// each of which represents a file to be opened.
+        /// </param>
+        /// <returns>
+        /// A collection of one or more <see cref="T:System.Guid" /> values, each
+        /// of which corresponds in a 1-to-1 fashion to the file(s) that have been
+        /// specified.  If a particular file could not be opened, its corresponding entry
+        /// in the returned collection will be the <see cref="F:System.Guid.Empty" />
+        /// value.
+        /// </returns>
+        /// <remarks>
+        /// If the <paramref name="pathnames" /> collection is
+        /// <see langword="null" /> or the empty collection, then this method returns the
+        /// empty collection.
+        /// </remarks>
+        public IList<Guid> BatchOpenStreams(IList<string> pathnames)
+        {
+            var result = new List<Guid>();
+
+            try
+            {
+                if (pathnames == null || !pathnames.Any()) return result;
+
+                result.AddRange(pathnames.Select(OpenStreamFor));
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = new List<Guid>();
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Attempts to look up the fully-qualified pathname of the file on whom a file
@@ -192,7 +252,7 @@ namespace MFR.File.Stream.Providers
                  * This keeps our bijective maps referentially consistent.
                  */
 
-                if (!result.IsZero() && !ContainsKey(result))
+                if (!result.IsZero() && !InternalCollection.ContainsKey(result))
                 {
                     RemovePathnameMappingFor(result);
                     result = Guid.Empty;
@@ -333,48 +393,6 @@ namespace MFR.File.Stream.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
-        }
-
-        /// <summary>
-        /// Opens file streams for the files specified in the <paramref name="pathnames" />
-        /// collection, in batch.  Returns a collection of <see cref="T:System.Guid" />
-        /// values, each of which represents the corresponding opened file stream.  If a
-        /// </summary>
-        /// <param name="pathnames">
-        /// (Required.) A collection of one or more <see cref="T:System.String" /> values,
-        /// each of which represents a file to be opened.
-        /// </param>
-        /// <returns>
-        /// A collection of one or more <see cref="T:System.Guid" /> values, each
-        /// of which corresponds in a 1-to-1 fashion to the file(s) that have been
-        /// specified.  If a particular file could not be opened, its corresponding entry
-        /// in the returned collection will be the <see cref="F:System.Guid.Empty" />
-        /// value.
-        /// </returns>
-        /// <remarks>
-        /// If the <paramref name="pathnames" /> collection is
-        /// <see langword="null" /> or the empty collection, then this method returns the
-        /// empty collection.
-        /// </remarks>
-        public IList<Guid> BatchOpenStreams(IList<string> pathnames)
-        {
-            var result = new List<Guid>();
-
-            try
-            {
-                if (pathnames == null || !pathnames.Any()) return result;
-
-                result.AddRange(pathnames.Select(OpenStreamFor));
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = new List<Guid>();
-            }
-
-            return result;
         }
 
         /// <summary>
@@ -580,7 +598,7 @@ namespace MFR.File.Stream.Providers
                 if (Count == 0)
                     return result;
 
-                result = ContainsKey(ticket);
+                result = InternalCollection.ContainsKey(ticket);
             }
             catch (Exception ex)
             {
