@@ -55,6 +55,7 @@ namespace MFR.GUI.Dialogs
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
+            this.pushChangesWhenDoneCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -267,6 +268,7 @@ namespace MFR.GUI.Dialogs
             // gitTabPage
             // 
             this.gitTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.gitTabPage.Controls.Add(this.pushChangesWhenDoneCheckBox);
             this.gitTabPage.Controls.Add(this.customizePostOperationChangesCommitMessageButton);
             this.gitTabPage.Controls.Add(this.customizePendingChangeCommitMessageButton);
             this.gitTabPage.Controls.Add(this.commitPostOperationChangesCheckBox);
@@ -296,7 +298,7 @@ namespace MFR.GUI.Dialogs
             this.customizePendingChangeCommitMessageButton.Name = "customizePendingChangeCommitMessageButton";
             this.customizePendingChangeCommitMessageButton.Padding = new System.Windows.Forms.Padding(5);
             this.customizePendingChangeCommitMessageButton.Size = new System.Drawing.Size(205, 27);
-            this.customizePendingChangeCommitMessageButton.TabIndex = 2;
+            this.customizePendingChangeCommitMessageButton.TabIndex = 1;
             this.customizePendingChangeCommitMessageButton.Text = "C&ustomize commit message....";
             this.customizePendingChangeCommitMessageButton.Click += new System.EventHandler(this.OnClickCustomizePendingChangeCommitMessageButton);
             // 
@@ -306,7 +308,7 @@ namespace MFR.GUI.Dialogs
             this.commitPostOperationChangesCheckBox.Location = new System.Drawing.Point(21, 92);
             this.commitPostOperationChangesCheckBox.Name = "commitPostOperationChangesCheckBox";
             this.commitPostOperationChangesCheckBox.Size = new System.Drawing.Size(345, 17);
-            this.commitPostOperationChangesCheckBox.TabIndex = 1;
+            this.commitPostOperationChangesCheckBox.TabIndex = 2;
             this.commitPostOperationChangesCheckBox.Text = "Commi&t change(s) that result from performing operation(s)";
             this.commitPostOperationChangesCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedCommitPostOperationChangesCheckBox);
             // 
@@ -328,7 +330,16 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
-            // OptionsDialogBox
+            // pushChangesWhenDoneCheckBox
+            // 
+            this.pushChangesWhenDoneCheckBox.IsDarkTheme = false;
+            this.pushChangesWhenDoneCheckBox.Location = new System.Drawing.Point(21, 173);
+            this.pushChangesWhenDoneCheckBox.Name = "pushChangesWhenDoneCheckBox";
+            this.pushChangesWhenDoneCheckBox.Size = new System.Drawing.Size(345, 17);
+            this.pushChangesWhenDoneCheckBox.TabIndex = 4;
+            this.pushChangesWhenDoneCheckBox.Text = "&Push changes to remote when done";
+            // 
+            // OptionsDialog
             // 
             this.AcceptButton = this.okayButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -345,7 +356,7 @@ namespace MFR.GUI.Dialogs
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "OptionsDialogBox";
+            this.Name = "OptionsDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -385,5 +396,6 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox commitPostOperationChangesCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox commitPendingChangesBeforeOperationsCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkButton customizePostOperationChangesCommitMessageButton;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox pushChangesWhenDoneCheckBox;
     }
 }
