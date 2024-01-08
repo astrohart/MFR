@@ -130,6 +130,10 @@
     <Content Include="1382_cogs.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
+      <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
+      <Name>MFR.Operations.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Actions.Constants\MFR.Settings.Configuration.Actions.Constants.csproj">
       <Project>{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}</Project>
       <Name>MFR.Settings.Configuration.Actions.Constants</Name>
