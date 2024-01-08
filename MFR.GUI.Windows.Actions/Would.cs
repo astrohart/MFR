@@ -46,6 +46,13 @@ namespace MFR.GUI.Windows.Actions
                                       rootFolderPath, "*",
                                       SearchOption.AllDirectories
                                   )
+                                  .Where(
+                                      dir => !dir.Contains("packages") &&
+                                             !dir.Contains(".git") &&
+                                             !dir.Contains(".vs") &&
+                                             !dir.Contains("bin") &&
+                                             !dir.Contains("obj")
+                                  )
                                   .Any(
                                       subFolder
                                           => Is.TargetFolderMatchingReplaceWith(
