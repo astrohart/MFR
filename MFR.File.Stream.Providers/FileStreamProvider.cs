@@ -1,6 +1,7 @@
 using MFR.File.Stream.Providers.Events;
 using MFR.File.Stream.Providers.Interfaces;
 using PostSharp.Patterns.Collections;
+using PostSharp.Patterns.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -501,11 +502,19 @@ namespace MFR.File.Stream.Providers
         {
             base.OnTicketedObjectDisposalRequested(e);
 
-            if (e.Value == null) return;
+            try
+            {
+                if (e.Value == null) return;
 
-            e.Value.DiscardBufferedData();
-            e.Value.Close();
-            e.Value.Dispose();
+                e.Value.DiscardBufferedData();
+                e.Value.Close();
+                e.Value.Dispose();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
