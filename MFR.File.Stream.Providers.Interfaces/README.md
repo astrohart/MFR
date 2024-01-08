@@ -4,7 +4,7 @@
 ## Contents
 
 - [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
-  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
+  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchOpenStreams(System.Collections.Generic.IList{System.String})')
   - [DisposeObject(ticket,remove)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeObject-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeObject(System.Guid,System.Boolean)')
   - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.GetPathnameForTicket(System.Guid)')
   - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.GetTicketForPathname(System.String)')
@@ -40,7 +40,7 @@ when the application shuts down).
 All [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') instances provided by this class are
 thread-safe.
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}-'></a>
 ### BatchOpenStreams(pathnames) `method`
 
 ##### Summary
@@ -61,7 +61,7 @@ value.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pathnames | [System.Collections.Generic.IReadOnlyCollection{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{System.String}') | (Required.) A collection of one or more [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values,
+| pathnames | [System.Collections.Generic.IList{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{System.String}') | (Required.) A collection of one or more [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values,
 each of which represents a file to be opened. |
 
 ##### Remarks

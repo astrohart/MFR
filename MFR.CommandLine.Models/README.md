@@ -14,6 +14,8 @@
   - [RenameSubFolders](#P-MFR-CommandLine-Models-CommandLineInfo-RenameSubFolders 'MFR.CommandLine.Models.CommandLineInfo.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-CommandLine-Models-CommandLineInfo-ReplaceTextInFiles 'MFR.CommandLine.Models.CommandLineInfo.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-CommandLine-Models-CommandLineInfo-ReplaceWith 'MFR.CommandLine.Models.CommandLineInfo.ReplaceWith')
+  - [ShouldCommitPendingChanges](#P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPendingChanges 'MFR.CommandLine.Models.CommandLineInfo.ShouldCommitPendingChanges')
+  - [ShouldCommitPostOperationChanges](#P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPostOperationChanges 'MFR.CommandLine.Models.CommandLineInfo.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-CommandLine-Models-CommandLineInfo-StartingFolder 'MFR.CommandLine.Models.CommandLineInfo.StartingFolder')
 - [Resources](#T-MFR-CommandLine-Models-Properties-Resources 'MFR.CommandLine.Models.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Models-Properties-Resources-Culture 'MFR.CommandLine.Models.Properties.Resources.Culture')
@@ -127,6 +129,24 @@ The default value of this property is `true`.
 
 Gets or sets a string containing the content to be replaced in the file system
 entries.
+
+<a name='P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPendingChanges'></a>
+### ShouldCommitPendingChanges `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we are to attempt to commit pending
+changes to the user's local Git repository, on the current branch, prior to
+executing the operations.
+
+<a name='P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPostOperationChanges'></a>
+### ShouldCommitPostOperationChanges `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we are to attempt to commit pending
+changes to the user's local Git repository, and on the current branch, the
+changes that have resulted from the operations we've performed.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-StartingFolder'></a>
 ### StartingFolder `property`

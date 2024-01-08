@@ -25,6 +25,7 @@
   - [PostOperationCommitMessageFormat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PostOperationCommitMessageFormat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.PostOperationCommitMessageFormat')
   - [PostOperationDetailedCommitMessageFormat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PostOperationDetailedCommitMessageFormat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.PostOperationDetailedCommitMessageFormat')
   - [PromptUserToReloadOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PromptUserToReloadOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.PromptUserToReloadOpenSolution')
+  - [PushChangesToRemoteWhenDone](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PushChangesToRemoteWhenDone 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.PushChangesToRemoteWhenDone')
   - [ReOpenSolution](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution')
   - [RenameFilesInFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameFilesInFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder')
   - [RenameSolutionFolders](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-RenameSolutionFolders 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders')
@@ -329,6 +330,19 @@ Set to `false` to suppress the display of the warning message
 box.  If users suppress the message box, and one or more of the
 target Solution(s) are indeed loaded by a running instance of Visual Studio,
 then there may be file-sharing/permissions issues during the operation(s).
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-PushChangesToRemoteWhenDone'></a>
+### PushChangesToRemoteWhenDone `property`
+
+##### Summary
+
+Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value indicating whether the
+application should automatically push the commits it creates to the remote
+repository when done with the requested operation(s).
+
+##### Remarks
+
+This property is set to `true` by default.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-ReOpenSolution'></a>
 ### ReOpenSolution `property`

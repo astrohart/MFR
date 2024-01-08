@@ -2266,6 +2266,7 @@ namespace MFR.Renamers.Files
                 if (!LocalGitInteropProvider.HasRemotes) return result;
                 if (!LocalGitInteropProvider.IsRepositoryOpen) return result;
 
+                if (!LocalGitInteropProvider.IsDirty) return result;
                 if (!LocalGitInteropProvider.HasPendingChaanges())
                     return result;
 

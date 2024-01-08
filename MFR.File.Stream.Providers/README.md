@@ -5,12 +5,15 @@
 
 - [FileStreamProvider](#T-MFR-File-Stream-Providers-FileStreamProvider 'MFR.File.Stream.Providers.FileStreamProvider')
   - [#ctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#ctor 'MFR.File.Stream.Providers.FileStreamProvider.#ctor')
+  - [_internalCollection](#F-MFR-File-Stream-Providers-FileStreamProvider-_internalCollection 'MFR.File.Stream.Providers.FileStreamProvider._internalCollection')
   - [Instance](#P-MFR-File-Stream-Providers-FileStreamProvider-Instance 'MFR.File.Stream.Providers.FileStreamProvider.Instance')
+  - [InternalCollection](#P-MFR-File-Stream-Providers-FileStreamProvider-InternalCollection 'MFR.File.Stream.Providers.FileStreamProvider.InternalCollection')
   - [LastPathnameRemoved](#P-MFR-File-Stream-Providers-FileStreamProvider-LastPathnameRemoved 'MFR.File.Stream.Providers.FileStreamProvider.LastPathnameRemoved')
   - [MapOfPathnamesToTickets](#P-MFR-File-Stream-Providers-FileStreamProvider-MapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileStreamProvider.MapOfPathnamesToTickets')
   - [MapOfTicketsToPathnames](#P-MFR-File-Stream-Providers-FileStreamProvider-MapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileStreamProvider.MapOfTicketsToPathnames')
+  - [SyncRoot](#P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot 'MFR.File.Stream.Providers.FileStreamProvider.SyncRoot')
   - [#cctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#cctor 'MFR.File.Stream.Providers.FileStreamProvider.#cctor')
-  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IReadOnlyCollection{System.String})')
+  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IList{System.String})')
   - [CreateTicketToPathnameMapping(pathname,ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-CreateTicketToPathnameMapping-System-String,System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.CreateTicketToPathnameMapping(System.String,System.Guid)')
   - [FileStreamAlreadyOpenedFor(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-FileStreamAlreadyOpenedFor-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamAlreadyOpenedFor(System.String)')
   - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.GetPathnameForTicket(System.Guid)')
@@ -56,6 +59,13 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
+<a name='F-MFR-File-Stream-Providers-FileStreamProvider-_internalCollection'></a>
+### _internalCollection `constants`
+
+##### Summary
+
+Dictionary that implements the internal collection.
+
 <a name='P-MFR-File-Stream-Providers-FileStreamProvider-Instance'></a>
 ### Instance `property`
 
@@ -64,6 +74,19 @@ This constructor has no parameters.
 Gets a reference to the one and only instance of the object that implements the
 [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
 interface.
+
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-InternalCollection'></a>
+### InternalCollection `property`
+
+##### Summary
+
+Gets a reference to an internal dictionary to be used for storing items.
+
+##### Remarks
+
+Child classes must statically initialize this property with an
+instance of
+[ObservableDictionary\`2](#T-xyLOGIX-Collections-ObservableDictionary`2 'xyLOGIX.Collections.ObservableDictionary`2').
 
 <a name='P-MFR-File-Stream-Providers-FileStreamProvider-LastPathnameRemoved'></a>
 ### LastPathnameRemoved `property`
@@ -93,6 +116,14 @@ created for it.
 Sets up a 1-to-1 correspondence between a specific file stream ticket and the
 fully-qualified pathname of the associated file on the disk.
 
+<a name='P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot'></a>
+### SyncRoot `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that is to be used for thread
+synchronization purposes.
+
 <a name='M-MFR-File-Stream-Providers-FileStreamProvider-#cctor'></a>
 ### #cctor() `method`
 
@@ -104,7 +135,7 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IReadOnlyCollection{System-String}-'></a>
+<a name='M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}-'></a>
 ### BatchOpenStreams(pathnames) `method`
 
 ##### Summary
@@ -125,7 +156,7 @@ value.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pathnames | [System.Collections.Generic.IReadOnlyCollection{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{System.String}') | (Required.) A collection of one or more [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values,
+| pathnames | [System.Collections.Generic.IList{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{System.String}') | (Required.) A collection of one or more [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values,
 each of which represents a file to be opened. |
 
 ##### Remarks

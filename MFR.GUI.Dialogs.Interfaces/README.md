@@ -29,6 +29,7 @@
   - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ConfigPathname')
   - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.DontPromptUserToReloadOpenSolution')
   - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.IsModified')
+  - [PushChangesToRemoteWhenDone](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-PushChangesToRemoteWhenDone 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.PushChangesToRemoteWhenDone')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ReOpenSolution')
   - [ShouldCommitPendingChanges](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPendingChanges 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPostOperationChanges 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldCommitPostOperationChanges')
@@ -323,12 +324,19 @@ checkbox
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-PushChangesToRemoteWhenDone'></a>
+### PushChangesToRemoteWhenDone `property`
+
+##### Summary
+
+Gets or sets the value of the checkbox.
+
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution'></a>
 ### ReOpenSolution `property`
 
 ##### Summary
 
-Gets or sets the value of the Reopen Visual Studio Solution checkbox
+Gets or sets the value of the checkbox.
 
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPendingChanges'></a>
 ### ShouldCommitPendingChanges `property`

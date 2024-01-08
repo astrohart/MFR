@@ -21,6 +21,30 @@
   - [OperationType](#P-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.CloseActiveSolutionOperationStartedDescription.OperationType')
   - [Text](#P-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription-Text 'MFR.Operations.Descriptions.CloseActiveSolutionOperationStartedDescription.Text')
   - [#cctor()](#M-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.CloseActiveSolutionOperationStartedDescription.#cctor')
+- [CommitPendingChangesOperationDescription](#T-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription 'MFR.Operations.Descriptions.CommitPendingChangesOperationDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-#ctor 'MFR.Operations.Descriptions.CommitPendingChangesOperationDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-Instance 'MFR.Operations.Descriptions.CommitPendingChangesOperationDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-OperationType 'MFR.Operations.Descriptions.CommitPendingChangesOperationDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-Text 'MFR.Operations.Descriptions.CommitPendingChangesOperationDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-#cctor 'MFR.Operations.Descriptions.CommitPendingChangesOperationDescription.#cctor')
+- [CommitPendingChangesOperationStartedDescription](#T-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription 'MFR.Operations.Descriptions.CommitPendingChangesOperationStartedDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-#ctor 'MFR.Operations.Descriptions.CommitPendingChangesOperationStartedDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-Instance 'MFR.Operations.Descriptions.CommitPendingChangesOperationStartedDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.CommitPendingChangesOperationStartedDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-Text 'MFR.Operations.Descriptions.CommitPendingChangesOperationStartedDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.CommitPendingChangesOperationStartedDescription.#cctor')
+- [CommitResultsToGitOperationDescription](#T-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription 'MFR.Operations.Descriptions.CommitResultsToGitOperationDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-#ctor 'MFR.Operations.Descriptions.CommitResultsToGitOperationDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-Instance 'MFR.Operations.Descriptions.CommitResultsToGitOperationDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-OperationType 'MFR.Operations.Descriptions.CommitResultsToGitOperationDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-Text 'MFR.Operations.Descriptions.CommitResultsToGitOperationDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-#cctor 'MFR.Operations.Descriptions.CommitResultsToGitOperationDescription.#cctor')
+- [CommitResultsToGitOperationStartedDescription](#T-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription 'MFR.Operations.Descriptions.CommitResultsToGitOperationStartedDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-#ctor 'MFR.Operations.Descriptions.CommitResultsToGitOperationStartedDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-Instance 'MFR.Operations.Descriptions.CommitResultsToGitOperationStartedDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.CommitResultsToGitOperationStartedDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-Text 'MFR.Operations.Descriptions.CommitResultsToGitOperationStartedDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.CommitResultsToGitOperationStartedDescription.#cctor')
 - [FindVisualStudioOperationStartedDescription](#T-MFR-Operations-Descriptions-FindVisualStudioOperationStartedDescription 'MFR.Operations.Descriptions.FindVisualStudioOperationStartedDescription')
   - [#ctor()](#M-MFR-Operations-Descriptions-FindVisualStudioOperationStartedDescription-#ctor 'MFR.Operations.Descriptions.FindVisualStudioOperationStartedDescription.#ctor')
   - [Instance](#P-MFR-Operations-Descriptions-FindVisualStudioOperationStartedDescription-Instance 'MFR.Operations.Descriptions.FindVisualStudioOperationStartedDescription.Instance')
@@ -99,6 +123,8 @@
   - [#cctor()](#M-MFR-Operations-Descriptions-ReplaceTextInFilesOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationStartedDescription.#cctor')
 - [Resources](#T-MFR-Operations-Descriptions-Properties-Resources 'MFR.Operations.Descriptions.Properties.Resources')
   - [Culture](#P-MFR-Operations-Descriptions-Properties-Resources-Culture 'MFR.Operations.Descriptions.Properties.Resources.Culture')
+  - [OperationDescription_CommitPendingChanges](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitPendingChanges 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_CommitPendingChanges')
+  - [OperationDescription_CommitResultsToGit](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitResultsToGit 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_CommitResultsToGit')
   - [OperationDescription_LoadAllSolutionsInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_LoadAllSolutionsInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_LoadAllSolutionsInFolder')
   - [OperationDescription_RenameFilesInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameFilesInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameFilesInFolder')
   - [OperationDescription_RenameSolutionFolders](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_RenameSolutionFolders 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_RenameSolutionFolders')
@@ -108,6 +134,8 @@
   - [OperationStartedDescription_CalculateListOfFilesToBeRenamed](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CalculateListOfFilesToBeRenamed 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CalculateListOfFilesToBeRenamed')
   - [OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions')
   - [OperationStartedDescription_CloseActiveSolution](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CloseActiveSolution 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CloseActiveSolution')
+  - [OperationStartedDescription_CommitPendingChanges](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CommitPendingChanges 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CommitPendingChanges')
+  - [OperationStartedDescription_CommitResultsToGit](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CommitResultsToGit 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CommitResultsToGit')
   - [OperationStartedDescription_FindVisualStudio](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_FindVisualStudio 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_FindVisualStudio')
   - [OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_GetListOfAllSolutionFilesInDirectoryTree')
   - [OperationStartedDescription_InitializeApplication](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_InitializeApplication 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_InitializeApplication')
@@ -321,6 +349,279 @@ current type of operation that is being performed.
 It is up to the implementers of this interface to supply the proper text.
 
 <a name='M-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription'></a>
+## CommitPendingChangesOperationDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Gets the descriptive text to be displayed to the user during a Rename Sub
+Folders Of operation.
+
+<a name='M-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is currently processing committing the user's existing, pending
+changes to the various local Git repository(ies) that reside within the
+directory tree of the root folder, in order to baseline the current version of
+the user's code.
+
+<a name='P-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-CommitPendingChangesOperationDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription'></a>
+## CommitPendingChangesOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Gets the descriptive text to be displayed to the user at the start of a
+Rename Sub Folders Of operation.
+
+<a name='M-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is getting ready to begin the process of committing the
+baseline pending changes of the user's code as it exists in the Git
+repository(ies) that exist within the starting folder's directory tree.
+
+<a name='P-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-CommitPendingChangesOperationStartedDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription'></a>
+## CommitResultsToGitOperationDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Gets the descriptive text to be displayed to the user during a Rename Sub
+Folders Of operation.
+
+<a name='M-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is currently processing committing the results of running
+the main renaming operations to the various local Git repository(ies) that reside within
+the directory tree of the root folder.
+
+<a name='P-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-CommitResultsToGitOperationDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription'></a>
+## CommitResultsToGitOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Gets the descriptive text to be displayed to the user at the start of a
+Rename Sub Folders Of operation.
+
+<a name='M-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is getting ready to begin the process of committing the results of running
+the main renaming operations to the various local Git repository(ies) that reside within
+the directory tree of the root folder.
+
+<a name='P-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-CommitResultsToGitOperationStartedDescription-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -1201,6 +1502,20 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitPendingChanges'></a>
+### OperationDescription_CommitPendingChanges `property`
+
+##### Summary
+
+Looks up a localized string similar to Committing pending changes to Git....
+
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitResultsToGit'></a>
+### OperationDescription_CommitResultsToGit `property`
+
+##### Summary
+
+Looks up a localized string similar to Committing results of operation(s) to Git....
+
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_LoadAllSolutionsInFolder'></a>
 ### OperationDescription_LoadAllSolutionsInFolder `property`
 
@@ -1263,6 +1578,20 @@ Looks up a localized string similar to Chekcing whether the folder you selected 
 ##### Summary
 
 Looks up a localized string similar to Closing solution containing the item(s) to be processed....
+
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CommitPendingChanges'></a>
+### OperationStartedDescription_CommitPendingChanges `property`
+
+##### Summary
+
+Looks up a localized string similar to Committing your existing pending change(s) to Git....
+
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CommitResultsToGit'></a>
+### OperationStartedDescription_CommitResultsToGit `property`
+
+##### Summary
+
+Looks up a localized string similar to Committing the results to the Git repository(ies) that exist within the directory tree....
 
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_FindVisualStudio'></a>
 ### OperationStartedDescription_FindVisualStudio `property`
