@@ -2549,6 +2549,16 @@ namespace MFR.Renamers.Files
                  * Do a push to the remote branch.  Only do this if a remote called 'origin' is
                  * configured.  Not all local Git repos have remotes, and not all of those remotes
                  * have to be called 'origin'.
+                 *
+                 * NOTE: There is a new configuration property, PushChangesToRemoteWhenDone.
+                 * The value of this property is changeable at runtime by the user via the Git
+                 * tab on the Options dialog box.  Setting the property to false should suppress
+                 * this operation.
+                 *
+                 * We added this option since, as of 2.42.0, git for windows' ability to push has
+                 * vastly increased in the amount of time taken to do a push --- at least, on a
+                 * subjective basis.  Allowing the user to turn pushing off may save the user time,
+                 * especially when the user is working on a very large software system.
                  */
 
                 using (var localGitRepo =
@@ -2556,7 +2566,8 @@ namespace MFR.Renamers.Files
                            entry.Path
                        ))
                     if (localGitRepo.HasRemoteOrigin &&
-                        localGitRepo.HasCurrentBranch)
+                        localGitRepo.HasCurrentBranch
+                        && CurrentConfiguration.PushChangesToRemoteWhenDone)
                         Run.SystemCommand(
                             $"git push -u origin {localGitRepo.GetCurrentBranch()}"
                         );
