@@ -418,6 +418,8 @@ namespace MFR.GUI.Dialogs
         {
             if (bSaveAndValidate)
             {
+                CurrentConfiguration.PushChangesToRemoteWhenDone =
+                    PushChangesToRemoteWhenDone;
                 CurrentConfiguration.AutoQuitOnCompletion =
                     AutoQuitOnCompletion;
                 CurrentConfiguration.ReOpenSolution = ReOpenSolution;
@@ -441,6 +443,8 @@ namespace MFR.GUI.Dialogs
                 ConfigPathname = ConfigProvider.ConfigFilePath;
                 AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;
+                PushChangesToRemoteWhenDone =
+                    CurrentConfiguration.PushChangesToRemoteWhenDone;
             }
         }
     }
