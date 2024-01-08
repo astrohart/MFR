@@ -178,6 +178,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// application should automatically push the commits it creates to the remote
         /// repository when done with the requested operation(s).
         /// </summary>
+        /// <remarks>This property is set to <see langword="true" /> by default.</remarks>
         bool PushChangesToRemoteWhenDone
         {
             get;

@@ -289,6 +289,19 @@ namespace MFR.Settings.Configuration
         } = true;
 
         /// <summary>
+        /// Gets or sets a <see cref="T:System.Boolean" /> value indicating whether the
+        /// application should automatically push the commits it creates to the remote
+        /// repository when done with the requested operation(s).
+        /// </summary>
+        /// <remarks>This property is set to <see langword="true" /> by default.</remarks>
+        [JsonProperty("pushChangesToRemoteWhenDone")]
+        public bool PushChangesToRemoteWhenDone
+        {
+            get;
+            set;
+        } = true;
+
+        /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
         /// in the folders encountered.
         /// </summary>
@@ -308,8 +321,7 @@ namespace MFR.Settings.Configuration
 
                     result =
                         InvokableOperations[
-                                (int)OperationType.RenameFilesInFolder]
-                            .Enabled;
+                            (int)OperationType.RenameFilesInFolder].Enabled;
                 }
                 catch (Exception ex)
                 {
@@ -361,8 +373,7 @@ namespace MFR.Settings.Configuration
                         return result;
 
                     result = InvokableOperations[
-                            (int)OperationType.RenameSolutionFolders]
-                        .Enabled;
+                        (int)OperationType.RenameSolutionFolders].Enabled;
                 }
                 catch (Exception ex)
                 {
@@ -384,8 +395,8 @@ namespace MFR.Settings.Configuration
                         return;
 
                     InvokableOperations[
-                            (int)OperationType.RenameSolutionFolders]
-                        .Enabled = value;
+                            (int)OperationType.RenameSolutionFolders].Enabled =
+                        value;
                 }
                 catch (Exception ex)
                 {
@@ -413,8 +424,7 @@ namespace MFR.Settings.Configuration
                         return result;
 
                     result = InvokableOperations[
-                            (int)OperationType.RenameSubFolders]
-                        .Enabled;
+                        (int)OperationType.RenameSubFolders].Enabled;
                 }
                 catch (Exception ex)
                 {
@@ -484,8 +494,7 @@ namespace MFR.Settings.Configuration
                         return result;
 
                     result = InvokableOperations[
-                            (int)OperationType.ReplaceTextInFiles]
-                        .Enabled;
+                        (int)OperationType.ReplaceTextInFiles].Enabled;
                 }
                 catch (Exception ex)
                 {
