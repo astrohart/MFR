@@ -26,8 +26,25 @@ namespace MFR.File.Stream.Providers
         /// <summary>
         /// Dictionary that implements the internal collection.
         /// </summary>
+        [Reference]
         private readonly IDictionary<Guid, StreamReader> _internalCollection =
             new AdvisableDictionary<Guid, StreamReader>();
+
+        /// <summary>
+        /// Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
+        /// created for it.
+        /// </summary>
+        [Reference]
+        private readonly IDictionary<string, Guid> _mapOfPathnamesToTickets =
+            new AdvisableDictionary<string, Guid>();
+
+        /// <summary>
+        /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
+        /// fully-qualified pathname of the associated file on the disk.
+        /// </summary>
+        [Reference]
+        private readonly IDictionary<Guid, string> _mapOfTicketsToPathnames =
+            new AdvisableDictionary<Guid, string>();
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -76,18 +93,14 @@ namespace MFR.File.Stream.Providers
         /// created for it.
         /// </summary>
         private IDictionary<string, Guid> MapOfPathnamesToTickets
-        {
-            get;
-        } = new Dictionary<string, Guid>();
+            => _mapOfPathnamesToTickets;
 
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
         /// fully-qualified pathname of the associated file on the disk.
         /// </summary>
         private IDictionary<Guid, string> MapOfTicketsToPathnames
-        {
-            get;
-        } = new Dictionary<Guid, string>();
+            => _mapOfTicketsToPathnames;
 
         /// <summary>
         /// Gets a reference to an instance of an object that is to be used for thread
@@ -288,7 +301,7 @@ namespace MFR.File.Stream.Providers
         /// <paramref name="pathname" /> parameters' argument is the blank or
         /// <see langword="null" /> <see cref="T:System.String" />, or if the
         /// <paramref name="pathname" /> does not refer to a file or the file that is
-        /// referred to does not exist..
+        /// referred to does not exist.
         /// </returns>
         /// <remarks>
         /// If the file having the specified <paramref name="pathname" /> already
@@ -631,7 +644,7 @@ namespace MFR.File.Stream.Providers
         /// </param>
         /// <returns>
         /// If successful, a <see cref="T:System.String" /> that contains the
-        /// fully-qualified pathname of the file on who the stream corresponding to the
+        /// fully-qualified pathname of the file upon which the stream corresponding to the
         /// specified <paramref name="ticket" />  was initially opened.
         /// </returns>
         private string RemovePathnameMappingFor(Guid ticket)

@@ -59,6 +59,7 @@ namespace MFR.GUI.Dialogs
         {
             StartPosition = FormStartPosition.CenterScreen;
 
+            InitializeComponent();
             InitializeFileRenamer();
             InitializeProcessingWorker();
         }
@@ -360,7 +361,7 @@ namespace MFR.GUI.Dialogs
             ShowIcon = true;
             ShowInTaskbar = true;
             Status = "Calculating files to be processed...";
-            Text = "Microsoft® Visual Studio®";
+            Text = Application.ProductName;
             ResumeLayout(false);
         }
 

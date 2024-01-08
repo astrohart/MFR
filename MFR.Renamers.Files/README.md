@@ -28,11 +28,13 @@
   - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
   - [TaskPool](#P-MFR-Renamers-Files-FileRenamer-TaskPool 'MFR.Renamers.Files.FileRenamer.TaskPool')
+  - [TotalPendingChanges](#P-MFR-Renamers-Files-FileRenamer-TotalPendingChanges 'MFR.Renamers.Files.FileRenamer.TotalPendingChanges')
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
+  - [HasPendingChanges(entry)](#M-MFR-Renamers-Files-FileRenamer-HasPendingChanges-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.HasPendingChanges(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [InvokeProcessing(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.InvokeProcessing(System.String,System.String,System.Predicate{System.String})')
   - [OnClosingSolution(e)](#M-MFR-Renamers-Files-FileRenamer-OnClosingSolution-MFR-Renamers-Files-Events-ClosingSolutionEventArgs- 'MFR.Renamers.Files.FileRenamer.OnClosingSolution(MFR.Renamers.Files.Events.ClosingSolutionEventArgs)')
   - [OnCurrentOperationChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnCurrentOperationChanged-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnCurrentOperationChanged(MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs)')
@@ -361,6 +363,24 @@ Synchronization root object for creating critical sections.
 Gets a reference to an instance of an object that implements the
 [ITaskPool](#T-xyLOGIX-Pools-Tasks-Interfaces-ITaskPool 'xyLOGIX.Pools.Tasks.Interfaces.ITaskPool') interface.
 
+<a name='P-MFR-Renamers-Files-FileRenamer-TotalPendingChanges'></a>
+### TotalPendingChanges `property`
+
+##### Summary
+
+Gets or sets a [Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') with the total changes pending
+prior to the attempt to commit them.
+
+##### Remarks
+
+This count refers to the count of pending changes in local Git repo(s)
+that existed PRIOR TO the file-renaming operations taking place.
+
+
+
+The default value of this property is `-1`.  This indicates the property's
+value has not been computed yet, or that we've begun a new round of processing.
+
 <a name='P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService'></a>
 ### VisualStudioSolutionService `property`
 
@@ -487,6 +507,32 @@ Enables this object to perform some or all of the operations specified.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | operations | [MFR.Operations.Constants.OperationType[]](#T-MFR-Operations-Constants-OperationType[] 'MFR.Operations.Constants.OperationType[]') |  |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-HasPendingChanges-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### HasPendingChanges(entry) `method`
+
+##### Summary
+
+Determines if there are any pending Git changes in the repository having the
+home folder corresponding to the file-system `entry`
+specified.
+
+##### Returns
+
+`true` if the local Git repository contained by the
+folder corresponding to the specified file-system `entry` has
+greater than zero pending changes; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface.
+
+
+
+This object must correspond to a folder that contains a Git repository. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}-'></a>
 ### InvokeProcessing(findWhat,replaceWith,pathFilter) `method`

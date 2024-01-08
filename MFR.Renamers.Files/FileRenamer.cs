@@ -374,6 +374,23 @@ namespace MFR.Renamers.Files
             get;
         } = GetTaskPool.SoleInstance();
 
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.Int32" /> with the total changes pending
+        /// prior to the attempt to commit them.
+        /// </summary>
+        /// <remarks>
+        /// This count refers to the count of pending changes in local Git repo(s)
+        /// that existed PRIOR TO the file-renaming operations taking place.
+        /// <para />
+        /// The default value of this property is <c>-1</c>.  This indicates the property's
+        /// value has not been computed yet, or that we've begun a new round of processing.
+        /// </remarks>
+        private int TotalPendingChanges
+        {
+            get;
+            set;
+        } = -1;
+
         private static IVisualStudioInstanceProvider
             VisualStudioInstanceProvider
         {
@@ -549,10 +566,13 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
+                TotalPendingChanges = -1;   // reset the TotalPendingChanges property
+
                 if (CurrentConfiguration.ShouldCommitPendingChanges &&
                     !CommitPendingChanges(
                         RootDirectoryPath, findWhat, replaceWith
-                    ))
+                    ) && TotalPendingChanges > 0 /* don't show the commit failure warning if there were no pending changes to start with */
+                        && !CurrentConfiguration.AutoStart /* don't show the message box if we're automatically started */)
                     Messages.ShowWarning(
                         Resources.Warning_FailedCommitPendingChanges
                     );
@@ -2159,7 +2179,7 @@ namespace MFR.Renamers.Files
                  * whose pathnames match the search criteria specified by
                  * the user.  For each folder, commit any pending change(s)
                  * inside of it to the local Git repository that the folder
-                 * is likely to contain..
+                 * is likely to contain.
                  */
 
                 result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
@@ -2170,6 +2190,31 @@ namespace MFR.Renamers.Files
                                                       replaceWith, entry
                                                   )
                                           );
+                if (!result)
+                {
+                    /*
+                     * If we are here, then the operation of committing those pending changes that
+                     * were present, prior to the file-rename operations, failed.
+                     *
+                     * Or did it?  Perhaps there simply were zero pending changes to begin with.
+                     * If this is the case, we'll still return FALSE for this operation, but let's
+                     * count up the total of pending changes that had got committed.  This tells us
+                     * whether to display a mea culpa message box to the user.
+                     */
+
+                    TotalPendingChanges = 0;
+
+                    foreach (var entry in fileSystemEntries)
+                    {
+                        /*
+                         * The operation of committing pending changes for
+                         * each entry saves the count of pending changes in the
+                         * UserState prior to actually carrying out the commit.
+                         */
+
+                        TotalPendingChanges += (int)entry.UserState;
+                    }
+                }
 
                 /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
                 result &= !AbortRequested;
@@ -2258,16 +2303,7 @@ namespace MFR.Renamers.Files
                  * We're only concerned with committing here.
                  */
 
-                LocalGitInteropProvider =
-                    MakeNewLocalGitInteropProvider
-                        .ForLocalGitFolder(entry.Path);
-                if (!LocalGitInteropProvider.HasCurrentBranch) return result;
-                if (!LocalGitInteropProvider.HasRemoteOrigin) return result;
-                if (!LocalGitInteropProvider.HasRemotes) return result;
-                if (!LocalGitInteropProvider.IsRepositoryOpen) return result;
-
-                if (!LocalGitInteropProvider.IsDirty) return result;
-                if (!LocalGitInteropProvider.HasPendingChaanges())
+                if (!HasPendingChanges(entry))
                     return result;
 
                 OnProcessingOperation(
@@ -2572,8 +2608,8 @@ namespace MFR.Renamers.Files
                            entry.Path
                        ))
                     if (localGitRepo.HasRemoteOrigin &&
-                        localGitRepo.HasCurrentBranch
-                        && CurrentConfiguration.PushChangesToRemoteWhenDone)
+                        localGitRepo.HasCurrentBranch && CurrentConfiguration
+                            .PushChangesToRemoteWhenDone)
                         Run.SystemCommand(
                             $"git push -u origin {localGitRepo.GetCurrentBranch()}"
                         );
@@ -2882,6 +2918,56 @@ namespace MFR.Renamers.Files
                 // dispose the file system entry that is currently being worked on
                 if (entry != null)
                     Dispose.FileStream(entry.UserState);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines if there are any pending Git changes in the repository having the
+        /// home folder corresponding to the file-system <paramref name="entry" />
+        /// specified.
+        /// </summary>
+        /// <param name="entry">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// <para />
+        /// This object must correspond to a folder that contains a Git repository.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the local Git repository contained by the
+        /// folder corresponding to the specified file-system <paramref name="entry" /> has
+        /// greater than zero pending changes; <see langword="false" /> otherwise.
+        /// </returns>
+        private bool HasPendingChanges(IFileSystemEntry entry)
+        {
+            var result = false;
+
+            try
+            {
+                if (entry == null) return result;
+                if (!entry.Exists) return result;
+
+                LocalGitInteropProvider =
+                    MakeNewLocalGitInteropProvider
+                        .ForLocalGitFolder(entry.Path);
+                if (!LocalGitInteropProvider.HasCurrentBranch) return result;
+                if (!LocalGitInteropProvider.HasRemoteOrigin) return result;
+                if (!LocalGitInteropProvider.HasRemotes) return result;
+                if (!LocalGitInteropProvider.IsRepositoryOpen) return result;
+
+                result = LocalGitInteropProvider.IsDirty;
+
+                // tag the file-system entry's UserState with the count of pending
+                // changes
+                entry.UserState = LocalGitInteropProvider.PendingChangesCount;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
             }
 
             return result;
