@@ -13,8 +13,6 @@
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
 - [Scan](#T-MFR-Renamers-Files-Actions-Scan 'MFR.Renamers.Files.Actions.Scan')
   - [FileDataForBinaryControlCharacters(textToBeSearched)](#M-MFR-Renamers-Files-Actions-Scan-FileDataForBinaryControlCharacters-System-String- 'MFR.Renamers.Files.Actions.Scan.FileDataForBinaryControlCharacters(System.String)')
-- [Write](#T-MFR-Renamers-Files-Actions-Write 'MFR.Renamers.Files.Actions.Write')
-  - [FileContent(pathname,contents)](#M-MFR-Renamers-Files-Actions-Write-FileContent-System-String,System-String- 'MFR.Renamers.Files.Actions.Write.FileContent(System.String,System.String)')
 
 <a name='T-MFR-Renamers-Files-Actions-Delete'></a>
 ## Delete `type`
@@ -153,35 +151,3 @@ is to be scanned. |
 If this method returns `true`, then it can be safely
 assumed that the file from which the specified
 `textToBeSearched` came is not an ASCII text file.
-
-<a name='T-MFR-Renamers-Files-Actions-Write'></a>
-## Write `type`
-
-##### Namespace
-
-MFR.Renamers.Files.Actions
-
-##### Summary
-
-Exposes static methods to write data, e.g., to files or other data sources.
-
-<a name='M-MFR-Renamers-Files-Actions-Write-FileContent-System-String,System-String-'></a>
-### FileContent(pathname,contents) `method`
-
-##### Summary
-
-Writes the specified `contents` to the file having the
-specified `pathname`.
-
-
-
-If the file already exists, then it is deleted.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file to be written to the disk. |
-| contents | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the contents of the new
-file. |
