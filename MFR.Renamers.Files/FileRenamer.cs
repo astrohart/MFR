@@ -2261,8 +2261,13 @@ namespace MFR.Renamers.Files
                 LocalGitInteropProvider =
                     MakeNewLocalGitInteropProvider
                         .ForLocalGitFolder(entry.Path);
+                if (!LocalGitInteropProvider.HasCurrentBranch) return result;
+                if (!LocalGitInteropProvider.HasRemoteOrigin) return result;
+                if (!LocalGitInteropProvider.HasRemotes) return result;
+                if (!LocalGitInteropProvider.IsRepositoryOpen) return result;
 
-                LocalGitInteropProvider.Stage();
+                if (!LocalGitInteropProvider.HasPendingChaanges())
+                    return result;
 
                 OnProcessingOperation(
                     new ProcessingOperationEventArgs(
