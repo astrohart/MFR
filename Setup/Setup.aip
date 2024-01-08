@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8773.2520" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8773.4340" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -294,6 +294,7 @@
     <ROW Component="MFR.TextValues.Retrievers.Synchronization.dll" ComponentId="{165F0054-D463-401E-B3F2-0170E4F991AC}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Synchronization.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.dll" ComponentId="{36DAE18A-098A-4E07-9478-1E20B60A5877}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.dll"/>
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{DA4C1165-E926-4230-99E5-2402D0BDA371}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
+    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{26A5290B-1FC1-40ED-A7FC-1CA104F2D90D}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Component="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" ComponentId="{8C80638A-2DB9-46A2-8461-B4C6BEA1236B}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Component="Microsoft.VisualStudio.Interop.dll" ComponentId="{2614AF3F-D0BE-4064-9810-C83AC909109B}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Interop.dll"/>
     <ROW Component="Mono.Posix.dll" ComponentId="{A60ABAB9-AD12-43B7-9C79-DC74554F31B1}" Directory_="APPDIR" Attributes="0" KeyPath="Mono.Posix.dll"/>
@@ -318,6 +319,7 @@
     <ROW Component="System.Text.Json.dll" ComponentId="{5B5BEAC5-AA68-47F1-9126-596760F8FEFB}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Json.dll"/>
     <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{B98A8EEF-0DA1-40EA-9CDF-D5BD27D9B53B}" Directory_="APPDIR" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
     <ROW Component="System.ValueTuple.dll" ComponentId="{B79BD4F0-ED8A-4D48-AC68-3D3D1EB68F4B}" Directory_="APPDIR" Attributes="0" KeyPath="System.ValueTuple.dll"/>
+    <ROW Component="TimeZoneConverter.dll" ComponentId="{2695FDCE-9207-4C0A-979E-DB24734D46CA}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneConverter.dll"/>
     <ROW Component="TimeZoneNames.dll" ComponentId="{5B5903C3-D647-402D-8546-CE7EB2EC09CC}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneNames.dll"/>
     <ROW Component="config.json" ComponentId="{24C32865-7C76-4B61-967B-781849F71D85}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
     <ROW Component="log4net.dll" ComponentId="{AD4BE632-BA53-4A06-A67B-DFC4AE94E967}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
@@ -1165,6 +1167,8 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLOG~98.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLOG~99.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLOG~99.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~3.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
+    <ROW File="TimeZoneConverter.dll" Component_="TimeZoneConverter.dll" FileName="TIMEZO~2.DLL|TimeZoneConverter.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\TimeZoneConverter.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1637,6 +1641,8 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="TimeZoneConverter.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
