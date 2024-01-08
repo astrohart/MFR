@@ -166,6 +166,14 @@
       <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
       <Name>MFR.Messages.Actions.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
+      <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
+      <Name>MFR.Messages.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
+      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
+      <Name>MFR.Messages.Requests.Intefaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
