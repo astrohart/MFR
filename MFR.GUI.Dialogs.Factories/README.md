@@ -5,6 +5,8 @@
 
 - [GetAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.Factories.GetAutoStartCancellableProgressDialog')
   - [SoleInstance()](#M-MFR-GUI-Dialogs-Factories-GetAutoStartCancellableProgressDialog-SoleInstance 'MFR.GUI.Dialogs.Factories.GetAutoStartCancellableProgressDialog.SoleInstance')
+- [MakeNewCancellableProgressDialog](#T-MFR-GUI-Dialogs-Factories-MakeNewCancellableProgressDialog 'MFR.GUI.Dialogs.Factories.MakeNewCancellableProgressDialog')
+  - [FromScratch()](#M-MFR-GUI-Dialogs-Factories-MakeNewCancellableProgressDialog-FromScratch 'MFR.GUI.Dialogs.Factories.MakeNewCancellableProgressDialog.FromScratch')
 - [MakeNewCustomizeOperationsDialog](#T-MFR-GUI-Dialogs-Factories-MakeNewCustomizeOperationsDialog 'MFR.GUI.Dialogs.Factories.MakeNewCustomizeOperationsDialog')
   - [FromScratch()](#M-MFR-GUI-Dialogs-Factories-MakeNewCustomizeOperationsDialog-FromScratch 'MFR.GUI.Dialogs.Factories.MakeNewCustomizeOperationsDialog.FromScratch')
 - [MakeNewErrorReportDialog](#T-MFR-GUI-Dialogs-Factories-MakeNewErrorReportDialog 'MFR.GUI.Dialogs.Factories.MakeNewErrorReportDialog')
@@ -56,6 +58,34 @@ and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IAutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-IAutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.IAutoStartCancellableProgressDialog') interface.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-GUI-Dialogs-Factories-MakeNewCancellableProgressDialog'></a>
+## MakeNewCancellableProgressDialog `type`
+
+##### Namespace
+
+MFR.GUI.Dialogs.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
+interface, and
+returns references to them.
+
+<a name='M-MFR-GUI-Dialogs-Factories-MakeNewCancellableProgressDialog-FromScratch'></a>
+### FromScratch() `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[ICancellableProgressDialog](#T-MFR-GUI-Dialogs-Interfaces-ICancellableProgressDialog 'MFR.GUI.Dialogs.Interfaces.ICancellableProgressDialog')
+interface and
+returns a reference to it.
 
 ##### Parameters
 

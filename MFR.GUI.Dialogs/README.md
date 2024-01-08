@@ -143,6 +143,7 @@
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
   - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.DontPromptUserToReloadOpenSolution')
   - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialog-IsModified 'MFR.GUI.Dialogs.OptionsDialog.IsModified')
+  - [PushChangesToRemoteWhenDone](#P-MFR-GUI-Dialogs-OptionsDialog-PushChangesToRemoteWhenDone 'MFR.GUI.Dialogs.OptionsDialog.PushChangesToRemoteWhenDone')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
   - [ShouldCommitPendingChanges](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPendingChanges 'MFR.GUI.Dialogs.OptionsDialog.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPostOperationChanges 'MFR.GUI.Dialogs.OptionsDialog.ShouldCommitPostOperationChanges')
@@ -2082,12 +2083,19 @@ checkbox
 Gets a value that indicates whether the data in this dialog box has
 been modified.
 
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-PushChangesToRemoteWhenDone'></a>
+### PushChangesToRemoteWhenDone `property`
+
+##### Summary
+
+Gets or sets the value of the checkbox.
+
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution'></a>
 ### ReOpenSolution `property`
 
 ##### Summary
 
-Gets or sets the value of the Reopen Visual Studio Solution checkbox
+Gets or sets the value of the checkbox.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPendingChanges'></a>
 ### ShouldCommitPendingChanges `property`
