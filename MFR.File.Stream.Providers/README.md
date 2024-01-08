@@ -6,6 +6,8 @@
 - [FileStreamProvider](#T-MFR-File-Stream-Providers-FileStreamProvider 'MFR.File.Stream.Providers.FileStreamProvider')
   - [#ctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#ctor 'MFR.File.Stream.Providers.FileStreamProvider.#ctor')
   - [_internalCollection](#F-MFR-File-Stream-Providers-FileStreamProvider-_internalCollection 'MFR.File.Stream.Providers.FileStreamProvider._internalCollection')
+  - [_mapOfPathnamesToTickets](#F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileStreamProvider._mapOfPathnamesToTickets')
+  - [_mapOfTicketsToPathnames](#F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileStreamProvider._mapOfTicketsToPathnames')
   - [Instance](#P-MFR-File-Stream-Providers-FileStreamProvider-Instance 'MFR.File.Stream.Providers.FileStreamProvider.Instance')
   - [InternalCollection](#P-MFR-File-Stream-Providers-FileStreamProvider-InternalCollection 'MFR.File.Stream.Providers.FileStreamProvider.InternalCollection')
   - [LastPathnameRemoved](#P-MFR-File-Stream-Providers-FileStreamProvider-LastPathnameRemoved 'MFR.File.Stream.Providers.FileStreamProvider.LastPathnameRemoved')
@@ -65,6 +67,22 @@ This constructor has no parameters.
 ##### Summary
 
 Dictionary that implements the internal collection.
+
+<a name='F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfPathnamesToTickets'></a>
+### _mapOfPathnamesToTickets `constants`
+
+##### Summary
+
+Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
+created for it.
+
+<a name='F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfTicketsToPathnames'></a>
+### _mapOfTicketsToPathnames `constants`
+
+##### Summary
+
+Sets up a 1-to-1 correspondence between a specific file stream ticket and the
+fully-qualified pathname of the associated file on the disk.
 
 <a name='P-MFR-File-Stream-Providers-FileStreamProvider-Instance'></a>
 ### Instance `property`
@@ -410,7 +428,7 @@ method to access the corresponding file stream, or
 `pathname` parameters' argument is the blank or
 `null`[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String'), or if the
 `pathname` does not refer to a file or the file that is
-referred to does not exist..
+referred to does not exist.
 
 ##### Parameters
 
@@ -437,7 +455,7 @@ stream.
 ##### Returns
 
 If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the
-fully-qualified pathname of the file on who the stream corresponding to the
+fully-qualified pathname of the file upon which the stream corresponding to the
 specified `ticket` was initially opened.
 
 ##### Parameters

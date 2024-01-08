@@ -9,10 +9,13 @@
   - [MatchCase](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-MatchCase 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.MatchCase')
   - [MatchWholeWord](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-MatchWholeWord 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.MatchWholeWord')
   - [ReOpenSolution](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReOpenSolution 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReOpenSolution')
-  - [RenameFiles](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameFiles 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RenameFiles')
+  - [RenameFilesInFolder](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameFilesInFolder 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RenameFilesInFolder')
+  - [RenameSolutionFolders](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameSolutionFolders 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RenameSolutionFolders')
   - [RenameSubFolders](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameSubFolders 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.RenameSubFolders')
   - [ReplaceTextInFiles](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceTextInFiles 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReplaceTextInFiles')
   - [ReplaceWith](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ReplaceWith 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ReplaceWith')
+  - [ShouldCommitPendingChanges](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ShouldCommitPendingChanges 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ShouldCommitPendingChanges')
+  - [ShouldCommitPostOperationChanges](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ShouldCommitPostOperationChanges 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-StartingFolder 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.StartingFolder')
 - [Resources](#T-MFR-CommandLine-Models-Interfaces-Properties-Resources 'MFR.CommandLine.Models.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Models-Interfaces-Properties-Resources-Culture 'MFR.CommandLine.Models.Interfaces.Properties.Resources.Culture')
@@ -68,12 +71,20 @@ Gets or sets a value indicating whether a whole-word search should be done.
 Gets or sets a value that indicates that the Solution is to be reloaded when
 the operations are finished.
 
-<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameFiles'></a>
-### RenameFiles `property`
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameFilesInFolder'></a>
+### RenameFilesInFolder `property`
 
 ##### Summary
 
 Gets or sets a value indicating whether the files are to be renamed.
+
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameSolutionFolders'></a>
+### RenameSolutionFolders `property`
+
+##### Summary
+
+Gets or sets a value indicating whether we are to rename folder(s) that contain
+Solution(s).
 
 <a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-RenameSubFolders'></a>
 ### RenameSubFolders `property`
@@ -96,6 +107,24 @@ Gets or sets a value indicating whether text in files should be replaced.
 
 Gets or sets a string containing the content to be replaced in the file system
 entries.
+
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ShouldCommitPendingChanges'></a>
+### ShouldCommitPendingChanges `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we are to attempt to commit pending
+changes to the user's local Git repository, on the current branch, prior to
+executing the operations.
+
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ShouldCommitPostOperationChanges'></a>
+### ShouldCommitPostOperationChanges `property`
+
+##### Summary
+
+Gets or sets a value that indicates whether we are to attempt to commit pending
+changes to the user's local Git repository, and on the current branch, the
+changes that have resulted from the operations we've performed.
 
 <a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-StartingFolder'></a>
 ### StartingFolder `property`

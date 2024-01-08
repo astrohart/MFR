@@ -203,7 +203,7 @@ ECHO *** DONE *** with pre-build event for project $(ProjectName).
 SET ERRORLEVEL=0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
+    <PostBuildEvent>"SET "_TARGET_DIR=$(TargetDir)"
 SET "CONFIGURATION_NAME=$(ConfigurationName)"
 SET "DEPLOY_DIR=%25ProgramW6432%25\xyLOGIX, LLC\Project File Renamer"
 SET "GENERATED_XML_DOC_FILE_PATH=%25_TARGET_DIR%25$(TargetName).xml"
@@ -211,20 +211,9 @@ SET "PLATFORM_NAME=$(PlatformName)"
 SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
 IF NOT "%25PLATFORM_NAME%25"=="x64" SET "DEPLOY_DIR=%25ProgramFiles(x86)%25\xyLOGIX, LLC\Project File Renamer"
 ECHO Checking whether this is a Release build...
-IF "%25CONFIGURATION_NAME%25"=="Debug" GOTO ERASE_NONESSENTIAL_DEBUG_BUILD_OUTPUT_FILES
 IF "%25CONFIGURATION_NAME%25"=="Release" GOTO ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
 ECHO Not a Release build.  Stopping post-build event at this point.
 GOTO FINALIZATION
-:ERASE_NONESSENTIAL_DEBUG_BUILD_OUTPUT_FILES
-ECHO This is a Debug build.  Removing unneeded output files...
-ECHO Clearing the output folder of all nonessential files...
-IF EXIST "%25_TARGET_DIR%25*.md" ERASE /F /S /Q "%25_TARGET_DIR%25*.md"
-IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB +R "%25GENERATED_XML_DOC_FILE_PATH%25"
-IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB +R "%25PROJECT_README_FILE_PATH%25"
-IF EXIST "%25_TARGET_DIR%25*.xml" ERASE /F /S /Q "%25_TARGET_DIR%25*.xml"
-IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB -R "%25GENERATED_XML_DOC_FILE_PATH%25"
-IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB -R "%25PROJECT_README_FILE_PATH%25"
-GOTO DEPLOY
 :ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
 ECHO This is a Release build.  Removing unneeded output files...
 ECHO Clearing the output folder of all nonessential files...
@@ -245,7 +234,7 @@ XCOPY "%25_TARGET_DIR%25*.*" "%25DEPLOY_DIR%25\*.*" /E /C /R /Y /H /D /J
 GOTO FINALIZATION
 :FINALIZATION
 ECHO *** DONE *** with post-build script.
-SET ERRORLEVEL=0</PostBuildEvent>
+SET ERRORLEVEL=0.</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

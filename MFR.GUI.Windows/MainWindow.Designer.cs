@@ -619,6 +619,7 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.replaceWithComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.replaceWithComboBox.EnteredText = "";
             this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -637,6 +638,7 @@ namespace MFR.GUI.Windows
             this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.findWhatcomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.findWhatcomboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.findWhatcomboBox.EnteredText = "";
             this.findWhatcomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findWhatcomboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -655,6 +657,7 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.startingFolderComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.startingFolderComboBox.EnteredText = "";
             this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startingFolderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
@@ -843,11 +846,17 @@ namespace MFR.GUI.Windows
             // 
             // statusBar
             // 
+            this.statusBar.AutoSize = false;
+            this.statusBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.statusBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.statusBar.IsDarkTheme = true;
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusBarMessage,
             this.statusBarProgressBar});
             this.statusBar.Location = new System.Drawing.Point(0, 472);
             this.statusBar.Name = "statusBar";
+            this.statusBar.PrimaryBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.statusBar.SecondaryBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.statusBar.Size = new System.Drawing.Size(596, 22);
             this.statusBar.TabIndex = 15;
             this.statusBar.Text = "statusStrip1";
@@ -855,7 +864,7 @@ namespace MFR.GUI.Windows
             // statusBarMessage
             // 
             this.statusBarMessage.Name = "statusBarMessage";
-            this.statusBarMessage.Size = new System.Drawing.Size(448, 17);
+            this.statusBarMessage.Size = new System.Drawing.Size(479, 17);
             this.statusBarMessage.Spring = true;
             this.statusBarMessage.Text = "Ready";
             this.statusBarMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

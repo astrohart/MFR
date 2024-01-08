@@ -7,6 +7,8 @@
   - [CalculateListOfFilesToBeRenamed](#F-MFR-Operations-Constants-OperationType-CalculateListOfFilesToBeRenamed 'MFR.Operations.Constants.OperationType.CalculateListOfFilesToBeRenamed')
   - [CheckingWhetherChosenFolderContainsSolutions](#F-MFR-Operations-Constants-OperationType-CheckingWhetherChosenFolderContainsSolutions 'MFR.Operations.Constants.OperationType.CheckingWhetherChosenFolderContainsSolutions')
   - [CloseActiveSolutions](#F-MFR-Operations-Constants-OperationType-CloseActiveSolutions 'MFR.Operations.Constants.OperationType.CloseActiveSolutions')
+  - [CommitPendingChanges](#F-MFR-Operations-Constants-OperationType-CommitPendingChanges 'MFR.Operations.Constants.OperationType.CommitPendingChanges')
+  - [CommitResultsToGit](#F-MFR-Operations-Constants-OperationType-CommitResultsToGit 'MFR.Operations.Constants.OperationType.CommitResultsToGit')
   - [FindVisualStudio](#F-MFR-Operations-Constants-OperationType-FindVisualStudio 'MFR.Operations.Constants.OperationType.FindVisualStudio')
   - [InitializeApplication](#F-MFR-Operations-Constants-OperationType-InitializeApplication 'MFR.Operations.Constants.OperationType.InitializeApplication')
   - [ListTopLevelSubFolders](#F-MFR-Operations-Constants-OperationType-ListTopLevelSubFolders 'MFR.Operations.Constants.OperationType.ListTopLevelSubFolders')
@@ -60,6 +62,24 @@ Closes the active solution in Visual Studio.
 
 The "active" solution is defined as that which exists as a
 `.sln` file in the starting (root) folder.
+
+<a name='F-MFR-Operations-Constants-OperationType-CommitPendingChanges'></a>
+### CommitPendingChanges `constants`
+
+##### Summary
+
+Commits the user's existing pending changes to the user's local Git repository
+(if one is present in the starting folder) prior to the commencement of
+operation processing.
+
+<a name='F-MFR-Operations-Constants-OperationType-CommitResultsToGit'></a>
+### CommitResultsToGit `constants`
+
+##### Summary
+
+Commits the results of the processing of operations to the user's local Git
+repository (if one is present in the starting folder) prior to the commencement
+of operations.
 
 <a name='F-MFR-Operations-Constants-OperationType-FindVisualStudio'></a>
 ### FindVisualStudio `constants`

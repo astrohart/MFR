@@ -2166,6 +2166,44 @@ namespace MFR.Renamers.Files
                         Resources.Error_OperationAborted
                     );
 
+                var reposToHavePendingChangesCommitted = 0;
+                foreach (var entry in fileSystemEntries)
+                {
+                    if (entry == null) continue;
+                    if (!entry.Exists) continue;
+
+                    if (HasPendingChanges(entry))
+                        reposToHavePendingChangesCommitted++;
+                }
+
+                if (reposToHavePendingChangesCommitted == 0)
+                {
+                    /*
+                     * If we are here, abort the operation since
+                     * there are zero local Git repositories having
+                     * pending changes.  Also update the value of
+                     * the TotalPendingChanges property to zero.
+                     */
+
+                    TotalPendingChanges = 0;
+                    return false;
+                }
+
+                TotalPendingChanges = 0;
+
+                foreach (var entry in fileSystemEntries)
+                {
+                    if (entry == null) continue;
+                    if (!entry.Exists) continue;
+
+                    TotalPendingChanges += (int)entry.UserState;
+                }
+
+                /*
+                 * The Pending Changes to be Committed event really is meant
+                 * to report 4 x the number of local Git repos.
+                 */
+
                 OnPendingChangesToBeCommittedCounted(
                     new FilesOrFoldersCountedEventArgs(
                         fileSystemEntries.Count *
@@ -2190,31 +2228,6 @@ namespace MFR.Renamers.Files
                                                       replaceWith, entry
                                                   )
                                           );
-                if (!result)
-                {
-                    /*
-                     * If we are here, then the operation of committing those pending changes that
-                     * were present, prior to the file-rename operations, failed.
-                     *
-                     * Or did it?  Perhaps there simply were zero pending changes to begin with.
-                     * If this is the case, we'll still return FALSE for this operation, but let's
-                     * count up the total of pending changes that had got committed.  This tells us
-                     * whether to display a mea culpa message box to the user.
-                     */
-
-                    TotalPendingChanges = 0;
-
-                    foreach (var entry in fileSystemEntries)
-                    {
-                        /*
-                         * The operation of committing pending changes for
-                         * each entry saves the count of pending changes in the
-                         * UserState prior to actually carrying out the commit.
-                         */
-
-                        TotalPendingChanges += (int)entry.UserState;
-                    }
-                }
 
                 /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
                 result &= !AbortRequested;
