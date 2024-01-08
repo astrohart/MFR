@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2023 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2023-24 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
         "This software provides unit tests for a component of xyLOGIX Project File Renamer.  xyLOGIX Project File Renamer is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
