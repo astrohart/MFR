@@ -174,6 +174,17 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets a <see cref="T:System.Boolean" /> value indicating whether the
+        /// application should automatically push the commits it creates to the remote
+        /// repository when done with the requested operation(s).
+        /// </summary>
+        bool PushChangesToRemoteWhenDone
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value that indicates whether we should rename files
         /// in the folders encountered.
         /// </summary>

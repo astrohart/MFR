@@ -34,7 +34,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         bool IsModified { get; }
 
         /// <summary>
-        /// Gets or sets the value of the Reopen Visual Studio Solution checkbox
+        /// Gets or sets the value of the <b>Reopen Visual Studio Solution</b> checkbox.
         /// </summary>
         bool ReOpenSolution { get; set; }
 
@@ -48,6 +48,11 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// checkbox.
         /// </summary>
         bool ShouldCommitPostOperationChanges { get; set; }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Push Changes To Remote When Done</b> checkbox.
+        /// </summary>
+        bool PushChangesToRemoteWhenDone { get; set; }
 
         /// <summary>
         /// Occurs when data is modified in this property sheet and then the

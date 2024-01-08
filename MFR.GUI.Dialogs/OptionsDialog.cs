@@ -96,7 +96,16 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets the value of the Reopen Visual Studio Solution checkbox
+        /// Gets or sets the value of the <b>Push Changes To Remote When Done</b> checkbox.
+        /// </summary>
+        public bool PushChangesToRemoteWhenDone
+        {
+            get => pushChangesWhenDoneCheckBox.Checked;
+            set => pushChangesWhenDoneCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Reopen Visual Studio Solution</b> checkbox.
         /// </summary>
         public bool ReOpenSolution
         {
