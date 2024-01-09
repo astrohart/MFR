@@ -1555,9 +1555,11 @@ namespace MFR.Renamers.Files
 
                 TaskPool.AddRange(tasks);
 
-                // Wait for all the tasks to complete
+                // Wait for all the tasks to complete.  We don't need
+                // to call Clear() on the TaskPool when all the tasks are
+                // done since the TaskPool.WaitAll() method does that
+                // for us.
                 TaskPool.WaitAll();
-                TaskPool.Clear();
 
                 result = tasks.All(task => task.IsCompleted && task.Result);
             }
