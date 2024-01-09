@@ -236,8 +236,7 @@ namespace MFR.GUI.Windows
         /// </summary>
         [Log(AttributeExclude = true)]
         private bool IsHistoryClear
-            => StartingFolderComboBox.IsClear() && FindWhatComboBox.IsClear() &&
-               ReplaceWithComboBox.IsClear();
+            => true;
 
         /// <summary>
         /// Gets or sets the value of the Match Case checkbox.
