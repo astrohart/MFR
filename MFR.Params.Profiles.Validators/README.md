@@ -5,6 +5,7 @@
 
 - [ProfileParamsValidator](#T-MFR-Params-Profiles-Validators-ProfileParamsValidator 'MFR.Params.Profiles.Validators.ProfileParamsValidator')
   - [#ctor(objectToValidate)](#M-MFR-Params-Profiles-Validators-ProfileParamsValidator-#ctor-MFR-Params-Profiles-Interfaces-IProfileParams- 'MFR.Params.Profiles.Validators.ProfileParamsValidator.#ctor(MFR.Params.Profiles.Interfaces.IProfileParams)')
+  - [ProfileProvider](#P-MFR-Params-Profiles-Validators-ProfileParamsValidator-ProfileProvider 'MFR.Params.Profiles.Validators.ProfileParamsValidator.ProfileProvider')
   - [Validate()](#M-MFR-Params-Profiles-Validators-ProfileParamsValidator-Validate 'MFR.Params.Profiles.Validators.ProfileParamsValidator.Validate')
 - [Resources](#T-MFR-Params-Profiles-Validators-Properties-Resources 'MFR.Params.Profiles.Validators.Properties.Resources')
   - [Culture](#P-MFR-Params-Profiles-Validators-Properties-Resources-Culture 'MFR.Params.Profiles.Validators.Properties.Resources.Culture')
@@ -47,6 +48,15 @@ has the data to be validated. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
 parameter, `objectToValidate`, is passed a
 `null` value. |
+
+<a name='P-MFR-Params-Profiles-Validators-ProfileParamsValidator-ProfileProvider'></a>
+### ProfileProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProfileProvider](#T-MFR-Settings-Profiles-Providers-Interfaces-IProfileProvider 'MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider')
+interface.
 
 <a name='M-MFR-Params-Profiles-Validators-ProfileParamsValidator-Validate'></a>
 ### Validate() `method`

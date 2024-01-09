@@ -8,6 +8,7 @@
   - [OE_PROCESSING_FINISHED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_FINISHED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_FINISHED')
   - [OE_PROCESSING_STARTED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_PROCESSING_STARTED 'MFR.Engines.Constants.OperationEngineMessages.OE_PROCESSING_STARTED')
   - [OE_ROOT_DIRECTORY_PATH_UPDATED](#F-MFR-Engines-Constants-OperationEngineMessages-OE_ROOT_DIRECTORY_PATH_UPDATED 'MFR.Engines.Constants.OperationEngineMessages.OE_ROOT_DIRECTORY_PATH_UPDATED')
+  - [#cctor()](#M-MFR-Engines-Constants-OperationEngineMessages-#cctor 'MFR.Engines.Constants.OperationEngineMessages.#cctor')
 - [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType')
   - [Console](#F-MFR-Engines-Constants-OperationEngineType-Console 'MFR.Engines.Constants.OperationEngineType.Console')
   - [FullGUI](#F-MFR-Engines-Constants-OperationEngineType-FullGUI 'MFR.Engines.Constants.OperationEngineType.FullGUI')
@@ -59,6 +60,28 @@ new [FileRenamer](#T-MFR-Renamers-Files-FileRenamer 'MFR.Renamers.Files.FileRena
 
 Unique identifier for the message that is sent by the Operation Engine when the
 root directory, i.e., the starting directory, path is changed.
+
+<a name='M-MFR-Engines-Constants-OperationEngineMessages-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [OperationEngineMessages](#T-MFR-Engines-Constants-OperationEngineMessages 'MFR.Engines.Constants.OperationEngineMessages') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='T-MFR-Engines-Constants-OperationEngineType'></a>
 ## OperationEngineType `type`
