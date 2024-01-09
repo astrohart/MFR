@@ -86,7 +86,7 @@ namespace MFR.Renamers.Files
     public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
     {
         /// <summary>
-        /// An <see cref="T:MFR.Operations.Constants.OperationType" /> enumeration value
+        /// A <see cref="T:MFR.Operations.Constants.OperationType" /> enumeration value
         /// that describes what operation is currently being performed by the application.
         /// </summary>
         private OperationType _currentOperation;
@@ -180,7 +180,7 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Gets a reference to a collection of of the
+        /// Gets a reference to a collection of the
         /// <see
         ///     cref="T:MFR.Operations.Constants.OperationType" />
         /// values.
@@ -385,7 +385,7 @@ namespace MFR.Renamers.Files
         /// The default value of this property is <c>-1</c>.  This indicates the property's
         /// value has not been computed yet, or that we've begun a new round of processing.
         /// </remarks>
-        private int TotalPendingChanges
+        private int TotalReposWithPendingChanges
         {
             get;
             set;
@@ -566,12 +566,12 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                TotalPendingChanges = -1;   // reset the TotalPendingChanges property
+                TotalReposWithPendingChanges = -1;   // reset the TotalReposWithPendingChanges property
 
                 if (CurrentConfiguration.ShouldCommitPendingChanges &&
                     !CommitPendingChanges(
                         RootDirectoryPath, findWhat, replaceWith
-                    ) && TotalPendingChanges > 0 /* don't show the commit failure warning if there were no pending changes to start with */
+                    ) && TotalReposWithPendingChanges > 0 /* don't show the commit failure warning if there were no pending changes to start with */
                         && !CurrentConfiguration.AutoStart /* don't show the message box if we're automatically started */)
                     Messages.ShowWarning(
                         Resources.Warning_FailedCommitPendingChanges
@@ -719,7 +719,7 @@ namespace MFR.Renamers.Files
                  * start our file and folder enumerations.  The primary use case of
                  * this software is to be installed into the 'Tools' menu of Visual
                  * Studio as an External Tool and to be configured to have the
-                 * folder containing the currently-opened solution inside of its
+                 * folder containing the currently-opened solution inside its
                  * Starting Folder text box.  The thinking is that the user wants
                  * to call up this tool from within Visual Studio in order to do
                  * project-renaming on the currently open solution.
@@ -729,7 +729,7 @@ namespace MFR.Renamers.Files
                  * we like in the Starting Folder text box.  Such a folder may, or
                  * may not, contain a single .sln file.  It may be the root of a
                  * whole directory TREE of solutions, that ALL need name changes.
-                 * Say, for instance, we have a whole bunch of projects with the name
+                 * Say, for instance, we have a bunch of projects with the name
                  * of the company, XYZCorp, in them.  Say XYZCorp now goes through
                  * a re-brand and becomes ABCorp.  So, perhaps the user may want
                  * to launch this tool in their main dev folder, and specify that
@@ -1773,7 +1773,7 @@ namespace MFR.Renamers.Files
              * Sometimes, .sln files (the ones we close and then open before and after the
              * operations) are renamed by the operations.
              *
-             * We check if this is so.  If so, then we update the FullName property of any of
+             * We check if this is so.  If so, then we update the FullName property of
              * the LoadedSolutions if we find one that matches, so that when we reload the
              * solution, we open the correct file.
              */
@@ -2166,47 +2166,55 @@ namespace MFR.Renamers.Files
                         Resources.Error_OperationAborted
                     );
 
-                var reposToHavePendingChangesCommitted = 0;
+                /*
+                 * Assuming that there are multiple local Git repositories in
+                 * the directory tree of the root folder, count how many of them
+                 * have pending changes.
+                 */
+
+                TotalReposWithPendingChanges = 0;
                 foreach (var entry in fileSystemEntries)
                 {
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
 
                     if (HasPendingChanges(entry))
-                        reposToHavePendingChangesCommitted++;
+                        TotalReposWithPendingChanges++;
                 }
 
-                if (reposToHavePendingChangesCommitted == 0)
+                /*
+                 * If the TotalReposWithPendingChanges property is set equal to
+                 * zero at this point, or is a negative number, then none of the
+                 * local Git repos in the root folder, if any are there, have pending
+                 * changes.
+                 *
+                 * Therefore, in that event, return false from this method as it makes
+                 * no sense to proceed.
+                 */
+
+                if (TotalReposWithPendingChanges <= 0)
                 {
-                    /*
-                     * If we are here, abort the operation since
-                     * there are zero local Git repositories having
-                     * pending changes.  Also update the value of
-                     * the TotalPendingChanges property to zero.
-                     */
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.CommitPendingChanges *** INFO: Zero local Git repo(s) in the folder '{rootFolderPath}' have pending changes; stopping."
+                    );
 
-                    TotalPendingChanges = 0;
-                    return false;
-                }
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"FileRenamer.CommitPendingChanges: Result = {result}"
+                    );
 
-                TotalPendingChanges = 0;
-
-                foreach (var entry in fileSystemEntries)
-                {
-                    if (entry == null) continue;
-                    if (!entry.Exists) continue;
-
-                    TotalPendingChanges += (int)entry.UserState;
+                    return result;
                 }
 
                 /*
                  * The Pending Changes to be Committed event really is meant
-                 * to report 4 x the number of local Git repos.
+                 * to report 4 x the number of local Git repos having pending
+                 * changes.
                  */
 
                 OnPendingChangesToBeCommittedCounted(
                     new FilesOrFoldersCountedEventArgs(
-                        fileSystemEntries.Count *
+                        TotalReposWithPendingChanges *
                         4, // there are 4 git operations performed per folder
                         OperationType.CommitPendingChanges
                     )
@@ -2229,7 +2237,8 @@ namespace MFR.Renamers.Files
                                                   )
                                           );
 
-                /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
+                /* if we are here, then the operation succeeded -- EXCEPT
+                 if the AbortRequested property is set to TRUE */
                 result &= !AbortRequested;
             }
             catch (OperationAbortedException)
@@ -2461,7 +2470,7 @@ namespace MFR.Renamers.Files
                  * whose pathnames match the search criteria specified by
                  * the user.  For each folder, commit any pending change(s)
                  * inside of it to the local Git repository that the folder
-                 * is likely to contain..
+                 * is likely to contain.
                  */
 
                 result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
@@ -2901,7 +2910,7 @@ namespace MFR.Renamers.Files
                 /*
                  * OKAY, if the text to be searched and the result of the "replacement"
                  * operation are identical, then nothing was actually replaced in the
-                 * file and we should instead return the specialized GUID indicating so --
+                 * file, and we should instead return the specialized GUID indicating so --
                  * this way, the file will be skipped and not overwritten, but also
                  * a Boolean true value will be returned so as to not indicate an error
                  * occurred.
@@ -3426,7 +3435,7 @@ namespace MFR.Renamers.Files
 
                 return true; /* okay, an exception was caught, but
                               * we want to barrel through the remainder
-                              * of the operation so we can process any other
+                              * of the operation, so we can process any other
                               * files that may need to be operated on.
                               * So, we return true here.*/
             }
@@ -3736,7 +3745,7 @@ namespace MFR.Renamers.Files
 
         private void ReopenActiveSolutions()
         {
-            // If Visual Studio is open and it currently has the solution
+            // If Visual Studio is open, and it currently has the solution
             // open, then close the solution before we perform the rename operation.
             if (!ShouldReOpenSolutions ||
                 !LoadedSolutions.Any(solution => solution.ShouldReopen))
