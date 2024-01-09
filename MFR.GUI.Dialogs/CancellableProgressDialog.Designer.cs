@@ -46,6 +46,7 @@ namespace MFR.GUI.Dialogs
             this.currentFileLabel.Name = "currentFileLabel";
             this.currentFileLabel.Size = new System.Drawing.Size(392, 36);
             this.currentFileLabel.TabIndex = 1;
+            this.currentFileLabel.UseWaitCursor = true;
             // 
             // progressBar
             // 
@@ -65,6 +66,7 @@ namespace MFR.GUI.Dialogs
             this.progressBar.Size = new System.Drawing.Size(296, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar.TabIndex = 2;
+            this.progressBar.UseWaitCursor = true;
             // 
             // statusLabel
             // 
@@ -74,6 +76,7 @@ namespace MFR.GUI.Dialogs
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(391, 47);
             this.statusLabel.TabIndex = 0;
+            this.statusLabel.UseWaitCursor = true;
             // 
             // cancelButton
             // 
@@ -85,6 +88,7 @@ namespace MFR.GUI.Dialogs
             this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseWaitCursor = true;
             this.cancelButton.Click += new System.EventHandler(this.OnCancel);
             // 
             // CancellableProgressDialog
@@ -104,10 +108,9 @@ namespace MFR.GUI.Dialogs
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CancellableProgressDialog";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[AppTitle]";
+            this.UseWaitCursor = true;
             this.ResumeLayout(false);
 
         }
