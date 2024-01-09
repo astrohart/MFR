@@ -82,7 +82,7 @@ MFR.Tests.Common
 ##### Summary
 
 Builds instances of fake
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfig](#T-MFR-Settings-Configuration-ProjectFileRenamerConfig 'MFR.Settings.Configuration.ProjectFileRenamerConfig')
 objects in a fluent
 manner, initialized for unit tests.
 
@@ -258,7 +258,7 @@ is associated with the application.
 
 ##### Summary
 
-String containing the name of a configuration file.
+String containing the name of a config file.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_DIR'></a>
 ### DEFAULT_CONFIG_FILE_DIR `constants`
@@ -266,7 +266,7 @@ String containing the name of a configuration file.
 ##### Summary
 
 String containing the fully-qualified pathname of a folder that stores the
-configuration file.
+config file.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-DEFAULT_CONFIG_FILE_PATH'></a>
 ### DEFAULT_CONFIG_FILE_PATH `constants`
@@ -274,11 +274,11 @@ configuration file.
 ##### Summary
 
 String containing the fully-qualified pathname of the master
-configuration file.
+config file.
 
 ##### Remarks
 
-The master configuration file is defined to be that file, containing
+The master config file is defined to be that file, containing
 a JSON representation of an object that implements the
 [IProfile](#T-MFR-Settings-Profiles-Interfaces-IProfile 'MFR.Settings.Profiles.Interfaces.IProfile')
 interface, exists
@@ -294,7 +294,7 @@ in the centralized location that is used by the application.
 ##### Summary
 
 Fully-qualified pathname to where we expect that the path to the
-configuration file has been written to.
+config file has been written to.
 
 <a name='F-MFR-Tests-Common-RegistryDataExchangeTestsBase-PRODUCT_NAME'></a>
 ### PRODUCT_NAME `constants`
@@ -310,7 +310,7 @@ associated with the application.
 ##### Summary
 
 Name of the Registry value under which the path to the application's
-configuration file is to be stored.
+config file is to be stored.
 
 <a name='T-MFR-Tests-Common-Properties-Resources'></a>
 ## Resources `type`

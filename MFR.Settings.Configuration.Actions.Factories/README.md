@@ -103,7 +103,7 @@ MFR.Settings.Configuration.Actions.Factories
 ##### Summary
 
 Provides access to the one and only instance of the object that implements the
-[IProjectFileRenamerConfiguration}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}')
+[IProjectFileRenamerConfig}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}')
 interface.
 
 <a name='M-MFR-Settings-Configuration-Actions-Factories-GetLoadConfigurationFromFileAction-SoleInstance'></a>
@@ -112,13 +112,13 @@ interface.
 ##### Summary
 
 Obtains access to the sole instance of the object that implements the
-[IProjectFileRenamerConfiguration}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}')
+[IProjectFileRenamerConfig}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}')
 interface, and returns a reference to it.
 
 ##### Returns
 
 Reference to the one, and only, instance of the object that implements the
-[IProjectFileRenamerConfiguration}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}')
+[IProjectFileRenamerConfig}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry, MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}')
 interface.
 
 ##### Parameters

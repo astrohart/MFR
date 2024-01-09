@@ -38,7 +38,7 @@ Exposes static methods to determine whether facts are true or false about data.
 
 Determines whether a user-submitted path, or the pathname stored in the system
 Registry, is the correct pathname to be utilized for saving out
-configuration-setting profiles to the disk with.
+config-setting profiles to the disk with.
 
 ##### Returns
 
@@ -73,7 +73,7 @@ operation.
 
 Returns a value that indicates whether the specified
 `pathname` is valid for use in saving the user's favorite
-configuration-setting profiles out to the disk.
+config-setting profiles out to the disk.
 
 ##### Returns
 
@@ -196,13 +196,13 @@ pathname of a `profiles.json` file. |
 
 Generates a reference to an instance of an `Action` object that is
 responsible for executing the operation of loading the user's
-configuration-setting profiles from the disk.
+config-setting profiles from the disk.
 
 ##### Returns
 
 If successful, a reference to an instance of an `Action` object
 that is responsible for executing the operation of loading the user's
-configuration-setting profiles from the disk; `null`
+config-setting profiles from the disk; `null`
 otherwise.
 
 ##### Parameters
@@ -232,14 +232,14 @@ Exposes static methods to load profiles from the disk.
 
 Attempts to obtain a reference to an instance of an object that implements the
 [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-interface that contains the user's configuration-setting profiles.
+interface that contains the user's config-setting profiles.
 
 ##### Returns
 
 If successful, a reference to an instance of an object that implements
 the
 [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-interface that contains the user's configuration-setting profiles; otherwise,
+interface that contains the user's config-setting profiles; otherwise,
 the empty collection is returned.
 
 ##### Parameters

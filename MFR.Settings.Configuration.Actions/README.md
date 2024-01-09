@@ -4,7 +4,7 @@
 ## Contents
 
 - [Is](#T-MFR-Settings-Configuration-Actions-Is 'MFR.Settings.Configuration.Actions.Is')
-  - [ConfigurationBlankOrNull(configuration)](#M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Settings.Configuration.Actions.Is.ConfigurationBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [ConfigurationBlankOrNull(config)](#M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.Actions.Is.ConfigurationBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
 - [LoadConfigurationFilePathFromRegistryAction](#T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction')
   - [#ctor()](#M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.#ctor')
   - [AccessTheRegueryExpressionValidator](#P-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-AccessTheRegueryExpressionValidator 'MFR.Settings.Configuration.Actions.LoadConfigurationFilePathFromRegistryAction.AccessTheRegueryExpressionValidator')
@@ -29,28 +29,28 @@
 
 MFR.Settings.Configuration.Actions
 
-<a name='M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### ConfigurationBlankOrNull(configuration) `method`
+<a name='M-MFR-Settings-Configuration-Actions-Is-ConfigurationBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
+### ConfigurationBlankOrNull(config) `method`
 
 ##### Summary
 
-Determines whether the specified `configuration` is blank or
+Determines whether the specified `config` is blank or
 not.
 
 ##### Returns
 
 `true` if the specified
-`configuration` is the blank application configuration or if
+`config` is the blank application config or if
 a `null` reference is passed as the argument of the
-`configuration` parameter; `false`
+`config` parameter; `false`
 otherwise.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+| config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') | (Required.) Reference to an instance of an object that implements the
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface. |
 
 <a name='T-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction'></a>
@@ -63,7 +63,7 @@ MFR.Settings.Configuration.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master configuration file.
+the master config file.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -158,7 +158,7 @@ MFR.Settings.Configuration.Actions
 ##### Summary
 
 Accesses a key and value in the system Registry to load the pathname of
-the master configuration file.
+the master config file.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFromFileAction-#ctor'></a>
 ### #ctor() `constructor`
@@ -209,7 +209,7 @@ Executes this message.
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface that is initialized with the values read in from the
 specified file.
 

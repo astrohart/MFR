@@ -65,7 +65,7 @@ Determines whether data and a search patterned, bound up together in
 the form of the `expression` provided, contain a
 data match according to rules specified by the user in the object, a
 reference to which is specified in the
-[ProjectFileRenamerConfiguration](#P-MFR-ITextExpressionMatchingEngine-ProjectFileRenamerConfiguration 'MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfig](#P-MFR-ITextExpressionMatchingEngine-ProjectFileRenamerConfig 'MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfig')
 property.
 
 ##### Returns

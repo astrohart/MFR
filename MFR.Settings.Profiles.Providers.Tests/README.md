@@ -149,7 +149,7 @@ This constructor sets up the production of a log file for this test fixture.
 
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of the file containing the collection of user-defined
-configuration-setting profiles.
+config-setting profiles.
 
 
 
@@ -171,7 +171,7 @@ interface.
 
 Gets a reference to an instance of an object that implements the
 [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-interface that represents the collection of configuration-setting profiles
+interface that represents the collection of config-setting profiles
 we're working with.
 
 <a name='M-MFR-Settings-Profiles-Providers-Tests-ProfileProviderTests-GetProfileCount'></a>
@@ -179,11 +179,11 @@ we're working with.
 
 ##### Summary
 
-Gets the count of user-defined configuration-setting profiles.
+Gets the count of user-defined config-setting profiles.
 
 ##### Returns
 
-Count of user-defined configuration-setting profiles.
+Count of user-defined config-setting profiles.
 
 ##### Parameters
 

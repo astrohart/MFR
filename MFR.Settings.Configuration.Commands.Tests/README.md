@@ -8,7 +8,7 @@
   - [ResourceManager](#P-MFR-Settings-Configuration-Commands-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Commands.Tests.Properties.Resources.ResourceManager')
 - [SaveConfigurationToFileCommandTests](#T-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests')
   - [FILE_PATH](#F-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-FILE_PATH 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.FILE_PATH')
-  - [BlankConfiguration](#P-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.BlankConfiguration')
+  - [BlankConfig](#P-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-BlankConfig 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.BlankConfig')
   - [Test_SaveConfigurationToFile_Works_ForvalidInputs()](#M-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs 'MFR.Settings.Configuration.Commands.Tests.SaveConfigurationToFileCommandTests.Test_SaveConfigurationToFile_Works_ForvalidInputs')
 - [SaveStringToRegistryCommandTests](#T-MFR-Settings-Configuration-Commands-Tests-SaveStringToRegistryCommandTests 'MFR.Settings.Configuration.Commands.Tests.SaveStringToRegistryCommandTests')
   - [Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry()](#M-MFR-Settings-Configuration-Commands-Tests-SaveStringToRegistryCommandTests-Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry 'MFR.Settings.Configuration.Commands.Tests.SaveStringToRegistryCommandTests.Test_CanSuccessfullySave_AppConfigFilePath_ToRegistry')
@@ -54,7 +54,7 @@ class.
 
 ##### Remarks
 
-This class enables callers to provide a filename and a configuration
+This class enables callers to provide a filename and a config
 object reference, bundled together inside a File System Entry POCO, and
 it is serialized to disk.
 
@@ -65,12 +65,12 @@ it is serialized to disk.
 
 File in the root of the C: drive where the data is to be saved.
 
-<a name='P-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-BlankConfiguration'></a>
-### BlankConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-BlankConfig'></a>
+### BlankConfig `property`
 
 ##### Summary
 
-Empty configuration object for testing.
+Empty config object for testing.
 
 <a name='M-MFR-Settings-Configuration-Commands-Tests-SaveConfigurationToFileCommandTests-Test_SaveConfigurationToFile_Works_ForvalidInputs'></a>
 ### Test_SaveConfigurationToFile_Works_ForvalidInputs() `method`

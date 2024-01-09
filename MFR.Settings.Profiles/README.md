@@ -6,7 +6,7 @@
 - [Profile](#T-MFR-Settings-Profiles-Profile 'MFR.Settings.Profiles.Profile')
   - [#ctor()](#M-MFR-Settings-Profiles-Profile-#ctor 'MFR.Settings.Profiles.Profile.#ctor')
   - [#ctor(name)](#M-MFR-Settings-Profiles-Profile-#ctor-System-String- 'MFR.Settings.Profiles.Profile.#ctor(System.String)')
-  - [#ctor(source,name)](#M-MFR-Settings-Profiles-Profile-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String- 'MFR.Settings.Profiles.Profile.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration,System.String)')
+  - [#ctor(source,name)](#M-MFR-Settings-Profiles-Profile-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-String- 'MFR.Settings.Profiles.Profile.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.String)')
   - [Name](#P-MFR-Settings-Profiles-Profile-Name 'MFR.Settings.Profiles.Profile.Name')
   - [ProfileId](#P-MFR-Settings-Profiles-Profile-ProfileId 'MFR.Settings.Profiles.Profile.ProfileId')
   - [ToString()](#M-MFR-Settings-Profiles-Profile-ToString 'MFR.Settings.Profiles.Profile.ToString')
@@ -24,7 +24,7 @@ MFR.Settings.Profiles
 
 ##### Summary
 
-A `Profile` is basically a `ProjectFileRenamerConfiguration`, just with an ID
+A `Profile` is basically a `ProjectFileRenamerConfig`, just with an ID
 and a name.
 
 ##### Remarks
@@ -71,7 +71,7 @@ and returns a reference to it.
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `name`, is passed
 a blank or `null` string for a value. |
 
-<a name='M-MFR-Settings-Profiles-Profile-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration,System-String-'></a>
+<a name='M-MFR-Settings-Profiles-Profile-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-String-'></a>
 ### #ctor(source,name) `constructor`
 
 ##### Summary
@@ -83,9 +83,9 @@ returns a reference to it.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface
-that contains configuration settings to copy into this object. |
+| source | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') | (Required.) Reference to an instance of an object that implements the
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') interface
+that contains config settings to copy into this object. |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the descriptive name that the user wants to use
 for this profile. |
 

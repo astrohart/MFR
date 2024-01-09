@@ -839,7 +839,7 @@ Overrides the current thread's CurrentUICulture property for all
 
 ##### Summary
 
-Looks up a localized string similar to There are no string matcher objects defined for the '{0}' operation type that support the '{1}' matching configuration..
+Looks up a localized string similar to There are no string matcher objects defined for the '{0}' operation type that support the '{1}' matching config..
 
 <a name='P-MFR-Matchers-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
