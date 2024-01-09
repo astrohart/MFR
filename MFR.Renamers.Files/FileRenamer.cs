@@ -566,13 +566,18 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
 
-                TotalReposWithPendingChanges = -1;   // reset the TotalReposWithPendingChanges property
+                TotalReposWithPendingChanges =
+                    -1; // reset the TotalReposWithPendingChanges property
 
                 if (CurrentConfiguration.ShouldCommitPendingChanges &&
                     !CommitPendingChanges(
                         RootDirectoryPath, findWhat, replaceWith
-                    ) && TotalReposWithPendingChanges > 0 /* don't show the commit failure warning if there were no pending changes to start with */
-                        && !CurrentConfiguration.AutoStart /* don't show the message box if we're automatically started */)
+                    ) &&
+                    TotalReposWithPendingChanges >
+                    0 /* don't show the commit failure warning if there were no pending changes to start with */
+                    && !CurrentConfiguration
+                        .AutoStart /* don't show the message box if we're automatically started */
+                   )
                     Messages.ShowWarning(
                         Resources.Warning_FailedCommitPendingChanges
                     );
@@ -2200,7 +2205,8 @@ namespace MFR.Renamers.Files
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"FileRenamer.CommitPendingChanges: Result = {result}"
+                        DebugLevel.Debug,
+                        $"FileRenamer.CommitPendingChanges: Result = {result}"
                     );
 
                     return result;
@@ -2327,6 +2333,8 @@ namespace MFR.Renamers.Files
 
                 if (!HasPendingChanges(entry))
                     return result;
+
+                LocalGitInteropProvider.Stage();
 
                 OnProcessingOperation(
                     new ProcessingOperationEventArgs(
@@ -2970,9 +2978,15 @@ namespace MFR.Renamers.Files
                 if (entry == null) return result;
                 if (!entry.Exists) return result;
 
-                LocalGitInteropProvider =
-                    MakeNewLocalGitInteropProvider
-                        .ForLocalGitFolder(entry.Path);
+                if (LocalGitInteropProvider == null ||
+                    !entry.Path.Equals(
+                        LocalGitInteropProvider.RepositoryFolder
+                    ))
+                    LocalGitInteropProvider =
+                        MakeNewLocalGitInteropProvider.ForLocalGitFolder(
+                            entry.Path
+                        );
+
                 if (!LocalGitInteropProvider.HasCurrentBranch) return result;
                 if (!LocalGitInteropProvider.HasRemoteOrigin) return result;
                 if (!LocalGitInteropProvider.HasRemotes) return result;

@@ -1,6 +1,7 @@
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
 using MFR.GUI.Windows.Factories;
+using PostSharp.Patterns.Diagnostics;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Processors
@@ -14,11 +15,13 @@ namespace MFR.GUI.Processors
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static NoCommandLineProcessor() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected NoCommandLineProcessor() { }
 
         /// <summary>

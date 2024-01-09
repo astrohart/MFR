@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.CommandLine.Models.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.CommandLine.Models
 {
@@ -11,6 +12,29 @@ namespace MFR.CommandLine.Models
     /// </remarks>
     public class CommandLineInfo : ICommandLineInfo
     {
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.CommandLine.Models.CommandLineInfo" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static CommandLineInfo() { }
+
+        /// <summary>
+        /// Initializes a new instance of
+        /// <see cref="T:MFR.CommandLine.Models.CommandLineInfo" /> and returns a reference
+        /// to it.
+        /// </summary>
+        /// <remarks>
+        /// <strong>NOTE:</strong> This constructor is marked <see langword="protected" />
+        /// due to the fact that this class is marked <see langword="abstract" />.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        public CommandLineInfo() { }
+
         /// <summary>
         /// Gets or sets a value indicating whether processing starts when the application
         /// starts.
@@ -65,7 +89,8 @@ namespace MFR.CommandLine.Models
         } = true;
 
         /// <summary>
-        /// Gets or sets a value indicating whether we are to rename folder(s) that contain Solution(s).
+        /// Gets or sets a value indicating whether we are to rename folder(s) that contain
+        /// Solution(s).
         /// </summary>
         public bool RenameSolutionFolders
         {

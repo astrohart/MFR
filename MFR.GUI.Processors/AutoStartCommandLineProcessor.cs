@@ -2,20 +2,28 @@ using MFR.CommandLine.Translators;
 using MFR.GUI.Dialogs.Factories;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Processors
 {
+    /// <summary>
+    /// Processes the command line of the application in the event the application is
+    /// auto-started; i.e., it is configured and ran on the command line by another
+    /// tool as part of a pipeline or workflow.
+    /// </summary>
     public class AutoStartCommandLineProcessor : CommandLineProcessorBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static AutoStartCommandLineProcessor() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected AutoStartCommandLineProcessor() { }
 
         /// <summary>
@@ -43,7 +51,9 @@ namespace MFR.GUI.Processors
         {
             CurrentConfiguration = CommandLineInfo.ToConfiguration();
 
-            Application.Run((Form)GetAutoStartCancellableProgressDialog.SoleInstance());
+            Application.Run(
+                (Form)GetAutoStartCancellableProgressDialog.SoleInstance()
+            );
         }
     }
 }

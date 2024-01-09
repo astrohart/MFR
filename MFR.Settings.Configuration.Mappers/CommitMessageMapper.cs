@@ -1,5 +1,6 @@
 using MFR.Settings.Configuration.Mappers.Constants;
 using MFR.Settings.Configuration.Mappers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Settings.Configuration.Mappers
 {
@@ -12,11 +13,13 @@ namespace MFR.Settings.Configuration.Mappers
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static CommitMessageMapper() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected CommitMessageMapper() { }
 
         /// <summary>

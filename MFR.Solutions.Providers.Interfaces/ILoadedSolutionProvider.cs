@@ -23,7 +23,6 @@ namespace MFR.Solutions.Providers.Interfaces
         IList<IVisualStudioSolution> LoadedSolutions
         {
             get;
-            set;
         }
 
         /// <summary>

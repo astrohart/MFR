@@ -1,5 +1,6 @@
 using MFR.Directories.Managers.Interfaces;
 using MFR.FileSystem.Enumerators;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,11 +20,13 @@ namespace MFR.Directories.Managers
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static SearchDirectoryManager() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected SearchDirectoryManager() { }
 
         /// <summary>

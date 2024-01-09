@@ -10,11 +10,13 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 namespace MFR.Harnesses.LoadedSolutions
 {
     /// <summary>
-    /// Provides a harness that links a Visual Studio Solution (<c>*.sln</c>) file
-    /// together with the
+    /// Provides a <c>harness</c> that links a Visual Studio Solution (<c>*.sln</c>)
+    /// file together with the additional parameters and properties that enable the
+    /// application to work with it.
     /// </summary>
     /// <remarks>
-    /// A harness object to associate a Visual Studio Solution (<c>*.sln</c>) file that
+    /// A <c>harness</c> object to associate a Visual Studio Solution (<c>*.sln</c>)
+    /// file that
     /// is loaded in a target running instance of Visual Studio with additional
     /// parameters and options that make ti possible for the Project File Renamer
     /// application to effectively manage it, regardless of whether the Visual Studio

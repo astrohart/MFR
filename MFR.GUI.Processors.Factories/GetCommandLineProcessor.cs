@@ -1,6 +1,7 @@
 using MFR.CommandLine.Models.Interfaces;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.GUI.Processors.Factories
@@ -11,6 +12,21 @@ namespace MFR.GUI.Processors.Factories
     /// </summary>
     public static class GetCommandLineProcessor
     {
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.GUI.Processors.Factories.GetCommandLineProcessor" />
+        /// class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static GetCommandLineProcessor() { }
+
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
@@ -39,7 +55,9 @@ namespace MFR.GUI.Processors.Factories
         /// passed a <see langword="null" /> value.
         /// </exception>
         public static ICommandLineProcessor HavingCommandLineInfo(
-            this ICommandLineProcessor self, ICommandLineInfo cmdInfo)
+            this ICommandLineProcessor self,
+            ICommandLineInfo cmdInfo
+        )
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
 
@@ -75,7 +93,8 @@ namespace MFR.GUI.Processors.Factories
         /// parameter.
         /// </exception>
         public static ICommandLineProcessor OfType(
-            CommandLineProcessorType type)
+            CommandLineProcessorType type
+        )
         {
             ICommandLineProcessor result;
 

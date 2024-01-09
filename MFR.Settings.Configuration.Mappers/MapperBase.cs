@@ -1,5 +1,6 @@
 using MFR.Settings.Configuration.Mappers.Constants;
 using MFR.Settings.Configuration.Mappers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,30 @@ namespace MFR.Settings.Configuration.Mappers
     public abstract class MapperBase : IConfigurationStringMapper
     {
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.Settings.Configuration.Mappers.MapperBase" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static MapperBase() { }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see cref="T:MFR.Settings.Configuration.Mappers.MapperBase" /> and returns a
         /// reference to it.
         /// </summary>
         /// <remarks>
-        /// <strong>NOTE:</strong> This constructor is marked <see langword="protected" /> due to the
+        /// <strong>NOTE:</strong> This constructor is marked <see langword="protected" />
+        /// due to the
         /// fact that this class is marked <c>abstract</c>.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         protected MapperBase()
         {
             InitializeMappingDictionary();

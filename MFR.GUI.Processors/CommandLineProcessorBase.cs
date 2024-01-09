@@ -4,6 +4,7 @@ using MFR.GUI.Processors.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Processors
 {
@@ -13,6 +14,29 @@ namespace MFR.GUI.Processors
     /// </summary>
     public abstract class CommandLineProcessorBase : ICommandLineProcessor
     {
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.GUI.Processors.CommandLineProcessorBase" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static CommandLineProcessorBase() { }
+
+        /// <summary>
+        /// Initializes a new instance of
+        /// <see cref="T:MFR.GUI.Processors.CommandLineProcessorBase" /> and returns a
+        /// reference to it.
+        /// </summary>
+        /// <remarks>
+        /// <strong>NOTE:</strong> This constructor is marked <see langword="protected" />
+        /// due to the fact that this class is marked <see langword="abstract" />.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        protected CommandLineProcessorBase() { }
+
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
@@ -37,7 +61,8 @@ namespace MFR.GUI.Processors
         /// interface allows access to the configuration settings that the user can use to
         /// control the behavior of the application.
         /// <para />
-        /// As this class is an abstract base class, we made this property <see langword="protected" />
+        /// As this class is an abstract base class, we made this property
+        /// <see langword="protected" />
         /// so that our child classes can see it.
         /// </remarks>
         protected static IProjectFileRenamerConfigurationProvider

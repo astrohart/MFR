@@ -1,4 +1,6 @@
 using MFR.Solutions.Providers.Interfaces;
+using PostSharp.Patterns.Collections;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using xyLOGIX.Core.Debug;
@@ -14,6 +16,15 @@ namespace MFR.Solutions.Providers
     public class LoadedSolutionProvider : ILoadedSolutionProvider
     {
         /// <summary>
+        /// Reference to an instance of a collection of instances of objects that implement
+        /// the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface.
+        /// </summary>
+        private readonly IList<IVisualStudioSolution> _loadedSolutions =
+            new AdvisableCollection<IVisualStudioSolution>();
+
+        /// <summary>
         /// A <see cref="T:System.String" /> that contains the fully-qualified pathname of
         /// the folder in which the operation(s) that are selected by the user start.
         /// </summary>
@@ -22,11 +33,13 @@ namespace MFR.Solutions.Providers
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static LoadedSolutionProvider() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected LoadedSolutionProvider() { }
 
         /// <summary>
@@ -49,10 +62,7 @@ namespace MFR.Solutions.Providers
         /// is loaded in a running instance of Visual Studio.
         /// </remarks>
         public IList<IVisualStudioSolution> LoadedSolutions
-        {
-            get;
-            set;
-        } = new List<IVisualStudioSolution>();
+            => _loadedSolutions;
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
