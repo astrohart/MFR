@@ -1,4 +1,3 @@
-using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Constants;
 using MFR.Settings.Profiles.Collections.Interfaces;
@@ -6,6 +5,7 @@ using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using NUnit.Framework;
+using PostSharp.Patterns.Threading;
 using System;
 using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
@@ -56,7 +56,9 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

@@ -34,7 +34,9 @@ namespace MFR.GUI.Dialogs
         /// interface.
         /// </summary>
         private IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets or sets the

@@ -1,6 +1,7 @@
-using PostSharp.Patterns.Threading;
 using MFR.Settings.Profiles.Providers.Interfaces;
 using NUnit.Framework;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Threading;
 
 namespace MFR.Settings.Profiles.Providers.Factories.Tests
 {
@@ -10,7 +11,7 @@ namespace MFR.Settings.Profiles.Providers.Factories.Tests
     ///     cref="T:MFR.Settings.Profiles.Providers.Factories.GetProfileProvider" />
     /// class.
     /// </summary>
-    [TestFixture, ExplicitlySynchronized]
+    [TestFixture, ExplicitlySynchronized, Log(AttributeExclude = true)]
     public class GetProfileProviderTests
     {
         /// <summary>

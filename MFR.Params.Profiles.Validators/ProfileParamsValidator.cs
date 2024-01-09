@@ -1,5 +1,6 @@
 using MFR.Params.Profiles.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
+using MFR.Settings.Profiles.Providers.Interfaces;
 using xyLOGIX.Validators;
 using xyLOGIX.Validators.Events;
 
@@ -32,6 +33,16 @@ namespace MFR.Params.Profiles.Validators
         ) { }
 
         /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Settings.Profiles.Providers.Interfaces.IProfileProvider" />
+        /// interface.
+        /// </summary>
+        private static IProfileProvider ProfileProvider
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
+
+        /// <summary>
         /// When implemented by a class, evaluates the condition it checks and
         /// updates the <see cref="P:System.Web.UI.IValidator.IsValid" /> property.
         /// </summary>
@@ -52,9 +63,7 @@ namespace MFR.Params.Profiles.Validators
             // Check whether there is an existing profile with the name we are wanting to use.
             // If so, then the user must be shown an error message to inform the user that the
             // name cannot be reused.
-            if (GetProfileProvider.SoleInstance()
-                                  .Profiles
-                                  .HasProfileNamed(ObjectToValidate.Name))
+            if (ProfileProvider.Profiles.HasProfileNamed(ObjectToValidate.Name))
             {
                 OnValidationFailed(
                     new ValidationFailedEventArgs(

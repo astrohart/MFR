@@ -92,7 +92,10 @@ namespace MFR.GUI.Windows.Presenters
         /// </remarks>
         private static IProjectFileRenamerConfigurationProvider
             ConfigurationProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        {
+            get;
+        } = GetProjectFileRenamerConfigurationProvider
+            .SoleInstance();
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements
@@ -175,7 +178,9 @@ namespace MFR.GUI.Windows.Presenters
         /// interface.
         /// </summary>
         private static IProfileProvider ProfileProvider
-            => GetProfileProvider.SoleInstance();
+        {
+            get;
+        } = GetProfileProvider.SoleInstance();
 
         /// <summary>
         /// Gets the replacement text to be used during the operations.
@@ -608,6 +613,43 @@ namespace MFR.GUI.Windows.Presenters
                ProfileProvider.Profiles.HasProfileNamed(profileName);
 
         /// <summary>
+        /// If the user has changed the pathname of where the configuration file is to be
+        /// stored, this method renames the existing configuration file to match.
+        /// </summary>
+        /// <param name="newConfigFilePath">
+        /// (Required.) A <see cref="T:System.String" /> that contains the new value of the
+        /// fully-qualified pathname of the configuration file.
+        /// </param>
+        public void RenameConfigFileToMatchNewName(string newConfigFilePath)
+        {
+            try
+            {
+                if (!Determine.IsConfigFilenameValid(newConfigFilePath)) return;
+
+                if (ConfigFilePath != newConfigFilePath)
+                    MakeNewFileInfo.ForPath(ConfigFilePath)
+                                   .RenameTo(newConfigFilePath);
+
+                /*
+                 * If the rename operation was successful, then the file's pathname
+                 * is now newConfigFilePath. Check whether it exists at that pathname;
+                 * if so, then update the value of the ConfigFilePath property with that
+                 * value.
+                 *
+                 * The configuration provider object will then proceed to store the new
+                 * pathname in the system Registry right away.
+                 */
+                if (Does.FileExist(newConfigFilePath))
+                    ConfigFilePath = newConfigFilePath;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
         /// Saves data from the screen control and then saves the
         /// configuration to the
         /// persistence location.
@@ -834,43 +876,6 @@ namespace MFR.GUI.Windows.Presenters
                               );
 
             return this;
-        }
-
-        /// <summary>
-        /// If the user has changed the pathname of where the configuration file is to be
-        /// stored, this method renames the existing configuration file to match.
-        /// </summary>
-        /// <param name="newConfigFilePath">
-        /// (Required.) A <see cref="T:System.String" /> that contains the new value of the
-        /// fully-qualified pathname of the configuration file.
-        /// </param>
-        public void RenameConfigFileToMatchNewName(string newConfigFilePath)
-        {
-            try
-            {
-                if (!Determine.IsConfigFilenameValid(newConfigFilePath)) return;
-
-                if (ConfigFilePath != newConfigFilePath)
-                    MakeNewFileInfo.ForPath(ConfigFilePath)
-                                   .RenameTo(newConfigFilePath);
-
-                /*
-                 * If the rename operation was successful, then the file's pathname
-                 * is now newConfigFilePath. Check whether it exists at that pathname;
-                 * if so, then update the value of the ConfigFilePath property with that
-                 * value.
-                 *
-                 * The configuration provider object will then proceed to store the new
-                 * pathname in the system Registry right away.
-                 */
-                if (Does.FileExist(newConfigFilePath))
-                    ConfigFilePath = newConfigFilePath;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         /// <summary>
@@ -1110,8 +1115,7 @@ namespace MFR.GUI.Windows.Presenters
                 DataOperationStarted?.Invoke(this, e);
                 SendMessage<DataOperationErrorEventArgs>.Having.Args(this, e)
                     .ForMessageId(
-                        MainWindowPresenterMessages
-                            .MWP_DATA_OPERATION_STARTED
+                        MainWindowPresenterMessages.MWP_DATA_OPERATION_STARTED
                     );
             }
             catch (Exception ex)
