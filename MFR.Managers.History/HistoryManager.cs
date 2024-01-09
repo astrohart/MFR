@@ -31,6 +31,20 @@ namespace MFR.Managers.History
         private readonly IWin32Window _messageBoxParentWindow;
 
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.Managers.History.HistoryManager" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static HistoryManager() { }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.HistoryManager" />
@@ -49,6 +63,7 @@ namespace MFR.Managers.History
         ///     name="messageBoxParentWindow" />
         /// , is passed a <see langword="null" /> value.
         /// </exception>
+        [Log(AttributeExclude = true)]
         public HistoryManager(IWin32Window messageBoxParentWindow)
         {
             _messageBoxParentWindow = messageBoxParentWindow ??
