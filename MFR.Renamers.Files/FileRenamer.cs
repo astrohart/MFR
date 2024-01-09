@@ -1555,13 +1555,11 @@ namespace MFR.Renamers.Files
 
                 TaskPool.AddRange(tasks);
 
-                result = Task.WhenAll(tasks)
-                             .GetAwaiter()
-                             .GetResult()
-                             .All(x => true) & !AbortRequested;
-
-                TaskPool.SetTasksFinished();
+                // Wait for all the tasks to complete
+                TaskPool.WaitAll();
                 TaskPool.Clear();
+
+                result = tasks.All(task => task.IsCompleted && task.Result);
             }
             catch (OperationAbortedException)
             {
