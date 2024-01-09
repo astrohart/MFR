@@ -38,6 +38,27 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> containing the email address(es)
+        /// of the author(s) of commits made to a local Git repository(ies) by this
+        /// application.
+        /// </summary>
+        string CommitAuthorEmail
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> containing the name of the
+        /// author(s) of commits made to a local Git repository(ies) by this application.
+        /// </summary>
+        string CommitAuthorName
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
         /// by the user.
         /// </summary>

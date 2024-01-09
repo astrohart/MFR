@@ -2349,6 +2349,8 @@ namespace MFR.Renamers.Files
                                 .PendingChangesCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     ),
+                    CurrentConfiguration.CommitAuthorName,
+                    CurrentConfiguration.CommitAuthorEmail,
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
                             CurrentConfiguration
@@ -2590,6 +2592,8 @@ namespace MFR.Renamers.Files
                                 .PostOperationCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     ),
+                    CurrentConfiguration.CommitAuthorName,
+                    CurrentConfiguration.CommitAuthorEmail,
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
                             CurrentConfiguration

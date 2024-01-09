@@ -22,8 +22,7 @@ namespace MFR.Settings.Configuration
     /// the application.
     /// </remarks>
     [Log(AttributeExclude = true)]
-    public class
-        ProjectFileRenamerConfig : IProjectFileRenamerConfig
+    public class ProjectFileRenamerConfig : IProjectFileRenamerConfig
     {
         /// <summary>
         /// A <see cref="T:System.String" /> containing the fully-qualified pathname of the
@@ -60,9 +59,7 @@ namespace MFR.Settings.Configuration
         /// parameter, <paramref name="source" />, is passed a <see langword="null" />
         /// value.
         /// </exception>
-        public ProjectFileRenamerConfig(
-            IProjectFileRenamerConfig source
-        )
+        public ProjectFileRenamerConfig(IProjectFileRenamerConfig source)
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
 
@@ -140,6 +137,29 @@ namespace MFR.Settings.Configuration
         {
             get;
         } = new ProjectFileRenamerConfig();
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> containing the email address(es)
+        /// of the author(s) of commits made to a local Git repository(ies) by this
+        /// application.
+        /// </summary>
+        [JsonProperty("commitAuthorEmail")]
+        public string CommitAuthorEmail
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> containing the name of the
+        /// author(s) of commits made to a local Git repository(ies) by this application.
+        /// </summary>
+        [JsonProperty("commitAuthorName")]
+        public string CommitAuthorName
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
@@ -747,9 +767,7 @@ namespace MFR.Settings.Configuration
         /// <paramref name="config" /> object instance is blank or a
         /// <see langword="null" /> reference.
         /// </returns>
-        public static bool IsBlankOrNull(
-            IProjectFileRenamerConfig config
-        )
+        public static bool IsBlankOrNull(IProjectFileRenamerConfig config)
         {
             bool result;
 

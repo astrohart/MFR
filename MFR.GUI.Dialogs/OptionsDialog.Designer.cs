@@ -50,12 +50,13 @@ namespace MFR.GUI.Dialogs
             this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.gitTabPage = new System.Windows.Forms.TabPage();
+            this.pushChangesWhenDoneCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.customizePostOperationChangesCommitMessageButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.customizePendingChangeCommitMessageButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.pushChangesWhenDoneCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
+            this.darkGroupBox1 = new xyLOGIX.UI.Dark.Controls.DarkGroupBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -268,6 +269,7 @@ namespace MFR.GUI.Dialogs
             // gitTabPage
             // 
             this.gitTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.gitTabPage.Controls.Add(this.darkGroupBox1);
             this.gitTabPage.Controls.Add(this.pushChangesWhenDoneCheckBox);
             this.gitTabPage.Controls.Add(this.customizePostOperationChangesCommitMessageButton);
             this.gitTabPage.Controls.Add(this.customizePendingChangeCommitMessageButton);
@@ -279,6 +281,15 @@ namespace MFR.GUI.Dialogs
             this.gitTabPage.Size = new System.Drawing.Size(436, 347);
             this.gitTabPage.TabIndex = 3;
             this.gitTabPage.Text = "&Git";
+            // 
+            // pushChangesWhenDoneCheckBox
+            // 
+            this.pushChangesWhenDoneCheckBox.IsDarkTheme = false;
+            this.pushChangesWhenDoneCheckBox.Location = new System.Drawing.Point(21, 167);
+            this.pushChangesWhenDoneCheckBox.Name = "pushChangesWhenDoneCheckBox";
+            this.pushChangesWhenDoneCheckBox.Size = new System.Drawing.Size(345, 17);
+            this.pushChangesWhenDoneCheckBox.TabIndex = 4;
+            this.pushChangesWhenDoneCheckBox.Text = "&Push changes to remote when done";
             // 
             // customizePostOperationChangesCommitMessageButton
             // 
@@ -330,14 +341,16 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
-            // pushChangesWhenDoneCheckBox
+            // darkGroupBox1
             // 
-            this.pushChangesWhenDoneCheckBox.IsDarkTheme = false;
-            this.pushChangesWhenDoneCheckBox.Location = new System.Drawing.Point(21, 173);
-            this.pushChangesWhenDoneCheckBox.Name = "pushChangesWhenDoneCheckBox";
-            this.pushChangesWhenDoneCheckBox.Size = new System.Drawing.Size(345, 17);
-            this.pushChangesWhenDoneCheckBox.TabIndex = 4;
-            this.pushChangesWhenDoneCheckBox.Text = "&Push changes to remote when done";
+            this.darkGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.darkGroupBox1.IsDarkTheme = false;
+            this.darkGroupBox1.Location = new System.Drawing.Point(21, 207);
+            this.darkGroupBox1.Name = "darkGroupBox1";
+            this.darkGroupBox1.Size = new System.Drawing.Size(396, 123);
+            this.darkGroupBox1.TabIndex = 5;
+            this.darkGroupBox1.TabStop = false;
+            this.darkGroupBox1.Text = "&Commit author information";
             // 
             // OptionsDialog
             // 
@@ -397,5 +410,6 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox commitPendingChangesBeforeOperationsCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkButton customizePostOperationChangesCommitMessageButton;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox pushChangesWhenDoneCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkGroupBox darkGroupBox1;
     }
 }
