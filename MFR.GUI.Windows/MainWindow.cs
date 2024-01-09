@@ -1577,8 +1577,8 @@ namespace MFR.GUI.Windows
         /// This is to get rid of that annoying highlight that remains in a
         /// combo box when it loses the input focus.
         /// </remarks>
-        private void OnSelChangeComboBox(object sender, EventArgs e)
-            => hiddenFocusLabel.Focus();
+        //private void OnSelChangeComboBox(object sender, EventArgs e)
+        //    => hiddenFocusLabel.Focus();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />

@@ -631,7 +631,7 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox.Name = "replaceWithComboBox";
             this.replaceWithComboBox.Size = new System.Drawing.Size(565, 23);
             this.replaceWithComboBox.TabIndex = 6;
-            this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            //this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // findWhatcomboBox
             // 
@@ -650,7 +650,7 @@ namespace MFR.GUI.Windows
             this.findWhatcomboBox.Name = "findWhatcomboBox";
             this.findWhatcomboBox.Size = new System.Drawing.Size(565, 23);
             this.findWhatcomboBox.TabIndex = 4;
-            this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            //this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // startingFolderComboBox
             // 
@@ -669,7 +669,7 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.Name = "startingFolderComboBox";
             this.startingFolderComboBox.Size = new System.Drawing.Size(535, 23);
             this.startingFolderComboBox.TabIndex = 1;
-            this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
+            //this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // exportConfigDialog
             // 
