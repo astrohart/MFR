@@ -1,4 +1,5 @@
 using MFR.Messages.Identifiers.Factories;
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Engines.Constants
@@ -44,5 +45,19 @@ namespace MFR.Engines.Constants
             MakeNewMessageIdentifier.ForNewMessageId()
                                     .AndName("OE_ROOT_DIRECTORY_UPDATED")
                                     .ToGuid();
+
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.Engines.Constants.OperationEngineMessages" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static OperationEngineMessages() { }
     }
 }
