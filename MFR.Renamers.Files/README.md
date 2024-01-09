@@ -28,7 +28,7 @@
   - [ShouldReOpenSolutions](#P-MFR-Renamers-Files-FileRenamer-ShouldReOpenSolutions 'MFR.Renamers.Files.FileRenamer.ShouldReOpenSolutions')
   - [SyncRoot](#P-MFR-Renamers-Files-FileRenamer-SyncRoot 'MFR.Renamers.Files.FileRenamer.SyncRoot')
   - [TaskPool](#P-MFR-Renamers-Files-FileRenamer-TaskPool 'MFR.Renamers.Files.FileRenamer.TaskPool')
-  - [TotalPendingChanges](#P-MFR-Renamers-Files-FileRenamer-TotalPendingChanges 'MFR.Renamers.Files.FileRenamer.TotalPendingChanges')
+  - [TotalReposWithPendingChanges](#P-MFR-Renamers-Files-FileRenamer-TotalReposWithPendingChanges 'MFR.Renamers.Files.FileRenamer.TotalReposWithPendingChanges')
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
@@ -128,7 +128,7 @@ This constructor has no parameters.
 
 ##### Summary
 
-An [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') enumeration value
+A [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') enumeration value
 that describes what operation is currently being performed by the application.
 
 <a name='F-MFR-Renamers-Files-FileRenamer-_rootDirectoryPath'></a>
@@ -194,7 +194,7 @@ enumeration value that indicates which operation is currently being performed.
 
 ##### Summary
 
-Gets a reference to a collection of of the
+Gets a reference to a collection of the
 [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
 values.
 
@@ -363,8 +363,8 @@ Synchronization root object for creating critical sections.
 Gets a reference to an instance of an object that implements the
 [ITaskPool](#T-xyLOGIX-Pools-Tasks-Interfaces-ITaskPool 'xyLOGIX.Pools.Tasks.Interfaces.ITaskPool') interface.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-TotalPendingChanges'></a>
-### TotalPendingChanges `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-TotalReposWithPendingChanges'></a>
+### TotalReposWithPendingChanges `property`
 
 ##### Summary
 
