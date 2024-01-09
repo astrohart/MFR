@@ -22,6 +22,7 @@
   - [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolderComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolderComboBox')
   - [View](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-View 'MFR.GUI.Windows.Presenters.MainWindowPresenter.View')
+  - [#cctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#cctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#cctor')
   - [AddProfile(name)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AddProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.AddProfile(System.String)')
   - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AndHistoryManager-MFR-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
   - [ClearAllHistory()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ClearAllHistory 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ClearAllHistory')
@@ -253,6 +254,28 @@ interface.
 ##### Remarks
 
 This object provides the functionality of the main window of the application.
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [MainWindowPresenter](#T-MFR-GUI-Windows-Presenters-MainWindowPresenter 'MFR.GUI.Windows.Presenters.MainWindowPresenter') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-AddProfile-System-String-'></a>
 ### AddProfile(name) `method`

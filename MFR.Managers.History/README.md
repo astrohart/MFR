@@ -8,6 +8,7 @@
   - [_messageBoxParentWindow](#F-MFR-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
   - [ConfigurationProvider](#P-MFR-Managers-History-HistoryManager-ConfigurationProvider 'MFR.Managers.History.HistoryManager.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-Managers-History-HistoryManager-CurrentConfiguration 'MFR.Managers.History.HistoryManager.CurrentConfiguration')
+  - [#cctor()](#M-MFR-Managers-History-HistoryManager-#cctor 'MFR.Managers.History.HistoryManager.#cctor')
   - [CanClearAll()](#M-MFR-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
   - [ClearAll()](#M-MFR-Managers-History-HistoryManager-ClearAll 'MFR.Managers.History.HistoryManager.ClearAll')
 - [Resources](#T-MFR-Managers-History-Properties-Resources 'MFR.Managers.History.Properties.Resources')
@@ -90,6 +91,28 @@ Gets or sets a reference to an instance of an object that implements
 the
 [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
 interface.
+
+<a name='M-MFR-Managers-History-HistoryManager-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [HistoryManager](#T-MFR-Managers-History-HistoryManager 'MFR.Managers.History.HistoryManager') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-Managers-History-HistoryManager-CanClearAll'></a>
 ### CanClearAll() `method`
