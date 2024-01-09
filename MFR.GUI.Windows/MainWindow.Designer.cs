@@ -624,14 +624,13 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithComboBox.FormattingEnabled = true;
-            this.replaceWithComboBox.IsDarkTheme = false;
+            this.replaceWithComboBox.IsDarkTheme = true;
             this.replaceWithComboBox.Items.AddRange(new object[] {
             ""});
             this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
             this.replaceWithComboBox.Name = "replaceWithComboBox";
             this.replaceWithComboBox.Size = new System.Drawing.Size(565, 23);
             this.replaceWithComboBox.TabIndex = 6;
-            //this.replaceWithComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // findWhatcomboBox
             // 
@@ -643,14 +642,13 @@ namespace MFR.GUI.Windows
             this.findWhatcomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findWhatcomboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatcomboBox.FormattingEnabled = true;
-            this.findWhatcomboBox.IsDarkTheme = false;
+            this.findWhatcomboBox.IsDarkTheme = true;
             this.findWhatcomboBox.Items.AddRange(new object[] {
             ""});
             this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
             this.findWhatcomboBox.Name = "findWhatcomboBox";
             this.findWhatcomboBox.Size = new System.Drawing.Size(565, 23);
             this.findWhatcomboBox.TabIndex = 4;
-            //this.findWhatcomboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // startingFolderComboBox
             // 
@@ -669,7 +667,6 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.Name = "startingFolderComboBox";
             this.startingFolderComboBox.Size = new System.Drawing.Size(535, 23);
             this.startingFolderComboBox.TabIndex = 1;
-            //this.startingFolderComboBox.SelectedIndexChanged += new System.EventHandler(this.OnSelChangeComboBox);
             // 
             // exportConfigDialog
             // 

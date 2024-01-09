@@ -65,10 +65,7 @@
   - [OnPresenterDataOperationFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationFinished(System.Object,System.EventArgs)')
   - [OnPresenterDataOperationStarted(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationStarted-System-Object,MFR-Operations-Events-DataOperationEventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterDataOperationStarted(System.Object,MFR.Operations.Events.DataOperationEventArgs)')
   - [OnPresenterFinished(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnPresenterFinished-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnPresenterFinished(System.Object,System.EventArgs)')
-  - [OnResizeBegin(e)](#M-MFR-GUI-Windows-MainWindow-OnResizeBegin-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnResizeBegin(System.EventArgs)')
-  - [OnResizeEnd(e)](#M-MFR-GUI-Windows-MainWindow-OnResizeEnd-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnResizeEnd(System.EventArgs)')
   - [OnRootDirectoryInvalid(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs- 'MFR.GUI.Windows.MainWindow.OnRootDirectoryInvalid(System.Object,MFR.Directories.Validators.Events.RootDirectoryInvalidEventArgs)')
-  - [OnSelChangeComboBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnSelChangeComboBox(System.Object,System.EventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnShown(System.EventArgs)')
   - [OnStateChanged(e)](#M-MFR-GUI-Windows-MainWindow-OnStateChanged-MFR-GUI-Windows-Events-MainWindowStateChangedEventArgs- 'MFR.GUI.Windows.MainWindow.OnStateChanged(MFR.GUI.Windows.Events.MainWindowStateChangedEventArgs)')
   - [OnToolsConfigExport(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnToolsConfigExport-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnToolsConfigExport(System.Object,System.EventArgs)')
@@ -1014,35 +1011,6 @@ Handles the [](#E-MFR-GUI-IMainWindowPresenter-Finished 'MFR.GUI.IMainWindowPres
 
 This method toggles UI state and dismisses the progress dialog.
 
-<a name='M-MFR-GUI-Windows-MainWindow-OnResizeBegin-System-EventArgs-'></a>
-### OnResizeBegin(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-ResizeBegin 'System.Windows.Forms.Form.ResizeBegin')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
-data. |
-
-<a name='M-MFR-GUI-Windows-MainWindow-OnResizeEnd-System-EventArgs-'></a>
-### OnResizeEnd(e) `method`
-
-##### Summary
-
-Raises the [](#E-System-Windows-Forms-Form-ResizeEnd 'System.Windows.Forms.Form.ResizeEnd') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
-data. |
-
 <a name='M-MFR-GUI-Windows-MainWindow-OnRootDirectoryInvalid-System-Object,MFR-Directories-Validators-Events-RootDirectoryInvalidEventArgs-'></a>
 ### OnRootDirectoryInvalid(sender,e) `method`
 
@@ -1068,29 +1036,6 @@ data. |
 This method responds by displaying a message to the user about why the
 validation failed, and then instructing the validator to stop the validation
 process.
-
-<a name='M-MFR-GUI-Windows-MainWindow-OnSelChangeComboBox-System-Object,System-EventArgs-'></a>
-### OnSelChangeComboBox(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-System-Windows-Forms-ComboBox-SelectedIndexChanged 'System.Windows.Forms.ComboBox.SelectedIndexChanged')
-event
-raised by the Starting Folder, Find What, and Replace With combo boxes.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This method responds by moving the input focus to a hidden label.
-This is to get rid of that annoying highlight that remains in a
-combo box when it loses the input focus.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnShown-System-EventArgs-'></a>
 ### OnShown(e) `method`

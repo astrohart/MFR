@@ -7,6 +7,7 @@
   - [Height](#F-MFR-GUI-Windows-Constants-DesignTimeScreenMetric-Height 'MFR.GUI.Windows.Constants.DesignTimeScreenMetric.Height')
   - [Width](#F-MFR-GUI-Windows-Constants-DesignTimeScreenMetric-Width 'MFR.GUI.Windows.Constants.DesignTimeScreenMetric.Width')
 - [MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState')
+  - [ConfigurationSaved](#F-MFR-GUI-Windows-Constants-MainWindowState-ConfigurationSaved 'MFR.GUI.Windows.Constants.MainWindowState.ConfigurationSaved')
   - [Idle](#F-MFR-GUI-Windows-Constants-MainWindowState-Idle 'MFR.GUI.Windows.Constants.MainWindowState.Idle')
   - [OperationsFinished](#F-MFR-GUI-Windows-Constants-MainWindowState-OperationsFinished 'MFR.GUI.Windows.Constants.MainWindowState.OperationsFinished')
   - [PerformingOperations](#F-MFR-GUI-Windows-Constants-MainWindowState-PerformingOperations 'MFR.GUI.Windows.Constants.MainWindowState.PerformingOperations')
@@ -57,6 +58,13 @@ MFR.GUI.Windows.Constants
 ##### Summary
 
 Values that describe the state of the main application window.
+
+<a name='F-MFR-GUI-Windows-Constants-MainWindowState-ConfigurationSaved'></a>
+### ConfigurationSaved `constants`
+
+##### Summary
+
+The configuration settings have been moved from the screen to memory.
 
 <a name='F-MFR-GUI-Windows-Constants-MainWindowState-Idle'></a>
 ### Idle `constants`

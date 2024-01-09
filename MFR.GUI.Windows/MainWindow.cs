@@ -103,6 +103,9 @@ namespace MFR.GUI.Windows
         [Log(AttributeExclude = true)]
         protected MainWindow()
         {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            UpdateStyles();
+
             SetState(MainWindowState.Unknown);
 
             InitializeComponent();
@@ -148,15 +151,8 @@ namespace MFR.GUI.Windows
         protected override CreateParams CreateParams
         {
             get {
-                if (originalExStyle == -1)
-                    originalExStyle = base.CreateParams.ExStyle;
-
                 var cp = base.CreateParams;
-                if (enableFormLevelDoubleBuffering)
-                    cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
-                else
-                    cp.ExStyle = originalExStyle;
-
+                cp.ExStyle |= 0x02000000; // Turn on WS_EX_COMPOSITED
                 return cp;
             }
         }
@@ -491,18 +487,6 @@ namespace MFR.GUI.Windows
         public void SetState(MainWindowState newState)
             => State = newState;
 
-        public void TurnOffFormLevelDoubleBuffering()
-        {
-            enableFormLevelDoubleBuffering = DoubleBuffered = false;
-            MinimizeBox = true;
-        }
-
-        public void TurnOnFormLevelDoubleBuffering()
-        {
-            enableFormLevelDoubleBuffering = DoubleBuffered = true;
-            MinimizeBox = true;
-        }
-
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.FormClosing" />
         /// event.
@@ -516,33 +500,6 @@ namespace MFR.GUI.Windows
             base.OnFormClosing(e);
 
             SaveUserSettingsOnExit();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:System.Windows.Forms.Form.ResizeBegin" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnResizeBegin(EventArgs e)
-        {
-            base.OnResizeBegin(e);
-
-            TurnOnFormLevelDoubleBuffering();
-        }
-
-        /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.ResizeEnd" /> event.</summary>
-        /// <param name="e">
-        /// A <see cref="T:System.EventArgs" /> that contains the event
-        /// data.
-        /// </param>
-        protected override void OnResizeEnd(EventArgs e)
-        {
-            base.OnResizeEnd(e);
-
-            TurnOffFormLevelDoubleBuffering();
         }
 
         /// <summary>Raises the <see cref="E:System.Windows.Forms.Form.Shown" /> event.</summary>

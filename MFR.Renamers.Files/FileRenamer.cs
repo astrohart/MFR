@@ -2368,10 +2368,6 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                LocalGitInteropProvider.Pull(
-                    branch: LocalGitInteropProvider.GetCurrentBranch()
-                );
-
                 result = true; /* succeeded */
             }
             catch (Exception ex)

@@ -5,6 +5,7 @@
 
 - [LoadedSolutionProvider](#T-MFR-Solutions-Providers-LoadedSolutionProvider 'MFR.Solutions.Providers.LoadedSolutionProvider')
   - [#ctor()](#M-MFR-Solutions-Providers-LoadedSolutionProvider-#ctor 'MFR.Solutions.Providers.LoadedSolutionProvider.#ctor')
+  - [_loadedSolutions](#F-MFR-Solutions-Providers-LoadedSolutionProvider-_loadedSolutions 'MFR.Solutions.Providers.LoadedSolutionProvider._loadedSolutions')
   - [_rootDirectoryPath](#F-MFR-Solutions-Providers-LoadedSolutionProvider-_rootDirectoryPath 'MFR.Solutions.Providers.LoadedSolutionProvider._rootDirectoryPath')
   - [Instance](#P-MFR-Solutions-Providers-LoadedSolutionProvider-Instance 'MFR.Solutions.Providers.LoadedSolutionProvider.Instance')
   - [LoadedSolutions](#P-MFR-Solutions-Providers-LoadedSolutionProvider-LoadedSolutions 'MFR.Solutions.Providers.LoadedSolutionProvider.LoadedSolutions')
@@ -38,6 +39,16 @@ Empty, protected constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='F-MFR-Solutions-Providers-LoadedSolutionProvider-_loadedSolutions'></a>
+### _loadedSolutions `constants`
+
+##### Summary
+
+Reference to an instance of a collection of instances of objects that implement
+the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface.
 
 <a name='F-MFR-Solutions-Providers-LoadedSolutionProvider-_rootDirectoryPath'></a>
 ### _rootDirectoryPath `constants`

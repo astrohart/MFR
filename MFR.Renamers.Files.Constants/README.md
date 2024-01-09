@@ -3,12 +3,35 @@
 
 ## Contents
 
+- [FileRenamingBlockingProcessName](#T-MFR-Renamers-Files-Constants-FileRenamingBlockingProcessName 'MFR.Renamers.Files.Constants.FileRenamingBlockingProcessName')
+  - [PerfWatson2](#F-MFR-Renamers-Files-Constants-FileRenamingBlockingProcessName-PerfWatson2 'MFR.Renamers.Files.Constants.FileRenamingBlockingProcessName.PerfWatson2')
 - [Resources](#T-MFR-Renamers-Files-Constants-Properties-Resources 'MFR.Renamers.Files.Constants.Properties.Resources')
   - [Culture](#P-MFR-Renamers-Files-Constants-Properties-Resources-Culture 'MFR.Renamers.Files.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Renamers-Files-Constants-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Constants.Properties.Resources.ResourceManager')
 - [SpecializedFileData](#T-MFR-Renamers-Files-Constants-SpecializedFileData 'MFR.Renamers.Files.Constants.SpecializedFileData')
   - [BinaryFileSkipped](#F-MFR-Renamers-Files-Constants-SpecializedFileData-BinaryFileSkipped 'MFR.Renamers.Files.Constants.SpecializedFileData.BinaryFileSkipped')
   - [NoChange](#F-MFR-Renamers-Files-Constants-SpecializedFileData-NoChange 'MFR.Renamers.Files.Constants.SpecializedFileData.NoChange')
+
+<a name='T-MFR-Renamers-Files-Constants-FileRenamingBlockingProcessName'></a>
+## FileRenamingBlockingProcessName `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Constants
+
+##### Summary
+
+Values that contain the filename and filename extension of various processes
+that run as part of, or are associated with, the Microsoft Visual Studio
+software suite.
+
+<a name='F-MFR-Renamers-Files-Constants-FileRenamingBlockingProcessName-PerfWatson2'></a>
+### PerfWatson2 `constants`
+
+##### Summary
+
+A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the filename and filename
+extension of `PerfWatson2.exe`.
 
 <a name='T-MFR-Renamers-Files-Constants-Properties-Resources'></a>
 ## Resources `type`

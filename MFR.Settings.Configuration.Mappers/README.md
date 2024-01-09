@@ -15,6 +15,7 @@
   - [InternalMappingDictionary](#P-MFR-Settings-Configuration-Mappers-MapperBase-InternalMappingDictionary 'MFR.Settings.Configuration.Mappers.MapperBase.InternalMappingDictionary')
   - [ReplaceCRLFWithNewline](#P-MFR-Settings-Configuration-Mappers-MapperBase-ReplaceCRLFWithNewline 'MFR.Settings.Configuration.Mappers.MapperBase.ReplaceCRLFWithNewline')
   - [Type](#P-MFR-Settings-Configuration-Mappers-MapperBase-Type 'MFR.Settings.Configuration.Mappers.MapperBase.Type')
+  - [#cctor()](#M-MFR-Settings-Configuration-Mappers-MapperBase-#cctor 'MFR.Settings.Configuration.Mappers.MapperBase.#cctor')
   - [InitializeMappingDictionary()](#M-MFR-Settings-Configuration-Mappers-MapperBase-InitializeMappingDictionary 'MFR.Settings.Configuration.Mappers.MapperBase.InitializeMappingDictionary')
   - [Map(input)](#M-MFR-Settings-Configuration-Mappers-MapperBase-Map-System-String- 'MFR.Settings.Configuration.Mappers.MapperBase.Map(System.String)')
   - [OnInitializeMapping()](#M-MFR-Settings-Configuration-Mappers-MapperBase-OnInitializeMapping 'MFR.Settings.Configuration.Mappers.MapperBase.OnInitializeMapping')
@@ -121,7 +122,8 @@ This constructor has no parameters.
 
 ##### Remarks
 
-This constructor is marked `protected` due to the
+This constructor is marked `protected`
+due to the
 fact that this class is marked `abstract`.
 
 <a name='P-MFR-Settings-Configuration-Mappers-MapperBase-InternalMappingDictionary'></a>
@@ -147,6 +149,28 @@ with `\n` in strings that it receives.
 One of the
 [ConfigurationStringMapperType](#T-MFR-Settings-Configuration-Mappers-Constants-ConfigurationStringMapperType 'MFR.Settings.Configuration.Mappers.Constants.ConfigurationStringMapperType')
 enumeration values that defines what type of mapper object this is.
+
+<a name='M-MFR-Settings-Configuration-Mappers-MapperBase-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [MapperBase](#T-MFR-Settings-Configuration-Mappers-MapperBase 'MFR.Settings.Configuration.Mappers.MapperBase') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-Settings-Configuration-Mappers-MapperBase-InitializeMappingDictionary'></a>
 ### InitializeMappingDictionary() `method`

@@ -38,12 +38,14 @@ MFR.Harnesses.LoadedSolutions
 
 ##### Summary
 
-Provides a harness that links a Visual Studio Solution (`*.sln`) file
-together with the
+Provides a `harness` that links a Visual Studio Solution (`*.sln`)
+file together with the additional parameters and properties that enable the
+application to work with it.
 
 ##### Remarks
 
-A harness object to associate a Visual Studio Solution (`*.sln`) file that
+A `harness` object to associate a Visual Studio Solution (`*.sln`)
+file that
 is loaded in a target running instance of Visual Studio with additional
 parameters and options that make ti possible for the Project File Renamer
 application to effectively manage it, regardless of whether the Visual Studio

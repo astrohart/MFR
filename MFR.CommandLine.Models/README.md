@@ -4,6 +4,7 @@
 ## Contents
 
 - [CommandLineInfo](#T-MFR-CommandLine-Models-CommandLineInfo 'MFR.CommandLine.Models.CommandLineInfo')
+  - [#ctor()](#M-MFR-CommandLine-Models-CommandLineInfo-#ctor 'MFR.CommandLine.Models.CommandLineInfo.#ctor')
   - [AutoStart](#P-MFR-CommandLine-Models-CommandLineInfo-AutoStart 'MFR.CommandLine.Models.CommandLineInfo.AutoStart')
   - [FindWhat](#P-MFR-CommandLine-Models-CommandLineInfo-FindWhat 'MFR.CommandLine.Models.CommandLineInfo.FindWhat')
   - [MatchCase](#P-MFR-CommandLine-Models-CommandLineInfo-MatchCase 'MFR.CommandLine.Models.CommandLineInfo.MatchCase')
@@ -17,6 +18,7 @@
   - [ShouldCommitPendingChanges](#P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPendingChanges 'MFR.CommandLine.Models.CommandLineInfo.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPostOperationChanges 'MFR.CommandLine.Models.CommandLineInfo.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-CommandLine-Models-CommandLineInfo-StartingFolder 'MFR.CommandLine.Models.CommandLineInfo.StartingFolder')
+  - [#cctor()](#M-MFR-CommandLine-Models-CommandLineInfo-#cctor 'MFR.CommandLine.Models.CommandLineInfo.#cctor')
 - [Resources](#T-MFR-CommandLine-Models-Properties-Resources 'MFR.CommandLine.Models.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Models-Properties-Resources-Culture 'MFR.CommandLine.Models.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Models-Properties-Resources-ResourceManager 'MFR.CommandLine.Models.Properties.Resources.ResourceManager')
@@ -35,6 +37,24 @@ Encapsulates this application's command line arguments.
 ##### Remarks
 
 This class depends on the `FluentCommandLineParser` NuGet package.
+
+<a name='M-MFR-CommandLine-Models-CommandLineInfo-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of
+[CommandLineInfo](#T-MFR-CommandLine-Models-CommandLineInfo 'MFR.CommandLine.Models.CommandLineInfo') and returns a reference
+to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+##### Remarks
+
+This constructor is marked `protected`
+due to the fact that this class is marked `abstract`.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-AutoStart'></a>
 ### AutoStart `property`
@@ -98,7 +118,8 @@ The default value of this property is `true`.
 
 ##### Summary
 
-Gets or sets a value indicating whether we are to rename folder(s) that contain Solution(s).
+Gets or sets a value indicating whether we are to rename folder(s) that contain
+Solution(s).
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-RenameSubFolders'></a>
 ### RenameSubFolders `property`
@@ -154,6 +175,23 @@ changes that have resulted from the operations we've performed.
 ##### Summary
 
 Gets or sets a string that contains the starting folder.
+
+<a name='M-MFR-CommandLine-Models-CommandLineInfo-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [CommandLineInfo](#T-MFR-CommandLine-Models-CommandLineInfo 'MFR.CommandLine.Models.CommandLineInfo') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
 
 <a name='T-MFR-CommandLine-Models-Properties-Resources'></a>
 ## Resources `type`
