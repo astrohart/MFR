@@ -10,10 +10,12 @@
   - [#cctor()](#M-MFR-GUI-Processors-AutoStartCommandLineProcessor-#cctor 'MFR.GUI.Processors.AutoStartCommandLineProcessor.#cctor')
   - [Process()](#M-MFR-GUI-Processors-AutoStartCommandLineProcessor-Process 'MFR.GUI.Processors.AutoStartCommandLineProcessor.Process')
 - [CommandLineProcessorBase](#T-MFR-GUI-Processors-CommandLineProcessorBase 'MFR.GUI.Processors.CommandLineProcessorBase')
+  - [#ctor()](#M-MFR-GUI-Processors-CommandLineProcessorBase-#ctor 'MFR.GUI.Processors.CommandLineProcessorBase.#ctor')
   - [CommandLineInfo](#P-MFR-GUI-Processors-CommandLineProcessorBase-CommandLineInfo 'MFR.GUI.Processors.CommandLineProcessorBase.CommandLineInfo')
   - [ConfigurationProvider](#P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigurationProvider 'MFR.GUI.Processors.CommandLineProcessorBase.ConfigurationProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration 'MFR.GUI.Processors.CommandLineProcessorBase.CurrentConfiguration')
   - [Type](#P-MFR-GUI-Processors-CommandLineProcessorBase-Type 'MFR.GUI.Processors.CommandLineProcessorBase.Type')
+  - [#cctor()](#M-MFR-GUI-Processors-CommandLineProcessorBase-#cctor 'MFR.GUI.Processors.CommandLineProcessorBase.#cctor')
   - [Process()](#M-MFR-GUI-Processors-CommandLineProcessorBase-Process 'MFR.GUI.Processors.CommandLineProcessorBase.Process')
 - [GuiDrivenCommandLineProcessor](#T-MFR-GUI-Processors-GuiDrivenCommandLineProcessor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor')
   - [#ctor()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#ctor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.#ctor')
@@ -37,6 +39,12 @@
 ##### Namespace
 
 MFR.GUI.Processors
+
+##### Summary
+
+Processes the command line of the application in the event the application is
+auto-started; i.e., it is configured and ran on the command line by another
+tool as part of a pipeline or workflow.
 
 <a name='M-MFR-GUI-Processors-AutoStartCommandLineProcessor-#ctor'></a>
 ### #ctor() `constructor`
@@ -101,6 +109,24 @@ MFR.GUI.Processors
 Defines the events, methods, properties, and behaviors for all command-line
 processors.
 
+<a name='M-MFR-GUI-Processors-CommandLineProcessorBase-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of
+[CommandLineProcessorBase](#T-MFR-GUI-Processors-CommandLineProcessorBase 'MFR.GUI.Processors.CommandLineProcessorBase') and returns a
+reference to it.
+
+##### Parameters
+
+This constructor has no parameters.
+
+##### Remarks
+
+This constructor is marked `protected`
+due to the fact that this class is marked `abstract`.
+
 <a name='P-MFR-GUI-Processors-CommandLineProcessorBase-CommandLineInfo'></a>
 ### CommandLineInfo `property`
 
@@ -128,7 +154,8 @@ control the behavior of the application.
 
 
 
-As this class is an abstract base class, we made this property `protected`
+As this class is an abstract base class, we made this property
+`protected`
 so that our child classes can see it.
 
 <a name='P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration'></a>
@@ -159,6 +186,23 @@ as `protected` so that our child classes can see it.
 
 Gets a [CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
 enumeration value that identifies the type of processing this processor does.
+
+<a name='M-MFR-GUI-Processors-CommandLineProcessorBase-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [CommandLineProcessorBase](#T-MFR-GUI-Processors-CommandLineProcessorBase 'MFR.GUI.Processors.CommandLineProcessorBase') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
 
 <a name='M-MFR-GUI-Processors-CommandLineProcessorBase-Process'></a>
 ### Process() `method`

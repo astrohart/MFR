@@ -4,6 +4,7 @@
 ## Contents
 
 - [GetCommandLineProcessor](#T-MFR-GUI-Processors-Factories-GetCommandLineProcessor 'MFR.GUI.Processors.Factories.GetCommandLineProcessor')
+  - [#cctor()](#M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-#cctor 'MFR.GUI.Processors.Factories.GetCommandLineProcessor.#cctor')
   - [HavingCommandLineInfo(self,cmdInfo)](#M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-HavingCommandLineInfo-MFR-GUI-Processors-Interfaces-ICommandLineProcessor,MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Processors.Factories.GetCommandLineProcessor.HavingCommandLineInfo(MFR.GUI.Processors.Interfaces.ICommandLineProcessor,MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [OfType(type)](#M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-OfType-MFR-GUI-Processors-Constants-CommandLineProcessorType- 'MFR.GUI.Processors.Factories.GetCommandLineProcessor.OfType(MFR.GUI.Processors.Constants.CommandLineProcessorType)')
 - [Resources](#T-MFR-GUI-Processors-Factories-Properties-Resources 'MFR.GUI.Processors.Factories.Properties.Resources')
@@ -21,6 +22,29 @@ MFR.GUI.Processors.Factories
 
 Creates instances of objects that implement the
 [ICommandLineProcessor](#T-MFR-GUI-Processors-Factories-ICommandLineProcessor 'MFR.GUI.Processors.Factories.ICommandLineProcessor') interface.
+
+<a name='M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [GetCommandLineProcessor](#T-MFR-GUI-Processors-Factories-GetCommandLineProcessor 'MFR.GUI.Processors.Factories.GetCommandLineProcessor')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-GUI-Processors-Factories-GetCommandLineProcessor-HavingCommandLineInfo-MFR-GUI-Processors-Interfaces-ICommandLineProcessor,MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
 ### HavingCommandLineInfo(self,cmdInfo) `method`
