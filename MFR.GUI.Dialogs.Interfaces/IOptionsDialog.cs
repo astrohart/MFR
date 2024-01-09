@@ -13,46 +13,97 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// Gets or sets the value of the
         /// <b>Exit the Application When Operations Are Complete</b> checkbox.
         /// </summary>
-        bool AutoQuitOnCompletion { get; set; }
+        bool AutoQuitOnCompletion
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Email</b> text box in the
+        /// <b>Commit Author Information</b> group box on the <b>Git</b> tab.
+        /// </summary>
+        string CommitAuthorEmail
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Name</b> text box in the
+        /// <b>Commit Author Information</b> group box on the <b>Git</b> tab.
+        /// </summary>
+        string CommitAuthorName
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the text of the configuration File Pathname text box.
         /// </summary>
-        string ConfigPathname { get; set; }
+        string ConfigPathname
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the value of the
         /// <b>Do not warn when Visual Studio is open but target Solution(s) aren't loaded</b>
         /// checkbox
         /// </summary>
-        bool DontPromptUserToReloadOpenSolution { get; set; }
+        bool DontPromptUserToReloadOpenSolution
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
         /// been modified.
         /// </summary>
-        bool IsModified { get; }
+        bool IsModified
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Push Changes To Remote When Done</b> checkbox.
+        /// </summary>
+        bool PushChangesToRemoteWhenDone
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the value of the <b>Reopen Visual Studio Solution</b> checkbox.
         /// </summary>
-        bool ReOpenSolution { get; set; }
+        bool ReOpenSolution
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the value of the <b>Should Commit Pending Changes</b> checkbox.
         /// </summary>
-        bool ShouldCommitPendingChanges { get; set; }
+        bool ShouldCommitPendingChanges
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Gets or sets the value of the <b>Should Commit Post-Operation Changes</b>
         /// checkbox.
         /// </summary>
-        bool ShouldCommitPostOperationChanges { get; set; }
-
-        /// <summary>
-        /// Gets or sets the value of the <b>Push Changes To Remote When Done</b> checkbox.
-        /// </summary>
-        bool PushChangesToRemoteWhenDone { get; set; }
+        bool ShouldCommitPostOperationChanges
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Occurs when data is modified in this property sheet and then the

@@ -451,7 +451,8 @@ namespace MFR.GUI.Dialogs
                     PushChangesToRemoteWhenDone;
                 CurrentConfiguration.AutoQuitOnCompletion =
                     AutoQuitOnCompletion;
-
+                CurrentConfiguration.CommitAuthorName = CommitAuthorName;
+                CurrentConfiguration.CommitAuthorEmail = CommitAuthorEmail;
                 CurrentConfiguration.ReOpenSolution = ReOpenSolution;
                 ConfigProvider.ConfigFilePath = ConfigPathname;
                 CurrentConfiguration.PromptUserToReloadOpenSolution =
@@ -471,6 +472,8 @@ namespace MFR.GUI.Dialogs
                     .PromptUserToReloadOpenSolution;
                 ReOpenSolution = CurrentConfiguration.ReOpenSolution;
                 ConfigPathname = ConfigProvider.ConfigFilePath;
+                CommitAuthorEmail = CurrentConfiguration.CommitAuthorEmail;
+                CommitAuthorName = CurrentConfiguration.CommitAuthorName;
                 AutoQuitOnCompletion =
                     CurrentConfiguration.AutoQuitOnCompletion;
                 PushChangesToRemoteWhenDone =
