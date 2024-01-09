@@ -72,7 +72,7 @@ namespace MFR.FileSystem.Helpers.Tests
                 ); /* match whole word
             */
 
-            ConfigurationProvider.Load();
+            ConfigProvider.Load();
 
             IFileSystemEntry newFileSystemEntry = MakeNewFileSystemEntry
                                                   .ForPath(
@@ -88,7 +88,7 @@ namespace MFR.FileSystem.Helpers.Tests
             var textValue = textValueRetriever.GetTextValue(newFileSystemEntry);
             var matchExpressionFactory = GetMatchExpressionFactory
                                          .For(OperationType.RenameFilesInFolder)
-                                         .AndAttachConfiguration(ConfigurationProvider.CurrentConfiguration)
+                                         .AndAttachConfiguration(ConfigProvider.CurrentConfiguration)
                                          .ForTextValue(textValue)
                                          .ToFindWhat("FizzBuzz");
             IMatchExpression expression = matchExpressionFactory
@@ -99,7 +99,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                     .RenameFilesInFolder
                                             )
                                             .AndAttachConfiguration(
-                                                ConfigurationProvider.CurrentConfiguration
+                                                ConfigProvider.CurrentConfiguration
                                             );
             Console.WriteLine(expression);
             Console.WriteLine(engine);
@@ -134,14 +134,14 @@ namespace MFR.FileSystem.Helpers.Tests
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
         /// This object allows access to the user config and the actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider ConfigurationProvider
+        private static IProjectFileRenamerConfigProvider ConfigProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>

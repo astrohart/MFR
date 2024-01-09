@@ -126,7 +126,7 @@ namespace MFR.GUI.Windows
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -135,7 +135,7 @@ namespace MFR.GUI.Windows
         /// associated with it.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        private static IProjectFileRenamerConfigurationProvider ConfigProvider
+        private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
@@ -791,7 +791,7 @@ namespace MFR.GUI.Windows
         /// <para />
         /// If so, then calls the
         /// <see
-        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load" />
+        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.Load" />
         /// method to load the application config.
         /// </summary>
         private void InitializeConfiguration()

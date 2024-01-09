@@ -51,13 +51,13 @@ namespace MFR.GUI.Processors
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
         /// The object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface allows access to the config settings that the user can use to
         /// control the behavior of the application.
         /// <para />
@@ -65,8 +65,8 @@ namespace MFR.GUI.Processors
         /// <see langword="protected" />
         /// so that our child classes can see it.
         /// </remarks>
-        protected static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+        protected static IProjectFileRenamerConfigProvider
+            ConfigProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace MFR.GUI.Processors
         /// </remarks>
         protected static IProjectFileRenamerConfig CurrentConfiguration
         {
-            get => ConfigurationProvider.CurrentConfiguration;
-            set => ConfigurationProvider.CurrentConfiguration = value;
+            get => ConfigProvider.CurrentConfiguration;
+            set => ConfigProvider.CurrentConfiguration = value;
         }
 
         /// <summary>

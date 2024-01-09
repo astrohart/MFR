@@ -33,11 +33,11 @@ namespace MFR.Settings.Configuration.Tests
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfigurationProvider
-            ProjectFileRenamerConfigurationProvider
+        private static IProjectFileRenamerConfigProvider
+            ProjectFileRenamerConfigProvider
         {
             get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
@@ -86,7 +86,7 @@ namespace MFR.Settings.Configuration.Tests
 
             IProjectFileRenamerConfig config = default;
 
-            Assert.DoesNotThrow(() => config = ProjectFileRenamerConfigurationProvider.Load());
+            Assert.DoesNotThrow(() => config = ProjectFileRenamerConfigProvider.Load());
             Assert.That(ProjectFileRenamerConfig.IsBlankOrNull(config));
         }
     }

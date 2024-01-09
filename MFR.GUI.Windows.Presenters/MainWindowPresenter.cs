@@ -89,14 +89,14 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private static string ConfigFilePath
         {
-            get => ConfigurationProvider.ConfigFilePath;
-            set => ConfigurationProvider.ConfigFilePath = value;
+            get => ConfigProvider.ConfigFilePath;
+            set => ConfigProvider.ConfigFilePath = value;
         }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -104,8 +104,8 @@ namespace MFR.GUI.Windows.Presenters
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+        private static IProjectFileRenamerConfigProvider
+            ConfigProvider
         {
             get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
@@ -121,7 +121,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             get;
             set;
-        } = ConfigurationProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets the name of the currently-selected profile.
@@ -444,7 +444,7 @@ namespace MFR.GUI.Windows.Presenters
                 // object
                 UpdateData();
 
-                ConfigurationProvider.Export(pathname);
+                ConfigProvider.Export(pathname);
 
                 OnConfigurationExported(
                     new ConfigurationExportedEventArgs(pathname)
@@ -564,7 +564,7 @@ namespace MFR.GUI.Windows.Presenters
 
             try
             {
-                ConfigurationProvider.Import(pathname);
+                ConfigProvider.Import(pathname);
 
                 OnConfigurationImported(
                     new ConfigurationImportedEventArgs(pathname)
@@ -670,7 +670,7 @@ namespace MFR.GUI.Windows.Presenters
         public void SaveConfiguration()
         {
             UpdateData();
-            ConfigurationProvider.Save();
+            ConfigProvider.Save();
         }
 
         /// <summary>
@@ -692,7 +692,7 @@ namespace MFR.GUI.Windows.Presenters
 
             CurrentConfiguration.AutoQuitOnCompletion =
                 dialog.AutoQuitOnCompletion;
-            ConfigurationProvider.ConfigFilePath = dialog.ConfigPathname;
+            ConfigProvider.ConfigFilePath = dialog.ConfigPathname;
             CurrentConfiguration.ReOpenSolution = dialog.ReOpenSolution;
             UpdateConfiguration(CurrentConfiguration);
         }
@@ -700,7 +700,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfig" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.ProjectFileRenamerConfig" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
@@ -726,7 +726,7 @@ namespace MFR.GUI.Windows.Presenters
              */
 
             CurrentConfiguration = newProfile;
-            ConfigurationProvider.Save();
+            ConfigProvider.Save();
         }
 
         /// <summary>
@@ -829,7 +829,7 @@ namespace MFR.GUI.Windows.Presenters
             {
                 InitializeOperationSelections();
 
-                View.SelectedOptionTab = ConfigurationProvider
+                View.SelectedOptionTab = ConfigProvider
                                          .CurrentConfiguration
                                          .SelectedOptionTab;
 

@@ -14,11 +14,11 @@ namespace MFR.Settings.Configuration.Providers.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider" />
+    ///     cref="T:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider" />
     /// class.
     /// </summary>
     [TestFixture, ExplicitlySynchronized]
-    public class ProjectFileRenamerConfigurationProviderTests
+    public class ProjectFileRenamerConfigProviderTests
     {
         /// <summary>
         /// Path to a sample config file.
@@ -30,14 +30,14 @@ namespace MFR.Settings.Configuration.Providers.Tests
         /// Initializes static data or performs actions that need to be performed once only
         /// for the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests" />
         /// class.
         /// </summary>
         /// <remarks>
         /// This constructor is called automatically prior to the first instance being
         /// created or before any static members are referenced.
         /// </remarks>
-        static ProjectFileRenamerConfigurationProviderTests()
+        static ProjectFileRenamerConfigProviderTests()
         {
             ProgramText.CompanyName = "xyLOGIX, LLC";
             ProgramText.ProductName = "xyLOGIX Project File Renamer";
@@ -46,10 +46,10 @@ namespace MFR.Settings.Configuration.Providers.Tests
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigurationProviderTests" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests" />
         /// and returns a reference to it.
         /// </summary>
-        public ProjectFileRenamerConfigurationProviderTests()
+        public ProjectFileRenamerConfigProviderTests()
         {
             LogFileManager.InitializeLogging(
                 muteConsole: false,
@@ -66,16 +66,16 @@ namespace MFR.Settings.Configuration.Providers.Tests
         /// interface that represents the currently-loaded (if any) config.
         /// </summary>
         private static IProjectFileRenamerConfig CurrentConfiguration
-            => ProjectFileRenamerConfigurationProvider.CurrentConfiguration;
+            => ProjectFileRenamerConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfigurationProvider
-            ProjectFileRenamerConfigurationProvider
+        private static IProjectFileRenamerConfigProvider
+            ProjectFileRenamerConfigProvider
         {
             get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
@@ -83,7 +83,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
         /// <summary>
         /// Asserts that the
         /// <see
-        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.Load" />
+        ///     cref="M:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.Load" />
         /// method works correctly.
         /// </summary>
         [Test]
@@ -92,7 +92,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
             Assert.That(File.Exists(ConfigFilePath));
 
             Assert.DoesNotThrow(
-                () => ProjectFileRenamerConfigurationProvider.Load(
+                () => ProjectFileRenamerConfigProvider.Load(
                     ConfigFilePath
                 )
             );

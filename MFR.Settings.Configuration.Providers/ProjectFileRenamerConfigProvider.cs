@@ -20,18 +20,18 @@ namespace MFR.Settings.Configuration.Providers
     /// user's config file.
     /// </summary>
     public class
-        ProjectFileRenamerConfigurationProvider :
-            IProjectFileRenamerConfigurationProvider
+        ProjectFileRenamerConfigProvider :
+            IProjectFileRenamerConfigProvider
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        static ProjectFileRenamerConfigurationProvider() { }
+        static ProjectFileRenamerConfigProvider() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected ProjectFileRenamerConfigurationProvider()
+        protected ProjectFileRenamerConfigProvider()
         {
             InitializeConfigPathProvider();
 
@@ -45,7 +45,7 @@ namespace MFR.Settings.Configuration.Providers
         /// <remarks>
         /// This property raises the
         /// <see
-        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePathChanged" />
+        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePathChanged" />
         /// event when its value is updated.
         /// </remarks>
         public string ConfigFilePath
@@ -82,18 +82,18 @@ namespace MFR.Settings.Configuration.Providers
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
-        public static IProjectFileRenamerConfigurationProvider Instance
+        public static IProjectFileRenamerConfigProvider Instance
         {
             get;
-        } = new ProjectFileRenamerConfigurationProvider();
+        } = new ProjectFileRenamerConfigProvider();
 
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property is updated.
         /// </summary>
         public event EventHandler ConfigFilePathChanged;
@@ -118,7 +118,7 @@ namespace MFR.Settings.Configuration.Providers
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
         /// <see
-        ///     cref="M:MFR.Settings.ProjectFileRenamerConfigurationProvider.Save" />
+        ///     cref="M:MFR.Settings.ProjectFileRenamerConfigProvider.Save" />
         /// method with a
         /// value for its pathname parameter.
         /// <para />
@@ -190,12 +190,12 @@ namespace MFR.Settings.Configuration.Providers
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.CurrentConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration" />
         /// property is then initialized to point to the data that has been loaded.
         /// <para />
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property is used as the pathname of the file that is to be loaded.
         /// </summary>
         /// <param name="pathname">
@@ -206,13 +206,13 @@ namespace MFR.Settings.Configuration.Providers
         /// having the specified <paramref name="pathname" /> cannot be located on the
         /// disk, then the value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property is used instead.
         /// </param>
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.CurrentConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         public IProjectFileRenamerConfig Load(string pathname = "")
@@ -285,7 +285,7 @@ namespace MFR.Settings.Configuration.Providers
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property.
         /// </param>
         public void Save(string pathname = "")
@@ -309,13 +309,13 @@ namespace MFR.Settings.Configuration.Providers
         /// If this parameter is blank, then the data is saved to the path that
         /// is stored in the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property.
         /// </param>
         /// <remarks>
         /// If the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property is blank, then this method does nothing.
         /// </remarks>
         public void SaveCopyAs(string pathname)
@@ -354,7 +354,7 @@ namespace MFR.Settings.Configuration.Providers
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePathChanged" />
+        ///     cref="E:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePathChanged" />
         /// event.
         /// </summary>
         /// <param name="sender">

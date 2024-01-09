@@ -75,7 +75,7 @@ namespace MFR.Managers.History
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
         /// <remarks>
@@ -83,8 +83,8 @@ namespace MFR.Managers.History
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+        private static IProjectFileRenamerConfigProvider
+            ConfigProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace MFR.Managers.History
         {
             get;
             set;
-        } = ConfigurationProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Clears all the history objects in a config object.

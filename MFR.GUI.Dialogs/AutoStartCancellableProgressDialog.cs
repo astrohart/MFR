@@ -67,11 +67,11 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
+        ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfigurationProvider
-            ConfigurationProvider
+        private static IProjectFileRenamerConfigProvider
+            ConfigProvider
             => GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace MFR.GUI.Dialogs
         /// interface that represents the currently-loaded config.
         /// </summary>
         private static IProjectFileRenamerConfig CurrentConfiguration
-            => ConfigurationProvider.CurrentConfiguration;
+            => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

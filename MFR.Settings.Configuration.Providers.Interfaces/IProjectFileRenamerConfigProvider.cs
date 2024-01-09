@@ -7,7 +7,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
     /// Defines the publicly-exposed methods and properties of a
     /// ProjectFileRenamerConfig Provider object.
     /// </summary>
-    public interface IProjectFileRenamerConfigurationProvider
+    public interface IProjectFileRenamerConfigProvider
     {
         /// <summary>
         /// Gets or sets the pathname of the config file.
@@ -18,7 +18,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <remarks>
         /// This property raises the
         /// <see
-        ///     cref="E:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ConfigFilePathChanged" />
+        ///     cref="E:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.ConfigFilePathChanged" />
         /// event when its value is updated.
         /// </remarks>
         string ConfigFilePath

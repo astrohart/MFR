@@ -116,7 +116,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjectFileRenamerConfigurationProviderTests.cs" />
+    <Compile Include="ProjectFileRenamerConfigProviderTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
