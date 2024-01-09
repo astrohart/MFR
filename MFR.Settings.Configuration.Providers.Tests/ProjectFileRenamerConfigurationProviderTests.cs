@@ -21,7 +21,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
     public class ProjectFileRenamerConfigurationProviderTests
     {
         /// <summary>
-        /// Path to a sample configuration file.
+        /// Path to a sample config file.
         /// </summary>
         private const string ConfigFilePath =
             @"C:\Users\Brian Hart\AppData\Local\xyLOGIX, LLC\Project File Renamer\Config\config.json";
@@ -62,10 +62,10 @@ namespace MFR.Settings.Configuration.Providers.Tests
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface that represents the currently-loaded (if any) configuration.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface that represents the currently-loaded (if any) config.
         /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfiguration
             => ProjectFileRenamerConfigurationProvider.CurrentConfiguration;
 
         /// <summary>

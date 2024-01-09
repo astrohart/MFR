@@ -15,10 +15,10 @@ namespace MFR.Settings.Configuration.Actions
 {
     /// <summary>
     /// Accesses a key and value in the system Registry to load the pathname of
-    /// the master configuration file.
+    /// the master config file.
     /// </summary>
     public class LoadConfigurationFromFileAction : ActionBase<IFileSystemEntry,
-        IProjectFileRenamerConfiguration>
+        IProjectFileRenamerConfig>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -40,7 +40,7 @@ namespace MFR.Settings.Configuration.Actions
         /// </summary>
         [Log(AttributeExclude = true)]
         public static
-            IAction<IFileSystemEntry, IProjectFileRenamerConfiguration> Instance
+            IAction<IFileSystemEntry, IProjectFileRenamerConfig> Instance
         {
             get;
         } = new LoadConfigurationFromFileAction();
@@ -59,7 +59,7 @@ namespace MFR.Settings.Configuration.Actions
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that is initialized with the values read in from the
         /// specified file.
         /// </returns>
@@ -71,9 +71,9 @@ namespace MFR.Settings.Configuration.Actions
         /// Implementers shall override this method to provide the functionality
         /// of the request.
         /// </remarks>
-        protected override IProjectFileRenamerConfiguration CommonExecute()
+        protected override IProjectFileRenamerConfig CommonExecute()
         {
-            IProjectFileRenamerConfiguration result = null;
+            IProjectFileRenamerConfig result = null;
 
             // Check to see if the required field, _input, is null. If it is, stop.
             if (Input == null)

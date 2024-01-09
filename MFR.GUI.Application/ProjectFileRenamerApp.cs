@@ -106,7 +106,7 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -413,7 +413,7 @@ namespace MFR.GUI.Application
 
                 SetUpCommandLineValidation();
 
-                // Load the configuration from the disk.
+                // Load the config from the disk.
                 ProfileProvider.Load();
 
                 ConfigProvider.Load();
@@ -474,7 +474,7 @@ namespace MFR.GUI.Application
         private void ProcessCommandLine()
             /*
              * If the user specified one or more argument(s) on the command line of this
-             * application, translate those parameters into configuration settings for this
+             * application, translate those parameters into config settings for this
              * run.
              */
             => GetCommandLineProcessor.OfType(

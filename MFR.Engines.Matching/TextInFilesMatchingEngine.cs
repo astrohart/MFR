@@ -20,13 +20,13 @@ namespace MFR.Engines.Matching
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="configuration" />,
+        /// <paramref name="config" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
         public TextInFilesMatchingEngine(
-            IProjectFileRenamerConfiguration configuration) : base(
-            configuration
+            IProjectFileRenamerConfig config) : base(
+            config
         ) { }
 
         /// <summary>

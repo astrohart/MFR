@@ -163,7 +163,7 @@ namespace MFR.GUI.Dialogs
             this.configPathnamePromptLabel.Name = "configPathnamePromptLabel";
             this.configPathnamePromptLabel.Size = new System.Drawing.Size(295, 37);
             this.configPathnamePromptLabel.TabIndex = 0;
-            this.configPathnamePromptLabel.Text = "Where on your computer should we store the configuration file?";
+            this.configPathnamePromptLabel.Text = "Where on your computer should we store the config file?";
             // 
             // configPathnameTextBox
             // 

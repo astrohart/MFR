@@ -5,15 +5,15 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a
-    /// ProjectFileRenamerConfiguration Provider object.
+    /// ProjectFileRenamerConfig Provider object.
     /// </summary>
     public interface IProjectFileRenamerConfigurationProvider
     {
         /// <summary>
-        /// Gets or sets the pathname of the configuration file.
+        /// Gets or sets the pathname of the config file.
         /// </summary>
         /// <summary>
-        /// Gets or sets the pathname of the configuration file.
+        /// Gets or sets the pathname of the config file.
         /// </summary>
         /// <remarks>
         /// This property raises the
@@ -30,12 +30,12 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <summary>
         /// Gets a reference to the instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface and which
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        IProjectFileRenamerConfiguration CurrentConfiguration
+        IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
@@ -50,19 +50,19 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         event EventHandler ConfigFilePathChanged;
 
         /// <summary>
-        /// Resets the configuration to default values.
+        /// Resets the config to default values.
         /// </summary>
         void Clear();
 
         /// <summary>
-        /// Exports configuration data to a file other than the master
-        /// configuration file.
+        /// Exports config data to a file other than the master
+        /// config file.
         /// </summary>
         /// <param name="exportFileName">
         /// </param>
         /// <remarks>
         /// Before performing the export, the method first saves the latest
-        /// settings out to the master configuration file.
+        /// settings out to the master config file.
         /// <para />
         /// It goes without saying that an alternative to calling this method in
         /// the first place is to simply call the
@@ -82,12 +82,12 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         void Export(string exportFileName);
 
         /// <summary>
-        /// Imports configuration data from a file whose path is
+        /// Imports config data from a file whose path is
         /// <paramref name="sourceFilePath" />.
         /// </summary>
         /// <param name="sourceFilePath">
         /// (Required.) String containing the fully-qualified pathname of the
-        /// file from which to import the configuration data.
+        /// file from which to import the config data.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if the required parameter, <paramref name="sourceFilePath" />,
@@ -101,23 +101,23 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// </exception>
         /// <remarks>
         /// First, this method loads the data from the file specified into the
-        /// application's configuration object.
+        /// application's config object.
         /// <para />
-        /// Then, the method saves the new data out to the master configuration file.
+        /// Then, the method saves the new data out to the master config file.
         /// </remarks>
         void Import(string sourceFilePath);
 
         /// <summary>
-        /// Loads the configuration from the disk.
+        /// Loads the config from the disk.
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfig" />
         /// property is then initialized to point to the data that has been loaded.
         /// </summary>
         /// <param name="pathname">
         /// (Optional.) String containing the pathname to a file to be loaded
-        /// from disk, that contains the configuration data in JSON format.
+        /// from disk, that contains the config data in JSON format.
         /// <para />
         /// If this value is blank, then the file whose path is stored in the
         /// <see
@@ -127,14 +127,14 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ConfigurationProvider.ProjectFileRenamerConfig" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface and which has been initialized with data from the configuration file.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface and which has been initialized with data from the config file.
         /// </returns>
         /// <exception cref="T:System.IO.FileNotFoundException">
         /// Thrown if the file whose pathname is passed in the
@@ -142,10 +142,10 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         ///     name="pathname" />
         /// parameter cannot be located on the disk.
         /// </exception>
-        IProjectFileRenamerConfiguration Load(string pathname = "");
+        IProjectFileRenamerConfig Load(string pathname = "");
 
         /// <summary>
-        /// Saves configuration data to a file on the disk having path
+        /// Saves config data to a file on the disk having path
         /// <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">

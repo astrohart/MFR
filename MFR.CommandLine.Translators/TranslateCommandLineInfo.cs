@@ -17,7 +17,7 @@ namespace MFR.CommandLine.Translators
     /// into instances of objects of other types, such as an instance of an object that
     /// implements the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
     /// interface, for example.
     /// </remarks>
     public static class TranslateCommandLineInfo
@@ -29,7 +29,7 @@ namespace MFR.CommandLine.Translators
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -41,10 +41,10 @@ namespace MFR.CommandLine.Translators
         /// Gets or sets a reference to the one and only instance of the object that
         /// implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface that represents the currently-loaded configuration.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface that represents the currently-loaded config.
         /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfiguration
         {
             get => ConfigurationProvider.CurrentConfiguration;
             set => ConfigurationProvider.CurrentConfiguration = value;
@@ -55,7 +55,7 @@ namespace MFR.CommandLine.Translators
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
         /// to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
         /// <param name="cmdInfo">
@@ -65,12 +65,12 @@ namespace MFR.CommandLine.Translators
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface
         /// whose properties have been initialized with the values specified in the
         /// properties of the <paramref name="cmdInfo" /> object.
         /// </returns>
-        public static IProjectFileRenamerConfiguration ToConfiguration(
+        public static IProjectFileRenamerConfig ToConfiguration(
             this ICommandLineInfo cmdInfo
         )
         {
@@ -90,7 +90,7 @@ namespace MFR.CommandLine.Translators
                    .AndShouldReOpenSolution(cmdInfo.ReOpenSolution)
                    .SetIsFromCommandLine(
                        true
-                   ) // mark this as a command-line specified configuration
+                   ) // mark this as a command-line specified config
                    .ShouldAutoStart(
                        cmdInfo.AutoStart
                    )

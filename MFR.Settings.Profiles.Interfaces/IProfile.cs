@@ -8,15 +8,15 @@ namespace MFR.Settings.Profiles.Interfaces
     /// </summary>
     /// <remarks>
     /// <c>Profile</c> objects are basically hot-swappable variations on the
-    /// <c>ProjectFileRenamerConfiguration</c> object.
+    /// <c>ProjectFileRenamerConfig</c> object.
     /// <para />
-    /// Whereas <c>ProjectFileRenamerConfiguration</c> objects have to be loaded from/saved to a
+    /// Whereas <c>ProjectFileRenamerConfig</c> objects have to be loaded from/saved to a
     /// persistent store, such as a database or a file, <c>Profile</c> s have
     /// this capability as well, but are also named with unique identifiers --
     /// meaning we can allow the user to create profiles so they can hot-swap
     /// the settings, say, for one solution versus another.
     /// </remarks>
-    public interface IProfile : IProjectFileRenamerConfiguration
+    public interface IProfile : IProjectFileRenamerConfig
     {
         /// <summary>
         /// Gets or sets a string value that is the name of this profile.

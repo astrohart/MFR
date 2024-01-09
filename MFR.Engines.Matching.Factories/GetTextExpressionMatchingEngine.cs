@@ -44,7 +44,7 @@ namespace MFR.Engines.Matching.Factories
         /// method on the result of this method in order to attach an object
         /// that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface to the
         /// new object instance.
         /// </remarks>

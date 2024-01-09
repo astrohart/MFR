@@ -41,7 +41,7 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets the text of the configuration File Pathname text box.
+        /// Gets or sets the text of the config File Pathname text box.
         /// </summary>
         public string ConfigPathname
         {
@@ -56,7 +56,7 @@ namespace MFR.GUI.Dialogs
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -68,10 +68,10 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfiguration
             => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace MFR.GUI.Dialogs
         {
             base.OnLoad(e);
 
-            UpdateData(false); // move data from the configuration to the screen
+            UpdateData(false); // move data from the config to the screen
 
             customizePendingChangeCommitMessageButton.Enabled =
                 commitPendingChangesBeforeOperationsCheckBox.Checked;
@@ -274,7 +274,7 @@ namespace MFR.GUI.Dialogs
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
-        /// for the Browse button on the configuration File Pathname text box..
+        /// for the Browse button on the config File Pathname text box..
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -285,7 +285,7 @@ namespace MFR.GUI.Dialogs
         /// <remarks>
         /// This method responds to a click of the '...' button that lies next
         /// to the text box that accepts the pathname of the application's
-        /// configuration file.
+        /// config file.
         /// </remarks>
         private void OnClickConfigPathnameBrowseButton(
             object sender,
@@ -407,7 +407,7 @@ namespace MFR.GUI.Dialogs
             => IsModified = dirty;
 
         /// <summary>
-        /// Moves data from this dialog's controls to the configuration object.
+        /// Moves data from this dialog's controls to the config object.
         /// </summary>
         /// <param name="bSaveAndValidate">
         /// (Required.) A <see cref="T:System.Boolean" />

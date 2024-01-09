@@ -34,10 +34,10 @@ namespace MFR.Engines.Replacement.Tests
         {
             Assert.Pass();  /* skip this unit test with a passing result */
 
-            ProjectFileRenamerConfiguration = ConfigurationBuilder.Instance.SetMatchCase()
+            ProjectFileRenamerConfig = ConfigurationBuilder.Instance.SetMatchCase()
                                                 .AndSetMatchExactWord()
                                                 .Build();
-            Replacer.UpdateConfiguration(ProjectFileRenamerConfiguration);
+            Replacer.UpdateConfiguration(ProjectFileRenamerConfig);
 
             var replacementResult1 = Replacer.Replace(
                 @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.States.Servicess.Brokers",

@@ -56,31 +56,31 @@ namespace MFR.Settings.Configuration.Providers.Actions
         }
 
         /// <summary>
-        /// Generates a new <c>Action</c> object that loads the configuration data from a
+        /// Generates a new <c>Action</c> object that loads the config data from a
         /// file on the disk.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface that
         /// contains the fully-qualified pathname of a file on the disk that contains
-        /// application configuration data.
+        /// application config data.
         /// </param>
         /// <returns>
-        /// A new <c>Action</c> object that loads the configuration data from a
+        /// A new <c>Action</c> object that loads the config data from a
         /// file on the disk.
         /// </returns>
         public static
-            IAction<IFileSystemEntry, IProjectFileRenamerConfiguration>
+            IAction<IFileSystemEntry, IProjectFileRenamerConfig>
             LoadConfigFromFileAction(IFileSystemEntry entry)
         {
-            IAction<IFileSystemEntry, IProjectFileRenamerConfiguration> result =
+            IAction<IFileSystemEntry, IProjectFileRenamerConfig> result =
                 default;
 
             try
             {
                 /*
                  * OKAY, only use the pathname provided to this method as
-                 * input for the load configuration from file action if it
+                 * input for the load config from file action if it
                  * contains the fully-qualified pathname of a file that actually
                  * exists on the disk and has a filename of config.json.
                  */
@@ -90,7 +90,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
                     return result;
 
                 var action = GetConfigAction
-                    .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
+                    .For<IFileSystemEntry, IProjectFileRenamerConfig>(
                         ConfigActionType.LoadConfigFromFile
                     );
 

@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="IProjectFileRenamerConfiguration.cs" />
+    <Compile Include="IProjectFileRenamerConfig.cs" />
     <Compile Include="IConfigurationComposedObject.cs" />
     <Compile Include="IFixedTextMatchingConfigurationSpecificObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

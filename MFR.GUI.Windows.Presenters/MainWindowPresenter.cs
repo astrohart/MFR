@@ -54,7 +54,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         /// <remarks>
         /// This object's sole purpose in life is to provide the service of
-        /// maintaining the history lists in the configuration data
+        /// maintaining the history lists in the config data
         /// source.
         /// </remarks>
         private IHistoryManager _historyManager;
@@ -85,7 +85,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Gets or sets the pathname of the configuration file.
+        /// Gets or sets the pathname of the config file.
         /// </summary>
         private static string ConfigFilePath
         {
@@ -100,7 +100,7 @@ namespace MFR.GUI.Windows.Presenters
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -114,10 +114,10 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
@@ -251,12 +251,12 @@ namespace MFR.GUI.Windows.Presenters
         public event EventHandler AllHistoryCleared;
 
         /// <summary>
-        /// Occurs when the configuration has been exported to a file.
+        /// Occurs when the config has been exported to a file.
         /// </summary>
         public event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the configuration has been updated, say, by an
+        /// Occurs when the config has been updated, say, by an
         /// import process.
         /// </summary>
         public event ConfigurationImportedEventHandler ConfigurationImported;
@@ -274,13 +274,13 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
-        /// screen and the configuration data source.
+        /// screen and the config data source.
         /// </summary>
         public event EventHandler DataOperationFinished;
 
         /// <summary>
         /// Occurs when data is about to be moved to and fro between the screen
-        /// and the configuration data source.
+        /// and the config data source.
         /// </summary>
         public event DataOperationEventHandler DataOperationStarted;
 
@@ -301,7 +301,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of
-        /// configuration
+        /// config
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -375,7 +375,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Clears all the history lists in the configuration.
+        /// Clears all the history lists in the config.
         /// </summary>
         [Log(AttributeExclude = true)]
         public void ClearAllHistory()
@@ -403,7 +403,7 @@ namespace MFR.GUI.Windows.Presenters
             ValidateInputs();
 
             // just in case, have the file renamer object update its
-            // configuration to match that which we have access to
+            // config to match that which we have access to
             OperationEngine.UpdateConfiguration(CurrentConfiguration);
 
             OperationEngine.ProcessAll(
@@ -415,12 +415,12 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Exports the current configuration data to a file on the
+        /// Exports the current config data to a file on the
         /// user's hard drive.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a file to which the configuration should be exported.
+        /// pathname of a file to which the config should be exported.
         /// </param>
         /// <remarks>
         /// If a file having the specified <paramref name="pathname" /> already
@@ -434,13 +434,13 @@ namespace MFR.GUI.Windows.Presenters
             try
             {
                 /*
-                 * If a configuration file already exists at the specified pathname,
+                 * If a config file already exists at the specified pathname,
                  * then
                  */
 
                 if (File.Exists(pathname)) File.Delete(pathname);
 
-                // Bring data from the screen down into the configuration
+                // Bring data from the screen down into the config
                 // object
                 UpdateData();
 
@@ -549,7 +549,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Imports the configuration data for this application.
+        /// Imports the config data for this application.
         /// </summary>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file
@@ -579,7 +579,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
-        /// based on configuration settings.
+        /// based on config settings.
         /// </summary>
         public void InitializeOperationSelections()
         {
@@ -626,12 +626,12 @@ namespace MFR.GUI.Windows.Presenters
                ProfileProvider.Profiles.HasProfileNamed(profileName);
 
         /// <summary>
-        /// If the user has changed the pathname of where the configuration file is to be
-        /// stored, this method renames the existing configuration file to match.
+        /// If the user has changed the pathname of where the config file is to be
+        /// stored, this method renames the existing config file to match.
         /// </summary>
         /// <param name="newConfigFilePath">
         /// (Required.) A <see cref="T:System.String" /> that contains the new value of the
-        /// fully-qualified pathname of the configuration file.
+        /// fully-qualified pathname of the config file.
         /// </param>
         public void RenameConfigFileToMatchNewName(string newConfigFilePath)
         {
@@ -649,7 +649,7 @@ namespace MFR.GUI.Windows.Presenters
                  * if so, then update the value of the ConfigFilePath property with that
                  * value.
                  *
-                 * The configuration provider object will then proceed to store the new
+                 * The config provider object will then proceed to store the new
                  * pathname in the system Registry right away.
                  */
                 if (Does.FileExist(newConfigFilePath))
@@ -664,7 +664,7 @@ namespace MFR.GUI.Windows.Presenters
 
         /// <summary>
         /// Saves data from the screen control and then saves the
-        /// configuration to the
+        /// config to the
         /// persistence location.
         /// </summary>
         public void SaveConfiguration()
@@ -700,7 +700,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfig" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
@@ -710,7 +710,7 @@ namespace MFR.GUI.Windows.Presenters
         /// (Required.) String containing the name to give the
         /// new Profile.
         /// </param>
-        public void SaveCurrentConfigurationAsProfile(string profileName)
+        public void SaveCurrentConfigurationurationAsProfile(string profileName)
         {
             if (string.IsNullOrWhiteSpace(profileName)) return;
 
@@ -722,7 +722,7 @@ namespace MFR.GUI.Windows.Presenters
 
             /*
              * Make the new Profile the same as the currently-
-             * loaded configuration.
+             * loaded config.
              */
 
             CurrentConfiguration = newProfile;
@@ -730,14 +730,14 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Updates the configuration currently being used with a new
+        /// Updates the config currently being used with a new
         /// value.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface which has
         /// the new settings.
         /// </param>
@@ -751,17 +751,17 @@ namespace MFR.GUI.Windows.Presenters
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="configuration" />,
+        /// <paramref name="config" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(
-            IProjectFileRenamerConfiguration configuration
+            IProjectFileRenamerConfig config
         )
         {
-            base.UpdateConfiguration(configuration);
+            base.UpdateConfiguration(config);
 
-            OperationEngine.UpdateConfiguration(configuration);
-            _historyManager.UpdateConfiguration(configuration);
+            OperationEngine.UpdateConfiguration(config);
+            _historyManager.UpdateConfiguration(config);
 
             InitializeOperationEngine();
         }
@@ -785,10 +785,10 @@ namespace MFR.GUI.Windows.Presenters
         public void UpdateData(bool bSavingAndValidating = true)
         {
             // write the name of the current class and method we are now
-            // Check to see if the required property, ProjectFileRenamerConfiguration, is null. If
+            // Check to see if the required property, ProjectFileRenamerConfig, is null. If
             if (CurrentConfiguration == null)
 
-                // the property ProjectFileRenamerConfiguration is required.
+                // the property ProjectFileRenamerConfig is required.
                 // stop.
                 return;
 
@@ -797,7 +797,7 @@ namespace MFR.GUI.Windows.Presenters
             // the interim
             OnDataOperationStarted(
                 new DataOperationEventArgs(
-                    "Updating configuration...  Please wait."
+                    "Updating config...  Please wait."
                 )
             );
 
@@ -894,7 +894,7 @@ namespace MFR.GUI.Windows.Presenters
         /// <summary>
         /// Saves the selections made in the Operations to Perform checked list
         /// box into the
-        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" />
         /// object.
         /// </summary>
         public void SaveOperationSelections()
@@ -1088,7 +1088,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
         /// the user to use the GUI. This is because moving data to and from the
-        /// configuration data source, while a mildly lengthy operation,
+        /// config data source, while a mildly lengthy operation,
         /// is
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
@@ -1117,7 +1117,7 @@ namespace MFR.GUI.Windows.Presenters
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
         /// the user to use the GUI. This is because moving data to and from the
-        /// configuration data source, while a mildly lengthy operation,
+        /// config data source, while a mildly lengthy operation,
         /// is
         /// nowhere near as involved as the file operations we would normally undertake.
         /// </remarks>
@@ -1178,7 +1178,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Initializes the currently-loaded configuration object.
+        /// Initializes the currently-loaded config object.
         /// </summary>
         private void InitializeConfiguration()
         {

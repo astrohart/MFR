@@ -19,10 +19,10 @@ namespace MFR.Engines.Matching.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        protected IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration;
+        protected IProjectFileRenamerConfig ProjectFileRenamerConfig;
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -37,13 +37,13 @@ namespace MFR.Engines.Matching.Tests
         /// </summary>
         public virtual void Initialize()
         {
-            ProjectFileRenamerConfiguration = ConfigurationBuilder.Instance.SetMatchCase(false)
+            ProjectFileRenamerConfig = ConfigurationBuilder.Instance.SetMatchCase(false)
                                                  .AndSetMatchExactWord(false)
                                                  .Build();
 
-            Assert.IsNotNull(ProjectFileRenamerConfiguration);
-            Assert.IsFalse(ProjectFileRenamerConfiguration.MatchCase);
-            Assert.IsFalse(ProjectFileRenamerConfiguration.MatchExactWord);
+            Assert.IsNotNull(ProjectFileRenamerConfig);
+            Assert.IsFalse(ProjectFileRenamerConfig.MatchCase);
+            Assert.IsFalse(ProjectFileRenamerConfig.MatchExactWord);
         }
 
         /// <summary>
@@ -492,7 +492,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the configuration, (b) the source string contains the
+        /// = false in the config, (b) the source string contains the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
         /// </summary>
@@ -501,7 +501,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -515,7 +515,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// false and MatchExactWord
-        /// = true in the configuration, (b) the source string contains the
+        /// = true in the config, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case but the cases match in the second.
         /// </summary>
@@ -524,7 +524,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -538,7 +538,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = false in the configuration, (b) the source string does not contain the
+        /// = false in the config, (b) the source string does not contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
@@ -547,7 +547,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
@@ -561,7 +561,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the configuration, (b) the source string does not contain the
+        /// = false in the config, (b) the source string does not contain the
         /// pattern string as a substring, and even if (c) the cases do not
         /// match in the first sub-case but the cases match in the second.
         /// </summary>
@@ -570,7 +570,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
@@ -584,7 +584,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the configuration, (b) the source string does not contain the
+        /// = false in the config, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases do not match in
         /// neither the first sub-case nor in the second.
         /// </summary>
@@ -593,7 +593,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
@@ -607,7 +607,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the configuration, (b) the source string does not contain the
+        /// = false in the config, (b) the source string does not contain the
         /// pattern string as a substring, but (c) the cases match in both the
         /// first sub-case and in the second.
         /// </summary>
@@ -616,7 +616,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesMatch()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "bar", "baz"));
@@ -630,7 +630,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// false and MatchExactWord
-        /// = true in the configuration, (b) the source string exactly matches the
+        /// = true in the config, (b) the source string exactly matches the
         /// pattern string, and (c) the cases do not match in the first sub-case
         /// but the cases match in the second.
         /// </summary>
@@ -639,7 +639,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturned_IfSourceExactlyMatchesPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = true
                 };
             Assert.IsTrue(_matcher.IsMatch("foo", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -653,7 +653,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the configuration, (b) the source string does not exactly
+        /// = true in the config, (b) the source string does not exactly
         /// match the pattern string as a substring, and if (c) the cases do not
         /// match in the first sub-case.
         /// </summary>
@@ -662,7 +662,7 @@ namespace MFR.Engines.Matching.Tests
             Test_FalseReturnedIfCaseDoesNotMatch_AndFalseReturnedWhenCaseDoesMatch_IfSourceDoesNotExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "Bar", "Baz"));
@@ -676,7 +676,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the configuration, (b) the source string exactly matches the
+        /// = true in the config, (b) the source string exactly matches the
         /// pattern string as a substring, except if (c) the cases do not match
         /// in the first sub-case.
         /// </summary>
@@ -703,7 +703,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = false in the configuration, (b) the source string contains the
+        /// = false in the config, (b) the source string contains the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
@@ -712,7 +712,7 @@ namespace MFR.Engines.Matching.Tests
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = false
                 };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -726,7 +726,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// true and MatchExactWord
-        /// = false in the configuration, (b) the source string contains the
+        /// = false in the config, (b) the source string contains the
         /// pattern string as a substring, and if (c) the cases match in the
         /// first sub-case and in the second.
         /// </summary>
@@ -735,7 +735,7 @@ namespace MFR.Engines.Matching.Tests
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
             Assert.IsTrue(_matcher.IsMatch("foo.tests", "foo", "Bar"));
@@ -750,7 +750,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="true" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the configuration, and (b) the source string exactly
+        /// = true in the config, and (b) the source string exactly
         /// matches the pattern string as a substring (including case).
         /// </summary>
         [Test]
@@ -758,7 +758,7 @@ namespace MFR.Engines.Matching.Tests
             Test_TrueReturned_WhenSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsTrue(
@@ -773,7 +773,7 @@ namespace MFR.Engines.Matching.Tests
         /// method
         /// returns <see langword="false" /> in the event that (a) MatchCase =
         /// MatchExactWord
-        /// = true in the configuration, (b) the source string does contain the
+        /// = true in the config, (b) the source string does contain the
         /// pattern string as a substring, and (c) the cases do not match in the
         /// first sub-case.
         /// </summary>
@@ -782,7 +782,7 @@ namespace MFR.Engines.Matching.Tests
             Test_WhenMatchCaseOn_AndMatchExactWordOn_FalseReturned_IfSourceContainsPattern()
         {
             _matcher.CurrentConfiguration =
-                new ProjectFileRenamerConfiguration {
+                new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = true
                 };
             Assert.IsFalse(_matcher.IsMatch("foo.tests", "MFR.Directories.Validators.Constants.Generators", "Bar"));
@@ -811,7 +811,7 @@ namespace MFR.Engines.Matching.Tests
         /// </exception>
         protected void CreateMatchingEngineFor(OperationType type)
             => _matcher = GetTextExpressionMatchingEngine.For(type)
-                    .AndAttachConfiguration(ProjectFileRenamerConfiguration) as
+                    .AndAttachConfiguration(ProjectFileRenamerConfig) as
                 ITextExpressionMatchingEngine;
     }
 }

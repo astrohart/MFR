@@ -14,22 +14,22 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// <summary>
         /// Attempts to obtain a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface that contains the application configuration.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface that contains the application config.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of a <c>config.json</c> file on the disk from which the application
-        /// configuration is to be loaded.
+        /// config is to be loaded.
         /// </param>
         /// <returns>
         /// If successful, a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface that contains the application configuration is returned; otherwise, a
-        /// blank configuration is returned.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface that contains the application config is returned; otherwise, a
+        /// blank config is returned.
         /// </returns>
-        public static IProjectFileRenamerConfiguration ConfigurationFrom(
+        public static IProjectFileRenamerConfig ConfigurationFrom(
             string pathname
         )
         {

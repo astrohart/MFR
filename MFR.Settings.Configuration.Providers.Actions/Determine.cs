@@ -13,7 +13,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
     {
         /// <summary>
         /// Determines the correct pathname to use for loading the application
-        /// configuration.
+        /// config.
         /// </summary>
         /// <param name="submittedPathname">
         /// (Required.) A <see cref="T:System.String" /> containing the fully-qualified
@@ -25,7 +25,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// <param name="currentPathnameInRegistry">
         /// (Required.) A
         /// <see cref="T:System.String" /> containing the fully-qualified pathname of the
-        /// application configuration file as read from the system Registry.
+        /// application config file as read from the system Registry.
         /// </param>
         /// <returns>
         /// If the <paramref name="submittedPathname" /> is not blank and is set

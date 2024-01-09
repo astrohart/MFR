@@ -56,7 +56,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Generates a reference to an instance of an <c>Action</c> object that is
         /// responsible for executing the operation of loading the user's
-        /// configuration-setting profiles from the disk.
+        /// config-setting profiles from the disk.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that
@@ -67,7 +67,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <returns>
         /// If successful, a reference to an instance of an <c>Action</c> object
         /// that is responsible for executing the operation of loading the user's
-        /// configuration-setting profiles from the disk; <see langword="null" />
+        /// config-setting profiles from the disk; <see langword="null" />
         /// otherwise.
         /// </returns>
         public static IAction<IFileSystemEntry, IProfileCollection>

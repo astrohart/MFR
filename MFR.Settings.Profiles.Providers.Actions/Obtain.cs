@@ -13,7 +13,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Attempts to obtain a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// interface that contains the user's configuration-setting profiles.
+        /// interface that contains the user's config-setting profiles.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
@@ -24,7 +24,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// If successful, a reference to an instance of an object that implements
         /// the
         /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// interface that contains the user's configuration-setting profiles; otherwise,
+        /// interface that contains the user's config-setting profiles; otherwise,
         /// the empty collection is returned.
         /// </returns>
         public static IProfileCollection ProfileCollectionFromFile(

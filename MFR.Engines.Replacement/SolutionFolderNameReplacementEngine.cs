@@ -27,26 +27,26 @@ namespace MFR.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that
         /// holds settings that are specified by the user.
         /// </param>
         /// <exception
         ///     cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
+        /// parameter, <paramref name="config" />, is passed a
         /// <see
         ///     langword="null" />
         /// value.
         /// </exception>
         [Log(AttributeExclude = true)]
         public SolutionFolderNameReplacementEngine(
-            IProjectFileRenamerConfiguration configuration) : base(
-            configuration
+            IProjectFileRenamerConfig config) : base(
+            config
         ) { }
 
         /// <summary>

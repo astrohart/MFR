@@ -15,7 +15,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Determines whether a user-submitted path, or the pathname stored in the system
         /// Registry, is the correct pathname to be utilized for saving out
-        /// configuration-setting profiles to the disk with.
+        /// config-setting profiles to the disk with.
         /// </summary>
         /// <param name="pathnameFromRegistry">
         /// (Required.) A <see cref="T:System.String" />
@@ -66,7 +66,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Returns a value that indicates whether the specified
         /// <paramref name="pathname" /> is valid for use in saving the user's favorite
-        /// configuration-setting profiles out to the disk.
+        /// config-setting profiles out to the disk.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified

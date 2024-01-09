@@ -46,14 +46,14 @@ namespace MFR.Console
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
         /// <remarks>
         /// This property has a getter and a setter, so that we can initialize it from the
         /// command line.
         /// </remarks>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfiguration
         {
             get => ConfigProvider.CurrentConfiguration;
             set => ConfigProvider.CurrentConfiguration = value;

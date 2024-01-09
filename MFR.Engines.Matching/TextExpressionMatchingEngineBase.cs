@@ -32,22 +32,22 @@ namespace MFR.Engines.Matching
         /// and returns
         /// a reference to it.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="configuration" />,
+        /// <paramref name="config" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         protected TextExpressionMatchingEngineBase(
-            IProjectFileRenamerConfiguration configuration) : base(
-            configuration
+            IProjectFileRenamerConfig config) : base(
+            config
         ) { }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace MFR.Engines.Matching
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -69,10 +69,10 @@ namespace MFR.Engines.Matching
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
@@ -134,7 +134,7 @@ namespace MFR.Engines.Matching
         /// data match according to rules specified by the user in the object, a
         /// reference to which is specified in the
         /// <see
-        ///     cref="P:MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.ITextExpressionMatchingEngine.ProjectFileRenamerConfig" />
         /// property.
         /// </summary>
         /// <param name="expression">

@@ -21,7 +21,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseAndExactWord" />
-        /// enum value for a configuration object whose
+        /// enum value for a config object whose
         /// <see
         ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
@@ -50,7 +50,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchCaseOnly" />
         /// enum
-        /// value for a configuration object whose
+        /// value for a config object whose
         /// <see
         ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
@@ -78,7 +78,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.MatchExactWordOnly" />
-        /// enum value for a configuration object whose
+        /// enum value for a config object whose
         /// <see
         ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to
@@ -106,7 +106,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         /// method returns the
         /// <see
         ///     cref="T:MFR.TextMatchingConfiguration.NeitherMatchCaseNorExactWord" />
-        /// enum value for a configuration object whose
+        /// enum value for a config object whose
         /// <see
         ///     cref="P:MFR.Settings.Configuration.Interfaces.IConfigurationMatchCase" />
         /// property is set to

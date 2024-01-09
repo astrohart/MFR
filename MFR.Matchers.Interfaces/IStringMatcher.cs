@@ -9,7 +9,7 @@ namespace MFR.Matchers.Interfaces
     /// </summary>
     /// <remarks>
     /// The type of matching performed varies by file- and folder-renaming
-    /// operation type, as well as the specific configuration of matching (Match
+    /// operation type, as well as the specific config of matching (Match
     /// Case, Match Exact Word etc.).
     /// </remarks>
     public interface IStringMatcher :

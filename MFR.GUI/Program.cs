@@ -29,7 +29,7 @@ namespace MFR.GUI
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of the currently-loaded configuration file.
+        /// pathname of the currently-loaded config file.
         /// </summary>
         private static string ConfigFilePath
             => ConfigProvider.ConfigFilePath;
@@ -41,7 +41,7 @@ namespace MFR.GUI
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -80,7 +80,7 @@ namespace MFR.GUI
             EventArgs e
         )
             => Messages.ShowInformation(
-                $"The new configuration file pathname is '{ConfigFilePath}"
+                $"The new config file pathname is '{ConfigFilePath}"
             );
 
         /// <summary>

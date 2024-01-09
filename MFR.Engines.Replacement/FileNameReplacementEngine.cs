@@ -31,17 +31,17 @@ namespace MFR.Engines.Replacement
         /// and returns a
         /// reference to it.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" /> interface that holds
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" /> interface that holds
         /// settings that are specified by the user.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="config" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
-        public FileNameReplacementEngine(IProjectFileRenamerConfiguration configuration) 
-            : base(configuration) { }
+        public FileNameReplacementEngine(IProjectFileRenamerConfig config) 
+            : base(config) { }
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values

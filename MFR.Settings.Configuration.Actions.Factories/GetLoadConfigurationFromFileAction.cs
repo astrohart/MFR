@@ -7,7 +7,7 @@ namespace MFR.Settings.Configuration.Actions.Factories
     /// <summary>
     /// Provides access to the one and only instance of the object that implements the
     /// <see
-    ///     cref="T:MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}" />
+    ///     cref="T:MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}" />
     /// interface.
     /// </summary>
     public static class GetLoadConfigurationFromFileAction
@@ -15,17 +15,17 @@ namespace MFR.Settings.Configuration.Actions.Factories
         /// <summary>
         /// Obtains access to the sole instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}" />
+        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}" />
         /// interface, and returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to the one, and only, instance of the object that implements the
         /// <see
-        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration}" />
+        ///     cref="T:MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry, MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}" />
         /// interface.
         /// </returns>
         public static
-            IAction<IFileSystemEntry, IProjectFileRenamerConfiguration>
+            IAction<IFileSystemEntry, IProjectFileRenamerConfig>
             SoleInstance()
             => LoadConfigurationFromFileAction.Instance;
     }

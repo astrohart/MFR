@@ -77,10 +77,10 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface that represents the currently-loaded configuration.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface that represents the currently-loaded config.
         /// </summary>
-        private static IProjectFileRenamerConfiguration CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfiguration
             => ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>

@@ -26,7 +26,7 @@ namespace MFR.Expressions.Matches.Factories
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -38,10 +38,10 @@ namespace MFR.Expressions.Matches.Factories
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;

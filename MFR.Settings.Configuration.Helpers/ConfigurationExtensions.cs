@@ -14,40 +14,40 @@ namespace MFR.Settings.Configuration.Helpers
     /// <summary>
     /// Extension methods for objects implementing the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
     /// interface.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class ConfigurationExtensions
     {
         /// <summary>
-        /// Allows us to work with the specified <paramref name="configuration" /> object
+        /// Allows us to work with the specified <paramref name="config" /> object
         /// as if it were a Profile.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object
         /// that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Profiles.Interfaces.IProfile" /> interface that
-        /// represents the specified <paramref name="configuration" />.
+        /// represents the specified <paramref name="config" />.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
+        /// parameter, <paramref name="config" />, is passed a
         /// <see langword="null" /> value.
         /// </exception>
-        public static IProfile AsProfile(this IProjectFileRenamerConfiguration configuration)
+        public static IProfile AsProfile(this IProjectFileRenamerConfig config)
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
+            if (config == null)
+                throw new ArgumentNullException(nameof(config));
 
-            return configuration is IProfile profile
+            return config is IProfile profile
                 ? profile
-                : configuration.ToProfile(
+                : config.ToProfile(
                     "tmp" + Guid.NewGuid()
                                  .ToString("B")
                                  .ToUpperInvariant()
@@ -56,13 +56,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Gets the <see cref="T:MFR.TextMatchingConfiguration" /> value
-        /// that corresponds to the values set in the configuration object, a
+        /// that corresponds to the values set in the config object, a
         /// reference to which is passed by the <paramref name="config" /> parameter.
         /// </summary>
         /// <param name="config">
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <returns>
@@ -76,7 +76,7 @@ namespace MFR.Settings.Configuration.Helpers
         /// properties.
         /// </returns>
         public static TextMatchingConfiguration GetTextMatchingConfiguration(
-            this IProjectFileRenamerConfiguration config)
+            this IProjectFileRenamerConfig config)
         {
             TextMatchingConfiguration result;
 
@@ -104,30 +104,30 @@ namespace MFR.Settings.Configuration.Helpers
         }
 
         /// <summary>
-        /// Determines whether the specified <paramref name="configuration" /> actually
+        /// Determines whether the specified <paramref name="config" /> actually
         /// refers to a bona fide <c>Profile</c> or whether it was simply transformed into
         /// a temporary <c>Profile</c> object (having a name beginning with <c>tmp</c>).
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object
         /// that implements the
-        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified
-        /// <paramref name="configuration" /> is merely a temporary <c>Profile</c> object;
+        /// <paramref name="config" /> is merely a temporary <c>Profile</c> object;
         /// <see langword="false" /> otherwise.
         /// </returns>
-        public static bool IsTemporaryProfile(this IProjectFileRenamerConfiguration configuration)
+        public static bool IsTemporaryProfile(this IProjectFileRenamerConfig config)
         {
             var result = false;
 
             try
             {
-                if (configuration == null) return result;
+                if (config == null) return result;
 
-                var correspondingProfile = configuration.AsProfile();
+                var correspondingProfile = config.AsProfile();
                 if (correspondingProfile == null) return result;
 
                 result = string.IsNullOrWhiteSpace(correspondingProfile.Name) ||
@@ -146,13 +146,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Saves the currently-selected Find What text item and the history to
-        /// the configuration.
+        /// the config.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface and which
-        /// allows access to the configuration data.
+        /// allows access to the config data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
@@ -169,7 +169,7 @@ namespace MFR.Settings.Configuration.Helpers
         /// value.
         /// </exception>
         public static void SaveCurrentFindWhatAndHistory(
-            this IProjectFileRenamerConfiguration config, IEntryRespectingComboBox comboBox)
+            this IProjectFileRenamerConfig config, IEntryRespectingComboBox comboBox)
         {
             if (config == null)
                 throw new ArgumentNullException(nameof(config));
@@ -184,13 +184,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Saves the currently-selected Replace With text item and the history
-        /// to the configuration.
+        /// to the config.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface and which
-        /// allows access to the configuration data.
+        /// allows access to the config data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
@@ -207,7 +207,7 @@ namespace MFR.Settings.Configuration.Helpers
         /// value.
         /// </exception>
         public static void SaveCurrentReplaceWithAndHistory(
-            this IProjectFileRenamerConfiguration config, IEntryRespectingComboBox comboBox)
+            this IProjectFileRenamerConfig config, IEntryRespectingComboBox comboBox)
         {
             if (config == null)
                 throw new ArgumentNullException(nameof(config));
@@ -224,13 +224,13 @@ namespace MFR.Settings.Configuration.Helpers
 
         /// <summary>
         /// Saves the currently-selected Starting Folder text item and the
-        /// history to the configuration.
+        /// history to the config.
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface and which
-        /// allows access to the configuration data.
+        /// allows access to the config data.
         /// </param>
         /// <param name="comboBox">
         /// (Required.) Reference to an instance of an object that implements
@@ -248,7 +248,7 @@ namespace MFR.Settings.Configuration.Helpers
         /// value.
         /// </exception>
         public static void SaveCurrentStartingFolderAndHistory(
-            this IProjectFileRenamerConfiguration config, IEntryRespectingComboBox comboBox)
+            this IProjectFileRenamerConfig config, IEntryRespectingComboBox comboBox)
         {
             if (config == null)
                 throw new ArgumentNullException(nameof(config));

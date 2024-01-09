@@ -43,7 +43,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the fully-qualified
         /// pathname of the file containing the collection of user-defined
-        /// configuration-setting profiles.
+        /// config-setting profiles.
         /// <para />
         /// This pathname is loaded from, and saved to, the system Registry.
         /// </summary>
@@ -63,7 +63,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// interface that represents the collection of configuration-setting profiles
+        /// interface that represents the collection of config-setting profiles
         /// we're working with.
         /// </summary>
         private static IProfileCollection Profiles
@@ -155,9 +155,9 @@ namespace MFR.Settings.Profiles.Providers.Tests
         }
 
         /// <summary>
-        /// Gets the count of user-defined configuration-setting profiles.
+        /// Gets the count of user-defined config-setting profiles.
         /// </summary>
-        /// <returns>Count of user-defined configuration-setting profiles.</returns>
+        /// <returns>Count of user-defined config-setting profiles.</returns>
         private static int GetProfileCount()
             => Profiles.Count;
 

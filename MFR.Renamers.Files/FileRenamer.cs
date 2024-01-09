@@ -77,7 +77,7 @@ namespace MFR.Renamers.Files
     /// NOTE: Instances of this class must be composed with an instance of an
     /// object that implements the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
     /// interface.
     /// <para />
     /// Such an object is necessary because it provides settings specified by
@@ -142,7 +142,7 @@ namespace MFR.Renamers.Files
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -153,10 +153,10 @@ namespace MFR.Renamers.Files
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
@@ -705,7 +705,7 @@ namespace MFR.Renamers.Files
         {
             if (CurrentConfiguration == null)
                 throw new InvalidOperationException(
-                    "The configuration has not been initialized."
+                    "The config has not been initialized."
                 );
             if (string.IsNullOrWhiteSpace(rootDirectoryPath))
                 throw new ArgumentException(
@@ -1651,8 +1651,8 @@ namespace MFR.Renamers.Files
             /*
              * We do not perform any input validation here.  This is because
              * this value may be being initialized from a default (blank)
-             * configuration.   the configuration may be blank for a number of
-             * reasons, but one of these is the issue that the configuration
+             * config.   the config may be blank for a number of
+             * reasons, but one of these is the issue that the config
              * file on the disk may have gotten corrupted or erased.
              */
 
@@ -1848,7 +1848,7 @@ namespace MFR.Renamers.Files
              * NOTE: This is not trivial, since we can process more than
              * one .sln in a directory tree -- this means that this renamer
              * might not necessarily be operating on the starting folder set
-             * by the user in the application configuration.
+             * by the user in the application config.
              */
             CurrentConfiguration.StartingFolder = e.NewPath;
 
@@ -2618,7 +2618,7 @@ namespace MFR.Renamers.Files
                  * configured.  Not all local Git repos have remotes, and not all of those remotes
                  * have to be called 'origin'.
                  *
-                 * NOTE: There is a new configuration property, PushChangesToRemoteWhenDone.
+                 * NOTE: There is a new config property, PushChangesToRemoteWhenDone.
                  * The value of this property is changeable at runtime by the user via the Git
                  * tab on the Options dialog box.  Setting the property to false should suppress
                  * this operation.
@@ -2894,7 +2894,7 @@ namespace MFR.Renamers.Files
                  * output.
                  *
                  * We are primarily focused on performing text replacement in
-                 * project files, configuration files, solution files, and source
+                 * project files, config files, solution files, and source
                  * code files here.
                  *
                  * This weeding out process makes the application more scalable.
@@ -4001,7 +4001,7 @@ namespace MFR.Renamers.Files
                  * So, there are solution(s) in the root directory that are
                  * currently loaded in running instance(s) of Visual Studio.
                  * Determine whether they should be reopened by providing the
-                 * value of the configuration's ReOpenSolution flag.
+                 * value of the config's ReOpenSolution flag.
                  */
 
                 foreach (var solution in LoadedSolutions)

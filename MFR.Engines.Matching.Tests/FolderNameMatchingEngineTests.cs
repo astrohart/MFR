@@ -20,11 +20,11 @@ namespace MFR.Engines.Matching.Tests
         [Test]
         public void Test_IsMatch_ReturnsTrue_ForExactFolderSearchMatch()
         {
-            ProjectFileRenamerConfiguration = ConfigurationBuilder.Instance
+            ProjectFileRenamerConfig = ConfigurationBuilder.Instance
                                                  .SetMatchCase()
                                                  .AndSetMatchExactWord(false)
                                                  .Build();
-            _matcher.UpdateConfiguration(ProjectFileRenamerConfiguration);
+            _matcher.UpdateConfiguration(ProjectFileRenamerConfig);
 
             Assert.IsTrue(
                 _matcher.IsMatch(

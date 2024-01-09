@@ -37,12 +37,12 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         event EventHandler AllHistoryCleared;
 
         /// <summary>
-        /// Occurs when the configuration has been exported to a file.
+        /// Occurs when the config has been exported to a file.
         /// </summary>
         event ConfigurationExportedEventHandler ConfigurationExported;
 
         /// <summary>
-        /// Occurs when the configuration has been imported successfully
+        /// Occurs when the config has been imported successfully
         /// from a
         /// file on the disk.
         /// </summary>
@@ -61,7 +61,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Occurs when data is finished being moved to and fro between the
-        /// screen and the configuration data source.
+        /// screen and the config data source.
         /// </summary>
         event EventHandler DataOperationFinished;
 
@@ -87,7 +87,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of
-        /// configuration
+        /// config
         /// settings) and then adds it to the collection of profiles that the user has.
         /// </summary>
         /// <param name="name">
@@ -123,7 +123,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         IMainWindowPresenter AndHistoryManager(IHistoryManager historyManager);
 
         /// <summary>
-        /// Clears all the history lists in the configuration.
+        /// Clears all the history lists in the config.
         /// </summary>
         void ClearAllHistory();
 
@@ -133,12 +133,12 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void DoSelectedOperations();
 
         /// <summary>
-        /// Exports the current configuration data to the file on the
+        /// Exports the current config data to the file on the
         /// user's hard drive having the specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a file to which the configuration should be exported.
+        /// pathname of a file to which the config should be exported.
         /// </param>
         /// <remarks>
         /// If a file having the specified <paramref name="pathname" /> already
@@ -168,12 +168,12 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void FillProfileDropDownList();
 
         /// <summary>
-        /// Imports the configuration data for this application from the file with the
+        /// Imports the config data for this application from the file with the
         /// specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a file from which the configuration should be imported.
+        /// pathname of a file from which the config should be imported.
         /// </param>
         /// <remarks>
         /// The data is presumed to be located inside of a JSON-formatted file
@@ -185,7 +185,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 
         /// <summary>
         /// Sets the state of the Operations to Perform checked list box items
-        /// based on configuration settings.
+        /// based on config settings.
         /// </summary>
         void InitializeOperationSelections();
 
@@ -211,18 +211,18 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         bool ProfileAlreadyExist(string profileName);
 
         /// <summary>
-        /// If the user has changed the pathname of where the configuration file is to be
-        /// stored, this method renames the existing configuration file to match.
+        /// If the user has changed the pathname of where the config file is to be
+        /// stored, this method renames the existing config file to match.
         /// </summary>
         /// <param name="newConfigFilePath">
         /// (Required.) A <see cref="T:System.String" /> that contains the new value of the
-        /// fully-qualified pathname of the configuration file.
+        /// fully-qualified pathname of the config file.
         /// </param>
         void RenameConfigFileToMatchNewName(string newConfigFilePath);
 
         /// <summary>
         /// Saves data from the screen control and then saves the
-        /// configuration to the persistence location.
+        /// config to the persistence location.
         /// </summary>
         void SaveConfiguration();
 
@@ -243,7 +243,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// <summary>
         /// Transforms the current value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfig" />
         /// property into a Profile with the <paramref name="profileName" /> specified.
         /// <para />
         /// If a Profile with the same name is already defined, then this method does
@@ -253,7 +253,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// (Required.) String containing the name to give the
         /// new Profile.
         /// </param>
-        void SaveCurrentConfigurationAsProfile(string profileName);
+        void SaveCurrentConfigurationurationAsProfile(string profileName);
 
         /// <summary>
         /// Fluent-builder method for initializing the operation engine object.  This is

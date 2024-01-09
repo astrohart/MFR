@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MFR.Settings.Configuration.Providers.Tests")]
-[assembly: AssemblyDescription("Provides unit tests for the provider object that loads and saves settings to/from the Project File Renamer configuration file.")]
+[assembly: AssemblyDescription("Provides unit tests for the provider object that loads and saves settings to/from the Project File Renamer config file.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]

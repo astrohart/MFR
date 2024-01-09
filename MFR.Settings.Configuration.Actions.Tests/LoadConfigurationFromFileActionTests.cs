@@ -25,9 +25,9 @@ namespace MFR.Settings.Configuration.Actions.Tests
         /// <summary>
         /// Asserts that a valid instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface will be loaded from
-        /// the configuration file for the application, provided that a valid
+        /// the config file for the application, provided that a valid
         /// path has been supplied as input to the loading action.
         /// </summary>
         [Test]
@@ -58,11 +58,11 @@ namespace MFR.Settings.Configuration.Actions.Tests
 
             Assert.IsTrue(File.Exists(configurationFilePath));
 
-            IProjectFileRenamerConfiguration result = null;
+            IProjectFileRenamerConfig result = null;
 
             Assert.DoesNotThrow(
                 () => result = GetConfigAction
-                               .For<IFileSystemEntry, IProjectFileRenamerConfiguration>(
+                               .For<IFileSystemEntry, IProjectFileRenamerConfig>(
                                    ConfigActionType.LoadConfigFromFile
                                )
                                .WithInput(
@@ -73,9 +73,9 @@ namespace MFR.Settings.Configuration.Actions.Tests
                                .Execute()
             );
 
-            // result should be an IProjectFileRenamerConfiguration-implementing object
+            // result should be an IProjectFileRenamerConfig-implementing object
             Assert.That(result, Is.Not.Null);
-            Assert.That(result, Is.AssignableTo(typeof(IProjectFileRenamerConfiguration)));
+            Assert.That(result, Is.AssignableTo(typeof(IProjectFileRenamerConfig)));
         }
     }
 }

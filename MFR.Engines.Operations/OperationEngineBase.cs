@@ -59,7 +59,7 @@ namespace MFR.Engines.Operations
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -71,10 +71,10 @@ namespace MFR.Engines.Operations
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
@@ -175,14 +175,14 @@ namespace MFR.Engines.Operations
         }
 
         /// <summary>
-        /// Updates the <paramref name="configuration" /> currently being used with a new
+        /// Updates the <paramref name="config" /> currently being used with a new
         /// value.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface
         /// which has the new settings.
         /// </param>
@@ -195,16 +195,16 @@ namespace MFR.Engines.Operations
         /// of its own processing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="configuration" />,
+        /// Thrown if the required parameter, <paramref name="config" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         public override void UpdateConfiguration(
-            IProjectFileRenamerConfiguration configuration
+            IProjectFileRenamerConfig config
         )
         {
-            base.UpdateConfiguration(configuration);
+            base.UpdateConfiguration(config);
 
-            FileRenamer.UpdateConfiguration(configuration);
+            FileRenamer.UpdateConfiguration(config);
         }
 
         /// <summary>

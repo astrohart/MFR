@@ -103,7 +103,7 @@ namespace MFR.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
@@ -112,7 +112,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no config data is attached to this object.
         /// </exception>
         protected override IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(

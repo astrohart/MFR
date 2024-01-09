@@ -39,26 +39,26 @@ namespace MFR.Engines.Replacement
         /// and
         /// returns a reference to it.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an
         /// instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that
         /// holds settings that are specified by the user.
         /// </param>
         /// <exception
         ///     cref="T:System.ArgumentNullException">
         /// Thrown if the required
-        /// parameter, <paramref name="configuration" />, is passed a
+        /// parameter, <paramref name="config" />, is passed a
         /// <see
         ///     langword="null" />
         /// value.
         /// </exception>
         [Log(AttributeExclude = true)]
         protected TextReplacementEngineBase(
-            IProjectFileRenamerConfiguration configuration) :
-            base(configuration) { }
+            IProjectFileRenamerConfig config) :
+            base(config) { }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -67,7 +67,7 @@ namespace MFR.Engines.Replacement
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -79,10 +79,10 @@ namespace MFR.Engines.Replacement
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;

@@ -93,7 +93,7 @@ namespace MFR.Registry.Helpers.Tests
             );
             Assert.DoesNotThrow(
                 () => Assert.AreEqual(
-                    RegistryHive.CurrentConfig,
+                    RegistryHive.CurrentConfiguration,
                     CURRENT_CONFIG_HIVE_NAME.ToRegistryHive()
                 )
             );

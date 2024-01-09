@@ -129,7 +129,7 @@ namespace MFR.Replacers.Factories
                 default:
                     throw new ArgumentOutOfRangeException(
                         nameof(matchingConfig), matchingConfig,
-                        $"There are no string replacer objects defined for the Replace Text in Files operation type that support the '{matchingConfig}' matching configuration."
+                        $"There are no string replacer objects defined for the Replace Text in Files operation type that support the '{matchingConfig}' matching config."
                     );
             }
 

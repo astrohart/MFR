@@ -14,18 +14,18 @@ namespace MFR.Settings.Configuration.Helpers
         /// <summary>
         /// Creates an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface and initializes it with the default invokable operations.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that is initialized with the default invokable operations.
         /// </returns>
-        public static IProjectFileRenamerConfiguration BlankConfiguration()
+        public static IProjectFileRenamerConfig BlankConfiguration()
         {
-            IProjectFileRenamerConfiguration result;
+            IProjectFileRenamerConfig result;
 
             try
             {

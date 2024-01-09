@@ -58,7 +58,7 @@ namespace MFR.GUI.Processors
         /// The object that implements the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider" />
-        /// interface allows access to the configuration settings that the user can use to
+        /// interface allows access to the config settings that the user can use to
         /// control the behavior of the application.
         /// <para />
         /// As this class is an abstract base class, we made this property
@@ -72,19 +72,19 @@ namespace MFR.GUI.Processors
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
         /// <remarks>
         /// This property can be both read from and written to.  This way, if a
-        /// command-line processor decides to update the configuration from the command
-        /// line, then the data currently being stored and loaded by the configuration
+        /// command-line processor decides to update the config from the command
+        /// line, then the data currently being stored and loaded by the config
         /// provider can be manipulated by simply setting this property.
         /// <para />
         /// Given that this class is an abstract base class, we have marked this property
         /// as <see langword="protected" /> so that our child classes can see it.
         /// </remarks>
-        protected static IProjectFileRenamerConfiguration CurrentConfiguration
+        protected static IProjectFileRenamerConfig CurrentConfiguration
         {
             get => ConfigurationProvider.CurrentConfiguration;
             set => ConfigurationProvider.CurrentConfiguration = value;

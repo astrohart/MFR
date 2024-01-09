@@ -11,7 +11,7 @@ namespace MFR.Settings.Configuration.Factories
     /// <summary>
     /// Creates new instances of objects that implement the
     /// <see
-    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+    ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
     /// interface, and returns references to them.
     /// </summary>
     [Log(AttributeExclude = true)]
@@ -20,14 +20,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhat" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.FindWhat" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="findWhat">
@@ -41,8 +41,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndFindWhat(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndFindWhat(
+            this IProjectFileRenamerConfig self,
             string findWhat
         )
         {
@@ -57,14 +57,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.FindWhatHistory" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.FindWhatHistory" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="findWhatHistory">
@@ -79,8 +79,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndFindWhatHistory(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndFindWhatHistory(
+            this IProjectFileRenamerConfig self,
             List<string> findWhatHistory
         )
         {
@@ -93,14 +93,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFolded" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.IsFolded" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="isFolded">
@@ -114,8 +114,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndIsFolded(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndIsFolded(
+            this IProjectFileRenamerConfig self,
             bool isFolded
         )
         {
@@ -128,14 +128,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchCase" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.MatchCase" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="matchCase">
@@ -149,8 +149,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndMatchCase(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndMatchCase(
+            this IProjectFileRenamerConfig self,
             bool matchCase
         )
         {
@@ -163,14 +163,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.MatchExactWord" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.MatchExactWord" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="matchExactWord">
@@ -184,8 +184,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndMatchExactWord(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndMatchExactWord(
+            this IProjectFileRenamerConfig self,
             bool matchExactWord
         )
         {
@@ -198,14 +198,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWith" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ReplaceWith" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="replaceWith">
@@ -219,8 +219,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndReplaceWith(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndReplaceWith(
+            this IProjectFileRenamerConfig self,
             string replaceWith
         )
         {
@@ -235,14 +235,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceWithHistory" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ReplaceWithHistory" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="replaceWithHistory">
@@ -257,8 +257,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndReplaceWithHistory(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndReplaceWithHistory(
+            this IProjectFileRenamerConfig self,
             List<string> replaceWithHistory
         )
         {
@@ -271,14 +271,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.SelectedOptionTab" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.SelectedOptionTab" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="selectedOptionTab">
@@ -293,8 +293,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndSelectedOptionTab(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndSelectedOptionTab(
+            this IProjectFileRenamerConfig self,
             int selectedOptionTab
         )
         {
@@ -307,14 +307,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSolutionFolders" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.RenameSolutionFolders" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="renameSolutionFolders">
@@ -330,9 +330,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             AndShouldRenameSolutionFolders(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 bool renameSolutionFolders
             )
         {
@@ -346,14 +346,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameSubFolders" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.RenameSubFolders" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="renameSubFolders">
@@ -367,9 +367,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             AndShouldRenameSubFolders(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 bool renameSubFolders
             )
         {
@@ -382,14 +382,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReOpenSolution" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ReOpenSolution" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="reOpenSolution">
@@ -404,8 +404,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndShouldReOpenSolution(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndShouldReOpenSolution(
+            this IProjectFileRenamerConfig self,
             bool reOpenSolution
         )
         {
@@ -418,14 +418,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ReplaceTextInFiles" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ReplaceTextInFiles" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="replaceTextInFiles">
@@ -439,9 +439,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             AndShouldReplaceTextInFiles(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 bool replaceTextInFiles
             )
         {
@@ -454,14 +454,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolderHistory" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.StartingFolderHistory" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="startingFolderHistory">
@@ -476,8 +476,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration AndStartingFolderHistory(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig AndStartingFolderHistory(
+            this IProjectFileRenamerConfig self,
             List<string> startingFolderHistory
         )
         {
@@ -490,14 +490,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.StartingFolder" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="startingFolder">
@@ -511,8 +511,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration ForStartingFolder(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig ForStartingFolder(
+            this IProjectFileRenamerConfig self,
             string startingFolder
         )
         {
@@ -527,30 +527,30 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Creates a new instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface
         /// and returns a reference to it.
         /// </summary>
         /// <returns>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </returns>
-        public static IProjectFileRenamerConfiguration FromScratch()
-            => new ProjectFileRenamerConfiguration();
+        public static IProjectFileRenamerConfig FromScratch()
+            => new ProjectFileRenamerConfig();
 
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.InvokableOperations" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.InvokableOperations" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="operationsToPerform">
@@ -566,9 +566,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             HavingInvokableOperations(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 IList<IOperationTypeInfo> operationsToPerform
             )
         {
@@ -585,14 +585,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.IsFromCommandLine" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.IsFromCommandLine" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="isFromCommandLine">
@@ -606,8 +606,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration SetIsFromCommandLine(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig SetIsFromCommandLine(
+            this IProjectFileRenamerConfig self,
             bool isFromCommandLine
         )
         {
@@ -620,14 +620,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.AutoStart" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.AutoStart" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="autoStart">
@@ -642,8 +642,8 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration ShouldAutoStart(
-            this IProjectFileRenamerConfiguration self,
+        public static IProjectFileRenamerConfig ShouldAutoStart(
+            this IProjectFileRenamerConfig self,
             bool autoStart
         )
         {
@@ -656,14 +656,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ShouldCommitPendingChanges" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ShouldCommitPendingChanges" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="shouldCommitPendingChanges">
@@ -679,9 +679,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             ShouldCommitPendingChanges(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 bool shouldCommitPendingChanges
             )
         {
@@ -695,14 +695,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.ShouldCommitPostOperationChanges" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ShouldCommitPostOperationChanges" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="shouldCommitPostOperationChanges">
@@ -719,9 +719,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             ShouldCommitPostOperationChanges(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 bool shouldCommitPostOperationChanges
             )
         {
@@ -736,14 +736,14 @@ namespace MFR.Settings.Configuration.Factories
         /// <summary>
         /// Builder extension method that initializes the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration.RenameFilesInFolder" />
+        ///     cref="P:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.RenameFilesInFolder" />
         /// property.
         /// </summary>
         /// <param name="self">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <param name="renameFiles">
@@ -757,9 +757,9 @@ namespace MFR.Settings.Configuration.Factories
         /// Thrown if the required parameter, <paramref name="self" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             ShouldRenameFilesInFolder(
-                this IProjectFileRenamerConfiguration self,
+                this IProjectFileRenamerConfig self,
                 bool renameFiles
             )
         {

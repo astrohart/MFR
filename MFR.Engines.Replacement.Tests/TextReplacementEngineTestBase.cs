@@ -17,10 +17,10 @@ namespace MFR.Engines.Replacement.Tests
         /// <summary>
         /// Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        protected IProjectFileRenamerConfiguration ProjectFileRenamerConfiguration
+        protected IProjectFileRenamerConfig ProjectFileRenamerConfig
         {
             get;
             set;
@@ -43,13 +43,13 @@ namespace MFR.Engines.Replacement.Tests
         /// </summary>
         public virtual void Initialize()
         {
-            ProjectFileRenamerConfiguration = ConfigurationBuilder.Instance.SetMatchCase(false)
+            ProjectFileRenamerConfig = ConfigurationBuilder.Instance.SetMatchCase(false)
                                                 .AndSetMatchExactWord(false)
                                                 .Build();
 
-            Assert.IsNotNull(ProjectFileRenamerConfiguration);
-            Assert.IsFalse(ProjectFileRenamerConfiguration.MatchCase);
-            Assert.IsFalse(ProjectFileRenamerConfiguration.MatchExactWord);
+            Assert.IsNotNull(ProjectFileRenamerConfig);
+            Assert.IsFalse(ProjectFileRenamerConfig.MatchCase);
+            Assert.IsFalse(ProjectFileRenamerConfig.MatchExactWord);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace MFR.Engines.Replacement.Tests
         protected void CreateReplacementEngineFor(OperationType type)
             => Replacer = GetTextReplacementEngine.For(type)
                                                   .AndAttachConfiguration(
-                                                      ProjectFileRenamerConfiguration
+                                                      ProjectFileRenamerConfig
                                                   ) as ITextReplacementEngine;
     }
 }

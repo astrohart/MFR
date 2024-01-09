@@ -13,7 +13,7 @@ using xyLOGIX.Core.Extensions;
 namespace MFR.Managers.History
 {
     /// <summary>
-    /// Manages the configuration history on behalf of the application.
+    /// Manages the config history on behalf of the application.
     /// </summary>
     public class HistoryManager : ConfigurationComposedObjectBase,
         IHistoryManager
@@ -79,7 +79,7 @@ namespace MFR.Managers.History
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -91,17 +91,17 @@ namespace MFR.Managers.History
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
         } = ConfigurationProvider.CurrentConfiguration;
 
         /// <summary>
-        /// Clears all the history objects in a configuration object.
+        /// Clears all the history objects in a config object.
         /// </summary>
         /// <returns>
         /// <see langword="true" /> if the Clear operation was carried out
@@ -113,7 +113,7 @@ namespace MFR.Managers.History
             if (!CanClearAll())
                 return false;
 
-            // Since this configuration object may have god knows how many
+            // Since this config object may have god knows how many
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.

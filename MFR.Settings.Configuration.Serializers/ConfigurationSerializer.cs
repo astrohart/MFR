@@ -12,18 +12,18 @@ using Initialize = MFR.GUI.Models.Actions.Initialize;
 namespace MFR.Settings.Configuration.Serializers
 {
     /// <summary>
-    /// Provides helper methods for storing the configuration data to, and
+    /// Provides helper methods for storing the config data to, and
     /// loading it from, a file on the disk.
     /// </summary>
     public static class ConfigurationSerializer
     {
         /// <summary>
-        /// Loads the configuration data from the file on the disk that has the
+        /// Loads the config data from the file on the disk that has the
         /// specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) String containing the fully-qualified pathname of a
-        /// JSON-formatted data file on the disk that contains the configuration data.
+        /// JSON-formatted data file on the disk that contains the config data.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
@@ -35,7 +35,7 @@ namespace MFR.Settings.Configuration.Serializers
         ///     langword="null" />
         /// if a problem occurred.
         /// </returns>
-        public static IProjectFileRenamerConfiguration Load(string pathname)
+        public static IProjectFileRenamerConfig Load(string pathname)
         {
             var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 
@@ -50,7 +50,7 @@ namespace MFR.Settings.Configuration.Serializers
                     return result;
 
                 // If the file at the path pathname has zero bytes of data, or
-                // only whitespace, then return a blank ProjectFileRenamerConfiguration instance
+                // only whitespace, then return a blank ProjectFileRenamerConfig instance
                 // with its properties all set to default values.
                 result =
                     ConvertProjectFileRenamerConfiguration.FromJson(content);
@@ -58,7 +58,7 @@ namespace MFR.Settings.Configuration.Serializers
                 if (result == null) return result;
 
                 /*
-                 * If, for some reason, the loaded configuration object contains no
+                 * If, for some reason, the loaded config object contains no
                  * operations to perform, initialize the list with the defaults.
                  */
 
@@ -77,35 +77,35 @@ namespace MFR.Settings.Configuration.Serializers
         }
 
         /// <summary>
-        /// Saves configuration data to a file.
+        /// Saves config data to a file.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) String containing the pathname of the file that the data
         /// is to be saved to.
         /// </param>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         public static void Save(
             string pathname,
-            IProjectFileRenamerConfiguration configuration
+            IProjectFileRenamerConfig config
         )
         {
             if (string.IsNullOrWhiteSpace(pathname))
                 return;
 
-            if (configuration == null)
+            if (config == null)
                 return;
 
             try
             {
                 var content =
                     ConvertProjectFileRenamerConfiguration
-                        .ToJson(configuration);
+                        .ToJson(config);
 
                 if (string.IsNullOrWhiteSpace(content))
                     return;

@@ -16,25 +16,25 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// Attempts to execute the operation of loading a new instance of an object that
         /// implements
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// from a file on the disk.
         /// </summary>
         /// <param name="action">
         /// (Required.) Reference to an <c>Action</c> object that, when executed, loads the
-        /// application configuration from a file on the disk.
+        /// application config from a file on the disk.
         /// </param>
         /// <returns>
         /// If successful, a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
-        /// interface containing the loaded application configuration, or the blank
-        /// configuration if the operation could not be executed, or if no application
-        /// configuration data is contained within the specified file.
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface containing the loaded application config, or the blank
+        /// config if the operation could not be executed, or if no application
+        /// config data is contained within the specified file.
         /// </returns>
-        public static IProjectFileRenamerConfiguration
+        public static IProjectFileRenamerConfig
             OperationToLoadConfigFromFile(
-                IAction<IFileSystemEntry, IProjectFileRenamerConfiguration>
+                IAction<IFileSystemEntry, IProjectFileRenamerConfig>
                     action
             )
         {

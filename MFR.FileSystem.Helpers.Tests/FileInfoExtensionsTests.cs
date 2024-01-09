@@ -65,7 +65,7 @@ namespace MFR.FileSystem.Helpers.Tests
             Assert.Pass();
 
             /*
-            var configuration =
+            var config =
                 ConfigurationBuilder.BuildConfigurationForUseCase(
                     true, /* match case
                     true
@@ -138,7 +138,7 @@ namespace MFR.FileSystem.Helpers.Tests
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the actions
+        /// This object allows access to the user config and the actions
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigurationProvider ConfigurationProvider

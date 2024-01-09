@@ -14,11 +14,11 @@ namespace MFR.Settings.Configuration.Tests
 {
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
-    /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
+    /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" />
     /// class.
     /// </summary>
     [TestFixture, ExplicitlySynchronized]
-    public class ProjectFileRenamerConfigurationTests
+    public class ProjectFileRenamerConfigTests
     {
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -84,10 +84,10 @@ namespace MFR.Settings.Configuration.Tests
         {
             Assert.IsFalse(File.Exists(ConfigPathProvider.ConfigFilePath));
 
-            IProjectFileRenamerConfiguration configuration = default;
+            IProjectFileRenamerConfig config = default;
 
-            Assert.DoesNotThrow(() => configuration = ProjectFileRenamerConfigurationProvider.Load());
-            Assert.That(ProjectFileRenamerConfiguration.IsBlankOrNull(configuration));
+            Assert.DoesNotThrow(() => config = ProjectFileRenamerConfigurationProvider.Load());
+            Assert.That(ProjectFileRenamerConfig.IsBlankOrNull(config));
         }
     }
 }

@@ -7,31 +7,31 @@ namespace MFR.Settings.Configuration.Actions
     public static class Is
     {
         /// <summary>
-        /// Determines whether the specified <paramref name="configuration" /> is blank or
+        /// Determines whether the specified <paramref name="config" /> is blank or
         /// not.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified
-        /// <paramref name="configuration" /> is the blank application configuration or if
+        /// <paramref name="config" /> is the blank application config or if
         /// a <see langword="null" /> reference is passed as the argument of the
-        /// <paramref name="configuration" /> parameter; <see langword="false" />
+        /// <paramref name="config" /> parameter; <see langword="false" />
         /// otherwise.
         /// </returns>
         public static bool ConfigurationBlankOrNull(
-            IProjectFileRenamerConfiguration configuration
+            IProjectFileRenamerConfig config
         )
         {
             var result = true;
 
             try
             {
-                if (configuration == null) return result;
+                if (config == null) return result;
 
                 throw new NotImplementedException();
             }

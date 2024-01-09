@@ -211,7 +211,7 @@ namespace MFR.Registry.Helpers
                     break;
 
                 case "HKEY_CURRENT_CONFIG":
-                    result = RegistryHive.CurrentConfig;
+                    result = RegistryHive.CurrentConfiguration;
                     break;
 
                 case "HKEY_CURRENT_USER":

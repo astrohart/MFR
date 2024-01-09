@@ -87,7 +87,7 @@ namespace MFR.Settings.Profiles.Providers
 
         /// <summary>
         /// Occurs when we are about to begin the process of loading the user's saved
-        /// configuration-setting profiles from the data source.
+        /// config-setting profiles from the data source.
         /// </summary>
         public event CancelEventHandler LoadingProfiles;
 
@@ -121,7 +121,7 @@ namespace MFR.Settings.Profiles.Providers
 
         /// <summary>
         /// Occurs when we are about to begin the process of saving the user's saved
-        /// configuration-setting profiles from the data source.
+        /// config-setting profiles from the data source.
         /// </summary>
         public event CancelEventHandler SavingProfiles;
 

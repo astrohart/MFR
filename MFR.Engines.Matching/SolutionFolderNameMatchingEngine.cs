@@ -10,7 +10,7 @@ namespace MFR.Engines.Matching
     /// <summary>
     /// Searches for matches to textual-search criteria patterns and regexes in the
     /// pathnames of folders that contain Visual Studio Solution (<c>*.sln</c>) files,
-    /// according to rules specified by configuration settings.
+    /// according to rules specified by config settings.
     /// </summary>
     public class
         SolutionFolderNameMatchingEngine : TextExpressionMatchingEngineBase
@@ -24,13 +24,13 @@ namespace MFR.Engines.Matching
         /// </summary>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter,
-        /// <paramref name="configuration" />,
+        /// <paramref name="config" />,
         /// is passed a <see langword="null" /> value.
         /// </exception>
         [Log(AttributeExclude = true)]
         public SolutionFolderNameMatchingEngine(
-            IProjectFileRenamerConfiguration configuration) : base(
-            configuration
+            IProjectFileRenamerConfig config) : base(
+            config
         ) { }
 
         /// <summary>

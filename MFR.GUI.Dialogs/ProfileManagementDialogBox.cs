@@ -3,7 +3,7 @@ using xyLOGIX.UI.Dark.Forms;
 namespace MFR.GUI.Dialogs
 {
     /// <summary>
-    /// Dialog box to assist the user in managing configuration profiles.
+    /// Dialog box to assist the user in managing config profiles.
     /// </summary>
     public partial class ProfileManagementDialogBox : DarkForm
     {

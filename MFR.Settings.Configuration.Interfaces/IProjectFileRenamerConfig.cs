@@ -6,9 +6,9 @@ namespace MFR.Settings.Configuration.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of a
-    /// configuration object.
+    /// config object.
     /// </summary>
-    public interface IProjectFileRenamerConfiguration
+    public interface IProjectFileRenamerConfig
     {
         /// <summary>
         /// Gets or sets a <see cref="T:System.Boolean" /> value indicating whether the
@@ -28,7 +28,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// specified operation(s) have been completed.
         /// </summary>
         /// <remarks>
-        /// This flag is ignored if this configuration did not originate from the command
+        /// This flag is ignored if this config did not originate from the command
         /// line.
         /// </remarks>
         bool AutoStart
@@ -82,7 +82,7 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this configuration was specified by the
+        /// Gets or sets a value indicating whether this config was specified by the
         /// user on the command line.
         /// </summary>
         bool IsFromCommandLine
@@ -315,7 +315,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolder" />
         /// property has been updated.
         /// </summary>
         event StartingFolderChangedEventHandler StartingFolderChanged;

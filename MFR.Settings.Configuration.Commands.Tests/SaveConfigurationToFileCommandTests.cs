@@ -17,7 +17,7 @@ namespace MFR.Settings.Configuration.Commands.Tests
     /// class.
     /// </summary>
     /// <remarks>
-    /// This class enables callers to provide a filename and a configuration
+    /// This class enables callers to provide a filename and a config
     /// object reference, bundled together inside a File System Entry POCO, and
     /// it is serialized to disk.
     /// </remarks>
@@ -30,9 +30,9 @@ namespace MFR.Settings.Configuration.Commands.Tests
         private const string FILE_PATH = @"C:\config.json";
 
         /// <summary>
-        /// Empty configuration object for testing.
+        /// Empty config object for testing.
         /// </summary>
-        private static IProjectFileRenamerConfiguration BlankConfiguration
+        private static IProjectFileRenamerConfig BlankConfig
         {
             get;
         } = GetBlankProjectFileRenamerConfiguration.SoleInstance();
@@ -51,7 +51,7 @@ namespace MFR.Settings.Configuration.Commands.Tests
                 {
                     var fileSystemEntry = MakeNewFileSystemEntry
                                           .ForPath(FILE_PATH)
-                                          .SetUserState(BlankConfiguration);
+                                          .SetUserState(BlankConfig);
                     if (fileSystemEntry == null) return;
 
                     var saveConfigurationFileCommand = GetConfigurationCommand

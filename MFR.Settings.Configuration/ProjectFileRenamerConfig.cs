@@ -23,7 +23,7 @@ namespace MFR.Settings.Configuration
     /// </remarks>
     [Log(AttributeExclude = true)]
     public class
-        ProjectFileRenamerConfiguration : IProjectFileRenamerConfiguration
+        ProjectFileRenamerConfig : IProjectFileRenamerConfig
     {
         /// <summary>
         /// A <see cref="T:System.String" /> containing the fully-qualified pathname of the
@@ -34,10 +34,10 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" />
         /// and returns a reference to it.
         /// </summary>
-        public ProjectFileRenamerConfiguration()
+        public ProjectFileRenamerConfig()
         {
             Reset();
         }
@@ -45,23 +45,23 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Constructs a new instance of
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" />
         /// and returns a reference to it.
         /// </summary>
         /// <param name="source">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface
-        /// that contains existing configuration settings to copy into this object.
+        /// that contains existing config settings to copy into this object.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required
         /// parameter, <paramref name="source" />, is passed a <see langword="null" />
         /// value.
         /// </exception>
-        public ProjectFileRenamerConfiguration(
-            IProjectFileRenamerConfiguration source
+        public ProjectFileRenamerConfig(
+            IProjectFileRenamerConfig source
         )
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
@@ -91,11 +91,11 @@ namespace MFR.Settings.Configuration
 
         /// <summary>
         /// Constructs a new instance of
-        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfiguration" /> and
+        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" /> and
         /// returns a reference to it.
         /// </summary>
         [JsonConstructor]
-        public ProjectFileRenamerConfiguration(
+        public ProjectFileRenamerConfig(
             IEnumerable<IOperationTypeInfo> operations
         )
         {
@@ -126,7 +126,7 @@ namespace MFR.Settings.Configuration
         /// specified operation(s) have been completed.
         /// </summary>
         /// <remarks>
-        /// This flag is ignored if this configuration did not originate from the command
+        /// This flag is ignored if this config did not originate from the command
         /// line.
         /// </remarks>
         [JsonIgnore]
@@ -136,10 +136,10 @@ namespace MFR.Settings.Configuration
             set;
         }
 
-        public static IProjectFileRenamerConfiguration Blank
+        public static IProjectFileRenamerConfig Blank
         {
             get;
-        } = new ProjectFileRenamerConfiguration();
+        } = new ProjectFileRenamerConfig();
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
@@ -190,7 +190,7 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this configuration was specified by the
+        /// Gets or sets a value indicating whether this config was specified by the
         /// user on the command line.
         /// </summary>
         public bool IsFromCommandLine
@@ -615,7 +615,7 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolder" />
         /// property has been updated.
         /// </summary>
         public event StartingFolderChangedEventHandler StartingFolderChanged;
@@ -639,7 +639,7 @@ namespace MFR.Settings.Configuration
                 if (ReferenceEquals(this, obj)) return true;
 
                 result = obj.GetType() == GetType() && Equals(
-                    (ProjectFileRenamerConfiguration)obj
+                    (ProjectFileRenamerConfig)obj
                 );
             }
             catch (Exception ex)
@@ -733,29 +733,29 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Determines whether the specified <paramref name="configuration" /> object
+        /// Determines whether the specified <paramref name="config" /> object
         /// instance is blank or a <see langword="null" /> reference.
         /// </summary>
-        /// <param name="configuration">
+        /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that represents the object instance that is to be examined.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified
-        /// <paramref name="configuration" /> object instance is blank or a
+        /// <paramref name="config" /> object instance is blank or a
         /// <see langword="null" /> reference.
         /// </returns>
         public static bool IsBlankOrNull(
-            IProjectFileRenamerConfiguration configuration
+            IProjectFileRenamerConfig config
         )
         {
             bool result;
 
             try
             {
-                result = configuration == null || Blank.Equals(configuration);
+                result = config == null || Blank.Equals(config);
             }
             catch (Exception ex)
             {
@@ -768,7 +768,7 @@ namespace MFR.Settings.Configuration
             return result;
         }
 
-        protected bool Equals(IProjectFileRenamerConfiguration other)
+        protected bool Equals(IProjectFileRenamerConfig other)
         {
             var result = false;
 
@@ -809,7 +809,7 @@ namespace MFR.Settings.Configuration
         /// <summary>
         /// Raises the
         /// <see
-        ///     cref="E:MFR.Settings.ProjectFileRenamerConfiguration.ProjectFileRenamerConfiguration.StartingFolderChanged" />
+        ///     cref="E:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolderChanged" />
         /// event.
         /// </summary>
         /// <param name="e">
@@ -820,7 +820,7 @@ namespace MFR.Settings.Configuration
         /// <remarks>
         /// This event is supposed to be raised when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.ProjectFileRenamerConfiguration.StartingFolder" />
+        ///     cref="P:MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolder" />
         /// property is updated.
         /// </remarks>
         protected virtual void OnStartingFolderChanged(

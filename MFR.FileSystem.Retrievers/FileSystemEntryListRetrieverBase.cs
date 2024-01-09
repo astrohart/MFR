@@ -52,7 +52,7 @@ namespace MFR.FileSystem.Retrievers
         /// interface.
         /// </summary>
         /// <remarks>
-        /// This object allows access to the user configuration and the
+        /// This object allows access to the user config and the
         /// actions
         /// associated with it.
         /// </remarks>
@@ -64,10 +64,10 @@ namespace MFR.FileSystem.Retrievers
         /// Gets or sets a reference to an instance of an object that implements
         /// the
         /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration" />
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfiguration CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfiguration
         {
             get;
             set;
@@ -164,7 +164,7 @@ namespace MFR.FileSystem.Retrievers
         /// <see
         ///     cref="T:MFR.ITextExpressionMatchingEngine" />
         /// interface,
-        /// for the current operation type and configuration.
+        /// for the current operation type and config.
         /// </summary>
         /// <remarks>
         /// The property is designed to be called as part of a fluent
@@ -228,7 +228,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no config data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder whose pathname is specified by the '
@@ -270,7 +270,7 @@ namespace MFR.FileSystem.Retrievers
                 /*
                  * This method is merely a template to ensure that the rootFolderPath
                  * is verified to be referencing a folder that actually exists on the
-                 * disk, and we ensure the configuration object is attached.
+                 * disk, and we ensure the config object is attached.
                  *
                  * The "meat" is done in the DoGetMatchingFileSystemPaths template
                  * method.  This method is declared abstract, so it must be implemented
@@ -461,12 +461,12 @@ namespace MFR.FileSystem.Retrievers
         /// parameter contains a fully-qualified
         /// pathname of a folder that exists on the disk, and that the
         /// <see
-        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfiguration" />
+        ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig" />
         /// property is set to a valid object instance reference.
         /// </remarks>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no config data is attached to this object.
         /// </exception>
         protected abstract IEnumerable<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(
@@ -501,7 +501,7 @@ namespace MFR.FileSystem.Retrievers
         /// </exception>
         /// <exception
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
-        /// Thrown if no configuration data is attached to this object.
+        /// Thrown if no config data is attached to this object.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown in the event that the
@@ -595,7 +595,7 @@ namespace MFR.FileSystem.Retrievers
         /// <summary>
         /// Determines whether the path and/or user-state data in the specified
         /// file system <paramref name="entry" /> object matches search and
-        /// configuration criteria specified by the user.
+        /// config criteria specified by the user.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements

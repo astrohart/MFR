@@ -17,7 +17,7 @@ namespace MFR.Settings.Profiles.Actions
 {
     /// <summary>
     /// Accesses a key and value in the system Registry to load the pathname of
-    /// the master configuration file.
+    /// the master config file.
     /// </summary>
     public class LoadProfileCollectionFilePathFromRegistryAction :
         CachedResultActionBase<IRegQueryExpression<string>, IFileSystemEntry>
