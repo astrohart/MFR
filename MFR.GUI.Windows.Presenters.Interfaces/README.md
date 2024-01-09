@@ -18,7 +18,7 @@
   - [RenameConfigFileToMatchNewName(newConfigFilePath)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-RenameConfigFileToMatchNewName-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.RenameConfigFileToMatchNewName(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
-  - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
+  - [SaveCurrentConfigurationurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationurationAsProfile(System.String)')
   - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithOperationEngine(MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.Culture')
@@ -49,7 +49,7 @@ Gets a value that indicates whether a Profile is currently loaded.
 ##### Summary
 
 Creates a 'profile' (really a way of saving a group of
-configuration
+config
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -102,7 +102,7 @@ should depend. |
 
 ##### Summary
 
-Clears all the history lists in the configuration.
+Clears all the history lists in the config.
 
 ##### Parameters
 
@@ -124,7 +124,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current configuration data to the file on the
+Exports the current config data to the file on the
 user's hard drive having the specified `pathname`.
 
 ##### Parameters
@@ -132,7 +132,7 @@ user's hard drive having the specified `pathname`.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file to which the configuration should be exported. |
+pathname of a file to which the config should be exported. |
 
 ##### Remarks
 
@@ -177,7 +177,7 @@ This method has no parameters.
 
 ##### Summary
 
-Imports the configuration data for this application from the file with the
+Imports the config data for this application from the file with the
 specified `pathname`.
 
 ##### Parameters
@@ -185,7 +185,7 @@ specified `pathname`.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file from which the configuration should be imported. |
+pathname of a file from which the config should be imported. |
 
 ##### Remarks
 
@@ -198,7 +198,7 @@ that exists on the user's hard drive and has the `.json` extension.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on configuration settings.
+based on config settings.
 
 ##### Parameters
 
@@ -241,15 +241,15 @@ string for a value. |
 
 ##### Summary
 
-If the user has changed the pathname of where the configuration file is to be
-stored, this method renames the existing configuration file to match.
+If the user has changed the pathname of where the config file is to be
+stored, this method renames the existing config file to match.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | newConfigFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the new value of the
-fully-qualified pathname of the configuration file. |
+fully-qualified pathname of the config file. |
 
 <a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfiguration'></a>
 ### SaveConfiguration() `method`
@@ -257,7 +257,7 @@ fully-qualified pathname of the configuration file. |
 ##### Summary
 
 Saves data from the screen control and then saves the
-configuration to the persistence location.
+config to the persistence location.
 
 ##### Parameters
 
@@ -285,13 +285,13 @@ the [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialo
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialog`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String-'></a>
-### SaveCurrentConfigurationAsProfile(profileName) `method`
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String-'></a>
+### SaveCurrentConfigurationurationAsProfile(profileName) `method`
 
 ##### Summary
 
 Transforms the current value of the
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfig](#P-MFR-Settings-Configuration-Providers-Interfaces-IConfigurationProvider-ProjectFileRenamerConfig 'MFR.Settings.Configuration.Providers.Interfaces.IConfigurationProvider.ProjectFileRenamerConfig')
 property into a Profile with the `profileName` specified.
 
 

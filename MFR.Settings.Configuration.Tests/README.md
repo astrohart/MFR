@@ -3,19 +3,19 @@
 
 ## Contents
 
-- [ProjectFileRenamerConfigurationTests](#T-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests')
-  - [ConfigPathProvider](#P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-ConfigPathProvider 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests.ConfigPathProvider')
-  - [ProjectFileRenamerConfigurationProvider](#P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-ProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests.ProjectFileRenamerConfigurationProvider')
-  - [Produce_BlankConfiguration_HashCode()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Produce_BlankConfiguration_HashCode 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests.Produce_BlankConfiguration_HashCode')
-  - [Produce_NewlyConstructedConfigObject_HashCode()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Produce_NewlyConstructedConfigObject_HashCode 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests.Produce_NewlyConstructedConfigObject_HashCode')
-  - [Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests.Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual')
-  - [Test_BlankConfigReturned_ForMissingConfigFile()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Test_BlankConfigReturned_ForMissingConfigFile 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigurationTests.Test_BlankConfigReturned_ForMissingConfigFile')
+- [ProjectFileRenamerConfigTests](#T-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests')
+  - [ConfigPathProvider](#P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-ConfigPathProvider 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests.ConfigPathProvider')
+  - [ProjectFileRenamerConfigProvider](#P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-ProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests.ProjectFileRenamerConfigProvider')
+  - [Produce_BlankConfiguration_HashCode()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Produce_BlankConfiguration_HashCode 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests.Produce_BlankConfiguration_HashCode')
+  - [Produce_NewlyConstructedConfigObject_HashCode()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Produce_NewlyConstructedConfigObject_HashCode 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests.Produce_NewlyConstructedConfigObject_HashCode')
+  - [Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests.Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual')
+  - [Test_BlankConfigReturned_ForMissingConfigFile()](#M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Test_BlankConfigReturned_ForMissingConfigFile 'MFR.Settings.Configuration.Tests.ProjectFileRenamerConfigTests.Test_BlankConfigReturned_ForMissingConfigFile')
 - [Resources](#T-MFR-Settings-Configuration-Tests-Properties-Resources 'MFR.Settings.Configuration.Tests.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Tests-Properties-Resources-Culture 'MFR.Settings.Configuration.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Tests-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests'></a>
-## ProjectFileRenamerConfigurationTests `type`
+<a name='T-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests'></a>
+## ProjectFileRenamerConfigTests `type`
 
 ##### Namespace
 
@@ -24,10 +24,10 @@ MFR.Settings.Configuration.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfig](#T-MFR-Settings-Configuration-ProjectFileRenamerConfig 'MFR.Settings.Configuration.ProjectFileRenamerConfig')
 class.
 
-<a name='P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-ConfigPathProvider'></a>
+<a name='P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-ConfigPathProvider'></a>
 ### ConfigPathProvider `property`
 
 ##### Summary
@@ -36,16 +36,16 @@ Gets a reference to an instance of an object that implements the
 [IConfigPathProvider](#T-MFR-Paths-Config-Provider-Interfaces-IConfigPathProvider 'MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider')
 interface.
 
-<a name='P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-ProjectFileRenamerConfigurationProvider'></a>
-### ProjectFileRenamerConfigurationProvider `property`
+<a name='P-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-ProjectFileRenamerConfigProvider'></a>
+### ProjectFileRenamerConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
-<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Produce_BlankConfiguration_HashCode'></a>
+<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Produce_BlankConfiguration_HashCode'></a>
 ### Produce_BlankConfiguration_HashCode() `method`
 
 ##### Summary
@@ -56,7 +56,7 @@ TODO: Add unit test documentation here
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Produce_NewlyConstructedConfigObject_HashCode'></a>
+<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Produce_NewlyConstructedConfigObject_HashCode'></a>
 ### Produce_NewlyConstructedConfigObject_HashCode() `method`
 
 ##### Summary
@@ -67,7 +67,7 @@ TODO: Add unit test documentation here
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual'></a>
+<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual'></a>
 ### Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual() `method`
 
 ##### Summary
@@ -78,7 +78,7 @@ TODO: Add unit test documentation here
 
 This method has no parameters.
 
-<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigurationTests-Test_BlankConfigReturned_ForMissingConfigFile'></a>
+<a name='M-MFR-Settings-Configuration-Tests-ProjectFileRenamerConfigTests-Test_BlankConfigReturned_ForMissingConfigFile'></a>
 ### Test_BlankConfigReturned_ForMissingConfigFile() `method`
 
 ##### Summary

@@ -4,7 +4,7 @@
 ## Contents
 
 - [Get](#T-MFR-Engines-Matching-Actions-Get 'MFR.Engines.Matching.Actions.Get')
-  - [StringMatcherForOperation()](#M-MFR-Engines-Matching-Actions-Get-StringMatcherForOperation-MFR-Operations-Constants-OperationType,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Matching.Actions.Get.StringMatcherForOperation(MFR.Operations.Constants.OperationType,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [StringMatcherForOperation()](#M-MFR-Engines-Matching-Actions-Get-StringMatcherForOperation-MFR-Operations-Constants-OperationType,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Engines.Matching.Actions.Get.StringMatcherForOperation(MFR.Operations.Constants.OperationType,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
 - [Resources](#T-MFR-Engines-Matching-Actions-Properties-Resources 'MFR.Engines.Matching.Actions.Properties.Resources')
   - [Culture](#P-MFR-Engines-Matching-Actions-Properties-Resources-Culture 'MFR.Engines.Matching.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Engines-Matching-Actions-Properties-Resources-ResourceManager 'MFR.Engines.Matching.Actions.Properties.Resources.ResourceManager')
@@ -20,9 +20,9 @@ MFR.Engines.Matching.Actions
 
 Exposes static methods to get references to objects that perform
 [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') pattern-matching based on the current operation
-being performed and the current application configuration settings.
+being performed and the current application config settings.
 
-<a name='M-MFR-Engines-Matching-Actions-Get-StringMatcherForOperation-MFR-Operations-Constants-OperationType,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
+<a name='M-MFR-Engines-Matching-Actions-Get-StringMatcherForOperation-MFR-Operations-Constants-OperationType,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
 ### StringMatcherForOperation() `method`
 
 ##### Summary
@@ -35,7 +35,7 @@ current operation.
 
 Reference to an instance of an object that implements the
 [IStringMatcher](#T-MFR-Matchers-Interfaces-IStringMatcher 'MFR.Matchers.Interfaces.IStringMatcher') interface that
-corresponds to the current operation and matching configuration.
+corresponds to the current operation and matching config.
 
 ##### Parameters
 

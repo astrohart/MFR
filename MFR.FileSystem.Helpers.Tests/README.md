@@ -16,7 +16,7 @@
   - [Test_GetContent_Works_OnTempFileFullOfJunk()](#M-MFR-FileSystem-Helpers-Tests-FileHelpersTests-Test_GetContent_Works_OnTempFileFullOfJunk 'MFR.FileSystem.Helpers.Tests.FileHelpersTests.Test_GetContent_Works_OnTempFileFullOfJunk')
   - [VerifyResultantFile(resultantFile)](#M-MFR-FileSystem-Helpers-Tests-FileHelpersTests-VerifyResultantFile-Alphaleonis-Win32-Filesystem-FileInfo- 'MFR.FileSystem.Helpers.Tests.FileHelpersTests.VerifyResultantFile(Alphaleonis.Win32.Filesystem.FileInfo)')
 - [FileInfoExtensionsTests](#T-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests 'MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests')
-  - [ConfigurationProvider](#P-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-ConfigurationProvider 'MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-ConfigProvider 'MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests.ConfigProvider')
   - [Cleanup()](#M-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Cleanup 'MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Cleanup')
   - [Initialize()](#M-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Initialize 'MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests.Initialize')
   - [MainTestBed()](#M-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-MainTestBed 'MFR.FileSystem.Helpers.Tests.FileInfoExtensionsTests.MainTestBed')
@@ -188,18 +188,18 @@ Provides unit tests for the methods in the
 [FileInfoExtensions](#T-MFR-FileInfoExtensions 'MFR.FileInfoExtensions')
 class.
 
-<a name='P-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the actions
+This object allows access to the user config and the actions
 associated with it.
 
 <a name='M-MFR-FileSystem-Helpers-Tests-FileInfoExtensionsTests-Cleanup'></a>

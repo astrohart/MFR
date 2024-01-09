@@ -7,7 +7,7 @@
   - [Culture](#P-MFR-CommandLine-Translators-Properties-Resources-Culture 'MFR.CommandLine.Translators.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Translators-Properties-Resources-ResourceManager 'MFR.CommandLine.Translators.Properties.Resources.ResourceManager')
 - [TranslateCommandLineInfo](#T-MFR-CommandLine-Translators-TranslateCommandLineInfo 'MFR.CommandLine.Translators.TranslateCommandLineInfo')
-  - [ConfigurationProvider](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigurationProvider 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigProvider 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfiguration 'MFR.CommandLine.Translators.TranslateCommandLineInfo.CurrentConfiguration')
   - [ToConfiguration(cmdInfo)](#M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ToConfiguration(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 
@@ -55,21 +55,21 @@ The methods in this class translate objects that implement the
 [ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
 into instances of objects of other types, such as an instance of an object that
 implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface, for example.
 
-<a name='P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user config and the
 actions
 associated with it.
 
@@ -80,8 +80,8 @@ associated with it.
 
 Gets or sets a reference to the one and only instance of the object that
 implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the currently-loaded configuration.
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
+interface that represents the currently-loaded config.
 
 <a name='M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
 ### ToConfiguration(cmdInfo) `method`
@@ -91,13 +91,13 @@ interface that represents the currently-loaded configuration.
 Translates an instance of an object that implements the
 [ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
 to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
 ##### Returns
 
 Reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface
 whose properties have been initialized with the values specified in the
 properties of the `cmdInfo` object.

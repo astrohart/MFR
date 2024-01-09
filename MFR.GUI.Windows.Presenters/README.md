@@ -7,7 +7,7 @@
   - [#ctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#ctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#ctor')
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
   - [ConfigFilePath](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigFilePath')
-  - [ConfigurationProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
   - [Does](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Does')
@@ -50,9 +50,9 @@
   - [RenameConfigFileToMatchNewName(newConfigFilePath)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-RenameConfigFileToMatchNewName-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RenameConfigFileToMatchNewName(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
-  - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
+  - [SaveCurrentConfigurationurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationurationAsProfile(System.String)')
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
-  - [UpdateConfiguration(configuration)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [UpdateConfiguration(config)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
   - [WindowReference(mainWindow)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-WindowReference-MFR-GUI-Windows-Interfaces-IMainWindow- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.WindowReference(MFR.GUI.Windows.Interfaces.IMainWindow)')
@@ -102,7 +102,7 @@ interface.
 ##### Remarks
 
 This object's sole purpose in life is to provide the service of
-maintaining the history lists in the configuration data
+maintaining the history lists in the config data
 source.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath'></a>
@@ -110,20 +110,20 @@ source.
 
 ##### Summary
 
-Gets or sets the pathname of the configuration file.
+Gets or sets the pathname of the config file.
 
-<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user config and the
 actions
 associated with it.
 
@@ -134,7 +134,7 @@ associated with it.
 
 Gets or sets a reference to an instance of an object that implements
 the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName'></a>
@@ -283,7 +283,7 @@ attribute in order to simplify the logging output.
 ##### Summary
 
 Creates a 'profile' (really a way of saving a group of
-configuration
+config
 settings) and then adds it to the collection of profiles that the user has.
 
 ##### Parameters
@@ -336,7 +336,7 @@ should depend. |
 
 ##### Summary
 
-Clears all the history lists in the configuration.
+Clears all the history lists in the config.
 
 ##### Parameters
 
@@ -358,7 +358,7 @@ This method has no parameters.
 
 ##### Summary
 
-Exports the current configuration data to a file on the
+Exports the current config data to a file on the
 user's hard drive.
 
 ##### Parameters
@@ -366,7 +366,7 @@ user's hard drive.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file to which the configuration should be exported. |
+pathname of a file to which the config should be exported. |
 
 ##### Remarks
 
@@ -439,7 +439,7 @@ a `null` value. |
 
 ##### Summary
 
-Imports the configuration data for this application.
+Imports the config data for this application.
 
 ##### Parameters
 
@@ -455,7 +455,7 @@ that exists on the user's hard drive and has the `.json` extension.
 
 ##### Summary
 
-Initializes the currently-loaded configuration object.
+Initializes the currently-loaded config object.
 
 ##### Parameters
 
@@ -467,7 +467,7 @@ This method has no parameters.
 ##### Summary
 
 Sets the state of the Operations to Perform checked list box items
-based on configuration settings.
+based on config settings.
 
 ##### Parameters
 
@@ -613,7 +613,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation,
+config data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
 
@@ -639,7 +639,7 @@ Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
 the user to use the GUI. This is because moving data to and from the
-configuration data source, while a mildly lengthy operation,
+config data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
 
@@ -729,15 +729,15 @@ string for a value. |
 
 ##### Summary
 
-If the user has changed the pathname of where the configuration file is to be
-stored, this method renames the existing configuration file to match.
+If the user has changed the pathname of where the config file is to be
+stored, this method renames the existing config file to match.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | newConfigFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the new value of the
-fully-qualified pathname of the configuration file. |
+fully-qualified pathname of the config file. |
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration'></a>
 ### SaveConfiguration() `method`
@@ -745,7 +745,7 @@ fully-qualified pathname of the configuration file. |
 ##### Summary
 
 Saves data from the screen control and then saves the
-configuration to the
+config to the
 persistence location.
 
 ##### Parameters
@@ -774,13 +774,13 @@ the [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialo
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialog`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String-'></a>
-### SaveCurrentConfigurationAsProfile(profileName) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String-'></a>
+### SaveCurrentConfigurationurationAsProfile(profileName) `method`
 
 ##### Summary
 
 Transforms the current value of the
-[ProjectFileRenamerConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfig](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-ProjectFileRenamerConfig 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.ProjectFileRenamerConfig')
 property into a Profile with the `profileName` specified.
 
 
@@ -802,28 +802,28 @@ new Profile. |
 
 Saves the selections made in the Operations to Perform checked list
 box into the
-[ProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-ProjectFileRenamerConfiguration 'MFR.Settings.Configuration.ProjectFileRenamerConfiguration')
+[ProjectFileRenamerConfig](#T-MFR-Settings-Configuration-ProjectFileRenamerConfig 'MFR.Settings.Configuration.ProjectFileRenamerConfig')
 object.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### UpdateConfiguration(configuration) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
+### UpdateConfiguration(config) `method`
 
 ##### Summary
 
-Updates the configuration currently being used with a new
+Updates the config currently being used with a new
 value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') | (Required.) Reference to an instance of an object that implements
 the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface which has
 the new settings. |
 
@@ -832,7 +832,7 @@ the new settings. |
 | Name | Description |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
-`configuration`,
+`config`,
 is passed a `null` value. |
 
 ##### Remarks

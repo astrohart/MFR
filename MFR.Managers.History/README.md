@@ -6,7 +6,7 @@
 - [HistoryManager](#T-MFR-Managers-History-HistoryManager 'MFR.Managers.History.HistoryManager')
   - [#ctor(messageBoxParentWindow)](#M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
   - [_messageBoxParentWindow](#F-MFR-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
-  - [ConfigurationProvider](#P-MFR-Managers-History-HistoryManager-ConfigurationProvider 'MFR.Managers.History.HistoryManager.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-Managers-History-HistoryManager-ConfigProvider 'MFR.Managers.History.HistoryManager.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-Managers-History-HistoryManager-CurrentConfiguration 'MFR.Managers.History.HistoryManager.CurrentConfiguration')
   - [#cctor()](#M-MFR-Managers-History-HistoryManager-#cctor 'MFR.Managers.History.HistoryManager.#cctor')
   - [CanClearAll()](#M-MFR-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
@@ -24,7 +24,7 @@ MFR.Managers.History
 
 ##### Summary
 
-Manages the configuration history on behalf of the application.
+Manages the config history on behalf of the application.
 
 <a name='M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window-'></a>
 ### #ctor(messageBoxParentWindow) `constructor`
@@ -67,18 +67,18 @@ interface.
 This field is supposed to be filled with a reference to an object
 that represents the main window of the application.
 
-<a name='P-MFR-Managers-History-HistoryManager-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-Managers-History-HistoryManager-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user config and the
 actions
 associated with it.
 
@@ -89,7 +89,7 @@ associated with it.
 
 Gets or sets a reference to an instance of an object that implements
 the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
 <a name='M-MFR-Managers-History-HistoryManager-#cctor'></a>
@@ -142,7 +142,7 @@ means that there is nothing to do.
 
 ##### Summary
 
-Clears all the history objects in a configuration object.
+Clears all the history objects in a config object.
 
 ##### Returns
 

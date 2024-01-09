@@ -4,7 +4,7 @@
 ## Contents
 
 - [FileNameReplacementMatchExpressionFactoryTests](#T-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests')
-  - [GetMatchExpressionFactoryConfiguredAccordingTo(configuration)](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.GetMatchExpressionFactoryConfiguredAccordingTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [GetMatchExpressionFactoryConfiguredAccordingTo(config)](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.GetMatchExpressionFactoryConfiguredAccordingTo(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [Initialize()](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Initialize 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.Initialize')
   - [Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse()](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordFalse')
   - [Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue()](#M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue 'MFR.Expressions.Matches.Factories.Tests.FileNameReplacementMatchExpressionFactoryTests.Test_ForTextValueMethod_ThrowsArgumentException_ForBlankInput_WhenMatchCaseFalse_And_MatchExactWordTrue')
@@ -47,15 +47,15 @@ Provides unit tests for the methods, properties, and events of the
 [FileNameReplacementMatchExpressionFactory](#T-MFR-FileNameReplacementMatchExpressionFactory 'MFR.FileNameReplacementMatchExpressionFactory')
 class.
 
-<a name='M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### GetMatchExpressionFactoryConfiguredAccordingTo(configuration) `method`
+<a name='M-MFR-Expressions-Matches-Factories-Tests-FileNameReplacementMatchExpressionFactoryTests-GetMatchExpressionFactoryConfiguredAccordingTo-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
+### GetMatchExpressionFactoryConfiguredAccordingTo(config) `method`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
 [IMatchExpressionFactory](#T-MFR-IMatchExpressionFactory 'MFR.IMatchExpressionFactory')
 interface and that is configured according to the
-`configuration`
+`config`
 instance specified.
 
 ##### Returns
@@ -63,14 +63,14 @@ instance specified.
 Reference to an instance of an object that implements the
 [IMatchExpressionFactory](#T-MFR-IMatchExpressionFactory 'MFR.IMatchExpressionFactory')
 interface
-that has the specified `configuration` attached.
+that has the specified `config` attached.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
-the [IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') interface. |
+| config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') | (Required.) Reference to an instance of an object that implements
+the [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') interface. |
 
 ##### Remarks
 

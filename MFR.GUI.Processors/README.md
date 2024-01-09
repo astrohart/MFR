@@ -12,7 +12,7 @@
 - [CommandLineProcessorBase](#T-MFR-GUI-Processors-CommandLineProcessorBase 'MFR.GUI.Processors.CommandLineProcessorBase')
   - [#ctor()](#M-MFR-GUI-Processors-CommandLineProcessorBase-#ctor 'MFR.GUI.Processors.CommandLineProcessorBase.#ctor')
   - [CommandLineInfo](#P-MFR-GUI-Processors-CommandLineProcessorBase-CommandLineInfo 'MFR.GUI.Processors.CommandLineProcessorBase.CommandLineInfo')
-  - [ConfigurationProvider](#P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigurationProvider 'MFR.GUI.Processors.CommandLineProcessorBase.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigProvider 'MFR.GUI.Processors.CommandLineProcessorBase.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration 'MFR.GUI.Processors.CommandLineProcessorBase.CurrentConfiguration')
   - [Type](#P-MFR-GUI-Processors-CommandLineProcessorBase-Type 'MFR.GUI.Processors.CommandLineProcessorBase.Type')
   - [#cctor()](#M-MFR-GUI-Processors-CommandLineProcessorBase-#cctor 'MFR.GUI.Processors.CommandLineProcessorBase.#cctor')
@@ -136,20 +136,20 @@ Gets or sets a reference to an instance of an object that implements the
 [ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
 from which settings should be read.
 
-<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
 The object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
-interface allows access to the configuration settings that the user can use to
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
+interface allows access to the config settings that the user can use to
 control the behavior of the application.
 
 
@@ -164,14 +164,14 @@ so that our child classes can see it.
 ##### Summary
 
 Gets or sets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
 ##### Remarks
 
 This property can be both read from and written to.  This way, if a
-command-line processor decides to update the configuration from the command
-line, then the data currently being stored and loaded by the configuration
+command-line processor decides to update the config from the command
+line, then the data currently being stored and loaded by the config
 provider can be manipulated by simply setting this property.
 
 

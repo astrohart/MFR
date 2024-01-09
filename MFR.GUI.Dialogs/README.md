@@ -19,7 +19,7 @@
 - [AutoStartCancellableProgressDialog](#T-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#ctor 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.#ctor')
   - [_processingWorker](#F-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-_processingWorker 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog._processingWorker')
-  - [ConfigurationProvider](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigurationProvider 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigProvider 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfiguration 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.CurrentConfiguration')
   - [FileRenamer](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-FileRenamer 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.FileRenamer')
   - [Instance](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-Instance 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.Instance')
@@ -348,13 +348,13 @@ Reference to an instance of
 [BackgroundWorker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.BackgroundWorker 'System.ComponentModel.BackgroundWorker') that runs the
 `FileRenamer` component in a worker thread.
 
-<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 <a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfiguration'></a>
@@ -363,8 +363,8 @@ interface.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
-interface that represents the currently-loaded configuration.
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
+interface that represents the currently-loaded config.
 
 <a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-FileRenamer'></a>
 ### FileRenamer `property`
@@ -2040,7 +2040,7 @@ checkbox.
 
 ##### Summary
 
-Gets or sets the text of the configuration File Pathname text box.
+Gets or sets the text of the config File Pathname text box.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigProvider'></a>
 ### ConfigProvider `property`
@@ -2048,12 +2048,12 @@ Gets or sets the text of the configuration File Pathname text box.
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user config and the
 actions
 associated with it.
 
@@ -2063,7 +2063,7 @@ associated with it.
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-DontPromptUserToReloadOpenSolution'></a>
@@ -2197,7 +2197,7 @@ the client of this dialog box to update data.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-Control-Click 'System.Windows.Forms.Control.Click') event
-for the Browse button on the configuration File Pathname text box..
+for the Browse button on the config File Pathname text box..
 
 ##### Parameters
 
@@ -2210,7 +2210,7 @@ for the Browse button on the configuration File Pathname text box..
 
 This method responds to a click of the '...' button that lies next
 to the text box that accepts the pathname of the application's
-configuration file.
+config file.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
 ### OnFormClosing(e) `method`
@@ -2339,7 +2339,7 @@ otherwise. Default is `true`. |
 
 ##### Summary
 
-Moves data from this dialog's controls to the configuration object.
+Moves data from this dialog's controls to the config object.
 
 ##### Parameters
 
@@ -2358,7 +2358,7 @@ MFR.GUI.Dialogs
 
 ##### Summary
 
-Dialog box to assist the user in managing configuration profiles.
+Dialog box to assist the user in managing config profiles.
 
 <a name='M-MFR-GUI-Dialogs-ProfileManagementDialogBox-#ctor'></a>
 ### #ctor() `constructor`

@@ -16,7 +16,7 @@
   - [#ctor()](#M-MFR-Engines-Operations-FullGuiOperationEngine-#ctor 'MFR.Engines.Operations.FullGuiOperationEngine.#ctor')
   - [_cancellableProgressDialog](#F-MFR-Engines-Operations-FullGuiOperationEngine-_cancellableProgressDialog 'MFR.Engines.Operations.FullGuiOperationEngine._cancellableProgressDialog')
   - [_dialogOwner](#F-MFR-Engines-Operations-FullGuiOperationEngine-_dialogOwner 'MFR.Engines.Operations.FullGuiOperationEngine._dialogOwner')
-  - [ConfigurationProvider](#P-MFR-Engines-Operations-FullGuiOperationEngine-ConfigurationProvider 'MFR.Engines.Operations.FullGuiOperationEngine.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-Engines-Operations-FullGuiOperationEngine-ConfigProvider 'MFR.Engines.Operations.FullGuiOperationEngine.ConfigProvider')
   - [DialogOwner](#P-MFR-Engines-Operations-FullGuiOperationEngine-DialogOwner 'MFR.Engines.Operations.FullGuiOperationEngine.DialogOwner')
   - [Instance](#P-MFR-Engines-Operations-FullGuiOperationEngine-Instance 'MFR.Engines.Operations.FullGuiOperationEngine.Instance')
   - [Type](#P-MFR-Engines-Operations-FullGuiOperationEngine-Type 'MFR.Engines.Operations.FullGuiOperationEngine.Type')
@@ -41,11 +41,11 @@
   - [ShowProgressDialog(owner)](#M-MFR-Engines-Operations-FullGuiOperationEngine-ShowProgressDialog-System-Windows-Forms-IWin32Window- 'MFR.Engines.Operations.FullGuiOperationEngine.ShowProgressDialog(System.Windows.Forms.IWin32Window)')
   - [ShowProgressDialog(owner,canCancel)](#M-MFR-Engines-Operations-FullGuiOperationEngine-ShowProgressDialog-System-Windows-Forms-IWin32Window,System-Boolean- 'MFR.Engines.Operations.FullGuiOperationEngine.ShowProgressDialog(System.Windows.Forms.IWin32Window,System.Boolean)')
   - [ShowProgressDialog()](#M-MFR-Engines-Operations-FullGuiOperationEngine-ShowProgressDialog 'MFR.Engines.Operations.FullGuiOperationEngine.ShowProgressDialog')
-  - [UpdateConfiguration(configuration)](#M-MFR-Engines-Operations-FullGuiOperationEngine-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Operations.FullGuiOperationEngine.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [UpdateConfiguration(config)](#M-MFR-Engines-Operations-FullGuiOperationEngine-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Engines.Operations.FullGuiOperationEngine.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
 - [OperationEngineBase](#T-MFR-Engines-Operations-OperationEngineBase 'MFR.Engines.Operations.OperationEngineBase')
   - [#ctor()](#M-MFR-Engines-Operations-OperationEngineBase-#ctor 'MFR.Engines.Operations.OperationEngineBase.#ctor')
   - [_processingWorker](#F-MFR-Engines-Operations-OperationEngineBase-_processingWorker 'MFR.Engines.Operations.OperationEngineBase._processingWorker')
-  - [ConfigurationProvider](#P-MFR-Engines-Operations-OperationEngineBase-ConfigurationProvider 'MFR.Engines.Operations.OperationEngineBase.ConfigurationProvider')
+  - [ConfigProvider](#P-MFR-Engines-Operations-OperationEngineBase-ConfigProvider 'MFR.Engines.Operations.OperationEngineBase.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-Engines-Operations-OperationEngineBase-CurrentConfiguration 'MFR.Engines.Operations.OperationEngineBase.CurrentConfiguration')
   - [FileRenamer](#P-MFR-Engines-Operations-OperationEngineBase-FileRenamer 'MFR.Engines.Operations.OperationEngineBase.FileRenamer')
   - [Type](#P-MFR-Engines-Operations-OperationEngineBase-Type 'MFR.Engines.Operations.OperationEngineBase.Type')
@@ -68,7 +68,7 @@
   - [OnProcessingWorkerDoWork(sender,e)](#M-MFR-Engines-Operations-OperationEngineBase-OnProcessingWorkerDoWork-System-Object,System-ComponentModel-DoWorkEventArgs- 'MFR.Engines.Operations.OperationEngineBase.OnProcessingWorkerDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)')
   - [OnProcessingWorkerRunWorkerCompleted(sender,e)](#M-MFR-Engines-Operations-OperationEngineBase-OnProcessingWorkerRunWorkerCompleted-System-Object,System-ComponentModel-RunWorkerCompletedEventArgs- 'MFR.Engines.Operations.OperationEngineBase.OnProcessingWorkerRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Engines-Operations-OperationEngineBase-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Engines.Operations.OperationEngineBase.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
-  - [UpdateConfiguration(configuration)](#M-MFR-Engines-Operations-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration- 'MFR.Engines.Operations.OperationEngineBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration)')
+  - [UpdateConfiguration(config)](#M-MFR-Engines-Operations-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Engines.Operations.OperationEngineBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
 - [Resources](#T-MFR-Engines-Operations-Properties-Resources 'MFR.Engines.Operations.Properties.Resources')
   - [Culture](#P-MFR-Engines-Operations-Properties-Resources-Culture 'MFR.Engines.Operations.Properties.Resources.Culture')
   - [Error_OperationFailed](#P-MFR-Engines-Operations-Properties-Resources-Error_OperationFailed 'MFR.Engines.Operations.Properties.Resources.Error_OperationFailed')
@@ -282,18 +282,18 @@ Reference to an instance of an object that implements the
 [IWin32Window](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.IWin32Window 'System.Windows.Forms.IWin32Window') interface that represents
 the parent window of the progress dialog.
 
-<a name='P-MFR-Engines-Operations-FullGuiOperationEngine-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-Engines-Operations-FullGuiOperationEngine-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user config and the
 actions
 associated with it.
 
@@ -720,21 +720,21 @@ Shows the progress window.
 
 This method has no parameters.
 
-<a name='M-MFR-Engines-Operations-FullGuiOperationEngine-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### UpdateConfiguration(configuration) `method`
+<a name='M-MFR-Engines-Operations-FullGuiOperationEngine-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
+### UpdateConfiguration(config) `method`
 
 ##### Summary
 
-Updates the `configuration` currently being used with a new
+Updates the `config` currently being used with a new
 value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') | (Required.) Reference to an instance of an object that implements
 the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface
 which has the new settings. |
 
@@ -742,7 +742,7 @@ which has the new settings. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `config`,
 is passed a `null` value. |
 
 ##### Remarks
@@ -798,18 +798,18 @@ deterministically, with a
 actually complete, but it can still be run in an asynchronous way that keeps
 the UI/UX of the application responsive.
 
-<a name='P-MFR-Engines-Operations-OperationEngineBase-ConfigurationProvider'></a>
-### ConfigurationProvider `property`
+<a name='P-MFR-Engines-Operations-OperationEngineBase-ConfigProvider'></a>
+### ConfigProvider `property`
 
 ##### Summary
 
 Gets a reference to the sole instance of the object that implements the
-[IProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigurationProvider')
+[IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
 ##### Remarks
 
-This object allows access to the user configuration and the
+This object allows access to the user config and the
 actions
 associated with it.
 
@@ -820,7 +820,7 @@ associated with it.
 
 Gets or sets a reference to an instance of an object that implements
 the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
 <a name='P-MFR-Engines-Operations-OperationEngineBase-FileRenamer'></a>
@@ -1280,21 +1280,21 @@ barring other inclusion/exclusion criteria.
 In the event that this parameter is `null`, no path
 filtering is done. |
 
-<a name='M-MFR-Engines-Operations-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration-'></a>
-### UpdateConfiguration(configuration) `method`
+<a name='M-MFR-Engines-Operations-OperationEngineBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
+### UpdateConfiguration(config) `method`
 
 ##### Summary
 
-Updates the `configuration` currently being used with a new
+Updates the `config` currently being used with a new
 value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| configuration | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration') | (Required.) Reference to an instance of an object that implements
+| config | [MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig') | (Required.) Reference to an instance of an object that implements
 the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface
 which has the new settings. |
 
@@ -1302,7 +1302,7 @@ which has the new settings. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `configuration`,
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `config`,
 is passed a `null` value. |
 
 ##### Remarks

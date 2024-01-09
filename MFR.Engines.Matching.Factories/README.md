@@ -66,7 +66,7 @@ then invoke the fluent
 [WithConfiguration](#M-MFR-ITextExpressionMatchingEngine-WithConfiguration 'MFR.ITextExpressionMatchingEngine.WithConfiguration')
 method on the result of this method in order to attach an object
 that implements the
-[IProjectFileRenamerConfiguration](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfiguration 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfiguration')
+[IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface to the
 new object instance.
 
@@ -115,7 +115,7 @@ Creates new instances of objects that implement the
 [ITextExpressionMatchingEngine](#T-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
 interface that searches for matches to textual-search criteria patterns and
 regexes in the pathnames of folders, according to rules specified by
-configuration settings.
+config settings.
 
 <a name='M-MFR-Engines-Matching-Factories-MakeNewFolderNameMatchingEngine-FromScratch'></a>
 ### FromScratch() `method`
@@ -132,7 +132,7 @@ Reference to an instance of an object that implements the
 [ITextExpressionMatchingEngine](#T-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
 interface that searches for matches to textual-search criteria patterns and
 regexes in the pathnames of folders, according to rules specified by
-configuration settings.
+config settings.
 
 ##### Parameters
 
@@ -151,7 +151,7 @@ Creates new instances of objects that implement the
 [ITextExpressionMatchingEngine](#T-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
 interface that searches for matches to textual-search criteria patterns and
 regexes in the pathnames of folders that contain Visual Studio Solution (
-`*.sln`) files, according to rules specified by configuration settings.
+`*.sln`) files, according to rules specified by config settings.
 
 <a name='M-MFR-Engines-Matching-Factories-MakeNewSolutionFolderNameMatchingEngine-FromScratch'></a>
 ### FromScratch() `method`
@@ -168,7 +168,7 @@ Reference to an instance of an object that implements the
 [ITextExpressionMatchingEngine](#T-MFR-Engines-Matching-Interfaces-ITextExpressionMatchingEngine 'MFR.Engines.Matching.Interfaces.ITextExpressionMatchingEngine')
 interface that searches for matches to textual-search criteria patterns and
 regexes in the pathnames of folders that contain Visual Studio Solution (
-`*.sln`) files, according to rules specified by configuration settings.
+`*.sln`) files, according to rules specified by config settings.
 
 ##### Parameters
 
