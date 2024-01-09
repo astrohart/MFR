@@ -50,18 +50,23 @@ namespace MFR.GUI.Dialogs
             this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.gitTabPage = new System.Windows.Forms.TabPage();
+            this.committerInfoGroupBox = new xyLOGIX.UI.Dark.Controls.DarkGroupBox();
+            this.commitAuthorEmailTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.commitAuthorNameTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.commitAuthorEmailLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.commitAuthorNameLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.pushChangesWhenDoneCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.customizePostOperationChangesCommitMessageButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.customizePendingChangeCommitMessageButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.darkGroupBox1 = new xyLOGIX.UI.Dark.Controls.DarkGroupBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
             this.visualStudioTabPage.SuspendLayout();
             this.gitTabPage.SuspendLayout();
+            this.committerInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // applyButton
@@ -269,7 +274,7 @@ namespace MFR.GUI.Dialogs
             // gitTabPage
             // 
             this.gitTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.gitTabPage.Controls.Add(this.darkGroupBox1);
+            this.gitTabPage.Controls.Add(this.committerInfoGroupBox);
             this.gitTabPage.Controls.Add(this.pushChangesWhenDoneCheckBox);
             this.gitTabPage.Controls.Add(this.customizePostOperationChangesCommitMessageButton);
             this.gitTabPage.Controls.Add(this.customizePendingChangeCommitMessageButton);
@@ -281,6 +286,65 @@ namespace MFR.GUI.Dialogs
             this.gitTabPage.Size = new System.Drawing.Size(436, 347);
             this.gitTabPage.TabIndex = 3;
             this.gitTabPage.Text = "&Git";
+            // 
+            // committerInfoGroupBox
+            // 
+            this.committerInfoGroupBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(101)))), ((int)(((byte)(102)))));
+            this.committerInfoGroupBox.Controls.Add(this.commitAuthorEmailTextBox);
+            this.committerInfoGroupBox.Controls.Add(this.commitAuthorNameTextBox);
+            this.committerInfoGroupBox.Controls.Add(this.commitAuthorEmailLabel);
+            this.committerInfoGroupBox.Controls.Add(this.commitAuthorNameLabel);
+            this.committerInfoGroupBox.IsDarkTheme = false;
+            this.committerInfoGroupBox.Location = new System.Drawing.Point(21, 207);
+            this.committerInfoGroupBox.Name = "committerInfoGroupBox";
+            this.committerInfoGroupBox.Size = new System.Drawing.Size(396, 123);
+            this.committerInfoGroupBox.TabIndex = 5;
+            this.committerInfoGroupBox.TabStop = false;
+            this.committerInfoGroupBox.Text = "&Commit author information";
+            // 
+            // commitAuthorEmailTextBox
+            // 
+            this.commitAuthorEmailTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.commitAuthorEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.commitAuthorEmailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.commitAuthorEmailTextBox.IsDarkTheme = false;
+            this.commitAuthorEmailTextBox.Location = new System.Drawing.Point(73, 64);
+            this.commitAuthorEmailTextBox.Name = "commitAuthorEmailTextBox";
+            this.commitAuthorEmailTextBox.Size = new System.Drawing.Size(293, 23);
+            this.commitAuthorEmailTextBox.TabIndex = 3;
+            // 
+            // commitAuthorNameTextBox
+            // 
+            this.commitAuthorNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.commitAuthorNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.commitAuthorNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.commitAuthorNameTextBox.IsDarkTheme = false;
+            this.commitAuthorNameTextBox.Location = new System.Drawing.Point(73, 32);
+            this.commitAuthorNameTextBox.Name = "commitAuthorNameTextBox";
+            this.commitAuthorNameTextBox.Size = new System.Drawing.Size(293, 23);
+            this.commitAuthorNameTextBox.TabIndex = 1;
+            // 
+            // commitAuthorEmailLabel
+            // 
+            this.commitAuthorEmailLabel.AutoSize = true;
+            this.commitAuthorEmailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.commitAuthorEmailLabel.IsDarkTheme = false;
+            this.commitAuthorEmailLabel.Location = new System.Drawing.Point(25, 66);
+            this.commitAuthorEmailLabel.Name = "commitAuthorEmailLabel";
+            this.commitAuthorEmailLabel.Size = new System.Drawing.Size(39, 15);
+            this.commitAuthorEmailLabel.TabIndex = 2;
+            this.commitAuthorEmailLabel.Text = "&Email:";
+            // 
+            // commitAuthorNameLabel
+            // 
+            this.commitAuthorNameLabel.AutoSize = true;
+            this.commitAuthorNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.commitAuthorNameLabel.IsDarkTheme = false;
+            this.commitAuthorNameLabel.Location = new System.Drawing.Point(25, 34);
+            this.commitAuthorNameLabel.Name = "commitAuthorNameLabel";
+            this.commitAuthorNameLabel.Size = new System.Drawing.Size(42, 15);
+            this.commitAuthorNameLabel.TabIndex = 0;
+            this.commitAuthorNameLabel.Text = "&Name:";
             // 
             // pushChangesWhenDoneCheckBox
             // 
@@ -341,17 +405,6 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
-            // darkGroupBox1
-            // 
-            this.darkGroupBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.darkGroupBox1.IsDarkTheme = false;
-            this.darkGroupBox1.Location = new System.Drawing.Point(21, 207);
-            this.darkGroupBox1.Name = "darkGroupBox1";
-            this.darkGroupBox1.Size = new System.Drawing.Size(396, 123);
-            this.darkGroupBox1.TabIndex = 5;
-            this.darkGroupBox1.TabStop = false;
-            this.darkGroupBox1.Text = "&Commit author information";
-            // 
             // OptionsDialog
             // 
             this.AcceptButton = this.okayButton;
@@ -380,6 +433,8 @@ namespace MFR.GUI.Dialogs
             this.configurationTabPage.PerformLayout();
             this.visualStudioTabPage.ResumeLayout(false);
             this.gitTabPage.ResumeLayout(false);
+            this.committerInfoGroupBox.ResumeLayout(false);
+            this.committerInfoGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -410,6 +465,10 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox commitPendingChangesBeforeOperationsCheckBox;
         private xyLOGIX.UI.Dark.Controls.DarkButton customizePostOperationChangesCommitMessageButton;
         private xyLOGIX.UI.Dark.Controls.DarkCheckBox pushChangesWhenDoneCheckBox;
-        private xyLOGIX.UI.Dark.Controls.DarkGroupBox darkGroupBox1;
+        private xyLOGIX.UI.Dark.Controls.DarkGroupBox committerInfoGroupBox;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel commitAuthorEmailLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel commitAuthorNameLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox commitAuthorEmailTextBox;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox commitAuthorNameTextBox;
     }
 }

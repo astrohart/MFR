@@ -6,6 +6,7 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Forms;
 
@@ -36,8 +37,29 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool AutoQuitOnCompletion
         {
-            get => autoQuitOnCompletionCheckBox.Checked;
+            [DebuggerStepThrough] get => autoQuitOnCompletionCheckBox.Checked;
+            [DebuggerStepThrough]
             set => autoQuitOnCompletionCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Email</b> text box in the
+        /// <b>Commit Author Information</b> group box on the <b>Git</b> tab.
+        /// </summary>
+        public string CommitAuthorEmail
+        {
+            [DebuggerStepThrough] get => commitAuthorEmailTextBox.Text;
+            [DebuggerStepThrough] set => commitAuthorEmailTextBox.Text = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Name</b> text box in the
+        /// <b>Commit Author Information</b> group box on the <b>Git</b> tab.
+        /// </summary>
+        public string CommitAuthorName
+        {
+            [DebuggerStepThrough] get => commitAuthorNameTextBox.Text;
+            [DebuggerStepThrough] set => commitAuthorNameTextBox.Text = value;
         }
 
         /// <summary>
@@ -45,8 +67,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public string ConfigPathname
         {
-            get => configPathnameTextBox.Text;
-            set => configPathnameTextBox.Text = value;
+            [DebuggerStepThrough] get => configPathnameTextBox.Text;
+            [DebuggerStepThrough] set => configPathnameTextBox.Text = value;
         }
 
         /// <summary>
@@ -62,7 +84,7 @@ namespace MFR.GUI.Dialogs
         /// </remarks>
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
 
         /// <summary>
@@ -81,7 +103,9 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool DontPromptUserToReloadOpenSolution
         {
+            [DebuggerStepThrough]
             get => dontPromptUserToReloadOpenSolutionCheckBox.Checked;
+            [DebuggerStepThrough]
             set => dontPromptUserToReloadOpenSolutionCheckBox.Checked = value;
         }
 
@@ -91,8 +115,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool IsModified
         {
-            get;
-            private set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] private set;
         }
 
         /// <summary>
@@ -100,7 +124,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool PushChangesToRemoteWhenDone
         {
-            get => pushChangesWhenDoneCheckBox.Checked;
+            [DebuggerStepThrough] get => pushChangesWhenDoneCheckBox.Checked;
+            [DebuggerStepThrough]
             set => pushChangesWhenDoneCheckBox.Checked = value;
         }
 
@@ -109,8 +134,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool ReOpenSolution
         {
-            get => reOpenSolutionCheckBox.Checked;
-            set => reOpenSolutionCheckBox.Checked = value;
+            [DebuggerStepThrough] get => reOpenSolutionCheckBox.Checked;
+            [DebuggerStepThrough] set => reOpenSolutionCheckBox.Checked = value;
         }
 
         /// <summary>
@@ -118,7 +143,9 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool ShouldCommitPendingChanges
         {
+            [DebuggerStepThrough]
             get => commitPendingChangesBeforeOperationsCheckBox.Checked;
+            [DebuggerStepThrough]
             set => commitPendingChangesBeforeOperationsCheckBox.Checked = value;
         }
 
@@ -128,7 +155,9 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool ShouldCommitPostOperationChanges
         {
+            [DebuggerStepThrough]
             get => commitPostOperationChangesCheckBox.Checked;
+            [DebuggerStepThrough]
             set => commitPostOperationChangesCheckBox.Checked = value;
         }
 
@@ -422,6 +451,7 @@ namespace MFR.GUI.Dialogs
                     PushChangesToRemoteWhenDone;
                 CurrentConfiguration.AutoQuitOnCompletion =
                     AutoQuitOnCompletion;
+
                 CurrentConfiguration.ReOpenSolution = ReOpenSolution;
                 ConfigProvider.ConfigFilePath = ConfigPathname;
                 CurrentConfiguration.PromptUserToReloadOpenSolution =
