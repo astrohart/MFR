@@ -56,7 +56,6 @@ using xyLOGIX.Interop.Processes.Actions;
 using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
-using xyLOGIX.TimeZoneInfo.Extensions;
 using xyLOGIX.VisualStudio.Providers.Factories;
 using xyLOGIX.VisualStudio.Providers.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
@@ -2468,6 +2467,57 @@ namespace MFR.Renamers.Files
                         Resources.Error_OperationAborted
                     );
 
+
+                /*
+                 * Let's not just ASSUME that more than zero changes were
+                 * made when the operations were processed -- CHECK.
+                 */
+
+                /*
+                 * Assuming that there are multiple local Git repositories in
+                 * the directory tree of the root folder, count how many of them
+                 * have pending changes.
+                 */
+
+                var totalPendingChanges = 0;
+
+                TotalReposWithPendingChanges = 0;
+                foreach (var entry in fileSystemEntries)
+                {
+                    if (entry == null) continue;
+                    if (!entry.Exists) continue;
+
+                    if (!HasPendingChanges(entry)) continue;
+
+                    TotalReposWithPendingChanges++;
+                    totalPendingChanges += (int)entry.UserState;
+                }
+
+                /*
+                 * If the TotalReposWithPendingChanges property is set equal to
+                 * zero at this point, or is a negative number, then none of the
+                 * local Git repos in the root folder, if any are there, have pending
+                 * changes.
+                 *
+                 * Therefore, in that event, return false from this method as it makes
+                 * no sense to proceed.
+                 */
+
+                if (TotalReposWithPendingChanges <= 0)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.CommitPendingChanges *** INFO: Zero local Git repo(s) in the folder '{rootFolderPath}' have pending changes; stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.CommitPendingChanges: Result = {result}"
+                    );
+
+                    return result;
+                }
+
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
                         fileSystemEntries.Count * 3,
@@ -2604,15 +2654,6 @@ namespace MFR.Renamers.Files
                                 .PostOperationDetailedCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     )
-                );
-
-                Run.SystemCommand(
-                    string.Format(
-                        Resources.CommitMessage_UsedProjectFileRenamer,
-                        DateTime.Now.ToShortTimeString(),
-                        DateTime.Now.ToShortDateString(), findWhat, replaceWith,
-                        rootFolderPath, TimeZoneInfo.Local.ToAbbreviation()
-                    ), workingDirectory: entry.Path
                 );
 
                 OnProcessingOperation(
