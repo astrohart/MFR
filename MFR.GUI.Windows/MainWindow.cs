@@ -54,6 +54,7 @@ using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.UI.Dark.Controls;
 using xyLOGIX.Win32.Interact;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using Display = MFR.GUI.Displayers.Display;
 using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 using Wait = xyLOGIX.Application.Semaphores.Wait;
@@ -2049,9 +2050,10 @@ namespace MFR.GUI.Windows
                     ReplaceWithComboBox.EnteredText
                 )) return true;
 
-            xyLOGIX.Win32.Interact.Messages.ShowStopError(
+            Actions.Display.StopError(
                 this, Resources.Error_FindWhat_ReplaceWith_Identical
             );
+
             hiddenFocusLabel.Focus();
             ReplaceWithComboBox.Focus();
             return false;

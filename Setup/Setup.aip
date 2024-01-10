@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8774.25238" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8774.33378" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -34,12 +34,26 @@
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="arm64_Dir" Directory_Parent="win32_Dir" DefaultDir="arm64"/>
+    <ROW Directory="lib_Dir" Directory_Parent="APPDIR" DefaultDir="lib"/>
+    <ROW Directory="linuxarm64_Dir" Directory_Parent="lib_Dir" DefaultDir="LINUX-~2|linux-arm64"/>
+    <ROW Directory="linuxarm_Dir" Directory_Parent="lib_Dir" DefaultDir="LINUX-~1|linux-arm"/>
+    <ROW Directory="linuxmuslarm64_Dir" Directory_Parent="lib_Dir" DefaultDir="LINUX-~4|linux-musl-arm64"/>
+    <ROW Directory="linuxmuslarm_Dir" Directory_Parent="lib_Dir" DefaultDir="LINUX-~3|linux-musl-arm"/>
+    <ROW Directory="linuxmuslx64_Dir" Directory_Parent="lib_Dir" DefaultDir="LINUX-~5|linux-musl-x64"/>
+    <ROW Directory="linuxx64_Dir" Directory_Parent="lib_Dir" DefaultDir="LINUX-~6|linux-x64"/>
+    <ROW Directory="osxarm64_Dir" Directory_Parent="lib_Dir" DefaultDir="OSX-AR~1|osx-arm64"/>
+    <ROW Directory="osxx64_Dir" Directory_Parent="lib_Dir" DefaultDir="osx-x64"/>
+    <ROW Directory="win32_Dir" Directory_Parent="lib_Dir" DefaultDir="win32"/>
+    <ROW Directory="x64_Dir" Directory_Parent="win32_Dir" DefaultDir="x64"/>
+    <ROW Directory="x86_Dir" Directory_Parent="win32_Dir" DefaultDir="x86"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{92D35799-C95D-433D-AEC4-6AC96074DB4C}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="AlphaFS.dll" ComponentId="{0B29139B-459A-44C7-8CE0-4CC8D0EC77D6}" Directory_="APPDIR" Attributes="0" KeyPath="AlphaFS.dll"/>
     <ROW Component="FluentCommandLineParser.dll" ComponentId="{E4C689D0-4016-4627-A6A6-21B92EAFB4ED}" Directory_="APPDIR" Attributes="0" KeyPath="FluentCommandLineParser.dll"/>
     <ROW Component="ICSharpCode.SharpZipLib.dll" ComponentId="{DAFE0849-37E7-40F5-AC16-A1163F3DF46D}" Directory_="APPDIR" Attributes="0" KeyPath="ICSharpCode.SharpZipLib.dll"/>
+    <ROW Component="LibGit2Sharp.dll" ComponentId="{DEB0E6F2-2488-4A34-BE82-0E653DCAEA0A}" Directory_="APPDIR" Attributes="0" KeyPath="LibGit2Sharp.dll"/>
     <ROW Component="MFR.CommandLine.Models.Factories.dll" ComponentId="{8B52F0AE-6166-44F1-905F-A4E646081A89}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Models.Factories.dll"/>
     <ROW Component="MFR.CommandLine.Models.Interfaces.dll" ComponentId="{C5E6C0E3-3CB7-4951-92CD-F8F8B21D28E7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Models.Interfaces.dll"/>
     <ROW Component="MFR.CommandLine.Models.dll" ComponentId="{CE38347C-9D2A-4E09-867D-2BD15A5A5B56}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Models.dll"/>
@@ -322,6 +336,17 @@
     <ROW Component="TimeZoneConverter.dll" ComponentId="{47522AC1-CF16-4879-A68A-7094E61DA29B}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneConverter.dll"/>
     <ROW Component="TimeZoneNames.dll" ComponentId="{33128BC6-5FD0-4114-9FF7-27082F77B3C0}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneNames.dll"/>
     <ROW Component="config.json" ComponentId="{845C59C3-2EC5-4CB5-B725-D0F77362FF72}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
+    <ROW Component="git2a2bde63.dll" ComponentId="{88221608-FEAC-4E7E-B45E-C8AEB6425725}" Directory_="arm64_Dir" Attributes="256" KeyPath="git2a2bde63.dll"/>
+    <ROW Component="git2a2bde63.dll_1" ComponentId="{F73CC4FC-2F93-4E09-A389-7F771B5BA5BA}" Directory_="x64_Dir" Attributes="256" KeyPath="git2a2bde63.dll_1"/>
+    <ROW Component="git2a2bde63.dll_2" ComponentId="{39D8F0FE-5818-4BFC-A1CE-D249FB538B81}" Directory_="x86_Dir" Attributes="0" KeyPath="git2a2bde63.dll_2"/>
+    <ROW Component="libgit2a2bde63.dylib" ComponentId="{F943751A-2802-409F-90C3-D0CDEEF51FB8}" Directory_="osxarm64_Dir" Attributes="0" KeyPath="libgit2a2bde63.dylib" Type="0"/>
+    <ROW Component="libgit2a2bde63.dylib_1" ComponentId="{AF8677FF-3D84-4CBF-AD4A-BDA06CE28CB0}" Directory_="osxx64_Dir" Attributes="0" KeyPath="libgit2a2bde63.dylib_1" Type="0"/>
+    <ROW Component="libgit2a2bde63.so" ComponentId="{68281CCC-7A5B-4628-853F-AEAE73944145}" Directory_="linuxarm_Dir" Attributes="0" KeyPath="libgit2a2bde63.so" Type="0"/>
+    <ROW Component="libgit2a2bde63.so_1" ComponentId="{EE48616E-AF5E-443A-95AF-E7605D071EEB}" Directory_="linuxarm64_Dir" Attributes="0" KeyPath="libgit2a2bde63.so_1" Type="0"/>
+    <ROW Component="libgit2a2bde63.so_2" ComponentId="{79B0D618-17A9-41C3-8A35-0AAE88CE3ED8}" Directory_="linuxmuslarm_Dir" Attributes="0" KeyPath="libgit2a2bde63.so_2" Type="0"/>
+    <ROW Component="libgit2a2bde63.so_3" ComponentId="{2A66F204-E5CF-4B2A-BAEE-C33C1157A6BD}" Directory_="linuxmuslarm64_Dir" Attributes="0" KeyPath="libgit2a2bde63.so_3" Type="0"/>
+    <ROW Component="libgit2a2bde63.so_4" ComponentId="{642056FD-AD1A-4500-88A3-E786E619E947}" Directory_="linuxmuslx64_Dir" Attributes="0" KeyPath="libgit2a2bde63.so_4" Type="0"/>
+    <ROW Component="libgit2a2bde63.so_5" ComponentId="{C1049E79-C346-463F-BE58-069E5F035EDE}" Directory_="linuxx64_Dir" Attributes="0" KeyPath="libgit2a2bde63.so_5" Type="0"/>
     <ROW Component="log4net.dll" ComponentId="{2C046669-0AB9-4D2F-800F-CCB54561E27E}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
     <ROW Component="mfr.exe" ComponentId="{9132EC2B-533F-4742-A0A3-68CF02698C01}" Directory_="APPDIR" Attributes="256" KeyPath="mfr.exe"/>
     <ROW Component="xyLOGIX.Application.Semaphores.dll" ComponentId="{D4DCFC3F-6F3C-457C-9101-7A172FC3CA4A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Application.Semaphores.dll"/>
@@ -1169,6 +1194,19 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLOG~98.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLOG~99.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLOG~99.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.so" Component_="libgit2a2bde63.so" FileName="LIBGIT~1.SO|libgit2-a2bde63.so" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\linux-arm\libgit2-a2bde63.so" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.so_1" Component_="libgit2a2bde63.so_1" FileName="LIBGIT~1.SO|libgit2-a2bde63.so" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\linux-arm64\libgit2-a2bde63.so" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.so_2" Component_="libgit2a2bde63.so_2" FileName="LIBGIT~1.SO|libgit2-a2bde63.so" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\linux-musl-arm\libgit2-a2bde63.so" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.so_3" Component_="libgit2a2bde63.so_3" FileName="LIBGIT~1.SO|libgit2-a2bde63.so" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\linux-musl-arm64\libgit2-a2bde63.so" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.so_4" Component_="libgit2a2bde63.so_4" FileName="LIBGIT~1.SO|libgit2-a2bde63.so" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\linux-musl-x64\libgit2-a2bde63.so" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.so_5" Component_="libgit2a2bde63.so_5" FileName="LIBGIT~1.SO|libgit2-a2bde63.so" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\linux-x64\libgit2-a2bde63.so" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.dylib" Component_="libgit2a2bde63.dylib" FileName="LIBGIT~1.DYL|libgit2-a2bde63.dylib" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\osx-arm64\libgit2-a2bde63.dylib" SelfReg="false"/>
+    <ROW File="libgit2a2bde63.dylib_1" Component_="libgit2a2bde63.dylib_1" FileName="LIBGIT~1.DYL|libgit2-a2bde63.dylib" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\osx-x64\libgit2-a2bde63.dylib" SelfReg="false"/>
+    <ROW File="git2a2bde63.dll" Component_="git2a2bde63.dll" FileName="GIT2-A~1.DLL|git2-a2bde63.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\win32\arm64\git2-a2bde63.dll" SelfReg="false"/>
+    <ROW File="git2a2bde63.dll_1" Component_="git2a2bde63.dll_1" FileName="GIT2-A~1.DLL|git2-a2bde63.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\win32\x64\git2-a2bde63.dll" SelfReg="false"/>
+    <ROW File="git2a2bde63.dll_2" Component_="git2a2bde63.dll_2" FileName="GIT2-A~1.DLL|git2-a2bde63.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\win32\x86\git2-a2bde63.dll" SelfReg="false"/>
+    <ROW File="LibGit2Sharp.dll" Component_="LibGit2Sharp.dll" FileName="LIBGIT~1.DLL|LibGit2Sharp.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\LibGit2Sharp.dll" SelfReg="false"/>
+    <ROW File="LibGit2Sharp.dll.config" Component_="config.json" FileName="LIBGIT~1.CON|LibGit2Sharp.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\LibGit2Sharp.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1643,6 +1681,18 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.so"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.so_1"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.so_2"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.so_3"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.so_4"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.so_5"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.dylib"/>
+    <ROW Feature_="MainFeature" Component_="libgit2a2bde63.dylib_1"/>
+    <ROW Feature_="MainFeature" Component_="git2a2bde63.dll"/>
+    <ROW Feature_="MainFeature" Component_="git2a2bde63.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="git2a2bde63.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="LibGit2Sharp.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>

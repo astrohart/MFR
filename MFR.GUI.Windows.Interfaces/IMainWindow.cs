@@ -4,6 +4,7 @@ using MFR.GUI.Windows.Constants;
 using MFR.GUI.Windows.Events;
 using System.Diagnostics;
 using System.Windows.Forms;
+using xyLOGIX.Core.Extensions;
 using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Windows.Interfaces
@@ -12,7 +13,7 @@ namespace MFR.GUI.Windows.Interfaces
     /// Defines the public-exposed methods and properties of the main window of
     /// the application.
     /// </summary>
-    public interface IMainWindow : IWin32Window
+    public interface IMainWindow : IForm
     {
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
