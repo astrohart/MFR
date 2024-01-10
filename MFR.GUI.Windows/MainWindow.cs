@@ -85,9 +85,6 @@ namespace MFR.GUI.Windows
         /// </summary>
         private MainWindowState _state;
 
-        private bool enableFormLevelDoubleBuffering = true;
-        private int originalExStyle = -1;
-
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
@@ -167,13 +164,23 @@ namespace MFR.GUI.Windows
             => ConfigProvider.CurrentConfiguration;
 
         /// <summary>
+        /// Gets or sets the text displayed in the edit portion of the <b>Find What</b>
+        /// combo box.
+        /// </summary>
+        public string FindWhat
+        {
+            get => findWhatComboBox.EnteredText;
+            set => findWhatComboBox.Text = value;
+        }
+
+        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
         /// </summary>
         [Log(AttributeExclude = true)] // do not log this method
         public IEntryRespectingComboBox FindWhatComboBox
         {
-            [DebuggerStepThrough] get => findWhatcomboBox;
+            [DebuggerStepThrough] get => findWhatComboBox;
         }
 
         /// <summary>
@@ -263,7 +270,7 @@ namespace MFR.GUI.Windows
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine" />
         /// interface that represents the engine that carries out the user's requested
-        /// operations..
+        /// operations.
         /// </summary>
         private IFullGuiOperationEngine OperationEngine
         {
@@ -333,6 +340,16 @@ namespace MFR.GUI.Windows
             => profileListComboBox;
 
         /// <summary>
+        /// Gets or sets the text displayed in the edit portion of the <b>Replace With</b>
+        /// combo box.
+        /// </summary>
+        public string ReplaceWith
+        {
+            get => replaceWithComboBox.EnteredText;
+            set => replaceWithComboBox.Text = value;
+        }
+
+        /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to replace found text with.
         /// </summary>
@@ -372,13 +389,13 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> that is configured as the folder
-        /// in which operations are to commence.
+        /// Gets or sets the text displayed in the edit portion of the
+        /// <b>Starting Folder</b> combo box.
         /// </summary>
         public string StartingFolder
         {
-            get => CurrentConfiguration.StartingFolder;
-            set => CurrentConfiguration.StartingFolder = value;
+            get => startingFolderComboBox.EnteredText;
+            set => startingFolderComboBox.Text = value;
         }
 
         /// <summary>
@@ -427,8 +444,7 @@ namespace MFR.GUI.Windows
         ///     href="
         /// https://social.msdn.microsoft.com/Forums/vstudio/en-US/d9a69018-4840-4aeb-b9f1-4d98ab35f782/applicationproductversion?forum=csharpgeneral
         /// ">
-        /// Kiran
-        /// Suthar
+        /// Kiran Suthar
         /// </a>
         /// 's answer on the Microsoft forums.
         /// </remarks>
@@ -1079,7 +1095,7 @@ namespace MFR.GUI.Windows
         /// <see
         ///     cref="E:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.StartingFolderChanged" />
         /// event raised by the object instance that represents the currently-loaded
-        /// application config..
+        /// application config.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the
@@ -1092,7 +1108,7 @@ namespace MFR.GUI.Windows
         /// <remarks>
         /// This method responds by invoking the
         /// <see cref="M:MFR.GUI.Windows.MainWindow.DoUpdateConfiguredStartingFolder" />
-        /// method, and, if required, marshaling the method call to the UI thread..
+        /// method, and, if required, marshaling the method call to the UI thread.
         /// </remarks>
         private void OnConfiguredStartingFolderChanged(
             object sender,
@@ -1103,6 +1119,27 @@ namespace MFR.GUI.Windows
 
             this.InvokeIfRequired(DoUpdateConfiguredStartingFolder);
         }
+
+        /// <summary>
+        /// Handles the
+        /// <see cref="E:System.Windows.Forms.ToolStripDropDownItem.DropDownOpening" />
+        /// event raised by the <b>File</b> menu when the user clicks on it but before the
+        /// items are shown to the user.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by enabling and disabling menu items in a manner
+        /// that corresponds to the current state of the application.
+        /// </remarks>
+        private void OnFileDropDownOpening(object sender, EventArgs e)
+            => fileSave.Enabled = Presenter.IsDirty;
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
@@ -1122,6 +1159,33 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private void OnFileExit(object sender, EventArgs e)
             => Close();
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" /> event
+        /// raised by the <b>Save</b> button on the <b>Standard</b> toolbar or the
+        /// <b>Save</b> item on the <b>File</b> menu.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>This method responds by saving the configuration to the disk.</remarks>
+        private void OnFileSave(object sender, EventArgs e)
+        {
+            UseWaitCursor = true;
+
+            Presenter.SaveConfiguration();
+
+            UseWaitCursor = false;
+
+            xyLOGIX.Win32.Interact.Messages.ShowInformation(
+                this, "The configuration has been saved."
+            );
+        }
 
         /// <summary>
         /// Handles the
@@ -1329,10 +1393,8 @@ namespace MFR.GUI.Windows
         /// screen from values stored in the config object in the
         /// <see
         ///     cref="P:MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfig" />
-        /// property. This
-        /// happens most often as a the result of the Import
-        /// ProjectFileRenamerConfig
-        /// command on the Tools menu.
+        /// property. This happens most often as a result of the
+        /// <b>Import Configuration</b> command on the <b>Tools</b> menu.
         /// </remarks>
         private void OnPresenterConfigurationImported(
             object sender,
@@ -1388,7 +1450,7 @@ namespace MFR.GUI.Windows
         /// raised by the presenter object when it's about to start an operation
         /// that involves interaction with a data source.
         /// <para />
-        /// Depending on the data source, this operation can be fast or it can
+        /// Depending on the data source, this operation can be fast, or it can
         /// be slow, so the presenter object informs us in case we want to
         /// update the user interface in order to tell the user what is going on.
         /// </summary>
@@ -1671,7 +1733,9 @@ namespace MFR.GUI.Windows
             // First, save data from the screen
             Presenter.UpdateData();
 
-            Presenter.SaveCurrentConfigurationurationAsProfile(results.ProfileName);
+            Presenter.SaveCurrentConfigurationurationAsProfile(
+                results.ProfileName
+            );
 
             /*
              * Update the contents of the Profiles dropdown on the toolbar.
@@ -1766,6 +1830,7 @@ namespace MFR.GUI.Windows
                     toolsHistoryClearFindWhatHistory.Enabled =
                         toolsHistoryClearReplaceWithHistory.Enabled =
                             !IsHistoryClear;
+            saveButton.Enabled = Presenter.IsDirty;
         }
 
         /// <summary>
@@ -1805,7 +1870,7 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.ToolStripItem.Click" />
-        /// event for the View -&gt; Toolbar command..
+        /// event for the View -&gt; Toolbar command.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -1951,7 +2016,7 @@ namespace MFR.GUI.Windows
                 <c>.csproj</c> name matching the replaceWith text identically, stop,
                 and throw a warning to the user.
 
-                At 14:28 hours MDT on 08/06/2023, we just nuked a whole bunch of our work by
+                At 14:28 hours MDT on 08/06/2023, we just nuked a bunch of our work by
                 (a) having not committed early and often for an entire 1-1/2 days of coding, and
                 (b) then running this app by setting the 'replaceWith' to match identically,
                 the name of one of the projects already in the Solution.
@@ -1998,7 +2063,7 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Exposes static methods to make determinations about data and the state of the
-        /// system..
+        /// system.
         /// </summary>
         internal static class Is
         {

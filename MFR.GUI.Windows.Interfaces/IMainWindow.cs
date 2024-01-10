@@ -177,6 +177,18 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets the text displayed in the edit portion of the <b>Find What</b>
+        /// combo box.
+        /// </summary>
+        string FindWhat { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text displayed in the edit portion of the <b>Replace With</b>
+        /// combo box.
+        /// </summary>
+        string ReplaceWith { get; set; }
+
+        /// <summary>
         /// Occurs when the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
         /// property is updated.
         /// </summary>

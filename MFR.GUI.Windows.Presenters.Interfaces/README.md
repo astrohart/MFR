@@ -4,6 +4,7 @@
 ## Contents
 
 - [IMainWindowPresenter](#T-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter')
+  - [IsDirty](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsDirty 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.IsDirty')
   - [IsProfileLoaded](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsProfileLoaded 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.IsProfileLoaded')
   - [AddProfile(name)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AddProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AddProfile(System.String)')
   - [AndHistoryManager(historyManager)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AndHistoryManager-MFR-Managers-History-Interfaces-IHistoryManager- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AndHistoryManager(MFR.Managers.History.Interfaces.IHistoryManager)')
@@ -34,7 +35,15 @@ MFR.GUI.Windows.Presenters.Interfaces
 ##### Summary
 
 Defines the public-exposed methods and properties of the presenter
-object for the main application window..
+object for the main application window.
+
+<a name='P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsDirty'></a>
+### IsDirty `property`
+
+##### Summary
+
+Gets a value that indicates whether the values displayed to the user differ
+from those in the configuration file.
 
 <a name='P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsProfileLoaded'></a>
 ### IsProfileLoaded `property`
@@ -189,7 +198,7 @@ pathname of a file from which the config should be imported. |
 
 ##### Remarks
 
-The data is presumed to be located inside of a JSON-formatted file
+The data is presumed to be located inside a JSON-formatted file
 that exists on the user's hard drive and has the `.json` extension.
 
 <a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-InitializeOperationSelections'></a>

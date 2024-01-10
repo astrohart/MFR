@@ -2177,14 +2177,18 @@ namespace MFR.Renamers.Files
                  * have pending changes.
                  */
 
+                var totalPendingChanges = 0;
+
                 TotalReposWithPendingChanges = 0;
                 foreach (var entry in fileSystemEntries)
                 {
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
 
-                    if (HasPendingChanges(entry))
-                        TotalReposWithPendingChanges++;
+                    if (!HasPendingChanges(entry)) continue;
+
+                    TotalReposWithPendingChanges++;
+                    totalPendingChanges += (int)entry.UserState;
                 }
 
                 /*

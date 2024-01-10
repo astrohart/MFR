@@ -13,6 +13,7 @@
   - [ConfigProvider](#P-MFR-GUI-Windows-MainWindow-ConfigProvider 'MFR.GUI.Windows.MainWindow.ConfigProvider')
   - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
+  - [FindWhat](#P-MFR-GUI-Windows-MainWindow-FindWhat 'MFR.GUI.Windows.MainWindow.FindWhat')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-MainWindow-FullApplicationName 'MFR.GUI.Windows.MainWindow.FullApplicationName')
@@ -26,6 +27,7 @@
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.MainWindow.OperationsCheckedListBox')
   - [Presenter](#P-MFR-GUI-Windows-MainWindow-Presenter 'MFR.GUI.Windows.MainWindow.Presenter')
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-MainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.MainWindow.ProfileCollectionComboBox')
+  - [ReplaceWith](#P-MFR-GUI-Windows-MainWindow-ReplaceWith 'MFR.GUI.Windows.MainWindow.ReplaceWith')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.MainWindow.ReplaceWithComboBox')
   - [RootDirectoryPathValidator](#P-MFR-GUI-Windows-MainWindow-RootDirectoryPathValidator 'MFR.GUI.Windows.MainWindow.RootDirectoryPathValidator')
   - [SelectAll](#P-MFR-GUI-Windows-MainWindow-SelectAll 'MFR.GUI.Windows.MainWindow.SelectAll')
@@ -51,7 +53,9 @@
   - [OnClickPerformOperation(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickPerformOperation-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickPerformOperation(System.Object,System.EventArgs)')
   - [OnClickSwitchButton(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickSwitchButton-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickSwitchButton(System.Object,System.EventArgs)')
   - [OnConfiguredStartingFolderChanged(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnConfiguredStartingFolderChanged-System-Object,MFR-Settings-Configuration-Events-StartingFolderChangedEventArgs- 'MFR.GUI.Windows.MainWindow.OnConfiguredStartingFolderChanged(System.Object,MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs)')
+  - [OnFileDropDownOpening(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFileDropDownOpening-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnFileDropDownOpening(System.Object,System.EventArgs)')
   - [OnFileExit(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFileExit-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnFileExit(System.Object,System.EventArgs)')
+  - [OnFileSave(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFileSave-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnFileSave(System.Object,System.EventArgs)')
   - [OnFormClosing(e)](#M-MFR-GUI-Windows-MainWindow-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'MFR.GUI.Windows.MainWindow.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
   - [OnFormFolded(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnFormFolded-System-Object,MFR-GUI-Controls-Events-FormFoldedEventArgs- 'MFR.GUI.Windows.MainWindow.OnFormFolded(System.Object,MFR.GUI.Controls.Events.FormFoldedEventArgs)')
   - [OnHelpAbout(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnHelpAbout-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnHelpAbout(System.Object,System.EventArgs)')
@@ -113,7 +117,7 @@ MFR.GUI.Windows.MainWindow
 ##### Summary
 
 Exposes static methods to make determinations about data and the state of the
-system..
+system.
 
 <a name='M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String-'></a>
 ### SolutionFIle(pathname) `method`
@@ -238,6 +242,14 @@ Gets a reference to an instance of an object that implements the
 [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
+<a name='P-MFR-GUI-Windows-MainWindow-FindWhat'></a>
+### FindWhat `property`
+
+##### Summary
+
+Gets or sets the text displayed in the edit portion of the 
+combo box.
+
 <a name='P-MFR-GUI-Windows-MainWindow-FindWhatComboBox'></a>
 ### FindWhatComboBox `property`
 
@@ -316,7 +328,7 @@ Gets or sets the value of the Match Exact Word checkbox.
 Gets a reference to an instance of an object that implements the
 [IFullGuiOperationEngine](#T-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine 'MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine')
 interface that represents the engine that carries out the user's requested
-operations..
+operations.
 
 <a name='P-MFR-GUI-Windows-MainWindow-OperationsCheckedListBox'></a>
 ### OperationsCheckedListBox `property`
@@ -348,6 +360,14 @@ behavior of this form.
 
 Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
 that has a drop-down list of the profiles that the user has created.
+
+<a name='P-MFR-GUI-Windows-MainWindow-ReplaceWith'></a>
+### ReplaceWith `property`
+
+##### Summary
+
+Gets or sets the text displayed in the edit portion of the 
+combo box.
 
 <a name='P-MFR-GUI-Windows-MainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`
@@ -386,8 +406,8 @@ tab control.
 
 ##### Summary
 
-Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that is configured as the folder
-in which operations are to commence.
+Gets or sets the text displayed in the edit portion of the
+combo box.
 
 <a name='P-MFR-GUI-Windows-MainWindow-StartingFolderComboBox'></a>
 ### StartingFolderComboBox `property`
@@ -672,7 +692,7 @@ Replace With combo boxes.
 Handles the
 [](#E-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-StartingFolderChanged 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.StartingFolderChanged')
 event raised by the object instance that represents the currently-loaded
-application config..
+application config.
 
 ##### Parameters
 
@@ -687,7 +707,31 @@ data. |
 
 This method responds by invoking the
 [DoUpdateConfiguredStartingFolder](#M-MFR-GUI-Windows-MainWindow-DoUpdateConfiguredStartingFolder 'MFR.GUI.Windows.MainWindow.DoUpdateConfiguredStartingFolder')
-method, and, if required, marshaling the method call to the UI thread..
+method, and, if required, marshaling the method call to the UI thread.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnFileDropDownOpening-System-Object,System-EventArgs-'></a>
+### OnFileDropDownOpening(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-System-Windows-Forms-ToolStripDropDownItem-DropDownOpening 'System.Windows.Forms.ToolStripDropDownItem.DropDownOpening')
+event raised by the menu when the user clicks on it but before the
+items are shown to the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by enabling and disabling menu items in a manner
+that corresponds to the current state of the application.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnFileExit-System-Object,System-EventArgs-'></a>
 ### OnFileExit(sender,e) `method`
@@ -710,6 +754,28 @@ This method is called to handle the message of the user clicking the
 Exit command on the File menu. This method saves the config
 and then closes this window. Since this window is the main window of
 the application, closing this window ends the lifecycle of the application.
+
+<a name='M-MFR-GUI-Windows-MainWindow-OnFileSave-System-Object,System-EventArgs-'></a>
+### OnFileSave(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click') event
+raised by the button on the toolbar or the
+item on the menu.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event
+data. |
+
+##### Remarks
+
+This method responds by saving the configuration to the disk.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
 ### OnFormClosing(e) `method`
@@ -923,10 +989,8 @@ event.
 This method responds to the event by triggering an update of the
 screen from values stored in the config object in the
 [ProjectFileRenamerConfig](#P-MFR-GUI-MainWindowPresenter-ProjectFileRenamerConfig 'MFR.GUI.MainWindowPresenter.ProjectFileRenamerConfig')
-property. This
-happens most often as a the result of the Import
-ProjectFileRenamerConfig
-command on the Tools menu.
+property. This happens most often as a result of the
+command on the menu.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnPresenterDataOperationFinished-System-Object,System-EventArgs-'></a>
 ### OnPresenterDataOperationFinished(sender,e) `method`
@@ -969,7 +1033,7 @@ that involves interaction with a data source.
 
 
 
-Depending on the data source, this operation can be fast or it can
+Depending on the data source, this operation can be fast, or it can
 be slow, so the presenter object informs us in case we want to
 update the user interface in order to tell the user what is going on.
 
@@ -1263,7 +1327,7 @@ Visible property of the status bar.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-ToolStripItem-Click 'System.Windows.Forms.ToolStripItem.Click')
-event for the View -> Toolbar command..
+event for the View -> Toolbar command.
 
 ##### Parameters
 

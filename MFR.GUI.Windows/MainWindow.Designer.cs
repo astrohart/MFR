@@ -40,6 +40,8 @@ namespace MFR.GUI.Windows
             this.performOperationButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.menuBar = new xyLOGIX.UI.Dark.Controls.DarkMenuStrip();
             this.fileMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
+            this.fileSave = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
+            this.toolStripSeparator7 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
             this.fileExit = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.viewMenu = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.viewToolBar = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
@@ -82,7 +84,7 @@ namespace MFR.GUI.Windows
             this.foldButton = new MFR.GUI.Controls.FoldUnfoldButton();
             this.hiddenFocusLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.replaceWithComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
-            this.findWhatcomboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
+            this.findWhatComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.startingFolderComboBox = new MFR.GUI.Controls.EntryRespectingComboBox();
             this.exportConfigDialog = new System.Windows.Forms.SaveFileDialog();
             this.importConfigDialog = new System.Windows.Forms.OpenFileDialog();
@@ -98,14 +100,12 @@ namespace MFR.GUI.Windows
             this.toolStripSeparator6 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
             this.clearAllHistoryButton = new System.Windows.Forms.ToolStripButton();
             this.standardToolStrip = new xyLOGIX.UI.Dark.Controls.DarkToolStrip();
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
             this.switchButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.statusBar = new xyLOGIX.UI.Dark.Controls.DarkStatusStrip();
             this.statusBarMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusBarProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.saveButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
-            this.toolStripSeparator7 = new xyLOGIX.UI.Dark.Controls.DarkToolStripSeparator();
-            this.fileSave = new xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.optionsTabControl.SuspendLayout();
             this.findReplaceOptionsTabPage.SuspendLayout();
@@ -204,6 +204,29 @@ namespace MFR.GUI.Windows
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(37, 20);
             this.fileMenu.Text = "&File";
+            this.fileMenu.DropDownOpening += new System.EventHandler(this.OnFileDropDownOpening);
+            // 
+            // fileSave
+            // 
+            this.fileSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.fileSave.Enabled = false;
+            this.fileSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
+            this.fileSave.Image = ((System.Drawing.Image)(resources.GetObject("fileSave.Image")));
+            this.fileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.fileSave.Name = "fileSave";
+            this.fileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.fileSave.Size = new System.Drawing.Size(180, 22);
+            this.fileSave.Text = "&Save";
+            this.fileSave.ToolTipText = "Saves the current configuration.";
+            this.fileSave.Click += new System.EventHandler(this.OnFileSave);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.toolStripSeparator7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
             // 
             // fileExit
             // 
@@ -639,23 +662,23 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox.Size = new System.Drawing.Size(565, 23);
             this.replaceWithComboBox.TabIndex = 6;
             // 
-            // findWhatcomboBox
+            // findWhatComboBox
             // 
-            this.findWhatcomboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.findWhatcomboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.findWhatcomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.findWhatcomboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
-            this.findWhatcomboBox.EnteredText = "";
-            this.findWhatcomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.findWhatcomboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.findWhatcomboBox.FormattingEnabled = true;
-            this.findWhatcomboBox.IsDarkTheme = true;
-            this.findWhatcomboBox.Items.AddRange(new object[] {
+            this.findWhatComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.findWhatComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.findWhatComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.findWhatComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.findWhatComboBox.EnteredText = "";
+            this.findWhatComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.findWhatComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.findWhatComboBox.FormattingEnabled = true;
+            this.findWhatComboBox.IsDarkTheme = true;
+            this.findWhatComboBox.Items.AddRange(new object[] {
             ""});
-            this.findWhatcomboBox.Location = new System.Drawing.Point(15, 136);
-            this.findWhatcomboBox.Name = "findWhatcomboBox";
-            this.findWhatcomboBox.Size = new System.Drawing.Size(565, 23);
-            this.findWhatcomboBox.TabIndex = 4;
+            this.findWhatComboBox.Location = new System.Drawing.Point(15, 136);
+            this.findWhatComboBox.Name = "findWhatComboBox";
+            this.findWhatComboBox.Size = new System.Drawing.Size(565, 23);
+            this.findWhatComboBox.TabIndex = 4;
             // 
             // startingFolderComboBox
             // 
@@ -833,6 +856,28 @@ namespace MFR.GUI.Windows
             this.standardToolStrip.TabIndex = 13;
             this.standardToolStrip.Text = "Standard";
             // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Enabled = false;
+            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(23, 23);
+            this.saveButton.Text = "&Save";
+            this.saveButton.ToolTipText = "Save (Ctrl + S)";
+            this.saveButton.Click += new System.EventHandler(this.OnFileSave);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.toolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
+            // 
             // switchButton
             // 
             this.switchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -880,46 +925,6 @@ namespace MFR.GUI.Windows
             this.statusBarProgressBar.Name = "statusBarProgressBar";
             this.statusBarProgressBar.Size = new System.Drawing.Size(100, 16);
             // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
-            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
-            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(23, 23);
-            this.saveButton.Text = "&Save";
-            this.saveButton.ToolTipText = "Save (Ctrl + S)";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
-            this.toolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
-            this.toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.toolStripSeparator7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
-            // 
-            // fileSave
-            // 
-            this.fileSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
-            this.fileSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.fileSave.Image = ((System.Drawing.Image)(resources.GetObject("fileSave.Image")));
-            this.fileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.fileSave.Name = "fileSave";
-            this.fileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.fileSave.Size = new System.Drawing.Size(180, 22);
-            this.fileSave.Text = "&Save";
-            this.fileSave.ToolTipText = "Saves the current configuration.";
-            // 
             // MainWindow
             // 
             this.AcceptButton = this.performOperationButton;
@@ -932,7 +937,7 @@ namespace MFR.GUI.Windows
             this.Controls.Add(this.hiddenFocusLabel);
             this.Controls.Add(this.menuBar);
             this.Controls.Add(this.replaceWithComboBox);
-            this.Controls.Add(this.findWhatcomboBox);
+            this.Controls.Add(this.findWhatComboBox);
             this.Controls.Add(this.startingFolderComboBox);
             this.Controls.Add(this.foldButton);
             this.Controls.Add(this.performOperationButton);
@@ -974,7 +979,7 @@ namespace MFR.GUI.Windows
         private xyLOGIX.UI.Dark.Controls.DarkButton performOperationButton;
         private MFR.GUI.Controls.FoldUnfoldButton foldButton;
         private MFR.GUI.Controls.EntryRespectingComboBox startingFolderComboBox;
-        private MFR.GUI.Controls.EntryRespectingComboBox findWhatcomboBox;
+        private MFR.GUI.Controls.EntryRespectingComboBox findWhatComboBox;
         private MFR.GUI.Controls.EntryRespectingComboBox replaceWithComboBox;
         private xyLOGIX.UI.Dark.Controls.DarkMenuStrip menuBar;
         private xyLOGIX.UI.Dark.Controls.DarkToolStripMenuItem fileMenu;
@@ -1037,9 +1042,9 @@ namespace MFR.GUI.Windows
         private System.Windows.Forms.ToolStripStatusLabel statusBarMessage;
         private System.Windows.Forms.ToolStripProgressBar statusBarProgressBar;
         private ToolStripButton saveButton;
-        private ToolStripSeparator toolStripSeparator3;
-        private ToolStripMenuItem fileSave;
-        private ToolStripSeparator toolStripSeparator7;
+        private DarkToolStripSeparator toolStripSeparator3;
+        private DarkToolStripMenuItem fileSave;
+        private DarkToolStripSeparator toolStripSeparator7;
     }
 }
 

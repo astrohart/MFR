@@ -104,8 +104,7 @@ namespace MFR.GUI.Windows.Presenters
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigProvider
-            ConfigProvider
+        private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             get;
         } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
@@ -167,6 +166,95 @@ namespace MFR.GUI.Windows.Presenters
         /// </summary>
         private IEntryRespectingComboBox FindWhatComboBox
             => View.FindWhatComboBox;
+
+        /// <summary>
+        /// Gets a value that indicates whether the values displayed to the user differ
+        /// from those in the configuration file.
+        /// </summary>
+        public bool IsDirty
+        {
+            get {
+                var result = true;
+
+                try
+                {
+                    if (!CurrentConfiguration.StartingFolder.Equals(
+                            View.StartingFolder
+                        ))
+                        return result;
+                    if (!CurrentConfiguration.FindWhat.Equals(
+                            View.FindWhat, StringComparison.InvariantCulture
+                        ))
+                        return result;
+                    if (!CurrentConfiguration.ReplaceWith.Equals(
+                            View.ReplaceWith, StringComparison.InvariantCulture
+                        ))
+                        return result;
+
+                    if (!CurrentConfiguration.StartingFolderHistory
+                                             .IsIdenticalTo(
+                                                 View.StartingFolderComboBox
+                                                     .Items.Cast<string>()
+                                                     .ToList()
+                                             ))
+                        return result;
+                    if (!CurrentConfiguration.FindWhatHistory.IsIdenticalTo(
+                            View.FindWhatComboBox.Items.Cast<string>()
+                                .ToList()
+                        ))
+                        return result;
+                    if (!CurrentConfiguration.ReplaceWithHistory.IsIdenticalTo(
+                            View.ReplaceWithComboBox.Items.Cast<string>()
+                                .ToList()
+                        ))
+                        return result;
+
+                    if (!CurrentConfiguration.MatchCase.Equals(View.MatchCase))
+                        return result;
+                    if (!CurrentConfiguration.MatchExactWord.Equals(
+                            View.MatchExactWord
+                        ))
+                        return result;
+                    if (!CurrentConfiguration.IsFolded.Equals(View.IsFolded))
+                        return result;
+                    if (!CurrentConfiguration.SelectedOptionTab.Equals(
+                            View.SelectedOptionTab
+                        ))
+                        return result;
+
+                    if (!CurrentConfiguration.RenameFilesInFolder.Equals(
+                            View.OperationsCheckedListBox.GetCheckedByName(
+                                OperationNames.RenameFilesInFolder
+                            )
+                        )) return result;
+
+                    if (!CurrentConfiguration.RenameSubFolders.Equals(
+                            View.OperationsCheckedListBox.GetCheckedByName(
+                                OperationNames.RenameSubFolders
+                            )
+                        )) return result;
+
+                    if (!CurrentConfiguration.ReplaceTextInFiles.Equals(
+                            View.OperationsCheckedListBox.GetCheckedByName(
+                                OperationNames.ReplaceTextInFiles
+                            )
+                        )) return result;
+                    if (!CurrentConfiguration.RenameSolutionFolders.Equals(
+                            View.OperationsCheckedListBox.GetCheckedByName(
+                                OperationNames.RenameSolutionFolders
+                            )
+                        )) return result;
+
+                    result = false;
+                }
+                catch
+                {
+                    result = false;
+                }
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets a value that indicates whether a Profile is currently loaded.
@@ -796,9 +884,7 @@ namespace MFR.GUI.Windows.Presenters
             // time, show the marquee-style progress bar on the status bar in
             // the interim
             OnDataOperationStarted(
-                new DataOperationEventArgs(
-                    "Updating config...  Please wait."
-                )
+                new DataOperationEventArgs("Updating config...  Please wait.")
             );
 
             if (bSavingAndValidating)
@@ -829,9 +915,8 @@ namespace MFR.GUI.Windows.Presenters
             {
                 InitializeOperationSelections();
 
-                View.SelectedOptionTab = ConfigProvider
-                                         .CurrentConfiguration
-                                         .SelectedOptionTab;
+                View.SelectedOptionTab = ConfigProvider.CurrentConfiguration
+                    .SelectedOptionTab;
 
                 View.MatchExactWord = CurrentConfiguration.MatchExactWord;
 

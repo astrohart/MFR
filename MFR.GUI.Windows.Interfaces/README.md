@@ -4,6 +4,7 @@
 ## Contents
 
 - [IMainWindow](#T-MFR-GUI-Windows-Interfaces-IMainWindow 'MFR.GUI.Windows.Interfaces.IMainWindow')
+  - [FindWhat](#P-MFR-GUI-Windows-Interfaces-IMainWindow-FindWhat 'MFR.GUI.Windows.Interfaces.IMainWindow.FindWhat')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-FindWhatComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-Interfaces-IMainWindow-FoldButton 'MFR.GUI.Windows.Interfaces.IMainWindow.FoldButton')
   - [FullApplicationName](#P-MFR-GUI-Windows-Interfaces-IMainWindow-FullApplicationName 'MFR.GUI.Windows.Interfaces.IMainWindow.FullApplicationName')
@@ -13,6 +14,7 @@
   - [MatchExactWord](#P-MFR-GUI-Windows-Interfaces-IMainWindow-MatchExactWord 'MFR.GUI.Windows.Interfaces.IMainWindow.MatchExactWord')
   - [OperationsCheckedListBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-OperationsCheckedListBox 'MFR.GUI.Windows.Interfaces.IMainWindow.OperationsCheckedListBox')
   - [ProfileCollectionComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ProfileCollectionComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ProfileCollectionComboBox')
+  - [ReplaceWith](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWith 'MFR.GUI.Windows.Interfaces.IMainWindow.ReplaceWith')
   - [ReplaceWithComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWithComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ReplaceWithComboBox')
   - [SelectAll](#P-MFR-GUI-Windows-Interfaces-IMainWindow-SelectAll 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectAll')
   - [SelectedOptionTab](#P-MFR-GUI-Windows-Interfaces-IMainWindow-SelectedOptionTab 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectedOptionTab')
@@ -39,6 +41,14 @@ MFR.GUI.Windows.Interfaces
 
 Defines the public-exposed methods and properties of the main window of
 the application.
+
+<a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-FindWhat'></a>
+### FindWhat `property`
+
+##### Summary
+
+Gets or sets the text displayed in the edit portion of the 
+combo box.
 
 <a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-FindWhatComboBox'></a>
 ### FindWhatComboBox `property`
@@ -110,6 +120,14 @@ that has the list of operations.
 
 Gets a reference to a [ToolStripComboBox](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ToolStripComboBox 'System.Windows.Forms.ToolStripComboBox')
 that has a drop-down list of the profiles that the user has created.
+
+<a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWith'></a>
+### ReplaceWith `property`
+
+##### Summary
+
+Gets or sets the text displayed in the edit portion of the 
+combo box.
 
 <a name='P-MFR-GUI-Windows-Interfaces-IMainWindow-ReplaceWithComboBox'></a>
 ### ReplaceWithComboBox `property`

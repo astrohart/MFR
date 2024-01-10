@@ -26,6 +26,8 @@
   - [Result](#P-MFR-GUI-Dialogs-Interfaces-IOperationDrivenProgressDialog-Result 'MFR.GUI.Dialogs.Interfaces.IOperationDrivenProgressDialog.Result')
 - [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog')
   - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.AutoQuitOnCompletion')
+  - [CommitAuthorEmail](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-CommitAuthorEmail 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.CommitAuthorEmail')
+  - [CommitAuthorName](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-CommitAuthorName 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.CommitAuthorName')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ConfigPathname')
   - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.DontPromptUserToReloadOpenSolution')
   - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.IsModified')
@@ -299,6 +301,22 @@ allows the user to configure the application.
 
 Gets or sets the value of the
 checkbox.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-CommitAuthorEmail'></a>
+### CommitAuthorEmail `property`
+
+##### Summary
+
+Gets or sets the value of the text box in the
+group box on the tab.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-CommitAuthorName'></a>
+### CommitAuthorName `property`
+
+##### Summary
+
+Gets or sets the value of the text box in the
+group box on the tab.
 
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`

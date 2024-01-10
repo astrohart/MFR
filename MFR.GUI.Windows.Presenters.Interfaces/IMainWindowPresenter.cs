@@ -13,11 +13,20 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of the presenter
-    /// object for the main application window..
+    /// object for the main application window.
     /// </summary>
     public interface
         IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
+        /// <summary>
+        /// Gets a value that indicates whether the values displayed to the user differ
+        /// from those in the configuration file.
+        /// </summary>
+        bool IsDirty
+        {
+            get;
+        }
+
         /// <summary>
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
@@ -176,7 +185,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// pathname of a file from which the config should be imported.
         /// </param>
         /// <remarks>
-        /// The data is presumed to be located inside of a JSON-formatted file
+        /// The data is presumed to be located inside a JSON-formatted file
         /// that exists on the user's hard drive and has the <c>.json</c> extension.
         /// </remarks>
         void ImportConfiguration(

@@ -14,6 +14,7 @@
   - [FileRenamer](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileRenamer')
   - [FindWhat](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhatComboBox 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhatComboBox')
+  - [IsDirty](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-IsDirty 'MFR.GUI.Windows.Presenters.MainWindowPresenter.IsDirty')
   - [IsProfileLoaded](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-IsProfileLoaded 'MFR.GUI.Windows.Presenters.MainWindowPresenter.IsProfileLoaded')
   - [OperationEngine](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-OperationEngine 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OperationEngine')
   - [ProfileProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ProfileProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ProfileProvider')
@@ -183,6 +184,14 @@ Gets the text to be searched for during the operations.
 Gets a reference to an instance of an object that implements the
 [IEntryRespectingComboBox](#T-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox 'MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox') interface
 that plays the role of the Find What combo box.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-IsDirty'></a>
+### IsDirty `property`
+
+##### Summary
+
+Gets a value that indicates whether the values displayed to the user differ
+from those in the configuration file.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-IsProfileLoaded'></a>
 ### IsProfileLoaded `property`

@@ -138,6 +138,8 @@
   - [#ctor()](#M-MFR-GUI-Dialogs-OptionsDialog-#ctor 'MFR.GUI.Dialogs.OptionsDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-OptionsDialog-components 'MFR.GUI.Dialogs.OptionsDialog.components')
   - [AutoQuitOnCompletion](#P-MFR-GUI-Dialogs-OptionsDialog-AutoQuitOnCompletion 'MFR.GUI.Dialogs.OptionsDialog.AutoQuitOnCompletion')
+  - [CommitAuthorEmail](#P-MFR-GUI-Dialogs-OptionsDialog-CommitAuthorEmail 'MFR.GUI.Dialogs.OptionsDialog.CommitAuthorEmail')
+  - [CommitAuthorName](#P-MFR-GUI-Dialogs-OptionsDialog-CommitAuthorName 'MFR.GUI.Dialogs.OptionsDialog.CommitAuthorName')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialog.ConfigPathname')
   - [ConfigProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
@@ -2034,6 +2036,22 @@ Required designer variable.
 
 Gets or sets the value of the
 checkbox.
+
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-CommitAuthorEmail'></a>
+### CommitAuthorEmail `property`
+
+##### Summary
+
+Gets or sets the value of the text box in the
+group box on the tab.
+
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-CommitAuthorName'></a>
+### CommitAuthorName `property`
+
+##### Summary
+
+Gets or sets the value of the text box in the
+group box on the tab.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname'></a>
 ### ConfigPathname `property`
