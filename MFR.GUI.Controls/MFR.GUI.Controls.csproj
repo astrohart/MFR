@@ -112,9 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="EntryRespectingComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="EntryRespectingComboBox.cs" />
     <Compile Include="FoldUnfoldButton.cs">
       <SubType>Component</SubType>
     </Compile>

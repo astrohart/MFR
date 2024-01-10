@@ -82,7 +82,9 @@
   - [Error_OperationAborted](#P-MFR-Renamers-Files-Properties-Resources-Error_OperationAborted 'MFR.Renamers.Files.Properties.Resources.Error_OperationAborted')
   - [Info_AttemptingToRenameSubFolders](#P-MFR-Renamers-Files-Properties-Resources-Info_AttemptingToRenameSubFolders 'MFR.Renamers.Files.Properties.Resources.Info_AttemptingToRenameSubFolders')
   - [Info_CommittingPendingChangesToGit](#P-MFR-Renamers-Files-Properties-Resources-Info_CommittingPendingChangesToGit 'MFR.Renamers.Files.Properties.Resources.Info_CommittingPendingChangesToGit')
+  - [Info_CommittingPendingChangesToGit_WithStats](#P-MFR-Renamers-Files-Properties-Resources-Info_CommittingPendingChangesToGit_WithStats 'MFR.Renamers.Files.Properties.Resources.Info_CommittingPendingChangesToGit_WithStats')
   - [Info_CommittingResultsToGit](#P-MFR-Renamers-Files-Properties-Resources-Info_CommittingResultsToGit 'MFR.Renamers.Files.Properties.Resources.Info_CommittingResultsToGit')
+  - [Info_CommittingResultsToGit_WithStats](#P-MFR-Renamers-Files-Properties-Resources-Info_CommittingResultsToGit_WithStats 'MFR.Renamers.Files.Properties.Resources.Info_CommittingResultsToGit_WithStats')
   - [ResourceManager](#P-MFR-Renamers-Files-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Properties.Resources.ResourceManager')
   - [StatusUpdate_AttemptingRenameSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_AttemptingRenameSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_AttemptingRenameSolutionFolders')
   - [StatusUpdate_FinishedRenamingSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_FinishedRenamingSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_FinishedRenamingSolutionFolders')
@@ -1428,12 +1430,30 @@ Looks up a localized string similar to Attempting to rename subfolders of '{0}',
 
 Looks up a localized string similar to Committing your pending changes to Git....
 
+<a name='P-MFR-Renamers-Files-Properties-Resources-Info_CommittingPendingChangesToGit_WithStats'></a>
+### Info_CommittingPendingChangesToGit_WithStats `property`
+
+##### Summary
+
+Looks up a localized string similar to Committing your pending changes to Git...
+
+{0} total pending change(s) across {1} repository(ies).
+
 <a name='P-MFR-Renamers-Files-Properties-Resources-Info_CommittingResultsToGit'></a>
 ### Info_CommittingResultsToGit `property`
 
 ##### Summary
 
-Looks up a localized string similar to Committing results of operation(s) to Git....
+Looks up a localized string similar to Committing result(s) of operation(s) to Git....
+
+<a name='P-MFR-Renamers-Files-Properties-Resources-Info_CommittingResultsToGit_WithStats'></a>
+### Info_CommittingResultsToGit_WithStats `property`
+
+##### Summary
+
+Looks up a localized string similar to Committing results of operation(s) to Git...
+
+{0} total pending change(s) across {1} repository(ies).
 
 <a name='P-MFR-Renamers-Files-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

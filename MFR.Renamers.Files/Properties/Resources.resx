@@ -148,7 +148,7 @@ Do you want to proceed with the rename operation?</value>
     <value>The attempt to open the Solution '{0}' has failed.</value>
   </data>
   <data name="CommitMessage_UsedProjectFileRenamer" xml:space="preserve">
-      <value>git commit -m "Used the Project File Renamer" -m "At {0} {5} on {1}, the Project File Renamer was used to replace all occurrences of '{2}' with '{3}' in the files, folders, and names of folders of the '{4}' folder."</value>
+    <value>git commit -m "Used the Project File Renamer" -m "At {0} {5} on {1}, the Project File Renamer was used to replace all occurrences of '{2}' with '{3}' in the files, folders, and names of folders of the '{4}' folder."</value>
   </data>
   <data name="Command_GitAddAll" xml:space="preserve">
     <value>git add .</value>
@@ -156,18 +156,28 @@ Do you want to proceed with the rename operation?</value>
   <data name="Info_AttemptingToRenameSubFolders" xml:space="preserve">
     <value>Attempting to rename subfolders of '{0}', replacing '{1}' with '{2}'...</value>
   </data>
-  <data name="Info_CommittingResultsToGit" xml:space="preserve">
-    <value>Committing results of operation(s) to Git...</value>
+  <data name="Info_CommittingResultsToGit_WithStats" xml:space="preserve">
+      <value>Committing results of operation(s) to Git...
+
+{0} total pending change(s) across {1} repository(ies)</value>
   </data>
   <data name="Info_CommittingPendingChangesToGit" xml:space="preserve">
     <value>Committing your pending changes to Git...</value>
   </data>
   <data name="CommitMessage_AboutToUseProjectFileRenamer" xml:space="preserve">
-      <value>git commit -m "Latest updates on {1} at {0} {5}" -m "At {0} on {1}, the Project File Renamer was invoked to replace all occurrences of '{2}' with '{3}' in the files, folders, and names of folders of the '{4}' folder."</value>
+    <value>git commit -m "Latest updates on {1} at {0} {5}" -m "At {0} on {1}, the Project File Renamer was invoked to replace all occurrences of '{2}' with '{3}' in the files, folders, and names of folders of the '{4}' folder."</value>
   </data>
   <data name="Warning_FailedCommitPendingChanges" xml:space="preserve">
-      <value>Failed to commit pending changes to the repository you're working in.
+    <value>Failed to commit pending changes to the repository you're working in.
 
 We will still carry out the operations.</value>
+  </data>
+  <data name="Info_CommittingResultsToGit" xml:space="preserve">
+    <value>Committing result(s) of operation(s) to Git...</value>
+  </data>
+  <data name="Info_CommittingPendingChangesToGit_WithStats" xml:space="preserve">
+      <value>Committing your pending changes to Git...
+
+{0} total pending change(s) across {1} repository(ies)</value>
   </data>
 </root>

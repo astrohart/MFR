@@ -2215,6 +2215,16 @@ namespace MFR.Renamers.Files
                     return result;
                 }
 
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        string.Format(
+                            Resources
+                                .Info_CommittingPendingChangesToGit_WithStats,
+                            totalPendingChanges, TotalReposWithPendingChanges
+                        ), CurrentOperation
+                    )
+                );
+
                 /*
                  * The Pending Changes to be Committed event really is meant
                  * to report 4 x the number of local Git repos having pending
@@ -2351,8 +2361,7 @@ namespace MFR.Renamers.Files
                             CurrentConfiguration
                                 .PendingChangesCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
-                    ),
-                    CurrentConfiguration.CommitAuthorName,
+                    ), CurrentConfiguration.CommitAuthorName,
                     CurrentConfiguration.CommitAuthorEmail,
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
@@ -2415,12 +2424,6 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        Resources.Info_CommittingResultsToGit, CurrentOperation
-                    )
-                );
-
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.CommitResultsToGit)
@@ -2467,6 +2470,11 @@ namespace MFR.Renamers.Files
                         Resources.Error_OperationAborted
                     );
 
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        Resources.Info_CommittingResultsToGit, CurrentOperation
+                    )
+                );
 
                 /*
                  * Let's not just ASSUME that more than zero changes were
@@ -2517,6 +2525,15 @@ namespace MFR.Renamers.Files
 
                     return result;
                 }
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        string.Format(
+                            Resources.Info_CommittingResultsToGit_WithStats,
+                            totalPendingChanges, TotalReposWithPendingChanges
+                        ), CurrentOperation
+                    )
+                );
 
                 OnSubfoldersToBeRenamedCounted(
                     new FilesOrFoldersCountedEventArgs(
@@ -2645,8 +2662,7 @@ namespace MFR.Renamers.Files
                             CurrentConfiguration
                                 .PostOperationCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
-                    ),
-                    CurrentConfiguration.CommitAuthorName,
+                    ), CurrentConfiguration.CommitAuthorName,
                     CurrentConfiguration.CommitAuthorEmail,
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
@@ -3023,14 +3039,17 @@ namespace MFR.Renamers.Files
                 if (entry == null) return result;
                 if (!entry.Exists) return result;
 
-                if (LocalGitInteropProvider == null ||
-                    !entry.Path.Equals(
-                        LocalGitInteropProvider.RepositoryFolder
-                    ))
+                if (LocalGitInteropProvider == null)
                     LocalGitInteropProvider =
                         MakeNewLocalGitInteropProvider.ForLocalGitFolder(
                             entry.Path
                         );
+                else if (!entry.Path.Equals(
+                             LocalGitInteropProvider.RepositoryFolder
+                         ))
+                    LocalGitInteropProvider.SetRepositoryFolder(entry.Path);
+                else
+                    LocalGitInteropProvider.ScanForRepoChanges();
 
                 if (!LocalGitInteropProvider.HasCurrentBranch) return result;
                 if (!LocalGitInteropProvider.HasRemoteOrigin) return result;

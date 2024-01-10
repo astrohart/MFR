@@ -1,5 +1,6 @@
-using PostSharp.Patterns.Threading;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Threading;
 using System;
 
 namespace MFR.Events.Common
@@ -8,7 +9,7 @@ namespace MFR.Events.Common
     /// Defines the data that is passed by all events of type
     /// <see cref="T:MFR.Events.Common.StatusUpdateEventHandler" />.
     /// </summary>
-[ExplicitlySynchronized]
+    [ExplicitlySynchronized]
     public class StatusUpdateEventArgs : EventArgs
     {
         /// <summary>
@@ -29,9 +30,16 @@ namespace MFR.Events.Common
         /// </param>
         /// <param name="operationFinished">
         /// (Optional.) A <see cref="T:System.Boolean" /> value that indicates whether the
-        /// operation is finished.<para/>Default value is <see langword="false" />.
+        /// operation is finished.
+        /// <para />
+        /// Default value is <see langword="false" />.
         /// </param>
-        public StatusUpdateEventArgs(string text, OperationType operationType, bool operationFinished = false)
+        [Log(AttributeExclude = true)]
+        public StatusUpdateEventArgs(
+            string text,
+            OperationType operationType,
+            bool operationFinished = false
+        )
         {
             Text = text;
             OperationFinished = operationFinished;
