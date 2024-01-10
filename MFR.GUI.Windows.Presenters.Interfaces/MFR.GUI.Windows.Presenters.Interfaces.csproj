@@ -106,10 +106,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2023.0.8\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -137,13 +134,13 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Operations.Interfaces\MFR.Engines.Operations.Interfaces.csproj">
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
       <Name>MFR.Engines.Operations.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
-      <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>
-      <Name>MFR.GUI.Dialogs.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Events\MFR.GUI.Windows.Presenters.Events.csproj">
       <Project>{AF8498C6-2BF6-4505-BA90-39CBB40AE766}</Project>
@@ -180,18 +177,6 @@
     <ProjectReference Include="..\MFR.Operations.Events\MFR.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>
       <Name>MFR.Operations.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Renamers.Files.Interfaces\MFR.Renamers.Files.Interfaces.csproj">
-      <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
-      <Name>MFR.Renamers.Files.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
-      <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
-      <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Providers.Interfaces\MFR.Settings.Profiles.Providers.Interfaces.csproj">
-      <Project>{06CF2D9E-37A9-4432-800D-0D02A1BF19AA}</Project>
-      <Name>MFR.Settings.Profiles.Providers.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

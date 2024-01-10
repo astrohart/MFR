@@ -140,13 +140,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Interfaces\xyLOGIX.Forms.DarkTheme.Interfaces.csproj">
-      <Project>{597dc3e0-72ed-4cd8-afc5-dfd099393447}</Project>
-      <Name>xyLOGIX.Forms.DarkTheme.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme\xyLOGIX.Forms.DarkTheme.csproj">
-      <Project>{d80693bf-21a9-476a-b690-5e9e758bb4fa}</Project>
-      <Name>xyLOGIX.Forms.DarkTheme</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
+      <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
+      <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Forms\xyLOGIX.UI.Dark.Forms.csproj">
       <Project>{E88EC1DD-47DA-4EFF-A3C1-42E7A58E21AC}</Project>

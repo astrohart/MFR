@@ -1971,7 +1971,7 @@ namespace MFR.GUI.Windows
 
             if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
             {
-                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                Actions.Display.StopError(
                     this, Resources.Error_FindWhat_MissingValue
                 );
                 hiddenFocusLabel.Focus();
@@ -1981,7 +1981,7 @@ namespace MFR.GUI.Windows
 
             if (OperationsCheckedListBox.NoItemsAreSelected())
             {
-                if (xyLOGIX.Win32.Interact.Messages.ShowYesNoQuestion(
+                if (Actions.Display.ConfirmWithYesNo(
                         this, Resources.Error_NoOperationSelected
                     ) != DialogResult.No)
                 {
@@ -2000,7 +2000,7 @@ namespace MFR.GUI.Windows
             if (!OnlyReplaceInFilesOperationIsEnabled &&
                 string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText))
             {
-                xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                Actions.Display.StopError(
                     this, Resources.Error_Specify_ReplaceWith
                 );
                 hiddenFocusLabel.Focus();
@@ -2027,7 +2027,7 @@ namespace MFR.GUI.Windows
                     StartingFolderComboBox.EnteredText,
                     ReplaceWithComboBox.EnteredText
                 ) && DialogResult.No ==
-                xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                Actions.Display.ConfirmWithYesNo(
                     this,
                     Resources.Confirm_ReplaceTextThatWouldOverwriteExistingFiles
                 ))
