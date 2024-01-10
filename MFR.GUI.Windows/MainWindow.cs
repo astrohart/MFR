@@ -1181,10 +1181,6 @@ namespace MFR.GUI.Windows
             Presenter.SaveConfiguration();
 
             UseWaitCursor = false;
-
-            xyLOGIX.Win32.Interact.Messages.ShowInformation(
-                this, "The configuration has been saved."
-            );
         }
 
         /// <summary>
