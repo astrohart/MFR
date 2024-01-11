@@ -80,7 +80,8 @@ namespace MFR.Settings.Configuration.Mappers
         /// mapped.
         /// </param>
         /// <returns>A <see cref="T:System.String" /> value containing the replaced values.</returns>
-        public virtual string Map(string input)
+        [return: NotLogged]
+        public virtual string Map([NotLogged] string input)
         {
             var result = input;
 
@@ -132,9 +133,17 @@ namespace MFR.Settings.Configuration.Mappers
         /// </summary>
         private void InitializeMappingDictionary()
         {
-            InternalMappingDictionary.Clear();
+            try
+            {
+                InternalMappingDictionary.Clear();
 
-            OnInitializeMapping();
+                OnInitializeMapping();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }
