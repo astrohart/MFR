@@ -2272,6 +2272,7 @@ namespace MFR.Renamers.Files
                  * is likely to contain.
                  */
 
+                var succeeded = true;
                 foreach (var entry in fileSystemEntries)
                 {
                     if (AbortRequested) break;
@@ -2282,7 +2283,12 @@ namespace MFR.Renamers.Files
 
                     if (!pendingChangesTracker[entry]) continue;
 
-                    result &= CommitPendingChangesForEntry(
+                    /*
+                     * It's good enough for just one of the calls to
+                     * commit the repository(ies) to Git succeeds.
+                     */
+
+                    succeeded |= CommitPendingChangesForEntry(
                         rootFolderPath, findWhat, replaceWith, entry
                     );
                 }
@@ -2291,7 +2297,7 @@ namespace MFR.Renamers.Files
 
                 /* if we are here, then the operation succeeded -- EXCEPT
                  if the AbortRequested property is set to TRUE */
-                result &= !AbortRequested;
+                result = succeeded && !AbortRequested;
             }
             catch (OperationAbortedException)
             {
@@ -2418,6 +2424,9 @@ namespace MFR.Renamers.Files
             }
             catch (Exception ex)
             {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
 
                 result = false;
@@ -2603,6 +2612,7 @@ namespace MFR.Renamers.Files
                  * local Git repository that the folder is likely to contain.
                  */
 
+                var succeeded = true;
                 foreach (var entry in fileSystemEntries)
                 {
                     if (AbortRequested) break;
@@ -2613,12 +2623,19 @@ namespace MFR.Renamers.Files
 
                     if (!pendingChangesTracker[entry]) continue;
 
-                    result &= CommitResultsToGitForEntry(
+                    /*
+                     * It's good enough for just one of the calls to
+                     * commit the repository(ies) to Git succeeds.
+                     */
+
+                    succeeded |= CommitResultsToGitForEntry(
                         rootFolderPath, findWhat, replaceWith, entry
                     );
                 }
 
                 pendingChangesTracker.Clear(); // free up memory
+
+                result = succeeded;
 
                 /*
                  * Do a push to the remote branch.  Only do this if a remote called 'origin' is
@@ -2636,7 +2653,7 @@ namespace MFR.Renamers.Files
                  * especially when the user is working on a very large software system.
                  */
 
-                if (LocalGitInteropProvider.HasRemoteOrigin &&
+                if (succeeded && LocalGitInteropProvider.HasRemoteOrigin &&
                     LocalGitInteropProvider.HasCurrentBranch &&
                     CurrentConfiguration.PushChangesToRemoteWhenDone)
                 {

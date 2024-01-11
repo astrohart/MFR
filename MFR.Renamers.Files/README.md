@@ -32,6 +32,7 @@
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
+  - [ConnectToLocalGitRepoFor(entry)](#M-MFR-Renamers-Files-FileRenamer-ConnectToLocalGitRepoFor-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.ConnectToLocalGitRepoFor(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
   - [HasPendingChanges(entry)](#M-MFR-Renamers-Files-FileRenamer-HasPendingChanges-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.HasPendingChanges(MFR.FileSystem.Interfaces.IFileSystemEntry)')
@@ -453,6 +454,40 @@ is included in the event data.  The handler(s) of this event may set the value
 of the [Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property
 to `true` to block this operation from proceeding, but only
 for the currently-specified `solution`.
+
+<a name='M-MFR-Renamers-Files-FileRenamer-ConnectToLocalGitRepoFor-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### ConnectToLocalGitRepoFor(entry) `method`
+
+##### Summary
+
+Called to determine whether the `Local Git Interop Provider` object has
+already been initialized for the current `entry`, or if a new
+instance needs to be initialized for the specified `entry`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface that
+represents a folder containing the local Git repository with which to
+interoperate. |
+
+##### Remarks
+
+This method does nothing if a `null` reference is
+passed for the argument of the `entry` parameter, the
+`entry` represents a file, or if the
+`entry` does not refer to a folder that exists in the file
+system.
+
+
+
+This method also does nothing if the
+[LocalGitInteropProvider](#P-MFR-Renamers-Files-FileRenamer-LocalGitInteropProvider 'MFR.Renamers.Files.FileRenamer.LocalGitInteropProvider')
+property already refers to a `Local Git Interop Provider` that is focused
+on the specified `entry`, except that it does re-scan that
+repository for changes.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter) `method`
