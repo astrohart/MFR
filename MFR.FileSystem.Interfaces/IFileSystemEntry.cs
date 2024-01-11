@@ -1,4 +1,5 @@
 using MFR.Operations.Interfaces;
+using System;
 
 namespace MFR.FileSystem.Interfaces
 {
@@ -6,7 +7,8 @@ namespace MFR.FileSystem.Interfaces
     /// Defines the public-exposed methods and properties of a POCO that
     /// encapsulates data about a file-system entry.
     /// </summary>
-    public interface IFileSystemEntry : IOperationTypeSpecificObject
+    public interface IFileSystemEntry : IOperationTypeSpecificObject,
+        IEquatable<IFileSystemEntry>
     {
         /// <summary>
         /// Gets or sets the pathname of the parent folder of this file system entry.
@@ -25,6 +27,19 @@ namespace MFR.FileSystem.Interfaces
         /// <see langword="false" /> otherwise.
         /// </returns>
         bool Exists
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the entry represents a file or a folder on the
+        /// file system.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if this file system entry is folder;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        bool IsFolder
         {
             get;
         }

@@ -38,6 +38,7 @@ using MFR.Solutions.Providers.Factories;
 using MFR.Solutions.Providers.Interfaces;
 using MFR.TextValues.Retrievers.Actions;
 using MFR.TextValues.Retrievers.Factories;
+using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -637,6 +638,11 @@ namespace MFR.Renamers.Files
                 //Ignored.
 
                 result = true;
+            }
+            finally
+            {
+                LocalGitInteropProvider?.Dispose();
+                LocalGitInteropProvider = null;
             }
 
             DebugUtils.WriteLine(
@@ -2176,6 +2182,11 @@ namespace MFR.Renamers.Files
                  * have pending changes.
                  */
 
+                // Use a dictionary to track whether the repos have pending changes,
+                // so we do not have to search for pending changes over and over again.
+                var pendingChangesTracker =
+                    new AdvisableDictionary<IFileSystemEntry, bool>();
+
                 var totalPendingChanges = 0;
 
                 TotalReposWithPendingChanges = 0;
@@ -2184,11 +2195,25 @@ namespace MFR.Renamers.Files
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
 
-                    if (!HasPendingChanges(entry)) continue;
+                    pendingChangesTracker.Add(entry, HasPendingChanges(entry));
+
+                    if (!pendingChangesTracker[entry]) continue;
 
                     TotalReposWithPendingChanges++;
                     totalPendingChanges += (int)entry.UserState;
                 }
+
+                // Dump the value of the property, TotalReposWithPendingChanges, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Total repository(ies) having pending changes = {TotalReposWithPendingChanges}"
+                );
+
+                // Dump the variable totalPendingChanges to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Total pending change(s) across all repository(ies) = {totalPendingChanges}"
+                );
 
                 /*
                  * If the TotalReposWithPendingChanges property is set equal to
@@ -2247,14 +2272,22 @@ namespace MFR.Renamers.Files
                  * is likely to contain.
                  */
 
-                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .All(
-                                              entry
-                                                  => CommitPendingChangesForEntry(
-                                                      rootFolderPath, findWhat,
-                                                      replaceWith, entry
-                                                  )
-                                          );
+                foreach (var entry in fileSystemEntries)
+                {
+                    if (AbortRequested) break;
+
+                    if (entry == null) continue;
+                    if (!entry.Exists) continue;
+                    if (!pendingChangesTracker.ContainsKey(entry)) continue;
+
+                    if (!pendingChangesTracker[entry]) continue;
+
+                    result &= CommitPendingChangesForEntry(
+                        rootFolderPath, findWhat, replaceWith, entry
+                    );
+                }
+
+                pendingChangesTracker.Clear();
 
                 /* if we are here, then the operation succeeded -- EXCEPT
                  if the AbortRequested property is set to TRUE */
@@ -2318,9 +2351,9 @@ namespace MFR.Renamers.Files
             if (!Does.FolderExist(rootFolderPath))
                 return result;
             if (string.IsNullOrWhiteSpace(findWhat)) return result;
-            if (entry == null || !Does.FolderExist(entry.Path))
+            if (entry == null || !entry.Exists || !entry.IsFolder)
                 return result;
-            if (!Does.FolderExist(Path.Combine(entry.Path, ".git")))
+            if (!Does.FolderContainLocalGitRepo(entry.Path))
                 return true; /* just silently "succeed" */
             if (AbortRequested) return false;
 
@@ -2331,6 +2364,8 @@ namespace MFR.Renamers.Files
                         entry, OperationType.CommitPendingChanges
                     )
                 );
+
+                ConnectToLocalGitRepoFor(entry);
 
                 /*
                  * Here is where we actually perform the indicated operations.
@@ -2343,9 +2378,6 @@ namespace MFR.Renamers.Files
                  *
                  * We're only concerned with committing here.
                  */
-
-                if (!HasPendingChanges(entry))
-                    return result;
 
                 LocalGitInteropProvider.Stage();
 
@@ -2389,10 +2421,6 @@ namespace MFR.Renamers.Files
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
 
                 result = false;
-            }
-            finally
-            {
-                LocalGitInteropProvider?.Dispose();
             }
 
             DebugUtils.WriteLine(
@@ -2487,6 +2515,16 @@ namespace MFR.Renamers.Files
                  * have pending changes.
                  */
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.CommitResultsToGit: Counting pending changes..."
+                );
+
+                // Use a dictionary to track whether the repos have pending changes,
+                // so we do not have to search for pending changes over and over again.
+                var pendingChangesTracker =
+                    new AdvisableDictionary<IFileSystemEntry, bool>();
+
                 var totalPendingChanges = 0;
 
                 TotalReposWithPendingChanges = 0;
@@ -2495,11 +2533,25 @@ namespace MFR.Renamers.Files
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
 
-                    if (!HasPendingChanges(entry)) continue;
+                    pendingChangesTracker.Add(entry, HasPendingChanges(entry));
+
+                    if (!pendingChangesTracker[entry]) continue;
 
                     TotalReposWithPendingChanges++;
                     totalPendingChanges += (int)entry.UserState;
                 }
+
+                // Dump the value of the property, TotalReposWithPendingChanges, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Total repository(ies) having pending changes = {TotalReposWithPendingChanges}"
+                );
+
+                // Dump the variable totalPendingChanges to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Total pending change(s) across all repository(ies) = {totalPendingChanges}"
+                );
 
                 /*
                  * If the TotalReposWithPendingChanges property is set equal to
@@ -2546,18 +2598,56 @@ namespace MFR.Renamers.Files
                  * OKAY, this is the loop over the list of the subfolders
                  * whose pathnames match the search criteria specified by
                  * the user.  For each folder, commit any pending change(s)
-                 * inside of it to the local Git repository that the folder
-                 * is likely to contain.
+                 * that may have resulted of the file-rename operation(s)
+                 * requested by the user inside of it to the corresponding
+                 * local Git repository that the folder is likely to contain.
                  */
 
-                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .All(
-                                              entry
-                                                  => CommitResultsToGitForEntry(
-                                                      rootFolderPath, findWhat,
-                                                      replaceWith, entry
-                                                  )
-                                          );
+                foreach (var entry in fileSystemEntries)
+                {
+                    if (AbortRequested) break;
+
+                    if (entry == null) continue;
+                    if (!entry.Exists) continue;
+                    if (!pendingChangesTracker.ContainsKey(entry)) continue;
+
+                    if (!pendingChangesTracker[entry]) continue;
+
+                    result &= CommitResultsToGitForEntry(
+                        rootFolderPath, findWhat, replaceWith, entry
+                    );
+                }
+
+                pendingChangesTracker.Clear(); // free up memory
+
+                /*
+                 * Do a push to the remote branch.  Only do this if a remote called 'origin' is
+                 * configured.  Not all local Git repos have remotes, and not all of those remotes
+                 * have to be called 'origin'.
+                 *
+                 * NOTE: There is a new config property, PushChangesToRemoteWhenDone.
+                 * The value of this property is changeable at runtime by the user via the Git
+                 * tab on the Options dialog box.  Setting the property to false should suppress
+                 * this operation.
+                 *
+                 * We added this option since, as of 2.42.0, git for windows' ability to push has
+                 * vastly increased in the amount of time taken to do a push --- at least, on a
+                 * subjective basis.  Allowing the user to turn pushing off may save the user time,
+                 * especially when the user is working on a very large software system.
+                 */
+
+                if (LocalGitInteropProvider.HasRemoteOrigin &&
+                    LocalGitInteropProvider.HasCurrentBranch &&
+                    CurrentConfiguration.PushChangesToRemoteWhenDone)
+                {
+                    OnStatusUpdate(
+                        new StatusUpdateEventArgs(
+                            "Pushing changes to the remote...", CurrentOperation
+                        )
+                    );
+
+                    LocalGitInteropProvider.Push();
+                }
 
                 /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
                 result &= !AbortRequested;
@@ -2618,9 +2708,9 @@ namespace MFR.Renamers.Files
             if (!Does.FolderExist(rootFolderPath))
                 return result;
             if (string.IsNullOrWhiteSpace(findWhat)) return result;
-            if (entry == null || !Does.FolderExist(entry.Path))
+            if (entry == null || !entry.Exists || !entry.IsFolder)
                 return result;
-            if (!Does.FolderExist(Path.Combine(entry.Path, ".git")))
+            if (!Does.FolderContainLocalGitRepo(entry.Path))
                 return true; /* just silently "succeed" */
             if (AbortRequested) return false;
 
@@ -2644,9 +2734,7 @@ namespace MFR.Renamers.Files
                  * We're only concerned with committing here.
                  */
 
-                LocalGitInteropProvider =
-                    MakeNewLocalGitInteropProvider
-                        .ForLocalGitFolder(entry.Path);
+                ConnectToLocalGitRepoFor(entry);
 
                 LocalGitInteropProvider.Stage();
 
@@ -2679,31 +2767,11 @@ namespace MFR.Renamers.Files
                 );
 
                 /*
-                 * Do a push to the remote branch.  Only do this if a remote called 'origin' is
-                 * configured.  Not all local Git repos have remotes, and not all of those remotes
-                 * have to be called 'origin'.
-                 *
-                 * NOTE: There is a new config property, PushChangesToRemoteWhenDone.
-                 * The value of this property is changeable at runtime by the user via the Git
-                 * tab on the Options dialog box.  Setting the property to false should suppress
-                 * this operation.
-                 *
-                 * We added this option since, as of 2.42.0, git for windows' ability to push has
-                 * vastly increased in the amount of time taken to do a push --- at least, on a
-                 * subjective basis.  Allowing the user to turn pushing off may save the user time,
-                 * especially when the user is working on a very large software system.
+                 * If we are here, then the operation succeeded.  Make sure we
+                 * return TRUE.
                  */
 
-                using (var localGitRepo =
-                       MakeNewLocalGitInteropProvider.ForLocalGitFolder(
-                           entry.Path
-                       ))
-                    if (localGitRepo.HasRemoteOrigin &&
-                        localGitRepo.HasCurrentBranch && CurrentConfiguration
-                            .PushChangesToRemoteWhenDone)
-                        Run.SystemCommand(
-                            $"git push -u origin {localGitRepo.GetCurrentBranch()}"
-                        );
+                result = true;
             }
             catch (Exception ex)
             {
@@ -2718,6 +2786,63 @@ namespace MFR.Renamers.Files
             );
 
             return result;
+        }
+
+        /// <summary>
+        /// Called to determine whether the <c>Local Git Interop Provider</c> object has
+        /// already been initialized for the current <paramref name="entry" />, or if a new
+        /// instance needs to be initialized for the specified <paramref name="entry" />.
+        /// </summary>
+        /// <param name="entry">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface that
+        /// represents a folder containing the local Git repository with which to
+        /// interoperate.
+        /// </param>
+        /// <remarks>
+        /// This method does nothing if a <see langword="null" /> reference is
+        /// passed for the argument of the <paramref name="entry" /> parameter, the
+        /// <paramref name="entry" /> represents a file, or if the
+        /// <paramref name="entry" /> does not refer to a folder that exists in the file
+        /// system.
+        /// <para />
+        /// This method also does nothing if the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.LocalGitInteropProvider" />
+        /// property already refers to a <c>Local Git Interop Provider</c> that is focused
+        /// on the specified <paramref name="entry" />, except that it does re-scan that
+        /// repository for changes.
+        /// </remarks>
+        private void ConnectToLocalGitRepoFor(
+            IFileSystemEntry entry
+        )
+        {
+            try
+            {
+                /*
+                 * ASSUME that the specified File System Entry represents
+                 * a folder on the file system that contains a local Git
+                 * repository.  We must check those conditions prior to calling
+                 * this method.
+                 */
+
+                if (LocalGitInteropProvider != null &&
+                    entry.Path.Equals(
+                        LocalGitInteropProvider.RepositoryFolder
+                    ) && LocalGitInteropProvider.HasCurrentBranch)
+                {
+                    LocalGitInteropProvider.ScanForRepoChanges();
+                    return;
+                }
+
+                LocalGitInteropProvider =
+                    MakeNewLocalGitInteropProvider
+                        .ForLocalGitFolder(entry.Path);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -3039,6 +3164,11 @@ namespace MFR.Renamers.Files
                 if (entry == null) return result;
                 if (!entry.Exists) return result;
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.HasPendingChanges: Detecting whether the Git repository(ies) in '{entry.Path}' have any pending changes..."
+                );
+
                 if (LocalGitInteropProvider == null)
                     LocalGitInteropProvider =
                         MakeNewLocalGitInteropProvider.ForLocalGitFolder(
@@ -3061,6 +3191,12 @@ namespace MFR.Renamers.Files
                 // tag the file-system entry's UserState with the count of pending
                 // changes
                 entry.UserState = LocalGitInteropProvider.PendingChangesCount;
+
+                if (result)
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.HasPendingChanges: *** SUCCESS *** {LocalGitInteropProvider.PendingChangesCount} pending change(s) found in repository '{LocalGitInteropProvider.RepositoryFolder}'."
+                    );
             }
             catch (Exception ex)
             {
@@ -3069,6 +3205,11 @@ namespace MFR.Renamers.Files
 
                 result = false;
             }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.HasPendingChanges: Result = {result}"
+            );
 
             return result;
         }

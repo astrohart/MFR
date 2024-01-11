@@ -4,6 +4,7 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +25,13 @@ namespace MFR.FileSystem.Retrievers
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static CommitResultsToGitRetriever() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected CommitResultsToGitRetriever() { }
 
         /// <summary>

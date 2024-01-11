@@ -15,7 +15,7 @@ namespace MFR.FileSystem
     /// </summary>
     [Log(AttributeExclude = true)]
     public class FileSystemEntry : OperationTypeSpecificObjectBase,
-        IFileSystemEntry
+        IFileSystemEntry, IEquatable<FileSystemEntry>
     {
         /// <summary>
         /// Constructs a new instance of
@@ -94,6 +94,37 @@ namespace MFR.FileSystem
         }
 
         /// <summary>
+        /// Gets a value indicating whether the entry represents a file or a folder on the
+        /// file system.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if this file system entry is folder;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public bool IsFolder
+        {
+            get {
+                var result = false;
+
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(Path)) return result;
+
+                    result = Is.Folder(Path);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
         /// Gets one of the
         /// <see
         ///     cref="T:MFR.Operations.Constants.OperationType" />
@@ -140,6 +171,51 @@ namespace MFR.FileSystem
         }
 
         /// <summary>
+        /// Indicates whether the current object is equal to another object of the
+        /// same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>
+        /// <see langword="true" /> if the current object is equal to the
+        /// <paramref name="other" /> parameter; otherwise, <see langword="false" />.
+        /// </returns>
+        public bool Equals(FileSystemEntry other)
+            => Equals((IFileSystemEntry)other);
+
+        /// <summary>
+        /// Indicates whether the current object is equal to another object of the
+        /// same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>
+        /// <see langword="true" /> if the current object is equal to the
+        /// <paramref name="other" /> parameter; otherwise, <see langword="false" />.
+        /// </returns>
+        [Log(AttributeExclude = true)]
+        public bool Equals(IFileSystemEntry other)
+        {
+            var result = false;
+
+            try
+            {
+                if (ReferenceEquals(null, other)) return false;
+                if (ReferenceEquals(this, other)) return true;
+                result = ContainingFolder == other.ContainingFolder &&
+                         OperationType == other.OperationType &&
+                         Path == other.Path;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Associates user state information, such as file contents or other
         /// data, with this file-system entry.
         /// </summary>
@@ -161,6 +237,43 @@ namespace MFR.FileSystem
                         throw new ArgumentNullException(nameof(userState));
 
             return this;
+        }
+
+        /// <summary>
+        /// Determines whether the specified object is equal to the current
+        /// object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>
+        /// <see langword="true" /> if the specified object  is equal to the current
+        /// object; otherwise, <see langword="false" />.
+        /// </returns>
+        [Log(AttributeExclude = true)]
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((FileSystemEntry)obj);
+        }
+
+        /// <summary>Serves as the default hash function.</summary>
+        /// <returns>A hash code for the current object.</returns>
+        [Log(AttributeExclude = true)]
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = ContainingFolder != null
+                    ? ContainingFolder.GetHashCode()
+                    : 0;
+                hashCode = (hashCode * 397) ^ (int)OperationType;
+                hashCode = (hashCode * 397) ^
+                           (Path != null ? Path.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^
+                           (UserState != null ? UserState.GetHashCode() : 0);
+                return hashCode;
+            }
         }
 
         /// <summary>Returns a string that represents the current object.</summary>

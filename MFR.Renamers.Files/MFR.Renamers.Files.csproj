@@ -87,9 +87,6 @@
     <Reference Include="envdte80, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\envdte80.17.8.37221\lib\net472\envdte80.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -97,22 +94,7 @@
     <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.8.37221\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\Mono.Posix.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\Mono.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Security.Win32, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\Mono.Security.Win32.dll</HintPath>
-    </Reference>
     <Reference Include="netstandard" />
-    <Reference Include="NGit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\NGit.dll</HintPath>
-    </Reference>
-    <Reference Include="NSch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\NSch.dll</HintPath>
-    </Reference>
     <Reference Include="PostSharp, Version=2023.0.8.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.2023.0.8\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -133,9 +115,6 @@
     </Reference>
     <Reference Include="PostSharp.Patterns.Threading, Version=2023.0.8.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2023.0.8\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
-    </Reference>
-    <Reference Include="Sharpen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ngit.1.0.0.20110815\lib\net35\Sharpen.dll</HintPath>
     </Reference>
     <Reference Include="stdole, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\stdole.17.8.37221\lib\net472\stdole.dll</HintPath>
@@ -209,10 +188,6 @@
     <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TimeZoneInfo.Extensions.VS2019\xyLOGIX.TimeZoneInfo.Extensions\xyLOGIX.TimeZoneInfo.Extensions.csproj">
-      <Project>{20BD940C-E833-4957-98C2-30CD14269AC1}</Project>
-      <Name>xyLOGIX.TimeZoneInfo.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
       <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
