@@ -1,6 +1,8 @@
 using MFR.Settings.Configuration.Mappers.Constants;
 using MFR.Settings.Configuration.Mappers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Configuration.Mappers
 {
@@ -59,24 +61,32 @@ namespace MFR.Settings.Configuration.Mappers
         /// </summary>
         protected override void OnInitializeMapping()
         {
-            InternalMappingDictionary.Add(
-                CommitMessageReplacementParameter.ShortTime, "{0}"
-            );
-            InternalMappingDictionary.Add(
-                CommitMessageReplacementParameter.ShortDate, "{1}"
-            );
-            InternalMappingDictionary.Add(
-                CommitMessageReplacementParameter.FindWhat, "{2}"
-            );
-            InternalMappingDictionary.Add(
-                CommitMessageReplacementParameter.ReplaceWith, "{3}"
-            );
-            InternalMappingDictionary.Add(
-                CommitMessageReplacementParameter.RootDir, "{4}"
-            );
-            InternalMappingDictionary.Add(
-                CommitMessageReplacementParameter.Timezone, "{5}"
-            );
+            try
+            {
+                InternalMappingDictionary.Add(
+                    CommitMessageReplacementParameter.ShortTime, "{0}"
+                );
+                InternalMappingDictionary.Add(
+                    CommitMessageReplacementParameter.ShortDate, "{1}"
+                );
+                InternalMappingDictionary.Add(
+                    CommitMessageReplacementParameter.FindWhat, "{2}"
+                );
+                InternalMappingDictionary.Add(
+                    CommitMessageReplacementParameter.ReplaceWith, "{3}"
+                );
+                InternalMappingDictionary.Add(
+                    CommitMessageReplacementParameter.RootDir, "{4}"
+                );
+                InternalMappingDictionary.Add(
+                    CommitMessageReplacementParameter.Timezone, "{5}"
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }
