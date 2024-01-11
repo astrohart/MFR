@@ -7,10 +7,15 @@
   - [#ctor(path)](#M-MFR-FileSystem-FileSystemEntry-#ctor-System-String- 'MFR.FileSystem.FileSystemEntry.#ctor(System.String)')
   - [ContainingFolder](#P-MFR-FileSystem-FileSystemEntry-ContainingFolder 'MFR.FileSystem.FileSystemEntry.ContainingFolder')
   - [Exists](#P-MFR-FileSystem-FileSystemEntry-Exists 'MFR.FileSystem.FileSystemEntry.Exists')
+  - [IsFolder](#P-MFR-FileSystem-FileSystemEntry-IsFolder 'MFR.FileSystem.FileSystemEntry.IsFolder')
   - [OperationType](#P-MFR-FileSystem-FileSystemEntry-OperationType 'MFR.FileSystem.FileSystemEntry.OperationType')
   - [Path](#P-MFR-FileSystem-FileSystemEntry-Path 'MFR.FileSystem.FileSystemEntry.Path')
   - [ShortPath](#P-MFR-FileSystem-FileSystemEntry-ShortPath 'MFR.FileSystem.FileSystemEntry.ShortPath')
   - [UserState](#P-MFR-FileSystem-FileSystemEntry-UserState 'MFR.FileSystem.FileSystemEntry.UserState')
+  - [Equals(other)](#M-MFR-FileSystem-FileSystemEntry-Equals-MFR-FileSystem-FileSystemEntry- 'MFR.FileSystem.FileSystemEntry.Equals(MFR.FileSystem.FileSystemEntry)')
+  - [Equals(other)](#M-MFR-FileSystem-FileSystemEntry-Equals-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.FileSystemEntry.Equals(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [Equals(obj)](#M-MFR-FileSystem-FileSystemEntry-Equals-System-Object- 'MFR.FileSystem.FileSystemEntry.Equals(System.Object)')
+  - [GetHashCode()](#M-MFR-FileSystem-FileSystemEntry-GetHashCode 'MFR.FileSystem.FileSystemEntry.GetHashCode')
   - [SetUserState(userState)](#M-MFR-FileSystem-FileSystemEntry-SetUserState-System-Object- 'MFR.FileSystem.FileSystemEntry.SetUserState(System.Object)')
   - [ToString()](#M-MFR-FileSystem-FileSystemEntry-ToString 'MFR.FileSystem.FileSystemEntry.ToString')
 - [Resources](#T-MFR-FileSystem-Properties-Resources 'MFR.FileSystem.Properties.Resources')
@@ -71,6 +76,19 @@ Gets a value that indicates whether the file system entry exists.
 `true` if the file system entry exists;
 `false` otherwise.
 
+<a name='P-MFR-FileSystem-FileSystemEntry-IsFolder'></a>
+### IsFolder `property`
+
+##### Summary
+
+Gets a value indicating whether the entry represents a file or a folder on the
+file system.
+
+##### Returns
+
+`true` if this file system entry is folder;
+`false` otherwise.
+
 <a name='P-MFR-FileSystem-FileSystemEntry-OperationType'></a>
 ### OperationType `property`
 
@@ -108,6 +126,78 @@ Gets or sets user state.
 For example, if the file-system entry is representing a text file,
 then this property might contain the file's contents from them
 having been previously read in.
+
+<a name='M-MFR-FileSystem-FileSystemEntry-Equals-MFR-FileSystem-FileSystemEntry-'></a>
+### Equals(other) `method`
+
+##### Summary
+
+Indicates whether the current object is equal to another object of the
+same type.
+
+##### Returns
+
+`true` if the current object is equal to the
+`other` parameter; otherwise, `false`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| other | [MFR.FileSystem.FileSystemEntry](#T-MFR-FileSystem-FileSystemEntry 'MFR.FileSystem.FileSystemEntry') | An object to compare with this object. |
+
+<a name='M-MFR-FileSystem-FileSystemEntry-Equals-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### Equals(other) `method`
+
+##### Summary
+
+Indicates whether the current object is equal to another object of the
+same type.
+
+##### Returns
+
+`true` if the current object is equal to the
+`other` parameter; otherwise, `false`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| other | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | An object to compare with this object. |
+
+<a name='M-MFR-FileSystem-FileSystemEntry-Equals-System-Object-'></a>
+### Equals(obj) `method`
+
+##### Summary
+
+Determines whether the specified object is equal to the current
+object.
+
+##### Returns
+
+`true` if the specified object  is equal to the current
+object; otherwise, `false`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| obj | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to compare with the current object. |
+
+<a name='M-MFR-FileSystem-FileSystemEntry-GetHashCode'></a>
+### GetHashCode() `method`
+
+##### Summary
+
+Serves as the default hash function.
+
+##### Returns
+
+A hash code for the current object.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-FileSystem-FileSystemEntry-SetUserState-System-Object-'></a>
 ### SetUserState(userState) `method`

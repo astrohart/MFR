@@ -6,6 +6,7 @@
 - [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
   - [ContainingFolder](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-ContainingFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.ContainingFolder')
   - [Exists](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-Exists 'MFR.FileSystem.Interfaces.IFileSystemEntry.Exists')
+  - [IsFolder](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-IsFolder 'MFR.FileSystem.Interfaces.IFileSystemEntry.IsFolder')
   - [Path](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path 'MFR.FileSystem.Interfaces.IFileSystemEntry.Path')
   - [ShortPath](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-ShortPath 'MFR.FileSystem.Interfaces.IFileSystemEntry.ShortPath')
   - [UserState](#P-MFR-FileSystem-Interfaces-IFileSystemEntry-UserState 'MFR.FileSystem.Interfaces.IFileSystemEntry.UserState')
@@ -43,6 +44,19 @@ Gets a value that indicates whether the file system entry exists.
 ##### Returns
 
 `true` if the file system entry exists;
+`false` otherwise.
+
+<a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-IsFolder'></a>
+### IsFolder `property`
+
+##### Summary
+
+Gets a value indicating whether the entry represents a file or a folder on the
+file system.
+
+##### Returns
+
+`true` if this file system entry is folder;
 `false` otherwise.
 
 <a name='P-MFR-FileSystem-Interfaces-IFileSystemEntry-Path'></a>
