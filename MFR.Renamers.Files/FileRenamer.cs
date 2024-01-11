@@ -2195,7 +2195,8 @@ namespace MFR.Renamers.Files
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
 
-                    pendingChangesTracker.Add(entry, HasPendingChanges(entry));
+                    var hasPendingChanges = HasPendingChanges(entry);
+                    pendingChangesTracker.Add(entry, hasPendingChanges);
 
                     if (!pendingChangesTracker[entry]) continue;
 
