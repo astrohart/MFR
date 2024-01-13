@@ -110,8 +110,6 @@ namespace MFR.GUI.Windows
 
             InitializeConfiguration();
 
-            InitializeStyles();
-
             InitializeOperationEngine();
 
             InitializePresenter();
