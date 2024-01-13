@@ -4,7 +4,6 @@
 ## Contents
 
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
-  - [_enteredText](#F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText 'MFR.GUI.Controls.EntryRespectingComboBox._enteredText')
   - [EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText')
 - [FoldUnfoldButton](#T-MFR-GUI-Controls-FoldUnfoldButton 'MFR.GUI.Controls.FoldUnfoldButton')
   - [#ctor()](#M-MFR-GUI-Controls-FoldUnfoldButton-#ctor 'MFR.GUI.Controls.FoldUnfoldButton.#ctor')
@@ -41,14 +40,6 @@ entry from the auto-suggest list, when the input focus leaves the
 control," which seems to be the default behavior. This is detrimental to
 the software meeting certain requirements.  Therefore, this object was
 engineered in the hopes of making that behavior go away.
-
-<a name='F-MFR-GUI-Controls-EntryRespectingComboBox-_enteredText'></a>
-### _enteredText `constants`
-
-##### Summary
-
-String containing the text most recently typed into the editing
-field of the ComboBox by the user.
 
 <a name='P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText'></a>
 ### EnteredText `property`
