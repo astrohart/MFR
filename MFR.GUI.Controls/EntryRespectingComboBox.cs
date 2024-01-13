@@ -1,6 +1,5 @@
 using MFR.GUI.Controls.Interfaces;
 using PostSharp.Patterns.Diagnostics;
-using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Controls
@@ -21,12 +20,6 @@ namespace MFR.GUI.Controls
         IEntryRespectingComboBox
     {
         /// <summary>
-        /// String containing the text most recently typed into the editing
-        /// field of the ComboBox by the user.
-        /// </summary>
-        private string _enteredText;
-
-        /// <summary>
         /// Gets the text, verbatim, that was typed in the Combo Box's editing
         /// field, by the user.
         /// </summary>
@@ -45,12 +38,8 @@ namespace MFR.GUI.Controls
         /// </remarks>
         public string EnteredText
         {
-            get
-                => string.IsNullOrWhiteSpace(_enteredText) ||
-                   DropDownStyle != ComboBoxStyle.DropDown
-                    ? Text
-                    : _enteredText;
-            set => Text = _enteredText = value;
+            get => base.Text;
+            set => base.Text = value;
         }
     }
 }
