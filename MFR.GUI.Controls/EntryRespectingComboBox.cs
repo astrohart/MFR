@@ -79,19 +79,16 @@ namespace MFR.GUI.Controls
         {
             base.OnLeave(e);
 
-            EnteredText = Text; // save off the value of the Text property.
+            //EnteredText = Text; // save off the value of the Text property.
 
-            if (DropDownStyle == ComboBoxStyle.DropDown &&
-                !Items.Contains(EnteredText))
-            {
-                Items.Insert(
-                    0, /* list goes by reverse chronological order of entry */
-                    EnteredText
-                ); // add the text typed by the user to the list of items
-                SelectedIndex = 0; // select the newly-added item
-            }
+            if (DropDownStyle != ComboBoxStyle.DropDown ||
+                Items.Contains(EnteredText)) return;
+            Items.Insert(
+                0, /* list goes by reverse chronological order of entry */
+                EnteredText
+            ); // add the text typed by the user to the list of items
 
-            ClearSelection(); // remove the highlight
+            //ClearSelection(); // remove the highlight
         }
 
         /// <summary>
