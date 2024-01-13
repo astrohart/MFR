@@ -240,7 +240,27 @@ namespace MFR.GUI.Windows
         /// </summary>
         [Log(AttributeExclude = true)]
         private bool IsHistoryClear
-            => true;
+        {
+            get {
+                bool result;
+
+                try
+                {
+                    result = StartingFolderComboBox.Items.Count == 0 &&
+                             FindWhatComboBox.Items.Count == 0 &&
+                             ReplaceWithComboBox.Items.Count == 0;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the value of the Match Case checkbox.
