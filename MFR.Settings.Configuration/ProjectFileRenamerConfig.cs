@@ -637,6 +637,7 @@ namespace MFR.Settings.Configuration
         /// repository even when running in <c>Auto Start</c> mode.
         /// </summary>
         /// <remarks>The default value of this property is <see langword="true" />.</remarks>
+        [JsonProperty("updateGitOnAutoStart")]
         public bool UpdateGitOnAutoStart
         {
             get;
