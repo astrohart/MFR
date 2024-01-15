@@ -633,6 +633,16 @@ namespace MFR.Settings.Configuration
         } = new List<string>();
 
         /// <summary>
+        /// Gets or sets a value indicating whether to update the user's local Git
+        /// repository even when running in <c>Auto Start</c> mode.
+        /// </summary>
+        public bool UpdateGitOnAutoStart
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Occurs when the value of the
         /// <see
         ///     cref="P:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolder" />
