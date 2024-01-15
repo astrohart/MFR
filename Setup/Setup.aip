@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8775.33154" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8779.28737" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -53,6 +53,7 @@
     <ROW Component="AlphaFS.dll" ComponentId="{0B29139B-459A-44C7-8CE0-4CC8D0EC77D6}" Directory_="APPDIR" Attributes="0" KeyPath="AlphaFS.dll"/>
     <ROW Component="FluentCommandLineParser.dll" ComponentId="{E4C689D0-4016-4627-A6A6-21B92EAFB4ED}" Directory_="APPDIR" Attributes="0" KeyPath="FluentCommandLineParser.dll"/>
     <ROW Component="ICSharpCode.SharpZipLib.dll" ComponentId="{DAFE0849-37E7-40F5-AC16-A1163F3DF46D}" Directory_="APPDIR" Attributes="0" KeyPath="ICSharpCode.SharpZipLib.dll"/>
+    <ROW Component="Ignore.dll" ComponentId="{C5DCAB25-4D60-4F69-88BB-F1FB210FB5EC}" Directory_="APPDIR" Attributes="0" KeyPath="Ignore.dll"/>
     <ROW Component="LibGit2Sharp.dll" ComponentId="{DEB0E6F2-2488-4A34-BE82-0E653DCAEA0A}" Directory_="APPDIR" Attributes="0" KeyPath="LibGit2Sharp.dll"/>
     <ROW Component="MFR.CommandLine.Models.Factories.dll" ComponentId="{8B52F0AE-6166-44F1-905F-A4E646081A89}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Models.Factories.dll"/>
     <ROW Component="MFR.CommandLine.Models.Interfaces.dll" ComponentId="{C5E6C0E3-3CB7-4951-92CD-F8F8B21D28E7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.CommandLine.Models.Interfaces.dll"/>
@@ -308,7 +309,6 @@
     <ROW Component="MFR.TextValues.Retrievers.Synchronization.dll" ComponentId="{DDB7DF6D-AB9D-4D15-9F27-B7733031EDF6}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Synchronization.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.dll" ComponentId="{6DB88211-F001-4006-9981-46BC68A7B093}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.dll"/>
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{9112563A-E04D-4835-9F44-91873B1C3761}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
-    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{013F2F75-4140-440E-AAC7-B1EF69E505A2}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Component="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" ComponentId="{C28F887B-233F-4266-91B3-EA339F1B8DA9}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Component="Microsoft.VisualStudio.Interop.dll" ComponentId="{0B38982D-419B-447B-B161-3181817F719F}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Interop.dll"/>
     <ROW Component="Mono.Posix.dll" ComponentId="{88239205-4924-45F3-BCFC-2670072142C6}" Directory_="APPDIR" Attributes="0" KeyPath="Mono.Posix.dll"/>
@@ -333,7 +333,6 @@
     <ROW Component="System.Text.Json.dll" ComponentId="{9C6C22BA-85DE-43D4-9F2E-D484C4632497}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Json.dll"/>
     <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{9E6C3E7F-E2F7-4D5C-BBDB-0FF4912898EF}" Directory_="APPDIR" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
     <ROW Component="System.ValueTuple.dll" ComponentId="{458E41F2-DACE-41D1-AF6B-6E8B5B983A81}" Directory_="APPDIR" Attributes="0" KeyPath="System.ValueTuple.dll"/>
-    <ROW Component="TimeZoneConverter.dll" ComponentId="{47522AC1-CF16-4879-A68A-7094E61DA29B}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneConverter.dll"/>
     <ROW Component="TimeZoneNames.dll" ComponentId="{33128BC6-5FD0-4114-9FF7-27082F77B3C0}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneNames.dll"/>
     <ROW Component="config.json" ComponentId="{845C59C3-2EC5-4CB5-B725-D0F77362FF72}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
     <ROW Component="git2a2bde63.dll" ComponentId="{88221608-FEAC-4E7E-B45E-C8AEB6425725}" Directory_="arm64_Dir" Attributes="256" KeyPath="git2a2bde63.dll"/>
@@ -366,7 +365,13 @@
     <ROW Component="xyLOGIX.Generators.Interfaces.dll" ComponentId="{31D8B179-651C-493C-BD49-38ACC067F6B2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Generators.dll" ComponentId="{ED1B3971-5519-4EDD-A2B4-2E25119ABCCD}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.dll"/>
     <ROW Component="xyLOGIX.Interop.Git.Factories.dll" ComponentId="{996BEFF5-DD17-4BBE-B0E5-6FE9DED9A4A4}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Factories.dll"/>
+    <ROW Component="xyLOGIX.Interop.Git.Ignorers.Factories.dll" ComponentId="{11C1652F-0175-4748-8F58-39AC3978370D}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Ignorers.Factories.dll"/>
+    <ROW Component="xyLOGIX.Interop.Git.Ignorers.Interfaces.dll" ComponentId="{47F5A91F-141D-4534-8217-D8F7F39F3179}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Ignorers.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Interop.Git.Ignorers.dll" ComponentId="{EFD7C965-08FB-4398-B9AC-F5135DEE5E2A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Ignorers.dll"/>
     <ROW Component="xyLOGIX.Interop.Git.Interfaces.dll" ComponentId="{2692155D-2426-4E18-B604-2C39D34FCD9B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Interop.Git.Paths.Validators.Factories.dll" ComponentId="{E395648B-965F-4E20-B4D8-0E93CBC45DFA}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Paths.Validators.Factories.dll"/>
+    <ROW Component="xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll" ComponentId="{1B630D42-3C5E-4F6E-BF83-2D0E1DFEA405}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Interop.Git.Paths.Validators.dll" ComponentId="{93D76CF5-8FDD-4C39-B049-A02EF4A60932}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Paths.Validators.dll"/>
     <ROW Component="xyLOGIX.Interop.Git.Validators.Factories.dll" ComponentId="{0D94A423-0DB8-4E8B-BE70-6BB7E75826DC}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Validators.Factories.dll"/>
     <ROW Component="xyLOGIX.Interop.Git.Validators.Interfaces.dll" ComponentId="{FF886D38-D39A-4550-B3AF-15884E4B31A2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Validators.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Interop.Git.Validators.dll" ComponentId="{A0DB85E8-9999-4718-A77E-CE2877C68DAE}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Git.Validators.dll"/>
@@ -970,7 +975,6 @@
     <ROW File="MFR.TextValues.Retrievers.Synchronization.Interfaces.dll.config" Component_="config.json" FileName="MFRTEX~7.CON|MFR.TextValues.Retrievers.Synchronization.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="MFR.Validators.Interfaces.dll" Component_="MFR.Validators.Interfaces.dll" FileName="MFRVAL~1.DLL|MFR.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Validators.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.Validators.Interfaces.dll.config" Component_="config.json" FileName="MFRVAL~1.CON|MFR.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Validators.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~1.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
     <ROW File="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" Component_="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" FileName="MICROS~2.DLL|Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" SelfReg="false"/>
     <ROW File="Microsoft.VisualStudio.Interop.dll" Component_="Microsoft.VisualStudio.Interop.dll" FileName="MICROS~3.DLL|Microsoft.VisualStudio.Interop.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.VisualStudio.Interop.dll" SelfReg="false"/>
     <ROW File="Mono.Posix.dll" Component_="Mono.Posix.dll" FileName="MONOPO~1.DLL|Mono.Posix.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Mono.Posix.dll" SelfReg="false"/>
@@ -994,7 +998,6 @@
     <ROW File="System.Text.Json.dll" Component_="System.Text.Json.dll" FileName="SYSTEM~6.DLL|System.Text.Json.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Text.Json.dll" SelfReg="false"/>
     <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~7.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
     <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTEM~8.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.ValueTuple.dll" SelfReg="false"/>
-    <ROW File="TimeZoneConverter.dll" Component_="TimeZoneConverter.dll" FileName="TIMEZO~1.DLL|TimeZoneConverter.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\TimeZoneConverter.dll" SelfReg="false"/>
     <ROW File="TimeZoneNames.dll" Component_="TimeZoneNames.dll" FileName="TIMEZO~2.DLL|TimeZoneNames.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\TimeZoneNames.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Application.Semaphores.dll" Component_="xyLOGIX.Application.Semaphores.dll" FileName="XYLOGI~1.DLL|xyLOGIX.Application.Semaphores.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Application.Semaphores.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Application.Semaphores.dll.config" Component_="config.json" FileName="XYLOGI~1.CON|xyLOGIX.Application.Semaphores.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Application.Semaphores.dll.config" SelfReg="false"/>
@@ -1207,6 +1210,19 @@
     <ROW File="git2a2bde63.dll_2" Component_="git2a2bde63.dll_2" FileName="GIT2-A~1.DLL|git2-a2bde63.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\lib\win32\x86\git2-a2bde63.dll" SelfReg="false"/>
     <ROW File="LibGit2Sharp.dll" Component_="LibGit2Sharp.dll" FileName="LIBGIT~1.DLL|LibGit2Sharp.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\LibGit2Sharp.dll" SelfReg="false"/>
     <ROW File="LibGit2Sharp.dll.config" Component_="config.json" FileName="LIBGIT~1.CON|LibGit2Sharp.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\LibGit2Sharp.dll.config" SelfReg="false"/>
+    <ROW File="Ignore.dll" Component_="Ignore.dll" FileName="Ignore.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Ignore.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Ignorers.dll" Component_="xyLOGIX.Interop.Git.Ignorers.dll" FileName="XYLO~100.DLL|xyLOGIX.Interop.Git.Ignorers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Ignorers.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Ignorers.dll.config" Component_="config.json" FileName="XYLO~100.CON|xyLOGIX.Interop.Git.Ignorers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Ignorers.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Ignorers.Factories.dll" Component_="xyLOGIX.Interop.Git.Ignorers.Factories.dll" FileName="XYLO~101.DLL|xyLOGIX.Interop.Git.Ignorers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Ignorers.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Ignorers.Factories.dll.config" Component_="config.json" FileName="XYLO~101.CON|xyLOGIX.Interop.Git.Ignorers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Ignorers.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Ignorers.Interfaces.dll" Component_="xyLOGIX.Interop.Git.Ignorers.Interfaces.dll" FileName="XYLO~102.DLL|xyLOGIX.Interop.Git.Ignorers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Ignorers.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Ignorers.Interfaces.dll.config" Component_="config.json" FileName="XYLO~102.CON|xyLOGIX.Interop.Git.Ignorers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Ignorers.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Paths.Validators.dll" Component_="xyLOGIX.Interop.Git.Paths.Validators.dll" FileName="XYLO~103.DLL|xyLOGIX.Interop.Git.Paths.Validators.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Paths.Validators.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Paths.Validators.dll.config" Component_="config.json" FileName="XYLO~103.CON|xyLOGIX.Interop.Git.Paths.Validators.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Paths.Validators.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Paths.Validators.Factories.dll" Component_="xyLOGIX.Interop.Git.Paths.Validators.Factories.dll" FileName="XYLO~104.DLL|xyLOGIX.Interop.Git.Paths.Validators.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Paths.Validators.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Paths.Validators.Factories.dll.config" Component_="config.json" FileName="XYLO~104.CON|xyLOGIX.Interop.Git.Paths.Validators.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Paths.Validators.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll" Component_="xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll" FileName="XYLO~105.DLL|xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll.config" Component_="config.json" FileName="XYLO~105.CON|xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1556,7 +1572,6 @@
     <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Synchronization.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Synchronization.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Validators.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Interop.dll"/>
     <ROW Feature_="MainFeature" Component_="Mono.Posix.dll"/>
@@ -1580,7 +1595,6 @@
     <ROW Feature_="MainFeature" Component_="System.Text.Json.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Threading.Tasks.Extensions.dll"/>
     <ROW Feature_="MainFeature" Component_="System.ValueTuple.dll"/>
-    <ROW Feature_="MainFeature" Component_="TimeZoneConverter.dll"/>
     <ROW Feature_="MainFeature" Component_="TimeZoneNames.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Application.Semaphores.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Synchronized.dll"/>
@@ -1693,6 +1707,13 @@
     <ROW Feature_="MainFeature" Component_="git2a2bde63.dll_1"/>
     <ROW Feature_="MainFeature" Component_="git2a2bde63.dll_2"/>
     <ROW Feature_="MainFeature" Component_="LibGit2Sharp.dll"/>
+    <ROW Feature_="MainFeature" Component_="Ignore.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Git.Ignorers.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Git.Ignorers.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Git.Ignorers.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Git.Paths.Validators.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Git.Paths.Validators.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Git.Paths.Validators.Interfaces.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
