@@ -109,7 +109,7 @@ namespace MFR.GUI.Dialogs.Interfaces
         /// Gets or sets the value of the
         /// <b>Update Local Git Repos When Automatically Started</b> checkbox.
         /// </summary>
-        bool UpdateOnAutoStart
+        bool UpdateGitOnAutoStart
         {
             get;
             set;

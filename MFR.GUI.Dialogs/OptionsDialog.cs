@@ -165,10 +165,10 @@ namespace MFR.GUI.Dialogs
         /// Gets or sets the value of the
         /// <b>Update Local Git Repos When Automatically Started</b> checkbox.
         /// </summary>
-        public bool UpdateOnAutoStart
+        public bool UpdateGitOnAutoStart
         {
-            get => updateOnAutoStartCheckBox.Checked;
-            set => updateOnAutoStartCheckBox.Checked = value;
+            get => updateGitOnAutoStartCheckBox.Checked;
+            set => updateGitOnAutoStartCheckBox.Checked = value;
         }
 
         /// <summary>
@@ -471,6 +471,7 @@ namespace MFR.GUI.Dialogs
                     ShouldCommitPostOperationChanges;
                 CurrentConfiguration.ShouldCommitPendingChanges =
                     ShouldCommitPendingChanges;
+                CurrentConfiguration.UpdateGitOnAutoStart = UpdateGitOnAutoStart;
             }
             else
             {

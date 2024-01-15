@@ -61,7 +61,7 @@ namespace MFR.GUI.Dialogs
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.updateOnAutoStartCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
+            this.updateGitOnAutoStartCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -275,7 +275,7 @@ namespace MFR.GUI.Dialogs
             // gitTabPage
             // 
             this.gitTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.gitTabPage.Controls.Add(this.updateOnAutoStartCheckBox);
+            this.gitTabPage.Controls.Add(this.updateGitOnAutoStartCheckBox);
             this.gitTabPage.Controls.Add(this.committerInfoGroupBox);
             this.gitTabPage.Controls.Add(this.pushChangesWhenDoneCheckBox);
             this.gitTabPage.Controls.Add(this.customizePostOperationChangesCommitMessageButton);
@@ -407,14 +407,14 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
-            // updateOnAutoStartCheckBox
+            // updateGitOnAutoStartCheckBox
             // 
-            this.updateOnAutoStartCheckBox.IsDarkTheme = false;
-            this.updateOnAutoStartCheckBox.Location = new System.Drawing.Point(21, 180);
-            this.updateOnAutoStartCheckBox.Name = "updateOnAutoStartCheckBox";
-            this.updateOnAutoStartCheckBox.Size = new System.Drawing.Size(345, 17);
-            this.updateOnAutoStartCheckBox.TabIndex = 5;
-            this.updateOnAutoStartCheckBox.Text = "&Update local Git repos even when automatically started";
+            this.updateGitOnAutoStartCheckBox.IsDarkTheme = false;
+            this.updateGitOnAutoStartCheckBox.Location = new System.Drawing.Point(21, 180);
+            this.updateGitOnAutoStartCheckBox.Name = "updateGitOnAutoStartCheckBox";
+            this.updateGitOnAutoStartCheckBox.Size = new System.Drawing.Size(345, 17);
+            this.updateGitOnAutoStartCheckBox.TabIndex = 5;
+            this.updateGitOnAutoStartCheckBox.Text = "&Update local Git repos even when automatically started";
             // 
             // OptionsDialog
             // 
@@ -481,6 +481,6 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkLabel commitAuthorNameLabel;
         private xyLOGIX.UI.Dark.Controls.DarkTextBox commitAuthorEmailTextBox;
         private xyLOGIX.UI.Dark.Controls.DarkTextBox commitAuthorNameTextBox;
-        private xyLOGIX.UI.Dark.Controls.DarkCheckBox updateOnAutoStartCheckBox;
+        private xyLOGIX.UI.Dark.Controls.DarkCheckBox updateGitOnAutoStartCheckBox;
     }
 }
