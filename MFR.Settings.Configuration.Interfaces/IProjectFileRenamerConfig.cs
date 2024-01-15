@@ -337,6 +337,7 @@ namespace MFR.Settings.Configuration.Interfaces
         /// Gets or sets a value indicating whether to update the user's local Git
         /// repository even when running in <c>Auto Start</c> mode.
         /// </summary>
+        /// <remarks>The default value of this property is <see langword="true" />.</remarks>
         bool UpdateGitOnAutoStart
         {
             get;
