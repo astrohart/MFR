@@ -471,10 +471,13 @@ namespace MFR.GUI.Dialogs
                     ShouldCommitPostOperationChanges;
                 CurrentConfiguration.ShouldCommitPendingChanges =
                     ShouldCommitPendingChanges;
-                CurrentConfiguration.UpdateGitOnAutoStart = UpdateGitOnAutoStart;
+                CurrentConfiguration.UpdateGitOnAutoStart =
+                    UpdateGitOnAutoStart;
             }
             else
             {
+                UpdateGitOnAutoStart =
+                    CurrentConfiguration.UpdateGitOnAutoStart;
                 ShouldCommitPendingChanges =
                     CurrentConfiguration.ShouldCommitPendingChanges;
                 ShouldCommitPostOperationChanges = CurrentConfiguration
