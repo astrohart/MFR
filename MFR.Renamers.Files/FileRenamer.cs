@@ -2116,6 +2116,9 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
+                if (CurrentConfiguration.AutoStart 
+                    && !CurrentConfiguration.UpdateGitOnAutoStart)
+                    return result;      /* let the user decide if Git is updated on auto start */
 
                 OnOperationStarted(
                     new OperationStartedEventArgs(
@@ -2455,6 +2458,9 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
+                if (CurrentConfiguration.AutoStart 
+                    && !CurrentConfiguration.UpdateGitOnAutoStart)
+                    return result;      /* let the user decide if Git is updated on auto start */
 
                 OnOperationStarted(
                     new OperationStartedEventArgs(

@@ -247,8 +247,8 @@ namespace MFR.GUI.Dialogs
 
         /// <summary>
         /// This method handles the
-        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event for all of
-        /// the check boxes on the tabs of this property sheet.
+        /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event for all the
+        ///  checkboxes on the tabs of this property sheet.
         /// </summary>
         /// <param name="sender">
         /// (Required.) Reference to the object that raised this
@@ -277,15 +277,21 @@ namespace MFR.GUI.Dialogs
                 object sender,
                 EventArgs e
             )
-            => customizePendingChangeCommitMessageButton.Enabled =
+        {
+            customizePendingChangeCommitMessageButton.Enabled =
                 commitPendingChangesBeforeOperationsCheckBox.Checked;
+            OnAnyCheckBoxCheckedChanged(sender, e);
+        }
 
         private void OnCheckedChangedCommitPostOperationChangesCheckBox(
             object sender,
             EventArgs e
         )
-            => customizePostOperationChangesCommitMessageButton.Enabled =
+        {
+            customizePostOperationChangesCommitMessageButton.Enabled =
                 commitPostOperationChangesCheckBox.Checked;
+            OnAnyCheckBoxCheckedChanged(sender, e);
+        }
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event.
@@ -411,7 +417,7 @@ namespace MFR.GUI.Dialogs
         ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
         /// method.
         /// </remarks>
-        private void OnTextChangedConfiguraitonFilePathname(
+        private void OnAnyTextBoxChanged(
             object sender,
             EventArgs e
         )

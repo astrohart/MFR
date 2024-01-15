@@ -50,6 +50,7 @@ namespace MFR.GUI.Dialogs
             this.reOpenSolutionLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             this.reOpenSolutionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.gitTabPage = new System.Windows.Forms.TabPage();
+            this.updateGitOnAutoStartCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.committerInfoGroupBox = new xyLOGIX.UI.Dark.Controls.DarkGroupBox();
             this.commitAuthorEmailTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
             this.commitAuthorNameTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
@@ -61,7 +62,6 @@ namespace MFR.GUI.Dialogs
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.updateGitOnAutoStartCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -182,7 +182,7 @@ namespace MFR.GUI.Dialogs
             this.configPathnameTextBox.Name = "configPathnameTextBox";
             this.configPathnameTextBox.Size = new System.Drawing.Size(382, 23);
             this.configPathnameTextBox.TabIndex = 2;
-            this.configPathnameTextBox.TextChanged += new System.EventHandler(this.OnTextChangedConfiguraitonFilePathname);
+            this.configPathnameTextBox.TextChanged += new System.EventHandler(this.OnAnyTextBoxChanged);
             // 
             // configPathnameBrowseButton
             // 
@@ -289,6 +289,16 @@ namespace MFR.GUI.Dialogs
             this.gitTabPage.TabIndex = 3;
             this.gitTabPage.Text = "&Git";
             // 
+            // updateGitOnAutoStartCheckBox
+            // 
+            this.updateGitOnAutoStartCheckBox.IsDarkTheme = false;
+            this.updateGitOnAutoStartCheckBox.Location = new System.Drawing.Point(21, 180);
+            this.updateGitOnAutoStartCheckBox.Name = "updateGitOnAutoStartCheckBox";
+            this.updateGitOnAutoStartCheckBox.Size = new System.Drawing.Size(345, 17);
+            this.updateGitOnAutoStartCheckBox.TabIndex = 5;
+            this.updateGitOnAutoStartCheckBox.Text = "&Update local Git repos even when automatically started";
+            this.updateGitOnAutoStartCheckBox.CheckedChanged += new System.EventHandler(this.OnAnyCheckBoxCheckedChanged);
+            // 
             // committerInfoGroupBox
             // 
             this.committerInfoGroupBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(101)))), ((int)(((byte)(102)))));
@@ -314,6 +324,7 @@ namespace MFR.GUI.Dialogs
             this.commitAuthorEmailTextBox.Name = "commitAuthorEmailTextBox";
             this.commitAuthorEmailTextBox.Size = new System.Drawing.Size(293, 23);
             this.commitAuthorEmailTextBox.TabIndex = 3;
+            this.commitAuthorEmailTextBox.TextChanged += new System.EventHandler(this.OnAnyTextBoxChanged);
             // 
             // commitAuthorNameTextBox
             // 
@@ -325,6 +336,7 @@ namespace MFR.GUI.Dialogs
             this.commitAuthorNameTextBox.Name = "commitAuthorNameTextBox";
             this.commitAuthorNameTextBox.Size = new System.Drawing.Size(293, 23);
             this.commitAuthorNameTextBox.TabIndex = 1;
+            this.commitAuthorNameTextBox.TextChanged += new System.EventHandler(this.OnAnyTextBoxChanged);
             // 
             // commitAuthorEmailLabel
             // 
@@ -356,6 +368,7 @@ namespace MFR.GUI.Dialogs
             this.pushChangesWhenDoneCheckBox.Size = new System.Drawing.Size(345, 17);
             this.pushChangesWhenDoneCheckBox.TabIndex = 4;
             this.pushChangesWhenDoneCheckBox.Text = "&Push changes to remote when done";
+            this.pushChangesWhenDoneCheckBox.CheckedChanged += new System.EventHandler(this.OnAnyCheckBoxCheckedChanged);
             // 
             // customizePostOperationChangesCommitMessageButton
             // 
@@ -406,15 +419,6 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
-            // 
-            // updateGitOnAutoStartCheckBox
-            // 
-            this.updateGitOnAutoStartCheckBox.IsDarkTheme = false;
-            this.updateGitOnAutoStartCheckBox.Location = new System.Drawing.Point(21, 180);
-            this.updateGitOnAutoStartCheckBox.Name = "updateGitOnAutoStartCheckBox";
-            this.updateGitOnAutoStartCheckBox.Size = new System.Drawing.Size(345, 17);
-            this.updateGitOnAutoStartCheckBox.TabIndex = 5;
-            this.updateGitOnAutoStartCheckBox.Text = "&Update local Git repos even when automatically started";
             // 
             // OptionsDialog
             // 

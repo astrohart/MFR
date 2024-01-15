@@ -6,7 +6,7 @@ namespace MFR.GUI.Dialogs.Events
     /// <summary>
     /// Provides information for a Modified event.
     /// </summary>
-[ExplicitlySynchronized]
+    [ExplicitlySynchronized]
     public class ModifiedEventArgs : EventArgs
     {
         /// <summary>
