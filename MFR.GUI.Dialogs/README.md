@@ -149,16 +149,17 @@
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
   - [ShouldCommitPendingChanges](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPendingChanges 'MFR.GUI.Dialogs.OptionsDialog.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPostOperationChanges 'MFR.GUI.Dialogs.OptionsDialog.ShouldCommitPostOperationChanges')
+  - [UpdateGitOnAutoStart](#P-MFR-GUI-Dialogs-OptionsDialog-UpdateGitOnAutoStart 'MFR.GUI.Dialogs.OptionsDialog.UpdateGitOnAutoStart')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-OptionsDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-OptionsDialog-InitializeComponent 'MFR.GUI.Dialogs.OptionsDialog.InitializeComponent')
   - [OnAnyCheckBoxCheckedChanged(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnAnyCheckBoxCheckedChanged-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnAnyCheckBoxCheckedChanged(System.Object,System.EventArgs)')
+  - [OnAnyTextBoxChanged(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnAnyTextBoxChanged-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnAnyTextBoxChanged(System.Object,System.EventArgs)')
   - [OnClickApply(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickApply-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickApply(System.Object,System.EventArgs)')
   - [OnClickConfigPathnameBrowseButton(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnClickConfigPathnameBrowseButton-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnClickConfigPathnameBrowseButton(System.Object,System.EventArgs)')
   - [OnFormClosing(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnFormClosing-System-Windows-Forms-FormClosingEventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnFormClosing(System.Windows.Forms.FormClosingEventArgs)')
   - [OnLoad(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnLoad-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnLoad(System.EventArgs)')
   - [OnModified(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnModified-MFR-GUI-Dialogs-Events-ModifiedEventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnModified(MFR.GUI.Dialogs.Events.ModifiedEventArgs)')
   - [OnShown(e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnShown-System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnShown(System.EventArgs)')
-  - [OnTextChangedConfiguraitonFilePathname(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnTextChangedConfiguraitonFilePathname(System.Object,System.EventArgs)')
   - [OnUpdateCmdUI(sender,e)](#M-MFR-GUI-Dialogs-OptionsDialog-OnUpdateCmdUI-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.OptionsDialog.OnUpdateCmdUI(System.Object,System.EventArgs)')
   - [SetModifiedFlag(dirty)](#M-MFR-GUI-Dialogs-OptionsDialog-SetModifiedFlag-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.SetModifiedFlag(System.Boolean)')
   - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Dialogs-OptionsDialog-UpdateData-System-Boolean- 'MFR.GUI.Dialogs.OptionsDialog.UpdateData(System.Boolean)')
@@ -2130,6 +2131,14 @@ Gets or sets the value of the checkbox.
 Gets or sets the value of the 
 checkbox.
 
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-UpdateGitOnAutoStart'></a>
+### UpdateGitOnAutoStart `property`
+
+##### Summary
+
+Gets or sets the value of the
+checkbox.
+
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-Dispose-System-Boolean-'></a>
 ### Dispose(disposing) `method`
 
@@ -2161,8 +2170,8 @@ This method has no parameters.
 ##### Summary
 
 This method handles the
-[](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event for all of
-the check boxes on the tabs of this property sheet.
+[](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event for all the
+ checkboxes on the tabs of this property sheet.
 
 ##### Parameters
 
@@ -2186,6 +2195,32 @@ When developers add a new checkbox to any of the tabs of this
 property sheet, they should bind this handler to the
 [](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event of that
 checkbox.
+
+<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnAnyTextBoxChanged-System-Object,System-EventArgs-'></a>
+### OnAnyTextBoxChanged(sender,e) `method`
+
+##### Summary
+
+Handles the [](#E-System-Windows-Forms-Control-TextChanged 'System.Windows.Forms.Control.TextChanged') event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
+| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+
+##### Remarks
+
+This method is called to respond to the value of the text inside the
+CurrentConfiguration File Pathname text box being changed. This method
+responds to such a happenstance by updating the value of the
+[IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified')
+property to be
+`true`
+by calling the
+[SetModifiedFlag](#M-MFR-GUI-OptionsDialog-SetModifiedFlag 'MFR.GUI.OptionsDialog.SetModifiedFlag')
+method.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnClickApply-System-Object,System-EventArgs-'></a>
 ### OnClickApply(sender,e) `method`
@@ -2292,32 +2327,6 @@ Raises the [](#E-System-Windows-Forms-Form-Shown 'System.Windows.Forms.Form.Show
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-<a name='M-MFR-GUI-Dialogs-OptionsDialog-OnTextChangedConfiguraitonFilePathname-System-Object,System-EventArgs-'></a>
-### OnTextChangedConfiguraitonFilePathname(sender,e) `method`
-
-##### Summary
-
-Handles the [](#E-System-Windows-Forms-Control-TextChanged 'System.Windows.Forms.Control.TextChanged') event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the event. |
-| e | [System.EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') | An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
-
-##### Remarks
-
-This method is called to respond to the value of the text inside the
-CurrentConfiguration File Pathname text box being changed. This method
-responds to such a happenstance by updating the value of the
-[IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified')
-property to be
-`true`
-by calling the
-[SetModifiedFlag](#M-MFR-GUI-OptionsDialog-SetModifiedFlag 'MFR.GUI.OptionsDialog.SetModifiedFlag')
-method.
 
 <a name='M-MFR-GUI-Dialogs-OptionsDialog-OnUpdateCmdUI-System-Object,System-EventArgs-'></a>
 ### OnUpdateCmdUI(sender,e) `method`

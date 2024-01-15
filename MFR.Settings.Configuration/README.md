@@ -45,6 +45,7 @@
   - [ShouldCommitPostOperationChanges](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-ShouldCommitPostOperationChanges 'MFR.Settings.Configuration.ProjectFileRenamerConfig.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolder')
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-StartingFolderHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolderHistory')
+  - [UpdateGitOnAutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-UpdateGitOnAutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfig.UpdateGitOnAutoStart')
   - [Equals(obj)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-Equals-System-Object- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.Equals(System.Object)')
   - [GetHashCode()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-GetHashCode 'MFR.Settings.Configuration.ProjectFileRenamerConfig.GetHashCode')
   - [IsBlankOrNull(config)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.IsBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
@@ -583,6 +584,18 @@ the search.
 
 Gets or sets a collection of strings that correspond to the
 most-recently-used values for Starting Folder.
+
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfig-UpdateGitOnAutoStart'></a>
+### UpdateGitOnAutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether to update the user's local Git
+repository even when running in `Auto Start` mode.
+
+##### Remarks
+
+The default value of this property is `true`.
 
 <a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfig-Equals-System-Object-'></a>
 ### Equals(obj) `method`
