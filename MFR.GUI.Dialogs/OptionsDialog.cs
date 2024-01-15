@@ -162,6 +162,16 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
+        /// Gets or sets the value of the
+        /// <b>Update Local Git Repos When Automatically Started</b> checkbox.
+        /// </summary>
+        public bool UpdateOnAutoStart
+        {
+            get => updateOnAutoStartCheckBox.Checked;
+            set => updateOnAutoStartCheckBox.Checked = value;
+        }
+
+        /// <summary>
         /// Occurs when data is modified in this property sheet and then the
         /// Apply button is clicked by the user.
         /// </summary>
