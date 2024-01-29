@@ -215,7 +215,7 @@ namespace MFR.GUI.Windows
             this.fileSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.fileSave.Name = "fileSave";
             this.fileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.fileSave.Size = new System.Drawing.Size(180, 22);
+            this.fileSave.Size = new System.Drawing.Size(138, 22);
             this.fileSave.Text = "&Save";
             this.fileSave.ToolTipText = "Saves the current configuration.";
             this.fileSave.Click += new System.EventHandler(this.OnFileSave);
@@ -226,14 +226,14 @@ namespace MFR.GUI.Windows
             this.toolStripSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.toolStripSeparator7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(135, 6);
             // 
             // fileExit
             // 
             this.fileExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
             this.fileExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.fileExit.Name = "fileExit";
-            this.fileExit.Size = new System.Drawing.Size(180, 22);
+            this.fileExit.Size = new System.Drawing.Size(138, 22);
             this.fileExit.Text = "E&xit";
             this.fileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
