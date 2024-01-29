@@ -15,7 +15,6 @@ using MFR.GUI.Dialogs;
 using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Factories;
-using MFR.GUI.Displayers;
 using MFR.GUI.Presenters.Associators;
 using MFR.GUI.Windows.Actions;
 using MFR.GUI.Windows.Constants;
