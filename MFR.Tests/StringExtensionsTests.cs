@@ -24,8 +24,8 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsAbsolutePath_ReturnsFalse_ForFileNameOnly()
-            => Assert.IsFalse(
-                StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY
+            => Assert.That(
+                !StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY
                                .IsAbsolutePath()
             );
 
@@ -41,10 +41,9 @@ namespace MFR.Tests
         [Test]
         public void
             Test_IsAbsolutePath_ReturnsFalse_ForFileNameWithoutExtension()
-            => Assert.IsFalse(
-                StringConstants
-                    .FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION
-                    .IsAbsolutePath()
+            => Assert.That(!StringConstants
+                            .FILE_GUARANTEED_TO_EXIST_FILENAME_WITHOUT_EXTENSION
+                            .IsAbsolutePath()
             );
 
         /// <summary>
@@ -57,8 +56,8 @@ namespace MFR.Tests
         [Test]
         public void
             Test_IsAbsolutePath_ReturnsFalse_WhenPassed_RelativePathName()
-            => Assert.IsFalse(
-                $@".\{StringConstants.FILE_GUARANTEED_TO_EXIST}"
+            => Assert.That(
+                !$@".\{StringConstants.FILE_GUARANTEED_TO_EXIST}"
                     .IsAbsolutePath()
             );
 
@@ -70,7 +69,7 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsAbsolutePath_ReturnsFalse_WhenPassedBlankInput()
-            => Assert.IsFalse(StringConstants.EMPTY_STRING.IsAbsolutePath());
+            => Assert.That(!StringConstants.EMPTY_STRING.IsAbsolutePath());
 
         /// <summary>
         /// Asserts that the
@@ -83,10 +82,10 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsAbsolutePath_ReturnsFalse_WhenPassedNullInput()
-            => Assert.IsFalse(
+            => Assert.That(
 
                 // ReSharper disable once InvokeAsExtensionMethod
-                StringExtensions.IsAbsolutePath(StringConstants.NULL_STRING)
+                !StringExtensions.IsAbsolutePath(StringConstants.NULL_STRING)
             );
 
         /// <summary>
@@ -97,7 +96,7 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsAbsolutePath_ReturnsFalse_WhenPassedWhitespace()
-            => Assert.IsFalse(StringConstants.WHITESPACE.IsAbsolutePath());
+            => Assert.That(!StringConstants.WHITESPACE.IsAbsolutePath());
 
         /// <summary>
         /// Asserts that the
@@ -110,8 +109,8 @@ namespace MFR.Tests
         public void
             Test_IsAbsolutePath_ReturnsTrue_ForAbsolutePath_EvenIfTheFileNotExists()
         {
-            Assert.IsFalse(File.Exists(StringConstants.NONEXISTENT_FILE));
-            Assert.IsTrue(StringConstants.NONEXISTENT_FILE.IsAbsolutePath());
+            Assert.That(!File.Exists(StringConstants.NONEXISTENT_FILE));
+            Assert.That(StringConstants.NONEXISTENT_FILE.IsAbsolutePath());
         }
 
         /// <summary>
@@ -125,10 +124,10 @@ namespace MFR.Tests
         public void
             Test_IsAbsolutePath_ReturnsTrue_ForFullPathnameOfFileGauranteedToExist()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(StringConstants.FILE_GUARANTEED_TO_EXIST)
             );
-            Assert.IsTrue(
+            Assert.That(
                 StringConstants.FILE_GUARANTEED_TO_EXIST.IsAbsolutePath()
             );
         }
@@ -142,7 +141,7 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForBlankInput()
-            => Assert.IsFalse(StringConstants.EMPTY_STRING.IsFolderPath());
+            => Assert.That(!StringConstants.EMPTY_STRING.IsFolderPath());
 
         /// <summary>
         /// Asserts that the
@@ -153,8 +152,8 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForFilenameOnly()
-            => Assert.IsFalse(
-                StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY
+            => Assert.That(
+                !StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY
                                .IsFolderPath()
             );
 
@@ -167,8 +166,8 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForFilenameWithNoExtension()
-            => Assert.IsFalse(
-                StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY
+            => Assert.That(
+                !StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY
                                .IsFolderPath()
             );
 
@@ -182,8 +181,8 @@ namespace MFR.Tests
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForFileThatDoesNotExist()
         {
-            Assert.IsFalse(File.Exists(StringConstants.NONEXISTENT_FILE));
-            Assert.IsFalse(StringConstants.NONEXISTENT_FILE.IsFolderPath());
+            Assert.That(!File.Exists(StringConstants.NONEXISTENT_FILE));
+            Assert.That(!StringConstants.NONEXISTENT_FILE.IsFolderPath());
         }
 
         /// <summary>
@@ -196,13 +195,13 @@ namespace MFR.Tests
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForFileThatExists()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(StringConstants.FILE_GUARANTEED_TO_EXIST)
             );
-            Assert.IsTrue(
+            Assert.That(
                 StringConstants.FILE_GUARANTEED_TO_EXIST.IsAbsolutePath()
             );
-            Assert.IsFalse(
+            Assert.That(!
                 StringConstants.FILE_GUARANTEED_TO_EXIST.IsFolderPath()
             );
         }
@@ -217,10 +216,10 @@ namespace MFR.Tests
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForFolderThatDoesNotExist()
         {
-            Assert.IsFalse(
+            Assert.That(!
                 Directory.Exists(StringConstants.NONEXISTENT_FOLDER)
             );
-            Assert.IsFalse(StringConstants.NONEXISTENT_FOLDER.IsFolderPath());
+            Assert.That(!StringConstants.NONEXISTENT_FOLDER.IsFolderPath());
         }
 
         /// <summary>
@@ -234,7 +233,7 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForNullInput()
-            => Assert.IsFalse(StringConstants.NULL_STRING.IsFolderPath());
+            => Assert.That(!StringConstants.NULL_STRING.IsFolderPath());
 
         /// <summary>
         /// Asserts that the
@@ -245,7 +244,7 @@ namespace MFR.Tests
         /// </summary>
         [Test]
         public void Test_IsFolderPath_ReturnsFalse_ForWhitespaceInput()
-            => Assert.IsFalse(StringConstants.WHITESPACE.IsFolderPath());
+            => Assert.That(!StringConstants.WHITESPACE.IsFolderPath());
 
         /// <summary>
         /// Asserts that the
@@ -257,12 +256,12 @@ namespace MFR.Tests
         [Test]
         public void Test_IsFolderPath_ReturnsTrue_ForFolderThatExists()
         {
-            Assert.IsTrue(
+            Assert.That(
                 Directory.Exists(
                     StringConstants.FOLDER_THAT_IS_GUARANTEED_TO_EXIST
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 StringConstants.FOLDER_THAT_IS_GUARANTEED_TO_EXIST
                                .IsFolderPath()
             );

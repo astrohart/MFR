@@ -70,8 +70,8 @@ namespace MFR.Settings.Configuration.Actions.Tests
                                                    .WithDefaultValue(
                                                        DEFAULT_CONFIG_FILE_PATH
                                                    );
-            Assert.IsNotNull(configFilePathRegQueryExpression);
-            Assert.IsTrue(
+            Assert.That(configFilePathRegQueryExpression, Is.Not.Null);
+            Assert.That(
                 AccessTheRegueryExpressionValidator
                     .ForRegQueryExpression(configFilePathRegQueryExpression)
                     .Validate()
@@ -81,13 +81,13 @@ namespace MFR.Settings.Configuration.Actions.Tests
                 .For<IRegQueryExpression<string>, IFileSystemEntry>(
                     ConfigActionType.LoadConfigFilePathFromRegistry
                 );
-            Assert.IsNotNull(loadConfigFilePathFromRegistryAction);
+            Assert.That(loadConfigFilePathFromRegistryAction, Is.Not.Null);
 
             loadConfigFilePathFromRegistryAction =
                 loadConfigFilePathFromRegistryAction.WithInput(
                     configFilePathRegQueryExpression
                 );
-            Assert.IsNotNull(loadConfigFilePathFromRegistryAction);
+            Assert.That(loadConfigFilePathFromRegistryAction, Is.Not.Null);
 
             IFileSystemEntry configFileSystemEntry = default;
 
@@ -95,7 +95,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
                 () => configFileSystemEntry =
                     loadConfigFilePathFromRegistryAction.Execute()
             );
-            Assert.IsNotNull(configFileSystemEntry);
+            Assert.That(configFileSystemEntry, Is.Not.Null);
 
             Assert.That(!string.IsNullOrWhiteSpace(configFileSystemEntry.Path));
             Assert.That(
@@ -103,8 +103,8 @@ namespace MFR.Settings.Configuration.Actions.Tests
                     Path.GetFileName(configFileSystemEntry.Path)
                 )
             );
-            Assert.AreEqual(
-                DEFAULT_CONFIG_FILE_PATH, configFileSystemEntry.Path
+            Assert.That(
+                DEFAULT_CONFIG_FILE_PATH, Is.EqualTo(configFileSystemEntry.Path)
             );
         }
 

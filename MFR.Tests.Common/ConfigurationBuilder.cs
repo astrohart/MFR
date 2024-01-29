@@ -81,9 +81,10 @@ namespace MFR.Tests.Common
                                         .AndSetMatchExactWord(matchExactWord)
                                         .Build();
 
-            Assert.IsNotNull(configuration);
-            Assert.AreEqual(matchCase, configuration.MatchCase);
-            Assert.AreEqual(matchExactWord, configuration.MatchExactWord);
+            Assert.That(configuration, Is.Not.Null);
+            Assert.That(matchCase, Is.EqualTo(configuration.MatchCase));
+            Assert.That(matchExactWord, Is.EqualTo(configuration.MatchExactWord));
+
             return configuration;
         }
 

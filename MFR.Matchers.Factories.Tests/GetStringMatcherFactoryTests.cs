@@ -44,9 +44,9 @@ namespace MFR.Matchers.Factories.Tests
         [Test]
         public void
             Test_For_Returns_RenameFilesInFolderStringMatcherFactory_When_RenameFilesInFolder_IsOperationType()
-            => Assert.IsInstanceOf<RenameFilesInFolderStringMatcherFactory>(
+            => Assert.That(
                 GetStringMatcherFactory.For(OperationType.RenameFilesInFolder)
-            );
+            , Is.InstanceOf<RenameFilesInFolderStringMatcherFactory>());
 
         /// <summary>
         /// Asserts that the <see cref="M:MFR.GetStringMatcherFactory.For" />
@@ -60,9 +60,9 @@ namespace MFR.Matchers.Factories.Tests
         [Test]
         public void
             Test_For_Returns_RenameSubFoldersStringMatcherFactory_When_RenameSubFolders_IsOperationType()
-            => Assert.IsInstanceOf<RenameSubFoldersStringMatcherFactory>(
+            => Assert.That(
                 GetStringMatcherFactory.For(OperationType.RenameSubFolders)
-            );
+            , Is.InstanceOf<RenameSubFoldersStringMatcherFactory>());
 
         /// <summary>
         /// Asserts that the <see cref="M:MFR.GetStringMatcherFactory.For" />
@@ -76,8 +76,8 @@ namespace MFR.Matchers.Factories.Tests
         [Test]
         public void
             Test_For_Returns_ReplaceTextInFilesStringMatcherFactory_When_ReplaceTextInFiles_IsOperationType()
-            => Assert.IsInstanceOf<ReplaceTextInFilesStringMatcherFactory>(
+            => Assert.That(
                 GetStringMatcherFactory.For(OperationType.ReplaceTextInFiles)
-            );
+            , Is.InstanceOf<ReplaceTextInFilesStringMatcherFactory>());
     }
 }

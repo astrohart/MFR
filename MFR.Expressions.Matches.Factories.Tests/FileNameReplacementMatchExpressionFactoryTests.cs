@@ -1,9 +1,9 @@
-using PostSharp.Patterns.Threading;
-using MFR.Settings.Configuration.Interfaces;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Operations.Constants;
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Tests.Common;
 using NUnit.Framework;
+using PostSharp.Patterns.Threading;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -214,15 +214,17 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseFalse_And_MatchExactWordFalse()
-            => Assert.AreEqual(
+            => Assert.That(
                 StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
-                GetMatchExpressionFactoryConfiguredAccordingTo(
-                        ConfigurationBuilder.BuildConfigurationForUseCase(
-                            false, false
+                Is.EqualTo(
+                    GetMatchExpressionFactoryConfiguredAccordingTo(
+                            ConfigurationBuilder.BuildConfigurationForUseCase(
+                                false, false
+                            )
                         )
-                    )
-                    .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
-                    .Value
+                        .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
+                        .Value
+                )
             );
 
         /// <summary>
@@ -231,16 +233,17 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseFalse_And_MatchExactWordTrue()
-            => Assert.AreEqual(
-                StringConstants
-                    .FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
-                GetMatchExpressionFactoryConfiguredAccordingTo(
-                        ConfigurationBuilder.BuildConfigurationForUseCase(
-                            false, true
+            => Assert.That(
+                StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
+                Is.EqualTo(
+                    GetMatchExpressionFactoryConfiguredAccordingTo(
+                            ConfigurationBuilder.BuildConfigurationForUseCase(
+                                false, true
+                            )
                         )
-                    )
-                    .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
-                    .Value
+                        .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
+                        .Value
+                )
             );
 
         /// <summary>
@@ -249,15 +252,17 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseTrue_And_MatchExactWordFalse()
-            => Assert.AreEqual(
+            => Assert.That(
                 StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
-                GetMatchExpressionFactoryConfiguredAccordingTo(
-                        ConfigurationBuilder.BuildConfigurationForUseCase(
-                            true, false
+                Is.EqualTo(
+                    GetMatchExpressionFactoryConfiguredAccordingTo(
+                            ConfigurationBuilder.BuildConfigurationForUseCase(
+                                true, false
+                            )
                         )
-                    )
-                    .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
-                    .Value
+                        .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
+                        .Value
+                )
             );
 
         /// <summary>
@@ -266,16 +271,17 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_ForTextValueMethod_WorksAsExpected_ForValidInput_WhenMatchCaseTrue_And_MatchExactWordTrue()
-            => Assert.AreEqual(
-                StringConstants
-                    .FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
-                GetMatchExpressionFactoryConfiguredAccordingTo(
-                        ConfigurationBuilder.BuildConfigurationForUseCase(
-                            true, true
+            => Assert.That(
+                StringConstants.FILE_GUARANTEED_TO_EXIST_FILENAME_ONLY,
+                Is.EqualTo(
+                    GetMatchExpressionFactoryConfiguredAccordingTo(
+                            ConfigurationBuilder.BuildConfigurationForUseCase(
+                                true, true
+                            )
                         )
-                    )
-                    .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
-                    .Value
+                        .ForTextValue(StringConstants.FILE_GUARANTEED_TO_EXIST)
+                        .Value
+                )
             );
 
         /// <summary>
@@ -288,7 +294,9 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// </summary>
         /// <param name="config">
         /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" /> interface.
+        /// the
+        /// <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
@@ -306,7 +314,8 @@ namespace MFR.Expressions.Matches.Factories.Tests
         /// </remarks>
         private static IMatchExpressionFactory
             GetMatchExpressionFactoryConfiguredAccordingTo(
-                IProjectFileRenamerConfig config)
+                IProjectFileRenamerConfig config
+            )
             => GetMatchExpressionFactory.For(OperationType.RenameFilesInFolder)
                                         .AndAttachConfiguration(config);
     }

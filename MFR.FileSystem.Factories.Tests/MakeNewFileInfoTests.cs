@@ -29,8 +29,8 @@ namespace MFR.FileSystem.Factories.Tests
                 () => fileInfo =
                     MakeNewFileInfo.ForPath(StringConstants.FILE_GUARANTEED_TO_EXIST)
             );
-            Assert.IsNotNull(fileInfo);
-            Assert.IsInstanceOf<FileInfo>(fileInfo);
+            Assert.That(fileInfo, Is.Not.Null);
+            Assert.That(fileInfo, Is.InstanceOf<FileInfo>());
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace MFR.FileSystem.Factories.Tests
         public void
             Test_ForPath_ThrowsFileNotFoundException_ForNonexistentFile()
         {
-            Assert.IsTrue(!File.Exists(StringConstants.NONEXISTENT_FILE));
+            Assert.That(!File.Exists(StringConstants.NONEXISTENT_FILE));
             Assert.Throws<FileNotFoundException>(
                 () => MakeNewFileInfo.ForPath(StringConstants.NONEXISTENT_FILE)
             );

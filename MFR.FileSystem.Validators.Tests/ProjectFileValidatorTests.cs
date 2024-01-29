@@ -37,10 +37,10 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsFalse_ForAllowedFile()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA)
             );
-            Assert.IsFalse(
+            Assert.That(!
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.FILE_MATCHING_OPERATIONAL_CRITERIA
                 )
@@ -56,7 +56,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForBlankPath()
-            => Assert.IsTrue(ThatTheProjectFileValidatorSays.ShouldSkip(string.Empty));
+            => Assert.That(ThatTheProjectFileValidatorSays.ShouldSkip(string.Empty));
 
         /// <summary>
         /// Asserts that the
@@ -70,8 +70,8 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForDotfile()
         {
-            Assert.IsTrue(File.Exists(StringConstants.PATHNAME_OF_DOTFILE));
-            Assert.IsTrue(
+            Assert.That(File.Exists(StringConstants.PATHNAME_OF_DOTFILE));
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_DOTFILE
                 )
@@ -89,12 +89,12 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInBinDir()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_BIN_FOLDER
                 )
@@ -111,12 +111,12 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInGitDir()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_GIT_DOTFOLDER
                 )
@@ -133,13 +133,13 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInObjDir()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     StringConstants
                         .PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants
                         .PATHNAME_OF_FILE_CONTAINED_IN_PROJECT_OBJ_FOLDER
@@ -157,13 +157,13 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInPackagesDir()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     StringConstants
                         .PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants
                         .PATHNAME_TO_FILE_CONTAINED_IN_PACKAGES_FOLDER
@@ -181,12 +181,12 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForFileInVsDir()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_LOCATED_IN_VS_DOTFOLDER
                 )
@@ -204,7 +204,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForNullInput()
-            => Assert.IsTrue(ThatTheProjectFileValidatorSays.ShouldSkip(null));
+            => Assert.That(ThatTheProjectFileValidatorSays.ShouldSkip(null));
 
         /// <summary>
         /// Asserts that the
@@ -216,8 +216,8 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFile()
         {
-            Assert.IsFalse(File.Exists(StringConstants.NONEXISTENT_FILE));
-            Assert.IsTrue(
+            Assert.That(!File.Exists(StringConstants.NONEXISTENT_FILE));
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.NONEXISTENT_FILE
                 )
@@ -234,12 +234,12 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForPathWithNoFileExtension()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     StringConstants.PATHNAME_OF_FILE_HAVING_NO_EXTENSION
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PATHNAME_OF_FILE_HAVING_NO_EXTENSION
                 )
@@ -255,7 +255,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForZeroLengthFile()
-            => Assert.IsTrue(
+            => Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(Path.GetTempFileName())
             );
 
@@ -269,10 +269,10 @@ namespace MFR.FileSystem.Validators.Tests
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForZeroLengthFile2()
         {
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE)
             );
-            Assert.IsTrue(
+            Assert.That(
                 ThatTheProjectFileValidatorSays.ShouldSkip(
                     StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE
                 )

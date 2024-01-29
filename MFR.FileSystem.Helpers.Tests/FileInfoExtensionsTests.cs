@@ -106,7 +106,7 @@ namespace MFR.FileSystem.Helpers.Tests
 
             var result = engine.Replace(expression);
 
-            Assert.AreEqual("FizzBlazzle.csproj", result);
+            Assert.That("FizzBlazzle.csproj", Is.EqualTo(result));
 
             Console.WriteLine(result); // FizzBlazzle.csproj
 
@@ -116,19 +116,19 @@ namespace MFR.FileSystem.Helpers.Tests
              */
 
             var parentFolder = Path.GetDirectoryName(textValue) ?? string.Empty;
-            Assert.IsFalse(string.IsNullOrWhiteSpace(parentFolder));
+            Assert.That(!string.IsNullOrWhiteSpace(parentFolder));
             result = Path.Combine(parentFolder, result);
-            Assert.IsTrue(result.IsAbsolutePath());
+            Assert.That(result.IsAbsolutePath());
             newFileSystemEntry.ToFileInfo()
                               .RenameTo(result);
-            Assert.IsFalse(File.Exists(newFileSystemEntry.Path));
-            Assert.IsTrue(File.Exists(result));
+            Assert.That(!File.Exists(newFileSystemEntry.Path));
+            Assert.That(File.Exists(result));
             MakeNewFileInfo.ForPath(result)
                            .RenameTo(
                                newFileSystemEntry.Path
                            ); // restore the file for more testing
-            Assert.IsTrue(File.Exists(newFileSystemEntry.Path));
-            Assert.IsFalse(File.Exists(result));
+            Assert.That(File.Exists(newFileSystemEntry.Path));
+            Assert.That(!File.Exists(result));
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace MFR.FileSystem.Helpers.Tests
              * The RenameTo() method will only accept a fully-qualified pathname for the destination file.
              */
 
-            Assert.IsFalse(
+            Assert.That(!
                 string.IsNullOrWhiteSpace(
                     Path.GetDirectoryName(
                         ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
@@ -179,7 +179,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     ) ?? string.Empty
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 Path.Combine(
                         Path.GetDirectoryName(
                             ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
@@ -295,7 +295,7 @@ namespace MFR.FileSystem.Helpers.Tests
                         )
                     )
                 );
-            Assert.IsFalse(
+            Assert.That(!
                 File.Exists(
                     ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
                             @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
@@ -304,7 +304,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     .Path
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     Path.Combine(
                         Path.GetDirectoryName(
@@ -424,7 +424,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                           .RenameFilesInFolder
                                                   )).Path
                            ); // restore the file for more testing
-            Assert.IsTrue(
+            Assert.That(
                 File.Exists(
                     ((IFileSystemEntry)MakeNewFileSystemEntry.ForPath(
                             @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj"
@@ -433,7 +433,7 @@ namespace MFR.FileSystem.Helpers.Tests
                     .Path
                 )
             );
-            Assert.IsFalse(
+            Assert.That(!
                 File.Exists(
                     Path.Combine(
                         Path.GetDirectoryName(
@@ -503,8 +503,8 @@ namespace MFR.FileSystem.Helpers.Tests
         [Test]
         public void Test_IsZeroLengthFile_ReturnsFalse_ForPathOfNotepadApp()
         {
-            Assert.IsTrue(File.Exists(StringConstants.NOTEPAD_PATH));
-            Assert.IsFalse(
+            Assert.That(File.Exists(StringConstants.NOTEPAD_PATH));
+            Assert.That(!
                 MakeNewFileInfo.ForPath(StringConstants.NOTEPAD_PATH)
                                .IsZeroLengthFile()
             );
@@ -523,7 +523,7 @@ namespace MFR.FileSystem.Helpers.Tests
         [Test]
         public void
             Test_IsZeroLengthFile_ReturnsTrue_ForXUDLFile_From_PortfolioMonitor()
-            => Assert.IsTrue(
+            => Assert.That(
                 MakeNewFileInfo
                     .ForPath(StringConstants.PORTFOLIO_MONITOR_X_UDL_FILE)
                     .IsZeroLengthFile()
@@ -544,11 +544,11 @@ namespace MFR.FileSystem.Helpers.Tests
         public void
             Test_RenameTo_RefusesToWork_WhenNewFilePath_IsJustAFileName()
         {
-            Assert.IsFalse(
+            Assert.That(!
                 StringConstants.NEW_TEMP_FILE_FILENAME_ONLY.IsAbsolutePath()
             );
 
-            Assert.IsFalse(
+            Assert.That(!
                 MakeNewFileInfo.ForPath(StringConstants.EXISTING_TEMP_FILE)
                                .RenameTo(
                                    StringConstants.NEW_TEMP_FILE_FILENAME_ONLY
@@ -599,15 +599,15 @@ namespace MFR.FileSystem.Helpers.Tests
             );
 
             var destFolder = Path.GetDirectoryName(dest);
-            Assert.IsFalse(Directory.Exists(destFolder));
+            Assert.That(!Directory.Exists(destFolder));
 
             if (!Directory.Exists(destFolder))
                 Create.Folder(destFolder);
 
             DoFileRename(source, dest);
 
-            Assert.IsFalse(File.Exists(source));
-            Assert.IsTrue(File.Exists(dest));
+            Assert.That(!File.Exists(source));
+            Assert.That(File.Exists(dest));
 
             if (File.Exists(dest))
             {
@@ -619,14 +619,14 @@ namespace MFR.FileSystem.Helpers.Tests
 
         private static void DoFileRename(string source, string dest)
         {
-            Assert.IsTrue(File.Exists(source));
+            Assert.That(File.Exists(source));
 
             /* fill the temp file with trash data */
             FillTextFile.WithJunk(source);
 
-            Assert.IsTrue(new FileInfo(source).RenameTo(dest));
-            Assert.IsFalse(File.Exists(source));
-            Assert.IsTrue(File.Exists(dest));
+            Assert.That(new FileInfo(source).RenameTo(dest));
+            Assert.That(!File.Exists(source));
+            Assert.That(File.Exists(dest));
         }
     }
 }

@@ -47,9 +47,9 @@ namespace MFR.Engines.Replacement.Tests
                                                 .AndSetMatchExactWord(false)
                                                 .Build();
 
-            Assert.IsNotNull(ProjectFileRenamerConfig);
-            Assert.IsFalse(ProjectFileRenamerConfig.MatchCase);
-            Assert.IsFalse(ProjectFileRenamerConfig.MatchExactWord);
+            Assert.That(ProjectFileRenamerConfig, Is.Not.Null);
+            Assert.That(!ProjectFileRenamerConfig.MatchCase);
+            Assert.That(!ProjectFileRenamerConfig.MatchExactWord);
         }
 
         /// <summary>

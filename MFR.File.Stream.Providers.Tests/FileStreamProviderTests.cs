@@ -72,10 +72,10 @@ namespace MFR.File.Stream.Providers.Tests
         [Test]
         public void Test_Open_FilesInFolder()
         {
-            Assert.IsNotNull(FileStreamProvider);
+            Assert.That(FileStreamProvider, Is.Not.Null);
 
             var executingAssembly = Assembly.GetExecutingAssembly();
-            Assert.IsNotNull(executingAssembly);
+            Assert.That(executingAssembly, Is.Not.Null);
 
             var executingAssemblyPathname = executingAssembly.Location;
             Assert.That(!string.IsNullOrWhiteSpace(executingAssemblyPathname));
@@ -96,11 +96,11 @@ namespace MFR.File.Stream.Providers.Tests
                                     )
                                     .AsParallel()
                                     .ToList();
-            Assert.IsNotNull(fileList);
+            Assert.That(fileList, Is.Not.Null);
             Assert.That(fileList.Any());
 
             var tickets = FileStreamProvider.BatchOpenStreams(fileList);
-            Assert.IsNotNull(tickets);
+            Assert.That(tickets, Is.Not.Null);
             Assert.That(tickets.Any());
 
             Thread.Sleep(500);
@@ -109,17 +109,17 @@ namespace MFR.File.Stream.Providers.Tests
             foreach (var ticket in tickets)
             {
                 var stream = FileStreamProvider.Redeem(ticket);
-                Assert.IsNotNull(stream);
+                Assert.That(stream, Is.Not.Null);
 
                 Assert.DoesNotThrow(
                     () => currentFileContent = stream.ReadToEnd()
                 );
-                Assert.IsNotEmpty(currentFileContent);
+                Assert.That(currentFileContent, Is.Not.Empty);
             }
 
             FileStreamProvider.BatchDispose(tickets);
 
-            Assert.IsNotNull(FileStreamProvider);
+            Assert.That(FileStreamProvider, Is.Not.Null);
             Assert.That(FileStreamProvider.Count == 0);
         }
 

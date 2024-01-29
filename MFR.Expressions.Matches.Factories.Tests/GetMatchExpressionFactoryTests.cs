@@ -20,7 +20,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFileNameReplacementMatchExpressionFactory_For_RenameFilesInFolder_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetMatchExpressionFactory.For(OperationType.RenameFilesInFolder)
                     is FileNameReplacementMatchExpressionFactory
             );
@@ -31,7 +31,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFolderNameReplacementMatchExpressionFactory_For_RenameSubFolders_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetMatchExpressionFactory.For(OperationType.RenameSubFolders) is
                     FolderNameReplacementMatchExpressionFactory
             );
@@ -42,7 +42,7 @@ namespace MFR.Expressions.Matches.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsReplaceTextInFileMatchExpressionFactory_For_ReplaceTextInFiles_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetMatchExpressionFactory.For(OperationType.ReplaceTextInFiles)
                     is ReplaceTextInFileMatchExpressionFactory
             );

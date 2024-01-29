@@ -50,9 +50,9 @@ namespace MFR.Replacers.Factories.Tests
         [Test]
         public void
             Test_For_Returns_RenameFilesInFolderStringReplacerFactory_When_RenameFilesInFolder_IsOperationType()
-            => Assert.IsInstanceOf<RenameFilesInFolderStringReplacerFactory>(
+            => Assert.That(
                 GetStringReplacer.For(OperationType.RenameFilesInFolder)
-            );
+            , Is.InstanceOf<RenameFilesInFolderStringReplacerFactory>());
 
         /// <summary>
         /// Asserts that the
@@ -70,9 +70,9 @@ namespace MFR.Replacers.Factories.Tests
         [Test]
         public void
             Test_For_Returns_RenameSubFoldersStringReplacerFactory_When_RenameSubFolders_IsOperationType()
-            => Assert.IsInstanceOf<RenameSubFoldersStringReplacerFactory>(
+            => Assert.That(
                 GetStringReplacer.For(OperationType.RenameSubFolders)
-            );
+            , Is.InstanceOf<RenameSubFoldersStringReplacerFactory>());
 
         /// <summary>
         /// Asserts that the
@@ -90,8 +90,8 @@ namespace MFR.Replacers.Factories.Tests
         [Test]
         public void
             Test_For_Returns_ReplaceTextInFilesStringReplacerFactory_When_ReplaceTextInFiles_IsOperationType()
-            => Assert.IsInstanceOf<ReplaceTextInFilesStringReplacerFactory>(
+            => Assert.That(
                 GetStringReplacer.For(OperationType.ReplaceTextInFiles)
-            );
+            , Is.InstanceOf<ReplaceTextInFilesStringReplacerFactory>());
     }
 }

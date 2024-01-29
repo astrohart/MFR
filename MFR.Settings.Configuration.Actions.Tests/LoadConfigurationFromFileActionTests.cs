@@ -56,7 +56,7 @@ namespace MFR.Settings.Configuration.Actions.Tests
                                         .Execute()
                                         .Path;
 
-            Assert.IsTrue(File.Exists(configurationFilePath));
+            Assert.That(File.Exists(configurationFilePath));
 
             IProjectFileRenamerConfig result = null;
 

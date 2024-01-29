@@ -34,7 +34,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         [Test]
         public void
             Test_GetTextMatchingConfiguration_ReturnsMatchCaseAndExactWord_WhenBothMatchCaseAndMatchExactWordAreTrue()
-            => Assert.IsTrue(
+            => Assert.That(
                 TextMatchingConfiguration.MatchCaseAndExactWord ==
                 ConfigurationBuilder.Instance.SetMatchCase()
                                     .AndSetMatchExactWord()
@@ -63,7 +63,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         [Test]
         public void
             Test_GetTextMatchingConfiguration_ReturnsMatchCaseOnly_WhenOnlyMatchCaseIsTrue()
-            => Assert.IsTrue(
+            => Assert.That(
                 TextMatchingConfiguration.MatchCaseOnly == ConfigurationBuilder
                     .Instance.SetMatchCase()
                     .AndSetMatchExactWord(false)
@@ -91,7 +91,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         [Test]
         public void
             Test_GetTextMatchingConfiguration_ReturnsMatchExactWordOnly_WhenOnlyMatchExactWordIsTrue()
-            => Assert.IsTrue(
+            => Assert.That(
                 TextMatchingConfiguration.MatchExactWordOnly ==
                 ConfigurationBuilder.Instance.SetMatchCase(false)
                                     .AndSetMatchExactWord()
@@ -119,7 +119,7 @@ namespace MFR.Settings.Configuration.Helpers.Tests
         [Test]
         public void
             Test_GetTextMatchingConfiguration_ReturnsNeitherMatchCaseNorExactWord_WhenBothMatchCaseAndMatchExactWordAreFalse()
-            => Assert.IsTrue(
+            => Assert.That(
                 TextMatchingConfiguration.NeitherMatchCaseNorExactWord ==
                 ConfigurationBuilder.Instance.SetMatchCase(false)
                                     .AndSetMatchExactWord(false)

@@ -84,7 +84,7 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
             // Dump the variable hashCode to the console
             Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
 
-            Assert.IsNotEmpty(DefaultConfigPath);
+            Assert.That(DefaultConfigPath, Is.Not.Empty);
 
             // Dump the variable DefaultConfigPath to the console
             Console.WriteLine(
@@ -110,7 +110,7 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
                     hashCode = ExpectedConfigPath.GetHashCode();
                 }
             );
-            Assert.IsNotEmpty(ExpectedConfigPath);
+            Assert.That(ExpectedConfigPath, Is.Not.Empty);
 
             // Dump the variable hashCode to the console
             Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
@@ -151,8 +151,8 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
                 $"ObtainTests.Test_Obtain_ConfigFilePath_Gets_PathOfFileThatIsNotBlank: result = '{result}'"
             );
 
-            Assert.IsNotEmpty(result);
-            Assert.AreEqual(ExpectedConfigPath, result);
+            Assert.That(result, Is.Not.Empty);
+            Assert.That(ExpectedConfigPath, Is.EqualTo(result));
 
             /*
              * For the purposes of this test, we do not care whether the file
@@ -172,8 +172,8 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
         public void
             Test_Obtain_ConfigFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue()
         {
-            Assert.IsNotEmpty(DefaultConfigPath);
-            Assert.IsTrue(File.Exists(DefaultConfigPath));
+            Assert.That(DefaultConfigPath, Is.Not.Empty);
+            Assert.That(File.Exists(DefaultConfigPath));
 
             var result = string.Empty;
 
@@ -184,9 +184,9 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
                 )
             );
 
-            Assert.IsNotEmpty(result);
-            Assert.AreEqual(DefaultConfigPath, result);
-            Assert.IsTrue(File.Exists(result));
+            Assert.That(result, Is.Not.Empty);
+            Assert.That(DefaultConfigPath, Is.EqualTo(result));
+            Assert.That(File.Exists(result));
         }
 
         /// <summary>
@@ -211,9 +211,9 @@ namespace MFR.Paths.Config.Provider.Actions.Tests
                 )
             );
 
-            Assert.IsNotEmpty(result);
-            Assert.AreEqual(DefaultConfigPath, result);
-            Assert.IsTrue(File.Exists(result));
+            Assert.That(result, Is.Not.Empty);
+            Assert.That(DefaultConfigPath, Is.EqualTo(result));
+            Assert.That(File.Exists(result));
         }
 
         /// <summary>

@@ -26,14 +26,14 @@ namespace MFR.Engines.Matching.Tests
                                                  .Build();
             _matcher.UpdateConfiguration(ProjectFileRenamerConfig);
 
-            Assert.IsTrue(
+            Assert.That(
                 _matcher.IsMatch(
                     @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.States.Servicess.Brokers",
                     "PortfolioMonitor.States.Servicess.Brokers",
                     "PortfolioMonitor.States.Brokers"
                 )
             );
-            Assert.IsTrue(
+            Assert.That(
                 _matcher.IsMatch(
                     @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.States.Servicess.Brokers.Interfaces",
                     "PortfolioMonitor.States.Servicess.Brokers",

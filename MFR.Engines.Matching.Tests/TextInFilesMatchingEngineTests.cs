@@ -41,9 +41,9 @@ namespace MFR.Engines.Matching.Tests
                                             .AndSetMatchExactWord(false)
                                             .Build()
                     );
-            Assert.IsNotNull(engine);
+            Assert.That(engine, Is.Not.Null);
 
-            Assert.IsTrue(
+            Assert.That(
                 engine.IsMatch(
                     FileHelpers.GetTextContent(
                         StringConstants

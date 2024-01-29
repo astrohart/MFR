@@ -84,7 +84,7 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
             // Dump the variable hashCode to the console
             Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
 
-            Assert.IsNotEmpty(DefaultProfileCollectionPath);
+            Assert.That(DefaultProfileCollectionPath, Is.Not.Empty);
 
             // Dump the variable DefaultProfileCollectionPath to the console
             Console.WriteLine(
@@ -110,7 +110,7 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
                     hashCode = ExpectedProfileCollectionPath.GetHashCode();
                 }
             );
-            Assert.IsEmpty(ExpectedProfileCollectionPath);
+            Assert.That(string.IsNullOrWhiteSpace(ExpectedProfileCollectionPath));
 
             // Dump the variable hashCode to the console
             Console.WriteLine($"[  DEBUG  ]  hashCode = {hashCode}");
@@ -152,7 +152,7 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
             );
 
             Assert.That(!string.IsNullOrWhiteSpace(result));
-            Assert.AreNotEqual(ExpectedProfileCollectionPath, result);
+            Assert.That(ExpectedProfileCollectionPath, Is.Not.EqualTo(result));
 
             /*
              * For the purposes of this test, we do not care whether the file
@@ -172,8 +172,8 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
         public void
             Test_Obtain_ProfileCollectionFilePath_UsesInputtedFilePath_ThatExists_UsingDefaultValue()
         {
-            Assert.IsNotEmpty(DefaultProfileCollectionPath);
-            Assert.IsTrue(File.Exists(DefaultProfileCollectionPath));
+            Assert.That(DefaultProfileCollectionPath, Is.Not.Empty);
+            Assert.That(File.Exists(DefaultProfileCollectionPath));
 
             var result = string.Empty;
 
@@ -184,9 +184,9 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
                 )
             );
 
-            Assert.IsNotEmpty(result);
-            Assert.AreEqual(DefaultProfileCollectionPath, result);
-            Assert.IsTrue(File.Exists(result));
+            Assert.That(result, Is.Not.Empty);
+            Assert.That(DefaultProfileCollectionPath, Is.EqualTo(result));
+            Assert.That(File.Exists(result));
         }
 
         /// <summary>
@@ -211,9 +211,9 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
                 )
             );
 
-            Assert.IsNotEmpty(result);
-            Assert.AreEqual(DefaultProfileCollectionPath, result);
-            Assert.IsTrue(File.Exists(result));
+            Assert.That(result, Is.Not.Empty);
+            Assert.That(DefaultProfileCollectionPath, Is.EqualTo(result));
+            Assert.That(File.Exists(result));
         }
 
         /// <summary>

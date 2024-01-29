@@ -73,7 +73,7 @@ namespace MFR.Settings.Configuration.Tests
             var newConfig =
                 MakeNewProjectFileRenamerConfiguration.FromScratch();
 
-            Assert.AreEqual(blankConfig, newConfig);
+            Assert.That(blankConfig, Is.EqualTo(newConfig));
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace MFR.Settings.Configuration.Tests
         [Test]
         public void Test_BlankConfigReturned_ForMissingConfigFile()
         {
-            Assert.IsFalse(File.Exists(ConfigPathProvider.ConfigFilePath));
+            Assert.That(!File.Exists(ConfigPathProvider.ConfigFilePath));
 
             IProjectFileRenamerConfig config = default;
 

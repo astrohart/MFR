@@ -105,7 +105,7 @@ namespace MFR.FileSystem.Helpers.Tests
                 MakeNewFileInfo.ForPath(StringConstants.EXISTING_TEMP_FILE)
             );
 
-            Assert.IsFalse(
+            Assert.That(!
                 string.IsNullOrWhiteSpace(
                     FileHelpers.GetTextContent(
                         StringConstants.EXISTING_TEMP_FILE

@@ -26,7 +26,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFileNameMatchingEngine_For_RenameFilesInFolder_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetTextExpressionMatchingEngine.For(
                     OperationType.RenameFilesInFolder
                 ) is FileNameMatchingEngine
@@ -44,7 +44,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFolderNameMatchingEngine_For_RenameSubFolders_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetTextExpressionMatchingEngine.For(
                     OperationType.RenameSubFolders
                 ) is FolderNameMatchingEngine
@@ -62,7 +62,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsTextInFileMatchingEngine_For_ReplaceTextInFiles_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetTextExpressionMatchingEngine.For(
                     OperationType.ReplaceTextInFiles
                 ) is TextInFilesMatchingEngine

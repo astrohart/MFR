@@ -1012,6 +1012,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Git.Ignorer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Tests.Constants", "..\xyLOGIX.Core.Tests.VS2019\xyLOGIX.Core.Tests.Constants\xyLOGIX.Core.Tests.Constants.csproj", "{D7411DE2-95AB-4598-9CB9-B48D72139527}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Validators.Constants", "..\xyLOGIX.Validators.VS2019\xyLOGIX.Validators.Constants\xyLOGIX.Validators.Constants.csproj", "{001C84CE-256E-48F6-A7FC-8180AC07AA43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -9006,6 +9008,22 @@ Global
 		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x64.Build.0 = Release|x64
 		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x86.ActiveCfg = Release|x86
 		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x86.Build.0 = Release|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x64.ActiveCfg = Debug|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x64.Build.0 = Debug|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x86.ActiveCfg = Debug|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x86.Build.0 = Debug|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Debug|x64.ActiveCfg = Debug|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Debug|x64.Build.0 = Debug|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Debug|x86.ActiveCfg = Debug|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Debug|x86.Build.0 = Debug|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.DefaultBuild|x64.Build.0 = Debug|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.DefaultBuild|x86.Build.0 = Debug|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Release|x64.ActiveCfg = Release|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Release|x64.Build.0 = Release|x64
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Release|x86.ActiveCfg = Release|x86
+		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

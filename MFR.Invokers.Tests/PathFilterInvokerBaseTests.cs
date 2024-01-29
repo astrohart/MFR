@@ -31,6 +31,6 @@ namespace MFR.Invokers.Tests
         /// </summary>
         [Test]
         public void Test_Pass_ReturnsTrue_ForNullPathFilter()
-            => Assert.IsTrue(Invoker.Passes(null));
+            => Assert.That(Invoker.Passes(null));
     }
 }

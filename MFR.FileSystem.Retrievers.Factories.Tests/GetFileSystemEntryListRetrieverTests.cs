@@ -22,7 +22,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFilesToRenameRetriever_For_RenameFilesInFolder_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetFileSystemEntryListRetriever.For(
                     OperationType.RenameFilesInFolder
                 ) is FilesToRenameRetriever
@@ -34,7 +34,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFolderToRenameRetriever_For_RenameSubFolders_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetFileSystemEntryListRetriever.For(
                     OperationType.RenameSubFolders
                 ) is FolderToRenameRetriever
@@ -46,7 +46,7 @@ namespace MFR.FileSystem.Retrievers.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsTextInFilesRetriever_For_ReplaceTextInFiles_OperationType()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetFileSystemEntryListRetriever.For(
                     OperationType.ReplaceTextInFiles
                 ) is TextInFilesRetriever

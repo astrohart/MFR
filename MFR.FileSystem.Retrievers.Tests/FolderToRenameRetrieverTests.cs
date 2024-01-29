@@ -26,7 +26,7 @@ namespace MFR.FileSystem.Retrievers.Tests
         /// </summary>
         [SetUp]
         public void Initialize()
-            => Assert.IsTrue(Retriever is FolderToRenameRetriever);
+            => Assert.That(Retriever is FolderToRenameRetriever);
 
         private const string FIND_WHAT =
             @"PortfolioMonitor.ExchangeDirection.Constants";
@@ -54,7 +54,7 @@ namespace MFR.FileSystem.Retrievers.Tests
         [Test]
         public void
             Test_DoGetMatchingFileSystemPaths_ReturnsNonzeroEntries_ForValidSearch()
-            => Assert.IsTrue(
+            => Assert.That(
                 ((IEnumerable<IFileSystemEntry>)Retriever
                                                 .AndAttachConfiguration(
                                                     ConfigurationBuilder

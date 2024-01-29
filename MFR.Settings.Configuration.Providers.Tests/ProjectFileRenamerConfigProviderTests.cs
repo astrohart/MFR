@@ -97,7 +97,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 )
             );
 
-            Assert.IsNotNull(CurrentConfiguration);
+            Assert.That(CurrentConfiguration, Is.Not.Null);
         }
 
         /// <summary>

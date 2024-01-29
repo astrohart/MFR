@@ -20,7 +20,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsDirectoryPathValidator_For_RenameSubFolders_Operation()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                     is DirectoryPathValidator
             );
@@ -31,7 +31,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFileValiator_For_ReplaceTextInFiles_Operation()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetFileSystemEntryValidator.For(
                     OperationType.ReplaceTextInFiles
                 ) is ProjectFileValidator
@@ -43,7 +43,7 @@ namespace MFR.FileSystem.Validators.Factories.Tests
         [Test]
         public void
             Test_For_ReturnsFileValidator_ForRenameFilesInFolder_Operation()
-            => Assert.IsTrue(
+            => Assert.That(
                 GetFileSystemEntryValidator.For(
                     OperationType.RenameFilesInFolder
                 ) is ProjectFileValidator

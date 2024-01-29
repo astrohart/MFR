@@ -44,19 +44,19 @@ namespace MFR.Engines.Replacement.Tests
                 "PortfolioMonitor.States.Servicess.Brokers",
                 "PortfolioMonitor.States.Brokers"
             );
-            Assert.AreEqual(
+            Assert.That(
                 @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.States.Brokers",
-                replacementResult1
-            );
+                Is.EqualTo(replacementResult1
+            ));
             var replacementResult2 = Replacer.Replace(
                 @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.States.Servicess.Brokers.Interfaces",
                 "PortfolioMonitor.States.Servicess.Brokers",
                 "PortfolioMonitor.States.Brokers"
             );
-            Assert.AreEqual(
+            Assert.That(
                 @"C:\Users\Administrator\source\repos\astrohart\PortfolioMonitor\PortfolioMonitor.States.Brokers.Interfaces",
-                replacementResult2
-            );
+                Is.EqualTo(replacementResult2
+            ));
         }
     }
 }

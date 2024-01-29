@@ -86,43 +86,44 @@ namespace MFR.Registry.Helpers.Tests
             Test_ToRegistryHive_Method_ReturnsCorrectValue_ForAllValidInputs()
         {
             Assert.DoesNotThrow(
-                () => Assert.AreEqual(
+                () => Assert.That(
                     RegistryHive.ClassesRoot,
-                    CLASSES_ROOT_HIVE_NAME.ToRegistryHive()
-                )
+                    Is.EqualTo(CLASSES_ROOT_HIVE_NAME.ToRegistryHive()
+                ))
             );
             Assert.DoesNotThrow(
-                () => Assert.AreEqual(
+                () => Assert.That(
                     RegistryHive.CurrentConfig,
-                    CURRENT_CONFIG_HIVE_NAME.ToRegistryHive()
-                )
+                    Is.EqualTo(CURRENT_CONFIG_HIVE_NAME.ToRegistryHive()
+                ))
             );
             Assert.DoesNotThrow(
-                () => Assert.AreEqual(
+                () => Assert.That(
                     RegistryHive.CurrentUser,
-                    CURRENT_USER_HIVE_NAME.ToRegistryHive()
+                    Is.EqualTo(CURRENT_USER_HIVE_NAME.ToRegistryHive()
+                ))
+            );
+            Assert.DoesNotThrow(
+                () => Assert.That(
+                    RegistryHive.DynData, 
+                    Is.EqualTo(DYN_DATA_HIVE_NAME.ToRegistryHive())
                 )
             );
             Assert.DoesNotThrow(
-                () => Assert.AreEqual(
-                    RegistryHive.DynData, DYN_DATA_HIVE_NAME.ToRegistryHive()
-                )
-            );
-            Assert.DoesNotThrow(
-                () => Assert.AreEqual(
+                () => Assert.That(
                     RegistryHive.LocalMachine,
-                    LOCAL_MACHINE_HIVE_NAME.ToRegistryHive()
-                )
-            );
+                    Is.EqualTo(Is.EqualTo(LOCAL_MACHINE_HIVE_NAME.ToRegistryHive()
+                ))
+            ));
             Assert.DoesNotThrow(
-                () => Assert.AreEqual(
+                () => Assert.That(
                     RegistryHive.PerformanceData,
-                    PERFORMANCE_DATA_HIVE_NAME.ToRegistryHive()
-                )
+                    Is.EqualTo(PERFORMANCE_DATA_HIVE_NAME.ToRegistryHive()
+                ))
             );
             Assert.DoesNotThrow(
-                () => Assert.AreEqual(
-                    RegistryHive.Users, USERS_HIVE_NAME.ToRegistryHive()
+                () => Assert.That(
+                    RegistryHive.Users, Is.EqualTo(USERS_HIVE_NAME.ToRegistryHive())
                 )
             );
         }

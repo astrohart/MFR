@@ -127,7 +127,7 @@ namespace MFR.Generators.RegularExpressions.Factories.Tests
                     type
                 )
             );
-            Assert.IsNotNull(generator);
+            Assert.That(generator, Is.Not.Null);
             return generator;
         }
     }

@@ -69,8 +69,8 @@ namespace MFR.Directories.Managers.Tests
                     )
                 )
             );
-            Assert.IsNotNull(SearchDirectoryManager.SearchDirectories);
-            Assert.IsNotEmpty(SearchDirectoryManager.SearchDirectories);
+            Assert.That(SearchDirectoryManager.SearchDirectories, Is.Not.Null);
+            Assert.That(SearchDirectoryManager.SearchDirectories, Is.Not.Empty);
 
             foreach (var directory in SearchDirectoryManager.SearchDirectories)
                 Console.WriteLine(directory);
@@ -100,8 +100,8 @@ namespace MFR.Directories.Managers.Tests
                     )
                 )
             );
-            Assert.IsNotNull(SearchDirectoryManager.SearchDirectories);
-            Assert.IsNotEmpty(SearchDirectoryManager.SearchDirectories);
+            Assert.That(SearchDirectoryManager.SearchDirectories, Is.Not.Null);
+            Assert.That(SearchDirectoryManager.SearchDirectories, Is.Not.Empty);
 
             foreach (var directory in SearchDirectoryManager.SearchDirectories)
                 Console.WriteLine(directory);
@@ -132,8 +132,8 @@ namespace MFR.Directories.Managers.Tests
                     )
                 )
             );
-            Assert.IsNotNull(SearchDirectoryManager.SearchDirectories);
-            Assert.IsNotEmpty(SearchDirectoryManager.SearchDirectories);
+            Assert.That(SearchDirectoryManager.SearchDirectories, Is.Not.Null);
+            Assert.That(SearchDirectoryManager.SearchDirectories, Is.Not.Empty);
 
             foreach (var directory in SearchDirectoryManager.SearchDirectories)
                 Console.WriteLine(directory);

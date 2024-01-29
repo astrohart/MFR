@@ -63,7 +63,7 @@ namespace MFR.FileSystem.Helpers.Tests
                 () => new DirectoryInfo(SOURCE_FOLDER).RenameTo(DEST_FOLDER)
             );
 
-            Assert.IsFalse(
+            Assert.That(!
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .DoesExist(
                                                MakeNewFileSystemEntry.ForPath(
@@ -71,7 +71,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                )
                                            )
             );
-            Assert.IsTrue(
+            Assert.That(
                 GetFileSystemEntryValidator.For(OperationType.RenameSubFolders)
                                            .DoesExist(
                                                MakeNewFileSystemEntry.ForPath(

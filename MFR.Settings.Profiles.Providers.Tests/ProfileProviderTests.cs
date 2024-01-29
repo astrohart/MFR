@@ -147,7 +147,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
                 () => profileCollectionFile =
                     new FileInfo(ProfileCollectionFilePath)
             );
-            Assert.IsNotNull(profileCollectionFile);
+            Assert.That(profileCollectionFile, Is.Not.Null);
 
             Assert.That(
                 profileCollectionFile.Exists && profileCollectionFile.Length > 0

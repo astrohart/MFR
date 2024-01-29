@@ -26,8 +26,8 @@ namespace MFR.FileSystem.Win32.Tests
                                      ), "*", SearchOption.TopDirectoryOnly
                                  )
                                  .ToList();
-            Assert.IsNotNull(files);
-            Assert.IsNotEmpty(files);
+            Assert.That(files, Is.Not.Null);
+            Assert.That(files, Is.Not.Empty);
 
             foreach (var file in files)
             {
