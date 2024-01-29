@@ -946,6 +946,7 @@ namespace MFR.GUI.Windows
             this.Controls.Add(this.startingFolderBrowseButton);
             this.Controls.Add(this.startingFolderLabel);
             this.Controls.Add(this.optionsTabControl);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
