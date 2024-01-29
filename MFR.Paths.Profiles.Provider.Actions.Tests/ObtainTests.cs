@@ -151,7 +151,7 @@ namespace MFR.Paths.Profiles.Provider.Actions.Tests
                 $"ObtainTests.Test_Obtain_ProfileCollectionFilePath_Gets_PathOfFileThatIsNotBlank: result = '{result}'"
             );
 
-            Assert.IsNotEmpty(result);
+            Assert.That(!string.IsNullOrWhiteSpace(result));
             Assert.AreNotEqual(ExpectedProfileCollectionPath, result);
 
             /*
