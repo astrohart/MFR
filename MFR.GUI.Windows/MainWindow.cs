@@ -51,6 +51,7 @@ using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Mappings;
 using xyLOGIX.UI.Dark.Controls;
+using xyLOGIX.UI.Dark.Forms;
 using xyLOGIX.Win32.Interact;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Display = MFR.GUI.Displayers.Display;
@@ -63,7 +64,7 @@ namespace MFR.GUI.Windows
     /// <summary>
     /// Displays the main window of the application.
     /// </summary>
-    public partial class MainWindow : ResponsiveFormBase, IMainWindow
+    public partial class MainWindow : DarkForm, IMainWindow
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -1836,15 +1837,15 @@ namespace MFR.GUI.Windows
         {
             if (!Enabled) return;
 
-            goButton.Enabled = performOperationButton.Enabled =
-                operationsPerform.Enabled = IsDataValid;
-            SelectAll = OperationsCheckedListBox.AreAllItemsSelected();
-            clearAllHistoryButton.Enabled = toolsHistoryClearAll.Enabled =
-                toolsHistoryClearStartingFolderHistory.Enabled =
-                    toolsHistoryClearFindWhatHistory.Enabled =
-                        toolsHistoryClearReplaceWithHistory.Enabled =
-                            !IsHistoryClear;
-            saveButton.Enabled = Presenter.IsDirty;
+            //goButton.Enabled = performOperationButton.Enabled =
+            //    operationsPerform.Enabled = IsDataValid;
+            //SelectAll = OperationsCheckedListBox.AreAllItemsSelected();
+            //clearAllHistoryButton.Enabled = toolsHistoryClearAll.Enabled =
+            //    toolsHistoryClearStartingFolderHistory.Enabled =
+            //        toolsHistoryClearFindWhatHistory.Enabled =
+            //            toolsHistoryClearReplaceWithHistory.Enabled =
+            //                !IsHistoryClear;
+            //saveButton.Enabled = Presenter.IsDirty;
         }
 
         /// <summary>
