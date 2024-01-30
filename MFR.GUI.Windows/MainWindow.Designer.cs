@@ -947,6 +947,7 @@ namespace MFR.GUI.Windows
             this.Controls.Add(this.startingFolderLabel);
             this.Controls.Add(this.optionsTabControl);
             this.DoubleBuffered = true;
+            this.FlatBorder = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -954,7 +955,7 @@ namespace MFR.GUI.Windows
             this.MainMenuStrip = this.menuBar;
             this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "[AppTitle]";
             this.menuBar.ResumeLayout(false);
