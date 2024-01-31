@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" />
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.2024.0.5\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
@@ -22,6 +21,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Debug\MFR.Settings.Configuration.Providers.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,6 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\MFR.Settings.Configuration.Providers.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Debug\MFR.Settings.Configuration.Providers.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,6 +63,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Release\MFR.Settings.Configuration.Providers.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -78,31 +81,36 @@
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp, Version=6.10.12.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Redist.6.10.12\lib\net45\PostSharp.dll</HintPath>
+    <Reference Include="PostSharp, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.2024.0.5\lib\net45\PostSharp.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Common, Version=6.10.12.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.10.12\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+    <Reference Include="PostSharp.Patterns.Aggregation, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Aggregation.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Aggregation.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.10.12.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.10.12\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    <Reference Include="PostSharp.Patterns.Common, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.2024.0.5\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.10.12.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.12\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.2024.0.5\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2024.0.5\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Model, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Model.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Threading, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalAspects.cs" />
-    <Compile Include="ConfigurationProvider.cs" />
+    <Compile Include="ProjectFileRenamerConfigProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,13 +132,25 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Actions.Constants\MFR.Settings.Configuration.Actions.Constants.csproj">
-      <Project>{51C7E31C-253A-4AA9-A78F-D71CFC4D4F02}</Project>
-      <Name>MFR.Settings.Configuration.Actions.Constants</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Actions.Factories\MFR.Settings.Configuration.Actions.Factories.csproj">
-      <Project>{3129BA05-3A66-4E0A-9B24-59B69C133C63}</Project>
-      <Name>MFR.Settings.Configuration.Actions.Factories</Name>
+    <ProjectReference Include="..\MFR.GUI.Models.Actions\MFR.GUI.Models.Actions.csproj">
+      <Project>{0c26f537-5909-44b9-97d0-27d503df6d10}</Project>
+      <Name>MFR.GUI.Models.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
+      <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>
+      <Name>MFR.GUI.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider.Factories\MFR.Paths.Config.Provider.Factories.csproj">
+      <Project>{4C84A5E7-E6EF-438A-87A5-D9EDE82DA2B3}</Project>
+      <Name>MFR.Paths.Config.Provider.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Paths.Config.Provider.Interfaces\MFR.Paths.Config.Provider.Interfaces.csproj">
+      <Project>{7DBA8C66-9206-411A-AE96-14C5A59C52A0}</Project>
+      <Name>MFR.Paths.Config.Provider.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Commands.Constants\MFR.Settings.Configuration.Commands.Constants.csproj">
       <Project>{76F657F2-86CC-4F4E-A522-ED6C9D1AAD94}</Project>
@@ -140,29 +160,25 @@
       <Project>{618A31B4-8C16-4054-9B2A-7614CC1AC830}</Project>
       <Name>MFR.Settings.Configuration.Commands.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Configuration.Constants\MFR.Settings.Configuration.Constants.csproj">
-      <Project>{FADE8DA4-81E7-40A8-B87D-52E647B2218A}</Project>
-      <Name>MFR.Settings.Configuration.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Factories\MFR.Settings.Configuration.Factories.csproj">
       <Project>{2F551CBE-04C2-4DD3-82D1-D4A2D4D0F002}</Project>
       <Name>MFR.Settings.Configuration.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Helpers\MFR.Settings.Configuration.Helpers.csproj">
+      <Project>{05FBCEB6-5D1A-4A30-BA29-B86E97D3E5A4}</Project>
+      <Name>MFR.Settings.Configuration.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
       <Name>MFR.Settings.Configuration.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Actions\MFR.Settings.Configuration.Providers.Actions.csproj">
+      <Project>{6DC24632-8B1E-4A9D-896B-1A1EEE47EC66}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
       <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
       <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Expressions.Registry.Factories\MFR.Expressions.Registry.Factories.csproj">
-      <Project>{DC731265-74D9-4879-AF2E-79616BC6847B}</Project>
-      <Name>MFR.Expressions.Registry.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Expressions.Registry.Interfaces\MFR.Expressions.Registry.Interfaces.csproj">
-      <Project>{9699B80C-4311-4121-9BA4-87ABD41F3160}</Project>
-      <Name>MFR.Expressions.Registry.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Factories\MFR.FileSystem.Factories.csproj">
       <Project>{987A96C2-8DB5-4554-A609-316C47B7B275}</Project>
@@ -172,10 +188,6 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Actions.Interfaces\MFR.Messages.Actions.Interfaces.csproj">
-      <Project>{B8B5B68F-154E-4EDA-81DD-5393BC88FF8A}</Project>
-      <Name>MFR.Messages.Actions.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Commands.Interfaces\MFR.Messages.Commands.Interfaces.csproj">
       <Project>{B3BDE739-5FBB-46B4-8411-A66B7E9383DD}</Project>
       <Name>MFR.Messages.Commands.Interfaces</Name>
@@ -184,21 +196,9 @@
       <Project>{C7BEFC4D-B628-4E1E-93E1-9981ED0E7A1F}</Project>
       <Name>MFR.Messages.Constants</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Factories\MFR.Messages.Factories.csproj">
-      <Project>{CE6BFC76-095E-48DC-8189-A87CAAAC655D}</Project>
-      <Name>MFR.Messages.Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Messages.Interfaces\MFR.Messages.Interfaces.csproj">
       <Project>{12E6EAC8-46CF-42DF-8D9F-12FCD9E784A0}</Project>
       <Name>MFR.Messages.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Messages.Requests.Intefaces\MFR.Messages.Requests.Intefaces.csproj">
-      <Project>{E7407A37-0A5A-4EEC-A5A7-B8153B386027}</Project>
-      <Name>MFR.Messages.Requests.Intefaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Metadata.Registry.Interfaces\MFR.Metadata.Registry.Interfaces.csproj">
-      <Project>{46672EFE-E97E-4AC4-B2CC-4758649792DA}</Project>
-      <Name>MFR.Metadata.Registry.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
@@ -208,14 +208,6 @@
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Settings.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Factories\MFR.Settings.Profiles.Factories.csproj">
-      <Project>{33167BC4-36DC-4E33-99B4-9CFF054B6D08}</Project>
-      <Name>MFR.Settings.Profiles.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Settings.Profiles.Interfaces\MFR.Settings.Profiles.Interfaces.csproj">
-      <Project>{FA89A4E5-5452-4895-9835-F61C94EE5A76}</Project>
-      <Name>MFR.Settings.Profiles.Interfaces</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -224,40 +216,65 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>REM exit /b 0
-if exist "$(TargetDir)$(TargetName).md" (
-    if exist "$(ProjectDir)README.md" (
-        erase /F /Q "$(ProjectDir)README.md"
-    )
-    copy /Y "$(TargetDir)$(TargetName).md" "$(ProjectDir)README.md"
-    git add "$(ProjectDir)README.md"
-    git commit -m "Update README.md"
-    git push -u origin master
-)
-exit /b 0</PreBuildEvent>
+    <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
+SET "_SOLUTION_DIR=$(SolutionDir.TrimEnd('\'))"
+SET "GENERATED_README_FILE_PATH=$(TargetDir)$(TargetName).md"
+SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
+ECHO Checking whether the markdown file generated by Vsxmd exists...
+IF NOT EXIST "%25GENERATED_README_FILE_PATH%25" GOTO GENERATED_README_FILE_NOT_FOUND
+IF EXIST "%25GENERATED_README_FILE_PATH%25" GOTO GENERATED_README_FILE_FOUND
+:GENERATED_README_FILE_NOT_FOUND
+ECHO Could not locate the file "%25GENERATED_README_FILE_PATH%25".
+GOTO AFTER_README
+:GENERATED_README_FILE_FOUND
+ECHO *** SUCCESS *** Found the markdown file generated by Vsxmd.
+ECHO Updating the README.md file for the project...
+COPY /Y "%25GENERATED_README_FILE_PATH%25" "%25PROJECT_README_FILE_PATH%25"
+ECHO Checking whether the file "%25PROJECT_README_FILE_PATH%25" exists...
+IF NOT EXIST "%25PROJECT_README_FILE_PATH%25" GOTO PROJECT_README_FILE_NOT_FOUND
+IF EXIST "%25PROJECT_README_FILE_PATH%25" GOTO PROJECT_README_FILE_FOUND
+:PROJECT_README_FILE_NOT_FOUND
+ECHO Did not find the file "%25PROJECT_README_FILE_PATH%25".  It's supposed to exist.
+GOTO AFTER_README
+:PROJECT_README_FILE_FOUND
+ECHO *** SUCCESS *** The file "%25PROJECT_README_FILE_PATH%25" was found.
+:AFTER_README
+ECHO *** DONE *** with pre-build event for project $(ProjectName).
+SET ERRORLEVEL=0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>REM exit /b 0
-if "$(ConfigurationName)"=="Release" (
-    erase /F /S /Q "$(TargetDir)*.pdb"
-    erase /F /S /Q "$(TargetDir)*.pspdb"
-    erase /F /S /Q "$(TargetDir)*.vshost.exe"
-    attrib +r "$(TargetDir)$(TargetName).xml"
-    attrib +r "$(TargetDir)$(TargetName).md"
-    erase /F /S /Q "$(TargetDir)*.xml"
-    attrib -r "$(TargetDir)$(TargetName).xml"
-    attrib -r "$(TargetDir)$(TargetName).md"
-)
-exit /b 0</PostBuildEvent>
+    <PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
+SET "CONFIGURATION_NAME=$(ConfigurationName)"
+SET "GENERATED_XML_DOC_FILE_PATH=%25_TARGET_DIR%25$(TargetName).xml"
+SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
+ECHO Checking whether this is a Release build...
+IF "%25CONFIGURATION_NAME%25"=="Release" GOTO ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
+ECHO Not a Release build.  Stopping post-build event at this point.
+GOTO FINALIZATION
+:ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
+ECHO This is a Release build.  Removing unneeded output files...
+ECHO Clearing the output folder of all nonessential files...
+IF EXIST "%25_TARGET_DIR%25*.pdb" ERASE /F /S /Q "%25_TARGET_DIR%25*.pdb"
+IF EXIST "%25_TARGET_DIR%25*.pspdb" ERASE /F /S /Q "%25_TARGET_DIR%25*.pspdb"
+IF EXIST "%25_TARGET_DIR%25*.vshost.exe" ERASE /F /S /Q "%25_TARGET_DIR%25*.vshost.exe"
+IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB +R "%25GENERATED_XML_DOC_FILE_PATH%25"
+IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB +R "%25PROJECT_README_FILE_PATH%25"
+IF EXIST "%25_TARGET_DIR%25*.xml" ERASE /F /S /Q "%25_TARGET_DIR%25*.xml"
+IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB -R "%25GENERATED_XML_DOC_FILE_PATH%25"
+IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB -R "%25PROJECT_README_FILE_PATH%25"
+GOTO FINALIZATION
+:FINALIZATION
+ECHO *** DONE *** with post-build script.
+SET ERRORLEVEL=0</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
-    <Error Condition="!Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.12\build\PostSharp.props'))" />
-    <Error Condition="!Exists('..\packages\PostSharp.6.10.12\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.12\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2024.0.5\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2024.0.5\build\PostSharp.targets'))" />
   </Target>
-  <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.targets')" />
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
+  <Import Project="..\packages\PostSharp.2024.0.5\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.targets')" />
 </Project>

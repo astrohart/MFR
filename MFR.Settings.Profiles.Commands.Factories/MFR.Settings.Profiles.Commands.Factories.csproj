@@ -77,6 +77,12 @@
   <PropertyGroup>
     <RootNamespace>MFR.Settings.Profiles.Commands.Factories</RootNamespace>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
@@ -109,6 +115,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="key.snk" />
     <Compile Include="GetProfileCollectionCommand.cs" />
     <Compile Include="GetSaveProfileCollectionPathCommand.cs" />
     <Compile Include="GlobalAspects.cs" />

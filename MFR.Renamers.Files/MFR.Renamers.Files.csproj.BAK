@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" />
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.2024.0.5\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ApplicationIcon>1382_cogs.ico</ApplicationIcon>
@@ -22,6 +21,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Debug\MFR.Renamers.Files.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -35,6 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\MFR.Renamers.Files.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Debug\MFR.Renamers.Files.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -61,6 +63,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Release\MFR.Renamers.Files.xml</DocumentationFile>
+    <NoWarn>CS1591;CS1587</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -79,39 +82,45 @@
       <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
     </Reference>
     <Reference Include="envdte, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\envdte.17.2.32505.113\lib\net472\envdte.dll</HintPath>
+      <HintPath>..\packages\envdte.17.8.37221\lib\net472\envdte.dll</HintPath>
     </Reference>
     <Reference Include="envdte80, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\envdte80.17.2.32505.113\lib\net472\envdte80.dll</HintPath>
+      <HintPath>..\packages\envdte80.17.8.37221\lib\net472\envdte80.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.2.32505.113\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.8.37221\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
-    <Reference Include="PostSharp, Version=6.10.12.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Redist.6.10.12\lib\net45\PostSharp.dll</HintPath>
+    <Reference Include="PostSharp, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.2024.0.5\lib\net45\PostSharp.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Common, Version=6.10.12.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.6.10.12\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
+    <Reference Include="PostSharp.Patterns.Aggregation, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Aggregation.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Aggregation.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Diagnostics, Version=6.10.12.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.6.10.12\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    <Reference Include="PostSharp.Patterns.Common, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Common.Redist.2024.0.5\lib\net47\PostSharp.Patterns.Common.dll</HintPath>
     </Reference>
-    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=6.10.12.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
-      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.6.10.12\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    <Reference Include="PostSharp.Patterns.Diagnostics, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Redist.2024.0.5\lib\net47\PostSharp.Patterns.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Diagnostics.Backends.Log4Net, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Diagnostics.Log4Net.2024.0.5\lib\net45\PostSharp.Patterns.Diagnostics.Backends.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Model, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Model.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp.Patterns.Threading, Version=2024.0.5.0, Culture=neutral, PublicKeyToken=e7f631e6ce13f078, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="stdole, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\stdole.17.2.32505.113\lib\net472\stdole.dll</HintPath>
+      <HintPath>..\packages\stdole.17.8.37221\lib\net472\stdole.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +137,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -147,41 +157,105 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.csproj">
-      <Project>{4D8579D8-33E9-4BE6-9155-330F87548EB7}</Project>
-      <Name>xyLOGIX.Queues.Messages</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj">
-      <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
-      <Name>xyLOGIX.VisualStudio</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Git.VS2019\xyLOGIX.Interop.Git.Factories\xyLOGIX.Interop.Git.Factories.csproj">
+      <Project>{D60AA1EE-C6B6-49CA-B304-7B83330EE495}</Project>
+      <Name>xyLOGIX.Interop.Git.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters\xyLOGIX.Win32.Messages.Filters.csproj">
-      <Project>{2A5FB43F-6E4A-48D8-905A-914A95A94792}</Project>
-      <Name>xyLOGIX.Win32.Messages.Filters</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Git.VS2019\xyLOGIX.Interop.Git.Interfaces\xyLOGIX.Interop.Git.Interfaces.csproj">
+      <Project>{7D690EDD-9BEA-4CBA-8303-6F599A380FC6}</Project>
+      <Name>xyLOGIX.Interop.Git.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Factories\MFR.CommandLine.Validators.Factories.csproj">
-      <Project>{DE6E68D8-6601-47FD-BB7E-21A46B6F56A9}</Project>
-      <Name>MFR.CommandLine.Validators.Factories</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Actions\xyLOGIX.Interop.Processes.Actions.csproj">
+      <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
+      <Name>xyLOGIX.Interop.Processes.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.CommandLine.Validators.Interfaces\MFR.CommandLine.Validators.Interfaces.csproj">
-      <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
-      <Name>MFR.CommandLine.Validators.Interfaces</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
+      <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
+      <Name>xyLOGIX.Pools.Tasks.Factories</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
-      <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Interfaces\xyLOGIX.Pools.Tasks.Interfaces.csproj">
+      <Project>{7C6341AC-4CB9-40B3-87CA-1BE4120F2F62}</Project>
+      <Name>xyLOGIX.Pools.Tasks.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
-      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
-      <Name>MFR.FileSystem.Enumerators</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Senders\xyLOGIX.Queues.Messages.Senders.csproj">
+      <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
+      <Name>xyLOGIX.Queues.Messages.Senders</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.RootFolders.Factories\MFR.Managers.RootFolders.Factories.csproj">
-      <Project>{ABF085F2-3E87-46AB-AF16-7B779EFE6C1A}</Project>
-      <Name>MFR.Managers.RootFolders.Factories</Name>
+    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
+      <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
+      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Managers.RootFolders.Interfaces\MFR.Managers.RootFolders.Interfaces.csproj">
-      <Project>{26007DA3-8C5C-4F57-920E-CF92C9A8FF0E}</Project>
-      <Name>MFR.Managers.RootFolders.Interfaces</Name>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
+      <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
+      <Name>xyLOGIX.VisualStudio.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Providers.Factories\xyLOGIX.VisualStudio.Providers.Factories.csproj">
+      <Project>{26C2F9C1-B43D-4E13-A3EA-6353C61834EB}</Project>
+      <Name>xyLOGIX.VisualStudio.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Providers.Interfaces\xyLOGIX.VisualStudio.Providers.Interfaces.csproj">
+      <Project>{4F3CB8B0-D9CF-438A-B89C-643C3D03C284}</Project>
+      <Name>xyLOGIX.VisualStudio.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
+      <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
+      <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
+      <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
+      <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
+      <Name>MFR.Directories.Managers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Managers.Interfaces\MFR.Directories.Managers.Interfaces.csproj">
+      <Project>{F88A7015-D252-4FFC-A70C-5912B1D6BF45}</Project>
+      <Name>MFR.Directories.Managers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
+      <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
+      <Name>MFR.Directories.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
+      <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
+      <Name>MFR.Directories.Validators.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
+      <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
+      <Name>MFR.File.Stream.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Stream.Providers.Interfaces\MFR.File.Stream.Providers.Interfaces.csproj">
+      <Project>{1931B45B-D25F-441C-8BAE-4BB9382BA78C}</Project>
+      <Name>MFR.File.Stream.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Services.Solutions.Actions\MFR.Services.Solutions.Actions.csproj">
+      <Project>{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}</Project>
+      <Name>MFR.Services.Solutions.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Services.Solutions.Factories\MFR.Services.Solutions.Factories.csproj">
+      <Project>{DE593641-0BE4-447B-B779-CF7D1CD9DD60}</Project>
+      <Name>MFR.Services.Solutions.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Services.Solutions.Interfaces\MFR.Services.Solutions.Interfaces.csproj">
+      <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
+      <Name>MFR.Services.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Actions\MFR.Renamers.Files.Actions.csproj">
+      <Project>{49d0e080-cb0e-4548-981b-7fbf33ba981c}</Project>
+      <Name>MFR.Renamers.Files.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Constants\MFR.Renamers.Files.Constants.csproj">
+      <Project>{65B74163-A2F2-4E09-886D-288774E22DA4}</Project>
+      <Name>MFR.Renamers.Files.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Renamers.Files.Events\MFR.Renamers.Files.Events.csproj">
+      <Project>{BE83F4D8-3F0B-4754-9885-F7ABD2401D2A}</Project>
+      <Name>MFR.Renamers.Files.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1AE68E39-484D-4347-BA55-739E0FE98246}</Project>
@@ -255,9 +329,41 @@
       <Project>{F90F4FB8-9E76-4644-A667-61DC3F35B91E}</Project>
       <Name>MFR.Renamers.Files.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Mappers.Constants\MFR.Settings.Configuration.Mappers.Constants.csproj">
+      <Project>{AFE72D2E-7F4C-4F3E-B46C-FF8A32209C1A}</Project>
+      <Name>MFR.Settings.Configuration.Mappers.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Mappers.Factories\MFR.Settings.Configuration.Mappers.Factories.csproj">
+      <Project>{A555D754-6E27-43C5-BBE4-F1F2EB62D5AC}</Project>
+      <Name>MFR.Settings.Configuration.Mappers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Mappers.Interfaces\MFR.Settings.Configuration.Mappers.Interfaces.csproj">
+      <Project>{A433139D-E0BF-4617-BC6A-3CB28C408A46}</Project>
+      <Name>MFR.Settings.Configuration.Mappers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Factories\MFR.Settings.Configuration.Providers.Factories.csproj">
+      <Project>{AEA22530-C864-4063-A77A-8E6DC56F60CA}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Settings.Configuration.Providers.Interfaces\MFR.Settings.Configuration.Providers.Interfaces.csproj">
+      <Project>{7F7566DA-AFEB-4F05-AD6E-5F44DAD21B67}</Project>
+      <Name>MFR.Settings.Configuration.Providers.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration\MFR.Settings.Configuration.csproj">
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Settings.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Solutions.Providers.Factories\MFR.Solutions.Providers.Factories.csproj">
+      <Project>{2E4029CA-D7B2-48A7-9A03-9209119FB3D2}</Project>
+      <Name>MFR.Solutions.Providers.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Solutions.Providers.Interfaces\MFR.Solutions.Providers.Interfaces.csproj">
+      <Project>{D314E4C5-41C3-40DF-8FE6-CA69EF731724}</Project>
+      <Name>MFR.Solutions.Providers.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
+      <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>
+      <Name>MFR.TextValues.Retrievers.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
       <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
@@ -267,45 +373,74 @@
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>
       <Name>MFR.TextValues.Retrievers.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9d0a59c5-a814-45ca-88b3-dae6e6462d07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>REM exit /b 0
-if exist "$(TargetDir)$(TargetName).md" (
-    if exist "$(ProjectDir)README.md" (
-        erase /F /Q "$(ProjectDir)README.md"
-    )
-    copy /Y "$(TargetDir)$(TargetName).md" "$(ProjectDir)README.md"
-    git add "$(ProjectDir)README.md"
-    git commit -m "Update README.md"
-    git push -u origin master
-)
-exit /b 0</PreBuildEvent>
+    <PreBuildEvent>SET "_PROJECT_DIR=$(ProjectDir.TrimEnd('\'))"
+SET "_SOLUTION_DIR=$(SolutionDir.TrimEnd('\'))"
+SET "GENERATED_README_FILE_PATH=$(TargetDir)$(TargetName).md"
+SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
+ECHO Checking whether the markdown file generated by Vsxmd exists...
+IF NOT EXIST "%25GENERATED_README_FILE_PATH%25" GOTO GENERATED_README_FILE_NOT_FOUND
+IF EXIST "%25GENERATED_README_FILE_PATH%25" GOTO GENERATED_README_FILE_FOUND
+:GENERATED_README_FILE_NOT_FOUND
+ECHO Could not locate the file "%25GENERATED_README_FILE_PATH%25".
+GOTO AFTER_README
+:GENERATED_README_FILE_FOUND
+ECHO *** SUCCESS *** Found the markdown file generated by Vsxmd.
+ECHO Updating the README.md file for the project...
+COPY /Y "%25GENERATED_README_FILE_PATH%25" "%25PROJECT_README_FILE_PATH%25"
+ECHO Checking whether the file "%25PROJECT_README_FILE_PATH%25" exists...
+IF NOT EXIST "%25PROJECT_README_FILE_PATH%25" GOTO PROJECT_README_FILE_NOT_FOUND
+IF EXIST "%25PROJECT_README_FILE_PATH%25" GOTO PROJECT_README_FILE_FOUND
+:PROJECT_README_FILE_NOT_FOUND
+ECHO Did not find the file "%25PROJECT_README_FILE_PATH%25".  It's supposed to exist.
+GOTO AFTER_README
+:PROJECT_README_FILE_FOUND
+ECHO *** SUCCESS *** The file "%25PROJECT_README_FILE_PATH%25" was found.
+:AFTER_README
+ECHO *** DONE *** with pre-build event for project $(ProjectName).
+SET ERRORLEVEL=0</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>REM exit /b 0
-if "$(ConfigurationName)"=="Release" (
-    erase /F /S /Q "$(TargetDir)*.pdb"
-    erase /F /S /Q "$(TargetDir)*.pspdb"
-    erase /F /S /Q "$(TargetDir)*.vshost.exe"
-    attrib +r "$(TargetDir)$(TargetName).xml"
-    attrib +r "$(TargetDir)$(TargetName).md"
-    erase /F /S /Q "$(TargetDir)*.xml"
-    attrib -r "$(TargetDir)$(TargetName).xml"
-    attrib -r "$(TargetDir)$(TargetName).md"
-)
-exit /b 0</PostBuildEvent>
+    <PostBuildEvent>SET "_TARGET_DIR=$(TargetDir)"
+SET "CONFIGURATION_NAME=$(ConfigurationName)"
+SET "GENERATED_XML_DOC_FILE_PATH=%25_TARGET_DIR%25$(TargetName).xml"
+SET "PROJECT_README_FILE_PATH=$(ProjectDir)README.md"
+ECHO Checking whether this is a Release build...
+IF "%25CONFIGURATION_NAME%25"=="Release" GOTO ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
+ECHO Not a Release build.  Stopping post-build event at this point.
+GOTO FINALIZATION
+:ERASE_NONESSENTIAL_RELEASE_BUILD_OUTPUT_FILES
+ECHO This is a Release build.  Removing unneeded output files...
+ECHO Clearing the output folder of all nonessential files...
+IF EXIST "%25_TARGET_DIR%25*.pdb" ERASE /F /S /Q "%25_TARGET_DIR%25*.pdb"
+IF EXIST "%25_TARGET_DIR%25*.pspdb" ERASE /F /S /Q "%25_TARGET_DIR%25*.pspdb"
+IF EXIST "%25_TARGET_DIR%25*.vshost.exe" ERASE /F /S /Q "%25_TARGET_DIR%25*.vshost.exe"
+IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB +R "%25GENERATED_XML_DOC_FILE_PATH%25"
+IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB +R "%25PROJECT_README_FILE_PATH%25"
+IF EXIST "%25_TARGET_DIR%25*.xml" ERASE /F /S /Q "%25_TARGET_DIR%25*.xml"
+IF EXIST "%25GENERATED_XML_DOC_FILE_PATH%25" ATTRIB -R "%25GENERATED_XML_DOC_FILE_PATH%25"
+IF EXIST "%25PROJECT_README_FILE_PATH%25" ATTRIB -R "%25PROJECT_README_FILE_PATH%25"
+GOTO FINALIZATION
+:FINALIZATION
+ECHO *** DONE *** with post-build script.
+SET ERRORLEVEL=0</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Vsxmd.1.4.5\build\Vsxmd.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
-    <Error Condition="!Exists('..\packages\PostSharp.6.10.12\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.12\build\PostSharp.props'))" />
-    <Error Condition="!Exists('..\packages\PostSharp.6.10.12\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.10.12\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2024.0.5\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2024.0.5\build\PostSharp.targets'))" />
   </Target>
+  <Import Project="..\packages\Vsxmd.1.4.5\build\Vsxmd.targets" Condition="Exists('..\packages\Vsxmd.1.4.5\build\Vsxmd.targets')" />
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.36\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
-  <Import Project="..\packages\PostSharp.6.10.12\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.10.12\build\PostSharp.targets')" />
+  <Import Project="..\packages\PostSharp.2024.0.5\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.targets')" />
 </Project>
