@@ -1837,15 +1837,15 @@ namespace MFR.GUI.Windows
         {
             if (!Enabled) return;
 
-            //goButton.Enabled = performOperationButton.Enabled =
-            //    operationsPerform.Enabled = IsDataValid;
-            //SelectAll = OperationsCheckedListBox.AreAllItemsSelected();
-            //clearAllHistoryButton.Enabled = toolsHistoryClearAll.Enabled =
-            //    toolsHistoryClearStartingFolderHistory.Enabled =
-            //        toolsHistoryClearFindWhatHistory.Enabled =
-            //            toolsHistoryClearReplaceWithHistory.Enabled =
-            //                !IsHistoryClear;
-            //saveButton.Enabled = Presenter.IsDirty;
+            goButton.Enabled = performOperationButton.Enabled =
+                operationsPerform.Enabled = IsDataValid;
+            SelectAll = OperationsCheckedListBox.AreAllItemsSelected();
+            clearAllHistoryButton.Enabled = toolsHistoryClearAll.Enabled =
+                toolsHistoryClearStartingFolderHistory.Enabled =
+                    toolsHistoryClearFindWhatHistory.Enabled =
+                        toolsHistoryClearReplaceWithHistory.Enabled =
+                            !IsHistoryClear;
+            saveButton.Enabled = Presenter.IsDirty;
         }
 
         /// <summary>
