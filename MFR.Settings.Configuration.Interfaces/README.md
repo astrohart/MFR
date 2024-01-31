@@ -40,6 +40,7 @@
   - [ShouldCommitPostOperationChanges](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-ShouldCommitPostOperationChanges 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-StartingFolder 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.StartingFolder')
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-StartingFolderHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.StartingFolderHistory')
+  - [UpdateGitOnAutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-UpdateGitOnAutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.UpdateGitOnAutoStart')
   - [Equals(obj)](#M-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-Equals-System-Object- 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.Equals(System.Object)')
   - [GetHashCode()](#M-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-GetHashCode 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.GetHashCode')
   - [Reset()](#M-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-Reset 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.Reset')
@@ -465,6 +466,18 @@ the search.
 
 Gets or sets a collection of strings that correspond to the
 most-recently-used values for Starting Folder.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-UpdateGitOnAutoStart'></a>
+### UpdateGitOnAutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether to update the user's local Git
+repository even when running in `Auto Start` mode.
+
+##### Remarks
+
+The default value of this property is `true`.
 
 <a name='M-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-Equals-System-Object-'></a>
 ### Equals(obj) `method`
