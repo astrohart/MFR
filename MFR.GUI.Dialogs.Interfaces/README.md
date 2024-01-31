@@ -35,6 +35,7 @@
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ReOpenSolution')
   - [ShouldCommitPendingChanges](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPendingChanges 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPostOperationChanges 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldCommitPostOperationChanges')
+  - [UpdateGitOnAutoStart](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-UpdateGitOnAutoStart 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.UpdateGitOnAutoStart')
 - [IProfileNameDialog](#T-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog')
   - [OperationType](#P-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog-OperationType 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog.OperationType')
   - [ProfileName](#P-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog-ProfileName 'MFR.GUI.Dialogs.Interfaces.IProfileNameDialog.ProfileName')
@@ -369,6 +370,14 @@ Gets or sets the value of the checkbox.
 ##### Summary
 
 Gets or sets the value of the 
+checkbox.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-UpdateGitOnAutoStart'></a>
+### UpdateGitOnAutoStart `property`
+
+##### Summary
+
+Gets or sets the value of the
 checkbox.
 
 <a name='T-MFR-GUI-Dialogs-Interfaces-IProfileNameDialog'></a>
