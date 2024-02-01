@@ -13,6 +13,8 @@
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
 - [Scan](#T-MFR-Renamers-Files-Actions-Scan 'MFR.Renamers.Files.Actions.Scan')
   - [FileDataForBinaryControlCharacters(textToBeSearched)](#M-MFR-Renamers-Files-Actions-Scan-FileDataForBinaryControlCharacters-System-String- 'MFR.Renamers.Files.Actions.Scan.FileDataForBinaryControlCharacters(System.String)')
+- [Should](#T-MFR-Renamers-Files-Actions-Should 'MFR.Renamers.Files.Actions.Should')
+  - [AnyPreviouslyLoadedSolutionsBeReopened(previouslyLoadedSolutions)](#M-MFR-Renamers-Files-Actions-Should-AnyPreviouslyLoadedSolutionsBeReopened-System-Collections-Generic-IList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Renamers.Files.Actions.Should.AnyPreviouslyLoadedSolutionsBeReopened(System.Collections.Generic.IList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
 
 <a name='T-MFR-Renamers-Files-Actions-Delete'></a>
 ## Delete `type`
@@ -151,3 +153,56 @@ is to be scanned. |
 If this method returns `true`, then it can be safely
 assumed that the file from which the specified
 `textToBeSearched` came is not an ASCII text file.
+
+<a name='T-MFR-Renamers-Files-Actions-Should'></a>
+## Should `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+##### Summary
+
+Exposes static methods to determine whether certain actions should be taken.
+
+<a name='M-MFR-Renamers-Files-Actions-Should-AnyPreviouslyLoadedSolutionsBeReopened-System-Collections-Generic-IList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
+### AnyPreviouslyLoadedSolutionsBeReopened(previouslyLoadedSolutions) `method`
+
+##### Summary
+
+Determines whether one or more of the entries in the
+`previouslyLoadedSolutions` list has a value of its
+[ShouldReopen](#P-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-ShouldReopen 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution.ShouldReopen')
+property that is `true`.
+
+##### Returns
+
+`true` if at least one of the
+`previouslyLoadedSolutions` should be reopened;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| previouslyLoadedSolutions | [System.Collections.Generic.IList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to an instance of a collection of instances of objects
+that implement the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface. |
+
+##### Remarks
+
+This method returns `false` if the argument of the
+`previouslyLoadedSolutions` parameter is a
+`null` reference.
+
+
+
+This method also returns `false` if the count of items in the
+`previouslyLoadedSolutions` collection is zero.
+
+
+
+If an error occurs while searching the
+`previouslyLoadedSolutions` collection, then this method
+returns `false`.

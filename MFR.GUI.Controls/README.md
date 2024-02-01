@@ -5,6 +5,7 @@
 
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
   - [EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText')
+  - [GetEnteredText()](#M-MFR-GUI-Controls-EntryRespectingComboBox-GetEnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.GetEnteredText')
   - [SetEnteredText(text)](#M-MFR-GUI-Controls-EntryRespectingComboBox-SetEnteredText-System-String- 'MFR.GUI.Controls.EntryRespectingComboBox.SetEnteredText(System.String)')
 - [FoldUnfoldButton](#T-MFR-GUI-Controls-FoldUnfoldButton 'MFR.GUI.Controls.FoldUnfoldButton')
   - [#ctor()](#M-MFR-GUI-Controls-FoldUnfoldButton-#ctor 'MFR.GUI.Controls.FoldUnfoldButton.#ctor')
@@ -60,6 +61,23 @@ whose style is set to
 it returns the value of the
 [Text](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ComboBox.Text 'System.Windows.Forms.ComboBox.Text')
 property.
+
+<a name='M-MFR-GUI-Controls-EntryRespectingComboBox-GetEnteredText'></a>
+### GetEnteredText() `method`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that corresponds to the text entered into
+this combo box by the user.
+
+##### Returns
+
+If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text
+entered into the edit portion of the combo box by the user.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-GUI-Controls-EntryRespectingComboBox-SetEnteredText-System-String-'></a>
 ### SetEnteredText(text) `method`
