@@ -24,7 +24,6 @@ using MFR.Renamers.Files.Constants;
 using MFR.Renamers.Files.Events;
 using MFR.Renamers.Files.Interfaces;
 using MFR.Renamers.Files.Properties;
-using MFR.Services.Solutions.Actions;
 using MFR.Services.Solutions.Factories;
 using MFR.Services.Solutions.Interfaces;
 using MFR.Settings.Configuration;
@@ -67,6 +66,7 @@ using Formulate = MFR.Renamers.Files.Actions.Formulate;
 using Get = MFR.Services.Solutions.Actions.Get;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
+using Should = MFR.Renamers.Files.Actions.Should;
 
 namespace MFR.Renamers.Files
 {
@@ -750,7 +750,7 @@ namespace MFR.Renamers.Files
                 SearchDirectoryManager.Clear();
 
                 SearchDirectoryManager.Search(
-                    rootDirectoryPath, file => !Should.SkipSolutionFile(file)
+                    rootDirectoryPath, file => !Services.Solutions.Actions.Should.SkipSolutionFile(file)
                 );
 
                 foreach (var folder in SearchDirectories)
@@ -2116,9 +2116,10 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
-                if (CurrentConfiguration.AutoStart 
-                    && !CurrentConfiguration.UpdateGitOnAutoStart)
-                    return result;      /* let the user decide if Git is updated on auto start */
+                if (CurrentConfiguration.AutoStart &&
+                    !CurrentConfiguration.UpdateGitOnAutoStart)
+                    return
+                        result; /* let the user decide if Git is updated on auto start */
 
                 OnOperationStarted(
                     new OperationStartedEventArgs(
@@ -2458,9 +2459,10 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
-                if (CurrentConfiguration.AutoStart 
-                    && !CurrentConfiguration.UpdateGitOnAutoStart)
-                    return result;      /* let the user decide if Git is updated on auto start */
+                if (CurrentConfiguration.AutoStart &&
+                    !CurrentConfiguration.UpdateGitOnAutoStart)
+                    return
+                        result; /* let the user decide if Git is updated on auto start */
 
                 OnOperationStarted(
                     new OperationStartedEventArgs(
@@ -2836,9 +2838,7 @@ namespace MFR.Renamers.Files
         /// on the specified <paramref name="entry" />, except that it does re-scan that
         /// repository for changes.
         /// </remarks>
-        private void ConnectToLocalGitRepoFor(
-            IFileSystemEntry entry
-        )
+        private void ConnectToLocalGitRepoFor(IFileSystemEntry entry)
         {
             try
             {
@@ -3986,50 +3986,120 @@ namespace MFR.Renamers.Files
             return result;
         }
 
+        /// <summary>
+        /// Attempts to reopen those Visual Studio Solution (<c>*.sln</c>) files that were
+        /// loaded in various Visual Studio instance(s) before the operation(s) were
+        /// performed.
+        /// </summary>
         private void ReopenActiveSolutions()
         {
-            // If Visual Studio is open, and it currently has the solution
-            // open, then close the solution before we perform the rename operation.
-            if (!ShouldReOpenSolutions ||
-                !LoadedSolutions.Any(solution => solution.ShouldReopen))
-                return;
+            try
+            {
+                // If Visual Studio is open, and it currently has the solution
+                // open, then close the solution before we perform the rename operation.
 
-            OnOperationStarted(
-                new OperationStartedEventArgs(OperationType.OpenActiveSolutions)
-            );
+                // Dump the value of the property, ShouldReOpenSolutions, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.ReopenActiveSolutions: ShouldReOpenSolutions = {ShouldReOpenSolutions}"
+                );
 
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    "Instructing Visual Studio to reload the solution (maybe with its new path)...",
-                    CurrentOperation
-                )
-            );
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** FileRenamer.ReopenActiveSolutions: Checking whether the 'ShouldReOpenSolutions' Boolean expression evaluates to TRUE..."
+                );
 
-            var numFailed = 0;
-            foreach (var solution in LoadedSolutions)
-                try
+                // Check to see whether the Boolean expression, ShouldReOpenSolutions, evaluates to TRUE.  If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!ShouldReOpenSolutions)
                 {
-                    if (solution == null) continue;
-                    if (!Does.FileExist(solution.FullName))
-                        continue;
-                    if (Is.SolutionOpen(solution)) continue;
+                    // the Boolean expression, ShouldReOpenSolutions, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The Boolean expression, 'ShouldReOpenSolutions', evaluated to FALSE.  Stopping."
+                    );
 
-                    if (ReopenSolution(solution)) continue;
-
-                    Interlocked.Increment(ref numFailed);
-                    ReportSolutionOpenFailed(solution.FullName);
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    // stop.
+                    return;
                 }
 
-            OnOperationFinished(
-                new OperationFinishedEventArgs(
-                    OperationType.OpenActiveSolutions
-                )
-            );
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ReopenActiveSolutions: *** SUCCESS *** The Boolean expression, 'ShouldReOpenSolutions', evaluated to TRUE.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** FileRenamer.ReopenActiveSolutions: Checking whether at least one of the previously-loaded Solutions should be reopened..."
+                );
+
+                // Check to see whether the Boolean expression,
+                // Should.AnyPreviouslyLoadedSolutionsBeReopened(LoadedSolutions),
+                // evaluates to TRUE.  If it does not, log an error message to the
+                // log file and then terminate the execution of this method.
+                if (!Should.AnyPreviouslyLoadedSolutionsBeReopened(
+                        LoadedSolutions
+                    ))
+                {
+                    // the Boolean expression, Should.AnyPreviouslyLoadedSolutionsBeReopened(LoadedSolutions), evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "*** FYI: None of the previously-loaded Solutions are marked as needing to be reopened.  Stopping..."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ReopenActiveSolutions: *** FYI: At least one previously-loaded Solution has been marked for reopening."
+                );
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
+                        OperationType.OpenActiveSolutions
+                    )
+                );
+
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        "Instructing Visual Studio to reload the solution (maybe with its new path)...",
+                        CurrentOperation
+                    )
+                );
+
+                var numFailed = 0;
+                foreach (var solution in LoadedSolutions)
+                    try
+                    {
+                        if (solution == null) continue;
+                        if (!solution.ShouldReopen) continue;
+                        if (!Does.FileExist(solution.FullName))
+                            continue;
+                        if (Is.SolutionOpen(solution)) continue;
+                        
+                        if (ReopenSolution(solution)) continue;
+
+                        Interlocked.Increment(ref numFailed);
+                        ReportSolutionOpenFailed(solution.FullName);
+                    }
+                    catch (Exception ex)
+                    {
+                        // dump all the exception info to the log
+                        DebugUtils.LogException(ex);
+                    }
+
+                OnOperationFinished(
+                    new OperationFinishedEventArgs(
+                        OperationType.OpenActiveSolutions
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -4053,9 +4123,8 @@ namespace MFR.Renamers.Files
             try
             {
                 if (solution == null) return result;
+                if (!solution.ShouldReopen) return result;
                 if (Is.SolutionOpen(solution)) return true;
-                if (string.IsNullOrWhiteSpace(solution.FullName))
-                    return result;
                 if (!Does.FileExist(solution.FullName))
                     return result;
 
