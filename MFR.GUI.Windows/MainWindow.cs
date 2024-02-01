@@ -1989,9 +1989,12 @@ namespace MFR.GUI.Windows
 
             if (string.IsNullOrWhiteSpace(FindWhatComboBox.EnteredText))
             {
-                Actions.Display.StopError(
-                    this, Resources.Error_FindWhat_MissingValue
+                this.InvokeIfRequired(
+                    () => xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                        this, Resources.Error_FindWhat_MissingValue
+                    )
                 );
+
                 hiddenFocusLabel.Focus();
                 FindWhatComboBox.Focus();
                 return false;
@@ -1999,9 +2002,14 @@ namespace MFR.GUI.Windows
 
             if (OperationsCheckedListBox.NoItemsAreSelected())
             {
-                if (Actions.Display.ConfirmWithYesNo(
-                        this, Resources.Error_NoOperationSelected
-                    ) != DialogResult.No)
+                var canProceed = false;
+                this.InvokeIfRequired(
+                    () => canProceed = xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                        this, Resources.Error_FindWhat_MissingValue
+                    ) != DialogResult.No
+                );
+
+                if (canProceed)
                 {
                     SelectAllOperations();
                     return true;
@@ -2018,9 +2026,12 @@ namespace MFR.GUI.Windows
             if (!OnlyReplaceInFilesOperationIsEnabled &&
                 string.IsNullOrWhiteSpace(ReplaceWithComboBox.EnteredText))
             {
-                Actions.Display.StopError(
-                    this, Resources.Error_Specify_ReplaceWith
+                this.InvokeIfRequired(
+                    () => xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                        this, Resources.Error_Specify_ReplaceWith
+                    )
                 );
+
                 hiddenFocusLabel.Focus();
                 ReplaceWithComboBox.Focus();
                 return false;
@@ -2041,14 +2052,21 @@ namespace MFR.GUI.Windows
                 if need be.
             */
 
+            var shouldNotProceed = true;
+
+            this.InvokeIfRequired(
+                () => shouldNotProceed =
+                    xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                        this,
+                        Resources
+                            .Confirm_ReplaceTextThatWouldOverwriteExistingFiles
+                    ) == DialogResult.No
+            );
+
             if (Would.UserOverwriteExistingDirectory(
                     StartingFolderComboBox.EnteredText,
                     ReplaceWithComboBox.EnteredText
-                ) && DialogResult.No ==
-                Actions.Display.ConfirmWithYesNo(
-                    this,
-                    Resources.Confirm_ReplaceTextThatWouldOverwriteExistingFiles
-                ))
+                ) && shouldNotProceed)
             {
                 hiddenFocusLabel.Focus();
                 ReplaceWithComboBox.Focus();
@@ -2068,8 +2086,10 @@ namespace MFR.GUI.Windows
                     ReplaceWithComboBox.EnteredText
                 )) return true;
 
-            Actions.Display.StopError(
-                this, Resources.Error_FindWhat_ReplaceWith_Identical
+            this.InvokeIfRequired(
+                () => xyLOGIX.Win32.Interact.Messages.ShowStopError(
+                    this, Resources.Error_FindWhat_ReplaceWith_Identical
+                )
             );
 
             hiddenFocusLabel.Focus();
