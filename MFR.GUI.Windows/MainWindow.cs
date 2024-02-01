@@ -1924,6 +1924,39 @@ namespace MFR.GUI.Windows
         }
 
         /// <summary>
+        /// Warns the user about a potentially destructive operation.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the selected operation(s) should NOT be
+        /// processed; <see langword="false" /> otherwise.
+        /// </returns>
+        private bool ShouldNotProceedDueToPotentialOverwrites()
+        {
+            var result = true;
+
+            try
+            {
+                this.InvokeIfRequired(
+                    () => result =
+                        xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                            this,
+                            Resources
+                                .Confirm_ReplaceTextThatWouldOverwriteExistingFiles
+                        ) == DialogResult.No
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = true;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Moves data from this dialog's controls to the config object.
         /// </summary>
         /// <param name="bSaveAndValidate">
@@ -2008,9 +2041,10 @@ namespace MFR.GUI.Windows
             {
                 var canProceed = false;
                 this.InvokeIfRequired(
-                    () => canProceed = xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
-                        this, Resources.Error_FindWhat_MissingValue
-                    ) != DialogResult.No
+                    () => canProceed =
+                        xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                            this, Resources.Error_FindWhat_MissingValue
+                        ) != DialogResult.No
                 );
 
                 if (canProceed)
@@ -2056,21 +2090,10 @@ namespace MFR.GUI.Windows
                 if need be.
             */
 
-            var shouldNotProceed = true;
-
-            this.InvokeIfRequired(
-                () => shouldNotProceed =
-                    xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
-                        this,
-                        Resources
-                            .Confirm_ReplaceTextThatWouldOverwriteExistingFiles
-                    ) == DialogResult.No
-            );
-
             if (Would.UserOverwriteExistingDirectory(
                     StartingFolderComboBox.EnteredText,
                     ReplaceWithComboBox.EnteredText
-                ) && shouldNotProceed)
+                ) && ShouldNotProceedDueToPotentialOverwrites())
             {
                 hiddenFocusLabel.Focus();
                 ReplaceWithComboBox.Focus();

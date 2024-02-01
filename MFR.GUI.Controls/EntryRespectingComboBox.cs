@@ -41,24 +41,9 @@ namespace MFR.GUI.Controls
         public string EnteredText
         {
             get {
-                var result = string.Empty;
-
-                try
-                {
-                    if (InvokeRequired)
-                        Invoke(new Func<string>(() => EnteredText));
-                    else
-                        result = base.Text;
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = string.Empty;
-                }
-
-                return result;
+                if (InvokeRequired)
+                    return (string)Invoke(new Func<string>(GetEnteredText));
+                return GetEnteredText();
             }
 
             set {
@@ -78,6 +63,17 @@ namespace MFR.GUI.Controls
         }
 
         /// <summary>
+        /// Gets a <see cref="T:System.String" /> that corresponds to the text entered into
+        /// this combo box by the user.
+        /// </summary>
+        /// <returns>
+        /// If successful, a <see cref="T:System.String" /> containing the text
+        /// entered into the edit portion of the combo box by the user.
+        /// </returns>
+        private string GetEnteredText()
+            => base.Text;
+
+        /// <summary>
         /// Sets the value of the
         /// <see cref="P:MFR.GUI.Controls.EntryRespectingComboBox.EnteredText" /> property
         /// to the specified <paramref name="text" />.
@@ -85,7 +81,8 @@ namespace MFR.GUI.Controls
         /// <param name="text">
         /// (Required.) A <see cref="T:System.String" /> containing the new value to set
         /// for the property.
-        /// </param>X
+        /// </param>
+        /// X
         private void SetEnteredText(string text)
             => base.Text = text;
     }

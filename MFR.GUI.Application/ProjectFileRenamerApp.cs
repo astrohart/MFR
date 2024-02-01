@@ -377,7 +377,9 @@ namespace MFR.GUI.Application
         /// If the string value in <paramref name="message" /> is blank, then
         /// this method does nothing.
         /// </remarks>
-        private static void ShowValidationFailureMessage(string message)
+        private static void ShowValidationFailureMessage(
+            [NotLogged] string message
+        )
         {
             if (string.IsNullOrWhiteSpace(message))
                 return;
