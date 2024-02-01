@@ -128,7 +128,6 @@
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="Is.cs" />
     <Compile Include="Responsive.cs" />
-    <Compile Include="Show..cs" />
     <Compile Include="Would.cs" />
   </ItemGroup>
   <ItemGroup>
