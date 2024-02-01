@@ -1584,13 +1584,17 @@ namespace MFR.GUI.Windows
             object sender,
             RootDirectoryInvalidEventArgs e
         )
-        {
-            MessageBox.Show(
-                this, e.Message, Application.ProductName, MessageBoxButtons.OK,
-                MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1
+            => this.InvokeIfRequired(
+                () =>
+                {
+                    MessageBox.Show(
+                        this, e.Message, Application.ProductName,
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop,
+                        MessageBoxDefaultButton.Button1
+                    );
+                    e.Cancel = true;
+                }
             );
-            e.Cancel = true;
-        }
 
         /// <summary>
         /// Handles the
