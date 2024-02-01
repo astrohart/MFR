@@ -799,6 +799,18 @@ namespace MFR.GUI.Windows
                     // Automatically resize the main window for the monitor it is
                     // being displayed upon
                     PerformAutoScale();
+                    
+                    /*
+                     * Ensure that the File -> Save menu item is grayed out upon
+                     * launch.  This is because the user has not made any changes to
+                     * the configured settings yet.
+                     *
+                     * This button loves to enable itself when the user first starts
+                     * the application. That does not make intuitive sense.
+                     */
+
+                    if (Presenter.IsDirty)
+                        fileSave.PerformClick();
                 }
             );
 
@@ -1042,9 +1054,14 @@ namespace MFR.GUI.Windows
         {
             try
             {
-                SetState(MainWindowState.PerformingOperations);
+                /*
+                 * Save the user's configuration, if it is marked as
+                 * dirty.
+                 */
+                if (Presenter.IsDirty)
+                    fileSave.PerformClick();
 
-                Presenter.UpdateData();
+                SetState(MainWindowState.PerformingOperations);
 
                 /* Validation of data takes awhile...show a marquee
                  progress dialog during the operation. */
