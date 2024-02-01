@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8796.36284" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8797.20982" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -311,7 +311,6 @@
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{BBADCE52-9F1F-430E-B6AD-D5CB774AAD8D}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
     <ROW Component="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" ComponentId="{1C874B4B-1D6E-4256-BCDC-29F7592DCD10}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Component="Microsoft.VisualStudio.Interop.dll" ComponentId="{2A66B097-530D-4B7A-BE68-B35F1E17E80C}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Interop.dll"/>
-    <ROW Component="Mono.Posix.dll" ComponentId="{76EC1707-8E80-47DA-A213-072A736C924A}" Directory_="APPDIR" Attributes="0" KeyPath="Mono.Posix.dll"/>
     <ROW Component="Mono.Security.dll" ComponentId="{AFDAABBC-9179-4194-89A0-AB43085D1CCE}" Directory_="APPDIR" Attributes="0" KeyPath="Mono.Security.dll"/>
     <ROW Component="NGit.dll" ComponentId="{012A79DA-5D30-42F4-82FE-DAE4E6DCAA5A}" Directory_="APPDIR" Attributes="0" KeyPath="NGit.dll"/>
     <ROW Component="NSch.dll" ComponentId="{3A3C42AB-399B-4873-A40E-EB2E1D4F6BA8}" Directory_="APPDIR" Attributes="0" KeyPath="NSch.dll"/>
@@ -448,7 +447,6 @@
     <ROW Component="xyLOGIX.VisualStudio.Setup.Providers.Factories.dll" ComponentId="{7337EDCB-BA8B-401C-AA8A-9AC288421181}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Setup.Providers.Factories.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll" ComponentId="{0271C7B5-77DC-4E30-8B4B-0F2D2F66537B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Setup.Providers.dll" ComponentId="{937CB055-9941-4BBA-9630-E491B103D4C2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Setup.Providers.dll"/>
-    <ROW Component="xyLOGIX.VisualStudio.Solutions.Exceptions.dll" ComponentId="{BEB812DA-C5FD-437E-B85D-54584AD6A7D1}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Solutions.Exceptions.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Solutions.Factories.dll" ComponentId="{2566F14C-17E8-41F4-854C-D0B10DF65505}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Solutions.Factories.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Solutions.Interfaces.dll" ComponentId="{EE71BD8E-C76C-4CBC-84AB-554D86FA6C5B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Solutions.dll" ComponentId="{28898168-5B3D-4393-9C03-CB517AFC3E11}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Solutions.dll"/>
@@ -993,7 +991,6 @@
     <ROW File="MFR.Validators.Interfaces.dll.config" Component_="config.json" FileName="MFRVAL~1.CON|MFR.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Validators.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" Component_="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" FileName="MICROS~1.DLL|Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" SelfReg="false"/>
     <ROW File="Microsoft.VisualStudio.Interop.dll" Component_="Microsoft.VisualStudio.Interop.dll" FileName="MICROS~2.DLL|Microsoft.VisualStudio.Interop.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.VisualStudio.Interop.dll" SelfReg="false"/>
-    <ROW File="Mono.Posix.dll" Component_="Mono.Posix.dll" FileName="MONOPO~1.DLL|Mono.Posix.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Mono.Posix.dll" SelfReg="false"/>
     <ROW File="Mono.Security.dll" Component_="Mono.Security.dll" FileName="MONOSE~1.DLL|Mono.Security.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Mono.Security.dll" SelfReg="false"/>
     <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Newtonsoft.Json.dll" SelfReg="false"/>
     <ROW File="NGit.dll" Component_="NGit.dll" FileName="NGit.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\NGit.dll" SelfReg="false"/>
@@ -1219,8 +1216,6 @@
     <ROW File="xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll.config" Component_="config.json" FileName="XYLO~101.CON|xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.VisualStudio.Solutions.dll" Component_="xyLOGIX.VisualStudio.Solutions.dll" FileName="XYLO~102.DLL|xyLOGIX.VisualStudio.Solutions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.VisualStudio.Solutions.dll.config" Component_="config.json" FileName="XYLO~102.CON|xyLOGIX.VisualStudio.Solutions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.VisualStudio.Solutions.Exceptions.dll" Component_="xyLOGIX.VisualStudio.Solutions.Exceptions.dll" FileName="XYLO~103.DLL|xyLOGIX.VisualStudio.Solutions.Exceptions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.Exceptions.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.VisualStudio.Solutions.Exceptions.dll.config" Component_="config.json" FileName="XYLO~103.CON|xyLOGIX.VisualStudio.Solutions.Exceptions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.Exceptions.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.VisualStudio.Solutions.Factories.dll" Component_="xyLOGIX.VisualStudio.Solutions.Factories.dll" FileName="XYLO~104.DLL|xyLOGIX.VisualStudio.Solutions.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.Factories.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.VisualStudio.Solutions.Factories.dll.config" Component_="config.json" FileName="XYLO~104.CON|xyLOGIX.VisualStudio.Solutions.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.Factories.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.VisualStudio.Solutions.Interfaces.dll" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll" FileName="XYLO~105.DLL|xyLOGIX.VisualStudio.Solutions.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.VisualStudio.Solutions.Interfaces.dll" SelfReg="false"/>
@@ -1229,6 +1224,9 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLO~106.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLO~107.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLO~107.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
+    <ROW File="NGit.dll.config" Component_="config.json" FileName="NGITDL~1.CON|NGit.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\NGit.dll.config" SelfReg="false"/>
+    <ROW File="NSch.dll.config" Component_="config.json" FileName="NSCHDL~1.CON|NSch.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\NSch.dll.config" SelfReg="false"/>
+    <ROW File="Sharpen.dll.config" Component_="config.json" FileName="SHARPE~1.CON|Sharpen.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Sharpen.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1593,7 +1591,6 @@
     <ROW Feature_="MainFeature" Component_="MFR.Validators.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Interop.dll"/>
-    <ROW Feature_="MainFeature" Component_="Mono.Posix.dll"/>
     <ROW Feature_="MainFeature" Component_="Mono.Security.dll"/>
     <ROW Feature_="MainFeature" Component_="Newtonsoft.Json.dll"/>
     <ROW Feature_="MainFeature" Component_="NGit.dll"/>
@@ -1717,7 +1714,6 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Setup.Providers.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Setup.Providers.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Exceptions.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
