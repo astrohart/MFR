@@ -41,7 +41,6 @@ using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -66,7 +65,9 @@ using Formulate = MFR.Renamers.Files.Actions.Formulate;
 using Get = MFR.Services.Solutions.Actions.Get;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
+using Process = System.Diagnostics.Process;
 using Should = MFR.Renamers.Files.Actions.Should;
+using Thread = System.Threading.Thread;
 
 namespace MFR.Renamers.Files
 {
@@ -750,7 +751,10 @@ namespace MFR.Renamers.Files
                 SearchDirectoryManager.Clear();
 
                 SearchDirectoryManager.Search(
-                    rootDirectoryPath, file => !Services.Solutions.Actions.Should.SkipSolutionFile(file)
+                    rootDirectoryPath,
+                    file => !Services.Solutions.Actions.Should.SkipSolutionFile(
+                        file
+                    )
                 );
 
                 foreach (var folder in SearchDirectories)
@@ -4077,7 +4081,7 @@ namespace MFR.Renamers.Files
                         if (!Does.FileExist(solution.FullName))
                             continue;
                         if (Is.SolutionOpen(solution)) continue;
-                        
+
                         if (ReopenSolution(solution)) continue;
 
                         Interlocked.Increment(ref numFailed);
@@ -4123,14 +4127,18 @@ namespace MFR.Renamers.Files
             try
             {
                 if (solution == null) return result;
+                if (solution.SolutionObject == null) return result;
                 if (!solution.ShouldReopen) return result;
                 if (Is.SolutionOpen(solution)) return true;
-                if (!Does.FileExist(solution.FullName))
-                    return result;
+
+                var fileNameToUse = solution.SolutionObject.FullName;
+                if (!Does.FileExist(fileNameToUse))
+                    fileNameToUse = solution.FullName;
+
+                if (!Does.FileExist(fileNameToUse)) return result;
 
                 UpdateStatus(
-                    $"Opening solution '{solution.FullName}'...",
-                    CurrentOperation
+                    $"Opening solution '{fileNameToUse}'...", CurrentOperation
                 );
 
                 result = solution.Load();
@@ -4142,6 +4150,11 @@ namespace MFR.Renamers.Files
 
                 result = false;
             }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.ReopenSolution: Result = {result}"
+            );
 
             return result;
         }
