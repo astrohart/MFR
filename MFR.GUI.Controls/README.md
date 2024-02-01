@@ -5,6 +5,7 @@
 
 - [EntryRespectingComboBox](#T-MFR-GUI-Controls-EntryRespectingComboBox 'MFR.GUI.Controls.EntryRespectingComboBox')
   - [EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText')
+  - [SetEnteredText(text)](#M-MFR-GUI-Controls-EntryRespectingComboBox-SetEnteredText-System-String- 'MFR.GUI.Controls.EntryRespectingComboBox.SetEnteredText(System.String)')
 - [FoldUnfoldButton](#T-MFR-GUI-Controls-FoldUnfoldButton 'MFR.GUI.Controls.FoldUnfoldButton')
   - [#ctor()](#M-MFR-GUI-Controls-FoldUnfoldButton-#ctor 'MFR.GUI.Controls.FoldUnfoldButton.#ctor')
   - [_isFolded](#F-MFR-GUI-Controls-FoldUnfoldButton-_isFolded 'MFR.GUI.Controls.FoldUnfoldButton._isFolded')
@@ -59,6 +60,22 @@ whose style is set to
 it returns the value of the
 [Text](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.ComboBox.Text 'System.Windows.Forms.ComboBox.Text')
 property.
+
+<a name='M-MFR-GUI-Controls-EntryRespectingComboBox-SetEnteredText-System-String-'></a>
+### SetEnteredText(text) `method`
+
+##### Summary
+
+Sets the value of the
+[EnteredText](#P-MFR-GUI-Controls-EntryRespectingComboBox-EnteredText 'MFR.GUI.Controls.EntryRespectingComboBox.EnteredText') property
+to the specified `text`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the new value to set
+for the property. |
 
 <a name='T-MFR-GUI-Controls-FoldUnfoldButton'></a>
 ## FoldUnfoldButton `type`

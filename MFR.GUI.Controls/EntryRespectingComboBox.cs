@@ -1,5 +1,7 @@
 using MFR.GUI.Controls.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Controls
@@ -38,8 +40,53 @@ namespace MFR.GUI.Controls
         /// </remarks>
         public string EnteredText
         {
-            get => base.Text;
-            set => base.Text = value;
+            get {
+                var result = string.Empty;
+
+                try
+                {
+                    if (InvokeRequired)
+                        Invoke(new Func<string>(() => EnteredText));
+                    else
+                        result = base.Text;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+
+            set {
+                try
+                {
+                    if (InvokeRequired)
+                        Invoke(new Action<string>(SetEnteredText), value);
+                    else
+                        SetEnteredText(value);
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+            }
         }
+
+        /// <summary>
+        /// Sets the value of the
+        /// <see cref="P:MFR.GUI.Controls.EntryRespectingComboBox.EnteredText" /> property
+        /// to the specified <paramref name="text" />.
+        /// </summary>
+        /// <param name="text">
+        /// (Required.) A <see cref="T:System.String" /> containing the new value to set
+        /// for the property.
+        /// </param>X
+        private void SetEnteredText(string text)
+            => base.Text = text;
     }
 }
