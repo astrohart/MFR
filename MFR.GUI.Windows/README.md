@@ -85,6 +85,7 @@
   - [SaveUserSettingsOnExit()](#M-MFR-GUI-Windows-MainWindow-SaveUserSettingsOnExit 'MFR.GUI.Windows.MainWindow.SaveUserSettingsOnExit')
   - [SelectAllOperations()](#M-MFR-GUI-Windows-MainWindow-SelectAllOperations 'MFR.GUI.Windows.MainWindow.SelectAllOperations')
   - [SetState(newState)](#M-MFR-GUI-Windows-MainWindow-SetState-MFR-GUI-Windows-Constants-MainWindowState- 'MFR.GUI.Windows.MainWindow.SetState(MFR.GUI.Windows.Constants.MainWindowState)')
+  - [ShouldNotProceedDueToPotentialOverwrites()](#M-MFR-GUI-Windows-MainWindow-ShouldNotProceedDueToPotentialOverwrites 'MFR.GUI.Windows.MainWindow.ShouldNotProceedDueToPotentialOverwrites')
   - [UpdateData(bSaveAndValidate)](#M-MFR-GUI-Windows-MainWindow-UpdateData-System-Boolean- 'MFR.GUI.Windows.MainWindow.UpdateData(System.Boolean)')
   - [UpdateSize(newSize)](#M-MFR-GUI-Windows-MainWindow-UpdateSize-System-Drawing-Size- 'MFR.GUI.Windows.MainWindow.UpdateSize(System.Drawing.Size)')
   - [ValidateData()](#M-MFR-GUI-Windows-MainWindow-ValidateData 'MFR.GUI.Windows.MainWindow.ValidateData')
@@ -1392,6 +1393,22 @@ property.
 | newState | [MFR.GUI.Windows.Constants.MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState') | (Required.) One of the
 [MainWindowState](#T-MFR-GUI-Windows-Constants-MainWindowState 'MFR.GUI.Windows.Constants.MainWindowState') values that
 identifies the new state to be set. |
+
+<a name='M-MFR-GUI-Windows-MainWindow-ShouldNotProceedDueToPotentialOverwrites'></a>
+### ShouldNotProceedDueToPotentialOverwrites() `method`
+
+##### Summary
+
+Warns the user about a potentially destructive operation.
+
+##### Returns
+
+`true` if the selected operation(s) should NOT be
+processed; `false` otherwise.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-GUI-Windows-MainWindow-UpdateData-System-Boolean-'></a>
 ### UpdateData(bSaveAndValidate) `method`
