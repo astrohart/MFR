@@ -107,14 +107,39 @@ namespace MFR.Directories.Validators
         /// </remarks>
         public bool Validate(string rootDirectory)
         {
+            var result = false;
+
             ValidationFailures = 0;
             Errors.Clear();
 
             try
             {
+                // Dump the parameter rootDirectory to the log
+                DebugUtils.WriteLine(DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: rootDirectory = '{rootDirectory}'");
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"RootDirectoryPathValidator.Validate: Checking whether we were passed the path to the user's My Documents folder..."
+                );
+
                 if (Directories.Constants.Directories.MyDocuments.Equals(rootDirectory))
-                    return
-                        true; // this is a dummy directory; it's always "valid"
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"RootDirectoryPathValidator.Validate: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This is always valid.  Proceeding..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: Result = {true}"
+                    );
+
+                    return true;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"RootDirectoryPathValidator.Validate: The user's My Documents folder is not the starting folder.  Proceeding..."
+                );
 
                 /*
                  * OKAY, a root directory is defined to be the path to
@@ -125,16 +150,71 @@ namespace MFR.Directories.Validators
                  * contains at least one Visual Studio Solution (*.sln) file.
                  */
 
-                if (!Directory.Exists(rootDirectory))
+                var directoryToUse = rootDirectory;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"RootDirectoryPathValidator.Validate: Checking whether the folder '{directoryToUse}' exists..."
+                );
+
+                if (!Directory.Exists(directoryToUse))
                 {
-                    var args = new RootDirectoryInvalidEventArgs(
-                        RootDirectoryInvalidReason.DoesntExist, rootDirectory
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The folder '{directoryToUse}' could not be found.  Stopping..."
                     );
+
+                    var args = new RootDirectoryInvalidEventArgs(
+                        RootDirectoryInvalidReason.DoesntExist, directoryToUse
+                    );
+
+                    /*
+                     * Instead of just straight up returning false (for invalid), we
+                     * use the OnRootDirectoryInvalid call below to display a UI to
+                     * give the user another chance to supply us with a valid starting
+                     * folder.
+                     *
+                     * If the user cancelled the operation, then return false.
+                     */
+
                     OnRootDirectoryInvalid(
                       args  
                     );
                     if (args.Cancel) return false;
+
+                    directoryToUse = args.RootDirectory;
                 }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"RootDirectoryPathValidator.Validate: Checking whether the folder '{directoryToUse}' exists again..."
+                );
+
+                if (!Directory.Exists(directoryToUse))
+                {
+                    /*
+                     * If we get here, we already gave the user a chance to fix
+                     * the problem, and the user did not...so just stop.
+                     */
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** We weren't able to locate the folder '{directoryToUse}' on the disk..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"RootDirectoryPathValidator.Validate: *** SUCCESS *** The folder '{directoryToUse}' was found on the user's system.  Proceeding..."
+                );
+
+
 
                 if (Directory.Exists(rootDirectory) && !Enumerate.Files(
                             rootDirectory, "*.sln",
@@ -151,6 +231,8 @@ namespace MFR.Directories.Validators
                     );
                     if (args.Cancel) return false;
                 }
+
+                result = ValidationFailures == 0;
             }
             catch (Exception ex)
             {
@@ -163,15 +245,14 @@ namespace MFR.Directories.Validators
                     )
                 );
 
-                return false;
+                result = false;
             }
 
-            /*
-             * OKAY, validation succeeded if the ValidationFailures property is
-             * still zero when we arrive at this line of code.
-             */
+            DebugUtils.WriteLine(
+                DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: Result = {result}"
+            );
 
-            return ValidationFailures == 0;
+            return result;
         }
 
         /// <summary>

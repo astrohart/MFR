@@ -108,12 +108,13 @@ namespace MFR.CommandLine.Validators
         /// , is passed a <see langword="null" /> value.
         /// </exception>
         public ICommandLineValidator AssociateWithRootDirectoryPathValidator(
-            IRootDirectoryPathValidator rootDirectoryPathValidator)
+            IRootDirectoryPathValidator rootDirectoryPathValidator
+        )
         {
             _rootDirectoryPathValidator = rootDirectoryPathValidator ??
-                                      throw new ArgumentNullException(
-                                          nameof(rootDirectoryPathValidator)
-                                      );
+                                          throw new ArgumentNullException(
+                                              nameof(rootDirectoryPathValidator)
+                                          );
 
             return this;
         }
@@ -156,16 +157,55 @@ namespace MFR.CommandLine.Validators
         /// </remarks>
         public bool Validate(ICommandLineInfo cmdInfo)
         {
+            var result = false;
+
             ValidationFailures = 0;
 
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineValidator.Validate: Attempting to validate the values passed by the user on the command line..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineValidator.Validate: Checking whether the 'cmdInfo' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, cmdInfo, is null. If it is, send an
+                // error to the log file and quit, returning the default return value of this
+                // method.
                 if (cmdInfo == null)
+                {
+                    // the parameter cmdInfo is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "CommandLineValidator.Validate: *** ERROR *** A null reference was passed for the 'cmdInfo' method parameter.  Stopping."
+                    );
+
                     OnCommandLineInfoInvalid(
                         new CommandLineInfoInvalidEventArgs(
                             cmdInfo, CommandLineInvalidReason.IsNull
                         )
                     );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineValidator.Validate: *** SUCCESS *** We have been passed a valid object reference for the 'cmdInfo' method parameter."
+                );
+
+                // Dump the value of the property, cmdInfo.StartingFolder, to the log
+                DebugUtils.WriteLine(DebugLevel.Debug, $"CommandLineValidator.Validate: cmdInfo.StartingFolder = '{cmdInfo.StartingFolder}'");
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"CommandLineValidator.Validate: Validating the starting folder that we were passed..."
+                );
 
                 /*
                  * Call an associated validator object in order to
@@ -174,14 +214,17 @@ namespace MFR.CommandLine.Validators
                  * Therefore, if the validation fails here, we simply increment
                  * the count of validation failures but otherwise do nothing.
                  */
-                if (!_rootDirectoryPathValidator?.Validate(cmdInfo.StartingFolder) ??
-                    false)
+                if (!_rootDirectoryPathValidator?.Validate(
+                        cmdInfo.StartingFolder
+                    ) ?? false)
                 {
                     ValidationFailures +=
                         _rootDirectoryPathValidator?.ValidationFailures ?? 1;
                     Errors = Errors.Concat(_rootDirectoryPathValidator.Errors)
                                    .ToList();
                 }
+
+                result = ValidationFailures == 0;
             }
             catch (Exception ex)
             {
@@ -195,9 +238,16 @@ namespace MFR.CommandLine.Validators
                 );
 
                 ValidationFailures++;
+
+                result = false;
             }
 
-            return ValidationFailures == 0;
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"CommandLineValidator.Validate: Result = {result}"
+            );
+
+            return result;
         }
 
         /// <summary>
@@ -217,7 +267,8 @@ namespace MFR.CommandLine.Validators
         /// parameter, <paramref name="e" />, is passed a <see langword="null" /> value.
         /// </exception>
         protected virtual void OnCommandLineInfoInvalid(
-            CommandLineInfoInvalidEventArgs e)
+            CommandLineInfoInvalidEventArgs e
+        )
         {
             if (e == null) throw new ArgumentNullException(nameof(e));
 
