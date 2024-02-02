@@ -154,6 +154,10 @@
       <Project>{e1887899-a285-48c9-b4a8-aad2e50a30ce}</Project>
       <Name>MFR.Directories.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Actions\MFR.Directories.Validators.Actions.csproj">
+      <Project>{862CC38B-3EDE-4E00-A537-A18F1DF31DFB}</Project>
+      <Name>MFR.Directories.Validators.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Constants\MFR.Directories.Validators.Constants.csproj">
       <Project>{D8C19529-ECD5-4A75-9ECA-38BD9C174032}</Project>
       <Name>MFR.Directories.Validators.Constants</Name>

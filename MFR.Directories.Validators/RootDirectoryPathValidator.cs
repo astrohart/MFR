@@ -1,12 +1,10 @@
+using MFR.Directories.Validators.Actions;
 using MFR.Directories.Validators.Constants;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Interfaces;
-using MFR.FileSystem.Enumerators;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using xyLOGIX.Core.Debug;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
@@ -115,22 +113,28 @@ namespace MFR.Directories.Validators
             try
             {
                 // Dump the parameter rootDirectory to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: rootDirectory = '{rootDirectory}'");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"RootDirectoryPathValidator.Validate: rootDirectory = '{rootDirectory}'"
+                );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"RootDirectoryPathValidator.Validate: Checking whether we were passed the path to the user's My Documents folder..."
+                    "RootDirectoryPathValidator.Validate: Checking whether we were passed the path to the user's My Documents folder..."
                 );
 
-                if (Directories.Constants.Directories.MyDocuments.Equals(rootDirectory))
+                if (Directories.Constants.Directories.MyDocuments.Equals(
+                        rootDirectory
+                    ))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"RootDirectoryPathValidator.Validate: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This is always valid.  Proceeding..."
+                        "RootDirectoryPathValidator.Validate: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This is always valid.  Proceeding..."
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: Result = {true}"
+                        DebugLevel.Debug,
+                        $"RootDirectoryPathValidator.Validate: Result = {true}"
                     );
 
                     return true;
@@ -138,7 +142,7 @@ namespace MFR.Directories.Validators
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"RootDirectoryPathValidator.Validate: The user's My Documents folder is not the starting folder.  Proceeding..."
+                    "RootDirectoryPathValidator.Validate: The user's My Documents folder is not the starting folder.  Proceeding..."
                 );
 
                 /*
@@ -177,9 +181,7 @@ namespace MFR.Directories.Validators
                      * If the user cancelled the operation, then return false.
                      */
 
-                    OnRootDirectoryInvalid(
-                      args  
-                    );
+                    OnRootDirectoryInvalid(args);
                     if (args.Cancel) return false;
 
                     directoryToUse = args.RootDirectory;
@@ -203,7 +205,8 @@ namespace MFR.Directories.Validators
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: Result = {result}"
+                        DebugLevel.Debug,
+                        $"RootDirectoryPathValidator.Validate: Result = {result}"
                     );
 
                     return result;
@@ -214,23 +217,30 @@ namespace MFR.Directories.Validators
                     $"RootDirectoryPathValidator.Validate: *** SUCCESS *** The folder '{directoryToUse}' was found on the user's system.  Proceeding..."
                 );
 
+                /*
+                 * Run a search to determine whether the specified directoryToUse
+                 * has even one Visual Studio Solution (*.sln) file in its directory
+                 * tree.
+                 *
+                 * If it is not the case that the specified folder contains even one
+                 * Visual Studio Solution (*.sln) file, then tell the user that the
+                 * specified directoryToUse is invalid.
+                 */
 
-
-                if (Directory.Exists(rootDirectory) && !Enumerate.Files(
-                            rootDirectory, "*.sln",
-                            SearchOption.AllDirectories
-                        )
-                        .Any())
+                if (!Search.ForFilesHavingExtension(directoryToUse, "*.sln"))
                 {
                     var args = new RootDirectoryInvalidEventArgs(
                         RootDirectoryInvalidReason.DoesntContainSolution,
                         rootDirectory
                     );
-                    OnRootDirectoryInvalid(
-                      args  
-                    );
+                    OnRootDirectoryInvalid(args);
                     if (args.Cancel) return false;
                 }
+
+                /*
+                 * Return true (valid) if, and only if, the ValidationFailures
+                 * property has a value equal to zero.
+                 */
 
                 result = ValidationFailures == 0;
             }
@@ -249,7 +259,8 @@ namespace MFR.Directories.Validators
             }
 
             DebugUtils.WriteLine(
-                DebugLevel.Debug, $"RootDirectoryPathValidator.Validate: Result = {result}"
+                DebugLevel.Debug,
+                $"RootDirectoryPathValidator.Validate: Result = {result}"
             );
 
             return result;
@@ -272,7 +283,8 @@ namespace MFR.Directories.Validators
         /// parameter, <paramref name="e" />, is passed a <see langword="null" /> value.
         /// </exception>
         protected virtual void OnRootDirectoryInvalid(
-            RootDirectoryInvalidEventArgs e)
+            RootDirectoryInvalidEventArgs e
+        )
         {
             if (e == null) throw new ArgumentNullException(nameof(e));
 

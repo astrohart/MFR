@@ -50,10 +50,75 @@ namespace MFR.Directories.Validators.Actions
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"Search.ForFilesHavingExtension: Determining whether the folder '{folder}' or file(s) whose extensions match the pattern '{extensionPattern}'..."
+                    $"Search.ForFilesHavingExtension: Determining whether the folder '{folder}', or its subfolder(s), contains at least one file(s) whose extensions match the pattern '{extensionPattern}'..."
                 );
 
-                if (!Does.DirectoryExist(folder)) return result;
+                // Dump the parameter folder to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"Search.ForFilesHavingExtension: folder = '{folder}'"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Search.ForFilesHavingExtension *** INFO: Checking whether the folder with path '{folder}' exists on the disk..."
+                );
+
+                if (!Does.FolderExist(folder))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"Search.ForFilesHavingExtension: *** ERROR *** The system could not locate the folder having the path '{folder}' on the disk.  This folder is required to exist in order for us to proceed."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"Search.ForFilesHavingExtension: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"Search.ForFilesHavingExtension: *** SUCCESS *** The folder with path '{folder}' was found on the disk.  Proceeding..."
+                );
+
+                // Dump the parameter extensionPattern to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"Search.ForFilesHavingExtension: extensionPattern = '{extensionPattern}'"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the value of the 'extensionPattern' parameter is blank..."
+                );
+
+                if (string.IsNullOrWhiteSpace(extensionPattern))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "Search.ForFilesHavingExtension: Blank value passed for the 'extensionPattern' parameter. This parameter is required."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"Search.ForFilesHavingExtension: Result = {result}"
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "Search.ForFilesHavingExtension: Done."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The parameter 'extensionPattern' is not blank.  Continuing..."
+                );
 
                 result = Does.FolderHaveAtLeastOneFileMatching(
                     folder, extensionPattern
