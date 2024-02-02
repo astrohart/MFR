@@ -2,7 +2,7 @@ using MFR.GUI.Controls.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Initializers
@@ -42,22 +42,71 @@ namespace MFR.GUI.Initializers
         /// This method is intended to be utilized in order to fill combo box
         /// controls with data from a data source.
         /// </remarks>
-        public static void InitializeComboBox(IEntryRespectingComboBox comboBox,
-            IList<string> itemList, string currentItem = "")
+        public static void InitializeComboBox(
+            IEntryRespectingComboBox comboBox,
+            IList<string> itemList,
+            string currentItem = ""
+        )
         {
-            if (comboBox == null)
-                throw new ArgumentNullException(nameof(comboBox));
-            if (itemList == null)
-                throw new ArgumentNullException(nameof(itemList));
+            try
+            {
+                if (comboBox != null && !comboBox.IsDisposed)
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"ComboBoxInitializer.InitializeComboBox: Initializing the items and text of the '{comboBox.Name}' combo box..."
+                    );
 
-            comboBox.Text = currentItem;
-            comboBox.Items.Clear();
-            if (!string.IsNullOrWhiteSpace(currentItem))
-                comboBox.Items.AddDistinct(currentItem);
-            if (!itemList.Any()) return;
+                if (comboBox == null) return;
+                if (comboBox.IsDisposed) return;
 
-            foreach (var item in itemList.Distinct())
-                comboBox.Items.AddDistinct(item);
+                comboBox.Text = currentItem;
+                comboBox.Items.Clear();
+
+                if (itemList == null) return;
+                if (itemList.Count == 0) return;
+
+                /*
+                 * Add the 'currentItem' to the drop-down portion of the
+                 * ComboBox, but only if it is not identically equal to
+                 * (modulus whitespace) the first element of the itemList.
+                 */
+
+                if (string.IsNullOrWhiteSpace(currentItem) && !currentItem
+                        .Trim()
+                        .Equals(
+                            itemList[0]
+                                .Trim()
+                        ))
+                    comboBox.Items.AddDistinct(currentItem);
+
+                foreach (var item in itemList)
+                    comboBox.Items.Add(item);
+
+                comboBox.SelectedIndex = 0;
+
+                // Dump the property comboBox.Text to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ComboBoxInitializer.InitializeComboBox: comboBox.Text = '{comboBox.Text}'"
+                );
+
+                // Dump the property itemList.Count to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ComboBoxInitializer.InitializeComboBox: itemList.Count = {itemList.Count}"
+                );
+
+                // Dump the property comboBox.Items.Count to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"ComboBoxInitializer.InitializeComboBox: comboBox.Items.Count = {comboBox.Items.Count}"
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
     }
 }
