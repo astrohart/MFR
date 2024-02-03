@@ -2883,6 +2883,58 @@ namespace MFR.Renamers.Files
         {
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ConnectToLocalGitRepoFor: Checking whether the 'entry' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, entry, is null. If it is, send an
+                // error to the log file and quit, returning from this method.
+                if (entry == null)
+                {
+                    // the parameter entry is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.ConnectToLocalGitRepoFor: *** ERROR *** A null reference was passed for the 'entry' method parameter.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** We have been passed a valid object reference for the 'entry' method parameter."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** FileRenamer.ConnectToLocalGitRepoFor: Checking whether the 'entry.Exists' Boolean expression evaluates to TRUE..."
+                );
+
+                // Check to see whether the Boolean expression, entry.Exists, evaluates to TRUE.  If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!entry.Exists)
+                {
+                    // the Boolean expression, entry.Exists, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The Boolean expression, 'entry.Exists', evaluated to FALSE.  Stopping."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** The Boolean expression, 'entry.Exists', evaluated to TRUE.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ConnectToLocalGitRepoFor: Attempting to connect to the local Git repository in the folder '{entry.Path}'..."
+                );
+
                 /*
                  * ASSUME that the specified File System Entry represents
                  * a folder on the file system that contains a local Git
@@ -2890,18 +2942,36 @@ namespace MFR.Renamers.Files
                  * this method.
                  */
 
-                if (LocalGitInteropProvider != null &&
-                    entry.Path.Equals(
-                        LocalGitInteropProvider.RepositoryFolder
-                    ) && LocalGitInteropProvider.HasCurrentBranch)
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ConnectToLocalGitRepoFor: Checking whether we're already connected to the local Git repository in the folder '{entry.Path}'..."
+                );
+
+                if (IsRepositoryConnected(entry.Path))
                 {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** We're connected to the local Git repository in the folder '{entry.Path}'.  Scanning it for changes..."
+                    );
+
                     LocalGitInteropProvider.ScanForRepoChanges();
+
                     return;
                 }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ConnectToLocalGitRepoFor: We're not yet connected to the local Git repository in the folder '{entry.Path}'.  Connecting to it..."
+                );
 
                 LocalGitInteropProvider =
                     MakeNewLocalGitInteropProvider
                         .ForLocalGitFolder(entry.Path);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** CONNECTED to the local Git repository in the folder '{entry.Path}'."
+                );
             }
             catch (Exception ex)
             {
@@ -3319,15 +3389,6 @@ namespace MFR.Renamers.Files
 
                     LocalGitInteropProvider.SetRepositoryFolder(entry.Path);
                 }
-                else
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        $"FileRenamer.HasPendingChanges: Asking the local Git interop provider to scan the local Git repository in '{entry.Path}' for changes..."
-                    );
-
-                    LocalGitInteropProvider.ScanForRepoChanges();
-                }
 
                 // Dump the value of the property, LocalGitInteropProvider.HasCurrentBranch, to the log
                 DebugUtils.WriteLine(
@@ -3584,6 +3645,136 @@ namespace MFR.Renamers.Files
             DebugUtils.WriteLine(
                 DebugLevel.Info,
                 $"FileRenamer.InvokeProcessing: Result = {result}"
+            );
+
+            return result;
+        }
+
+        private bool IsRepositoryConnected(string folder)
+        {
+            var result = false;
+
+            try
+            {
+                // Dump the parameter folder to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.IsRepositoryConnected: folder = '{folder}'"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.IsRepositoryConnected *** INFO: Checking whether the folder with path '{folder}' exists on the disk..."
+                );
+
+                if (!Does.FolderExist(folder))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"FileRenamer.IsRepositoryConnected: *** ERROR *** The system could not locate the folder having the path '{folder}' on the disk.  This folder is required to exist in order for us to proceed."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The folder with path '{folder}' was found on the disk.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.IsRepositoryConnected: Checking whether the 'LocalGitInteropProvider' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, LocalGitInteropProvider, is null. If it is, send an
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (LocalGitInteropProvider == null)
+                {
+                    // the property LocalGitInteropProvider is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.IsRepositoryConnected: *** ERROR *** The 'LocalGitInteropProvider' property has a null reference.  Stopping."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.IsRepositoryConnected: *** SUCCESS *** The 'LocalGitInteropProvider' property has a valid object reference for its value."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.IsRepositoryConnected: Checking whether the local Git interop provider object is already pointed at the folder '{folder}'..."
+                );
+
+                // Check to see whether the Boolean expression, folder.Equals(LocalGitInteropProvider.RepositoryFolder), evaluates to TRUE.  If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!folder.Equals(LocalGitInteropProvider.RepositoryFolder))
+                {
+                    // the Boolean expression, folder.Equals(LocalGitInteropProvider.RepositoryFolder), evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The local Git interop provider object isn't pointed at the folder '{folder}'.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.IsRepositoryConnected: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The local Git interop provider object is already pointed at the folder '{folder}'."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.IsRepositoryConnected: Checking whether the local Git repository in the folder '{folder}' already has a branch checked out..."
+                );
+
+                // Check to see whether the Boolean expression, LocalGitInteropProvider.HasCurrentBranch, evaluates to TRUE.  If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!LocalGitInteropProvider.HasCurrentBranch)
+                {
+                    // the Boolean expression, LocalGitInteropProvider.HasCurrentBranch, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The local Git repository in the folder '{folder}' is not currently on a branch."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.IsRepositoryConnected: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The local Git repository in the folder '{folder}' is on a branch.");
+
+                result = true;          /* connected */
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.IsRepositoryConnected: Result = {result}"
             );
 
             return result;
