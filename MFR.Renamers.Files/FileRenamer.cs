@@ -2382,6 +2382,20 @@ namespace MFR.Renamers.Files
 
                 ConnectToLocalGitRepoFor(entry);
 
+                if (LocalGitInteropProvider == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Unable to connect to the local Git repository in the folder '{entry.Path}'.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"FileRenamer.CommitPendingChangesForEntry: Result = {false}"
+                    );
+
+                    return false;
+                }
+
                 /*
                  * Here is where we actually perform the indicated operations.
                  *
@@ -2392,7 +2406,28 @@ namespace MFR.Renamers.Files
                  * always pull or push as needed later.
                  *
                  * We're only concerned with committing here.
+                 *
+                 * DO NOT commit anything if the repo has no pending changes!
                  */
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CommitPendingChangesForEntry: Checking whether the local Git repository in '{entry.Path}' has any pending changes..."
+                );
+
+                if (!LocalGitInteropProvider.IsDirty)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** INFO: The repository '{entry.Path}' has zero pending changes.  Not committing anything."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"FileRenamer.CommitPendingChangesForEntry: Result = {true}"
+                    );
+
+                    return true;
+                }
 
                 LocalGitInteropProvider.Stage();
 
