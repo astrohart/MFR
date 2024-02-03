@@ -59,7 +59,6 @@ namespace MFR.GUI.Initializers
                 if (comboBox == null) return;
                 if (comboBox.IsDisposed) return;
 
-                comboBox.Text = currentItem;
                 comboBox.Items.Clear();
 
                 if (itemList == null) return;
@@ -83,6 +82,14 @@ namespace MFR.GUI.Initializers
                     comboBox.Items.Add(item);
 
                 comboBox.SelectedIndex = 0;
+
+                if (!string.IsNullOrWhiteSpace(currentItem) && !currentItem
+                        .Trim()
+                        .EqualsNoCase(
+                            itemList[0]
+                                .Trim()
+                        ))
+                    comboBox.Text = currentItem;
 
                 // Dump the property comboBox.Text to the log
                 DebugUtils.WriteLine(
