@@ -5,7 +5,9 @@
 
 - [MainWindowPresenter](#T-MFR-GUI-Windows-Presenters-MainWindowPresenter 'MFR.GUI.Windows.Presenters.MainWindowPresenter')
   - [#ctor()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-#ctor 'MFR.GUI.Windows.Presenters.MainWindowPresenter.#ctor')
+  - [_cmdInfo](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_cmdInfo 'MFR.GUI.Windows.Presenters.MainWindowPresenter._cmdInfo')
   - [_historyManager](#F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager 'MFR.GUI.Windows.Presenters.MainWindowPresenter._historyManager')
+  - [CommandLineInfo](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo')
   - [ConfigFilePath](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigFilePath')
   - [ConfigProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
@@ -38,6 +40,7 @@
   - [OnAddProfileFailed(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnAddProfileFailed-MFR-GUI-Windows-Presenters-Events-AddProfileFailedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnAddProfileFailed(MFR.GUI.Windows.Presenters.Events.AddProfileFailedEventArgs)')
   - [OnAllHistoryCleared()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnAllHistoryCleared 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnAllHistoryCleared')
   - [OnCancellableProgressDialogRequestedCancel(sender,e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCancellableProgressDialogRequestedCancel-System-Object,System-EventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCancellableProgressDialogRequestedCancel(System.Object,System.EventArgs)')
+  - [OnCommandLineInfoChanged()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCommandLineInfoChanged 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCommandLineInfoChanged')
   - [OnConfigurationExported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationExported(MFR.Settings.Configuration.Events.ConfigurationExportedEventArgs)')
   - [OnConfigurationImported(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationImported-MFR-Settings-Configuration-Events-ConfigurationImportedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnConfigurationImported(MFR.Settings.Configuration.Events.ConfigurationImportedEventArgs)')
   - [OnCreateNewBlankProfileRequested(e)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCreateNewBlankProfileRequested-MFR-GUI-Windows-Presenters-Events-CreateNewBlankProfileRequestedEventArgs- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.OnCreateNewBlankProfileRequested(MFR.GUI.Windows.Presenters.Events.CreateNewBlankProfileRequestedEventArgs)')
@@ -53,6 +56,7 @@
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
   - [SaveCurrentConfigurationurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationurationAsProfile(System.String)')
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
+  - [SetCommandLineInfo(cmdInfo)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SetCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SetCommandLineInfo(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [UpdateConfiguration(config)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [UpdateData(bSavingAndValidating)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateData-System-Boolean- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateData(System.Boolean)')
   - [ValidateInputs()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-ValidateInputs 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ValidateInputs')
@@ -91,6 +95,16 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_cmdInfo'></a>
+### _cmdInfo `constants`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+that contains the settings that were passed on the command line by the user
+when this application was launched.
+
 <a name='F-MFR-GUI-Windows-Presenters-MainWindowPresenter-_historyManager'></a>
 ### _historyManager `constants`
 
@@ -105,6 +119,22 @@ interface.
 This object's sole purpose in life is to provide the service of
 maintaining the history lists in the config data
 source.
+
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfo'></a>
+### CommandLineInfo `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface,
+containing the settings that were specified by the user on the command line
+when this application  was launched.
+
+##### Remarks
+
+This property raises the
+[](#E-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfoChanged 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfoChanged')
+event when its value is updated.
 
 <a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath'></a>
 ### ConfigFilePath `property`
@@ -538,6 +568,19 @@ This method handles the situation in which the user has clicked the
 Cancel button on the progress dialog. The message taken by this
 method is to tell the File Renamer Object to attempt to abort.
 
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnCommandLineInfoChanged'></a>
+### OnCommandLineInfoChanged() `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfoChanged 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfoChanged')
+event.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-OnConfigurationExported-MFR-Settings-Configuration-Events-ConfigurationExportedEventArgs-'></a>
 ### OnConfigurationExported(e) `method`
 
@@ -817,6 +860,30 @@ object.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SetCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### SetCommandLineInfo(cmdInfo) `method`
+
+##### Summary
+
+Updates the value of the
+[CommandLineInfo](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo')
+property with the specified `cmdInfo` reference.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cmdInfo | [MFR.CommandLine.Models.Interfaces.ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') | (Required.) Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface. |
+
+##### Remarks
+
+If this method updates the value of the
+[CommandLineInfo](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo')
+property, then the
+[](#E-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfoChanged 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfoChanged')
+event is raised.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
 ### UpdateConfiguration(config) `method`

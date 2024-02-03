@@ -7,9 +7,11 @@
   - [SolutionFIle(pathname)](#M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String- 'MFR.GUI.Windows.MainWindow.Is.SolutionFIle(System.String)')
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
+  - [_cmdInfo](#F-MFR-GUI-Windows-MainWindow-_cmdInfo 'MFR.GUI.Windows.MainWindow._cmdInfo')
   - [_operationEngine](#F-MFR-GUI-Windows-MainWindow-_operationEngine 'MFR.GUI.Windows.MainWindow._operationEngine')
   - [_state](#F-MFR-GUI-Windows-MainWindow-_state 'MFR.GUI.Windows.MainWindow._state')
   - [components](#F-MFR-GUI-Windows-MainWindow-components 'MFR.GUI.Windows.MainWindow.components')
+  - [CommandLineInfo](#P-MFR-GUI-Windows-MainWindow-CommandLineInfo 'MFR.GUI.Windows.MainWindow.CommandLineInfo')
   - [ConfigProvider](#P-MFR-GUI-Windows-MainWindow-ConfigProvider 'MFR.GUI.Windows.MainWindow.ConfigProvider')
   - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
   - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
@@ -38,6 +40,7 @@
   - [TaskPool](#P-MFR-GUI-Windows-MainWindow-TaskPool 'MFR.GUI.Windows.MainWindow.TaskPool')
   - [Version](#P-MFR-GUI-Windows-MainWindow-Version 'MFR.GUI.Windows.MainWindow.Version')
   - [#cctor()](#M-MFR-GUI-Windows-MainWindow-#cctor 'MFR.GUI.Windows.MainWindow.#cctor')
+  - [AttachCommandLineInfo(cmdInfo)](#M-MFR-GUI-Windows-MainWindow-AttachCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Windows.MainWindow.AttachCommandLineInfo(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [ConfigureAutocompletionForFindWhatComboBox()](#M-MFR-GUI-Windows-MainWindow-ConfigureAutocompletionForFindWhatComboBox 'MFR.GUI.Windows.MainWindow.ConfigureAutocompletionForFindWhatComboBox')
   - [DeselectAllOperations()](#M-MFR-GUI-Windows-MainWindow-DeselectAllOperations 'MFR.GUI.Windows.MainWindow.DeselectAllOperations')
   - [Dispose(disposing)](#M-MFR-GUI-Windows-MainWindow-Dispose-System-Boolean- 'MFR.GUI.Windows.MainWindow.Dispose(System.Boolean)')
@@ -168,6 +171,16 @@ and returns a reference to it.
 
 This constructor has no parameters.
 
+<a name='F-MFR-GUI-Windows-MainWindow-_cmdInfo'></a>
+### _cmdInfo `constants`
+
+##### Summary
+
+Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+that contains the settings that were specified by the user on the command line
+when this application was launched.
+
 <a name='F-MFR-GUI-Windows-MainWindow-_operationEngine'></a>
 ### _operationEngine `constants`
 
@@ -201,6 +214,16 @@ enumeration values that describes the current state of processing.
 ##### Summary
 
 Required designer variable.
+
+<a name='P-MFR-GUI-Windows-MainWindow-CommandLineInfo'></a>
+### CommandLineInfo `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+that contains the settings that were specified by the user on the command line
+when this application was launched.
 
 <a name='P-MFR-GUI-Windows-MainWindow-ConfigProvider'></a>
 ### ConfigProvider `property`
@@ -453,6 +476,27 @@ Empty, static constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-AttachCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### AttachCommandLineInfo(cmdInfo) `method`
+
+##### Summary
+
+Associates the specified `cmdInfo` object with this window.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cmdInfo | [MFR.CommandLine.Models.Interfaces.ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') | (Required.) Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+that contains the settings specified by the user on the command line when this
+application was launched. |
+
+##### Remarks
+
+If a `null` reference is passed for the argument of
+the `cmdInfo` parameter, then this method does nothing.
 
 <a name='M-MFR-GUI-Windows-MainWindow-ConfigureAutocompletionForFindWhatComboBox'></a>
 ### ConfigureAutocompletionForFindWhatComboBox() `method`
