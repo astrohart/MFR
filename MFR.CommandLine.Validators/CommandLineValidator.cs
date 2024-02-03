@@ -12,11 +12,8 @@ using xyLOGIX.Core.Debug;
 namespace MFR.CommandLine.Validators
 {
     /// <summary>
-    /// Validates instances of
-    /// <see
-    ///     cref="T:MFR.CommandLine.CommandLineInfo" />
-    /// to ensure they
-    /// contain values that the application can work with.
+    /// Validates instances of <see cref="T:MFR.CommandLine.CommandLineInfo" /> to
+    /// ensure they contain values that the application can work with.
     /// </summary>
     public class CommandLineValidator : ICommandLineValidator
     {
@@ -200,11 +197,14 @@ namespace MFR.CommandLine.Validators
                 );
 
                 // Dump the value of the property, cmdInfo.StartingFolder, to the log
-                DebugUtils.WriteLine(DebugLevel.Debug, $"CommandLineValidator.Validate: cmdInfo.StartingFolder = '{cmdInfo.StartingFolder}'");
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"CommandLineValidator.Validate: cmdInfo.StartingFolder = '{cmdInfo.StartingFolder}'"
+                );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"CommandLineValidator.Validate: Validating the starting folder that we were passed..."
+                    "CommandLineValidator.Validate: Validating the starting folder that we were passed..."
                 );
 
                 /*
