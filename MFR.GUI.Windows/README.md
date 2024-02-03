@@ -48,6 +48,7 @@
   - [InitializeConfiguration()](#M-MFR-GUI-Windows-MainWindow-InitializeConfiguration 'MFR.GUI.Windows.MainWindow.InitializeConfiguration')
   - [InitializeOperationEngine()](#M-MFR-GUI-Windows-MainWindow-InitializeOperationEngine 'MFR.GUI.Windows.MainWindow.InitializeOperationEngine')
   - [InitializePresenter()](#M-MFR-GUI-Windows-MainWindow-InitializePresenter 'MFR.GUI.Windows.MainWindow.InitializePresenter')
+  - [InitializeStartingFolder()](#M-MFR-GUI-Windows-MainWindow-InitializeStartingFolder 'MFR.GUI.Windows.MainWindow.InitializeStartingFolder')
   - [OnCheckedChangedSelectDeselectAllCheckBox(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnCheckedChangedSelectDeselectAllCheckBox-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnCheckedChangedSelectDeselectAllCheckBox(System.Object,System.EventArgs)')
   - [OnClickBrowseForStartingFolder(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickBrowseForStartingFolder-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickBrowseForStartingFolder(System.Object,System.EventArgs)')
   - [OnClickPerformOperation(sender,e)](#M-MFR-GUI-Windows-MainWindow-OnClickPerformOperation-System-Object,System-EventArgs- 'MFR.GUI.Windows.MainWindow.OnClickPerformOperation(System.Object,System.EventArgs)')
@@ -511,7 +512,9 @@ This method has no parameters.
 
 ##### Summary
 
-Responds to the event that the value of the value of the
+Responds to the `ConfiguredStartingFolderChanged` event by updating the
+value of the combo box and ensuring the new value for
+the starting folder is added to the history.
 
 ##### Parameters
 
@@ -590,6 +593,19 @@ This method has no parameters.
 ##### Summary
 
 Sets up the presenter object and attaches handlers to events that it exposes.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-GUI-Windows-MainWindow-InitializeStartingFolder'></a>
+### InitializeStartingFolder() `method`
+
+##### Summary
+
+Called to check whether a Starting Folder has been configured (e.g., from
+command-line options) and, if so, and if that folder exists, then the text of
+the combo box is updated to match.
 
 ##### Parameters
 

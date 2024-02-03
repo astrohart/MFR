@@ -1,12 +1,14 @@
+using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Threading;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Settings.Configuration.Events
 {
     /// <summary>
     /// Provides information for <c>StartingFolderChanged</c> event handlers.
     /// </summary>
-[ExplicitlySynchronized]
+    [ExplicitlySynchronized]
     public class StartingFolderChangedEventArgs : EventArgs
     {
         /// <summary>
@@ -24,8 +26,23 @@ namespace MFR.Settings.Configuration.Events
         /// the fully-qualified pathname  of the folder in which this application's
         /// operations are started.
         /// </param>
-        public StartingFolderChangedEventArgs(string oldPath, string newPath)
+        public StartingFolderChangedEventArgs(
+            [NotLogged] string oldPath,
+            [NotLogged] string newPath
+        )
         {
+            // Dump the parameter oldPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"StartingFolderChangedEventArgs.StartingFolderChangedEventArgs: oldPath = '{oldPath}'"
+            );
+
+            // Dump the parameter newPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"StartingFolderChangedEventArgs.StartingFolderChangedEventArgs: newPath = '{newPath}'"
+            );
+
             OldPath = oldPath;
             NewPath = newPath;
         }
