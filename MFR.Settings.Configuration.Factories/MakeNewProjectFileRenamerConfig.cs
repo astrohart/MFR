@@ -684,13 +684,14 @@ namespace MFR.Settings.Configuration.Factories
         public static IProjectFileRenamerConfig
             ShouldCommitPendingChanges(
                 this IProjectFileRenamerConfig self,
-                bool shouldCommitPendingChanges
+                bool? shouldCommitPendingChanges
             )
         {
             if (self == null)
                 throw new ArgumentNullException(nameof(self));
-
-            self.ShouldCommitPendingChanges = shouldCommitPendingChanges;
+            if (!shouldCommitPendingChanges.HasValue) return self;
+            
+            self.ShouldCommitPendingChanges = (bool)shouldCommitPendingChanges;
             return self;
         }
 
@@ -724,14 +725,15 @@ namespace MFR.Settings.Configuration.Factories
         public static IProjectFileRenamerConfig
             ShouldCommitPostOperationChanges(
                 this IProjectFileRenamerConfig self,
-                bool shouldCommitPostOperationChanges
+                bool? shouldCommitPostOperationChanges
             )
         {
             if (self == null)
                 throw new ArgumentNullException(nameof(self));
+            if (!shouldCommitPostOperationChanges.HasValue) return self;
 
             self.ShouldCommitPostOperationChanges =
-                shouldCommitPostOperationChanges;
+                (bool)shouldCommitPostOperationChanges;
             return self;
         }
 
