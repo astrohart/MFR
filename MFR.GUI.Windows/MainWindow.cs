@@ -808,9 +808,6 @@ namespace MFR.GUI.Windows
                      * This button loves to enable itself when the user first starts
                      * the application. That does not make intuitive sense.
                      */
-
-                    if (Presenter.IsDirty)
-                        fileSave.PerformClick();
                 }
             );
 
