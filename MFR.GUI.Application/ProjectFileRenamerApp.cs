@@ -422,7 +422,7 @@ namespace MFR.GUI.Application
                 ConfigProvider.Load();
 
                 var cmdInfo = ParseCommandLine(args);
-                if (cmdInfo != null && Does.FileExist(cmdInfo.StartingFolder))
+                if (cmdInfo != null && Does.DirectoryExist(cmdInfo.StartingFolder))
                     ConfigProvider.CurrentConfiguration.StartingFolder =
                         cmdInfo.StartingFolder;
 
