@@ -27,6 +27,7 @@ using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Files.Actions;
 
 namespace MFR.GUI.Application
 {
@@ -420,7 +421,10 @@ namespace MFR.GUI.Application
 
                 ConfigProvider.Load();
 
-                ParseCommandLine(args);
+                var cmdInfo = ParseCommandLine(args);
+                if (cmdInfo != null && Does.FileExist(cmdInfo.StartingFolder))
+                    ConfigProvider.CurrentConfiguration.StartingFolder =
+                        cmdInfo.StartingFolder;
 
                 result = true;
             }
@@ -453,21 +457,37 @@ namespace MFR.GUI.Application
         /// <para />
         /// If any validation failures occur, then the app is terminated.
         /// </remarks>
-        private void ParseCommandLine(string[] args)
+        private ICommandLineInfo ParseCommandLine(string[] args)
         {
-            CommandLineSpecified = args.Any();
+            ICommandLineInfo result = default;
 
-            if (!args.Any())
+            try
             {
-                CommandLineInfo = MakeNewCommandLineInfo.FromScratch();
-                return; // This app can be launched with no command-line arguments.
+                CommandLineSpecified = args.Any();
+
+                if (!args.Any())
+                {
+                    result = CommandLineInfo =
+                        MakeNewCommandLineInfo.FromScratch();
+                    return
+                        result; // This app can be launched with no command-line arguments.
+                }
+
+                CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
+                result = CommandLineInfo = CommandLineParser.Parse(args);
+
+                if (!CommandLineValidator.Validate(CommandLineInfo))
+                    Environment.Exit(-1); // kill this app
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
             }
 
-            CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
-            CommandLineInfo = CommandLineParser.Parse(args);
-
-            if (!CommandLineValidator.Validate(CommandLineInfo))
-                Environment.Exit(-1); // kill this app
+            return result;
         }
 
         /// <summary>
