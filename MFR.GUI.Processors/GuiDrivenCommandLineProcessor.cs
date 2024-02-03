@@ -47,7 +47,7 @@ namespace MFR.GUI.Processors
         /// </summary>
         public override void Process()
         {
-            CurrentConfiguration = CommandLineInfo.ToConfiguration();
+            var commandLineConfig = CommandLineInfo.ToConfiguration();
 
             Application.Run((Form)GetMainWindow.SoleInstance());
         }

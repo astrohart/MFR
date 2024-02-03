@@ -1,7 +1,6 @@
 using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;
 using MFR.CommandLine.Parsers.Interfaces;
-using MFR.CommandLine.Translators;
 using MFR.Common;
 using MFR.Events;
 using MFR.Events.Common;
@@ -13,7 +12,7 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using System;
-using System.Linq;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.Console
 {
@@ -80,14 +79,9 @@ namespace MFR.Console
 
                 CommandLineParser.DisplayHelp += OnDisplayHelp;
 
-                if (args != null && args.Any())
-                {
-                    var cmdInfo = CommandLineParser.Parse(args);
-                    if (cmdInfo != null)
-                        CurrentConfiguration = cmdInfo.ToConfiguration();
-                }
-                else
-                    ConfigProvider.Load();
+                ConfigProvider.Load();
+
+                ParseCommandLine(args);
 
                 FileRenamer.UpdateConfiguration(CurrentConfiguration);
 
@@ -177,6 +171,36 @@ namespace MFR.Console
                         $"Rename Subfolders: {e.Count} folders are to be processed."
                     );
                     break;
+            }
+        }
+
+        private static void ParseCommandLine(string[] args)
+        {
+            try
+            {
+                if (args == null) return;
+                if (args.Length == 0) return;
+
+                var cmdInfo = CommandLineParser.Parse(args);
+
+                if (cmdInfo.AutoStart !=
+                    CurrentConfiguration.AutoStart)
+                    CurrentConfiguration.AutoStart = cmdInfo.AutoStart;
+                if (!string.IsNullOrWhiteSpace(cmdInfo.FindWhat) &&
+                    !cmdInfo.FindWhat.Equals(CurrentConfiguration.FindWhat))
+                    CurrentConfiguration.FindWhat = cmdInfo.FindWhat;
+                if (cmdInfo.MatchCase.HasValue && cmdInfo.MatchCase !=
+                    CurrentConfiguration.MatchCase)
+                    CurrentConfiguration.MatchCase = (bool)cmdInfo.MatchCase;
+                if (cmdInfo.MatchExactWord.HasValue && cmdInfo.MatchExactWord !=
+                    CurrentConfiguration.MatchExactWord)
+                    CurrentConfiguration.MatchExactWord =
+                        (bool)cmdInfo.MatchExactWord;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
             }
         }
     }

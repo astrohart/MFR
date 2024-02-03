@@ -10,6 +10,10 @@ namespace MFR.CommandLine.Models.Interfaces
         /// Gets or sets a value indicating whether processing starts when the application
         /// starts.
         /// </summary>
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is <see langword="false" />.
+        /// </remarks>
         bool AutoStart
         {
             get;
@@ -29,7 +33,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// <summary>
         /// Gets or sets a value indicating whether a case-sensitive search should be done.
         /// </summary>
-        bool MatchCase
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is <see langword="null" />.
+        /// </remarks>
+        bool? MatchCase
         {
             get;
             set;
@@ -38,7 +46,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// <summary>
         /// Gets or sets a value indicating whether a whole-word search should be done.
         /// </summary>
-        bool MatchWholeWord
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is <see langword="null" />.
+        /// </remarks>
+        bool? MatchExactWord
         {
             get;
             set;
@@ -76,7 +88,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// Gets or sets a value that indicates that the Solution is to be reloaded when
         /// the operations are finished.
         /// </summary>
-        bool ReOpenSolution
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is <see langword="null" />.
+        /// </remarks>
+        bool? ReOpenSolution
         {
             get;
             set;
@@ -85,6 +101,10 @@ namespace MFR.CommandLine.Models.Interfaces
         /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.
         /// </summary>
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is set to <see langword="true" />.
+        /// </remarks>
         bool ReplaceTextInFiles
         {
             get;
@@ -95,6 +115,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// Gets or sets a string containing the content to be replaced in the file system
         /// entries.
         /// </summary>
+        /// <remarks>
+        /// This property's value is set to the
+        /// <see cref="F:System.String.Empty" /> value if it is not specified on the
+        /// command line.
+        /// </remarks>
         string ReplaceWith
         {
             get;
@@ -106,7 +131,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// changes to the user's local Git repository, on the current branch, prior to
         /// executing the operations.
         /// </summary>
-        bool ShouldCommitPendingChanges
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is <see langword="null" />.
+        /// </remarks>
+        bool? ShouldCommitPendingChanges
         {
             get;
             set;
@@ -117,7 +146,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// changes to the user's local Git repository, and on the current branch, the
         /// changes that have resulted from the operations we've performed.
         /// </summary>
-        bool ShouldCommitPostOperationChanges
+        /// <remarks>
+        /// If nothing was specified on the command line for this property, then
+        /// its value is <see langword="null" />.
+        /// </remarks>
+        bool? ShouldCommitPostOperationChanges
         {
             get;
             set;
@@ -126,6 +159,11 @@ namespace MFR.CommandLine.Models.Interfaces
         /// <summary>
         /// Gets or sets a string that contains the starting folder.
         /// </summary>
+        /// <remarks>
+        /// This property's value is set to the
+        /// <see cref="F:System.String.Empty" /> value if it is not specified on the
+        /// command line.
+        /// </remarks>
         string StartingFolder
         {
             get;

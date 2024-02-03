@@ -1,6 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
 using Fclp;
-using MFR.CommandLine.Constants;
 using MFR.CommandLine.Models;
 using MFR.CommandLine.Models.Factories;
 using MFR.CommandLine.Models.Interfaces;
@@ -41,13 +40,19 @@ namespace MFR.CommandLine.Parsers
         } = new CommandLineParser();
 
         /// <summary>
+        /// Occurs when Help text is to be displayed.
+        /// </summary>
+        public event DisplayHelpEventHandler DisplayHelp;
+
+        /// <summary>
         /// Parses the application's command-line arguments and sets the properties of a
         /// new instance of an object that implements the
         /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
         /// accordingly.
         /// </summary>
         /// <param name="args">
-        /// (Required.) Array containing the command-line arguments passed to this application.
+        /// (Required.) Array containing the command-line arguments passed to this
+        /// application.
         /// application.
         /// </param>
         public ICommandLineInfo Parse(string[] args)
@@ -69,6 +74,7 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.StartingFolder)
                  .As('r', "root")
+                 .SetDefault(string.Empty)
                  .WithDescription(
                      "Sets the directory that this application begins in."
                  )
@@ -77,6 +83,7 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.FindWhat)
                  .As("findWhat")
+                 .SetDefault(string.Empty)
                  .WithDescription(
                      "Sets the string to be found in file system entries."
                  );
@@ -97,6 +104,7 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.ReplaceWith)
                  .As("replaceWith")
+                 .SetDefault(string.Empty)
                  .WithDescription(
                      "Sets the string to be substituted in file system entry names."
                  );
@@ -127,6 +135,7 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.ReOpenSolution)
                  .As("reOpenSolution")
+                 .SetDefault(null)
                  .WithDescription(
                      "Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed."
                  )
@@ -134,31 +143,31 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.ShouldCommitPendingChanges)
                  .As("commitPendingChanges")
+                 .SetDefault(null)
                  .WithDescription(
                      "Determines whether pending changes are to be committed to the local Git repository before the specified operation(s) are performed."
-                 )
-                 .SetDefault(true);
+                 );
 
                 p.Setup(arg => arg.ShouldCommitPostOperationChanges)
                  .As("commitPostOperationChanges")
+                 .SetDefault(null)
                  .WithDescription(
                      "Determines whether post-operation changes are to be committed to the local Git repository."
-                 )
-                 .SetDefault(true);
+                 );
 
                 p.Setup(arg => arg.MatchCase)
-                 .As("matchCase")   
+                 .As("matchCase")
+                 .SetDefault(null)
                  .WithDescription(
                      "Indicates that a case-sensitive search should be performed."
-                 )
-                 .SetDefault(true);
+                 );
 
-                p.Setup(arg => arg.MatchWholeWord)
+                p.Setup(arg => arg.MatchExactWord)
                  .As("matchWholeWord")
+                 .SetDefault(null)
                  .WithDescription(
                      "Indicates that a whole-word search (respecting periods) should be performed."
-                 )
-                 .SetDefault(false);
+                 );
 
                 p.SetupHelp("?", "help")
                  .Callback(
@@ -196,11 +205,6 @@ namespace MFR.CommandLine.Parsers
 
             return result;
         }
-
-        /// <summary>
-        /// Occurs when Help text is to be displayed.
-        /// </summary>
-        public event DisplayHelpEventHandler DisplayHelp;
 
         /// <summary>
         /// Raises the
