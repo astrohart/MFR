@@ -24,8 +24,8 @@
   - [HavingInvokableOperations(self,operationsToPerform)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-HavingInvokableOperations-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Collections-Generic-IList{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.HavingInvokableOperations(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Collections.Generic.IList{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [SetIsFromCommandLine(self,isFromCommandLine)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-SetIsFromCommandLine-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.SetIsFromCommandLine(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Boolean)')
   - [ShouldAutoStart(self,autoStart)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldAutoStart-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.ShouldAutoStart(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Boolean)')
-  - [ShouldCommitPendingChanges(self,shouldCommitPendingChanges)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPendingChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.ShouldCommitPendingChanges(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Boolean)')
-  - [ShouldCommitPostOperationChanges(self,shouldCommitPostOperationChanges)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPostOperationChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.ShouldCommitPostOperationChanges(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Boolean)')
+  - [ShouldCommitPendingChanges(self,shouldCommitPendingChanges)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPendingChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Nullable{System-Boolean}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.ShouldCommitPendingChanges(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Nullable{System.Boolean})')
+  - [ShouldCommitPostOperationChanges(self,shouldCommitPostOperationChanges)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPostOperationChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Nullable{System-Boolean}- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.ShouldCommitPostOperationChanges(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Nullable{System.Boolean})')
   - [ShouldRenameFilesInFolder(self,renameFiles)](#M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldRenameFilesInFolder-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean- 'MFR.Settings.Configuration.Factories.MakeNewProjectFileRenamerConfig.ShouldRenameFilesInFolder(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig,System.Boolean)')
 - [Resources](#T-MFR-Settings-Configuration-Factories-Properties-Resources 'MFR.Settings.Configuration.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Factories.Properties.Resources.Culture')
@@ -636,7 +636,7 @@ be automatically processed when the application starts. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPendingChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean-'></a>
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPendingChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Nullable{System-Boolean}-'></a>
 ### ShouldCommitPendingChanges(self,shouldCommitPendingChanges) `method`
 
 ##### Summary
@@ -658,7 +658,7 @@ method, for fluent use.
 the
 [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface. |
-| shouldCommitPendingChanges | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value indicating whether the
+| shouldCommitPendingChanges | [System.Nullable{System.Boolean}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.Boolean}') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value indicating whether the
 user's pending changes are to be committed prior to the start of the selected
 rename operation(s). |
 
@@ -669,7 +669,7 @@ rename operation(s). |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `self`, is
 passed a `null` value. |
 
-<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPostOperationChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Boolean-'></a>
+<a name='M-MFR-Settings-Configuration-Factories-MakeNewProjectFileRenamerConfig-ShouldCommitPostOperationChanges-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-Nullable{System-Boolean}-'></a>
 ### ShouldCommitPostOperationChanges(self,shouldCommitPostOperationChanges) `method`
 
 ##### Summary
@@ -691,7 +691,7 @@ method, for fluent use.
 the
 [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface. |
-| shouldCommitPostOperationChanges | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
+| shouldCommitPostOperationChanges | [System.Nullable{System.Boolean}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.Boolean}') | (Required.) A [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') value that indicates whether the
 changes that this application makes are to be committed to the local Git
 repository when the selected renaming operation(s) have completed their
 execution. |

@@ -8,7 +8,7 @@
   - [AutoStart](#P-MFR-CommandLine-Models-CommandLineInfo-AutoStart 'MFR.CommandLine.Models.CommandLineInfo.AutoStart')
   - [FindWhat](#P-MFR-CommandLine-Models-CommandLineInfo-FindWhat 'MFR.CommandLine.Models.CommandLineInfo.FindWhat')
   - [MatchCase](#P-MFR-CommandLine-Models-CommandLineInfo-MatchCase 'MFR.CommandLine.Models.CommandLineInfo.MatchCase')
-  - [MatchWholeWord](#P-MFR-CommandLine-Models-CommandLineInfo-MatchWholeWord 'MFR.CommandLine.Models.CommandLineInfo.MatchWholeWord')
+  - [MatchExactWord](#P-MFR-CommandLine-Models-CommandLineInfo-MatchExactWord 'MFR.CommandLine.Models.CommandLineInfo.MatchExactWord')
   - [ReOpenSolution](#P-MFR-CommandLine-Models-CommandLineInfo-ReOpenSolution 'MFR.CommandLine.Models.CommandLineInfo.ReOpenSolution')
   - [RenameFilesInFolder](#P-MFR-CommandLine-Models-CommandLineInfo-RenameFilesInFolder 'MFR.CommandLine.Models.CommandLineInfo.RenameFilesInFolder')
   - [RenameSolutionFolders](#P-MFR-CommandLine-Models-CommandLineInfo-RenameSolutionFolders 'MFR.CommandLine.Models.CommandLineInfo.RenameSolutionFolders')
@@ -64,6 +64,11 @@ due to the fact that this class is marked `abstract`.
 Gets or sets a value indicating whether processing starts when the application
 starts.
 
+##### Remarks
+
+If nothing was specified on the command line for this property, then
+its value is `false`.
+
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-FindWhat'></a>
 ### FindWhat `property`
 
@@ -81,14 +86,20 @@ Gets or sets a value indicating whether a case-sensitive search should be done.
 
 ##### Remarks
 
-The default value of this property is `true`.
+If nothing was specified on the command line for this property, then
+its value is `null`.
 
-<a name='P-MFR-CommandLine-Models-CommandLineInfo-MatchWholeWord'></a>
-### MatchWholeWord `property`
+<a name='P-MFR-CommandLine-Models-CommandLineInfo-MatchExactWord'></a>
+### MatchExactWord `property`
 
 ##### Summary
 
 Gets or sets a value indicating whether a whole-word search should be done.
+
+##### Remarks
+
+If nothing was specified on the command line for this property, then
+its value is `null`.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-ReOpenSolution'></a>
 ### ReOpenSolution `property`
@@ -100,7 +111,8 @@ the operations are finished.
 
 ##### Remarks
 
-The default value of this property is `true`.
+If nothing was specified on the command line for this property, then
+its value is `null`.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-RenameFilesInFolder'></a>
 ### RenameFilesInFolder `property`
@@ -141,7 +153,8 @@ Gets or sets a value indicating whether text in files should be replaced.
 
 ##### Remarks
 
-The default value of this property is `true`.
+If nothing was specified on the command line for this property, then
+its value is set to `true`.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-ReplaceWith'></a>
 ### ReplaceWith `property`
@@ -150,6 +163,12 @@ The default value of this property is `true`.
 
 Gets or sets a string containing the content to be replaced in the file system
 entries.
+
+##### Remarks
+
+This property's value is set to the
+[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value if it is not specified on the
+command line.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPendingChanges'></a>
 ### ShouldCommitPendingChanges `property`
@@ -160,6 +179,11 @@ Gets or sets a value that indicates whether we are to attempt to commit pending
 changes to the user's local Git repository, on the current branch, prior to
 executing the operations.
 
+##### Remarks
+
+If nothing was specified on the command line for this property, then
+its value is `null`.
+
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPostOperationChanges'></a>
 ### ShouldCommitPostOperationChanges `property`
 
@@ -168,6 +192,11 @@ executing the operations.
 Gets or sets a value that indicates whether we are to attempt to commit pending
 changes to the user's local Git repository, and on the current branch, the
 changes that have resulted from the operations we've performed.
+
+##### Remarks
+
+If nothing was specified on the command line for this property, then
+its value is `null`.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-StartingFolder'></a>
 ### StartingFolder `property`

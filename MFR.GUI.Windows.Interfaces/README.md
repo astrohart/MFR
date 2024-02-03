@@ -22,6 +22,7 @@
   - [StartingFolderComboBox](#P-MFR-GUI-Windows-Interfaces-IMainWindow-StartingFolderComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.StartingFolderComboBox')
   - [State](#P-MFR-GUI-Windows-Interfaces-IMainWindow-State 'MFR.GUI.Windows.Interfaces.IMainWindow.State')
   - [Version](#P-MFR-GUI-Windows-Interfaces-IMainWindow-Version 'MFR.GUI.Windows.Interfaces.IMainWindow.Version')
+  - [AttachCommandLineInfo(cmdInfo)](#M-MFR-GUI-Windows-Interfaces-IMainWindow-AttachCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Windows.Interfaces.IMainWindow.AttachCommandLineInfo(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [DeselectAllOperations()](#M-MFR-GUI-Windows-Interfaces-IMainWindow-DeselectAllOperations 'MFR.GUI.Windows.Interfaces.IMainWindow.DeselectAllOperations')
   - [ResetProfileCollectionComboBox()](#M-MFR-GUI-Windows-Interfaces-IMainWindow-ResetProfileCollectionComboBox 'MFR.GUI.Windows.Interfaces.IMainWindow.ResetProfileCollectionComboBox')
   - [SelectAllOperations()](#M-MFR-GUI-Windows-Interfaces-IMainWindow-SelectAllOperations 'MFR.GUI.Windows.Interfaces.IMainWindow.SelectAllOperations')
@@ -188,6 +189,22 @@ Gets a string containing this application's version.
 Thanks to
 
 's answer on the Microsoft forums.
+
+<a name='M-MFR-GUI-Windows-Interfaces-IMainWindow-AttachCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### AttachCommandLineInfo(cmdInfo) `method`
+
+##### Summary
+
+Associates the specified `cmdInfo` object with this window.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cmdInfo | [MFR.CommandLine.Models.Interfaces.ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') | (Required.) Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface
+that contains the settings specified by the user on the command line when this
+application was launched. |
 
 <a name='M-MFR-GUI-Windows-Interfaces-IMainWindow-DeselectAllOperations'></a>
 ### DeselectAllOperations() `method`

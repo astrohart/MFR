@@ -4,6 +4,7 @@
 ## Contents
 
 - [IMainWindowPresenter](#T-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter')
+  - [CommandLineInfo](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfo')
   - [IsDirty](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsDirty 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.IsDirty')
   - [IsProfileLoaded](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsProfileLoaded 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.IsProfileLoaded')
   - [AddProfile(name)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-AddProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.AddProfile(System.String)')
@@ -20,6 +21,7 @@
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
   - [SaveCurrentConfigurationurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationurationAsProfile(System.String)')
+  - [SetCommandLineInfo(cmdInfo)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SetCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SetCommandLineInfo(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithOperationEngine(MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources.Culture')
@@ -36,6 +38,22 @@ MFR.GUI.Windows.Presenters.Interfaces
 
 Defines the public-exposed methods and properties of the presenter
 object for the main application window.
+
+<a name='P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-CommandLineInfo'></a>
+### CommandLineInfo `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface,
+containing the settings that were specified by the user on the command line
+when this application  was launched.
+
+##### Remarks
+
+This property raises the
+[](#E-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-CommandLineInfoChanged 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfoChanged')
+event when its value is updated.
 
 <a name='P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-IsDirty'></a>
 ### IsDirty `property`
@@ -314,6 +332,30 @@ nothing.
 | ---- | ---- | ----------- |
 | profileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the name to give the
 new Profile. |
+
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SetCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### SetCommandLineInfo(cmdInfo) `method`
+
+##### Summary
+
+Updates the value of the
+[CommandLineInfo](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfo')
+property with the specified `cmdInfo` reference.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cmdInfo | [MFR.CommandLine.Models.Interfaces.ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') | (Required.) Reference to an instance of an object that implements the
+[ICommandLineInfo](#T-MFR-CommandLine-Models-Interfaces-ICommandLineInfo 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo') interface. |
+
+##### Remarks
+
+If this method updates the value of the
+[CommandLineInfo](#P-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfo')
+property, then the
+[](#E-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-CommandLineInfoChanged 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfoChanged')
+event is raised.
 
 <a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine-'></a>
 ### WithOperationEngine(operationEngine) `method`

@@ -84,7 +84,8 @@ accordingly.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| args | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) Array containing the command-line arguments passed to this application.
+| args | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) Array containing the command-line arguments passed to this
+application.
 application. |
 
 <a name='T-MFR-CommandLine-Parsers-Properties-Resources'></a>
