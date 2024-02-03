@@ -20,6 +20,7 @@
 - [GuiDrivenCommandLineProcessor](#T-MFR-GUI-Processors-GuiDrivenCommandLineProcessor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor')
   - [#ctor()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#ctor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.#ctor')
   - [Instance](#P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Instance 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.Instance')
+  - [MainWindow](#P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-MainWindow 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.MainWindow')
   - [Type](#P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Type 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.Type')
   - [#cctor()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-#cctor 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.#cctor')
   - [Process()](#M-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Process 'MFR.GUI.Processors.GuiDrivenCommandLineProcessor.Process')
@@ -249,6 +250,15 @@ Gets a reference to the one and only instance of the object that implements the
 and which represents the processor that allows the application's user interface
 to be shown, but with command-line argument values specifying the settings of
 the controls.
+
+<a name='P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-MainWindow'></a>
+### MainWindow `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IMainWindow](#T-MFR-GUI-Windows-Interfaces-IMainWindow 'MFR.GUI.Windows.Interfaces.IMainWindow') interface that
+represents the main window of the application.
 
 <a name='P-MFR-GUI-Processors-GuiDrivenCommandLineProcessor-Type'></a>
 ### Type `property`
