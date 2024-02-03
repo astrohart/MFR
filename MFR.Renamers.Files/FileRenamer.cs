@@ -2951,10 +2951,8 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** We're connected to the local Git repository in the folder '{entry.Path}'.  Scanning it for changes..."
+                        $"FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** We're connected to the local Git repository in the folder '{entry.Path}'."
                     );
-
-                    LocalGitInteropProvider.ScanForRepoChanges();
 
                     return;
                 }
@@ -3760,9 +3758,10 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The local Git repository in the folder '{folder}' is on a branch.");
+                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The local Git repository in the folder '{folder}' is on a branch."
+                );
 
-                result = true;          /* connected */
+                result = true; /* connected */
             }
             catch (Exception ex)
             {
