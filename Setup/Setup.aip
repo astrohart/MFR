@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8798.17819" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8799.24487" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -75,6 +75,7 @@
     <ROW Component="MFR.Directories.Managers.Factories.dll" ComponentId="{3C43A75A-3D86-459B-B321-934C8B21631F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Managers.Factories.dll"/>
     <ROW Component="MFR.Directories.Managers.Interfaces.dll" ComponentId="{E5629399-5EEC-4331-B337-88B9BDB19C44}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Managers.Interfaces.dll"/>
     <ROW Component="MFR.Directories.Managers.dll" ComponentId="{0D63C26C-65B4-44E5-BA33-A10C38BE433A}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Managers.dll"/>
+    <ROW Component="MFR.Directories.Validators.Actions.dll" ComponentId="{92D2050F-28CD-4077-B8AA-AEE9BC0D1BC7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Validators.Actions.dll"/>
     <ROW Component="MFR.Directories.Validators.Constants.Generators.dll" ComponentId="{D95D8995-8E13-4646-B770-A63EE37C61A3}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Validators.Constants.Generators.dll"/>
     <ROW Component="MFR.Directories.Validators.Constants.dll" ComponentId="{323856C1-F669-429D-AAEA-6607BE6BCCC3}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Validators.Constants.dll"/>
     <ROW Component="MFR.Directories.Validators.Events.dll" ComponentId="{97A19989-6FC6-48C6-A154-78FA1436C79D}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Directories.Validators.Events.dll"/>
@@ -1227,6 +1228,8 @@
     <ROW File="NGit.dll.config" Component_="config.json" FileName="NGITDL~1.CON|NGit.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\NGit.dll.config" SelfReg="false"/>
     <ROW File="NSch.dll.config" Component_="config.json" FileName="NSCHDL~1.CON|NSch.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\NSch.dll.config" SelfReg="false"/>
     <ROW File="Sharpen.dll.config" Component_="config.json" FileName="SHARPE~1.CON|Sharpen.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Sharpen.dll.config" SelfReg="false"/>
+    <ROW File="MFR.Directories.Validators.Actions.dll" Component_="MFR.Directories.Validators.Actions.dll" FileName="MFRDI~11.DLL|MFR.Directories.Validators.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Directories.Validators.Actions.dll" SelfReg="false"/>
+    <ROW File="MFR.Directories.Validators.Actions.dll.config" Component_="config.json" FileName="MFRDI~11.CON|MFR.Directories.Validators.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Directories.Validators.Actions.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1718,6 +1721,7 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.Directories.Validators.Actions.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
