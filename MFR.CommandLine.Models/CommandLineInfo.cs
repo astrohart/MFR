@@ -115,13 +115,14 @@ namespace MFR.CommandLine.Models
         /// the operations are finished.
         /// </summary>
         /// <remarks>
-        /// The default value of this property is <see langword="true" />.
+        /// The default value of this property is <see langword="null" /> (which means "was
+        /// not passed on the command line").
         /// </remarks>
-        public bool ReOpenSolution
+        public bool? ReOpenSolution
         {
             get;
             set;
-        } = true;
+        } = null;
 
         /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.

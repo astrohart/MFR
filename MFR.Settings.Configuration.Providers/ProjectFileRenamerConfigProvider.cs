@@ -8,6 +8,7 @@ using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Actions;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
@@ -215,7 +216,7 @@ namespace MFR.Settings.Configuration.Providers
         ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
-        public IProjectFileRenamerConfig Load(string pathname = "")
+        public IProjectFileRenamerConfig Load([NotLogged] string pathname = "")
         {
             var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
 

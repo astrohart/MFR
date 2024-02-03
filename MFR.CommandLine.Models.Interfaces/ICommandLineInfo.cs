@@ -76,7 +76,7 @@ namespace MFR.CommandLine.Models.Interfaces
         /// Gets or sets a value that indicates that the Solution is to be reloaded when
         /// the operations are finished.
         /// </summary>
-        bool ReOpenSolution
+        bool? ReOpenSolution
         {
             get;
             set;

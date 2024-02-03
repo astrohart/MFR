@@ -406,12 +406,14 @@ namespace MFR.Settings.Configuration.Factories
         /// </exception>
         public static IProjectFileRenamerConfig AndShouldReOpenSolution(
             this IProjectFileRenamerConfig self,
-            bool reOpenSolution
+            bool? reOpenSolution
         )
         {
             if (self == null) throw new ArgumentNullException(nameof(self));
+            if (reOpenSolution == null)
+                return self;
 
-            self.ReOpenSolution = reOpenSolution;
+            self.ReOpenSolution = reOpenSolution.Value;
             return self;
         }
 

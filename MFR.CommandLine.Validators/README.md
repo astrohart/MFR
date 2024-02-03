@@ -27,10 +27,8 @@ MFR.CommandLine.Validators
 
 ##### Summary
 
-Validates instances of
-[CommandLineInfo](#T-MFR-CommandLine-CommandLineInfo 'MFR.CommandLine.CommandLineInfo')
-to ensure they
-contain values that the application can work with.
+Validates instances of [CommandLineInfo](#T-MFR-CommandLine-CommandLineInfo 'MFR.CommandLine.CommandLineInfo') to
+ensure they contain values that the application can work with.
 
 <a name='M-MFR-CommandLine-Validators-CommandLineValidator-#ctor'></a>
 ### #ctor() `constructor`

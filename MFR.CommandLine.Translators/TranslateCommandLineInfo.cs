@@ -170,7 +170,8 @@ namespace MFR.CommandLine.Translators
                     $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ShouldCommitPendingChanges = {cmdInfo.ShouldCommitPendingChanges}"
                 );
 
-                result = CurrentConfiguration
+                result = MakeNewProjectFileRenamerConfiguration
+                         .FromScratch()
                          .ForStartingFolder(cmdInfo.StartingFolder)
                          .AndFindWhat(cmdInfo.FindWhat)
                          .AndReplaceWith(cmdInfo.ReplaceWith)

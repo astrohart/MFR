@@ -1,5 +1,6 @@
 using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -30,7 +31,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// blank config is returned.
         /// </returns>
         public static IProjectFileRenamerConfig ConfigurationFrom(
-            string pathname
+            [NotLogged] string pathname
         )
         {
             var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
