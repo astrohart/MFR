@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetProjectFileRenamerConfigurationProvider](#T-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigurationProvider 'MFR.Settings.Configuration.Providers.Factories.GetProjectFileRenamerConfigurationProvider')
-  - [SoleInstance()](#M-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigurationProvider-SoleInstance 'MFR.Settings.Configuration.Providers.Factories.GetProjectFileRenamerConfigurationProvider.SoleInstance')
+- [GetProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Factories.GetProjectFileRenamerConfigProvider')
+  - [SoleInstance()](#M-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigProvider-SoleInstance 'MFR.Settings.Configuration.Providers.Factories.GetProjectFileRenamerConfigProvider.SoleInstance')
 - [Resources](#T-MFR-Settings-Configuration-Providers-Factories-Properties-Resources 'MFR.Settings.Configuration.Providers.Factories.Properties.Resources')
   - [Culture](#P-MFR-Settings-Configuration-Providers-Factories-Properties-Resources-Culture 'MFR.Settings.Configuration.Providers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Settings-Configuration-Providers-Factories-Properties-Resources-ResourceManager 'MFR.Settings.Configuration.Providers.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigurationProvider'></a>
-## GetProjectFileRenamerConfigurationProvider `type`
+<a name='T-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigProvider'></a>
+## GetProjectFileRenamerConfigProvider `type`
 
 ##### Namespace
 
@@ -22,7 +22,7 @@ Obtains references to the sole instance of the object that implements the
 [IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
-<a name='M-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigurationProvider-SoleInstance'></a>
+<a name='M-MFR-Settings-Configuration-Providers-Factories-GetProjectFileRenamerConfigProvider-SoleInstance'></a>
 ### SoleInstance() `method`
 
 ##### Summary

@@ -49,7 +49,7 @@ returned.
 | ---- | ---- | ----------- |
 | submittedPathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified
 pathname submitted to the
-[Load](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigurationProvider-Load 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Load')
+[Load](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-Load 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.Load')
 method. |
 | currentPathnameInRegistry | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A
 [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the fully-qualified pathname of the
