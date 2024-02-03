@@ -2954,6 +2954,8 @@ namespace MFR.Renamers.Files
                         $"FileRenamer.ConnectToLocalGitRepoFor: *** SUCCESS *** We're connected to the local Git repository in the folder '{entry.Path}'."
                     );
 
+                    LocalGitInteropProvider.ScanForRepoChanges();
+
                     return;
                 }
 
