@@ -1338,24 +1338,32 @@ namespace MFR.GUI.Windows.Presenters
 
         private string DetermineProperStartingFolder()
         {
-            var result = string.Empty;
+            var result = CurrentConfiguration.StartingFolder;
 
             try
             {
-                result =
-                    xyLOGIX.Files.Actions.Does.DirectoryExist(
+                if (CommandLineInfo == null) return result;
+                if (!xyLOGIX.Files.Actions.Does.DirectoryExist(
                         CommandLineInfo.StartingFolder
-                    ) && !CommandLineInfo.StartingFolder.Equals(
+                    )) return result;
+                if (CommandLineInfo.StartingFolder.EqualsNoCase(
                         CurrentConfiguration.StartingFolder
-                    )
-                        ? CommandLineInfo.StartingFolder
-                        : CurrentConfiguration.StartingFolder;
+                    )) return result;
+
+                result = CommandLineInfo.StartingFolder;
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                result = CurrentConfiguration.StartingFolder;
             }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.DetermineProperStartingFolder: Result = '{result}'"
+            );
 
             return result;
         }
