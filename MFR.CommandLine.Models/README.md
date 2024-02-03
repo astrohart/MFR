@@ -100,8 +100,7 @@ the operations are finished.
 
 ##### Remarks
 
-The default value of this property is `null` (which means "was
-not passed on the command line").
+The default value of this property is `true`.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-RenameFilesInFolder'></a>
 ### RenameFilesInFolder `property`
