@@ -1,4 +1,3 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
@@ -8,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Files;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -19,7 +19,7 @@ namespace MFR.FileSystem.Retrievers
     /// </summary>
     public class
         CommitPendingChangesRetriever :
-            FileAndFolderNameFileSystemEntryListRetrieverBase
+        FileAndFolderNameFileSystemEntryListRetrieverBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -140,10 +140,12 @@ namespace MFR.FileSystem.Retrievers
                      * actually execute the .git commands.
                      */
 
-                    var entry =
-                        MakeNewFileSystemEntry.ForPath(
-                            Path.GetDirectoryName(path)
-                        );
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** INFO: FOUND local Git repository at '{path}'."
+                    );
+
+                    var entry = MakeNewFileSystemEntry.ForPath(Parent.Of(path));
                     if (entry == null) continue;
 
                     result.Add(entry);

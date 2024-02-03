@@ -2390,7 +2390,8 @@ namespace MFR.Renamers.Files
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"FileRenamer.CommitPendingChangesForEntry: Result = {false}"
+                        DebugLevel.Debug,
+                        $"FileRenamer.CommitPendingChangesForEntry: Result = {false}"
                     );
 
                     return false;
@@ -2423,7 +2424,8 @@ namespace MFR.Renamers.Files
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"FileRenamer.CommitPendingChangesForEntry: Result = {true}"
+                        DebugLevel.Debug,
+                        $"FileRenamer.CommitPendingChangesForEntry: Result = {true}"
                     );
 
                     return true;
@@ -3224,32 +3226,262 @@ namespace MFR.Renamers.Files
 
             try
             {
-                if (entry == null) return result;
-                if (!entry.Exists) return result;
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: Checking whether the 'entry' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, entry, is null. If it is, send an
+                // error to the log file and quit, returning the default return value of this
+                // method.
+                if (entry == null)
+                {
+                    // the parameter entry is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.HasPendingChanges: *** ERROR *** A null reference was passed for the 'entry' method parameter.  Stopping."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: *** SUCCESS *** We have been passed a valid object reference for the 'entry' method parameter."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.HasPendingChanges: Checking whether the local Git repository in the folder '{entry.Path}' has pending changes..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: Checking whether the 'entry.Exists' Boolean expression evaluates to TRUE..."
+                );
+
+                // Check to see whether the Boolean expression, entry.Exists, evaluates to TRUE.
+                // If it does not, log an error message to the log file and then terminate the
+                // execution of this method.
+                if (!entry.Exists)
+                {
+                    // the Boolean expression, entry.Exists, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The Boolean expression, 'entry.Exists', evaluated to FALSE.  Stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.HasPendingChanges: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: *** SUCCESS *** The Boolean expression, 'entry.Exists', evaluated to TRUE.  Proceeding..."
+                );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     $"FileRenamer.HasPendingChanges: Detecting whether the Git repository(ies) in '{entry.Path}' have any pending changes..."
                 );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the local Git interop provider object has been initialized..."
+                );
+
                 if (LocalGitInteropProvider == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.HasPendingChanges: Initializing the local Git interop provider object for the folder '{entry.Path}'..."
+                    );
+
                     LocalGitInteropProvider =
                         MakeNewLocalGitInteropProvider.ForLocalGitFolder(
                             entry.Path
                         );
+                }
                 else if (!entry.Path.Equals(
                              LocalGitInteropProvider.RepositoryFolder
                          ))
-                    LocalGitInteropProvider.SetRepositoryFolder(entry.Path);
-                else
-                    LocalGitInteropProvider.ScanForRepoChanges();
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.HasPendingChanges: Resetting the local Git interop provider to point at the folder '{entry.Path}'..."
+                    );
 
-                if (!LocalGitInteropProvider.HasCurrentBranch) return result;
-                if (!LocalGitInteropProvider.HasRemoteOrigin) return result;
-                if (!LocalGitInteropProvider.HasRemotes) return result;
-                if (!LocalGitInteropProvider.IsRepositoryOpen) return result;
+                    LocalGitInteropProvider.SetRepositoryFolder(entry.Path);
+                }
+                else
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.HasPendingChanges: Asking the local Git interop provider to scan the local Git repository in '{entry.Path}' for changes..."
+                    );
+
+                    LocalGitInteropProvider.ScanForRepoChanges();
+                }
+
+                // Dump the value of the property, LocalGitInteropProvider.HasCurrentBranch, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.HasPendingChanges: LocalGitInteropProvider.HasCurrentBranch = {LocalGitInteropProvider.HasCurrentBranch}"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: Checking whether the 'LocalGitInteropProvider.HasCurrentBranch' Boolean expression evaluates to TRUE..."
+                );
+
+                // Check to see whether the Boolean expression, LocalGitInteropProvider.HasCurrentBranch, evaluates to TRUE.
+                // If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!LocalGitInteropProvider.HasCurrentBranch)
+                {
+                    // the Boolean expression, LocalGitInteropProvider.HasCurrentBranch, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The Boolean expression, 'LocalGitInteropProvider.HasCurrentBranch', evaluated to FALSE.  Stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.HasPendingChanges: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: *** SUCCESS *** The Boolean expression, 'LocalGitInteropProvider.HasCurrentBranch', evaluated to TRUE.  Proceeding..."
+                );
+
+                // Dump the value of the property, LocalGitInteropProvider.HasRemoteOrigin, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.HasPendingChanges: LocalGitInteropProvider.HasRemoteOrigin = {LocalGitInteropProvider.HasRemoteOrigin}"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: Checking whether the 'LocalGitInteropProvider.HasRemoteOrigin' Boolean expression evaluates to TRUE..."
+                );
+
+                // Check to see whether the Boolean expression, LocalGitInteropProvider.HasRemoteOrigin, evaluates to TRUE.
+                // If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!LocalGitInteropProvider.HasRemoteOrigin)
+                {
+                    // the Boolean expression, LocalGitInteropProvider.HasRemoteOrigin, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The Boolean expression, 'LocalGitInteropProvider.HasRemoteOrigin', evaluated to FALSE.  Stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.HasPendingChanges: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: *** SUCCESS *** The Boolean expression, 'LocalGitInteropProvider.HasRemoteOrigin', evaluated to TRUE.  Proceeding..."
+                );
+
+                // Dump the value of the property, LocalGitInteropProvider.HasRemotes, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.HasPendingChanges: LocalGitInteropProvider.HasRemotes = {LocalGitInteropProvider.HasRemotes}"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: Checking whether the 'LocalGitInteropProvider.HasRemotes' Boolean expression evaluates to TRUE..."
+                );
+
+                // Check to see whether the Boolean expression, LocalGitInteropProvider.HasRemotes, evaluates to TRUE.
+                // If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!LocalGitInteropProvider.HasRemotes)
+                {
+                    // the Boolean expression, LocalGitInteropProvider.HasRemotes, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The Boolean expression, 'LocalGitInteropProvider.HasRemotes', evaluated to FALSE.  Stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.HasPendingChanges: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: *** SUCCESS *** The Boolean expression, 'LocalGitInteropProvider.HasRemotes', evaluated to TRUE.  Proceeding..."
+                );
+
+                // Dump the value of the property, LocalGitInteropProvider.IsRepositoryOpen, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.HasPendingChanges: LocalGitInteropProvider.IsRepositoryOpen = {LocalGitInteropProvider.IsRepositoryOpen}"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: Checking whether the 'LocalGitInteropProvider.IsRepositoryOpen' Boolean expression evaluates to TRUE..."
+                );
+
+                // Check to see whether the Boolean expression, LocalGitInteropProvider.IsRepositoryOpen, evaluates to TRUE.
+                // If it does not, log an error message to the log file and then terminate the execution of this method.
+                if (!LocalGitInteropProvider.IsRepositoryOpen)
+                {
+                    // the Boolean expression, LocalGitInteropProvider.IsRepositoryOpen, evaluated to FALSE.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The Boolean expression, 'LocalGitInteropProvider.IsRepositoryOpen', evaluated to FALSE.  Stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.HasPendingChanges: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.HasPendingChanges: *** SUCCESS *** The Boolean expression, 'LocalGitInteropProvider.IsRepositoryOpen', evaluated to TRUE.  Proceeding..."
+                );
+
+                // Dump the value of the property, LocalGitInteropProvider.IsDirty, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.HasPendingChanges: LocalGitInteropProvider.IsDirty = {LocalGitInteropProvider.IsDirty}"
+                );
 
                 result = LocalGitInteropProvider.IsDirty;
+
+                // Dump the value of the property, LocalGitInteropProvider.PendingChangesCount, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"FileRenamer.HasPendingChanges: LocalGitInteropProvider.PendingChangesCount = {LocalGitInteropProvider.PendingChangesCount}"
+                );
 
                 // tag the file-system entry's UserState with the count of pending
                 // changes
