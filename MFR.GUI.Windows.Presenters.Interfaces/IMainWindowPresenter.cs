@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.Engines.Operations.Interfaces;
 using MFR.Events.Common;
 using MFR.GUI.Dialogs.Interfaces;
@@ -18,6 +19,23 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
     public interface
         IMainWindowPresenter : IPresenter<IMainWindow, IMainWindowPresenter>
     {
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface,
+        /// containing the settings that were specified by the user on the command line
+        /// when this application  was launched.
+        /// </summary>
+        /// <remarks>
+        /// This property raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfoChanged" />
+        /// event when its value is updated.
+        /// </remarks>
+        ICommandLineInfo CommandLineInfo
+        {
+            get;
+        }
+
         /// <summary>
         /// Gets a value that indicates whether the values displayed to the user differ
         /// from those in the configuration file.
@@ -44,6 +62,14 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// Occurs when all the history has been cleared.
         /// </summary>
         event EventHandler AllHistoryCleared;
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfo" />
+        /// property is updated.
+        /// </summary>
+        event EventHandler CommandLineInfoChanged;
 
         /// <summary>
         /// Occurs when the config has been exported to a file.
@@ -263,6 +289,27 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// new Profile.
         /// </param>
         void SaveCurrentConfigurationurationAsProfile(string profileName);
+
+        /// <summary>
+        /// Updates the value of the
+        /// <see
+        ///     cref="P:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfo" />
+        /// property with the specified <paramref name="cmdInfo" /> reference.
+        /// </summary>
+        /// <param name="cmdInfo">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
+        /// </param>
+        /// <remarks>
+        /// If this method updates the value of the
+        /// <see
+        ///     cref="P:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfo" />
+        /// property, then the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.CommandLineInfoChanged" />
+        /// event is raised.
+        /// </remarks>
+        void SetCommandLineInfo(ICommandLineInfo cmdInfo);
 
         /// <summary>
         /// Fluent-builder method for initializing the operation engine object.  This is

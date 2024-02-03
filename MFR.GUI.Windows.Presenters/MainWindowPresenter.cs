@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.Engines.Constants;
 using MFR.Engines.Operations.Interfaces;
 using MFR.Events.Common;
@@ -48,6 +49,14 @@ namespace MFR.GUI.Windows.Presenters
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that contains the settings that were passed on the command line by the user
+        /// when this application was launched.
+        /// </summary>
+        private ICommandLineInfo _cmdInfo;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
         /// <see
         ///     cref="T:MFR.IHistoryManager" />
         /// interface.
@@ -82,6 +91,28 @@ namespace MFR.GUI.Windows.Presenters
         public MainWindowPresenter()
         {
             InitializeConfiguration();
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface,
+        /// containing the settings that were specified by the user on the command line
+        /// when this application  was launched.
+        /// </summary>
+        /// <remarks>
+        /// This property raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfoChanged" />
+        /// event when its value is updated.
+        /// </remarks>
+        public ICommandLineInfo CommandLineInfo
+        {
+            get => _cmdInfo;
+            private set {
+                var changed = _cmdInfo != value;
+                _cmdInfo = value;
+                if (changed) OnCommandLineInfoChanged();
+            }
         }
 
         /// <summary>
@@ -337,6 +368,13 @@ namespace MFR.GUI.Windows.Presenters
         /// Occurs when all the history has been cleared.
         /// </summary>
         public event EventHandler AllHistoryCleared;
+
+        /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo" />
+        /// property is updated.
+        /// </summary>
+        public event EventHandler CommandLineInfoChanged;
 
         /// <summary>
         /// Occurs when the config has been exported to a file.
@@ -809,13 +847,32 @@ namespace MFR.GUI.Windows.Presenters
             ProfileProvider.Save();
 
             /*
-             * Make the new Profile the same as the currently-
-             * loaded config.
+             * Make the new Profile the same as the currently-loaded config.
              */
 
             CurrentConfiguration = newProfile;
             ConfigProvider.Save();
         }
+
+        /// <summary>
+        /// Updates the value of the
+        /// <see cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo" />
+        /// property with the specified <paramref name="cmdInfo" /> reference.
+        /// </summary>
+        /// <param name="cmdInfo">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface.
+        /// </param>
+        /// <remarks>
+        /// If this method updates the value of the
+        /// <see cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo" />
+        /// property, then the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfoChanged" />
+        /// event is raised.
+        /// </remarks>
+        public void SetCommandLineInfo(ICommandLineInfo cmdInfo)
+            => CommandLineInfo = cmdInfo;
 
         /// <summary>
         /// Updates the config currently being used with a new
@@ -924,10 +981,18 @@ namespace MFR.GUI.Windows.Presenters
 
                 View.IsFolded = CurrentConfiguration.IsFolded;
 
+                var properStartingFolder = DetermineProperStartingFolder();
+
+                // Dump the variable properStartingFolder to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"MainWindowPresenter.UpdateData: properStartingFolder = '{properStartingFolder}'"
+                );
+
                 ComboBoxInitializer.InitializeComboBox(
                     View.StartingFolderComboBox,
                     CurrentConfiguration.StartingFolderHistory,
-                    CurrentConfiguration.StartingFolder
+                    properStartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
@@ -1065,6 +1130,15 @@ namespace MFR.GUI.Windows.Presenters
                            MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED
                        );
         }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfoChanged" />
+        /// event.
+        /// </summary>
+        protected virtual void OnCommandLineInfoChanged()
+            => CommandLineInfoChanged?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Raises the
@@ -1260,6 +1334,30 @@ namespace MFR.GUI.Windows.Presenters
             Started?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
+        }
+
+        private string DetermineProperStartingFolder()
+        {
+            var result = string.Empty;
+
+            try
+            {
+                result =
+                    xyLOGIX.Files.Actions.Does.DirectoryExist(
+                        CommandLineInfo.StartingFolder
+                    ) && !CommandLineInfo.StartingFolder.Equals(
+                        CurrentConfiguration.StartingFolder
+                    )
+                        ? CommandLineInfo.StartingFolder
+                        : CurrentConfiguration.StartingFolder;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
+            return result;
         }
 
         /// <summary>

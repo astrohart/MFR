@@ -1,6 +1,5 @@
 using MFR.CommandLine.Models.Interfaces;
 using MFR.GUI.Processors.Constants;
-using MFR.Settings.Configuration.Interfaces;
 
 namespace MFR.GUI.Processors.Interfaces
 {

@@ -2,6 +2,7 @@ using MFR.CommandLine.Translators;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
 using MFR.GUI.Windows.Factories;
+using MFR.GUI.Windows.Interfaces;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Processors
@@ -36,6 +37,14 @@ namespace MFR.GUI.Processors
         } = new GuiDrivenCommandLineProcessor();
 
         /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface that
+        /// represents the main window of the application.
+        /// </summary>
+        private static IMainWindow MainWindow
+            => GetMainWindow.SoleInstance();
+
+        /// <summary>
         /// Gets a <see cref="T:MFR.GUI.Processors.Constants.CommandLineProcessorType" />
         /// enumeration value that identifies the type of processing this processor does.
         /// </summary>
@@ -49,7 +58,9 @@ namespace MFR.GUI.Processors
         {
             var commandLineConfig = CommandLineInfo.ToConfiguration();
 
-            Application.Run((Form)GetMainWindow.SoleInstance());
+            MainWindow.AttachCommandLineInfo(CommandLineInfo);
+
+            Application.Run((Form)MainWindow);
         }
     }
 }

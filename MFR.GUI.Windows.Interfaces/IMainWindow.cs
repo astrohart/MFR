@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.GUI.Controls;
 using MFR.GUI.Controls.Interfaces;
 using MFR.GUI.Windows.Constants;
@@ -15,6 +16,16 @@ namespace MFR.GUI.Windows.Interfaces
     /// </summary>
     public interface IMainWindow : IForm
     {
+        /// <summary>
+        /// Gets or sets the text displayed in the edit portion of the <b>Find What</b>
+        /// combo box.
+        /// </summary>
+        string FindWhat
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Gets a reference to the text box control that allows the user to
         /// specify the text to be found.
@@ -103,6 +114,16 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets the text displayed in the edit portion of the <b>Replace With</b>
+        /// combo box.
+        /// </summary>
+        string ReplaceWith
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets a reference to the dropdown that allows the user to specify the
         /// text to replace found text with.
         /// </summary>
@@ -178,22 +199,21 @@ namespace MFR.GUI.Windows.Interfaces
         }
 
         /// <summary>
-        /// Gets or sets the text displayed in the edit portion of the <b>Find What</b>
-        /// combo box.
-        /// </summary>
-        string FindWhat { get; set; }
-
-        /// <summary>
-        /// Gets or sets the text displayed in the edit portion of the <b>Replace With</b>
-        /// combo box.
-        /// </summary>
-        string ReplaceWith { get; set; }
-
-        /// <summary>
         /// Occurs when the value of the <see cref="P:MFR.GUI.Windows.MainWindow.State" />
         /// property is updated.
         /// </summary>
         event MainWindowStateChangedEventHandler StateChanged;
+
+        /// <summary>
+        /// Associates the specified <paramref name="cmdInfo" /> object with this window.
+        /// </summary>
+        /// <param name="cmdInfo">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that contains the settings specified by the user on the command line when this
+        /// application was launched.
+        /// </param>
+        void AttachCommandLineInfo(ICommandLineInfo cmdInfo);
 
         /// <summary>
         /// Deselects all the available operations that are listed on the <b>Operations</b>

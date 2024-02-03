@@ -1,3 +1,4 @@
+using MFR.CommandLine.Models.Interfaces;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
@@ -68,6 +69,14 @@ namespace MFR.GUI.Windows
     {
         /// <summary>
         /// Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that contains the settings that were specified by the user on the command line
+        /// when this application was launched.
+        /// </summary>
+        private ICommandLineInfo _cmdInfo;
+
+        /// <summary>
+        /// Reference to an instance of an object that implements the
         /// <see cref="T:MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine" />
         /// interface.
         /// </summary>
@@ -117,6 +126,18 @@ namespace MFR.GUI.Windows
             Application.Idle += OnUpdateCmdUI;
             RootDirectoryPathValidator.RootDirectoryInvalid +=
                 OnRootDirectoryInvalid;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that contains the settings that were specified by the user on the command line
+        /// when this application was launched.
+        /// </summary>
+        private ICommandLineInfo CommandLineInfo
+        {
+            get => _cmdInfo;
+            set => _cmdInfo = value;
         }
 
         /// <summary>
@@ -480,6 +501,38 @@ namespace MFR.GUI.Windows
         /// property is updated.
         /// </summary>
         public event MainWindowStateChangedEventHandler StateChanged;
+
+        /// <summary>
+        /// Associates the specified <paramref name="cmdInfo" /> object with this window.
+        /// </summary>
+        /// <param name="cmdInfo">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.CommandLine.Models.Interfaces.ICommandLineInfo" /> interface
+        /// that contains the settings specified by the user on the command line when this
+        /// application was launched.
+        /// </param>
+        /// <remarks>
+        /// If a <see langword="null" /> reference is passed for the argument of
+        /// the <paramref name="cmdInfo" /> parameter, then this method does nothing.
+        /// </remarks>
+        public void AttachCommandLineInfo(ICommandLineInfo cmdInfo)
+        {
+            try
+            {
+                if (cmdInfo == null) return;
+
+                CommandLineInfo = cmdInfo;
+
+                if (Presenter == null) return;
+
+                Presenter.SetCommandLineInfo(cmdInfo);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Deselects all the available operations that are listed on the <b>Operations</b>
@@ -1267,7 +1320,8 @@ namespace MFR.GUI.Windows
             FoldButton.SetFoldedStateText();
 
             GetProjectFileRenamerConfigProvider.SoleInstance()
-                .CurrentConfiguration.IsFolded = e.Folded;
+                                               .CurrentConfiguration.IsFolded =
+                e.Folded;
         }
 
         /// <summary>

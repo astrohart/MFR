@@ -152,6 +152,10 @@
       <Project>{9190559B-FB22-4E74-9130-5BFD3FFD6DAE}</Project>
       <Name>xyLOGIX.UI.Dark.Controls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Controls.Interfaces\MFR.GUI.Controls.Interfaces.csproj">
       <Project>{3F9D1447-D681-4541-9E9B-049DF38040AC}</Project>
       <Name>MFR.GUI.Controls.Interfaces</Name>

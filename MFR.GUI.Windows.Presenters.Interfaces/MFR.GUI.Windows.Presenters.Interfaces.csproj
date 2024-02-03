@@ -145,6 +145,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
+      <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
+      <Name>MFR.CommandLine.Models.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Engines.Operations.Interfaces\MFR.Engines.Operations.Interfaces.csproj">
       <Project>{172B8D17-9511-411F-A0EA-F5F1C12C8600}</Project>
       <Name>MFR.Engines.Operations.Interfaces</Name>
