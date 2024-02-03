@@ -65,7 +65,7 @@ namespace MFR.Engines.Operations
         /// </remarks>
         private static IProjectFileRenamerConfigProvider
             ConfigProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+            => GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements

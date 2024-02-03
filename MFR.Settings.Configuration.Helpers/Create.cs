@@ -29,7 +29,7 @@ namespace MFR.Settings.Configuration.Helpers
 
             try
             {
-                result = MakeNewProjectFileRenamerConfiguration.FromScratch();
+                result = MakeNewProjectFileRenamerConfig.FromScratch();
             }
             catch (Exception ex)
             {

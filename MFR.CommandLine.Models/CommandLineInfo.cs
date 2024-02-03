@@ -43,7 +43,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = false;
 
         /// <summary>
         /// Gets or sets a string containing the content to be found in the file system
@@ -53,7 +53,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = "";
 
         /// <summary>
         /// Gets or sets a value indicating whether a case-sensitive search should be done.
@@ -74,7 +74,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether the files are to be renamed.
@@ -96,7 +96,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = false;
 
         /// <summary>
         /// Gets or sets a value indicating whether sub folders should be renamed.
@@ -115,14 +115,13 @@ namespace MFR.CommandLine.Models
         /// the operations are finished.
         /// </summary>
         /// <remarks>
-        /// The default value of this property is <see langword="null" /> (which means "was
-        /// not passed on the command line").
+        /// The default value of this property is <see langword="true" />.
         /// </remarks>
-        public bool? ReOpenSolution
+        public bool ReOpenSolution
         {
             get;
             set;
-        } = null;
+        } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether text in files should be replaced.
@@ -144,7 +143,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = "";
 
         /// <summary>
         /// Gets or sets a value that indicates whether we are to attempt to commit pending
@@ -155,7 +154,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = true;
 
         /// <summary>
         /// Gets or sets a value that indicates whether we are to attempt to commit pending
@@ -166,7 +165,7 @@ namespace MFR.CommandLine.Models
         {
             get;
             set;
-        }
+        } = true;
 
         /// <summary>
         /// Gets or sets a string that contains the starting folder.

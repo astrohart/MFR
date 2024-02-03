@@ -9,7 +9,7 @@ namespace MFR.Settings.Configuration.Factories
     /// interface that represents the blank config initialized with the default
     /// invokable operations and other settings.
     /// </summary>
-    public static class GetBlankProjectFileRenamerConfiguration
+    public static class GetBlankProjectFileRenamerConfig
     {
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

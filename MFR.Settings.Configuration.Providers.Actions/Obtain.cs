@@ -34,7 +34,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
             [NotLogged] string pathname
         )
         {
-            var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+            var result = GetBlankProjectFileRenamerConfig.SoleInstance();
 
             try
             {
@@ -59,7 +59,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+                result = GetBlankProjectFileRenamerConfig.SoleInstance();
             }
 
             return result;

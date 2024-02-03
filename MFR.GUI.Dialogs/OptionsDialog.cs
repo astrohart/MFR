@@ -85,7 +85,7 @@ namespace MFR.GUI.Dialogs
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             [DebuggerStepThrough] get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

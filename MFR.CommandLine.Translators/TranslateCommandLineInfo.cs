@@ -36,7 +36,7 @@ namespace MFR.CommandLine.Translators
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigProvider ConfigProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+            => GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets or sets a reference to the one and only instance of the object that
@@ -170,7 +170,7 @@ namespace MFR.CommandLine.Translators
                     $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ShouldCommitPendingChanges = {cmdInfo.ShouldCommitPendingChanges}"
                 );
 
-                result = MakeNewProjectFileRenamerConfiguration
+                result = MakeNewProjectFileRenamerConfig
                          .FromScratch()
                          .ForStartingFolder(cmdInfo.StartingFolder)
                          .AndFindWhat(cmdInfo.FindWhat)

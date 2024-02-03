@@ -44,7 +44,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// <summary>
         /// Occurs when the value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.ConfigFilePath" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath" />
         /// property is updated.
         /// </summary>
         event EventHandler ConfigFilePathChanged;

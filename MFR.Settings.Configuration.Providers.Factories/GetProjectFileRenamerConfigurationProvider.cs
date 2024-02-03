@@ -10,7 +10,7 @@ namespace MFR.Settings.Configuration.Providers.Factories
     /// interface.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public static class GetProjectFileRenamerConfigurationProvider
+    public static class GetProjectFileRenamerConfigProvider
     {
         /// <summary>
         /// Obtains a reference to the sole instance of the object that implements the

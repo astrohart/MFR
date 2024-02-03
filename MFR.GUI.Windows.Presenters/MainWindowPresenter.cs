@@ -107,7 +107,7 @@ namespace MFR.GUI.Windows.Presenters
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets or sets a reference to an instance of an object that implements

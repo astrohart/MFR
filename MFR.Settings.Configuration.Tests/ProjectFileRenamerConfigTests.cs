@@ -40,7 +40,7 @@ namespace MFR.Settings.Configuration.Tests
             ProjectFileRenamerConfigProvider
         {
             get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// TODO: Add unit test documentation here
@@ -58,7 +58,7 @@ namespace MFR.Settings.Configuration.Tests
         [Test]
         public void Produce_NewlyConstructedConfigObject_HashCode()
             => Console.WriteLine(
-                MakeNewProjectFileRenamerConfiguration.FromScratch()
+                MakeNewProjectFileRenamerConfig.FromScratch()
                     .GetHashCode()
             );
 
@@ -69,9 +69,9 @@ namespace MFR.Settings.Configuration.Tests
         public void
             Test_BlankAndNewlyConstructedConfigObjects_HashCodes_AreEqual()
         {
-            var blankConfig = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+            var blankConfig = GetBlankProjectFileRenamerConfig.SoleInstance();
             var newConfig =
-                MakeNewProjectFileRenamerConfiguration.FromScratch();
+                MakeNewProjectFileRenamerConfig.FromScratch();
 
             Assert.That(blankConfig, Is.EqualTo(newConfig));
         }

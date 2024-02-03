@@ -37,7 +37,7 @@ namespace MFR.Settings.Configuration.Serializers
         /// </returns>
         public static IProjectFileRenamerConfig Load(string pathname)
         {
-            var result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+            var result = GetBlankProjectFileRenamerConfig.SoleInstance();
 
             try
             {
@@ -53,7 +53,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // only whitespace, then return a blank ProjectFileRenamerConfig instance
                 // with its properties all set to default values.
                 result =
-                    ConvertProjectFileRenamerConfiguration.FromJson(content);
+                    ConvertProjectFileRenamerConfig.FromJson(content);
 
                 if (result == null) return result;
 
@@ -70,7 +70,7 @@ namespace MFR.Settings.Configuration.Serializers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+                result = GetBlankProjectFileRenamerConfig.SoleInstance();
             }
 
             return result;
@@ -104,7 +104,7 @@ namespace MFR.Settings.Configuration.Serializers
             try
             {
                 var content =
-                    ConvertProjectFileRenamerConfiguration
+                    ConvertProjectFileRenamerConfig
                         .ToJson(config);
 
                 if (string.IsNullOrWhiteSpace(content))

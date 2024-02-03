@@ -15,7 +15,7 @@ namespace MFR.Settings.Configuration.Converters
     /// interface.
     /// </summary>
     [ExplicitlySynchronized]
-    public static class ConvertProjectFileRenamerConfiguration
+    public static class ConvertProjectFileRenamerConfig
     {
         /// <summary>
         /// Obtains a reference to an instance of

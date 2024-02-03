@@ -35,7 +35,7 @@ namespace MFR.Settings.Configuration.Commands.Tests
         private static IProjectFileRenamerConfig BlankConfig
         {
             get;
-        } = GetBlankProjectFileRenamerConfiguration.SoleInstance();
+        } = GetBlankProjectFileRenamerConfig.SoleInstance();
 
         /// <summary>
         /// TODO: Add unit test documentation here

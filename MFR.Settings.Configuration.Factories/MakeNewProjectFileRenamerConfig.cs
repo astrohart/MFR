@@ -15,7 +15,7 @@ namespace MFR.Settings.Configuration.Factories
     /// interface, and returns references to them.
     /// </summary>
     [Log(AttributeExclude = true)]
-    public static class MakeNewProjectFileRenamerConfiguration
+    public static class MakeNewProjectFileRenamerConfig
     {
         /// <summary>
         /// Builder extension method that initializes the

@@ -41,7 +41,7 @@ namespace MFR.Console
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the

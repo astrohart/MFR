@@ -19,7 +19,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// (Required.) A <see cref="T:System.String" /> containing the fully-qualified
         /// pathname submitted to the
         /// <see
-        ///     cref="M:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigurationProvider.Load" />
+        ///     cref="M:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.Load" />
         /// method.
         /// </param>
         /// <param name="currentPathnameInRegistry">

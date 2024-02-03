@@ -142,7 +142,7 @@ namespace MFR.FileSystem.Helpers.Tests
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigProvider ConfigProvider
-            => GetProjectFileRenamerConfigurationProvider.SoleInstance();
+            => GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Serves as a test bed to run the entire algorithm of renaming

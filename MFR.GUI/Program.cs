@@ -48,7 +48,7 @@ namespace MFR.GUI
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// The main entry point for the application.

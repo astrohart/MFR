@@ -78,7 +78,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
             ProjectFileRenamerConfigProvider
         {
             get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Asserts that the

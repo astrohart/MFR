@@ -134,7 +134,7 @@ namespace MFR.GUI.Windows
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
             get;
-        } = GetProjectFileRenamerConfigurationProvider.SoleInstance();
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets the required creation parameters when the control handle is
@@ -1266,7 +1266,7 @@ namespace MFR.GUI.Windows
 
             FoldButton.SetFoldedStateText();
 
-            GetProjectFileRenamerConfigurationProvider.SoleInstance()
+            GetProjectFileRenamerConfigProvider.SoleInstance()
                 .CurrentConfiguration.IsFolded = e.Folded;
         }
 
