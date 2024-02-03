@@ -1,4 +1,3 @@
-using MFR.CommandLine.Translators;
 using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
 using MFR.GUI.Windows.Factories;
@@ -56,8 +55,6 @@ namespace MFR.GUI.Processors
         /// </summary>
         public override void Process()
         {
-            var commandLineConfig = CommandLineInfo.ToConfiguration();
-
             MainWindow.AttachCommandLineInfo(CommandLineInfo);
 
             Application.Run((Form)MainWindow);
