@@ -799,33 +799,34 @@ namespace MFR.GUI.Windows
                     // Automatically resize the main window for the monitor it is
                     // being displayed upon
                     PerformAutoScale();
-                    
-                    /*
-                     * Ensure that the File -> Save menu item is grayed out upon
-                     * launch.  This is because the user has not made any changes to
-                     * the configured settings yet.
-                     *
-                     * This button loves to enable itself when the user first starts
-                     * the application. That does not make intuitive sense.
-                     */
                 }
             );
 
         /// <summary>
-        /// Responds to the event that the value of the value of the
+        /// Responds to the <c>ConfiguredStartingFolderChanged</c> event by updating the
+        /// value of the <b>Starting Folder</b> combo box and ensuring the new value for
+        /// the starting folder is added to the history.
         /// </summary>
         private void DoUpdateConfiguredStartingFolder()
         {
-            Presenter.UpdateData(false);
+            try
+            {
+                Presenter.UpdateData(false);
 
-            // Make sure we're getting a valid folder
-            if (!RootDirectoryPathValidator.Validate(
+                // Make sure we're getting a valid folder
+                if (!RootDirectoryPathValidator.Validate(
+                        CurrentConfiguration.StartingFolder
+                    )) return;
+
+                StartingFolderComboBox.Items.AddDistinct(
                     CurrentConfiguration.StartingFolder
-                )) return;
-
-            StartingFolderComboBox.Items.AddDistinct(
-                CurrentConfiguration.StartingFolder
-            );
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -856,6 +857,8 @@ namespace MFR.GUI.Windows
 
                 CurrentConfiguration.StartingFolderChanged +=
                     OnConfiguredStartingFolderChanged;
+
+                InitializeStartingFolder();
             }
             catch (Exception ex)
             {
@@ -938,6 +941,32 @@ namespace MFR.GUI.Windows
                 .Associate
                 .WithMessageId(MainWindowPresenterMessages.MWP_FINISHED)
                 .AndEventHandler(OnPresenterFinished);
+        }
+
+        /// <summary>
+        /// Called to check whether a Starting Folder has been configured (e.g., from
+        /// command-line options) and, if so, and if that folder exists, then the text of
+        /// the <b>Starting Folder</b> combo box is updated to match.
+        /// </summary>
+        private void InitializeStartingFolder()
+        {
+            if (!string.IsNullOrWhiteSpace(
+                    CurrentConfiguration.StartingFolder
+                ) &&
+                !CurrentConfiguration.StartingFolder.Equals(StartingFolder) &&
+                Does.DirectoryExist(CurrentConfiguration.StartingFolder))
+                StartingFolder = CurrentConfiguration.StartingFolder;
+
+            /*
+             * Ensure that the File -> Save menu item is grayed out upon
+             * launch.  This is because the user has not made any changes to
+             * the configured settings yet.
+             *
+             * This button loves to enable itself when the user first starts
+             * the application. That does not make intuitive sense.
+             */
+
+            fileSave.PerformClick();
         }
 
         private void InitializeStyles()
