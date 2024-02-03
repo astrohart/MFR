@@ -4,6 +4,7 @@
 ## Contents
 
 - [ComboBoxInitializer](#T-MFR-GUI-Initializers-ComboBoxInitializer 'MFR.GUI.Initializers.ComboBoxInitializer')
+  - [#cctor()](#M-MFR-GUI-Initializers-ComboBoxInitializer-#cctor 'MFR.GUI.Initializers.ComboBoxInitializer.#cctor')
   - [InitializeComboBox(comboBox,currentItem,itemList)](#M-MFR-GUI-Initializers-ComboBoxInitializer-InitializeComboBox-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox,System-Collections-Generic-IList{System-String},System-String- 'MFR.GUI.Initializers.ComboBoxInitializer.InitializeComboBox(MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox,System.Collections.Generic.IList{System.String},System.String)')
 - [Resources](#T-MFR-GUI-Initializers-Properties-Resources 'MFR.GUI.Initializers.Properties.Resources')
   - [Culture](#P-MFR-GUI-Initializers-Properties-Resources-Culture 'MFR.GUI.Initializers.Properties.Resources.Culture')
@@ -19,6 +20,28 @@ MFR.GUI.Initializers
 ##### Summary
 
 Declares methods that assist in initializing combo boxes.
+
+<a name='M-MFR-GUI-Initializers-ComboBoxInitializer-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [ComboBoxInitializer](#T-MFR-GUI-Initializers-ComboBoxInitializer 'MFR.GUI.Initializers.ComboBoxInitializer') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-GUI-Initializers-ComboBoxInitializer-InitializeComboBox-MFR-GUI-Controls-Interfaces-IEntryRespectingComboBox,System-Collections-Generic-IList{System-String},System-String-'></a>
 ### InitializeComboBox(comboBox,currentItem,itemList) `method`
