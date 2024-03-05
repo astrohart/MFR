@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("8ae74b94-698b-4e7c-af20-0d79202d7bd1")]
-[assembly: InternalsVisibleTo("MFR.Services.Solutions.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100917e616a4f46154302a70843eb1c9c4349316ac93d532871888d7ca645345b51ab17596a1ff566d02f97a3eb400bb844b55b5a731e3a576e9efbe806800017ba3bec66214192a591efbdcd7a651dbfcf155280247c8cbb00ac471ac54b21ef710f8f21b23a0d2ab5018a76207f713937a4fa00a64a3314c490f97ee8baf93bd9")]
+[assembly: InternalsVisibleTo("MFR.Services.Solutions.Tests, PublicKey=0240048000940006200024005253413104001010d187b8e8d859e01a4998dc42349ab398942d39ff8279aadc844146e89732625d10cbdbbf8c953aced4b22728f4436479d46f0e4bf5771f29db0f92cb29bed164645ab5a3b13ebb83b096a9f7cfe8c1322a29140f3235362f71fc1ce551e112b64fa6a2ba0402135b3323b874ed5f272c27b59ea5b4639c5c8779bbddf")]
 
 // Version information for an assembly consists of the following four values:
 //
