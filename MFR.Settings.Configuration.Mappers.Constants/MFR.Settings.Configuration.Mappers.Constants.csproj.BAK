@@ -7,7 +7,8 @@
     <TargetFrameworkProfile />
     <ProjectGuid>{AFE72D2E-7F4C-4F3E-B46C-FF8A32209C1A}</ProjectGuid>
     <Deterministic>false</Deterministic>
-    <NuGetPackageImportStamp />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -77,6 +78,12 @@
   <PropertyGroup>
     <RootNamespace>MFR.Settings.Configuration.Mappers.Constants</RootNamespace>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
@@ -109,12 +116,10 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.0.5\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="key.snk" />
     <Compile Include="ConfigurationStringMapperType.cs" />
     <Compile Include="CommitMessageReplacementParameter.cs" />
     <Compile Include="GlobalAspects.cs" />
@@ -201,6 +206,8 @@ SET ERRORLEVEL=0</PostBuildEvent>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2024.0.5\build\PostSharp.props'))" />
     <Error Condition="!Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.2024.0.5\build\PostSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\StrongNamer.0.2.5\build\StrongNamer.targets'))" />
   </Target>
   <Import Project="..\packages\PostSharp.2024.0.5\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.targets')" />
+  <Import Project="..\packages\StrongNamer.0.2.5\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" />
 </Project>
