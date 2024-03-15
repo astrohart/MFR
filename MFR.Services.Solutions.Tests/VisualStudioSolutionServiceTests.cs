@@ -1,8 +1,8 @@
-using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Services.Solutions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;
+using PostSharp.Patterns.Threading;
 using Does = MFR.Services.Solutions.Factories.Actions.Does;
 
 namespace MFR.Services.Solutions.Tests
