@@ -1,4 +1,5 @@
 using MFR.Services.Solutions.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System.IO;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 
@@ -11,8 +12,22 @@ namespace MFR.Services.Solutions.Factories.Actions
     /// interface.
     /// </summary>
     /// <remarks>This class is part of a fluent usage pattern and should be retained.</remarks>
-    internal static class Does
+    public static class Does
     {
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.Services.Solutions.Factories.Actions.Does" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static Does() { }
+
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.Services.Solutions.Interfaces.IVisualStudioSolutionService" />
@@ -50,8 +65,7 @@ namespace MFR.Services.Solutions.Factories.Actions
                     $"The folder '{folderToSearch}' cannot be located."
                 );
 
-            VisualStudioSolutionService
-                .FolderToSearch = folderToSearch;
+            VisualStudioSolutionService.FolderToSearch = folderToSearch;
             return VisualStudioSolutionService;
         }
     }
