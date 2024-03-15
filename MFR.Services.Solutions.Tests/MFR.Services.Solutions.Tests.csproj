@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\NUnit.4.1.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.4.1.0\build\NUnit.props')" />
   <Import Project="..\packages\PostSharp.2024.0.5\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.0.5\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -155,14 +155,6 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.Services.Solutions.Actions.Constants\MFR.Services.Solutions.Actions.Constants.csproj">
-      <Project>{cb27a2f5-fd98-4192-8f23-cc0d9b00dce9}</Project>
-      <Name>MFR.Services.Solutions.Actions.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Services.Solutions.Actions\MFR.Services.Solutions.Actions.csproj">
-      <Project>{880b4b2a-09a8-4f6b-80f1-83393aeba0e4}</Project>
-      <Name>MFR.Services.Solutions.Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Services.Solutions.Factories.Actions\MFR.Services.Solutions.Factories.Actions.csproj">
       <Project>{a3d59b0f-5972-4537-a958-2cd1a1220847}</Project>
       <Name>MFR.Services.Solutions.Factories.Actions</Name>
