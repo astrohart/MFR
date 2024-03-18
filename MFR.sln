@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34330.188
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{121CE6A2-26D8-4B51-8916-C5AB8EA6029B}"
 	ProjectSection(SolutionItems) = preProject
@@ -489,7 +489,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Inte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Services.Solutions.Tests", "MFR.Services.Solutions.Tests\MFR.Services.Solutions.Tests.csproj", "{88C655C3-FBB9-49E3-AAD2-A245622DDC29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio", "..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj", "{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio", "..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj", "{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Solutions", "..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions\xyLOGIX.VisualStudio.Solutions.csproj", "{590970A0-E0B5-4467-A7F9-DE661A02D4C9}"
 EndProject
@@ -4870,22 +4870,22 @@ Global
 		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x64.Build.0 = Release|x64
 		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x86.ActiveCfg = Release|x86
 		{88C655C3-FBB9-49E3-AAD2-A245622DDC29}.Release|x86.Build.0 = Release|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.All|x64.ActiveCfg = Release|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.All|x64.Build.0 = Release|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.All|x86.ActiveCfg = Release|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.All|x86.Build.0 = Release|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Debug|x64.ActiveCfg = Debug|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Debug|x64.Build.0 = Debug|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Debug|x86.ActiveCfg = Debug|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Debug|x86.Build.0 = Debug|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.DefaultBuild|x64.ActiveCfg = Debug|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.DefaultBuild|x64.Build.0 = Debug|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.DefaultBuild|x86.ActiveCfg = Debug|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.DefaultBuild|x86.Build.0 = Debug|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Release|x64.ActiveCfg = Release|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Release|x64.Build.0 = Release|x64
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Release|x86.ActiveCfg = Release|x86
-		{7DA23F9E-B24B-4BEE-8BDF-F75BEA968D25}.Release|x86.Build.0 = Release|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.All|x64.ActiveCfg = Release|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.All|x64.Build.0 = Release|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.All|x86.ActiveCfg = Release|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.All|x86.Build.0 = Release|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Debug|x64.ActiveCfg = Debug|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Debug|x64.Build.0 = Debug|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Debug|x86.ActiveCfg = Debug|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Debug|x86.Build.0 = Debug|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.DefaultBuild|x64.Build.0 = Debug|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.DefaultBuild|x86.Build.0 = Debug|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Release|x64.ActiveCfg = Release|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Release|x64.Build.0 = Release|x64
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Release|x86.ActiveCfg = Release|x86
+		{8F4B48AD-D48B-46DA-95A8-5D6F8F4DE976}.Release|x86.Build.0 = Release|x86
 		{590970A0-E0B5-4467-A7F9-DE661A02D4C9}.All|x64.ActiveCfg = Release|x64
 		{590970A0-E0B5-4467-A7F9-DE661A02D4C9}.All|x64.Build.0 = Release|x64
 		{590970A0-E0B5-4467-A7F9-DE661A02D4C9}.All|x86.ActiveCfg = Release|x86
