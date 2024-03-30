@@ -103,7 +103,7 @@ namespace MFR.Engines.Matching
         /// It is expected that the <paramref name="value" /> parameter has the
         /// contents of the file. Sometimes, files contain zero bytes of data.
         /// <para />
-        /// If this the case, then this method does nothing and returns the
+        /// If this is the case, then this method does nothing and returns the
         /// default result of <see langword="false" />.
         /// </remarks>
         public override bool IsMatch(

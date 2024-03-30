@@ -85,7 +85,7 @@ namespace MFR.GUI.Windows
         /// <see cref="P:MFR.GUI.Windows.MainWindow.OperationEngine" /> property
         /// compute-once and store without having to use a static context.
         /// <para />
-        /// This due to the use of <see langword="dynamic" /> in the computation.
+        /// This is due to the use of <see langword="dynamic" /> in the computation.
         /// </remarks>
         private IFullGuiOperationEngine _operationEngine;
 

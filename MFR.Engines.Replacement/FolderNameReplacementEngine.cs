@@ -118,7 +118,7 @@ namespace MFR.Engines.Replacement
             /*
              * Normally, the 'dest' parameter is optional for this method.
              * However, in the case of replacing text in the names of folders,
-             * it's mandatory.  This because, if 'dest' is blank or the
+             * it's mandatory.  This is because, if 'dest' is blank or the
              * empty string, we run the risk of trying to create a folder that
              * has no name, which is in violation of OS rules.  Therefore,
              * we enforce that the dest parameter should have a value.

@@ -3608,7 +3608,7 @@ namespace MFR.Renamers.Files
                  * OKAY, check whether Find What and Replace With are the same,
                  * apart from case.  This means that the user wants to use the same
                  * name for a component(s), but with different letters capitalized.
-                 * If this so, then we cannot have two files and/or
+                 * If this is so, then we cannot have two files and/or
                  * folders in the same parent folder with both names (per operating
                  * system rules).  So in that event, we will need to do findWhat = old
                  * name, replaceWith = guid, and then another process with findWhat = guid

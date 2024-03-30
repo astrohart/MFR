@@ -58,7 +58,7 @@ namespace MFR.FileSystem.Factories
                  * path may refer to a file that can't be accessed by the
                  * user, or any one of a myriad other reasons.
                  *
-                 * If this so, then we set the result variable to null
+                 * If this is so, then we set the result variable to null
                  * as a signal to the caller of this method that the operation
                  * failed.
                  */
