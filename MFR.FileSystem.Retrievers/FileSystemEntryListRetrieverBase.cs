@@ -56,8 +56,7 @@ namespace MFR.FileSystem.Retrievers
         /// actions
         /// associated with it.
         /// </remarks>
-        private static IProjectFileRenamerConfigProvider
-            ConfigProvider
+        private static IProjectFileRenamerConfigProvider ConfigProvider
             => GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
@@ -654,23 +653,7 @@ namespace MFR.FileSystem.Retrievers
             string path,
             Predicate<string> pathFilter = null
         )
-        {
-            bool result;
-
-            try
-            {
-                result = pathFilter == null
-                    ? FileSystemEntryValidatorSays.ShouldNotSkip(path)
-                    : pathFilter(path) &&
-                      FileSystemEntryValidatorSays.ShouldNotSkip(path);
-            }
-            catch
-            {
-                result = false;
-            }
-
-            return result;
-        }
+            => true;
 
         private string GetTextValueForOperation(IFileSystemEntry entry)
         {
