@@ -20,7 +20,7 @@ namespace MFR.Messages
         /// <see
         ///     cref="T:MFR.MessageType" />
         /// that is
-        /// being used to identify which message this is.
+        /// being used to identify which message this.
         /// </summary>
         public abstract MessageType MessageType
         {

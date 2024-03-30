@@ -60,7 +60,7 @@ namespace MFR.Settings.Profiles.Factories
         /// Doing so is the job of the caller.
         /// <para />
         /// Along with assigning the specified <paramref name="profile" /> a new name, this
-        /// method also generates a new GUID to use to identify the profile by.  This is
+        /// method also generates a new GUID to use to identify the profile by.  This
         /// done because only one profile can be saved having the same name.
         /// </remarks>
         public static IProfile HavingName(this IProfile profile, string name)

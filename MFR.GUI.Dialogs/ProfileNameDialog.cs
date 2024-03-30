@@ -102,7 +102,7 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// Determines whether this dialog can be closed.
         /// <para />
-        /// Whether or not this is the case, depends on several factors; for instance,
+        /// Whether or not this the case, depends on several factors; for instance,
         /// whether the input is valid.
         /// <para />
         /// If validation rules fail, then the user is presented with an error message box

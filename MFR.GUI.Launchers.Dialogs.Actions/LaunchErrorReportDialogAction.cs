@@ -42,7 +42,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         /// <see
         ///     cref="T:MFR.MessageType" />
         /// that is
-        /// being used to identify which message this is.
+        /// being used to identify which message this.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType

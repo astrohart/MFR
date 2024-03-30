@@ -44,7 +44,7 @@ namespace MFR.Errors.Reports.Commands
         /// <see
         ///     cref="T:MFR.MessageType" />
         /// that is
-        /// being used to identify which message this is.
+        /// being used to identify which message this.
         /// </summary>
         public override MessageType MessageType
         {

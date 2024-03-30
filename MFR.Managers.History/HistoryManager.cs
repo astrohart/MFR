@@ -139,7 +139,7 @@ namespace MFR.Managers.History
             foreach (var list in historyLists)
                 list.Clear();
 
-            // Finally, clear out all the current values of the form. This is
+            // Finally, clear out all the current values of the form. This
             // basically like a "Reset Form" button on a website.
             CurrentConfiguration.StartingFolder =
                 CurrentConfiguration.FindWhat =

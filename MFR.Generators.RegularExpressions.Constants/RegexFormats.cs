@@ -14,7 +14,7 @@ namespace MFR.Generators.RegularExpressions.Constants
         /// Regular expression that matches an exact word.
         /// </summary>
         /// <remarks>
-        /// This is sensitive to dot-delimited names such as those which may
+        /// This sensitive to dot-delimited names such as those which may
         /// appear in Visual Studio solution, project, and source files.
         /// <para />
         /// Substitute, into this format, the escaped version of the search

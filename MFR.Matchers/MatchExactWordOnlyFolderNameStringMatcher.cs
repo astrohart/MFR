@@ -37,7 +37,7 @@ namespace MFR.Matchers
         /// the exact string that is supplied for the text-replacement specification
         /// provided by the user in the <b>Find What</b> box in the user interface.
         /// <para />
-        /// This is the Mass File Renamer analogy of the <c>Match Whole Word</c> checkbox
+        /// This the Mass File Renamer analogy of the <c>Match Whole Word</c> checkbox
         /// in, say, the <b>Edit</b>, <b>Find</b> dialog box in most text-editing
         /// applications.
         /// </summary>

@@ -105,7 +105,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
                                                   )
                                                   .WithDefaultValue(
                                                       /*
-                                                       * This is the default fully-qualified pathname
+                                                       * This the default fully-qualified pathname
                                                        * of the file that is to be utilized if the value
                                                        * that is supposed to be stored in the system
                                                        * Registry cannot be found.

@@ -12,7 +12,7 @@ namespace MFR.CommandLine.Validators.Constants
         IsNull,
 
         /// <summary>
-        /// The <c>Find What</c> value supplied is blank.  This is a required value.
+        /// The <c>Find What</c> value supplied is blank.  This a required value.
         /// </summary>
         FindWhatBlank,
 

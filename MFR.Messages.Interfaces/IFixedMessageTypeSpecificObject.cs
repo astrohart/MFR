@@ -16,7 +16,7 @@ namespace MFR.Messages.Interfaces
         /// <summary>
         /// Gets the <see
         /// cref="T:MFR.MessageType"/> that is
-        /// being used to identify which message this is.
+        /// being used to identify which message this.
         /// </summary>
         MessageType MessageType
         {

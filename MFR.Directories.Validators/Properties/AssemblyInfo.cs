@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Directory Path Validators Component")]
-[assembly: AssemblyDescription("Provides objects and functionality to define C# classes, events, constants, and interfaces for validaton of directory paths, irrespective of the file operations we perform; this is for configuration.  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyDescription("Provides objects and functionality to define C# classes, events, constants, and interfaces for validaton of directory paths, irrespective of the file operations we perform; this for configuration.  This particular library holds the concrete classes and implementations of the component.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]

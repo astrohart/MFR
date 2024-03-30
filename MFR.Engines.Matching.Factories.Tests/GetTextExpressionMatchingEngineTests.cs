@@ -76,7 +76,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         /// with the
         /// <see cref="T:MFR.Operations.Constants.OperationType.CloseActiveSolutions" />
         /// value,
-        /// as this is not one of the values that a text-expression matcher object is
+        /// as this not one of the values that a text-expression matcher object is
         /// available for.
         /// </summary>
         [Test]
@@ -95,7 +95,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         /// method throws <see cref="T:System.ArgumentOutOfRangeException" /> when supplied
         /// with the
         /// <see cref="T:MFR.Operations.Constants.OperationType.FindVisualStudio" /> value,
-        /// as this is not one of the values that a text-expression matcher object is
+        /// as this not one of the values that a text-expression matcher object is
         /// available for.
         /// </summary>
         [Test]
@@ -116,7 +116,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         /// <see
         ///     cref="T:MFR.Operations.Constants.OperationType.CalculateListOfFilesToBeRenamed" />
         /// value,
-        /// as this is not one of the values that a text-expression matcher object is
+        /// as this not one of the values that a text-expression matcher object is
         /// available for.
         /// </summary>
         [Test]
@@ -136,7 +136,7 @@ namespace MFR.Engines.Matching.Factories.Tests
         /// with the
         /// <see cref="T:MFR.Operations.Constants.OperationType.OpenActiveSolutions" />
         /// value,
-        /// as this is not one of the values that a text-expression matcher object is
+        /// as this not one of the values that a text-expression matcher object is
         /// available for.
         /// </summary>
         [Test]

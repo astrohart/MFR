@@ -1142,7 +1142,7 @@ namespace MFR.Renamers.Files
                 // NOTE: We only get here if a particular Solution's folder needs renaming
 
                 /*
-                 * NOTE: This is not good enough.  EVERY running instance of Visual Studio, regardless of
+                 * NOTE: This not good enough.  EVERY running instance of Visual Studio, regardless of
                  * whether they have Solution(s) loaded or not, must be closed in order for
                  * this operation to succeed.
                  */
@@ -1150,7 +1150,7 @@ namespace MFR.Renamers.Files
                     solution.Quit();
 
                 /*
-                 * OKAY, this is the loop over the list of the folders that we've found
+                 * OKAY, this the loop over the list of the folders that we've found
                  * underneath the Root Directory, that contain Visual Studio Solution (<c>*.sln</c>)
                  * files, and whose names match the search criteria that was specified
                  * by the user.  For each folder, rename it according to the settings
@@ -1361,7 +1361,7 @@ namespace MFR.Renamers.Files
                 );
 
                 /*
-                 * OKAY, this is the loop over the list of the subfolders
+                 * OKAY, this the loop over the list of the subfolders
                  * whose pathnames match the search criteria specified by
                  * the user.  For each folder, rename it according to the
                  * settings specified by the user.
@@ -1658,7 +1658,7 @@ namespace MFR.Renamers.Files
         public IFileRenamer StartingFrom(string path)
         {
             /*
-             * We do not perform any input validation here.  This is because
+             * We do not perform any input validation here.  This because
              * this value may be being initialized from a default (blank)
              * config.   the config may be blank for a number of
              * reasons, but one of these is the issue that the config
@@ -1787,7 +1787,7 @@ namespace MFR.Renamers.Files
              * Sometimes, .sln files (the ones we close and then open before and after the
              * operations) are renamed by the operations.
              *
-             * We check if this is so.  If so, then we update the FullName property of
+             * We check if this so.  If so, then we update the FullName property of
              * the LoadedSolutions if we find one that matches, so that when we reload the
              * solution, we open the correct file.
              */
@@ -1854,7 +1854,7 @@ namespace MFR.Renamers.Files
              * of the Current Configuration to match the new value of the
              * Root Directory Path.
              *
-             * NOTE: This is not trivial, since we can process more than
+             * NOTE: This not trivial, since we can process more than
              * one .sln in a directory tree -- this means that this renamer
              * might not necessarily be operating on the starting folder set
              * by the user in the application config.
@@ -2274,7 +2274,7 @@ namespace MFR.Renamers.Files
                 );
 
                 /*
-                 * OKAY, this is the loop over the list of the subfolders
+                 * OKAY, this the loop over the list of the subfolders
                  * whose pathnames match the search criteria specified by
                  * the user.  For each folder, commit any pending change(s)
                  * inside of it to the local Git repository that the folder
@@ -2654,7 +2654,7 @@ namespace MFR.Renamers.Files
                 );
 
                 /*
-                 * OKAY, this is the loop over the list of the subfolders
+                 * OKAY, this the loop over the list of the subfolders
                  * whose pathnames match the search criteria specified by
                  * the user.  For each folder, commit any pending change(s)
                  * that may have resulted of the file-rename operation(s)
@@ -3608,7 +3608,7 @@ namespace MFR.Renamers.Files
                  * OKAY, check whether Find What and Replace With are the same,
                  * apart from case.  This means that the user wants to use the same
                  * name for a component(s), but with different letters capitalized.
-                 * If this is so, then we cannot have two files and/or
+                 * If this so, then we cannot have two files and/or
                  * folders in the same parent folder with both names (per operating
                  * system rules).  So in that event, we will need to do findWhat = old
                  * name, replaceWith = guid, and then another process with findWhat = guid
@@ -4093,7 +4093,7 @@ namespace MFR.Renamers.Files
                  * FileSystemEntry we are processing.  (The Containing
                  * Folder property is filled during its construction.)
                  *
-                 * This is done because we are operating under the assumption
+                 * This done because we are operating under the assumption
                  * that the file to be renamed should be left in the same
                  * folder that we found it in.
                  */
@@ -4181,7 +4181,7 @@ namespace MFR.Renamers.Files
                     string.Empty; // new name for the solution folder
 
                 /*
-                 * This is the thing that actually does the replacement.
+                 * This the thing that actually does the replacement.
                  */
 
                 ITextReplacementEngine engine = GetTextReplacementEngine

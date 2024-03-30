@@ -129,7 +129,7 @@ namespace MFR.Settings.Configuration
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
         /// <para />
-        /// NOTE:This member may be overriden by a child class. If this is the
+        /// NOTE:This member may be overriden by a child class. If this the
         /// case, the overrider must call the base class method before doing any
         /// of its own processing.
         /// </remarks>

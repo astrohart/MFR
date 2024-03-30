@@ -48,7 +48,7 @@ namespace MFR.Settings.Profiles.Actions
 
         /// <summary>
         /// Gets the <see cref="T:MFR.MessageType" /> that is being used
-        /// to identify which message this is.
+        /// to identify which message this.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType

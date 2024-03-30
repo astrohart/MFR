@@ -22,7 +22,7 @@ namespace MFR.Settings.Configuration.Mappers.Interfaces
         /// One of the
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Mappers.Constants.ConfigurationStringMapperType" />
-        /// enumeration values that defines what type of mapper object this is.
+        /// enumeration values that defines what type of mapper object this.
         /// </summary>
         ConfigurationStringMapperType Type
         {

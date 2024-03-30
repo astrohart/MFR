@@ -258,7 +258,7 @@ namespace MFR.File.Stream.Providers
 
                 /*
                  * OKAY, check whether there is an orphaned pathname-ticket association
-                 * present.  This is true if there is/are entry(ies) in the maps of
+                 * present.  This true if there is/are entry(ies) in the maps of
                  * pathnames to tickets or vice versa, but there is not an open file stream
                  * stored in our internal collection associated with the ticket that
                  * corresponds to the supplied pathname.

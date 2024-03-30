@@ -136,7 +136,7 @@ namespace MFR.FileSystem.Retrievers
                      * the directory tree of the folder whose pathname is
                      * contained in rootFolderPath.  For each .git folder
                      * found, we store the pathname of its containing folder
-                     * in the result.  This is the folder in which we will
+                     * in the result.  This the folder in which we will
                      * actually execute the .git commands.
                      */
 

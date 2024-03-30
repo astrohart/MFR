@@ -890,7 +890,7 @@ namespace MFR.GUI.Windows.Presenters
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
         /// <para />
-        /// NOTE:This member may be overriden by a child class. If this is the
+        /// NOTE:This member may be overriden by a child class. If this the
         /// case, the overrider must call the base class method before doing any
         /// of its own processing.
         /// </remarks>
@@ -1011,7 +1011,7 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Fluent-builder method for initializing the operation engine object.  This is
+        /// Fluent-builder method for initializing the operation engine object.  This
         /// the object that actually schedules and runs the file-renaming tasks and
         /// provides user feedback.
         /// </summary>
@@ -1246,7 +1246,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Ideally, it should be the main application window that handles this
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
-        /// the user to use the GUI. This is because moving data to and from the
+        /// the user to use the GUI. This because moving data to and from the
         /// config data source, while a mildly lengthy operation,
         /// is
         /// nowhere near as involved as the file operations we would normally undertake.
@@ -1275,7 +1275,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Ideally, it should be the main application window that handles this
         /// event by simply displaying a marquee progress bar on the status bar
         /// of the application window but otherwise maintaining the ability of
-        /// the user to use the GUI. This is because moving data to and from the
+        /// the user to use the GUI. This because moving data to and from the
         /// config data source, while a mildly lengthy operation,
         /// is
         /// nowhere near as involved as the file operations we would normally undertake.

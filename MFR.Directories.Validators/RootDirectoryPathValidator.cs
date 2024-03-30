@@ -129,7 +129,7 @@ namespace MFR.Directories.Validators
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        "RootDirectoryPathValidator.Validate: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This is always valid.  Proceeding..."
+                        "RootDirectoryPathValidator.Validate: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This always valid.  Proceeding..."
                     );
 
                     DebugUtils.WriteLine(

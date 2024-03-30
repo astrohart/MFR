@@ -11,7 +11,7 @@ namespace MFR.Engines.Operations.Interfaces
     /// for example.
     /// </summary>
     /// <remarks>
-    /// This is meant to be kind of an "adapter pattern" on the File Renamer
+    /// This meant to be kind of an "adapter pattern" on the File Renamer
     /// component so that it can be more easily used in a wide variety of modes (GUI,
     /// console, automatic GUI meaning, MFR GUI is called on the command line so we
     /// don't have to display the main window, etc.).
@@ -20,7 +20,7 @@ namespace MFR.Engines.Operations.Interfaces
     {
         /// <summary>
         /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration
-        /// value that describes what type of operation engine this is.
+        /// value that describes what type of operation engine this.
         /// </summary>
         OperationEngineType Type
         {

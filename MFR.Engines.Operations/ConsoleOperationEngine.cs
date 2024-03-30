@@ -32,7 +32,7 @@ namespace MFR.Engines.Operations
 
         /// <summary>
         /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration
-        /// value that describes what type of operation engine this is.
+        /// value that describes what type of operation engine this.
         /// </summary>
         /// <remarks>
         /// Child classes must implement this property.

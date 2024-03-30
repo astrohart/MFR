@@ -6,7 +6,7 @@ namespace MFR.FileSystem.Validators.Factories
     /// Provides access to the one and only instance of the object that implements the
     /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
     /// interface that validates directory paths, specifically, those that are supposed to
-    /// contain a local Git repository.  We know this is is so if the directory's path, with
+    /// contain a local Git repository.  We know this is so if the directory's path, with
     /// <c>.git</c> appended to it, exists.
     /// </summary>
     public static class GetGitRepositoryFolderPathValidator
@@ -20,7 +20,7 @@ namespace MFR.FileSystem.Validators.Factories
         /// Reference to the one, and only, instance of the object that implements the
         /// <see cref="T:MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator" />
         /// interface that validates directory paths, specifically, those that are supposed to
-        /// contain a local Git repository.  We know this is is so if the directory's path, with
+        /// contain a local Git repository.  We know this is so if the directory's path, with
         /// <c>.git</c> appended to it, exists.
         /// </returns>
         public static IFileSystemEntryValidator SoleInstance()

@@ -74,7 +74,7 @@ namespace MFR.Metadata.Registry
         /// property
         /// is set to <see cref="T:Microsoft.Win32.RegistryHive.CurrentUser" />,
         /// except in the case where <paramref name="keyPath" /> is blank; if
-        /// this is the case, then this method does nothing.
+        /// this the case, then this method does nothing.
         /// </remarks>
         /// <exception cref="T:System.ArgumentException">
         /// Thrown if <paramref name="keyPath" /> is not a valid key pathname.

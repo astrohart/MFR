@@ -85,7 +85,7 @@ namespace MFR.GUI.Windows
         /// <see cref="P:MFR.GUI.Windows.MainWindow.OperationEngine" /> property
         /// compute-once and store without having to use a static context.
         /// <para />
-        /// This is due to the use of <see langword="dynamic" /> in the computation.
+        /// This due to the use of <see langword="dynamic" /> in the computation.
         /// </remarks>
         private IFullGuiOperationEngine _operationEngine;
 
@@ -1012,7 +1012,7 @@ namespace MFR.GUI.Windows
 
             /*
              * Ensure that the File -> Save menu item is grayed out upon
-             * launch.  This is because the user has not made any changes to
+             * launch.  This because the user has not made any changes to
              * the configured settings yet.
              *
              * This button loves to enable itself when the user first starts
@@ -1708,7 +1708,7 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         /// This method responds by moving the input focus to a hidden label.
-        /// This is to get rid of that annoying highlight that remains in a
+        /// This to get rid of that annoying highlight that remains in a
         /// combo box when it loses the input focus.
         /// </remarks>
         //private void OnSelChangeComboBox(object sender, EventArgs e)
@@ -1860,7 +1860,7 @@ namespace MFR.GUI.Windows
 
             /*
              * Move the selection of the dropdown to be the profile with
-             * the name of the profile the user has saved; this is now
+             * the name of the profile the user has saved; this now
              * the current profile.
              */
             ProfileCollectionComboBox.SelectFirstItemNamed(results.ProfileName);

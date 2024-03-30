@@ -37,7 +37,7 @@ namespace MFR.Engines.Matching
         /// reference to it.
         /// </summary>
         /// <remarks>
-        /// NOTE: This constructor is marked as <c>internal</c>. This is to
+        /// NOTE: This constructor is marked as <c>internal</c>. This to
         /// limit the scope of invocation to abstract factories only.
         /// <para />
         /// Clients who want to new up an instance of this class directly must
@@ -103,7 +103,7 @@ namespace MFR.Engines.Matching
         /// It is expected that the <paramref name="value" /> parameter has the
         /// contents of the file. Sometimes, files contain zero bytes of data.
         /// <para />
-        /// If this is the case, then this method does nothing and returns the
+        /// If this the case, then this method does nothing and returns the
         /// default result of <see langword="false" />.
         /// </remarks>
         public override bool IsMatch(
@@ -121,7 +121,7 @@ namespace MFR.Engines.Matching
             {
                 // can't match if there is no data against which to search. BUT if
                 // the file whose content is being passed in the 'source' parameter
-                // contains only whitespace, then this is OK to match against.
+                // contains only whitespace, then this OK to match against.
                 if (string.IsNullOrEmpty(value))
                     return result;
 

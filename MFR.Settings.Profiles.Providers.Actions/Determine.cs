@@ -35,7 +35,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <para />
         /// Neither the <paramref name="submittedPathname" />  nor the
         /// <paramref name="pathnameFromRegistry" /> have to represent a file that exists
-        /// on the disk, since, if this is the case, the file will be created by the Save
+        /// on the disk, since, if this the case, the file will be created by the Save
         /// operation.
         /// </remarks>
         public static string CorrectProfileListPathForSaving(

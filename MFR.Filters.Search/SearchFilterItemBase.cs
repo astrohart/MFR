@@ -37,7 +37,7 @@ namespace MFR.Filters.Search
         }
 
         /// <summary>
-        /// Gets a value indicating whether this is an Exclusion or an Inclusion filter.
+        /// Gets a value indicating whether this an Exclusion or an Inclusion filter.
         /// </summary>
         public abstract bool IsExclusion
         {
@@ -45,7 +45,7 @@ namespace MFR.Filters.Search
         }
 
         /// <summary>
-        /// Gets the type of filter that this is
+        /// Gets the type of filter that this
         /// </summary>
         public abstract SearchFilterType Type
         {

@@ -58,7 +58,7 @@ namespace MFR.Settings.Profiles.Actions
 
         /// <summary>
         /// Gets the <see cref="T:MFR.MessageType" /> that is being used
-        /// to identify which message this is.
+        /// to identify which message this.
         /// </summary>
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
@@ -80,7 +80,7 @@ namespace MFR.Settings.Profiles.Actions
         /// Implementers shall override this method to provide the functionality
         /// of the request.
         /// <para />
-        /// This is a template method, the call to which is wrapped in a robust
+        /// This a template method, the call to which is wrapped in a robust
         /// and fault-tolerant override of the
         /// <see
         ///     cref="M:MFR.ActionBase.CommonExecute" />

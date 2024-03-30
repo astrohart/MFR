@@ -312,7 +312,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         void SetCommandLineInfo(ICommandLineInfo cmdInfo);
 
         /// <summary>
-        /// Fluent-builder method for initializing the operation engine object.  This is
+        /// Fluent-builder method for initializing the operation engine object.  This
         /// the object that actually schedules and runs the file-renaming tasks and
         /// provides user feedback.
         /// </summary>

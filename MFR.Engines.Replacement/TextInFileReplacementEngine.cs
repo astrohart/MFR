@@ -89,7 +89,7 @@ namespace MFR.Engines.Replacement
         /// the empty string, then this method returns the empty string.
         /// <para />
         /// NOTE: The <paramref name="value" /> parameter MAY contain whitespace.
-        /// this is the case, then the text found by the
+        /// this the case, then the text found by the
         /// <paramref
         ///     name="pattern" />
         /// just gets deleted, which is okay in this instance.

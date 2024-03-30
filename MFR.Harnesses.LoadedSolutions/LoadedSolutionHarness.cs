@@ -119,7 +119,7 @@ namespace MFR.Harnesses.LoadedSolutions
         /// directory tree of the current Project File Renamer operation or not.
         /// </summary>
         /// <remarks>
-        /// This is important because it may very well be the case that there may be
+        /// This important because it may very well be the case that there may be
         /// running instances of Visual Studio lying about, that have Visual Studio
         /// Solution (<c>*.sln</c>) file(s) loaded, and these particular files are not
         /// underneath the starting folder selected by the user in the Project File

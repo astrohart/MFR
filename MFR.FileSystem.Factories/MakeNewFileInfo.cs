@@ -53,12 +53,12 @@ namespace MFR.FileSystem.Factories
             try
             {
                 /*
-                 * We add extra robustness here, since this is a File I/O
+                 * We add extra robustness here, since this a File I/O
                  * operation.  The operation may fail because the provided
                  * path may refer to a file that can't be accessed by the
                  * user, or any one of a myriad other reasons.
                  *
-                 * If this is so, then we set the result variable to null
+                 * If this so, then we set the result variable to null
                  * as a signal to the caller of this method that the operation
                  * failed.
                  */

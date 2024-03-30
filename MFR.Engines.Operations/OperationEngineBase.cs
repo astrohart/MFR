@@ -99,7 +99,7 @@ namespace MFR.Engines.Operations
 
         /// <summary>
         /// Gets a <see cref="T:MFR.Engines.Constants.OperationEngineType" /> enumeration
-        /// value that describes what type of operation engine this is.
+        /// value that describes what type of operation engine this.
         /// </summary>
         /// <remarks>
         /// Child classes must implement this property.
@@ -190,7 +190,7 @@ namespace MFR.Engines.Operations
         /// The settings in the object specified will be used for all matching
         /// from this point forward.
         /// <para />
-        /// NOTE:This member may be overriden by a child class. If this is the
+        /// NOTE:This member may be overriden by a child class. If this the
         /// case, the overrider must call the base class method before doing any
         /// of its own processing.
         /// </remarks>

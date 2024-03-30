@@ -167,7 +167,7 @@ namespace MFR.Services.Solutions
         /// located, determines whether a running instance of Visual Studio has
         /// it loaded.
         /// <para />
-        /// If this is so, then information about the loaded solution is
+        /// If this so, then information about the loaded solution is
         /// returned as an element of a collection of any other such solutions.
         /// </summary>
         /// <param name="folder">

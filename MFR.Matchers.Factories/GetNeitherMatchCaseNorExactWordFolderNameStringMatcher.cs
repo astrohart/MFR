@@ -9,7 +9,7 @@ namespace MFR.Matchers.Factories
     /// text-replacement specification provided by the user in the <b>Find What</b> box
     /// in the user interface.
     /// <para />
-    /// This is the Mass File Renamer analogy of the user clearing check marks in both
+    /// This the Mass File Renamer analogy of the user clearing check marks in both
     /// the <b>Match Case</b> and the <b>Match Whole Word</b> checkbox in, say, the
     /// <b>Edit</b>, <b>Find</b> dialog box in most text-editing applications.
     /// </summary>
@@ -27,7 +27,7 @@ namespace MFR.Matchers.Factories
         /// text-replacement specification provided by the user in the <b>Find What</b> box
         /// in the user interface.
         /// <para />
-        /// This is the Mass File Renamer analogy of the user clearing check marks in both
+        /// This the Mass File Renamer analogy of the user clearing check marks in both
         /// the <b>Match Case</b> and the <b>Match Whole Word</b> checkbox in, say, the
         /// <b>Edit</b>, <b>Find</b> dialog box in most text-editing applications.
         /// </returns>

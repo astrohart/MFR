@@ -251,7 +251,7 @@ namespace MFR.FileSystem.Retrievers
                  * GetFileSystemEntryValidator here, but instead, we simply grab
                  * the singleton Instance of the DirectoryPathValidator class.
                  *
-                 * This is because the factory uses the OperationType to grab a
+                 * This because the factory uses the OperationType to grab a
                  * file-validator or folder-validator object.  Here, we know for
                  * certain that we expect rootFolderPath to be a directory path;
                  * therefore, we cut right to the chase and grab a directory
@@ -653,7 +653,23 @@ namespace MFR.FileSystem.Retrievers
             string path,
             Predicate<string> pathFilter = null
         )
-            => true;
+        {
+            bool result;
+
+            try
+            {
+                result = pathFilter == null
+                    ? FileSystemEntryValidatorSays.ShouldNotSkip(path)
+                    : pathFilter(path) &&
+                      FileSystemEntryValidatorSays.ShouldNotSkip(path);
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+        }
 
         private string GetTextValueForOperation(IFileSystemEntry entry)
         {

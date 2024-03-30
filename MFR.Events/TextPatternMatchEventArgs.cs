@@ -23,11 +23,11 @@ namespace MFR.Events
         /// (Required.) String containing the text that is to be searched for
         /// the pattern in <paramref name="findWhat" />.
         /// <para />
-        /// This is typically the fully-qualified pathname of a file or folder;
+        /// This typically the fully-qualified pathname of a file or folder;
         /// however, if we are doing the
         /// <see
         ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
-        /// operation, then this is the text of the current file before
+        /// operation, then this the text of the current file before
         /// find-and-replace has been done.
         /// </param>
         /// <param name="findWhat">

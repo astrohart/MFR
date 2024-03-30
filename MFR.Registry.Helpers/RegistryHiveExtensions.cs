@@ -32,7 +32,7 @@ namespace MFR.Registry.Helpers
         /// <b>NOTE:</b> This parameter is required to be non-blank. Normally,
         /// if a blank value is specified for <paramref name="valueName" />, the
         /// (Default) value would be accessed; however, since it's always the
-        /// case that such a value exists for every Registry key, this is a
+        /// case that such a value exists for every Registry key, this a
         /// non-sequitur to this method.
         /// </param>
         /// <returns>

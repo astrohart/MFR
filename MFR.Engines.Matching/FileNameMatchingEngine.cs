@@ -37,7 +37,7 @@ namespace MFR.Engines.Matching
         /// returns a reference to it.
         /// </summary>
         /// <remarks>
-        /// NOTE: This constructor is marked as <c>internal</c>. This is to
+        /// NOTE: This constructor is marked as <c>internal</c>. This to
         /// limit the scope of invocation to abstract factories only.
         /// <para />
         /// Clients who want to new up an instance of this class directly must
