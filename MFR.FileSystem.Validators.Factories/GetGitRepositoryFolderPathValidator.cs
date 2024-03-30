@@ -1,4 +1,5 @@
 using MFR.FileSystem.Validators.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.FileSystem.Validators.Factories
 {
@@ -9,6 +10,7 @@ namespace MFR.FileSystem.Validators.Factories
     /// contain a local Git repository.  We know this is so if the directory's path, with
     /// <c>.git</c> appended to it, exists.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class GetGitRepositoryFolderPathValidator
     {
         /// <summary>
