@@ -170,9 +170,7 @@
     <Compile Include="ProfileNameDialog.Designer.cs">
       <DependentUpon>ProfileNameDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="OptionsDialog.cs" />
     <Compile Include="OptionsDialog.Designer.cs">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </Compile>
