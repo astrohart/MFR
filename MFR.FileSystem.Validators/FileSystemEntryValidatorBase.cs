@@ -48,8 +48,7 @@ namespace MFR.FileSystem.Validators
         {
             var result = false;
 
-            // Check to see if the required parameter, entry, is null. If it is, send an
-            // method.
+            // Check to see if the required parameter, entry, is null. 
             if (entry == null)
 
                 // the parameter entry is required.
@@ -168,10 +167,15 @@ namespace MFR.FileSystem.Validators
                              .StartsWith(".") || Path.GetExtension(path)
                              .IsAnyOf(DISALLOWED_EXTENSIONS);
             }
-            catch (Exception ex)
+            catch
             {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
+                //Ignored.
+
+                /*
+                 * OKAY, if we caught an exception, simply return TRUE
+                 * to have the file or folder with the pathname 'path'
+                 * be disqualified from a search or other operation.
+                 */
 
                 result = true;
             }
