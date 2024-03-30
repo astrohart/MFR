@@ -100,7 +100,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets the [MessageType](#T-MFR-MessageType 'MFR.MessageType') that is
-being used to identify which message this is.
+being used to identify which message this.
 
 <a name='M-MFR-Settings-Configuration-Commands-SaveConfigurationToFileCommand-#cctor'></a>
 ### #cctor() `method`

@@ -2499,7 +2499,7 @@ Determines whether this dialog can be closed.
 
 
 
-Whether or not this is the case, depends on several factors; for instance,
+Whether or not this the case, depends on several factors; for instance,
 whether the input is valid.
 
 

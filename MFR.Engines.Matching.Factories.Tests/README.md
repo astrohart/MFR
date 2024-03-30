@@ -87,7 +87,7 @@ method throws [ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev1
 with the
 [CalculateListOfFilesToBeRenamed](#T-MFR-Operations-Constants-OperationType-CalculateListOfFilesToBeRenamed 'MFR.Operations.Constants.OperationType.CalculateListOfFilesToBeRenamed')
 value,
-as this is not one of the values that a text-expression matcher object is
+as this not one of the values that a text-expression matcher object is
 available for.
 
 ##### Parameters
@@ -105,7 +105,7 @@ method throws [ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev1
 with the
 [CloseActiveSolutions](#T-MFR-Operations-Constants-OperationType-CloseActiveSolutions 'MFR.Operations.Constants.OperationType.CloseActiveSolutions')
 value,
-as this is not one of the values that a text-expression matcher object is
+as this not one of the values that a text-expression matcher object is
 available for.
 
 ##### Parameters
@@ -122,7 +122,7 @@ Asserts that the
 method throws [ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') when supplied
 with the
 [FindVisualStudio](#T-MFR-Operations-Constants-OperationType-FindVisualStudio 'MFR.Operations.Constants.OperationType.FindVisualStudio') value,
-as this is not one of the values that a text-expression matcher object is
+as this not one of the values that a text-expression matcher object is
 available for.
 
 ##### Parameters
@@ -140,7 +140,7 @@ method throws [ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev1
 with the
 [OpenActiveSolutions](#T-MFR-Operations-Constants-OperationType-OpenActiveSolutions 'MFR.Operations.Constants.OperationType.OpenActiveSolutions')
 value,
-as this is not one of the values that a text-expression matcher object is
+as this not one of the values that a text-expression matcher object is
 available for.
 
 ##### Parameters

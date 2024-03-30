@@ -430,7 +430,7 @@ the empty string, then this method returns the empty string.
 
 
 NOTE: The `value` parameter MAY contain whitespace.
-this is the case, then the text found by the
+this the case, then the text found by the
 `pattern`
 just gets deleted, which is okay in this instance.
 

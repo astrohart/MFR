@@ -58,7 +58,7 @@ Gets a reference to the one and only instance of
 Gets the
 [MessageType](#T-MFR-MessageType 'MFR.MessageType')
 that is
-being used to identify which message this is.
+being used to identify which message this.
 
 <a name='M-MFR-GUI-Launchers-Dialogs-Actions-LaunchErrorReportDialogAction-#cctor'></a>
 ### #cctor() `method`
@@ -137,7 +137,7 @@ Gets a reference to the one and only instance of
 Gets the
 [MessageType](#T-MFR-MessageType 'MFR.MessageType')
 that is
-being used to identify which message this is.
+being used to identify which message this.
 
 <a name='M-MFR-GUI-Launchers-Dialogs-Actions-LaunchProfileNameDialogAction-#cctor'></a>
 ### #cctor() `method`

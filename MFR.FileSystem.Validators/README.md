@@ -302,7 +302,7 @@ This constructor has no parameters.
 Gets a reference to the one and only instance of the object that implements the
 [IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
 interface that validates directory paths, specifically, those that are supposed to
-contain a local Git repository.  We know this is is so if the directory's path, with
+contain a local Git repository.  We know this is so if the directory's path, with
 `.git` appended to it, exists.
 
 <a name='M-MFR-FileSystem-Validators-GitRepositoryFolderPathValidator-#cctor'></a>

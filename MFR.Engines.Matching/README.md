@@ -83,7 +83,7 @@ This constructor has no parameters.
 
 ##### Remarks
 
-NOTE: This constructor is marked as `internal`. This is to
+NOTE: This constructor is marked as `internal`. This to
 limit the scope of invocation to abstract factories only.
 
 
@@ -184,7 +184,7 @@ This constructor has no parameters.
 
 ##### Remarks
 
-NOTE: This constructor is marked as `internal`. This is to
+NOTE: This constructor is marked as `internal`. This to
 limit the scope of invocation to abstract factories only.
 
 
@@ -312,7 +312,7 @@ This constructor has no parameters.
 
 ##### Remarks
 
-NOTE: This constructor is marked as `internal`. This is to
+NOTE: This constructor is marked as `internal`. This to
 limit the scope of invocation to abstract factories only.
 
 
@@ -562,7 +562,7 @@ This constructor has no parameters.
 
 ##### Remarks
 
-NOTE: This constructor is marked as `internal`. This is to
+NOTE: This constructor is marked as `internal`. This to
 limit the scope of invocation to abstract factories only.
 
 
@@ -632,5 +632,5 @@ contents of the file. Sometimes, files contain zero bytes of data.
 
 
 
-If this is the case, then this method does nothing and returns the
+If this the case, then this method does nothing and returns the
 default result of `false`.

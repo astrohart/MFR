@@ -377,7 +377,7 @@ of the request.
 
 
 
-This is a template method, the call to which is wrapped in a robust
+This a template method, the call to which is wrapped in a robust
 and fault-tolerant override of the
 [CommonExecute](#M-MFR-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute')
 method.

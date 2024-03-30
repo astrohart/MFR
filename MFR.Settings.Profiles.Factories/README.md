@@ -91,7 +91,7 @@ Doing so is the job of the caller.
 
 
 Along with assigning the specified `profile` a new name, this
-method also generates a new GUID to use to identify the profile by.  This is
+method also generates a new GUID to use to identify the profile by.  This
 done because only one profile can be saved having the same name.
 
 <a name='M-MFR-Settings-Profiles-Factories-MakeNewProfile-ToProfile-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig,System-String-'></a>

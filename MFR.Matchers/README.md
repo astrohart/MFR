@@ -240,7 +240,7 @@ in the user interface.
 
 
 
-This is the Mass File Renamer analogy of the user placing check marks in both
+This the Mass File Renamer analogy of the user placing check marks in both
 the and the checkbox in, say, the
 , dialog box in most text-editing applications.
 
@@ -781,7 +781,7 @@ provided by the user in the box in the user interface.
 
 
 
-This is the Mass File Renamer analogy of the `Match Whole Word` checkbox
+This the Mass File Renamer analogy of the `Match Whole Word` checkbox
 in, say, the , dialog box in most text-editing
 applications.
 
@@ -1051,7 +1051,7 @@ in the user interface.
 
 
 
-This is the Mass File Renamer analogy of the user clearing check marks in both
+This the Mass File Renamer analogy of the user clearing check marks in both
 the and the checkbox in, say, the
 , dialog box in most text-editing applications.
 

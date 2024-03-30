@@ -112,7 +112,7 @@ Gets a reference to the one and only instance of the object that implements the
 ##### Summary
 
 Gets a [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType') enumeration
-value that describes what type of operation engine this is.
+value that describes what type of operation engine this.
 
 ##### Remarks
 
@@ -320,7 +320,7 @@ Gets a reference to the one and only instance of the object that implements the
 ##### Summary
 
 Gets a [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType') enumeration
-value that describes what type of operation engine this is.
+value that describes what type of operation engine this.
 
 ##### Remarks
 
@@ -752,7 +752,7 @@ from this point forward.
 
 
 
-NOTE:This member may be overriden by a child class. If this is the
+NOTE:This member may be overriden by a child class. If this the
 case, the overrider must call the base class method before doing any
 of its own processing.
 
@@ -848,7 +848,7 @@ class.
 ##### Summary
 
 Gets a [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType') enumeration
-value that describes what type of operation engine this is.
+value that describes what type of operation engine this.
 
 ##### Remarks
 
@@ -1312,7 +1312,7 @@ from this point forward.
 
 
 
-NOTE:This member may be overriden by a child class. If this is the
+NOTE:This member may be overriden by a child class. If this the
 case, the overrider must call the base class method before doing any
 of its own processing.
 

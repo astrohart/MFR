@@ -664,7 +664,7 @@ This method has no parameters.
 Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
-the user to use the GUI. This is because moving data to and from the
+the user to use the GUI. This because moving data to and from the
 config data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
@@ -690,7 +690,7 @@ that contains the event data. |
 Ideally, it should be the main application window that handles this
 event by simply displaying a marquee progress bar on the status bar
 of the application window but otherwise maintaining the ability of
-the user to use the GUI. This is because moving data to and from the
+the user to use the GUI. This because moving data to and from the
 config data source, while a mildly lengthy operation,
 is
 nowhere near as involved as the file operations we would normally undertake.
@@ -918,7 +918,7 @@ from this point forward.
 
 
 
-NOTE:This member may be overriden by a child class. If this is the
+NOTE:This member may be overriden by a child class. If this the
 case, the overrider must call the base class method before doing any
 of its own processing.
 
@@ -1012,7 +1012,7 @@ passed a `null` value. |
 
 ##### Summary
 
-Fluent-builder method for initializing the operation engine object.  This is
+Fluent-builder method for initializing the operation engine object.  This
 the object that actually schedules and runs the file-renaming tasks and
 provides user feedback.
 

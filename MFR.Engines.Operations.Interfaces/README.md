@@ -178,7 +178,7 @@ for example.
 
 ##### Remarks
 
-This is meant to be kind of an "adapter pattern" on the File Renamer
+This meant to be kind of an "adapter pattern" on the File Renamer
 component so that it can be more easily used in a wide variety of modes (GUI,
 console, automatic GUI meaning, MFR GUI is called on the command line so we
 don't have to display the main window, etc.).
@@ -189,7 +189,7 @@ don't have to display the main window, etc.).
 ##### Summary
 
 Gets a [OperationEngineType](#T-MFR-Engines-Constants-OperationEngineType 'MFR.Engines.Constants.OperationEngineType') enumeration
-value that describes what type of operation engine this is.
+value that describes what type of operation engine this.
 
 <a name='M-MFR-Engines-Operations-Interfaces-IOperationEngine-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter) `method`

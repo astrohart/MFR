@@ -63,7 +63,7 @@ The `pathnameFromRegistry` takes precedence.
 
 Neither the `submittedPathname` nor the
 `pathnameFromRegistry` have to represent a file that exists
-on the disk, since, if this is the case, the file will be created by the Save
+on the disk, since, if this the case, the file will be created by the Save
 operation.
 
 <a name='M-MFR-Settings-Profiles-Providers-Actions-Determine-IsProfileListPathValidForSaving-System-String-'></a>

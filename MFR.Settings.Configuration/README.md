@@ -204,7 +204,7 @@ from this point forward.
 
 
 
-NOTE:This member may be overriden by a child class. If this is the
+NOTE:This member may be overriden by a child class. If this the
 case, the overrider must call the base class method before doing any
 of its own processing.
 
@@ -493,7 +493,7 @@ project(s) being renamed.
 
 ##### Remarks
 
-If this is set to `true`, and the containing solution is open,
+If this set to `true`, and the containing solution is open,
 then the solution will be closed prior to the start of the selected
 operation(s) and then re-opened when the selected operation(s) are complete.
 

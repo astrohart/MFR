@@ -100,7 +100,7 @@ then the
 property
 is set to [CurrentUser](#T-Microsoft-Win32-RegistryHive-CurrentUser 'Microsoft.Win32.RegistryHive.CurrentUser'),
 except in the case where `keyPath` is blank; if
-this is the case, then this method does nothing.
+this the case, then this method does nothing.
 
 <a name='T-MFR-Metadata-Registry-RegOperationMetadata`1'></a>
 ## RegOperationMetadata\`1 `type`

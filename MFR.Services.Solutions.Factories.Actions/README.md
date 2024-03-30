@@ -5,6 +5,7 @@
 
 - [Does](#T-MFR-Services-Solutions-Factories-Actions-Does 'MFR.Services.Solutions.Factories.Actions.Does')
   - [VisualStudioSolutionService](#P-MFR-Services-Solutions-Factories-Actions-Does-VisualStudioSolutionService 'MFR.Services.Solutions.Factories.Actions.Does.VisualStudioSolutionService')
+  - [#cctor()](#M-MFR-Services-Solutions-Factories-Actions-Does-#cctor 'MFR.Services.Solutions.Factories.Actions.Does.#cctor')
   - [Folder(folderToSearch)](#M-MFR-Services-Solutions-Factories-Actions-Does-Folder-System-String- 'MFR.Services.Solutions.Factories.Actions.Does.Folder(System.String)')
 - [Resources](#T-MFR-Services-Solutions-Factories-Actions-Properties-Resources 'MFR.Services.Solutions.Factories.Actions.Properties.Resources')
   - [Culture](#P-MFR-Services-Solutions-Factories-Actions-Properties-Resources-Culture 'MFR.Services.Solutions.Factories.Actions.Properties.Resources.Culture')
@@ -35,6 +36,28 @@ This class is part of a fluent usage pattern and should be retained.
 Gets a reference to an instance of an object that implements the
 [IVisualStudioSolutionService](#T-MFR-Services-Solutions-Interfaces-IVisualStudioSolutionService 'MFR.Services.Solutions.Interfaces.IVisualStudioSolutionService')
 interface.
+
+<a name='M-MFR-Services-Solutions-Factories-Actions-Does-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Does](#T-MFR-Services-Solutions-Factories-Actions-Does 'MFR.Services.Solutions.Factories.Actions.Does') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-Services-Solutions-Factories-Actions-Does-Folder-System-String-'></a>
 ### Folder(folderToSearch) `method`

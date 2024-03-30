@@ -198,7 +198,7 @@ compute-once and store without having to use a static context.
 
 
 
-This is due to the use of `dynamic` in the computation.
+This due to the use of `dynamic` in the computation.
 
 <a name='F-MFR-GUI-Windows-MainWindow-_state'></a>
 ### _state `constants`

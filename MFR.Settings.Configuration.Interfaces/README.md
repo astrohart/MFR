@@ -375,7 +375,7 @@ project(s) being renamed.
 
 ##### Remarks
 
-If this is set to `true`, and the containing solution is open,
+If this set to `true`, and the containing solution is open,
 then the solution will be closed prior to the start of the selected
 operation(s) and then re-opened when the selected operation(s) are complete.
 

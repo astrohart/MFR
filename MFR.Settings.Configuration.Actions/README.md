@@ -99,7 +99,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets the [MessageType](#T-MFR-MessageType 'MFR.MessageType') that is being used
-to identify which message this is.
+to identify which message this.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFilePathFromRegistryAction-#cctor'></a>
 ### #cctor() `method`
@@ -137,7 +137,7 @@ of the request.
 
 
 
-This is a template method, the call to which is wrapped in a robust
+This a template method, the call to which is wrapped in a robust
 and fault-tolerant override of the
 [CommonExecute](#M-MFR-ActionBase-CommonExecute 'MFR.ActionBase.CommonExecute')
 method.
@@ -186,7 +186,7 @@ Gets a reference to the one and only instance of
 ##### Summary
 
 Gets the [MessageType](#T-MFR-MessageType 'MFR.MessageType') that is being used
-to identify which message this is.
+to identify which message this.
 
 <a name='M-MFR-Settings-Configuration-Actions-LoadConfigurationFromFileAction-#cctor'></a>
 ### #cctor() `method`
