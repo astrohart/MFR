@@ -14,6 +14,7 @@ namespace MFR.Expressions.Matches.Factories
     ///     cref="T:MFR.Operations.Constants.OperationType.ReplaceTextInFiles" />
     /// operation type.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public class
         ReplaceTextInFileMatchExpressionFactory : MatchExpressionFactoryBase
     {
@@ -24,7 +25,7 @@ namespace MFR.Expressions.Matches.Factories
         /// values that
         /// corresponds to the type of operation being performed.
         /// </summary>
-        [Log(AttributeExclude = true)] public override OperationType OperationType
+        public override OperationType OperationType
             { get; } = OperationType.ReplaceTextInFiles;
 
         /// <summary>

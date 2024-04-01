@@ -1,5 +1,6 @@
 using MFR.Operations.Constants;
 using MFR.Operations.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Operations
 {
@@ -7,6 +8,7 @@ namespace MFR.Operations
     /// Provides functionality that is shared among all operation-type-specific
     /// objects.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public abstract class OperationTypeSpecificObjectBase : IOperationTypeSpecificObject
     {
         /// <summary>

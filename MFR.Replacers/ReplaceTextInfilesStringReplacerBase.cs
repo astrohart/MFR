@@ -9,6 +9,7 @@ namespace MFR.Replacers
     /// Defines the methods, properties, and events that all String Replacer
     /// objects for the Rename Files in Folder operation type have in common.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public abstract class ReplaceTextInfilesStringReplacerBase : IStringReplacer
     {
         /// <summary>

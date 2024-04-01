@@ -22,7 +22,8 @@ namespace MFR.FileSystem.Validators
         /// </summary>
         private static readonly string[] DISALLOWED_EXTENSIONS = {
             ".dll", ".exe", ".pif", ".bsc", ".obj", ".lib", ".bin", ".pdb",
-            ".pspdb", ".resx", ".bsc", ".ilk", ".lnk", ".res", ".aps"
+            ".pspdb", ".resx", ".bsc", ".ilk", ".lnk", ".res", ".aps", ".snk",
+            ".ico"
         };
 
         /// <summary>
