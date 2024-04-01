@@ -64,12 +64,6 @@ namespace MFR.GUI.Initializers
         {
             try
             {
-                if (comboBox != null && !comboBox.IsDisposed)
-                    DebugUtils.WriteLine(
-                        DebugLevel.Info,
-                        $"ComboBoxInitializer.InitializeComboBox: Initializing the items and text of the '{comboBox.Name}' combo box..."
-                    );
-
                 if (comboBox == null) return;
                 if (comboBox.IsDisposed) return;
 
@@ -105,24 +99,6 @@ namespace MFR.GUI.Initializers
                                 .Trim()
                         ))
                     comboBox.Text = currentItem;
-
-                // Dump the property comboBox.Text to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ComboBoxInitializer.InitializeComboBox: comboBox.Text = '{comboBox.Text}'"
-                );
-
-                // Dump the property itemList.Count to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ComboBoxInitializer.InitializeComboBox: itemList.Count = {itemList.Count}"
-                );
-
-                // Dump the property comboBox.Items.Count to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"ComboBoxInitializer.InitializeComboBox: comboBox.Items.Count = {comboBox.Items.Count}"
-                );
             }
             catch (Exception ex)
             {

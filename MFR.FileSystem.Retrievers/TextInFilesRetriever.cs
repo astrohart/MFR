@@ -152,22 +152,18 @@ namespace MFR.FileSystem.Retrievers
                 foreach (var path in Enumerate.Files(
                                                   rootFolderPath, SearchPattern,
                                                   SearchOption,
-                                                  path => ShouldDoPath(
-                                                      path, pathFilter
-                                                  )
+                                                  pathFilter
                                               )
                                               .AsParallel())
                 {
+                    if (!ShouldDoPath(path, pathFilter)) continue;
+
                     var entry = MakeNewFileSystemEntry.ForPath(path);
                     if (entry == null) continue;
 
                     var ticket = Get.FileTicket(entry.Path);
                     if (ticket.IsZero())
                     {
-                        DebugUtils.WriteLine(
-                            DebugLevel.Error,
-                            $"*** ERROR *** Could not open file stream on file '{entry.Path}'."
-                        );
                         continue;
                     }
 

@@ -39,7 +39,6 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="T:MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase" />
         /// and returns a reference to it.
         /// </summary>
-        [Log(AttributeExclude = true)]
         protected FileSystemEntryListRetrieverBase()
         {
             Reset();
