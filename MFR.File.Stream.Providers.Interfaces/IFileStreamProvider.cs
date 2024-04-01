@@ -21,7 +21,7 @@ namespace MFR.File.Stream.Providers.Interfaces
     /// All <see cref="T:System.IO.TextReader" /> instances provided by this class are
     /// thread-safe.
     /// </remarks>
-    public interface IFileStreamProvider : ITicketedObjectProvider<StreamReader>
+    public interface IFileStreamProvider : ITicketedObjectProvider<FileStream>
     {
         /// <summary>
         /// Raised when any of the file streams that are managed by this object are

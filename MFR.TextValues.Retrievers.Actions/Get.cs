@@ -122,11 +122,6 @@ namespace MFR.TextValues.Retrievers.Actions
         /// serves a <c>ticket</c> that can be used to extract the data from a stream that
         /// is open on the corresponding file.
         /// </param>
-        /// <param name="dispose">
-        /// (Optional.) Indicates whether the underlying file stream
-        /// should be disposed when this method has finished executing;
-        /// <see langword="false" /> is the default.
-        /// </param>
         /// <returns>
         /// A <see cref="T:System.String" /> containing the content of the
         /// corresponding file, or <see cref="F:System.String.Empty" /> if the content
@@ -134,12 +129,11 @@ namespace MFR.TextValues.Retrievers.Actions
         /// </returns>
         [return: NotLogged]
         public static async Task<string> FileDataAsync(
-            Guid ticket,
-            bool dispose = false
-        )
+            Guid ticket
+            )
         {
             var result = string.Empty;
-            StreamReader stream = default;
+            StreamReader sr = default;
 
             try
             {
@@ -157,17 +151,10 @@ namespace MFR.TextValues.Retrievers.Actions
                          * the file's content so that the application can perform faster.
                          */
 
-                        FileStreamProvider.RewindStream(ticket); // just in case
+                        sr = FileStreamProvider.Redeem(ticket);
+                        if (sr == null) return result;
 
-                        stream = FileStreamProvider.Redeem(ticket);
-                        if (stream == null) return result;
 
-                        result = await stream.ReadToEndAsync();
-
-                        if (dispose)
-                            FileStreamProvider.DisposeObject(
-                                ticket /* remove from the collection */
-                            );
 
                         return result;
                     }
