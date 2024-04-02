@@ -126,7 +126,9 @@
     <Compile Include="AutoStartCancellableProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomizeCommitMessageDialog.cs" />
+    <Compile Include="CustomizeCommitMessageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CustomizeCommitMessageDialog.Designer.cs">
       <DependentUpon>CustomizeCommitMessageDialog.cs</DependentUpon>
     </Compile>

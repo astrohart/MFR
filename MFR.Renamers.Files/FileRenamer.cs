@@ -42,6 +42,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -4017,6 +4018,7 @@ namespace MFR.Renamers.Files
                 );
         }
 
+        [Log(AttributeExclude = true)]
         private bool RenameFileInFolderForEntry(
             string findWhat,
             string replaceWith,
@@ -4339,6 +4341,7 @@ namespace MFR.Renamers.Files
             return result;
         }
 
+        [Log(AttributeExclude = true)]
         private bool RenameSubFolderForEntry(
             string findWhat,
             string replaceWith,
@@ -4618,6 +4621,7 @@ namespace MFR.Renamers.Files
             return result;
         }
 
+        [Log(AttributeExclude = true)]
         private async Task<bool> ReplaceTextInFileForEntry(
             string findWhat,
             string replaceWith,
@@ -4676,7 +4680,47 @@ namespace MFR.Renamers.Files
                  * entirely.
                  */
                 if (!string.IsNullOrEmpty(newFileData))
-                    Write.FileContent(entry.Path, newFileData);
+                {
+                    var fileTicket = (Guid)entry.UserState;
+
+                    var fileHost = FileHostProvider.Redeem(fileTicket);
+                    if (fileHost == null) return result;
+                    if (fileHost.Stream == null) return result;
+                    if (Stream.Null.Equals(fileHost.Stream)) return result;
+                    if (!(fileHost.Stream is FileStream fileStream))
+                        return result;
+
+                    long modifiedLength =
+                        fileHost.Encoding.GetByteCount(newFileData);
+
+                    if (modifiedLength > fileHost.OriginalLength)
+                    {
+                        fileHost.Stream.SetLength(modifiedLength);
+
+                        // Re-open the file stream after extending the size
+                        FileHostProvider.RewindStream(fileHost);
+                        using (var newMmf = MemoryMappedFile.CreateFromFile(
+                                   fileStream, null, modifiedLength,
+                                   MemoryMappedFileAccess.ReadWrite,
+                                   HandleInheritability.None, false
+                               ))
+                        using (var newAccessor = newMmf.CreateViewAccessor(
+                                   0, modifiedLength,
+                                   MemoryMappedFileAccess.ReadWrite
+                               ))
+                            Write.TextToMemory(
+                                fileHost.Encoding, newAccessor, newFileData
+                            );
+                    }
+                    else
+                        
+                        // Write the modified content back to memory
+                        // It will be automatically flushed to the file system
+                        // when the memory-mapped file is closed.
+                        Write.TextToMemory(
+                            fileHost.Encoding, fileHost.Accessor, newFileData
+                        );
+                }
 
                 result = true;
             }
