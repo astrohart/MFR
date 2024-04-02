@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8857.40699" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8857.40834" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -113,6 +113,9 @@
     <ROW Component="MFR.Expressions.Registry.Validators.Interfaces.dll" ComponentId="{304BD6A3-31C5-4D8B-9B3E-381F599025F5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Expressions.Registry.Validators.Interfaces.dll"/>
     <ROW Component="MFR.Expressions.Registry.Validators.dll" ComponentId="{030F2A43-20DB-4138-B654-D80959AFC5E2}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Expressions.Registry.Validators.dll"/>
     <ROW Component="MFR.Expressions.Registry.dll" ComponentId="{14EAA71D-F139-4CD4-930C-A230716CF6BC}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Expressions.Registry.dll"/>
+    <ROW Component="MFR.File.Hosts.Factories.dll" ComponentId="{51EF416A-C819-4290-9091-8832ADCCA519}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Hosts.Factories.dll"/>
+    <ROW Component="MFR.File.Hosts.Interfaces.dll" ComponentId="{736D92A2-797A-4B59-AC48-CB925711FAC7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Hosts.Interfaces.dll"/>
+    <ROW Component="MFR.File.Hosts.dll" ComponentId="{0D8AF574-78E7-4437-AC27-588CA24855F1}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Hosts.dll"/>
     <ROW Component="MFR.File.Stream.Providers.Events.dll" ComponentId="{2DD6417B-F5B0-4C80-9A40-788B852FC2D5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Events.dll"/>
     <ROW Component="MFR.File.Stream.Providers.Factories.dll" ComponentId="{F1521CC3-5A1B-42F4-84B1-B911998D460E}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Factories.dll"/>
     <ROW Component="MFR.File.Stream.Providers.Interfaces.dll" ComponentId="{4B256BE5-A0EE-4DD2-A981-B36C9E4583A8}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Interfaces.dll"/>
@@ -1228,6 +1231,12 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLO~110.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLO~111.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLO~111.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
+    <ROW File="MFR.File.Hosts.dll" Component_="MFR.File.Hosts.dll" FileName="MFRFI~18.DLL|MFR.File.Hosts.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.dll" SelfReg="false"/>
+    <ROW File="MFR.File.Hosts.dll.config" Component_="config.json" FileName="MFRFI~18.CON|MFR.File.Hosts.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.dll.config" SelfReg="false"/>
+    <ROW File="MFR.File.Hosts.Factories.dll" Component_="MFR.File.Hosts.Factories.dll" FileName="MFRFI~19.DLL|MFR.File.Hosts.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Factories.dll" SelfReg="false"/>
+    <ROW File="MFR.File.Hosts.Factories.dll.config" Component_="config.json" FileName="MFRFI~19.CON|MFR.File.Hosts.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Factories.dll.config" SelfReg="false"/>
+    <ROW File="MFR.File.Hosts.Interfaces.dll" Component_="MFR.File.Hosts.Interfaces.dll" FileName="MFRFI~20.DLL|MFR.File.Hosts.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Interfaces.dll" SelfReg="false"/>
+    <ROW File="MFR.File.Hosts.Interfaces.dll.config" Component_="config.json" FileName="MFRFI~20.CON|MFR.File.Hosts.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Interfaces.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1734,6 +1743,9 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.File.Hosts.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.File.Hosts.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.File.Hosts.Interfaces.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
