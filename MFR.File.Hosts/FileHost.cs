@@ -127,11 +127,13 @@ namespace MFR.File.Hosts
             try
             {
                 if (Stream == null) return;
+                if (Stream.Null.Equals(Stream)) return;
                 if (!Stream.CanSeek) return;
 
                 if (!(Stream is FileStream fileStream)) return;
 
                 OriginalLength = fileStream.Length;
+                if (OriginalLength <= 0L) return;
 
                 MemoryMappedData = MemoryMappedFile.CreateFromFile(
                     fileStream, null, OriginalLength,

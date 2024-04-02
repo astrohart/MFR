@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.Constants;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
@@ -9,6 +10,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
     /// <summary>
     /// Exposes static methods to make determinations on data.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Determine
     {
         /// <summary>

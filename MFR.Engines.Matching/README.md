@@ -632,5 +632,5 @@ contents of the file. Sometimes, files contain zero bytes of data.
 
 
 
-If this the case, then this method does nothing and returns the
+If this is the case, then this method does nothing and returns the
 default result of `false`.

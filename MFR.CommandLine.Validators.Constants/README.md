@@ -43,7 +43,7 @@ occur for instances of [CommandLineInfo](#T-MFR-CommandLine-CommandLineInfo 'MFR
 
 ##### Summary
 
-The `Find What` value supplied is blank.  This is a required value.
+The `Find What` value supplied is blank.  This a required value.
 
 <a name='F-MFR-CommandLine-Validators-Constants-CommandLineInvalidReason-IsNull'></a>
 ### IsNull `constants`

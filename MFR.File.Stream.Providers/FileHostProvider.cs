@@ -116,22 +116,10 @@ namespace MFR.File.Stream.Providers
         } = new object();
 
         /// <summary>
-        /// Raised when this object has successfully processed a request to open a stream
-        /// on a particular file.
-        /// </summary>
-        public event FileHostCreatedEventHandler FileHostCreated;
-
-        /// <summary>
         /// Occurs when an exception was caught during an attempt to open a
         /// <c>FileStream</c> upon a particular file.
         /// </summary>
         public event FileHostCreateFailedEventHandler FileHostCreateFailed;
-
-        /// <summary>
-        /// Raised when any of the file streams that are managed by this object are
-        /// disposed by it.
-        /// </summary>
-        public event FileHostDisposedEventHandler FileHostDisposed;
 
         /// <summary>
         /// Opens file streams for the files specified in the <paramref name="pathnames" />
@@ -331,6 +319,7 @@ namespace MFR.File.Stream.Providers
                     newFileHost = MakeNewFileHost.ForPath(pathname)
                                                  .HavingEncoding(fileEncoding)
                                                  .AndStream(
+                                                     Measure.FileLength(pathname) > 0L ?
                                                      Alphaleonis.Win32
                                                          .Filesystem.File.Open(
                                                              pathname,
@@ -338,7 +327,7 @@ namespace MFR.File.Stream.Providers
                                                              FileAccess
                                                                  .ReadWrite,
                                                              FileShare.None
-                                                         )
+                                                         ) : System.IO.Stream.Null
                                                  );
                     if (newFileHost == null)
                         OnFileHostCreateFailed(
@@ -354,7 +343,7 @@ namespace MFR.File.Stream.Providers
                 result = Store(newFileHost);
 
                 OnFileHostCreated(
-                    new FileHostCreatedEventArgs(pathname, newFileHost, result)
+                    pathname, result
                 );
             }
             catch (Exception ex)
@@ -479,24 +468,17 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.File.Stream.Providers.FileHostProvider.FileHostCreated" />
-        /// event.
+        /// Called when a <c>File Host</c> object instance is freshly created for the file having the specified <paramref name="pathname"/> and corresponding to the specified <paramref name="ticket"/>.
         /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:MFR.File.Stream.Providers.Events.FileHostDisposedEventHandler" />
-        /// that contains the event data.
+        /// <param name="pathname">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified pathname of a file for which a new <c>File Host</c> object instance has just been created.
         /// </param>
-        protected virtual void OnFileHostCreated(FileHostCreatedEventArgs e)
-        {
+        /// <param name="ticket">(Required.) A <see cref="T:System.Guid"/> value that corresponds to the new <c>File Host</c> </param>
+        protected virtual void OnFileHostCreated(string pathname, Guid ticket)
             /*
              * Tie together the pathname with the new ticket.
              */
-            CreateTicketToPathnameMapping(e.Pathname, e.Ticket);
-
-            FileHostCreated?.Invoke(this, e);
-        }
+            => CreateTicketToPathnameMapping(pathname, ticket);
 
         /// <summary>
         /// Raises the
@@ -512,19 +494,6 @@ namespace MFR.File.Stream.Providers
             FileHostCreateFailedEventArgs e
         )
             => FileHostCreateFailed?.Invoke(this, e);
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.File.Stream.Providers.FileHostProvider.FileHostDisposed" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:MFR.File.Stream.Providers.Events.FileHostDisposedEventHandler" />
-        /// that contains the event data.
-        /// </param>
-        protected virtual void OnFileHostDisposed(FileHostDisposedEventArgs e)
-            => FileHostDisposed?.Invoke(this, e);
 
         /// <summary>
         /// Raises the
@@ -573,10 +542,6 @@ namespace MFR.File.Stream.Providers
         )
         {
             base.OnTicketedObjectDisposed(e);
-
-            OnFileHostDisposed(
-                new FileHostDisposedEventArgs(LastPathnameRemoved, e.Ticket)
-            );
 
             LastPathnameRemoved =
                 string.Empty; // clear out the LastPathnameRemoved property since we've used it now

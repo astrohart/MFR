@@ -98,7 +98,7 @@ it loaded.
 
 
 
-If this so, then information about the loaded solution is
+If this is so, then information about the loaded solution is
 returned as an element of a collection of any other such solutions.
 
 ##### Returns

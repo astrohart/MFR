@@ -34,7 +34,7 @@ Regular expression that matches an exact word.
 
 ##### Remarks
 
-This is sensitive to dot-delimited names such as those which may
+This sensitive to dot-delimited names such as those which may
 appear in Visual Studio solution, project, and source files.
 
 

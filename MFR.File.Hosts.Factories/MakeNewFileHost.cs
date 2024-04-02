@@ -11,20 +11,9 @@ namespace MFR.File.Hosts.Factories
     /// <see cref="T:MFR.File.Hosts.Interfaces.IFileHost" /> interface, and returns
     /// references to them.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class MakeNewFileHost
     {
-        /// <summary>
-        /// Initializes static data or performs actions that need to be performed
-        /// once only for the <see cref="T:MFR.File.Hosts.Factories.MakeNewFileHost" />
-        /// class.
-        /// </summary>
-        /// <remarks>
-        /// This constructor is called automatically prior to the first instance
-        /// being created or before any static members are referenced.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        static MakeNewFileHost() { }
-
         /// <summary>
         /// Builder extension method that initializes the
         /// <see

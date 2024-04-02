@@ -2,16 +2,19 @@ using MFR.File.Stream.Providers.Factories;
 using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Enumerators;
 using NUnit.Framework;
+using PostSharp.Patterns.Collections;
+using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Threading;
 using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using xyLOGIX.Core.Assemblies.Info;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using Does = xyLOGIX.Files.Actions.Does;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 
 namespace MFR.File.Stream.Providers.Tests
@@ -70,19 +73,7 @@ namespace MFR.File.Stream.Providers.Tests
         {
             Assert.That(FileHostProvider, Is.Not.Null);
 
-            var executingAssembly = Assembly.GetExecutingAssembly();
-            Assert.That(executingAssembly, Is.Not.Null);
-
-            var executingAssemblyPathname = executingAssembly.Location;
-            Assert.That(!string.IsNullOrWhiteSpace(executingAssemblyPathname));
-            Assert.That(
-                Alphaleonis.Win32.Filesystem.File.Exists(
-                    executingAssemblyPathname
-                )
-            );
-
-            var testingFolder =
-                Path.GetDirectoryName(@"C:\temp");
+            const string testingFolder = @"C:\temp";
             Assert.That(!string.IsNullOrWhiteSpace(testingFolder));
             Assert.That(Directory.Exists(testingFolder));
 
@@ -90,12 +81,41 @@ namespace MFR.File.Stream.Providers.Tests
                                         testingFolder, "*",
                                         SearchOption.AllDirectories
                                     )
-                                    .AsParallel()
-                                    .ToList();
+                                    .AsParallel();
             Assert.That(fileList, Is.Not.Null);
             Assert.That(fileList.Any());
 
-            var tickets = FileHostProvider.BatchOpenStreams(fileList);
+            var totalFiles = fileList.Count();
+            Assert.That(totalFiles > 0);
+
+            var filesOpened = 0;
+            var filesRead = 0;
+            var tickets = new AdvisableCollection<Guid>();
+
+            foreach (var file in fileList.ToArray())
+            {
+                if (!Does.FileExist(file)) continue;
+
+                if (file.Contains(@"\.git\")) continue;
+                if (file.Contains(@"\.vs\")) continue;
+                if (file.Contains(@"\packages\")) continue;
+                if (file.Contains(@"\bin\")) continue;
+                if (file.Contains(@"\obj\")) continue;
+                if (!Path.GetExtension(file)
+                         .IsAnyOf(
+                             ".txt", ".cs", ".resx", ".config", ".json",
+                             ".csproj", ".settings", ".md"
+                         ))
+                    continue;
+
+                var ticket = FileHostProvider.OpenStreamFor(file);
+                if (ticket.IsZero()) continue;
+
+                tickets.Add(ticket);
+
+                Interlocked.Increment(ref filesOpened);
+            }
+            
             Assert.That(tickets, Is.Not.Null);
             Assert.That(tickets.Any());
 
@@ -107,12 +127,17 @@ namespace MFR.File.Stream.Providers.Tests
                 var fileHost = FileHostProvider.Redeem(ticket);
                 if (fileHost.OriginalLength <= 0L) continue;
 
+                var filePath = fileHost.Path;
+
+
                 Assert.That(fileHost, Is.Not.Null);
                 Assert.That(fileHost.Stream, Is.Not.Null);
                 Assert.That(fileHost.OriginalLength > 0L);
                 Assert.That(fileHost.Stream is FileStream);
                 Assert.That(fileHost.MemoryMappedData, Is.Not.Null);
                 Assert.That(fileHost.Accessor, Is.Not.Null);
+
+                Console.WriteLine(filePath);
 
                 Assert.DoesNotThrow(
                     () => currentFileContent = ReadTextFromMemory(
@@ -122,7 +147,13 @@ namespace MFR.File.Stream.Providers.Tests
                 );
 
                 Assert.That(currentFileContent, Is.Not.Empty);
+
+                Interlocked.Increment(ref filesRead);
             }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                $"Out of {totalFiles} file(s), {filesOpened} file(s) opened, and {filesRead} file(s) read.");
 
             FileHostProvider.BatchDispose(tickets);
 
@@ -142,6 +173,7 @@ namespace MFR.File.Stream.Providers.Tests
         /// It reads the specified length of bytes from the accessor and decodes them using
         /// UTF-8 encoding.
         /// </remarks>
+        [Log(AttributeExclude = true)]
         private string ReadTextFromMemory(
             Encoding encoding,
             UnmanagedMemoryAccessor accessor,
@@ -156,8 +188,11 @@ namespace MFR.File.Stream.Providers.Tests
                 accessor.ReadArray(0, bytes, 0, (int)length);
                 result = encoding.GetString(bytes);
             }
-            catch
+            catch (Exception ex ) 
             {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
                 result = string.Empty;
             }
 

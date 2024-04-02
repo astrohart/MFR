@@ -463,10 +463,10 @@ the pattern in `findWhat`.
 
 
 
-This is typically the fully-qualified pathname of a file or folder;
+This typically the fully-qualified pathname of a file or folder;
 however, if we are doing the
 [ReplaceTextInFiles](#T-MFR-Operations-Constants-OperationType-ReplaceTextInFiles 'MFR.Operations.Constants.OperationType.ReplaceTextInFiles')
-operation, then this is the text of the current file before
+operation, then this the text of the current file before
 find-and-replace has been done. |
 | findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the textual criteria for the match. |
 | replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the data that any occurrences of

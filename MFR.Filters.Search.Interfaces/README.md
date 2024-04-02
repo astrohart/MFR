@@ -36,14 +36,14 @@ pattern match, or a path to a folder or specific file).
 
 ##### Summary
 
-Gets a value indicating whether this is an Exclusion or an Inclusion filter.
+Gets a value indicating whether this an Exclusion or an Inclusion filter.
 
 <a name='P-MFR-Filters-Search-Interfaces-ISearchFilterItem-Type'></a>
 ### Type `property`
 
 ##### Summary
 
-Gets the type of filter that this is
+Gets the type of filter that this
 
 <a name='T-MFR-Filters-Search-Interfaces-Properties-Resources'></a>
 ## Resources `type`

@@ -13,7 +13,7 @@
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
-  - [FileStreamProvider](#P-MFR-Renamers-Files-FileRenamer-FileStreamProvider 'MFR.Renamers.Files.FileRenamer.FileStreamProvider')
+  - [FileHostProvider](#P-MFR-Renamers-Files-FileRenamer-FileHostProvider 'MFR.Renamers.Files.FileRenamer.FileHostProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [IsStarted](#P-MFR-Renamers-Files-FileRenamer-IsStarted 'MFR.Renamers.Files.FileRenamer.IsStarted')
@@ -218,13 +218,13 @@ If the list is empty when the
 method is called, do
 nothing or throw an exception.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-FileStreamProvider'></a>
-### FileStreamProvider `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-FileHostProvider'></a>
+### FileHostProvider `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
 interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-Instance'></a>

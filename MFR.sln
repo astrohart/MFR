@@ -5731,7 +5731,9 @@ Global
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.ActiveCfg = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.ActiveCfg = DefaultBuild
+		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.ActiveCfg = DefaultBuild
+		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x64.ActiveCfg = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x64.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x86.ActiveCfg = DefaultBuild

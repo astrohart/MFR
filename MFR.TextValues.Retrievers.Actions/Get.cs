@@ -17,6 +17,7 @@ namespace MFR.TextValues.Retrievers.Actions
     /// <summary>
     /// Exposes static methods, e.g., to retrieve data from text files.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Get
     {
         /// <summary>

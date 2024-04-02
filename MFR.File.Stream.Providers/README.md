@@ -3,39 +3,39 @@
 
 ## Contents
 
-- [FileStreamProvider](#T-MFR-File-Stream-Providers-FileStreamProvider 'MFR.File.Stream.Providers.FileStreamProvider')
-  - [#ctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#ctor 'MFR.File.Stream.Providers.FileStreamProvider.#ctor')
-  - [_internalCollection](#F-MFR-File-Stream-Providers-FileStreamProvider-_internalCollection 'MFR.File.Stream.Providers.FileStreamProvider._internalCollection')
-  - [_mapOfPathnamesToTickets](#F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileStreamProvider._mapOfPathnamesToTickets')
-  - [_mapOfTicketsToPathnames](#F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileStreamProvider._mapOfTicketsToPathnames')
-  - [Instance](#P-MFR-File-Stream-Providers-FileStreamProvider-Instance 'MFR.File.Stream.Providers.FileStreamProvider.Instance')
-  - [InternalCollection](#P-MFR-File-Stream-Providers-FileStreamProvider-InternalCollection 'MFR.File.Stream.Providers.FileStreamProvider.InternalCollection')
-  - [LastPathnameRemoved](#P-MFR-File-Stream-Providers-FileStreamProvider-LastPathnameRemoved 'MFR.File.Stream.Providers.FileStreamProvider.LastPathnameRemoved')
-  - [MapOfPathnamesToTickets](#P-MFR-File-Stream-Providers-FileStreamProvider-MapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileStreamProvider.MapOfPathnamesToTickets')
-  - [MapOfTicketsToPathnames](#P-MFR-File-Stream-Providers-FileStreamProvider-MapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileStreamProvider.MapOfTicketsToPathnames')
-  - [SyncRoot](#P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot 'MFR.File.Stream.Providers.FileStreamProvider.SyncRoot')
-  - [#cctor()](#M-MFR-File-Stream-Providers-FileStreamProvider-#cctor 'MFR.File.Stream.Providers.FileStreamProvider.#cctor')
-  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}- 'MFR.File.Stream.Providers.FileStreamProvider.BatchOpenStreams(System.Collections.Generic.IList{System.String})')
-  - [CreateTicketToPathnameMapping(pathname,ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-CreateTicketToPathnameMapping-System-String,System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.CreateTicketToPathnameMapping(System.String,System.Guid)')
-  - [FileStreamAlreadyOpenedFor(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-FileStreamAlreadyOpenedFor-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamAlreadyOpenedFor(System.String)')
-  - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.GetPathnameForTicket(System.Guid)')
-  - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.GetTicketForPathname(System.String)')
-  - [OnDisposingTicketedObject(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnDisposingTicketedObject-xyLOGIX-TicketedProvider-Events-DisposingTicketedObjectEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnDisposingTicketedObject(xyLOGIX.TicketedProvider.Events.DisposingTicketedObjectEventArgs)')
-  - [OnFileStreamDisposed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamDisposed(MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
-  - [OnFileStreamOpenFailed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpenFailed-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpenFailed(MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs)')
-  - [OnFileStreamOpened(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpened(MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
-  - [OnFileStreamOpening(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpening-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnFileStreamOpening(MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs)')
-  - [OnTicketedObjectDisposalRequested(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnTicketedObjectDisposalRequested-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{System-IO-StreamReader}- 'MFR.File.Stream.Providers.FileStreamProvider.OnTicketedObjectDisposalRequested(xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{System.IO.StreamReader})')
-  - [OnTicketedObjectDisposed(e)](#M-MFR-File-Stream-Providers-FileStreamProvider-OnTicketedObjectDisposed-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposedEventArgs- 'MFR.File.Stream.Providers.FileStreamProvider.OnTicketedObjectDisposed(xyLOGIX.TicketedProvider.Events.TicketedObjectDisposedEventArgs)')
-  - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.FileStreamProvider.OpenStreamFor(System.String)')
-  - [RemovePathnameMappingFor(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RemovePathnameMappingFor-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RemovePathnameMappingFor(System.Guid)')
-  - [RewindStream(ticket)](#M-MFR-File-Stream-Providers-FileStreamProvider-RewindStream-System-Guid- 'MFR.File.Stream.Providers.FileStreamProvider.RewindStream(System.Guid)')
+- [FileHostProvider](#T-MFR-File-Stream-Providers-FileHostProvider 'MFR.File.Stream.Providers.FileHostProvider')
+  - [#ctor()](#M-MFR-File-Stream-Providers-FileHostProvider-#ctor 'MFR.File.Stream.Providers.FileHostProvider.#ctor')
+  - [_internalCollection](#F-MFR-File-Stream-Providers-FileHostProvider-_internalCollection 'MFR.File.Stream.Providers.FileHostProvider._internalCollection')
+  - [_mapOfPathnamesToTickets](#F-MFR-File-Stream-Providers-FileHostProvider-_mapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileHostProvider._mapOfPathnamesToTickets')
+  - [_mapOfTicketsToPathnames](#F-MFR-File-Stream-Providers-FileHostProvider-_mapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileHostProvider._mapOfTicketsToPathnames')
+  - [Instance](#P-MFR-File-Stream-Providers-FileHostProvider-Instance 'MFR.File.Stream.Providers.FileHostProvider.Instance')
+  - [InternalCollection](#P-MFR-File-Stream-Providers-FileHostProvider-InternalCollection 'MFR.File.Stream.Providers.FileHostProvider.InternalCollection')
+  - [LastPathnameRemoved](#P-MFR-File-Stream-Providers-FileHostProvider-LastPathnameRemoved 'MFR.File.Stream.Providers.FileHostProvider.LastPathnameRemoved')
+  - [MapOfPathnamesToTickets](#P-MFR-File-Stream-Providers-FileHostProvider-MapOfPathnamesToTickets 'MFR.File.Stream.Providers.FileHostProvider.MapOfPathnamesToTickets')
+  - [MapOfTicketsToPathnames](#P-MFR-File-Stream-Providers-FileHostProvider-MapOfTicketsToPathnames 'MFR.File.Stream.Providers.FileHostProvider.MapOfTicketsToPathnames')
+  - [SyncRoot](#P-MFR-File-Stream-Providers-FileHostProvider-SyncRoot 'MFR.File.Stream.Providers.FileHostProvider.SyncRoot')
+  - [#cctor()](#M-MFR-File-Stream-Providers-FileHostProvider-#cctor 'MFR.File.Stream.Providers.FileHostProvider.#cctor')
+  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-FileHostProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}- 'MFR.File.Stream.Providers.FileHostProvider.BatchOpenStreams(System.Collections.Generic.IList{System.String})')
+  - [CreateTicketToPathnameMapping(pathname,ticket)](#M-MFR-File-Stream-Providers-FileHostProvider-CreateTicketToPathnameMapping-System-String,System-Guid- 'MFR.File.Stream.Providers.FileHostProvider.CreateTicketToPathnameMapping(System.String,System.Guid)')
+  - [FileStreamAlreadyOpenedFor(pathname)](#M-MFR-File-Stream-Providers-FileHostProvider-FileStreamAlreadyOpenedFor-System-String- 'MFR.File.Stream.Providers.FileHostProvider.FileStreamAlreadyOpenedFor(System.String)')
+  - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-FileHostProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.FileHostProvider.GetPathnameForTicket(System.Guid)')
+  - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-FileHostProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.FileHostProvider.GetTicketForPathname(System.String)')
+  - [OnDisposingTicketedObject(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnDisposingTicketedObject-xyLOGIX-TicketedProvider-Events-DisposingTicketedObjectEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnDisposingTicketedObject(xyLOGIX.TicketedProvider.Events.DisposingTicketedObjectEventArgs)')
+  - [OnFileHostCreateFailed(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreateFailed-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostCreateFailed(MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs)')
+  - [OnFileHostCreated(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreated-MFR-File-Stream-Providers-Events-FileHostCreatedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostCreated(MFR.File.Stream.Providers.Events.FileHostCreatedEventArgs)')
+  - [OnFileHostDisposed(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostDisposed-MFR-File-Stream-Providers-Events-FileHostDisposedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostDisposed(MFR.File.Stream.Providers.Events.FileHostDisposedEventArgs)')
+  - [OnTicketedObjectDisposalRequested(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposalRequested-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{MFR-File-Hosts-Interfaces-IFileHost}- 'MFR.File.Stream.Providers.FileHostProvider.OnTicketedObjectDisposalRequested(xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{MFR.File.Hosts.Interfaces.IFileHost})')
+  - [OnTicketedObjectDisposed(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposed-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnTicketedObjectDisposed(xyLOGIX.TicketedProvider.Events.TicketedObjectDisposedEventArgs)')
+  - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-FileHostProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.FileHostProvider.OpenStreamFor(System.String)')
+  - [RemovePathnameMappingFor(ticket)](#M-MFR-File-Stream-Providers-FileHostProvider-RemovePathnameMappingFor-System-Guid- 'MFR.File.Stream.Providers.FileHostProvider.RemovePathnameMappingFor(System.Guid)')
+  - [RewindStream(ticket)](#M-MFR-File-Stream-Providers-FileHostProvider-RewindStream-System-Guid- 'MFR.File.Stream.Providers.FileHostProvider.RewindStream(System.Guid)')
+  - [RewindStream(fileHost)](#M-MFR-File-Stream-Providers-FileHostProvider-RewindStream-MFR-File-Hosts-Interfaces-IFileHost- 'MFR.File.Stream.Providers.FileHostProvider.RewindStream(MFR.File.Hosts.Interfaces.IFileHost)')
 - [Resources](#T-MFR-File-Stream-Providers-Properties-Resources 'MFR.File.Stream.Providers.Properties.Resources')
   - [Culture](#P-MFR-File-Stream-Providers-Properties-Resources-Culture 'MFR.File.Stream.Providers.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-File-Stream-Providers-Properties-Resources-ResourceManager 'MFR.File.Stream.Providers.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-File-Stream-Providers-FileStreamProvider'></a>
-## FileStreamProvider `type`
+<a name='T-MFR-File-Stream-Providers-FileHostProvider'></a>
+## FileHostProvider `type`
 
 ##### Namespace
 
@@ -50,7 +50,7 @@ Manages a collection of file streams open on a large group of text files.
 Allows disparate parts of the application to access these file streams through
 a ticket system.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-#ctor'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -61,14 +61,14 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='F-MFR-File-Stream-Providers-FileStreamProvider-_internalCollection'></a>
+<a name='F-MFR-File-Stream-Providers-FileHostProvider-_internalCollection'></a>
 ### _internalCollection `constants`
 
 ##### Summary
 
 Dictionary that implements the internal collection.
 
-<a name='F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfPathnamesToTickets'></a>
+<a name='F-MFR-File-Stream-Providers-FileHostProvider-_mapOfPathnamesToTickets'></a>
 ### _mapOfPathnamesToTickets `constants`
 
 ##### Summary
@@ -76,7 +76,7 @@ Dictionary that implements the internal collection.
 Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
 created for it.
 
-<a name='F-MFR-File-Stream-Providers-FileStreamProvider-_mapOfTicketsToPathnames'></a>
+<a name='F-MFR-File-Stream-Providers-FileHostProvider-_mapOfTicketsToPathnames'></a>
 ### _mapOfTicketsToPathnames `constants`
 
 ##### Summary
@@ -84,16 +84,16 @@ created for it.
 Sets up a 1-to-1 correspondence between a specific file stream ticket and the
 fully-qualified pathname of the associated file on the disk.
 
-<a name='P-MFR-File-Stream-Providers-FileStreamProvider-Instance'></a>
+<a name='P-MFR-File-Stream-Providers-FileHostProvider-Instance'></a>
 ### Instance `property`
 
 ##### Summary
 
 Gets a reference to the one and only instance of the object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
 interface.
 
-<a name='P-MFR-File-Stream-Providers-FileStreamProvider-InternalCollection'></a>
+<a name='P-MFR-File-Stream-Providers-FileHostProvider-InternalCollection'></a>
 ### InternalCollection `property`
 
 ##### Summary
@@ -106,7 +106,7 @@ Child classes must statically initialize this property with an
 instance of
 [ObservableDictionary\`2](#T-xyLOGIX-Collections-ObservableDictionary`2 'xyLOGIX.Collections.ObservableDictionary`2').
 
-<a name='P-MFR-File-Stream-Providers-FileStreamProvider-LastPathnameRemoved'></a>
+<a name='P-MFR-File-Stream-Providers-FileHostProvider-LastPathnameRemoved'></a>
 ### LastPathnameRemoved `property`
 
 ##### Summary
@@ -118,7 +118,7 @@ removed pathname of a file stream mapped to a given ticket.
 
 This property is for internal use only.
 
-<a name='P-MFR-File-Stream-Providers-FileStreamProvider-MapOfPathnamesToTickets'></a>
+<a name='P-MFR-File-Stream-Providers-FileHostProvider-MapOfPathnamesToTickets'></a>
 ### MapOfPathnamesToTickets `property`
 
 ##### Summary
@@ -126,7 +126,7 @@ This property is for internal use only.
 Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
 created for it.
 
-<a name='P-MFR-File-Stream-Providers-FileStreamProvider-MapOfTicketsToPathnames'></a>
+<a name='P-MFR-File-Stream-Providers-FileHostProvider-MapOfTicketsToPathnames'></a>
 ### MapOfTicketsToPathnames `property`
 
 ##### Summary
@@ -134,7 +134,7 @@ created for it.
 Sets up a 1-to-1 correspondence between a specific file stream ticket and the
 fully-qualified pathname of the associated file on the disk.
 
-<a name='P-MFR-File-Stream-Providers-FileStreamProvider-SyncRoot'></a>
+<a name='P-MFR-File-Stream-Providers-FileHostProvider-SyncRoot'></a>
 ### SyncRoot `property`
 
 ##### Summary
@@ -142,7 +142,7 @@ fully-qualified pathname of the associated file on the disk.
 Gets a reference to an instance of an object that is to be used for thread
 synchronization purposes.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-#cctor'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -153,7 +153,7 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}-'></a>
 ### BatchOpenStreams(pathnames) `method`
 
 ##### Summary
@@ -183,7 +183,7 @@ If the `pathnames` collection is
 `null` or the empty collection, then this method returns the
 empty collection.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-CreateTicketToPathnameMapping-System-String,System-Guid-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-CreateTicketToPathnameMapping-System-String,System-Guid-'></a>
 ### CreateTicketToPathnameMapping(pathname,ticket) `method`
 
 ##### Summary
@@ -202,7 +202,7 @@ stream has been opened and which has the specified `ticket`. |
 ticket for the open file stream on the file having the specified
 `pathname`. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-FileStreamAlreadyOpenedFor-System-String-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-FileStreamAlreadyOpenedFor-System-String-'></a>
 ### FileStreamAlreadyOpenedFor(pathname) `method`
 
 ##### Summary
@@ -224,7 +224,7 @@ otherwise.
 pathname of a file that should be checked for having an active file stream
 opened on it. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-GetPathnameForTicket-System-Guid-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-GetPathnameForTicket-System-Guid-'></a>
 ### GetPathnameForTicket(ticket) `method`
 
 ##### Summary
@@ -253,7 +253,7 @@ stream that goes with the `ticket`, or if the
 `ticket` provided is not mapped to any open file stream, then
 this method returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-GetTicketForPathname-System-String-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-GetTicketForPathname-System-String-'></a>
 ### GetTicketForPathname(pathname) `method`
 
 ##### Summary
@@ -284,7 +284,7 @@ exist, then the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14I
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a file on which you think a stream might be open. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnDisposingTicketedObject-xyLOGIX-TicketedProvider-Events-DisposingTicketedObjectEventArgs-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnDisposingTicketedObject-xyLOGIX-TicketedProvider-Events-DisposingTicketedObjectEventArgs-'></a>
 ### OnDisposingTicketedObject(e) `method`
 
 ##### Summary
@@ -308,75 +308,58 @@ To cancel the operation, handlers should set the value of the
 [Cancel](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.CancelEventArgs.Cancel 'System.ComponentModel.CancelEventArgs.Cancel') property to
 `true`. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamDisposed-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-'></a>
-### OnFileStreamDisposed(e) `method`
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreateFailed-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs-'></a>
+### OnFileHostCreateFailed(e) `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-File-Stream-Providers-FileStreamProvider-FileStreamDisposed 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamDisposed')
+[](#E-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs 'MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs') | A
-[FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
+| e | [MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs 'MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs') | A
+[FileHostCreateFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs 'MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs')
 that contains the event data. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpenFailed-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs-'></a>
-### OnFileStreamOpenFailed(e) `method`
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreated-MFR-File-Stream-Providers-Events-FileHostCreatedEventArgs-'></a>
+### OnFileHostCreated(e) `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs')
+[](#E-MFR-File-Stream-Providers-FileHostProvider-FileHostCreated 'MFR.File.Stream.Providers.FileHostProvider.FileHostCreated')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs') | A
-[FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs')
+| e | [MFR.File.Stream.Providers.Events.FileHostCreatedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostCreatedEventArgs 'MFR.File.Stream.Providers.Events.FileHostCreatedEventArgs') | A
+[FileHostDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileHostDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileHostDisposedEventHandler')
 that contains the event data. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpened-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs-'></a>
-### OnFileStreamOpened(e) `method`
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostDisposed-MFR-File-Stream-Providers-Events-FileHostDisposedEventArgs-'></a>
+### OnFileHostDisposed(e) `method`
 
 ##### Summary
 
 Raises the
-[](#E-MFR-File-Stream-Providers-FileStreamProvider-FileStreamOpened 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamOpened')
+[](#E-MFR-File-Stream-Providers-FileHostProvider-FileHostDisposed 'MFR.File.Stream.Providers.FileHostProvider.FileHostDisposed')
 event.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs') | A
-[FileStreamDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventHandler')
+| e | [MFR.File.Stream.Providers.Events.FileHostDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileHostDisposedEventArgs') | A
+[FileHostDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileHostDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileHostDisposedEventHandler')
 that contains the event data. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnFileStreamOpening-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs-'></a>
-### OnFileStreamOpening(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-File-Stream-Providers-FileStreamProvider-FileStreamOpening 'MFR.File.Stream.Providers.FileStreamProvider.FileStreamOpening')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs') | (Required.) A
-[FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs')
-that contains the event data. |
-
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnTicketedObjectDisposalRequested-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{System-IO-StreamReader}-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposalRequested-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{MFR-File-Hosts-Interfaces-IFileHost}-'></a>
 ### OnTicketedObjectDisposalRequested(e) `method`
 
 ##### Summary
@@ -389,11 +372,11 @@ event.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{System.IO.StreamReader}](#T-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{System-IO-StreamReader} 'xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{System.IO.StreamReader}') | A
+| e | [xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{MFR.File.Hosts.Interfaces.IFileHost}](#T-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{MFR-File-Hosts-Interfaces-IFileHost} 'xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{MFR.File.Hosts.Interfaces.IFileHost}') | A
 [TicketedObjectDisposalRequestedEventArgs\`1](#T-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs`1 'xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs`1')
 that contains the event data. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OnTicketedObjectDisposed-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposedEventArgs-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposed-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposedEventArgs-'></a>
 ### OnTicketedObjectDisposed(e) `method`
 
 ##### Summary
@@ -410,12 +393,12 @@ event.
 [TicketedObjectDisposedEventArgs](#T-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposedEventArgs 'xyLOGIX.TicketedProvider.Events.TicketedObjectDisposedEventArgs')
 that contains the event data. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-OpenStreamFor-System-String-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OpenStreamFor-System-String-'></a>
 ### OpenStreamFor(pathname) `method`
 
 ##### Summary
 
-Opens a file stream, represented by a [StreamReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.StreamReader 'System.IO.StreamReader')
+Opens a file stream, represented by a [FileHost](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileHost 'System.IO.FileHost')
 instance, on the text file having the specified `pathname`.
 
 ##### Returns
@@ -443,7 +426,7 @@ If the file having the specified `pathname` already
 has a stream opened upon it, then the ticket that corresponds to that stream is
 returned.
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-RemovePathnameMappingFor-System-Guid-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-RemovePathnameMappingFor-System-Guid-'></a>
 ### RemovePathnameMappingFor(ticket) `method`
 
 ##### Summary
@@ -465,7 +448,7 @@ specified `ticket` was initially opened.
 | ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that can
 ordinarily be redeemed to acquire the stream for a corresponding file. |
 
-<a name='M-MFR-File-Stream-Providers-FileStreamProvider-RewindStream-System-Guid-'></a>
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-RewindStream-System-Guid-'></a>
 ### RewindStream(ticket) `method`
 
 ##### Summary
@@ -493,6 +476,41 @@ If an I/O exception or other error occurs, if the stream that corresponds to
 the specified `ticket` cannot be obtained from the internal
 collection, or if the stream is already positioned at the beginning of the
 data, then the method does nothing.
+
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-RewindStream-MFR-File-Hosts-Interfaces-IFileHost-'></a>
+### RewindStream(fileHost) `method`
+
+##### Summary
+
+Rewinds the file stream associated with the specified
+`fileHost`, if any corresponding `Stream` is even open
+in the first place.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fileHost | [MFR.File.Hosts.Interfaces.IFileHost](#T-MFR-File-Hosts-Interfaces-IFileHost 'MFR.File.Hosts.Interfaces.IFileHost') | (Required.) Reference to an instance of an object that implements the
+[IFileHost](#T-MFR-File-Hosts-Interfaces-IFileHost 'MFR.File.Hosts.Interfaces.IFileHost') interface, representing
+the file host whose `Stream` is to be rewound. |
+
+##### Remarks
+
+If a `null` reference is provided as the argument of the
+`fileHost` parameter, then this method does nothing.
+
+
+
+If successful, this method retrieves the file stream open on a file that
+corresponds to the specified `ticket`, and then moves its
+file pointer to the beginning of the stream.
+
+
+
+If an I/O exception or other error occurs, if the `Stream` that
+corresponds to the specified `fileHost` cannot be obtained
+from the internal collection, or if the `Stream` is already positioned at
+the beginning of the data, then the method does nothing.
 
 <a name='T-MFR-File-Stream-Providers-Properties-Resources'></a>
 ## Resources `type`

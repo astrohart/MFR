@@ -3,19 +3,20 @@
 
 ## Contents
 
-- [IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
-  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.BatchOpenStreams(System.Collections.Generic.IList{System.String})')
-  - [DisposeObject(ticket,remove)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeObject-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.DisposeObject(System.Guid,System.Boolean)')
-  - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.GetPathnameForTicket(System.Guid)')
-  - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.GetTicketForPathname(System.String)')
-  - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.OpenStreamFor(System.String)')
-  - [RewindStream(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-RewindStream-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.RewindStream(System.Guid)')
+- [IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
+  - [BatchOpenStreams(pathnames)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.BatchOpenStreams(System.Collections.Generic.IList{System.String})')
+  - [DisposeObject(ticket,remove)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-DisposeObject-System-Guid,System-Boolean- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.DisposeObject(System.Guid,System.Boolean)')
+  - [GetPathnameForTicket(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-GetPathnameForTicket-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.GetPathnameForTicket(System.Guid)')
+  - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.GetTicketForPathname(System.String)')
+  - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.OpenStreamFor(System.String)')
+  - [RewindStream(ticket)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-RewindStream-System-Guid- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.RewindStream(System.Guid)')
+  - [RewindStream(fileHost)](#M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-RewindStream-MFR-File-Hosts-Interfaces-IFileHost- 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider.RewindStream(MFR.File.Hosts.Interfaces.IFileHost)')
 - [Resources](#T-MFR-File-Stream-Providers-Interfaces-Properties-Resources 'MFR.File.Stream.Providers.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-File-Stream-Providers-Interfaces-Properties-Resources-Culture 'MFR.File.Stream.Providers.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-File-Stream-Providers-Interfaces-Properties-Resources-ResourceManager 'MFR.File.Stream.Providers.Interfaces.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider'></a>
-## IFileStreamProvider `type`
+<a name='T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider'></a>
+## IFileHostProvider `type`
 
 ##### Namespace
 
@@ -40,7 +41,7 @@ when the application shuts down).
 All [TextReader](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.TextReader 'System.IO.TextReader') instances provided by this class are
 thread-safe.
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-BatchOpenStreams-System-Collections-Generic-IList{System-String}-'></a>
 ### BatchOpenStreams(pathnames) `method`
 
 ##### Summary
@@ -70,7 +71,7 @@ If the `pathnames` collection is
 `null` or the empty collection, then this method returns the
 empty collection.
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-DisposeObject-System-Guid,System-Boolean-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-DisposeObject-System-Guid,System-Boolean-'></a>
 ### DisposeObject(ticket,remove) `method`
 
 ##### Summary
@@ -93,7 +94,7 @@ If the Zero GUID is passed as the argument of the `ticket`
 parameter, or if the specified `ticket` is not present in the
 internal list.
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetPathnameForTicket-System-Guid-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-GetPathnameForTicket-System-Guid-'></a>
 ### GetPathnameForTicket(ticket) `method`
 
 ##### Summary
@@ -122,7 +123,7 @@ stream that goes with the `ticket`, or if the
 `ticket` provided is not mapped to any open file stream, then
 this method returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-GetTicketForPathname-System-String-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-GetTicketForPathname-System-String-'></a>
 ### GetTicketForPathname(pathname) `method`
 
 ##### Summary
@@ -153,12 +154,12 @@ exist, then the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14I
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a file on which you think a stream might be open. |
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-OpenStreamFor-System-String-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-OpenStreamFor-System-String-'></a>
 ### OpenStreamFor(pathname) `method`
 
 ##### Summary
 
-Opens a object, represented by a object
+Opens a file stream, represented by a [FileHost](#T-MFR-File-Hosts-FileHost 'MFR.File.Hosts.FileHost')
 instance, on the text file having the specified `pathname`.
 
 ##### Returns
@@ -180,7 +181,7 @@ referred to does not exist..
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a file to have a stream opened for it. |
 
-<a name='M-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-RewindStream-System-Guid-'></a>
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-RewindStream-System-Guid-'></a>
 ### RewindStream(ticket) `method`
 
 ##### Summary
@@ -208,6 +209,41 @@ If an I/O exception or other error occurs, if the stream that corresponds to
 the specified `ticket` cannot be obtained from the internal
 collection, or if the stream is already positioned at the beginning of the
 data, then the method does nothing.
+
+<a name='M-MFR-File-Stream-Providers-Interfaces-IFileHostProvider-RewindStream-MFR-File-Hosts-Interfaces-IFileHost-'></a>
+### RewindStream(fileHost) `method`
+
+##### Summary
+
+Rewinds the file stream associated with the specified
+`fileHost`, if any corresponding `Stream` is even open
+in the first place.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fileHost | [MFR.File.Hosts.Interfaces.IFileHost](#T-MFR-File-Hosts-Interfaces-IFileHost 'MFR.File.Hosts.Interfaces.IFileHost') | (Required.) Reference to an instance of an object that implements the
+[IFileHost](#T-MFR-File-Hosts-Interfaces-IFileHost 'MFR.File.Hosts.Interfaces.IFileHost') interface, representing
+the file host whose `Stream` is to be rewound. |
+
+##### Remarks
+
+If a `null` reference is provided as the argument of the
+`fileHost` parameter, then this method does nothing.
+
+
+
+If successful, this method retrieves the file stream open on a file that
+corresponds to the specified `ticket`, and then moves its
+file pointer to the beginning of the stream.
+
+
+
+If an I/O exception or other error occurs, if the `Stream` that
+corresponds to the specified `fileHost` cannot be obtained
+from the internal collection, or if the `Stream` is already positioned at
+the beginning of the data, then the method does nothing.
 
 <a name='T-MFR-File-Stream-Providers-Interfaces-Properties-Resources'></a>
 ## Resources `type`

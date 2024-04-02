@@ -36,7 +36,7 @@ message type as being immutable.
 ##### Summary
 
 Gets the [MessageType](#T-MFR-MessageType 'MFR.MessageType') that is
-being used to identify which message this is.
+being used to identify which message this.
 
 <a name='T-MFR-Messages-Interfaces-IMacroMessage'></a>
 ## IMacroMessage `type`

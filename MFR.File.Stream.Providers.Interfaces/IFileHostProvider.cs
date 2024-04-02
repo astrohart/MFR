@@ -24,22 +24,10 @@ namespace MFR.File.Stream.Providers.Interfaces
     public interface IFileHostProvider : ITicketedObjectProvider<IFileHost>
     {
         /// <summary>
-        /// Raised when this object has successfully processed a request to open a stream
-        /// on a particular file.
-        /// </summary>
-        event FileHostCreatedEventHandler FileHostCreated;
-
-        /// <summary>
         /// Occurs when an exception was caught during an attempt to open a
         /// <c>FileStream</c> upon a particular file.
         /// </summary>
         event FileHostCreateFailedEventHandler FileHostCreateFailed;
-
-        /// <summary>
-        /// Raised when any of the file streams that are managed by this object are
-        /// disposed by it.
-        /// </summary>
-        event FileHostDisposedEventHandler FileHostDisposed;
 
         /// <summary>
         /// Opens file streams for the files specified in the <paramref name="pathnames" />

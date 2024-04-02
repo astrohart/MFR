@@ -125,10 +125,6 @@
     <None Include="key.snk" />
     <Compile Include="FileHostCreateFailedEventArgs.cs" />
     <Compile Include="FileHostCreateFailedEventHandler.cs" />
-    <Compile Include="FileHostDisposedEventArgs.cs" />
-    <Compile Include="FileHostDisposedEventHandler.cs" />
-    <Compile Include="FileHostCreatedEventArgs.cs" />
-    <Compile Include="FileHostCreatedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

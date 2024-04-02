@@ -3,29 +3,26 @@
 
 ## Contents
 
-- [FileStreamProviderTests](#T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests')
-  - [#ctor()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-#ctor 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.#ctor')
-  - [FileStreamProvider](#P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-FileStreamProvider 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.FileStreamProvider')
-  - [Cleanup()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Cleanup 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Cleanup')
-  - [Initialize()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Initialize 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Initialize')
-  - [OnFileStreamDisposed(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamDisposed-System-Object,MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamDisposed(System.Object,MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs)')
-  - [OnFileStreamOpenFailed(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpenFailed-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpenFailed(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs)')
-  - [OnFileStreamOpened(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpened-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpened(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs)')
-  - [OnFileStreamOpening(sender,e)](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpening-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs- 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.OnFileStreamOpening(System.Object,MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs)')
-  - [Test_Open_FilesInFolder()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Test_Open_FilesInFolder 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Test_Open_FilesInFolder')
-- [Get](#T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get')
-  - [LOG_FILE_PATH_TERMINATOR](#F-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-LOG_FILE_PATH_TERMINATOR 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.LOG_FILE_PATH_TERMINATOR')
-  - [AssemblyCompany](#P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-AssemblyCompany 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.AssemblyCompany')
-  - [AssemblyProduct](#P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-AssemblyProduct 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.AssemblyProduct')
-  - [AssemblyTitle](#P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-AssemblyTitle 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.AssemblyTitle')
-  - [ApplicationProductName()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-ApplicationProductName 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.ApplicationProductName')
-  - [LogFilePath()](#M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-LogFilePath 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests.Get.LogFilePath')
+- [FileHostProviderTests](#T-MFR-File-Stream-Providers-Tests-FileHostProviderTests 'MFR.File.Stream.Providers.Tests.FileHostProviderTests')
+  - [#ctor()](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-#ctor 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.#ctor')
+  - [FileHostProvider](#P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-FileHostProvider 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.FileHostProvider')
+  - [Cleanup()](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Cleanup 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Cleanup')
+  - [Initialize()](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Initialize 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Initialize')
+  - [ReadTextFromMemory(accessor,length)](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-ReadTextFromMemory-System-Text-Encoding,System-IO-UnmanagedMemoryAccessor,System-Int64- 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.ReadTextFromMemory(System.Text.Encoding,System.IO.UnmanagedMemoryAccessor,System.Int64)')
+  - [Test_Open_FilesInFolder()](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Test_Open_FilesInFolder 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Test_Open_FilesInFolder')
+- [Get](#T-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get')
+  - [LOG_FILE_PATH_TERMINATOR](#F-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-LOG_FILE_PATH_TERMINATOR 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get.LOG_FILE_PATH_TERMINATOR')
+  - [AssemblyCompany](#P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-AssemblyCompany 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get.AssemblyCompany')
+  - [AssemblyProduct](#P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-AssemblyProduct 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get.AssemblyProduct')
+  - [AssemblyTitle](#P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-AssemblyTitle 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get.AssemblyTitle')
+  - [ApplicationProductName()](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-ApplicationProductName 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get.ApplicationProductName')
+  - [LogFilePath()](#M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-LogFilePath 'MFR.File.Stream.Providers.Tests.FileHostProviderTests.Get.LogFilePath')
 - [Resources](#T-MFR-File-Stream-Providers-Tests-Properties-Resources 'MFR.File.Stream.Providers.Tests.Properties.Resources')
   - [Culture](#P-MFR-File-Stream-Providers-Tests-Properties-Resources-Culture 'MFR.File.Stream.Providers.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-File-Stream-Providers-Tests-Properties-Resources-ResourceManager 'MFR.File.Stream.Providers.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests'></a>
-## FileStreamProviderTests `type`
+<a name='T-MFR-File-Stream-Providers-Tests-FileHostProviderTests'></a>
+## FileHostProviderTests `type`
 
 ##### Namespace
 
@@ -34,31 +31,31 @@ MFR.File.Stream.Providers.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[FileStreamProvider](#T-MFR-File-Stream-Providers-FileStreamProvider 'MFR.File.Stream.Providers.FileStreamProvider') class.
+[FileHostProvider](#T-MFR-File-Stream-Providers-FileHostProvider 'MFR.File.Stream.Providers.FileHostProvider') class.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-#ctor'></a>
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
 Constructs a new instance of
-[FileStreamProviderTests](#T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests 'MFR.File.Stream.Providers.Tests.FileStreamProviderTests') and
+[FileHostProviderTests](#T-MFR-File-Stream-Providers-Tests-FileHostProviderTests 'MFR.File.Stream.Providers.Tests.FileHostProviderTests') and
 returns a reference to it.
 
 ##### Parameters
 
 This constructor has no parameters.
 
-<a name='P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-FileStreamProvider'></a>
-### FileStreamProvider `property`
+<a name='P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-FileHostProvider'></a>
+### FileHostProvider `property`
 
 ##### Summary
 
 Gets a reference to an instance of an object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
 interface.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Cleanup'></a>
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Cleanup'></a>
 ### Cleanup() `method`
 
 ##### Summary
@@ -69,7 +66,7 @@ Cleans up/releases system resources after each unit test has completed.
 
 This method has no parameters.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Initialize'></a>
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Initialize'></a>
 ### Initialize() `method`
 
 ##### Summary
@@ -80,102 +77,32 @@ Initializes the state of this fixture for every unit test session.
 
 This method has no parameters.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamDisposed-System-Object,MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs-'></a>
-### OnFileStreamDisposed(sender,e) `method`
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-ReadTextFromMemory-System-Text-Encoding,System-IO-UnmanagedMemoryAccessor,System-Int64-'></a>
+### ReadTextFromMemory(accessor,length) `method`
 
 ##### Summary
 
-Handles the
-[](#E-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-FileStreamDisposed 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamDisposed')
-event raised by the file stream provider object.
+Reads text from a memory-mapped file accessor.
+
+##### Returns
+
+The text read from memory.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs') | A
-[FileStreamDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamDisposedEventArgs')
-that contains the event data. |
+| accessor | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | The memory-mapped file accessor. |
+| length | [System.IO.UnmanagedMemoryAccessor](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.UnmanagedMemoryAccessor 'System.IO.UnmanagedMemoryAccessor') | The length of the text to read. |
 
 ##### Remarks
 
-This method responds by writing a logging message explaining that a
-file stream opened on a specific file was disposed.
+This method reads text from a memory-mapped file accessor and returns it as a
+string.
+It reads the specified length of bytes from the accessor and decodes them using
+UTF-8 encoding.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpenFailed-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs-'></a>
-### OnFileStreamOpenFailed(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-FileStreamOpenFailed 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpenFailed')
-event raised by the DESC.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs') | A
-[FileStreamOpenFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenFailedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenFailedEventArgs')
-that contains the event data. |
-
-##### Remarks
-
-
-
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpened-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs-'></a>
-### OnFileStreamOpened(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-FileStreamOpened 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpened')
-event raised by the file stream provider object..
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs') | A
-[FileStreamOpenedEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpenedEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpenedEventArgs')
-that contains the event data. |
-
-##### Remarks
-
-This method responds by writing the fully-qualified pathname of the
-file on which the new stream was opened, to the log file.
-
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-OnFileStreamOpening-System-Object,MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs-'></a>
-### OnFileStreamOpening(sender,e) `method`
-
-##### Summary
-
-Handles the
-[](#E-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider-FileStreamOpening 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider.FileStreamOpening')
-event raised by the DESC.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
-event. |
-| e | [MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs') | A
-[FileStreamOpeningEventArgs](#T-MFR-File-Stream-Providers-Events-FileStreamOpeningEventArgs 'MFR.File.Stream.Providers.Events.FileStreamOpeningEventArgs')
-that contains the event data. |
-
-##### Remarks
-
-This method responds by writing a message to the debugging log stating
-that we are attempting to open a `FileStream` upon a particular file.
-
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Test_Open_FilesInFolder'></a>
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Test_Open_FilesInFolder'></a>
 ### Test_Open_FilesInFolder() `method`
 
 ##### Summary
@@ -187,18 +114,18 @@ execution folder of this unit test, and then disposing of the streams.
 
 This method has no parameters.
 
-<a name='T-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get'></a>
+<a name='T-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get'></a>
 ## Get `type`
 
 ##### Namespace
 
-MFR.File.Stream.Providers.Tests.FileStreamProviderTests
+MFR.File.Stream.Providers.Tests.FileHostProviderTests
 
 ##### Summary
 
 Exposes static methods to obtain data from various data sources.
 
-<a name='F-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-LOG_FILE_PATH_TERMINATOR'></a>
+<a name='F-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-LOG_FILE_PATH_TERMINATOR'></a>
 ### LOG_FILE_PATH_TERMINATOR `constants`
 
 ##### Summary
@@ -206,7 +133,7 @@ Exposes static methods to obtain data from various data sources.
 A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the final piece of the path of the
 log file.
 
-<a name='P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-AssemblyCompany'></a>
+<a name='P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-AssemblyCompany'></a>
 ### AssemblyCompany `property`
 
 ##### Summary
@@ -219,7 +146,7 @@ for this application.
 This property is really an alias for the
 [AssemblyCompany](#P-AssemblyMetadata-AssemblyCompany 'AssemblyMetadata.AssemblyCompany') property.
 
-<a name='P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-AssemblyProduct'></a>
+<a name='P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-AssemblyProduct'></a>
 ### AssemblyProduct `property`
 
 ##### Summary
@@ -232,7 +159,7 @@ for this application.
 This property is really an alias for the
 [AssemblyProduct](#P-AssemblyMetadata-AssemblyProduct 'AssemblyMetadata.AssemblyProduct') property.
 
-<a name='P-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-AssemblyTitle'></a>
+<a name='P-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-AssemblyTitle'></a>
 ### AssemblyTitle `property`
 
 ##### Summary
@@ -245,7 +172,7 @@ for this application.
 This property is really an alias for the
 [AssemblyTitle](#P-AssemblyMetadata-AssemblyTitle 'AssemblyMetadata.AssemblyTitle') property.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-ApplicationProductName'></a>
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-ApplicationProductName'></a>
 ### ApplicationProductName() `method`
 
 ##### Summary
@@ -262,7 +189,7 @@ for the software product of which this application or class library is a part.
 
 This method has no parameters.
 
-<a name='M-MFR-File-Stream-Providers-Tests-FileStreamProviderTests-Get-LogFilePath'></a>
+<a name='M-MFR-File-Stream-Providers-Tests-FileHostProviderTests-Get-LogFilePath'></a>
 ### LogFilePath() `method`
 
 ##### Summary

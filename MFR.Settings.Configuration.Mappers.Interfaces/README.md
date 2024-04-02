@@ -39,7 +39,7 @@ with `\n` in strings that it receives.
 
 One of the
 [ConfigurationStringMapperType](#T-MFR-Settings-Configuration-Mappers-Constants-ConfigurationStringMapperType 'MFR.Settings.Configuration.Mappers.Constants.ConfigurationStringMapperType')
-enumeration values that defines what type of mapper object this is.
+enumeration values that defines what type of mapper object this.
 
 <a name='M-MFR-Settings-Configuration-Mappers-Interfaces-IConfigurationStringMapper-Map-System-String-'></a>
 ### Map(input) `method`

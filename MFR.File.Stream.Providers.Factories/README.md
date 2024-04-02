@@ -3,14 +3,15 @@
 
 ## Contents
 
-- [GetFileStreamProvider](#T-MFR-File-Stream-Providers-Factories-GetFileStreamProvider 'MFR.File.Stream.Providers.Factories.GetFileStreamProvider')
-  - [SoleInstance()](#M-MFR-File-Stream-Providers-Factories-GetFileStreamProvider-SoleInstance 'MFR.File.Stream.Providers.Factories.GetFileStreamProvider.SoleInstance')
+- [GetFileHostProvider](#T-MFR-File-Stream-Providers-Factories-GetFileHostProvider 'MFR.File.Stream.Providers.Factories.GetFileHostProvider')
+  - [#cctor()](#M-MFR-File-Stream-Providers-Factories-GetFileHostProvider-#cctor 'MFR.File.Stream.Providers.Factories.GetFileHostProvider.#cctor')
+  - [SoleInstance()](#M-MFR-File-Stream-Providers-Factories-GetFileHostProvider-SoleInstance 'MFR.File.Stream.Providers.Factories.GetFileHostProvider.SoleInstance')
 - [Resources](#T-MFR-File-Stream-Providers-Factories-Properties-Resources 'MFR.File.Stream.Providers.Factories.Properties.Resources')
   - [Culture](#P-MFR-File-Stream-Providers-Factories-Properties-Resources-Culture 'MFR.File.Stream.Providers.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-File-Stream-Providers-Factories-Properties-Resources-ResourceManager 'MFR.File.Stream.Providers.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-File-Stream-Providers-Factories-GetFileStreamProvider'></a>
-## GetFileStreamProvider `type`
+<a name='T-MFR-File-Stream-Providers-Factories-GetFileHostProvider'></a>
+## GetFileHostProvider `type`
 
 ##### Namespace
 
@@ -19,22 +20,45 @@ MFR.File.Stream.Providers.Factories
 ##### Summary
 
 Provides access to the one and only instance of the object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
 interface.
 
-<a name='M-MFR-File-Stream-Providers-Factories-GetFileStreamProvider-SoleInstance'></a>
+<a name='M-MFR-File-Stream-Providers-Factories-GetFileHostProvider-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[GetFileHostProvider](#T-MFR-File-Stream-Providers-Factories-GetFileHostProvider 'MFR.File.Stream.Providers.Factories.GetFileHostProvider') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-File-Stream-Providers-Factories-GetFileHostProvider-SoleInstance'></a>
 ### SoleInstance() `method`
 
 ##### Summary
 
 Obtains access to the sole instance of the object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
 interface, and returns a reference to it.
 
 ##### Returns
 
 Reference to the one, and only, instance of the object that implements the
-[IFileStreamProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileStreamProvider 'MFR.File.Stream.Providers.Interfaces.IFileStreamProvider')
+[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
 interface.
 
 ##### Parameters
