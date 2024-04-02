@@ -167,6 +167,10 @@
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts.Interfaces\MFR.File.Hosts.Interfaces.csproj">
+      <Project>{C0083457-2A98-4468-B6B8-17DF359F1A0E}</Project>
+      <Name>MFR.File.Hosts.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
       <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
       <Name>MFR.File.Stream.Providers.Factories</Name>

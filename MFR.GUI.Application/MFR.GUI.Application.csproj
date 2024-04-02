@@ -210,6 +210,10 @@
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts.Interfaces\MFR.File.Hosts.Interfaces.csproj">
+      <Project>{C0083457-2A98-4468-B6B8-17DF359F1A0E}</Project>
+      <Name>MFR.File.Hosts.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
       <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>
       <Name>MFR.File.Stream.Providers.Factories</Name>

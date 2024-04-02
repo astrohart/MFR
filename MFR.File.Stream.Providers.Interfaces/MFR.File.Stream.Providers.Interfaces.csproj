@@ -116,10 +116,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2023.0.8\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -127,7 +124,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IFileStreamProvider.cs" />
+    <Compile Include="IFileHostProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -151,6 +148,14 @@
     <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts.Interfaces\MFR.File.Hosts.Interfaces.csproj">
+      <Project>{C0083457-2A98-4468-B6B8-17DF359F1A0E}</Project>
+      <Name>MFR.File.Hosts.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts\MFR.File.Hosts.csproj">
+      <Project>{826E95E0-EE97-4981-B0E9-A6FE360BD3E7}</Project>
+      <Name>MFR.File.Hosts</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Events\MFR.File.Stream.Providers.Events.csproj">
       <Project>{84DAD0BC-CF38-4A68-BA05-EDB73DABBD52}</Project>

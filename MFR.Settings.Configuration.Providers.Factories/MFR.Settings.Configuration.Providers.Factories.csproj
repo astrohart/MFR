@@ -119,7 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
-    <Compile Include="GetProjectFileRenamerConfigurationProvider.cs" />
+    <Compile Include="GetProjectFileRenamerConfigProvider.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>

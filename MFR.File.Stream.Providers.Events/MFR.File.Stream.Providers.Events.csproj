@@ -123,14 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
-    <Compile Include="FileStreamOpenFailedEventArgs.cs" />
-    <Compile Include="FileStreamOpenFailedEventHandler.cs" />
-    <Compile Include="FileStreamDisposedEventArgs.cs" />
-    <Compile Include="FileStreamDisposedEventHandler.cs" />
-    <Compile Include="FileStreamOpenedEventArgs.cs" />
-    <Compile Include="FileStreamOpenedEventHandler.cs" />
-    <Compile Include="FileStreamOpeningEventArgs.cs" />
-    <Compile Include="FileStreamOpeningEventHandler.cs" />
+    <Compile Include="FileHostCreateFailedEventArgs.cs" />
+    <Compile Include="FileHostCreateFailedEventHandler.cs" />
+    <Compile Include="FileHostDisposedEventArgs.cs" />
+    <Compile Include="FileHostDisposedEventHandler.cs" />
+    <Compile Include="FileHostCreatedEventArgs.cs" />
+    <Compile Include="FileHostCreatedEventHandler.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +152,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFR.File.Hosts.Interfaces\MFR.File.Hosts.Interfaces.csproj">
+      <Project>{C0083457-2A98-4468-B6B8-17DF359F1A0E}</Project>
+      <Name>MFR.File.Hosts.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

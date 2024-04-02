@@ -5,6 +5,7 @@ using MFR.TextValues.Retrievers.Synchronization.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
@@ -20,13 +21,13 @@ namespace MFR.TextValues.Retrievers.Actions
     {
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileHostProvider" />
         /// interface.
         /// </summary>
-        private static IFileStreamProvider FileStreamProvider
+        private static IFileHostProvider FileHostProvider
         {
             get;
-        } = GetFileStreamProvider.SoleInstance();
+        } = GetFileHostProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -82,20 +83,25 @@ namespace MFR.TextValues.Retrievers.Actions
                 {
                     if (ticket.IsZero()) return result;
 
-                    FileStreamProvider.RewindStream(ticket); // just in case
+                    FileHostProvider.RewindStream(ticket); // just in case
 
                     /*
                      * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
-                     * that we "redeem" with the FileStreamProvider object to get a reference
+                     * that we "redeem" with the FileHostProvider object to get a reference
                      * to a FileStream object that had been opened on the file previously.
                      *
                      */
-                    var stream = FileStreamProvider.Redeem(ticket);
-                    if (stream == null) return result;
+                    var fileHost = FileHostProvider.Redeem(ticket);
+                    if (fileHost == null) return result;
+                    if (fileHost.OriginalLength <= 0L) return result;
+                    if (fileHost.Accessor == null) return result;
 
-                    result = stream.ReadToEnd();
+                    result = ReadTextFromMemory(
+                        fileHost.Encoding, fileHost.Accessor,
+                        fileHost.OriginalLength
+                    );
 
-                    FileStreamProvider.RewindStream(ticket);
+                    FileHostProvider.RewindStream(ticket);
                 }
                 catch (Exception ex)
                 {
@@ -106,7 +112,7 @@ namespace MFR.TextValues.Retrievers.Actions
                 }
                 finally
                 {
-                    if (dispose) 
+                    if (dispose)
                         Dispose.FileStream(ticket);
                 }
 
@@ -128,9 +134,7 @@ namespace MFR.TextValues.Retrievers.Actions
         /// could not be obtained.
         /// </returns>
         [return: NotLogged]
-        public static async Task<string> FileDataAsync(
-            Guid ticket
-            )
+        public static async Task<string> FileDataAsync(Guid ticket)
         {
             var result = string.Empty;
             StreamReader sr = default;
@@ -142,20 +146,25 @@ namespace MFR.TextValues.Retrievers.Actions
                     {
                         if (ticket.IsZero()) return result;
 
+                        FileHostProvider.RewindStream(ticket); // just in case
+
                         /*
                          * OKAY, we were passed a GUID that serves as a "ticket" or "coupon"
-                         * that we "redeem" with the FileStreamProvider object to get a reference
+                         * that we "redeem" with the FileHostProvider object to get a reference
                          * to a FileStream object that had been opened on the file previously.
                          *
-                         * This FileStream object provides the service of asynchronously reading
-                         * the file's content so that the application can perform faster.
                          */
+                        var fileHost = FileHostProvider.Redeem(ticket);
+                        if (fileHost == null) return result;
+                        if (fileHost.OriginalLength <= 0L) return result;
+                        if (fileHost.Accessor == null) return result;
 
-                        sr = FileStreamProvider.Redeem(ticket);
-                        if (sr == null) return result;
+                        result = ReadTextFromMemory(
+                            fileHost.Encoding, fileHost.Accessor,
+                            fileHost.OriginalLength
+                        );
 
-
-
+                        FileHostProvider.RewindStream(ticket);
                         return result;
                     }
                 );
@@ -196,7 +205,7 @@ namespace MFR.TextValues.Retrievers.Actions
                 if (!Does.FileSystemEntryExist(pathname)) return result;
                 if (Is.Folder(pathname)) return result;
 
-                result = FileStreamProvider.OpenStreamFor(pathname);
+                result = FileHostProvider.OpenStreamFor(pathname);
             }
             catch (Exception ex)
             {
@@ -204,6 +213,44 @@ namespace MFR.TextValues.Retrievers.Actions
                 DebugUtils.LogException(ex);
 
                 result = Guid.Empty;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Reads text from a memory-mapped file accessor.
+        /// </summary>
+        /// <param name="encoding">
+        /// (Required.) Reference to an instance of <see cref="T:System.Text.Encoding" />
+        /// that represents the text encoding of the file.
+        /// </param>
+        /// <param name="accessor">The memory-mapped file accessor.</param>
+        /// <param name="length">The length of the text to read.</param>
+        /// <returns>The text read from memory.</returns>
+        /// <remarks>
+        /// This method reads text from a memory-mapped file accessor and returns it as a
+        /// string.
+        /// It reads the specified length of bytes from the accessor and decodes them using
+        /// UTF-8 encoding.
+        /// </remarks>
+        private static string ReadTextFromMemory(
+            Encoding encoding,
+            UnmanagedMemoryAccessor accessor,
+            long length
+        )
+        {
+            var result = string.Empty;
+
+            try
+            {
+                var bytes = new byte[length];
+                accessor.ReadArray(0, bytes, 0, (int)length);
+                result = encoding.GetString(bytes);
+            }
+            catch
+            {
+                result = string.Empty;
             }
 
             return result;

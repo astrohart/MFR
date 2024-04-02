@@ -123,7 +123,6 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2023.0.8\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -131,12 +130,10 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
-    <Compile Include="FileStreamProviderTests.cs" />
+    <Compile Include="FileHostProviderTests.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,9 +171,9 @@
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.File.Stream.Providers.Events\MFR.File.Stream.Providers.Events.csproj">
-      <Project>{84DAD0BC-CF38-4A68-BA05-EDB73DABBD52}</Project>
-      <Name>MFR.File.Stream.Providers.Events</Name>
+    <ProjectReference Include="..\MFR.File.Hosts.Interfaces\MFR.File.Hosts.Interfaces.csproj">
+      <Project>{C0083457-2A98-4468-B6B8-17DF359F1A0E}</Project>
+      <Name>MFR.File.Hosts.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Factories\MFR.File.Stream.Providers.Factories.csproj">
       <Project>{DDBF9604-8AA3-4DB6-B84A-658817C370BC}</Project>

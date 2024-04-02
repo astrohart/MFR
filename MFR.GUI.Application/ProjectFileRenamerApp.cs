@@ -118,13 +118,13 @@ namespace MFR.GUI.Application
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileHostProvider" />
         /// interface.
         /// </summary>
-        private static IFileStreamProvider FileStreamProvider
+        private static IFileHostProvider FileHostProvider
         {
             get;
-        } = GetFileStreamProvider.SoleInstance();
+        } = GetFileHostProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of
@@ -197,7 +197,7 @@ namespace MFR.GUI.Application
 
             ProfileProvider.Save();
 
-            FileStreamProvider.DisposeAll();
+            FileHostProvider.DisposeAll();
         }
 
         /// <summary>

@@ -13,13 +13,13 @@ namespace MFR.TextValues.Retrievers.Actions
     {
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileHostProvider" />
         /// interface.
         /// </summary>
-        private static IFileStreamProvider FileStreamProvider
+        private static IFileHostProvider FileHostProvider
         {
             get;
-        } = GetFileStreamProvider.SoleInstance();
+        } = GetFileHostProvider.SoleInstance();
 
         /// <summary>
         /// Releases the open file stream that is referred to by the specified
@@ -40,7 +40,7 @@ namespace MFR.TextValues.Retrievers.Actions
             {
                 if (ticket.IsZero()) return;
 
-                FileStreamProvider.DisposeObject(ticket);
+                FileHostProvider.DisposeObject(ticket);
             }
             catch (Exception ex)
             {

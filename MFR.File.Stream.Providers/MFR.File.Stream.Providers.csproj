@@ -123,7 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
-    <Compile Include="FileStreamProvider.cs" />
+    <Compile Include="FileHostProvider.cs" />
     <Compile Include="GlobalAspects.cs" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -179,6 +179,18 @@
     <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider\xyLOGIX.TicketedProvider.csproj">
       <Project>{9caced8c-c58e-4c38-94a6-4ce07c92d156}</Project>
       <Name>xyLOGIX.TicketedProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts.Factories\MFR.File.Hosts.Factories.csproj">
+      <Project>{D3288CC8-961A-4FA7-AF23-5E8AD6B198E6}</Project>
+      <Name>MFR.File.Hosts.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts.Interfaces\MFR.File.Hosts.Interfaces.csproj">
+      <Project>{C0083457-2A98-4468-B6B8-17DF359F1A0E}</Project>
+      <Name>MFR.File.Hosts.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.File.Hosts\MFR.File.Hosts.csproj">
+      <Project>{826E95E0-EE97-4981-B0E9-A6FE360BD3E7}</Project>
+      <Name>MFR.File.Hosts</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.File.Stream.Providers.Events\MFR.File.Stream.Providers.Events.csproj">
       <Project>{84DAD0BC-CF38-4A68-BA05-EDB73DABBD52}</Project>

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MFR.File.Stream.Providers.Tests")]
-[assembly: AssemblyDescription("Provides unit tests for the FileStreamProvider object that allows us to open streams on many files at once and then use them later.")]
+[assembly: AssemblyDescription("Provides unit tests for the FileHostProvider object that allows us to open streams on many files at once and then use them later.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]

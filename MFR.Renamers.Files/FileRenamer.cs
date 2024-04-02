@@ -206,11 +206,11 @@ namespace MFR.Renamers.Files
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileStreamProvider" />
+        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileHostProvider" />
         /// interface.
         /// </summary>
-        private static IFileStreamProvider FileStreamProvider
-            => GetFileStreamProvider.SoleInstance();
+        private static IFileHostProvider FileHostProvider
+            => GetFileHostProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -1595,7 +1595,7 @@ namespace MFR.Renamers.Files
             finally
             {
                 // free memory resources from the Replace Text In Files operation
-                FileStreamProvider.DisposeAll();
+                FileHostProvider.DisposeAll();
             }
 
             if (AbortRequested)
@@ -3195,7 +3195,7 @@ namespace MFR.Renamers.Files
                 /*
                  * NOTE: We ASSUME that the ITextValueRetriever.GetTextValueAsync
                  * method called above for the Replace Text in Files operation
-                 * also called IFileStreamProvider.DisposeObject on the
+                 * also called IFileHostProvider.DisposeObject on the
                  * file stream after it obtained the text to be searched.
                  *
                  * Search for control characters to determine whether the
@@ -3262,7 +3262,7 @@ namespace MFR.Renamers.Files
                 // since there is a high risk of exceptions occurring whenever
                 // files are opened/accessed.
                 //
-                // NOTE: I was tempted to invoke the IFileStreamProvider.DisposeAll()
+                // NOTE: I was tempted to invoke the IFileHostProvider.DisposeAll()
                 // method here; however, the thinking is that this exception has
                 // triggered this finally clause just for the file system entry
                 // that is currently being processed; therefore, we just try to
