@@ -1,6 +1,5 @@
 using MFR.FileSystem.Interfaces;
 using MFR.Operations.Interfaces;
-using System.Threading.Tasks;
 
 namespace MFR.TextValues.Retrievers.Interfaces
 {
@@ -21,14 +20,17 @@ namespace MFR.TextValues.Retrievers.Interfaces
     {
         /// <summary>
         /// Gets a <see cref="T:System.String" /> containing the text to be
-        /// searched, from the file-system <paramref name="entry"/> provided,
+        /// searched, from the file-system <paramref name="entry" /> provided,
         /// given the current
         /// <see
-        /// cref="P:MFR.FileAndFolderTextValueRetriever.OperationType"/> .
+        ///     cref="P:MFR.FileAndFolderTextValueRetriever.OperationType" />
+        /// .
         /// </summary>
         /// <param name="entry">
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/> interface.
+        /// Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
+        /// interface.
         /// </param>
         /// <returns>
         /// A <see cref="T:System.String" /> containing the value data to be searched
@@ -36,30 +38,8 @@ namespace MFR.TextValues.Retrievers.Interfaces
         /// no data.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry"/>, is
-        /// passed a <see langword="null"/> value.
-        /// </exception>
-        Task<string> GetTextValueAsync(IFileSystemEntry entry);
-
-        /// <summary>
-        /// Gets a <see cref="T:System.String" /> containing the text to be
-        /// searched, from the file-system <paramref name="entry"/> provided,
-        /// given the current
-        /// <see
-        /// cref="P:MFR.FileAndFolderTextValueRetriever.OperationType"/> .
-        /// </summary>
-        /// <param name="entry">
-        /// Reference to an instance of an object that implements the <see
-        /// cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry"/> interface.
-        /// </param>
-        /// <returns>
-        /// A <see cref="T:System.String" /> containing the value data to be searched
-        /// for the current operation type, or the empty string if the data source has
-        /// no data.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="entry"/>, is
-        /// passed a <see langword="null"/> value.
+        /// Thrown if the required parameter, <paramref name="entry" />, is
+        /// passed a <see langword="null" /> value.
         /// </exception>
         string GetTextValue(IFileSystemEntry entry);
     }
