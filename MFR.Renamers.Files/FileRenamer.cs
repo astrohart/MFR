@@ -35,7 +35,6 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Solutions.Providers.Factories;
 using MFR.Solutions.Providers.Interfaces;
-using MFR.TextValues.Retrievers.Actions;
 using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
@@ -3251,21 +3250,6 @@ namespace MFR.Renamers.Files
                 DebugUtils.LogException(ex);
 
                 result = string.Empty;
-            }
-            finally
-            {
-                // if an exception occurs, we need to dispose the most-recently-
-                // opened/accessed file stream.  We need this block to be here
-                // since there is a high risk of exceptions occurring whenever
-                // files are opened/accessed.
-                //
-                // NOTE: I was tempted to invoke the IFileHostProvider.DisposeAll()
-                // method here; however, the thinking is that this exception has
-                // triggered this finally clause just for the file system entry
-                // that is currently being processed; therefore, we just try to
-                // dispose the file system entry that is currently being worked on
-                if (entry != null)
-                    Dispose.FileStream(entry.UserState);
             }
 
             return result;

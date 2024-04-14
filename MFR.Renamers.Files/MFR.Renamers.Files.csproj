@@ -105,9 +105,6 @@
       <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.9.37000\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="PostSharp, Version=2023.0.8.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
       <HintPath>..\packages\PostSharp.Redist.2023.0.8\lib\net45\PostSharp.dll</HintPath>
     </Reference>
@@ -133,10 +130,7 @@
       <HintPath>..\packages\stdole.17.9.37000\lib\net472\stdole.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -381,10 +375,6 @@
     <ProjectReference Include="..\MFR.Solutions.Providers.Interfaces\MFR.Solutions.Providers.Interfaces.csproj">
       <Project>{D314E4C5-41C3-40DF-8FE6-CA69EF731724}</Project>
       <Name>MFR.Solutions.Providers.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
-      <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>
-      <Name>MFR.TextValues.Retrievers.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
       <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
