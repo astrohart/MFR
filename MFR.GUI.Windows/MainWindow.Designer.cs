@@ -584,9 +584,12 @@ namespace MFR.GUI.Windows
             // operationsCheckedListBox
             // 
             this.operationsCheckedListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.operationsCheckedListBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.operationsCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.operationsCheckedListBox.BorderThickness = 1;
             this.operationsCheckedListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.operationsCheckedListBox.FormattingEnabled = true;
+            this.operationsCheckedListBox.HighlightColor = System.Drawing.SystemColors.Highlight;
             this.operationsCheckedListBox.IsDarkTheme = true;
             this.operationsCheckedListBox.Items.AddRange(new object[] {
             "Rename Files",
