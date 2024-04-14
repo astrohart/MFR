@@ -91,8 +91,8 @@ namespace MFR.GUI.Initializers
 
                 if (string.IsNullOrWhiteSpace(currentItem))
                     comboBox.SelectedIndex = 0;
-                
-                comboBox.Text = currentItem;
+                else
+                    comboBox.Text = currentItem;
             }
             catch (Exception ex)
             {
