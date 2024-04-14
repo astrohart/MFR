@@ -22,8 +22,7 @@
   - [GetTicketForPathname(pathname)](#M-MFR-File-Stream-Providers-FileHostProvider-GetTicketForPathname-System-String- 'MFR.File.Stream.Providers.FileHostProvider.GetTicketForPathname(System.String)')
   - [OnDisposingTicketedObject(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnDisposingTicketedObject-xyLOGIX-TicketedProvider-Events-DisposingTicketedObjectEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnDisposingTicketedObject(xyLOGIX.TicketedProvider.Events.DisposingTicketedObjectEventArgs)')
   - [OnFileHostCreateFailed(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreateFailed-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostCreateFailed(MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs)')
-  - [OnFileHostCreated(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreated-MFR-File-Stream-Providers-Events-FileHostCreatedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostCreated(MFR.File.Stream.Providers.Events.FileHostCreatedEventArgs)')
-  - [OnFileHostDisposed(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostDisposed-MFR-File-Stream-Providers-Events-FileHostDisposedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostDisposed(MFR.File.Stream.Providers.Events.FileHostDisposedEventArgs)')
+  - [OnFileHostCreated(pathname,ticket)](#M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreated-System-String,System-Guid- 'MFR.File.Stream.Providers.FileHostProvider.OnFileHostCreated(System.String,System.Guid)')
   - [OnTicketedObjectDisposalRequested(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposalRequested-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{MFR-File-Hosts-Interfaces-IFileHost}- 'MFR.File.Stream.Providers.FileHostProvider.OnTicketedObjectDisposalRequested(xyLOGIX.TicketedProvider.Events.TicketedObjectDisposalRequestedEventArgs{MFR.File.Hosts.Interfaces.IFileHost})')
   - [OnTicketedObjectDisposed(e)](#M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposed-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposedEventArgs- 'MFR.File.Stream.Providers.FileHostProvider.OnTicketedObjectDisposed(xyLOGIX.TicketedProvider.Events.TicketedObjectDisposedEventArgs)')
   - [OpenStreamFor(pathname)](#M-MFR-File-Stream-Providers-FileHostProvider-OpenStreamFor-System-String- 'MFR.File.Stream.Providers.FileHostProvider.OpenStreamFor(System.String)')
@@ -325,39 +324,19 @@ event.
 [FileHostCreateFailedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostCreateFailedEventArgs 'MFR.File.Stream.Providers.Events.FileHostCreateFailedEventArgs')
 that contains the event data. |
 
-<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreated-MFR-File-Stream-Providers-Events-FileHostCreatedEventArgs-'></a>
-### OnFileHostCreated(e) `method`
+<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostCreated-System-String,System-Guid-'></a>
+### OnFileHostCreated(pathname,ticket) `method`
 
 ##### Summary
 
-Raises the
-[](#E-MFR-File-Stream-Providers-FileHostProvider-FileHostCreated 'MFR.File.Stream.Providers.FileHostProvider.FileHostCreated')
-event.
+Called when a `File Host` object instance is freshly created for the file having the specified `pathname` and corresponding to the specified `ticket`.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [MFR.File.Stream.Providers.Events.FileHostCreatedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostCreatedEventArgs 'MFR.File.Stream.Providers.Events.FileHostCreatedEventArgs') | A
-[FileHostDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileHostDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileHostDisposedEventHandler')
-that contains the event data. |
-
-<a name='M-MFR-File-Stream-Providers-FileHostProvider-OnFileHostDisposed-MFR-File-Stream-Providers-Events-FileHostDisposedEventArgs-'></a>
-### OnFileHostDisposed(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-File-Stream-Providers-FileHostProvider-FileHostDisposed 'MFR.File.Stream.Providers.FileHostProvider.FileHostDisposed')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.File.Stream.Providers.Events.FileHostDisposedEventArgs](#T-MFR-File-Stream-Providers-Events-FileHostDisposedEventArgs 'MFR.File.Stream.Providers.Events.FileHostDisposedEventArgs') | A
-[FileHostDisposedEventHandler](#T-MFR-File-Stream-Providers-Events-FileHostDisposedEventHandler 'MFR.File.Stream.Providers.Events.FileHostDisposedEventHandler')
-that contains the event data. |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified pathname of a file for which a new `File Host` object instance has just been created. |
+| ticket | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | (Required.) A [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') value that corresponds to the new `File Host` |
 
 <a name='M-MFR-File-Stream-Providers-FileHostProvider-OnTicketedObjectDisposalRequested-xyLOGIX-TicketedProvider-Events-TicketedObjectDisposalRequestedEventArgs{MFR-File-Hosts-Interfaces-IFileHost}-'></a>
 ### OnTicketedObjectDisposalRequested(e) `method`
