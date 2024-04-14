@@ -45,7 +45,6 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -1559,24 +1558,21 @@ namespace MFR.Renamers.Files
 
             try
             {
-                var tasks = fileSystemEntries
-                            .TakeWhile(entry => !AbortRequested)
-                            .Select(
-                                entry => ReplaceTextInFileForEntry(
-                                    findWhat, replaceWith, entry
-                                )
-                            );
-                if (tasks == null || !tasks.Any()) return result;
+                var executionResults = fileSystemEntries
+                                       .TakeWhile(entry => !AbortRequested)
+                                       .Select(
+                                           entry => ReplaceTextInFileForEntry(
+                                               findWhat, replaceWith, entry
+                                           )
+                                       )
+                                       .ToList();
 
-                TaskPool.AddRange(tasks);
-
-                // Wait for all the tasks to complete.  We don't need
-                // to call Clear() on the TaskPool when all the tasks are
-                // done since the TaskPool.WaitAll() method does that
-                // for us.
-                TaskPool.WaitAll();
-
-                result = tasks.All(task => task.IsCompleted && task.Result);
+                foreach (var executionResult in executionResults)
+                    if (!executionResult)
+                    {
+                        result = false;
+                        break;
+                    }
             }
             catch (OperationAbortedException)
             {
@@ -3156,7 +3152,7 @@ namespace MFR.Renamers.Files
         }
 
         [return: NotLogged]
-        private async Task<string> GetTextInFileReplacementDataAsync(
+        private string GetTextInFileReplacementData(
             [NotLogged] IFileSystemEntry entry,
             [NotLogged] string findWhat,
             [NotLogged] string replaceWith
@@ -3187,10 +3183,10 @@ namespace MFR.Renamers.Files
                         .AndAttachConfiguration(CurrentConfiguration);
                 if (matchExpressionFactory == null) return result;
 
-                var textToBeSearched = await GetTextValueRetriever.For(
+                var textToBeSearched = GetTextValueRetriever.For(
                         OperationType.ReplaceTextInFiles
                     )
-                    .GetTextValueAsync(entry);
+                    .GetTextValue(entry);
                 if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
 
                 /*
@@ -4622,7 +4618,7 @@ namespace MFR.Renamers.Files
         }
 
         [Log(AttributeExclude = true)]
-        private async Task<bool> ReplaceTextInFileForEntry(
+        private bool ReplaceTextInFileForEntry(
             string findWhat,
             string replaceWith,
             IFileSystemEntry entry
@@ -4649,7 +4645,7 @@ namespace MFR.Renamers.Files
                     )
                 );
 
-                var newFileData = await GetTextInFileReplacementDataAsync(
+                var newFileData = GetTextInFileReplacementData(
                     entry, findWhat, replaceWith
                 );
                 if (string.IsNullOrWhiteSpace(newFileData))
@@ -4713,13 +4709,15 @@ namespace MFR.Renamers.Files
                             );
                     }
                     else
-                        
+
                         // Write the modified content back to memory
                         // It will be automatically flushed to the file system
                         // when the memory-mapped file is closed.
                         Write.TextToMemory(
                             fileHost.Encoding, fileHost.Accessor, newFileData
                         );
+
+                    fileHost.MemoryMappedData.Dispose();
                 }
 
                 result = true;
