@@ -591,7 +591,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Validators.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Validators.Constants.Generators", "MFR.Directories.Validators.Constants.Generators\MFR.Directories.Validators.Constants.Generators.csproj", "{610EE925-1CF5-4DE6-BEEE-26718F241656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Constants", "MFR.Directories.Constants.Constants\MFR.Directories.Constants.csproj", "{E1887899-A285-48C9-B4A8-AAD2E50A30CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Directories.Constants", "MFR.Directories.Constants\MFR.Directories.Constants.csproj", "{E1887899-A285-48C9-B4A8-AAD2E50A30CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Translators", "MFR.CommandLine.Translators\MFR.CommandLine.Translators.csproj", "{9A116C17-C8AE-46AE-B04E-A34C5EBE3AA2}"
 EndProject
