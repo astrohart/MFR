@@ -154,7 +154,7 @@
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
       <Name>MFR.CommandLine.Models.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Directories.Constants.Constants\MFR.Directories.Constants.csproj">
+    <ProjectReference Include="..\MFR.Directories.Constants\MFR.Directories.Constants.csproj">
       <Project>{E1887899-A285-48C9-B4A8-AAD2E50A30CE}</Project>
       <Name>MFR.Directories.Constants</Name>
     </ProjectReference>
