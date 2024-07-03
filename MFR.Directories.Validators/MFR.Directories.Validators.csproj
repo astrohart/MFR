@@ -153,7 +153,7 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.Directories.Constants.Constants\MFR.Directories.Constants.csproj">
+    <ProjectReference Include="..\MFR.Directories.Constants\MFR.Directories.Constants.csproj">
       <Project>{e1887899-a285-48c9-b4a8-aad2e50a30ce}</Project>
       <Name>MFR.Directories.Constants</Name>
     </ProjectReference>
