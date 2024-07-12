@@ -6,7 +6,7 @@ namespace MFR.Directories.Validators.Constants
     public enum RootDirectoryInvalidReason
     {
         /// <summary>
-        /// The root directory specified does not exist on the disk.
+        /// The root directory specified does not exist on the file system.
         /// </summary>
         DoesntExist,
 
@@ -17,7 +17,7 @@ namespace MFR.Directories.Validators.Constants
         DoesntContainSolution,
 
         /// <summary>
-        /// The specified directory exists on the disk and contains a Visual
+        /// The specified directory exists on the file system and contains a Visual
         /// Studio Solution (*.sln) file.
         /// </summary>
         Valid,

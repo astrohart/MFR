@@ -69,7 +69,7 @@ namespace MFR.Paths.Config.Provider.Actions
              * value in case we otherwise fail.
              *
              * If the path listed in the argument of the currentPathname
-             * parameter refers to a file on the disk that exists, and that
+             * parameter refers to a file on the file system that exists, and that
              * has a name of config.json, then simply return that pathname.
              * Otherwise, try to load the config.json file's pathname from the
              * system Registry.

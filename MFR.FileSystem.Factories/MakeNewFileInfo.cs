@@ -21,7 +21,7 @@ namespace MFR.FileSystem.Factories
         /// returns it.
         /// </summary>
         /// <param name="path">
-        /// (Required.) String containing the pathname of a file on the disk.
+        /// (Required.) String containing the pathname of a file on the file system.
         /// </param>
         /// <returns>
         /// A <see cref="T:Alphaleonis.Win32.Filesystem.FileInfo" />, initialized with the specified
@@ -35,7 +35,7 @@ namespace MFR.FileSystem.Factories
         /// Thrown if the file, the path to which is specified by the
         /// <paramref
         ///     name="path" />
-        /// parameter, cannot be located on the disk.
+        /// parameter, cannot be located on the file system.
         /// </exception>
         public static FileInfo ForPath(string path)
         {

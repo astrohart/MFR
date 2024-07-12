@@ -94,7 +94,7 @@ namespace MFR.GUI.Windows.Presenters.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Could not locate the folder &apos;{0}&apos; on the disk.
+        ///   Looks up a localized string similar to Could not locate the folder &apos;{0}&apos; on the file system.
         ///
         ///Please specify a folder path of click the &apos;...&apos; button to browse for one..
         /// </summary>

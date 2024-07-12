@@ -101,7 +101,7 @@ namespace MFR.FileSystem.Retrievers
         /// <paramref
         ///     name="rootFolderPath" />
         /// parameter contains a fully-qualified
-        /// pathname of a folder that exists on the disk, and that the
+        /// pathname of a folder that exists on the file system, and that the
         /// <see
         ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig" />
         /// property is set to a valid object instance reference.

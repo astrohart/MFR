@@ -550,7 +550,7 @@ namespace MFR.GUI.Windows.Presenters
         /// </param>
         /// <remarks>
         /// If a file having the specified <paramref name="pathname" /> already
-        /// exists on the disk at the time the export operation is performed, it will be
+        /// exists on the file system at the time the export operation is performed, it will be
         /// overwritten.
         /// </remarks>
         public void ExportConfiguration(string pathname)
@@ -1451,7 +1451,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Thrown if the directory whose pathname is referenced by
         /// <see
         ///     cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder" />
-        /// is not found on the disk.
+        /// is not found on the file system.
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if either of the

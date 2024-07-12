@@ -20,7 +20,7 @@ namespace MFR.FileSystem.Helpers
         /// filled with the data.
         /// <para />
         /// This method throws <see cref="T:System.InvalidOperationException" /> if the
-        /// pathname is not an absolute pathname to a file on the disk.
+        /// pathname is not an absolute pathname to a file on the file system.
         /// </param>
         public static void WithJunk(string path)
         {

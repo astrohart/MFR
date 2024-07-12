@@ -17,11 +17,11 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// implements
         /// <see
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
-        /// from a file on the disk.
+        /// from a file on the file system.
         /// </summary>
         /// <param name="action">
         /// (Required.) Reference to an <c>Action</c> object that, when executed, loads the
-        /// application config from a file on the disk.
+        /// application config from a file on the file system.
         /// </param>
         /// <returns>
         /// If successful, a reference to an instance of an object that implements

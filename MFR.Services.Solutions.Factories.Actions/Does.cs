@@ -56,7 +56,7 @@ namespace MFR.Services.Solutions.Factories.Actions
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the <paramref name="folderToSearch" /> parameter is passed a value
         /// that is not the fully-qualified pathname of a folder that actually exists on
-        /// the disk.
+        /// the file system.
         /// </exception>
         public static IVisualStudioSolutionService Folder(string folderToSearch)
         {

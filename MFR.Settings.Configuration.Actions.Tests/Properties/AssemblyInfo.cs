@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MFR.Settings.Configuration.Actions.Tests")]
-[assembly: AssemblyDescription("Provides objects and functionality for unit tests of the functionality to load/save the application config to/from a file on the disk.")]
+[assembly: AssemblyDescription("Provides objects and functionality for unit tests of the functionality to load/save the application config to/from a file on the file system.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]

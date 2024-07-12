@@ -835,7 +835,7 @@ namespace MFR.Renamers.Files
                 );
             if (!Directory.Exists(rootFolderPath))
                 throw new DirectoryNotFoundException(
-                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the file system."
                 );
             if (string.IsNullOrWhiteSpace(findWhat))
                 throw new ArgumentException(
@@ -1492,7 +1492,7 @@ namespace MFR.Renamers.Files
                 );
             if (!Directory.Exists(rootFolderPath))
                 throw new DirectoryNotFoundException(
-                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the disk."
+                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the file system."
                 );
             if (string.IsNullOrWhiteSpace(findWhat))
                 throw new ArgumentException(
@@ -1632,7 +1632,7 @@ namespace MFR.Renamers.Files
         /// which searches should be started.
         /// <para />
         /// The fully-qualified pathname passed must reference a folder that currently
-        /// exists on the disk; otherwise,
+        /// exists on the file system; otherwise,
         /// <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
@@ -1642,7 +1642,7 @@ namespace MFR.Renamers.Files
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder whose fully-qualified pathname is passed in the
-        /// <paramref name="path" /> parameter cannot be located on the disk.
+        /// <paramref name="path" /> parameter cannot be located on the file system.
         /// </exception>
         /// <remarks>
         /// Upon successful validation of the fully-qualified folder pathname that is
@@ -1658,7 +1658,7 @@ namespace MFR.Renamers.Files
              * this value may be being initialized from a default (blank)
              * config.   the config may be blank for a number of
              * reasons, but one of these is the issue that the config
-             * file on the disk may have gotten corrupted or erased.
+             * file on the file system may have gotten corrupted or erased.
              */
 
             RootDirectoryPath = path;
@@ -3645,14 +3645,14 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.IsRepositoryConnected *** INFO: Checking whether the folder with path '{folder}' exists on the disk..."
+                    $"FileRenamer.IsRepositoryConnected *** INFO: Checking whether the folder with path '{folder}' exists on the file system..."
                 );
 
                 if (!Does.FolderExist(folder))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"FileRenamer.IsRepositoryConnected: *** ERROR *** The system could not locate the folder having the path '{folder}' on the disk.  This folder is required to exist in order for us to proceed."
+                        $"FileRenamer.IsRepositoryConnected: *** ERROR *** The system could not locate the folder having the path '{folder}' on the file system.  This folder is required to exist in order for us to proceed."
                     );
 
                     return result;
@@ -3660,7 +3660,7 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The folder with path '{folder}' was found on the disk.  Proceeding..."
+                    $"FileRenamer.IsRepositoryConnected: *** SUCCESS *** The folder with path '{folder}' was found on the file system.  Proceeding..."
                 );
 
                 DebugUtils.WriteLine(
@@ -4647,7 +4647,7 @@ namespace MFR.Renamers.Files
                  * If so, then the file-deletion operation above suffices to remove the
                  * file whose data is being replaced.
                  *
-                 * We only will carry out the writing of data to the file on the disk
+                 * We only will carry out the writing of data to the file on the file system
                  * in the event that the dataContainingTextToBeReplaced variable has more than zero byte
                  * length.  We are willing to write whitespace to the file, in order to
                  * support the Whitespace programming language.
@@ -4693,7 +4693,7 @@ namespace MFR.Renamers.Files
                             );
                     }
                     else
-
+                    {
                         // Write the modified content back to memory
                         // It will be automatically flushed to the file system
                         // when the memory-mapped file is closed.
@@ -4701,7 +4701,11 @@ namespace MFR.Renamers.Files
                             fileHost.Encoding, fileHost.Accessor, newFileData
                         );
 
-                    fileHost.MemoryMappedData.Dispose();
+                        // flush the accessor to be sure
+                        fileHost.Accessor.Flush();
+                    }
+
+                    fileHost.Dispose();
                 }
 
                 result = true;

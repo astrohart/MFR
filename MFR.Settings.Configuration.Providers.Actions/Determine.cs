@@ -31,7 +31,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// </param>
         /// <returns>
         /// If the <paramref name="submittedPathname" /> is not blank and is set
-        /// to the pathname of a file that exists on the disk, then the method returns that
+        /// to the pathname of a file that exists on the file system, then the method returns that
         /// pathname; otherwise, the <paramref name="currentPathnameInRegistry" /> is
         /// returned.
         /// </returns>
@@ -74,7 +74,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// <remarks>
         /// In order to be valid, the specified <paramref name="pathname" /> must
         /// not be blank, must contain the fully-qualified pathname of a file that exists
-        /// on the disk; and the filename of the file must be <c>config.json</c>.
+        /// on the file system; and the filename of the file must be <c>config.json</c>.
         /// </remarks>
         public static bool IsConfigPathValid(string pathname)
         {

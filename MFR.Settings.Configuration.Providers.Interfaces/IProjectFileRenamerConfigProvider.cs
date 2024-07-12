@@ -97,7 +97,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// Thrown if the file, the path to which is specified by the
         /// <paramref
         ///     name="sourceFilePath" />
-        /// parameter, cannot be located on the disk.
+        /// parameter, cannot be located on the file system.
         /// </exception>
         /// <remarks>
         /// First, this method loads the data from the file specified into the
@@ -108,7 +108,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         void Import(string sourceFilePath);
 
         /// <summary>
-        /// Loads the config from the disk.
+        /// Loads the config from the file system.
         /// <para />
         /// The
         /// <see
@@ -140,12 +140,12 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// Thrown if the file whose pathname is passed in the
         /// <paramref
         ///     name="pathname" />
-        /// parameter cannot be located on the disk.
+        /// parameter cannot be located on the file system.
         /// </exception>
         IProjectFileRenamerConfig Load(string pathname = "");
 
         /// <summary>
-        /// Saves config data to a file on the disk having path
+        /// Saves config data to a file on the file system having path
         /// <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">

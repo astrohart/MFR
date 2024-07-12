@@ -26,7 +26,7 @@ namespace MFR.Settings.Profiles.Serializers
         /// </summary>
         /// <param name="pathname">
         /// (Required.) String containing the fully-qualified pathname of a JSON-formatted
-        /// data file on the disk that contains the profile-list data.
+        /// data file on the file system that contains the profile-list data.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the
@@ -41,7 +41,7 @@ namespace MFR.Settings.Profiles.Serializers
         /// </returns>
         /// <remarks>
         /// If the <paramref name="pathname" /> parameter is not passed the fully-qualified
-        /// pathname of a file that exists on the disk, or if an error occurs during the
+        /// pathname of a file that exists on the file system, or if an error occurs during the
         /// execution of the <c>Load</c> operation, then the empty collection is returned.
         /// </remarks>
         public static IProfileCollection Load(string pathname)
@@ -86,7 +86,7 @@ namespace MFR.Settings.Profiles.Serializers
         /// the
         /// <see
         ///     cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// interface, containing the data to be written to the disk.
+        /// interface, containing the data to be written to the file system.
         /// </param>
         public static void Save(string pathname, IProfileCollection profileList)
         {

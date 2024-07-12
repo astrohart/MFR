@@ -81,7 +81,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
         /// If successful, a <see cref="T:System.String" /> that contains the
         /// default fully-qualified pathname of the <c>profiles.json</c> value that should
         /// be used as a fallback in the event that a <c>profiles.json</c> file cannot be
-        /// located either on the disk or in the system Registry.
+        /// located either on the file system or in the system Registry.
         /// </returns>
         /// <remarks>
         /// Configuration profiles let the user save a set of their previously-used

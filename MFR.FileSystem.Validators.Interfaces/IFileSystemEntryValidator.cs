@@ -17,7 +17,7 @@ namespace MFR.FileSystem.Validators.Interfaces
         /// Determines whether the specified file-system s
         /// <paramref
         ///     name="entry" />
-        /// exists on the disk.
+        /// exists on the file system.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
@@ -25,7 +25,7 @@ namespace MFR.FileSystem.Validators.Interfaces
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the file-system <paramref name="entry" />
-        /// exists on the disk; <see langword="false" /> otherwise.
+        /// exists on the file system; <see langword="false" /> otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameter, <paramref name="entry" />, is
@@ -35,7 +35,7 @@ namespace MFR.FileSystem.Validators.Interfaces
 
         /// <summary>
         /// Determines whether a file system <paramref name="entry" /> exists on
-        /// the disk at the pathname indicated.
+        /// the file system at the pathname indicated.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements
@@ -46,13 +46,13 @@ namespace MFR.FileSystem.Validators.Interfaces
         /// <remarks>
         /// If the properties of the <paramref name="entry" /> have valid data
         /// and the path stored in the entry refers to a file-system object that
-        /// exists on the disk, then this method returns <see langword="true" />.
+        /// exists on the file system, then this method returns <see langword="true" />.
         /// <para />
         /// If an object instance variable or property has a
         /// <see
         ///     langword="null" />
         /// reference, or if the path stored in the entry
-        /// refers to a file-system object that does not exist on the disk, then
+        /// refers to a file-system object that does not exist on the file system, then
         /// this method returns <see langword="false" />.
         /// </remarks>
         bool IsValid(IFileSystemEntry entry);
@@ -62,7 +62,7 @@ namespace MFR.FileSystem.Validators.Interfaces
         /// <paramref name="path" /> should be skipped during an operation.
         /// </summary>
         /// <param name="path">
-        /// (Required.) String containing the pathname on the disk of the
+        /// (Required.) String containing the pathname on the file system of the
         /// file-system entry that is to potentially be skipped.
         /// </param>
         /// <returns>

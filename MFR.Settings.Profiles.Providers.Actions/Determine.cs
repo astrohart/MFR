@@ -15,7 +15,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Determines whether a user-submitted path, or the pathname stored in the system
         /// Registry, is the correct pathname to be utilized for saving out
-        /// config-setting profiles to the disk with.
+        /// config-setting profiles to the file system with.
         /// </summary>
         /// <param name="pathnameFromRegistry">
         /// (Required.) A <see cref="T:System.String" />
@@ -35,7 +35,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <para />
         /// Neither the <paramref name="submittedPathname" />  nor the
         /// <paramref name="pathnameFromRegistry" /> have to represent a file that exists
-        /// on the disk, since, if this the case, the file will be created by the Save
+        /// on the file system, since, if this the case, the file will be created by the Save
         /// operation.
         /// </remarks>
         public static string CorrectProfileListPathForSaving(
@@ -66,7 +66,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Returns a value that indicates whether the specified
         /// <paramref name="pathname" /> is valid for use in saving the user's favorite
-        /// config-setting profiles out to the disk.
+        /// config-setting profiles out to the file system.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
@@ -121,7 +121,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <remarks>
         /// In order to be valid, the specified <paramref name="pathname" /> must
         /// not be blank, must contain the fully-qualified pathname of a file that exists
-        /// on the disk; and the filename of the file must be <c>profiles.json</c>.
+        /// on the file system; and the filename of the file must be <c>profiles.json</c>.
         /// </remarks>
         public static bool WhetherProfileListPathIsValid(string pathname)
         {

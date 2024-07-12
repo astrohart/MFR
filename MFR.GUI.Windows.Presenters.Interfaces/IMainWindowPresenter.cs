@@ -79,7 +79,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// <summary>
         /// Occurs when the config has been imported successfully
         /// from a
-        /// file on the disk.
+        /// file on the file system.
         /// </summary>
         event ConfigurationImportedEventHandler ConfigurationImported;
 
@@ -177,7 +177,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// </param>
         /// <remarks>
         /// If a file having the specified <paramref name="pathname" /> already
-        /// exists on the disk at the time the export operation is performed, it will be
+        /// exists on the file system at the time the export operation is performed, it will be
         /// overwritten.
         /// </remarks>
         void ExportConfiguration(string pathname);

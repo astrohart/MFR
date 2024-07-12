@@ -82,7 +82,7 @@ namespace MFR.Directories.Validators
         /// A "root directory" is defined to be the starting folder of a
         /// project-rename operation.
         /// <para />
-        /// It must exist on the disk, and it must contain a Visual Studio
+        /// It must exist on the file system, and it must contain a Visual Studio
         /// Solution (*.sln) file.
         /// </summary>
         /// <param name="rootDirectory">
@@ -150,7 +150,7 @@ namespace MFR.Directories.Validators
                  * the folder in which a project-rename operation starts.
                  * In order for the pathname to such a folder to be valid,
                  * it has to refer to the pathname of a folder that actually
-                 * exists on the disk (minor detail), and one which
+                 * exists on the file system (minor detail), and one which
                  * contains at least one Visual Studio Solution (*.sln) file.
                  */
 
@@ -201,7 +201,7 @@ namespace MFR.Directories.Validators
 
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"*** ERROR *** We weren't able to locate the folder '{directoryToUse}' on the disk..."
+                        $"*** ERROR *** We weren't able to locate the folder '{directoryToUse}' on the file system..."
                     );
 
                     DebugUtils.WriteLine(

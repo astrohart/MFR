@@ -13,17 +13,17 @@ namespace MFR.Settings.Configuration.Serializers
 {
     /// <summary>
     /// Provides helper methods for storing the config data to, and
-    /// loading it from, a file on the disk.
+    /// loading it from, a file on the file system.
     /// </summary>
     public static class ConfigurationSerializer
     {
         /// <summary>
-        /// Loads the config data from the file on the disk that has the
+        /// Loads the config data from the file on the file system that has the
         /// specified <paramref name="pathname" />.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) String containing the fully-qualified pathname of a
-        /// JSON-formatted data file on the disk that contains the config data.
+        /// JSON-formatted data file on the file system that contains the config data.
         /// </param>
         /// <returns>
         /// Reference to an instance of an object that implements the

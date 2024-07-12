@@ -71,7 +71,7 @@ namespace MFR.FileSystem.Retrievers.Interfaces
         /// Thrown if the folder whose pathname is specified by the '
         /// <paramref
         ///     name="rootFolderPath" />
-        /// ' parameter cannot be located on the disk.
+        /// ' parameter cannot be located on the file system.
         /// </exception>
         IEnumerable<IFileSystemEntry> GetMatchingFileSystemPaths(
             string rootFolderPath, Predicate<string> pathFilter = null);

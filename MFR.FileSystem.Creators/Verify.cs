@@ -26,7 +26,7 @@ namespace MFR.FileSystem.Creators
         /// </exception>
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if the folder whose path is <paramref name="containingFolderName" />
-        /// does not exist on the disk when it is supposed to.
+        /// does not exist on the file system when it is supposed to.
         /// </exception>
         public static void FolderWasCreated(string containingFolderName)
         {

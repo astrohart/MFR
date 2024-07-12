@@ -69,7 +69,7 @@ namespace MFR.Services.Solutions.Interfaces
         /// </exception>
         /// <exception cref="T:DirectoryNotFoundException">
         /// Thrown if the directory whose fully-qualified path is passed in the
-        /// <paramref name="folder" /> parameter cannot be found on the disk.
+        /// <paramref name="folder" /> parameter cannot be found on the file system.
         /// </exception>
         IReadOnlyList<IVisualStudioSolution> GetLoadedSolutionsInFolder(
             string folder);

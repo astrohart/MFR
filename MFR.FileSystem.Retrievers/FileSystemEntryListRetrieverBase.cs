@@ -232,7 +232,7 @@ namespace MFR.FileSystem.Retrievers
         /// Thrown if the folder whose pathname is specified by the '
         /// <paramref
         ///     name="rootFolderPath" />
-        /// ' parameter cannot be located on the disk.
+        /// ' parameter cannot be located on the file system.
         /// </exception>
         public IEnumerable<IFileSystemEntry> GetMatchingFileSystemPaths(
             string rootFolderPath,
@@ -457,7 +457,7 @@ namespace MFR.FileSystem.Retrievers
         /// <paramref
         ///     name="rootFolderPath" />
         /// parameter contains a fully-qualified
-        /// pathname of a folder that exists on the disk, and that the
+        /// pathname of a folder that exists on the file system, and that the
         /// <see
         ///     cref="P:MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig" />
         /// property is set to a valid object instance reference.

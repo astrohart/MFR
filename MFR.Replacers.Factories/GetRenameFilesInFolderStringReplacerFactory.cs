@@ -8,7 +8,7 @@ namespace MFR.Replacers.Factories
     /// <see cref="T:MFR.Replacers.Factories.Interfaces.IStringReplacerFactory" />
     /// interface that creates instances of objects that are responsible for replacing
     /// the text in the filenames of files that exist in a specific directory tree on
-    /// the disk.
+    /// the file system.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class GetRenameFilesInFolderStringReplacerFactory
@@ -23,7 +23,7 @@ namespace MFR.Replacers.Factories
         /// <see cref="T:MFR.Replacers.Factories.Interfaces.IStringReplacerFactory" />
         /// interface that creates instances of objects that are responsible for replacing
         /// the text in the filenames of files that exist in a specific directory tree on
-        /// the disk.
+        /// the file system.
         /// </returns>
         public static IStringReplacerFactory SoleInstance()
             => RenameFilesInFolderStringReplacerFactory.Instance;

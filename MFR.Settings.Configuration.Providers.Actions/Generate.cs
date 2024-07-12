@@ -28,7 +28,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// </returns>
         /// <remarks>
         /// This method checks whether the file having the specified
-        /// <paramref name="pathname" /> exists on the disk or not, and has the filename
+        /// <paramref name="pathname" /> exists on the file system or not, and has the filename
         /// <c>config.json</c> before creating a new file system entry object.
         /// </remarks>
         public static IFileSystemEntry FileSystemEntryForConfiguration(
@@ -57,17 +57,17 @@ namespace MFR.Settings.Configuration.Providers.Actions
 
         /// <summary>
         /// Generates a new <c>Action</c> object that loads the config data from a
-        /// file on the disk.
+        /// file on the file system.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface that
-        /// contains the fully-qualified pathname of a file on the disk that contains
+        /// contains the fully-qualified pathname of a file on the file system that contains
         /// application config data.
         /// </param>
         /// <returns>
         /// A new <c>Action</c> object that loads the config data from a
-        /// file on the disk.
+        /// file on the file system.
         /// </returns>
         public static
             IAction<IFileSystemEntry, IProjectFileRenamerConfig>
@@ -82,7 +82,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
                  * OKAY, only use the pathname provided to this method as
                  * input for the load config from file action if it
                  * contains the fully-qualified pathname of a file that actually
-                 * exists on the disk and has a filename of config.json.
+                 * exists on the file system and has a filename of config.json.
                  */
 
                 if (entry == null) return result;

@@ -1288,7 +1288,7 @@ namespace MFR.GUI.Windows
         /// A <see cref="T:System.EventArgs" /> that contains the event
         /// data.
         /// </param>
-        /// <remarks>This method responds by saving the configuration to the disk.</remarks>
+        /// <remarks>This method responds by saving the configuration to the file system.</remarks>
         private void OnFileSave(object sender, EventArgs e)
         {
             UseWaitCursor = true;
@@ -2244,7 +2244,7 @@ namespace MFR.GUI.Windows
             /// <remarks>
             /// This method also returns <see langword="false" /> if the
             /// <paramref name="pathname" /> that is passed is blank, <see langword="null" />,
-            /// or refers to a file that does actually exist on the disk.
+            /// or refers to a file that does actually exist on the file system.
             /// </remarks>
             internal static bool SolutionFIle(string pathname)
             {

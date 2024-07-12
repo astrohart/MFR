@@ -23,16 +23,16 @@ namespace MFR.Messages.Actions.Interfaces
     /// </item>
     /// <item>
     /// <term>Load from Configuration File</term>
-    /// <description>Loads configuration from a file on the disk.</description>
+    /// <description>Loads configuration from a file on the file system.</description>
     /// </item>
     /// <item>
     /// <term>Save to Configuration File</term>
-    /// <description>Saves configuration to a file on the disk.</description>
+    /// <description>Saves configuration to a file on the file system.</description>
     /// </item>
     /// <item>
     /// <term>Import Configuration from File</term>
     /// <description>
-    /// Imports configuration settings from a file on the disk.
+    /// Imports configuration settings from a file on the file system.
     /// </description>
     /// </item>
     /// <item>

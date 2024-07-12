@@ -35,7 +35,7 @@ namespace MFR.Directories.Validators.Constants
 
         /// <summary>
         /// Looks up a localized string similar to The specified directory
-        /// exists on the disk and contains a Visual Studio Solution (*.sln) file..
+        /// exists on the file system and contains a Visual Studio Solution (*.sln) file..
         /// </summary>
         public static string RootDirectoryValid
         {

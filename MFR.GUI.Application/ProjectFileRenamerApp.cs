@@ -416,7 +416,7 @@ namespace MFR.GUI.Application
 
                 SetUpCommandLineValidation();
 
-                // Load the config from the disk.
+                // Load the config from the file system.
                 ProfileProvider.Load();
 
                 ConfigProvider.Load();

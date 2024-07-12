@@ -61,14 +61,14 @@ namespace MFR.Directories.Validators.Actions
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"Search.ForFilesHavingExtension *** INFO: Checking whether the folder with path '{folder}' exists on the disk..."
+                    $"Search.ForFilesHavingExtension *** INFO: Checking whether the folder with path '{folder}' exists on the file system..."
                 );
 
                 if (!Does.FolderExist(folder))
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"Search.ForFilesHavingExtension: *** ERROR *** The system could not locate the folder having the path '{folder}' on the disk.  This folder is required to exist in order for us to proceed."
+                        $"Search.ForFilesHavingExtension: *** ERROR *** The system could not locate the folder having the path '{folder}' on the file system.  This folder is required to exist in order for us to proceed."
                     );
 
                     DebugUtils.WriteLine(
@@ -81,7 +81,7 @@ namespace MFR.Directories.Validators.Actions
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"Search.ForFilesHavingExtension: *** SUCCESS *** The folder with path '{folder}' was found on the disk.  Proceeding..."
+                    $"Search.ForFilesHavingExtension: *** SUCCESS *** The folder with path '{folder}' was found on the file system.  Proceeding..."
                 );
 
                 // Dump the parameter extensionPattern to the log

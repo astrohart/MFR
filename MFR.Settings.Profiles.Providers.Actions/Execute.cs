@@ -15,7 +15,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Attempts to execute the operation of loading a new
         /// <see cref="T:MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection" />
-        /// from a file on the disk.
+        /// from a file on the file system.
         /// </summary>
         /// <param name="action">
         /// (Required.) Reference to an <c>Action</c> object that,

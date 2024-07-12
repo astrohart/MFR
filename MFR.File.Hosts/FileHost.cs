@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
+using System.Threading;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.File.Hosts
@@ -47,7 +48,8 @@ namespace MFR.File.Hosts
         }
 
         /// <summary>
-        /// Gets or sets a <see cref="T:System.Text.Encoding"/> value that describes the encoding of the file.
+        /// Gets or sets a <see cref="T:System.Text.Encoding" /> value that describes the
+        /// encoding of the file.
         /// </summary>
         public Encoding Encoding
         {
@@ -113,9 +115,17 @@ namespace MFR.File.Hosts
         /// </summary>
         public void Dispose()
         {
-            Accessor?.Dispose();
-            MemoryMappedData?.Dispose();
-            Stream?.Dispose();
+            try
+            {
+                Accessor?.Dispose();
+                MemoryMappedData?.Dispose();
+                Stream?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -145,6 +155,9 @@ namespace MFR.File.Hosts
                 Accessor = MemoryMappedData.CreateViewAccessor(
                     0, OriginalLength, MemoryMappedFileAccess.ReadWrite
                 );
+
+                // let the system catch up
+                Thread.Sleep(50);
             }
             catch (Exception ex)
             {

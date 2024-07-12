@@ -67,7 +67,7 @@ namespace MFR.Paths.Profiles.Provider.Actions
              * value in case we otherwise fail.
              *
              * If the path listed in the argument of the currentPathname
-             * parameter refers to a file on the disk that exists, then simply
+             * parameter refers to a file on the file system that exists, then simply
              * return that pathname.  Otherwise, try to load the profiles.json
              * file's pathname from the system Registry.
              */

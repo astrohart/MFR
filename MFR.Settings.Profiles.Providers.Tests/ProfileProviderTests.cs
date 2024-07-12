@@ -130,7 +130,7 @@ namespace MFR.Settings.Profiles.Providers.Tests
             Assert.That(countAfterAdding, Is.EqualTo(3));
 
             /*
-             * Now, save the Profiles to the disk. Assert that no exceptions
+             * Now, save the Profiles to the file system. Assert that no exceptions
              * are thrown during the course of the operation.
              */
 

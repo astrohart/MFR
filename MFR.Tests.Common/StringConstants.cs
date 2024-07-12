@@ -189,7 +189,7 @@ namespace MFR.Tests.Common
         /// String consisting of the path to a file. The path contains only
         /// unique identifiers for folder and filename components -- which are
         /// regenerated each time this constant is referred to --so the file
-        /// referenced is, more or less, guaranteed not to exist on the disk.
+        /// referenced is, more or less, guaranteed not to exist on the file system.
         /// </summary>
         public static readonly string NONEXISTENT_FILE =
             $@"C:\{Guid.NewGuid():N}\{Guid.NewGuid():N}\{Guid.NewGuid():N}.{Guid.NewGuid():N}";

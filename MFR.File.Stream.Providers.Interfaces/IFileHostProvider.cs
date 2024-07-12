@@ -94,7 +94,7 @@ namespace MFR.File.Stream.Providers.Interfaces
         string GetPathnameForTicket(Guid ticket);
 
         /// <summary>
-        /// Given a fully-qualified <paramref name="pathname" /> of a file on the disk,
+        /// Given a fully-qualified <paramref name="pathname" /> of a file on the file system,
         /// upon which a file stream has been opened, or we think has been opened, and
         /// finds the corresponding ticket that can be redeemed to access a reference
         /// to that stream. .

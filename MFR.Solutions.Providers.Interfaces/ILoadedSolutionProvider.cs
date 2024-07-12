@@ -65,7 +65,7 @@ namespace MFR.Solutions.Providers.Interfaces
         /// specified by the user for this application to execute, start.
         /// <para />
         /// If the argument of the <paramref name="pathname" /> parameter does not refer to
-        /// a folder that exists on the disk, then this method does nothing.
+        /// a folder that exists on the file system, then this method does nothing.
         /// <para />
         /// When this method has updated the value of the
         /// <see

@@ -12,15 +12,15 @@ namespace MFR.Services.Solutions.Actions
     {
         /// <summary>
         /// Checks the specified <paramref name="pathname" /> to check whether it's the
-        /// pathname of a folder that exists on the disk.
+        /// pathname of a folder that exists on the file system.
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a folder that exists on the disk.
+        /// pathname of a folder that exists on the file system.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the <paramref name="pathname" /> refers to
-        /// a folder that exists on the disk; <see langword="false" /> otherwise, or if the
+        /// a folder that exists on the file system; <see langword="false" /> otherwise, or if the
         /// <paramref name="pathname" /> parameter's argument is a <see langword="null" />
         /// reference or a blank <see cref="T:System.String" />.
         /// </returns>

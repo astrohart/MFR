@@ -15,7 +15,7 @@ namespace MFR.Renamers.Files.Actions
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a file that is to be deleted from the disk.
+        /// pathname of a file that is to be deleted from the file system.
         /// </param>
         /// <remarks>
         /// If the file having the specified <paramref name="pathname" /> does not

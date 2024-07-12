@@ -211,7 +211,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <see
         ///     cref="M:MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip" />
         /// method returns <see langword="true" /> when passed the pathname of a
-        /// file that is guaranteed not to exist on the disk.
+        /// file that is guaranteed not to exist on the file system.
         /// </summary>
         [Test]
         public void Test_ShouldSkip_ReturnsTrue_ForPathOfNonExistentFile()

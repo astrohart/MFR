@@ -20,7 +20,7 @@ namespace MFR.Settings.Configuration.Providers.Actions
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a <c>config.json</c> file on the disk from which the application
+        /// pathname of a <c>config.json</c> file on the file system from which the application
         /// config is to be loaded.
         /// </param>
         /// <returns>

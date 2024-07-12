@@ -493,7 +493,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// which searches should be started.
         /// <para />
         /// The fully-qualified pathname passed must reference a folder that currently
-        /// exists on the disk; otherwise,
+        /// exists on the file system; otherwise,
         /// <see cref="T:System.IO.DirectoryNotFoundException" /> is thrown.
         /// </param>
         /// <exception cref="T:System.ArgumentException">
@@ -503,7 +503,7 @@ namespace MFR.Renamers.Files.Interfaces
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder whose fully-qualified pathname is passed in the
-        /// <paramref name="path" /> parameter cannot be located on the disk.
+        /// <paramref name="path" /> parameter cannot be located on the file system.
         /// </exception>
         /// <remarks>
         /// Upon successful validation of the fully-qualified folder pathname that is

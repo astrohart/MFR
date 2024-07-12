@@ -40,7 +40,7 @@ namespace MFR.FileSystem.Validators
         /// <paramref name="path" /> should be skipped during an operation.
         /// </summary>
         /// <param name="path">
-        /// (Required.) String containing the pathname on the disk of the
+        /// (Required.) String containing the pathname on the file system of the
         /// file-system entry that is to potentially be skipped.
         /// </param>
         /// <returns>

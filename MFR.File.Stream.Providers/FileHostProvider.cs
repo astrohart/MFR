@@ -44,11 +44,16 @@ namespace MFR.File.Stream.Providers
 
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
-        /// fully-qualified pathname of the associated file on the disk.
+        /// fully-qualified pathname of the associated file on the file system.
         /// </summary>
         [Reference]
         private readonly IDictionary<Guid, string> _mapOfTicketsToPathnames =
             new AdvisableDictionary<Guid, string>();
+
+        /// <summary>
+        /// Keeps track of whether this object has been disposed.
+        /// </summary>
+        private bool _disposed;
 
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -82,6 +87,25 @@ namespace MFR.File.Stream.Providers
             => _internalCollection;
 
         /// <summary>
+        /// Gets a value indicating whether this object has been disposed.
+        /// </summary>
+        /// <remarks>
+        /// If the value of this property is set to <see langword="true" />, then
+        /// the
+        /// <see cref="E:xyLOGIX.TicketedProvider.TicketedObjectProviderBase`1.Disposed" />
+        /// event is raised.
+        /// </remarks>
+        public override bool IsDisposed
+        {
+            get => _disposed;
+            protected set {
+                var changed = value && !_disposed.Equals(value);
+                _disposed = value;
+                if (changed) OnDisposed();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets a <see cref="T:System.String" /> containing the most-recently
         /// removed pathname of a file stream mapped to a given ticket.
         /// </summary>
@@ -101,7 +125,7 @@ namespace MFR.File.Stream.Providers
 
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
-        /// fully-qualified pathname of the associated file on the disk.
+        /// fully-qualified pathname of the associated file on the file system.
         /// </summary>
         private IDictionary<Guid, string> MapOfTicketsToPathnames
             => _mapOfTicketsToPathnames;
@@ -209,7 +233,8 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Given a fully-qualified <paramref name="pathname" /> of a file on the disk,
+        /// Given a fully-qualified <paramref name="pathname" /> of a file on the file
+        /// system,
         /// upon which a file stream has been opened, or we think has been opened, and
         /// finds the corresponding ticket that can be redeemed to access a reference
         /// to that stream. .
@@ -319,15 +344,19 @@ namespace MFR.File.Stream.Providers
                     newFileHost = MakeNewFileHost.ForPath(pathname)
                                                  .HavingEncoding(fileEncoding)
                                                  .AndStream(
-                                                     Measure.FileLength(pathname) > 0L ?
-                                                     Alphaleonis.Win32
-                                                         .Filesystem.File.Open(
-                                                             pathname,
-                                                             FileMode.Open,
-                                                             FileAccess
-                                                                 .ReadWrite,
-                                                             FileShare.None
-                                                         ) : System.IO.Stream.Null
+                                                     Measure.FileLength(
+                                                         pathname
+                                                     ) > 0L
+                                                         ? Alphaleonis.Win32
+                                                             .Filesystem.File
+                                                             .Open(
+                                                                 pathname,
+                                                                 FileMode.Open,
+                                                                 FileAccess
+                                                                     .ReadWrite,
+                                                                 FileShare.None
+                                                             )
+                                                         : System.IO.Stream.Null
                                                  );
                     if (newFileHost == null)
                         OnFileHostCreateFailed(
@@ -342,9 +371,7 @@ namespace MFR.File.Stream.Providers
 
                 result = Store(newFileHost);
 
-                OnFileHostCreated(
-                    pathname, result
-                );
+                OnFileHostCreated(pathname, result);
             }
             catch (Exception ex)
             {
@@ -468,12 +495,19 @@ namespace MFR.File.Stream.Providers
         }
 
         /// <summary>
-        /// Called when a <c>File Host</c> object instance is freshly created for the file having the specified <paramref name="pathname"/> and corresponding to the specified <paramref name="ticket"/>.
+        /// Called when a <c>File Host</c> object instance is freshly created for the file
+        /// having the specified <paramref name="pathname" /> and corresponding to the
+        /// specified <paramref name="ticket" />.
         /// </summary>
         /// <param name="pathname">
-        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified pathname of a file for which a new <c>File Host</c> object instance has just been created.
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a file for which a new <c>File Host</c> object instance has just
+        /// been created.
         /// </param>
-        /// <param name="ticket">(Required.) A <see cref="T:System.Guid"/> value that corresponds to the new <c>File Host</c> </param>
+        /// <param name="ticket">
+        /// (Required.) A <see cref="T:System.Guid" /> value that
+        /// corresponds to the new <c>File Host</c>
+        /// </param>
         protected virtual void OnFileHostCreated(string pathname, Guid ticket)
             /*
              * Tie together the pathname with the new ticket.
@@ -515,9 +549,9 @@ namespace MFR.File.Stream.Providers
 
             try
             {
-                if (e.Value == null) return;
+                if (e.ObjectToDispose == null) return;
 
-                e.Value.Dispose();
+                e.ObjectToDispose.Dispose();
             }
             catch (Exception ex)
             {
@@ -553,7 +587,8 @@ namespace MFR.File.Stream.Providers
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that
-        /// contains the fully-qualified pathname of a file on the disk, on which a file
+        /// contains the fully-qualified pathname of a file on the file system, on which a
+        /// file
         /// stream has been opened and which has the specified <paramref name="ticket" />.
         /// </param>
         /// <param name="ticket">

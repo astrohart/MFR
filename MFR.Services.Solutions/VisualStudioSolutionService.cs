@@ -98,12 +98,12 @@ namespace MFR.Services.Solutions
                 /*
                  * If the value of the folder parameter is blank, or it
                  * contains a value that is not the fully-qualified pathname
-                 * of a folder that exists on the disk, attempt to utilize
+                 * of a folder that exists on the file system, attempt to utilize
                  * the value of the FolderToSearch property.
                  *
                  * If THAT property is blank or contains a value that is
                  * not the fully-qualified pathname of a folder that exists
-                 * on the disk, then unfortunately, we are screwed.
+                 * on the file system, then unfortunately, we are screwed.
                  */
 
                 DebugUtils.WriteLine(
@@ -131,7 +131,7 @@ namespace MFR.Services.Solutions
                     {
                         DebugUtils.WriteLine(
                             DebugLevel.Error,
-                            $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' cannot be located on the disk."
+                            $"VisualStudioSolutionService.ContainsLoadedSolutions: The folder '{folder}' cannot be located on the file system."
                         );
                         return result;
                     }
@@ -187,7 +187,7 @@ namespace MFR.Services.Solutions
         /// </exception>
         /// <exception cref="T:DirectoryNotFoundException">
         /// Thrown if the directory whose fully-qualified path is passed in the
-        /// <paramref name="folder" /> parameter cannot be found on the disk.
+        /// <paramref name="folder" /> parameter cannot be found on the file system.
         /// </exception>
         public IReadOnlyList<IVisualStudioSolution> GetLoadedSolutionsInFolder(
             string folder

@@ -110,7 +110,7 @@ namespace MFR.Paths.Config.Provider.Actions
                  * Whether File.Exists(configFileSystemEntry.Path)
                  * returns true or not, at this juncture, is irrelevant, we just
                  * need a fucking pathname here, and we can check whether it refers
-                 * to a file that exists on the disk, some other time.
+                 * to a file that exists on the file system, some other time.
                  */
 
                 result = configFileSystemEntry.Path;

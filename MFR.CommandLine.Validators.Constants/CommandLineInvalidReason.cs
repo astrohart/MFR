@@ -24,7 +24,7 @@ namespace MFR.CommandLine.Validators.Constants
         RootDirectoryDoesntContainSolution,
 
         /// <summary>
-        /// The starting folder whose pathname was provided does not exist on the disk.
+        /// The starting folder whose pathname was provided does not exist on the file system.
         /// </summary>
         RootDirectoryDoesntExist,
 

@@ -27,7 +27,7 @@ namespace MFR.Directories.Validators.Interfaces
         /// A "root directory" is defined to be the starting folder of a
         /// project-rename operation.
         /// <para />
-        /// It must exist on the disk, and it must contain a Visual Studio
+        /// It must exist on the file system, and it must contain a Visual Studio
         /// Solution (*.sln) file.
         /// </summary>
         /// <param name="rootDirectory">

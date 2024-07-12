@@ -24,7 +24,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <see
         ///     cref="M:MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist" />
         /// method returns <see langword="false" /> when the folder path provided
-        /// to the method as its argument does not, in fact, exist on the disk.
+        /// to the method as its argument does not, in fact, exist on the file system.
         /// </summary>
         [Test]
         public void
@@ -49,7 +49,7 @@ namespace MFR.FileSystem.Validators.Tests
         /// <see
         ///     cref="M:MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist" />
         /// method returns <see langword="true" /> when provided with the path to
-        /// a folder on the disk that is guaranteed to exist.
+        /// a folder on the file system that is guaranteed to exist.
         /// </summary>
         [Test]
         public void Test_DoesExist_ReturnsTrue_WhenProvidedFolderPath_Exists()

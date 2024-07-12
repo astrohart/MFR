@@ -25,7 +25,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// </param>
         /// <returns>
         /// If the <paramref name="pathname" /> refers to a <c>profiles.json</c>
-        /// file that exists on the disk, then a new reference to an instance of an object
+        /// file that exists on the file system, then a new reference to an instance of an object
         /// that implements the <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" />
         /// interface is returned; <see langword="null" /> is returned otherwise.
         /// </returns>
@@ -56,7 +56,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <summary>
         /// Generates a reference to an instance of an <c>Action</c> object that is
         /// responsible for executing the operation of loading the user's
-        /// config-setting profiles from the disk.
+        /// config-setting profiles from the file system.
         /// </summary>
         /// <param name="entry">
         /// (Required.) Reference to an instance of an object that
@@ -67,7 +67,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// <returns>
         /// If successful, a reference to an instance of an <c>Action</c> object
         /// that is responsible for executing the operation of loading the user's
-        /// config-setting profiles from the disk; <see langword="null" />
+        /// config-setting profiles from the file system; <see langword="null" />
         /// otherwise.
         /// </returns>
         public static IAction<IFileSystemEntry, IProfileCollection>
@@ -81,7 +81,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
                  * OKAY, only use the pathname provided to this method as
                  * input for the load profile list from file action if it
                  * contains the fully-qualified pathname of a file that actually
-                 * exists on the disk and has a filename of profiles.json.
+                 * exists on the file system and has a filename of profiles.json.
                  */
 
                 if (entry == null) return result;

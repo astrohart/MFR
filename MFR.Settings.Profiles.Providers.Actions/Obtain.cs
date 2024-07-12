@@ -6,7 +6,7 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Settings.Profiles.Providers.Actions
 {
     /// <summary>
-    /// Exposes static methods to load profiles from the disk.
+    /// Exposes static methods to load profiles from the file system.
     /// </summary>
     public static class Obtain
     {
@@ -17,7 +17,7 @@ namespace MFR.Settings.Profiles.Providers.Actions
         /// </summary>
         /// <param name="pathname">
         /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-        /// pathname of a <c>profiles.json</c> file on the disk from which profiles are to
+        /// pathname of a <c>profiles.json</c> file on the file system from which profiles are to
         /// be loaded.
         /// </param>
         /// <returns>

@@ -7,7 +7,7 @@ namespace MFR.File.Hosts.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed events, methods and properties of an object that
-    /// hosts a file during the <c>Replace Text in File</c> process..
+    /// hosts a file during the <c>Replace Text in File</c> process.
     /// </summary>
     public interface IFileHost : IDisposable
     {
