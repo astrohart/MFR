@@ -6,8 +6,9 @@ using MFR.Operations.Constants;
 using MFR.TextValues.Retrievers.Actions;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 
@@ -128,13 +129,13 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no config data is attached to this object.
         /// </exception>
-        protected override IEnumerable<IFileSystemEntry>
+        protected override IReadOnlyCollection<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(
                 string rootFolderPath,
                 Predicate<string> pathFilter = null
             )
         {
-            var result = new List<IFileSystemEntry>();
+            var result = new ConcurrentBag<IFileSystemEntry>();
 
             try
             {
@@ -149,35 +150,32 @@ namespace MFR.FileSystem.Retrievers
                  * call ToList etc.
                  */
 
-                foreach (var path in Enumerate.Files(
-                                                  rootFolderPath, SearchPattern,
-                                                  SearchOption,
-                                                  pathFilter
-                                              )
-                                              .AsParallel())
-                {
-                    if (!ShouldDoPath(path, pathFilter)) continue;
+                var fileSet = Enumerate.Files(
+                    rootFolderPath, SearchPattern, SearchOption,
+                    path => ShouldDoPath(path, pathFilter)
+                );
 
-                    var entry = MakeNewFileSystemEntry.ForPath(path);
-                    if (entry == null) continue;
-
-                    var ticket = Get.FileTicket(entry.Path);
-                    if (ticket.IsZero())
+                Parallel.ForEach(
+                    fileSet, path =>
                     {
-                        continue;
+                        var entry = MakeNewFileSystemEntry.ForPath(path);
+                        if (entry == null) return;
+
+                        var ticket = Get.FileTicket(entry.Path);
+                        if (ticket.IsZero()) return;
+
+                        entry.SetUserState(ticket);
+
+                        result.Add(entry);
                     }
-
-                    entry.SetUserState(ticket);
-
-                    result.Add(entry);
-                }
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = new List<IFileSystemEntry>();
+                result = new ConcurrentBag<IFileSystemEntry>();
             }
 
             return result;

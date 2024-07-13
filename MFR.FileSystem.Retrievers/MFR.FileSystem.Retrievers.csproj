@@ -125,6 +125,7 @@
     <None Include="key.snk" />
     <Compile Include="CommitPendingChangesRetriever.cs" />
     <Compile Include="CommitResultsToGitRetriever.cs" />
+    <Compile Include="CommitToGitRetrieverBase.cs" />
     <Compile Include="GlobalAspects.cs" />
     <Compile Include="FileAndFolderNameFileSystemEntryListRetrieverBase.cs" />
     <Compile Include="FilesToRenameRetriever.cs" />

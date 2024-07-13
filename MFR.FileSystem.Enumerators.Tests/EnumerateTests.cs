@@ -2,9 +2,11 @@ using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Enumerators.Tests.Constants;
 using NUnit.Framework;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MFR.FileSystem.Enumerators.Tests
 {
@@ -71,18 +73,27 @@ namespace MFR.FileSystem.Enumerators.Tests
         [Test]
         public void Test_Directories_Method_Works_TopDirectoryOnly()
         {
-            var folders = new List<string>();
+            var folders = new ConcurrentBag<string>();
 
             Assert.DoesNotThrow(
-                () => folders = Enumerate.Directories(
-                                             UnitTestStringConstants
-                                                 .FOLDER_TO_TEST, "*",
-                                             SearchOption.TopDirectoryOnly
-                                         )
-                                         .ToList()
+                () =>
+                {
+                    var folderSet = Enumerate.Directories(
+                        UnitTestStringConstants
+                            .FOLDER_TO_TEST, "*",
+                        SearchOption.TopDirectoryOnly
+                    );
+
+                    Parallel.ForEach(
+                        folderSet, path =>
+                        {
+                            folders.Add(path);
+                        }
+                    );
+                }
             );
 
-            Assert.That(folders.Any());
+            Assert.That(folders.ToArray().Length > 0);
 
             foreach (var folder in folders)
                 Console.WriteLine(folder);

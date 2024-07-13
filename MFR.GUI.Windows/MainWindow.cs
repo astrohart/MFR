@@ -2029,17 +2029,17 @@ namespace MFR.GUI.Windows
         /// </returns>
         private bool ShouldNotProceedDueToPotentialOverwrites()
         {
-            var result = true;
+            var result = false;
 
             try
             {
                 this.InvokeIfRequired(
                     () => result =
-                        xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                        DialogResult.No.Equals(xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
                             this,
                             Resources
                                 .Confirm_ReplaceTextThatWouldOverwriteExistingFiles
-                        ) == DialogResult.No
+                        ))
                 );
             }
             catch (Exception ex)

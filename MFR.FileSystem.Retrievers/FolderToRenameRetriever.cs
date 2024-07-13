@@ -5,8 +5,9 @@ using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Retrievers
@@ -17,7 +18,7 @@ namespace MFR.FileSystem.Retrievers
     /// </summary>
     public class
         FolderToRenameRetriever :
-            FileAndFolderNameFileSystemEntryListRetrieverBase
+        FileAndFolderNameFileSystemEntryListRetrieverBase
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
@@ -51,7 +52,9 @@ namespace MFR.FileSystem.Retrievers
         /// </summary>
         [Log(AttributeExclude = true)]
         public override OperationType OperationType
-            { get; } = OperationType.RenameSubFolders;
+        {
+            get;
+        } = OperationType.RenameSubFolders;
 
         /// <summary>
         /// Gets a list of the files that match the criteria specified by this
@@ -100,37 +103,38 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no config data is attached to this object.
         /// </exception>
-        protected override IEnumerable<IFileSystemEntry>
-            DoGetMatchingFileSystemPaths(string rootFolderPath,
-                Predicate<string> pathFilter = null)
+        protected override IReadOnlyCollection<IFileSystemEntry>
+            DoGetMatchingFileSystemPaths(
+                string rootFolderPath,
+                Predicate<string> pathFilter = null
+            )
         {
-            var result = new List<IFileSystemEntry>();
+            var result = new ConcurrentBag<IFileSystemEntry>();
 
             try
             {
-                // ReSharper disable once LoopCanBeConvertedToQuery
-                foreach (var path in Enumerate.Directories(
-                                                  rootFolderPath, SearchPattern,
-                                                  SearchOption,
-                                                  path => ShouldDoPath(
-                                                      path, pathFilter
-                                                  )
-                                              )
-                                              .AsParallel())
-                {
-                    var entry = MakeNewFileSystemEntry.ForPath(path);
-                    if (entry == null) continue;
-                    if (!SatisfiesSearchCritieria(entry)) continue;
+                var folderSet = Enumerate.Directories(
+                    rootFolderPath, SearchPattern, SearchOption,
+                    path => ShouldDoPath(path, pathFilter)
+                );
 
-                    result.Add(entry);
-                }
+                Parallel.ForEach(
+                    folderSet, path =>
+                    {
+                        var entry = MakeNewFileSystemEntry.ForPath(path);
+                        if (entry == null) return;
+                        if (!SatisfiesSearchCritieria(entry)) return;
+
+                        result.Add(entry);
+                    }
+                );
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = new List<IFileSystemEntry>();
+                result = new ConcurrentBag<IFileSystemEntry>();
             }
 
             return result;

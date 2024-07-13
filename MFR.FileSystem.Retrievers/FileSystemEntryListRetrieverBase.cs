@@ -136,7 +136,7 @@ namespace MFR.FileSystem.Retrievers
         /// A <see cref="T:System.IO.SearchOption" /> value to be utilized for
         /// file-system searches.
         /// </summary>
-        protected SearchOption SearchOption
+        protected virtual SearchOption SearchOption
         {
             get;
             set;
@@ -466,7 +466,7 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no config data is attached to this object.
         /// </exception>
-        protected abstract IEnumerable<IFileSystemEntry>
+        protected abstract IReadOnlyCollection<IFileSystemEntry>
             DoGetMatchingFileSystemPaths(
                 string rootFolderPath,
                 Predicate<string> pathFilter = null
@@ -616,7 +616,6 @@ namespace MFR.FileSystem.Retrievers
             try
             {
                 if (entry == null) return result;
-                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
                 if (!Does.FileSystemEntryExist(entry.Path)) return result;
 
                 result = TextExpressionMatchingEngineSays.IsMatch(

@@ -1,12 +1,13 @@
 using MFR.Directories.Managers.Interfaces;
 using MFR.FileSystem.Enumerators;
+using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
 
 namespace MFR.Directories.Managers
@@ -48,14 +49,15 @@ namespace MFR.Directories.Managers
         public IList<string> SearchDirectories
         {
             get;
-        } = new List<string>();
+        } = new AdvisableCollection<string>();
 
         /// <summary>
         /// Clears the list of search folders.
         /// </summary>
         public void Clear()
         {
-            if (SearchDirectories == null || !SearchDirectories.Any()) return;
+            if (SearchDirectories == null) return;
+            if (SearchDirectories.ToArray().Length == 0) return;
 
             SearchDirectories.Clear();
         }
@@ -85,14 +87,18 @@ namespace MFR.Directories.Managers
 
                 SearchDirectories.Clear();
 
-                var solutionFileList = Enumerate.Files(
+                var solutionFileSet = Enumerate.Files(
                     pathname, "*.sln", SearchOption.AllDirectories, pathFilter
-                );
-                if (solutionFileList == null || !solutionFileList.Any()) return;
+                ).Distinct();
 
-                SearchDirectories.AddRange(
-                    solutionFileList.Select(Path.GetDirectoryName)
-                                    .Distinct()
+                Parallel.ForEach(
+                    solutionFileSet, path =>
+                    {
+                        var solutionFolder = Path.GetDirectoryName(path);
+                        if (!Does.FolderExist(solutionFolder)) return;
+
+                        SearchDirectories.Add(solutionFolder);
+                    }
                 );
             }
             catch (Exception ex)

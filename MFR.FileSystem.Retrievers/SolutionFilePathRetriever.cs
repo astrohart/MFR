@@ -5,8 +5,10 @@ using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.FileSystem.Retrievers
@@ -212,26 +214,34 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="T:MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException">
         /// Thrown if no config data is attached to this object.
         /// </exception>
-        protected override IEnumerable<IFileSystemEntry>
-            DoGetMatchingFileSystemPaths(string rootFolderPath,
-                Predicate<string> pathFilter = null)
+        protected override IReadOnlyCollection<IFileSystemEntry>
+            DoGetMatchingFileSystemPaths(
+                string rootFolderPath,
+                Predicate<string> pathFilter = null
+            )
         {
-            var result = Enumerable.Empty<IFileSystemEntry>();
+            var result = new ConcurrentBag<IFileSystemEntry>();
 
             try
             {
-                result = Enumerate.Files(
-                                      rootFolderPath, SearchPattern,
-                                      SearchOption, pathFilter
-                                  )
-                                  .Select(MakeNewFileSystemEntry.ForPath);
+                var fileSet = Enumerate.Files(
+                    rootFolderPath, SearchPattern, SearchOption, pathFilter
+                );
+
+                Parallel.ForEach(fileSet, path =>
+                {
+                    var entry = MakeNewFileSystemEntry.ForPath(path);
+                    if (entry == null) return;
+
+                    result.Add(entry);
+                });
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = Enumerable.Empty<IFileSystemEntry>();
+                result = new ConcurrentBag<IFileSystemEntry>();
             }
 
             return result;
