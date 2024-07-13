@@ -111,11 +111,6 @@ namespace MFR.TextValues.Retrievers.Actions
 
                     result = string.Empty;
                 }
-                finally
-                {
-                    if (dispose)
-                        Dispose.FileStream(ticket);
-                }
 
             return result;
         }

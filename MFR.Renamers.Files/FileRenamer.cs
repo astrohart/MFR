@@ -1600,21 +1600,6 @@ namespace MFR.Renamers.Files
 
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
             }
-            finally
-            {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "FileRenamer.ReplaceTextInFiles: Attempting to dispose of all the file stream(s) in the File Host Provider..."
-                );
-
-                // free memory resources from the Replace Text In Files operation
-                FileHostProvider.DisposeAll();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "FileRenamer.ReplaceTextInFiles: *** SUCCESS *** All the stream(s) in the File Host Provider have been disposed of.  Proceeding..."
-                );
-            }
 
             if (AbortRequested)
                 throw new OperationAbortedException(
@@ -4710,9 +4695,13 @@ namespace MFR.Renamers.Files
                                    0, modifiedLength,
                                    MemoryMappedFileAccess.ReadWrite
                                ))
+                        {
                             Write.TextToMemory(
                                 fileHost.Encoding, newAccessor, newFileData
                             );
+
+                            newAccessor.Flush();
+                        }
                     }
                     else
                     {
