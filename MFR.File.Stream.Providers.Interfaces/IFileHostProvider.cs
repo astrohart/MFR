@@ -50,7 +50,7 @@ namespace MFR.File.Stream.Providers.Interfaces
         /// <see langword="null" /> or the empty collection, then this method returns the
         /// empty collection.
         /// </remarks>
-        IList<Guid> BatchOpenStreams(IList<string> pathnames);
+        IReadOnlyCollection<Guid> BatchOpenStreams(IReadOnlyCollection<string> pathnames);
 
         /// <summary>
         /// Disposes, i.e., closes the file and releases all resources, for the file stream

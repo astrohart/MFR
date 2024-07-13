@@ -86,11 +86,8 @@ namespace MFR.Directories.Managers
                 SearchDirectories.Clear();
 
                 var solutionFileList = Enumerate.Files(
-                                                    pathname, "*.sln",
-                                                    SearchOption.AllDirectories,
-                                                    pathFilter
-                                                )
-                                                .AsParallel();
+                    pathname, "*.sln", SearchOption.AllDirectories, pathFilter
+                );
                 if (solutionFileList == null || !solutionFileList.Any()) return;
 
                 SearchDirectories.AddRange(

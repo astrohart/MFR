@@ -2,13 +2,14 @@ using MFR.File.Hosts.Factories;
 using MFR.File.Hosts.Interfaces;
 using MFR.File.Stream.Providers.Events;
 using MFR.File.Stream.Providers.Interfaces;
-using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Model;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using xyLOGIX.Collections;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
@@ -32,7 +33,7 @@ namespace MFR.File.Stream.Providers
         /// </summary>
         [Reference]
         private readonly IDictionary<Guid, IFileHost> _internalCollection =
-            new AdvisableDictionary<Guid, IFileHost>();
+            new ObservableDictionary<Guid, IFileHost>();
 
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a file's pathname and a ticket that is
@@ -40,7 +41,7 @@ namespace MFR.File.Stream.Providers
         /// </summary>
         [Reference]
         private readonly IDictionary<string, Guid> _mapOfPathnamesToTickets =
-            new AdvisableDictionary<string, Guid>();
+            new ObservableDictionary<string, Guid>();
 
         /// <summary>
         /// Sets up a 1-to-1 correspondence between a specific file stream ticket and the
@@ -48,7 +49,7 @@ namespace MFR.File.Stream.Providers
         /// </summary>
         [Reference]
         private readonly IDictionary<Guid, string> _mapOfTicketsToPathnames =
-            new AdvisableDictionary<Guid, string>();
+            new ObservableDictionary<Guid, string>();
 
         /// <summary>
         /// Keeps track of whether this object has been disposed.
@@ -166,22 +167,27 @@ namespace MFR.File.Stream.Providers
         /// <see langword="null" /> or the empty collection, then this method returns the
         /// empty collection.
         /// </remarks>
-        public IList<Guid> BatchOpenStreams(IList<string> pathnames)
+        public IReadOnlyCollection<Guid> BatchOpenStreams(
+            IReadOnlyCollection<string> pathnames
+        )
         {
-            var result = new List<Guid>();
+            var result = new ConcurrentBag<Guid>();
 
             try
             {
-                if (pathnames == null || !pathnames.Any()) return result;
+                if (pathnames == null) return result;
+                if (pathnames.ToArray()
+                             .Length == 0) return result;
 
-                result.AddRange(pathnames.Select(OpenStreamFor));
+                result =
+                    new ConcurrentBag<Guid>(pathnames.Select(OpenStreamFor));
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = new List<Guid>();
+                result = new ConcurrentBag<Guid>();
             }
 
             return result;

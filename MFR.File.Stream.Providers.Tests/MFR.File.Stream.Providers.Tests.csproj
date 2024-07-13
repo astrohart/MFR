@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <SkipPostSharp>True</SkipPostSharp>
+    <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\MFR.File.Stream.Providers.Tests.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
@@ -176,6 +176,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
       <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Tests.Logging.VS2019\xyLOGIX.Tests.Logging\xyLOGIX.Tests.Logging.csproj">
+      <Project>{52243153-1A0D-409A-91A8-638DBD7CF23F}</Project>
+      <Name>xyLOGIX.Tests.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>

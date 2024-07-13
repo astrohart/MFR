@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Provides unit tests for the FileHostProvider object that allows us to open streams on many files at once and then use them later.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
+[assembly: AssemblyProduct("Unit Tests for the Project File Renamer File Host Provider")]
 [assembly:
     AssemblyCopyright(
 "Copyright © 2020-24 by xyLOGIX, LLC.  All rights reserved.")]
