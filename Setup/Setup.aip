@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8959.23279" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8959.39941" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -356,7 +356,12 @@
     <ROW Component="log4net.dll" ComponentId="{F27ADDD9-3370-45DA-94E5-AE074860086C}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
     <ROW Component="mfr.exe" ComponentId="{9132EC2B-533F-4742-A0A3-68CF02698C01}" Directory_="APPDIR" Attributes="256" KeyPath="mfr.exe"/>
     <ROW Component="xyLOGIX.Application.Semaphores.dll" ComponentId="{ECB84B15-1215-48E4-ACA9-092C16FBE0D2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Application.Semaphores.dll"/>
+    <ROW Component="xyLOGIX.Collections.Constants.dll" ComponentId="{C6FC862A-9BA5-40F4-AA32-30D6B53F9E07}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Constants.dll"/>
+    <ROW Component="xyLOGIX.Collections.Events.dll" ComponentId="{1FB0EBA3-5471-4600-93CD-1D6C630BBE99}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Events.dll"/>
+    <ROW Component="xyLOGIX.Collections.Interfaces.dll" ComponentId="{1362E11D-CEC2-4D92-915D-44F4157EB68C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Collections.Synchronized.dll" ComponentId="{E826207F-E5D9-43B3-A85F-C43FECAE224B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Synchronized.dll"/>
+    <ROW Component="xyLOGIX.Collections.Utilities.dll" ComponentId="{A3818F48-0687-48C9-A782-64A24DCECD57}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Utilities.dll"/>
+    <ROW Component="xyLOGIX.Collections.dll" ComponentId="{5CA6CB61-485A-4D76-A107-AF224987BEC7}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.dll"/>
     <ROW Component="xyLOGIX.Core.Assemblies.Info.dll" ComponentId="{57B5C12C-B6E7-4138-96B8-FB097B0C1D18}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Assemblies.Info.dll"/>
     <ROW Component="xyLOGIX.Core.Debug.dll" ComponentId="{6B731404-4F99-4A59-A308-91C82658A535}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Debug.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.Factories.dll" ComponentId="{18E465DE-A0E2-4216-B721-DD007D9F30E7}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.Factories.dll"/>
@@ -1257,6 +1262,16 @@
     <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~7.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
     <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTEM~8.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.ValueTuple.dll" SelfReg="false"/>
     <ROW File="TimeZoneConverter.dll" Component_="TimeZoneConverter.dll" FileName="TIMEZO~2.DLL|TimeZoneConverter.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\TimeZoneConverter.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Constants.dll" Component_="xyLOGIX.Collections.Constants.dll" FileName="XYLO~112.DLL|xyLOGIX.Collections.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Constants.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Constants.dll.config" Component_="config.json" FileName="XYLO~112.CON|xyLOGIX.Collections.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Constants.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.dll" Component_="xyLOGIX.Collections.dll" FileName="XYLO~113.DLL|xyLOGIX.Collections.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.dll.config" Component_="config.json" FileName="XYLO~113.CON|xyLOGIX.Collections.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Events.dll" Component_="xyLOGIX.Collections.Events.dll" FileName="XYLO~114.DLL|xyLOGIX.Collections.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Events.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Events.dll.config" Component_="config.json" FileName="XYLO~114.CON|xyLOGIX.Collections.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Events.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Interfaces.dll" Component_="xyLOGIX.Collections.Interfaces.dll" FileName="XYLO~115.DLL|xyLOGIX.Collections.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Interfaces.dll.config" Component_="config.json" FileName="XYLO~115.CON|xyLOGIX.Collections.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Utilities.dll" Component_="xyLOGIX.Collections.Utilities.dll" FileName="XYLO~116.DLL|xyLOGIX.Collections.Utilities.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Utilities.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Collections.Utilities.dll.config" Component_="config.json" FileName="XYLO~116.CON|xyLOGIX.Collections.Utilities.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Utilities.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1776,6 +1791,11 @@
     <ROW Feature_="MainFeature" Component_="System.Threading.Tasks.Extensions.dll"/>
     <ROW Feature_="MainFeature" Component_="System.ValueTuple.dll"/>
     <ROW Feature_="MainFeature" Component_="TimeZoneConverter.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Constants.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Events.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Utilities.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
