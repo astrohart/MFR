@@ -161,12 +161,9 @@ namespace MFR.FileSystem.Retrievers
                         var entry = MakeNewFileSystemEntry.ForPath(path);
                         if (entry == null) return;
 
-                        /*
-                         * NOTE: We are experiencing a severe performance degradation
-                         * with the previous approach of opening a huge number of file
-                         * streams and then using them later.  So, we have modified
-                         * this method to simply do a straight glob.
-                         */
+                        var ticket = Get.FileTicket(path);
+
+                        if (ticket.IsZero()) return;
 
                         result.Add(entry);
                     }
