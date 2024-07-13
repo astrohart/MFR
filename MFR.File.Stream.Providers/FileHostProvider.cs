@@ -220,12 +220,14 @@ namespace MFR.File.Stream.Providers
             try
             {
                 if (ticket.IsZero()) return result;
-                if (Count == 0) return result;
+                if (InternalCollection == null) return result;
+                if (InternalCollection.ToArray()
+                                      .Length == 0) return result;
                 if (MapOfTicketsToPathnames == null) return result;
-                if (!MapOfTicketsToPathnames.Any()) return result;
-                if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
-
-                result = MapOfTicketsToPathnames[ticket];
+                if (MapOfTicketsToPathnames.ToArray()
+                                           .Length == 0) return result;
+                if (!MapOfTicketsToPathnames.TryGetValue(ticket, out result))
+                    return result;
             }
             catch (Exception ex)
             {
@@ -266,17 +268,21 @@ namespace MFR.File.Stream.Providers
 
             try
             {
+                if (InternalCollection == null) return result;
+                if (InternalCollection.ToArray()
+                                      .Length == 0) return result;
+
                 if (string.IsNullOrWhiteSpace(pathname)) return result;
 
-                if (Count == 0) return result;
                 if (MapOfPathnamesToTickets == null) return result;
-                if (!MapOfPathnamesToTickets.Any()) return result;
-                if (!MapOfPathnamesToTickets.ContainsKey(pathname))
+                if (MapOfPathnamesToTickets.ToArray()
+                                           .Length == 0) return result;
+                if (!MapOfPathnamesToTickets.TryGetValue(pathname, out result))
                     return result;
 
                 /*
                  * OKAY, check whether there is an orphaned pathname-ticket association
-                 * present.  This true if there is/are entry(ies) in the maps of
+                 * present.  This is true if there is/are entry(ies) in the maps of
                  * pathnames to tickets or vice versa, but there is not an open file stream
                  * stored in our internal collection associated with the ticket that
                  * corresponds to the supplied pathname.
@@ -364,16 +370,17 @@ namespace MFR.File.Stream.Providers
                                                              )
                                                          : System.IO.Stream.Null
                                                  );
-                    if (newFileHost == null)
-                        OnFileHostCreateFailed(
-                            new FileHostCreateFailedEventArgs(
-                                pathname,
-                                new Exception(
-                                    $"Failed to open a new FileStream upon the file '{pathname}'."
-                                )
-                            )
-                        );
                 }
+
+                if (newFileHost == null)
+                    OnFileHostCreateFailed(
+                        new FileHostCreateFailedEventArgs(
+                            pathname,
+                            new Exception(
+                                $"Failed to open a new FileStream upon the file '{pathname}'."
+                            )
+                        )
+                    );
 
                 result = Store(newFileHost);
 
@@ -650,10 +657,11 @@ namespace MFR.File.Stream.Providers
                 var ticket = GetTicketForPathname(pathname);
                 if (ticket.IsZero()) return result;
 
-                if (Count == 0)
+                if (InternalCollection.ToArray()
+                                      .Length == 0)
                     return result;
 
-                result = InternalCollection.ContainsKey(ticket);
+                result = InternalCollection.TryGetValue(ticket, out _);
             }
             catch (Exception ex)
             {
@@ -689,15 +697,19 @@ namespace MFR.File.Stream.Providers
                 result = GetPathnameForTicket(ticket);
                 if (string.IsNullOrWhiteSpace(result)) return result;
                 if (MapOfTicketsToPathnames == null) return result;
-                if (!MapOfTicketsToPathnames.Any()) return result;
-                if (!MapOfTicketsToPathnames.ContainsKey(ticket)) return result;
+                if (MapOfTicketsToPathnames.ToArray()
+                                           .Length == 0) return result;
+                if (!MapOfTicketsToPathnames.TryGetValue(ticket, out result))
+                    return result;
 
                 lock (SyncRoot)
                     MapOfTicketsToPathnames.Remove(ticket);
 
                 if (MapOfPathnamesToTickets == null) return result;
-                if (!MapOfPathnamesToTickets.Any()) return result;
-                if (!MapOfPathnamesToTickets.ContainsKey(result)) return result;
+                if (MapOfPathnamesToTickets.ToArray()
+                                           .Length == 0) return result;
+                if (!MapOfPathnamesToTickets.TryGetValue(result, out _))
+                    return result;
 
                 lock (SyncRoot)
                     MapOfPathnamesToTickets.Remove(result);
