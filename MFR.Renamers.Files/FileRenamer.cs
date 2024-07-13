@@ -39,11 +39,13 @@ using MFR.TextValues.Retrievers.Factories;
 using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
@@ -1557,16 +1559,26 @@ namespace MFR.Renamers.Files
 
             try
             {
-                var executionResults = fileSystemEntries
-                                       .TakeWhile(entry => !AbortRequested)
-                                       .Select(
-                                           entry => ReplaceTextInFileForEntry(
-                                               findWhat, replaceWith, entry
-                                           )
-                                       )
-                                       .ToList();
+                var executionResults = new ConcurrentBag<bool>();
 
-                foreach (var executionResult in executionResults)
+                Parallel.ForEach(
+                    fileSystemEntries, (entry, state) =>
+                    {
+                        if (AbortRequested)
+                        {
+                            state.Stop();
+                            return;
+                        }
+
+                        executionResults.Add(
+                            ReplaceTextInFileForEntry(
+                                findWhat, replaceWith, entry
+                            )
+                        );
+                    }
+                );
+
+                foreach (var executionResult in executionResults.ToArray())
                     if (!executionResult)
                     {
                         result = false;
