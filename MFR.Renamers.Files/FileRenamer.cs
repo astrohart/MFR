@@ -1602,8 +1602,18 @@ namespace MFR.Renamers.Files
             }
             finally
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ReplaceTextInFiles: Attempting to dispose of all the file stream(s) in the File Host Provider..."
+                );
+
                 // free memory resources from the Replace Text In Files operation
                 FileHostProvider.DisposeAll();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ReplaceTextInFiles: *** SUCCESS *** All the stream(s) in the File Host Provider have been disposed of.  Proceeding..."
+                );
             }
 
             if (AbortRequested)
@@ -4716,8 +4726,6 @@ namespace MFR.Renamers.Files
                         // flush the accessor to be sure
                         fileHost.Accessor.Flush();
                     }
-
-                    fileHost.Dispose();
                 }
 
                 result = true;

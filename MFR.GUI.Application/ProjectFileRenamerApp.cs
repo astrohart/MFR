@@ -193,11 +193,54 @@ namespace MFR.GUI.Application
         /// </summary>
         private static void ExitApplication()
         {
-            ConfigProvider.Save();
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: Preparing to terminate the application..."
+                );
 
-            ProfileProvider.Save();
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: Attempting to save the user configuration settings..."
+                );
 
-            FileHostProvider.DisposeAll();
+                ConfigProvider.Save();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: *** SUCCESS *** User configuration settings have been SAVED.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: Attempting to save the configured profile(s)..."
+                );
+
+                ProfileProvider.Save();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: *** SUCCESS *** Configured profile(s) have been SAVED.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: Disposing of all the element(s) of the File Host Provider..."
+                );
+
+                FileHostProvider.DisposeAll();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ExitApplication: *** SUCCESS *** All File Host Provider element(s) have been disposed of."
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -422,7 +465,8 @@ namespace MFR.GUI.Application
                 ConfigProvider.Load();
 
                 var cmdInfo = ParseCommandLine(args);
-                if (cmdInfo != null && Does.DirectoryExist(cmdInfo.StartingFolder))
+                if (cmdInfo != null &&
+                    Does.DirectoryExist(cmdInfo.StartingFolder))
                     ConfigProvider.CurrentConfiguration.StartingFolder =
                         cmdInfo.StartingFolder;
 
