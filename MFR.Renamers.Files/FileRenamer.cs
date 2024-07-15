@@ -4626,10 +4626,14 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
                 if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-                    Guid.Empty.Equals(entry.UserState) ||
                     !Does.FileExist(entry.Path))
                     return result;
                 if (AbortRequested) return result;
+
+                var origFileInfo = new FileInfo(entry.Path);
+                if (!origFileInfo.Exists) return result;
+
+
 
                 OnProcessingOperation(
                     new ProcessingOperationEventArgs(
@@ -4669,14 +4673,8 @@ namespace MFR.Renamers.Files
                  */
                 if (!string.IsNullOrEmpty(newFileData))
                 {
-                    var fileTicket = (Guid)entry.UserState;
-
-                    var fileHost = FileHostProvider.Redeem(fileTicket);
-                    if (fileHost == null) return result;
-                    if (fileHost.Stream == null) return result;
-                    if (Stream.Null.Equals(fileHost.Stream)) return result;
-                    if (!(fileHost.Stream is FileStream fileStream))
-                        return result;
+                    var origLength = new FileInfo(entry.Path).Length;
+                    if (origLength <= 0) return result;
 
                     long modifiedLength =
                         fileHost.Encoding.GetByteCount(newFileData);
