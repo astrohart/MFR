@@ -1518,23 +1518,24 @@ namespace MFR.Renamers.Files
                     .AndAttachConfiguration(CurrentConfiguration);
             if (retriever == null) return result;
 
-            var fileSystemEntries = retriever.UsingSearchPattern("*")
-                                             .WithSearchOption(
-                                                 SearchOption.AllDirectories
-                                             )
-                                             .ToFindWhat(findWhat)
-                                             .AndReplaceItWith(replaceWith)
-                                             .GetMatchingFileSystemPaths(
-                                                 RootDirectoryPath, pathFilter
-                                             )
-                                             .ToList();
+            IList<IFileSystemEntry> fileSystemEntries = retriever
+                .UsingSearchPattern("*")
+                .WithSearchOption(SearchOption.AllDirectories)
+                .ToFindWhat(findWhat)
+                .AndReplaceItWith(replaceWith)
+                .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
+                .ToList();
+
+            if (fileSystemEntries == null) return result;
+
+            var totalFileCount = fileSystemEntries.Count;
 
             DebugUtils.WriteLine(
                 DebugLevel.Info,
-                $"FileRenamer.ReplaceTextInFiles: {fileSystemEntries.Count} file(s) found to move forward on."
+                $"FileRenamer.ReplaceTextInFiles: {totalFileCount} file(s) found to move forward on."
             );
 
-            if (!fileSystemEntries.Any() && !AbortRequested)
+            if (totalFileCount == 0 && !AbortRequested)
             {
                 OnStatusUpdate(
                     new StatusUpdateEventArgs(
@@ -1553,7 +1554,7 @@ namespace MFR.Renamers.Files
 
             OnFilesToHaveTextReplacedCounted(
                 new FilesOrFoldersCountedEventArgs(
-                    fileSystemEntries.Count, OperationType.ReplaceTextInFiles
+                    totalFileCount, OperationType.ReplaceTextInFiles
                 )
             );
 
