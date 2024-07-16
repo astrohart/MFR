@@ -76,10 +76,30 @@ namespace MFR.TextValues.Retrievers
 
             try
             {
-                if (entry == null) return result;
-                if (!FileSystemEntryValidatorSays.IsValid(entry)) return result;
-                if (!(entry.UserState is Guid)) return result;
-                if (Guid.Empty.Equals(entry.UserState)) return result;
+                if (entry == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** Cannot get file text, because the File System Entry passed was NULL."
+                    );
+
+                    return result;
+                }
+
+                if (!FileSystemEntryValidatorSays.IsValid(entry))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Cannot get the file text, because the file, '{entry.Path}' is not valid."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"TextInFileTextValueRetriever.GetTextValue: Attempting to read the text from the file, '{entry.Path}'..."
+                );
 
                 using (var reader = MakeNewFileStreamReader.ForPath(entry.Path))
                     result = reader.ReadAllText();
@@ -91,6 +111,15 @@ namespace MFR.TextValues.Retrievers
 
                 result = string.Empty;
             }
+
+            DebugUtils.WriteLine(
+                !string.IsNullOrWhiteSpace(result)
+                    ? DebugLevel.Info
+                    : DebugLevel.Error,
+                !string.IsNullOrWhiteSpace(result)
+                    ? $"*** SUCCESS *** {result.Length} B of data were read from file, '{entry.Path}'."
+                    : $"*** ERROR *** Zero bytes of data was obtained from the file, '{entry.Path}'.  Stopping..."
+            );
 
             return result;
         }

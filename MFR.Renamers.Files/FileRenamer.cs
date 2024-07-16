@@ -3165,9 +3165,46 @@ namespace MFR.Renamers.Files
             try
             {
                 if (entry == null) return result;
-                if (string.IsNullOrWhiteSpace(entry.Path)) return result;
-                if (!Does.FileSystemEntryExist(entry.Path)) return result;
-                if (string.IsNullOrWhiteSpace(findWhat)) return result;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.GetTextInFileReplacementData: Attempting to get the replace-text-in-file data for file '{entry.Path}'..."
+                );
+
+                if (string.IsNullOrWhiteSpace(entry.Path))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': The pathname is blank."
+                    );
+
+                    return result;
+                }
+
+                if (!Does.FileSystemEntryExist(entry.Path))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': The file was not found on the file system."
+                    );
+
+                    return result;
+                }
+
+                if (string.IsNullOrWhiteSpace(findWhat))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': The 'Find What' value is blank."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.GetTextInFileReplacementData: Getting access to the replace-text-in-file engine..."
+                );
 
                 ITextReplacementEngine engine = GetTextReplacementEngine
                                                 .For(
@@ -3177,19 +3214,58 @@ namespace MFR.Renamers.Files
                                                 .AndAttachConfiguration(
                                                     CurrentConfiguration
                                                 );
-                if (engine == null) return result;
+                if (engine == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': Could not initialize the text-replacement engine."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.GetTextInFileReplacementData: Attempting to get the match expression factory..."
+                );
 
                 IMatchExpressionFactory matchExpressionFactory =
                     GetMatchExpressionFactory
                         .For(OperationType.ReplaceTextInFiles)
                         .AndAttachConfiguration(CurrentConfiguration);
-                if (matchExpressionFactory == null) return result;
+                if (matchExpressionFactory == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': Could not initialize the match-expression factory."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.GetTextInFileReplacementData: Attempting to read the text to be searched from the file, '{entry.Path}'..."
+                );
 
                 var textToBeSearched = GetTextValueRetriever.For(
                         OperationType.ReplaceTextInFiles
                     )
                     .GetTextValue(entry);
-                if (string.IsNullOrWhiteSpace(textToBeSearched)) return result;
+                if (string.IsNullOrWhiteSpace(textToBeSearched))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': No text was retrieved from the file."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.GetTextInFileReplacementData: *** SUCCESS *** {textToBeSearched.Length} B of data were retrieved from the file, '{entry.Path}' to be searched."
+                );
 
                 /*
                  * NOTE: We ASSUME that the ITextValueRetriever.GetTextValueAsync
@@ -3202,8 +3278,20 @@ namespace MFR.Renamers.Files
                  * one.
                  */
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.GetTextInFileReplacementData: Scanning the data retrieved from the file, '{entry.Path}', for control characters..."
+                );
+
                 if (Scan.FileDataForBinaryControlCharacters(textToBeSearched))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** ASCII control characters were found in the file, '{entry.Path}'.  Marking it as a file to be skipped..."
+                    );
+
                     return SpecializedFileData.BinaryFileSkipped;
+                }
 
                 /*
                  * If we are still here, then the textToBeSearched is really
@@ -3224,6 +3312,11 @@ namespace MFR.Renamers.Files
                  * This weeding out process makes the application more scalable.
                  */
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.GetTextInFileReplacementData: Attempting to get a match expression for the file, '{entry.Path}'..."
+                );
+
                 IMatchExpression expression = matchExpressionFactory
                                               .ForTextValue(textToBeSearched)
                                               .AndAttachConfiguration(
@@ -3231,7 +3324,20 @@ namespace MFR.Renamers.Files
                                               )
                                               .ToFindWhat(findWhat)
                                               .AndReplaceItWith(replaceWith);
-                if (expression == null) return result;
+                if (expression == null)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': Could not obtain a match expression object for it."
+                    );
+
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.GetTextInFileReplacementData: Attempting to replace the text to be searched with the replacement value(s)..."
+                );
 
                 result = engine.Replace(expression);
 
@@ -3245,7 +3351,14 @@ namespace MFR.Renamers.Files
                  */
 
                 if (textToBeSearched.Equals(result))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Can't get the text-replace data for file '{entry.Path}': No data was replaced."
+                    );
+
                     result = SpecializedFileData.NoChange;
+                }
             }
             catch (Exception ex)
             {
@@ -3254,6 +3367,17 @@ namespace MFR.Renamers.Files
 
                 result = string.Empty;
             }
+
+            DebugUtils.WriteLine(
+                !string.IsNullOrWhiteSpace(result) &&
+                !SpecializedFileData.BinaryFileSkipped.Equals(result) &&
+                !SpecializedFileData.NoChange.Equals(result)
+                    ? DebugLevel.Info
+                    : DebugLevel.Error,
+                !string.IsNullOrWhiteSpace(result)
+                    ? $"*** SUCCESS *** {result.Length} B of replacement data were obtained.  Proceeding..."
+                    : "*** ERROR *** Zero bytes of replacement data were obtained.  Stopping..."
+            );
 
             return result;
         }

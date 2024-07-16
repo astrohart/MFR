@@ -2,6 +2,7 @@ using MFR.Operations.Constants;
 using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.TextValues.Retrievers.Factories
 {
@@ -55,35 +56,45 @@ namespace MFR.TextValues.Retrievers.Factories
         /// </exception>
         public static ITextValueRetriever For(OperationType type)
         {
-            ITextValueRetriever retriever;
+            ITextValueRetriever result = default;
 
-            switch (type)
+            try
             {
-                case OperationType.RenameFilesInFolder:
-                    retriever = GetFilenameTextValueRetriever.SoleInstance();
-                    break;
+                switch (type)
+                {
+                    case OperationType.RenameFilesInFolder:
+                        result = GetFilenameTextValueRetriever.SoleInstance();
+                        break;
 
-                case OperationType.ReplaceTextInFiles:
-                    retriever = GetTextInFileTextValueRetriever.SoleInstance();
-                    break;
+                    case OperationType.ReplaceTextInFiles:
+                        result = GetTextInFileTextValueRetriever.SoleInstance();
+                        break;
 
-                case OperationType.RenameSolutionFolders:
-                    retriever =
-                        GetSolutionFolderTextValueRetriever.SoleInstance();
-                    break;
+                    case OperationType.RenameSolutionFolders:
+                        result =
+                            GetSolutionFolderTextValueRetriever.SoleInstance();
+                        break;
 
-                case OperationType.RenameSubFolders:
-                    retriever = GetFolderTextValueRetriever.SoleInstance();
-                    break;
+                    case OperationType.RenameSubFolders:
+                        result = GetFolderTextValueRetriever.SoleInstance();
+                        break;
 
-                default:
-                    throw new ArgumentOutOfRangeException(
-                        nameof(type), type,
-                        $"There is no text-value retriever object available for the operation type '{type}'."
-                    );
+                    default:
+                        throw new ArgumentOutOfRangeException(
+                            nameof(type), type,
+                            $"There is no text-value retriever object available for the operation type '{type}'."
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
             }
 
-            return retriever;
+            return result;
         }
     }
 }
