@@ -549,6 +549,9 @@ namespace MFR.Renamers.Files
 
             try
             {
+                // If we're auto-started, sleep for 5 seconds to let Visual Studio close its handles
+                if (CurrentConfiguration.AutoStart) Thread.Sleep(5000);
+
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     $"*** FileRenamer.ProcessAll: Checking whether the root folder, '{RootDirectoryPath}', can be located on the file system..."
