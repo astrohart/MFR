@@ -188,6 +188,10 @@
       <Project>{7D690EDD-9BEA-4CBA-8303-6F599A380FC6}</Project>
       <Name>xyLOGIX.Interop.Git.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Actions\xyLOGIX.Interop.Processes.Actions.csproj">
+      <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
+      <Name>xyLOGIX.Interop.Processes.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
       <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
       <Name>xyLOGIX.Pools.Tasks.Factories</Name>
