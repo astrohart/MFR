@@ -4919,10 +4919,6 @@ namespace MFR.Renamers.Files
                         DebugLevel.Error,
                         $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the new file data is blank.  Deleting the file instead..."
                     );
-                    
-                    // Delete the file if there are zero bytes of replacement data
-                    if (Does.FileExist(entry.Path))
-                        File.Delete(entry.Path);
 
                     return true; // "succeed" but don't process any further
                 }
