@@ -4,6 +4,7 @@ using System;
 using System.Threading;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
+using xyLOGIX.Interop.Processes.Actions;
 using xyLOGIX.Interop.Processes.Factories;
 using xyLOGIX.Interop.Processes.Interfaces;
 
@@ -487,38 +488,6 @@ namespace MFR.FileSystem.Helpers
                     DebugLevel.Info,
                     $"DirectoryInfoExtensions.TryRenameFolder: *** SUCCESS *** The temporary folder, '{tempFolderLocation}', exists on the file system.  Proceeding..."
                 );
-
-                // Delay to let the system catch up
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "DirectoryInfoExtensions.TryRenameFolder: Delaying to let the system catch up..."
-                );
-
-                Thread.Sleep(50);
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "DirectoryInfoExtensions.TryRenameFolder: Trying to kill errant instances of process(es), such as dllhost.exe, that may be locking the destination location..."
-                );
-
-                ProcessProvider.TerminateAllInstancesOf(
-                    Environment.ExpandEnvironmentVariables(
-                        @"%WINDIR%\System32\dllhost.exe"
-                    )
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "DirectoryInfoExtensions.TryRenameFolder: *** SUCCESS *** We have attempted to terminate all instance(s) of the process, dllhost.exe.  Proceeding..."
-                );
-
-                // Delay to let the system catch up
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "DirectoryInfoExtensions.TryRenameFolder: Delaying to let the system catch up..."
-                );
-
-                Thread.Sleep(50);
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,

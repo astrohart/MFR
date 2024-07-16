@@ -194,6 +194,14 @@
       <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
       <Name>xyLOGIX.Interop.Processes.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Factories\xyLOGIX.Interop.Processes.Factories.csproj">
+      <Project>{4479E3F8-455F-47FD-BA84-9582F6DAC41F}</Project>
+      <Name>xyLOGIX.Interop.Processes.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Interfaces\xyLOGIX.Interop.Processes.Interfaces.csproj">
+      <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
+      <Name>xyLOGIX.Interop.Processes.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
       <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
       <Name>xyLOGIX.Pools.Tasks.Factories</Name>

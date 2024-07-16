@@ -52,6 +52,8 @@ using xyLOGIX.Files.MemoryMapped.Factories;
 using xyLOGIX.Interop.Git.Factories;
 using xyLOGIX.Interop.Git.Interfaces;
 using xyLOGIX.Interop.Processes.Actions;
+using xyLOGIX.Interop.Processes.Factories;
+using xyLOGIX.Interop.Processes.Interfaces;
 using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
@@ -59,7 +61,6 @@ using xyLOGIX.VisualStudio.Providers.Factories;
 using xyLOGIX.VisualStudio.Providers.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using xyLOGIX.Win32.Interact;
-using Delete = MFR.Renamers.Files.Actions.Delete;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Formulate = MFR.Renamers.Files.Actions.Formulate;
 using Get = MFR.Services.Solutions.Actions.Get;
@@ -279,6 +280,16 @@ namespace MFR.Renamers.Files
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Interop.Processes.Interfaces.IProcessProvider" />
+        /// interface.
+        /// </summary>
+        private static IProcessProvider ProcessProvider
+        {
+            get;
+        } = GetProcessProvider.SoleInstance();
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname
@@ -550,14 +561,76 @@ namespace MFR.Renamers.Files
 
             try
             {
-                if (string.IsNullOrWhiteSpace(RootDirectoryPath))
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** FileRenamer.ProcessAll: Checking whether the root folder, '{RootDirectoryPath}', can be located on the file system..."
+                );
+
+                // Check to see whether the root folder can be located on the file system.
+                // If this is not the case, then write an error message to the log file,
+                // and then terminate the execution of this method.
+                if (!Does.FolderExist(RootDirectoryPath))
+                {
+                    // The root folder cannot be found on the file system.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The root folder, '{RootDirectoryPath}', cannot be found on the file system.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.ProcessAll: Result = {result}"
+                    );
+
+                    // stop.
                     return result;
-                if (!Directory.Exists(RootDirectoryPath))
-                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ProcessAll: *** SUCCESS *** The root folder, '{RootDirectoryPath}', can be located on the file system.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ProcessAll: findWhat = '{findWhat}'"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ProcessAll *** INFO: Checking whether the value of the 'findWhat' parameter is blank..."
+                );
+
+                // Check whether the value of the parameter, 'findWhat', is blank.
+                // If this is so, then emit an error message to the log file, and
+                // then terminate the execution of this method.
                 if (string.IsNullOrWhiteSpace(findWhat))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.ProcessAll: Blank value passed for the 'findWhat' parameter. Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"FileRenamer.ProcessAll: Result = {result}"
+                    );
+
+                    // stop.
                     return result;
-                if (string.IsNullOrWhiteSpace(replaceWith))
-                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The parameter 'findWhat' is not blank.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ProcessAll: replaceWith = '{replaceWith}'"
+                );
+
+                KillErrantProcesses();
 
                 TotalReposWithPendingChanges =
                     -1; // reset the TotalReposWithPendingChanges property
@@ -580,6 +653,8 @@ namespace MFR.Renamers.Files
                     renameFilesInFolderResult = RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
+
+                KillErrantProcesses();
 
                 var renameSubFoldersResult = true;
                 if (CurrentConfiguration.RenameSubFolders)
@@ -3887,6 +3962,30 @@ namespace MFR.Renamers.Files
             );
 
             return result;
+        }
+
+        /// <summary>
+        /// Forcibly kills all instances of process(es) that may be locking key file(s)
+        /// and/or folder(s).
+        /// </summary>
+        private void KillErrantProcesses()
+        {
+            /*
+             * Before we begin, run commands to forcibly kill all instances of process(es) that may
+             * be locking key file(s) and/or folder(s).
+             */
+
+            if (!CurrentConfiguration.AutoStart) return;
+
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
+            Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
+            Run.SystemCommand("taskkill /IM chrome.exe /F /T");
+            Run.SystemCommand("taskkill /IM chromedriver.exe /F /T");
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
         }
 
         /// <summary>
