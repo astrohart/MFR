@@ -42,14 +42,15 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.MemoryMappedFiles;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
+using xyLOGIX.Files.MemoryMapped.Factories;
 using xyLOGIX.Interop.Git.Factories;
 using xyLOGIX.Interop.Git.Interfaces;
 using xyLOGIX.Interop.Processes.Actions;
@@ -4006,6 +4007,21 @@ namespace MFR.Renamers.Files
                 );
         }
 
+        /// <summary>
+        /// Renames a file for the specified file system <paramref name="entry" />.
+        /// </summary>
+        /// <param name="findWhat">
+        /// (Required.) A <see cref="T:System.String" /> containing
+        /// the data for which to search in the name of the target file of the specified
+        /// <paramref name="entry" />.
+        /// </param>
+        /// <param name="replaceWith">
+        /// (Required.) A <see cref="T:System.String" />
+        /// containing the data to replace the found search text with in the name of the
+        /// target file of the specified <paramref name="entry" />.
+        /// </param>
+        /// <param name="entry"></param>
+        /// <returns></returns>
         [Log(AttributeExclude = true)]
         private bool RenameFileInFolderForEntry(
             string findWhat,
@@ -4626,6 +4642,7 @@ namespace MFR.Renamers.Files
                 if (string.IsNullOrWhiteSpace(replaceWith))
                     return result;
                 if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
+                    Guid.Empty.Equals(entry.UserState) ||
                     !Does.FileExist(entry.Path))
                     return result;
                 if (AbortRequested) return result;
@@ -4633,7 +4650,8 @@ namespace MFR.Renamers.Files
                 var origFileInfo = new FileInfo(entry.Path);
                 if (!origFileInfo.Exists) return result;
 
-
+                var origLength = origFileInfo.Length;
+                if (origLength <= 0) return result;
 
                 OnProcessingOperation(
                     new ProcessingOperationEventArgs(
@@ -4671,49 +4689,20 @@ namespace MFR.Renamers.Files
                  * entire contents with nothing, that is the same as deleting the file
                  * entirely.
                  */
-                if (!string.IsNullOrEmpty(newFileData))
+
+                if (string.IsNullOrWhiteSpace(newFileData))
+                    return
+                        true; // operation succeeded, but file just got deleted.
+
+                // Calculate the length of the modified text
+                long modifiedLength = Encoding.UTF8.GetByteCount(newFileData);
+
+                using (var writer =
+                       MakeNewFileStreamWriter.ForFilePath(entry.Path))
                 {
-                    var origLength = new FileInfo(entry.Path).Length;
-                    if (origLength <= 0) return result;
+                    writer.SetLength(modifiedLength);
 
-                    long modifiedLength =
-                        fileHost.Encoding.GetByteCount(newFileData);
-
-                    if (modifiedLength > fileHost.OriginalLength)
-                    {
-                        fileHost.Stream.SetLength(modifiedLength);
-
-                        // Re-open the file stream after extending the size
-                        FileHostProvider.RewindStream(fileHost);
-                        using (var newMmf = MemoryMappedFile.CreateFromFile(
-                                   fileStream, null, modifiedLength,
-                                   MemoryMappedFileAccess.ReadWrite,
-                                   HandleInheritability.None, false
-                               ))
-                        using (var newAccessor = newMmf.CreateViewAccessor(
-                                   0, modifiedLength,
-                                   MemoryMappedFileAccess.ReadWrite
-                               ))
-                        {
-                            Write.TextToMemory(
-                                fileHost.Encoding, newAccessor, newFileData
-                            );
-
-                            newAccessor.Flush();
-                        }
-                    }
-                    else
-                    {
-                        // Write the modified content back to memory
-                        // It will be automatically flushed to the file system
-                        // when the memory-mapped file is closed.
-                        Write.TextToMemory(
-                            fileHost.Encoding, fileHost.Accessor, newFileData
-                        );
-
-                        // flush the accessor to be sure
-                        fileHost.Accessor.Flush();
-                    }
+                    writer.WriteAllText(newFileData);
                 }
 
                 result = true;

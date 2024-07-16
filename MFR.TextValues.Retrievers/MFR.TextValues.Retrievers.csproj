@@ -116,10 +116,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.1.4\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -156,6 +153,14 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.MemoryMapped.VS2022\xyLOGIX.Files.MemoryMapped.Factories\xyLOGIX.Files.MemoryMapped.Factories.csproj">
+      <Project>{7B30B65B-220C-49AC-9448-C190F8F71715}</Project>
+      <Name>xyLOGIX.Files.MemoryMapped.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.MemoryMapped.VS2022\xyLOGIX.Files.MemoryMapped.Interfaces\xyLOGIX.Files.MemoryMapped.Interfaces.csproj">
+      <Project>{C7CB816D-0FB7-4C62-A225-98711E5537A5}</Project>
+      <Name>xyLOGIX.Files.MemoryMapped.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
@@ -175,10 +180,6 @@
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34C64BD5-455B-4ED8-BA97-5279F8385529}</Project>
       <Name>MFR.Operations.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
-      <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>
-      <Name>MFR.TextValues.Retrievers.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Interfaces\MFR.TextValues.Retrievers.Interfaces.csproj">
       <Project>{6B454B89-CAA0-4C42-9E5E-E191CFC0E205}</Project>

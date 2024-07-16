@@ -65,6 +65,7 @@ namespace MFR.TextValues.Retrievers
         /// Thrown if the required parameter, <paramref name="entry" />, is
         /// passed a <see langword="null" /> value.
         /// </exception>
+        [return: NotLogged]
         public abstract string GetTextValue(IFileSystemEntry entry);
 
         /// <summary>

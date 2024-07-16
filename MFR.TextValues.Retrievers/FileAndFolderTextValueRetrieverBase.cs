@@ -1,4 +1,5 @@
 using MFR.FileSystem.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 
@@ -31,6 +32,7 @@ namespace MFR.TextValues.Retrievers
         /// Thrown if the required parameter, <paramref name="entry"/>, is
         /// passed a <see langword="null"/> value.
         /// </exception>
+        [return: NotLogged]
         public override string GetTextValue(IFileSystemEntry entry)
         {
             var result = string.Empty;

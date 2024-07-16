@@ -235,10 +235,6 @@
       <Project>{F2C19DDE-1877-4176-B4A1-F74195FE5F6A}</Project>
       <Name>MFR.Settings.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.TextValues.Retrievers.Actions\MFR.TextValues.Retrievers.Actions.csproj">
-      <Project>{EC73671A-51E1-4195-8DDD-2BA37C73D9E9}</Project>
-      <Name>MFR.TextValues.Retrievers.Actions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.TextValues.Retrievers.Factories\MFR.TextValues.Retrievers.Factories.csproj">
       <Project>{DA2E9D25-0701-45DD-A506-A3C9405E1F15}</Project>
       <Name>MFR.TextValues.Retrievers.Factories</Name>

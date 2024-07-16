@@ -3,14 +3,12 @@ using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
-using MFR.TextValues.Retrievers.Actions;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
-using xyLOGIX.Core.Extensions;
 
 namespace MFR.FileSystem.Retrievers
 {
@@ -160,10 +158,6 @@ namespace MFR.FileSystem.Retrievers
                     {
                         var entry = MakeNewFileSystemEntry.ForPath(path);
                         if (entry == null) return;
-
-                        var ticket = Get.FileTicket(path);
-
-                        if (ticket.IsZero()) return;
 
                         result.Add(entry);
                     }
