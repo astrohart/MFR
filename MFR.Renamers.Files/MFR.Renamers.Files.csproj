@@ -130,9 +130,7 @@
       <HintPath>..\packages\stdole.17.9.37000\lib\net472\stdole.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -190,18 +188,6 @@
       <Project>{7D690EDD-9BEA-4CBA-8303-6F599A380FC6}</Project>
       <Name>xyLOGIX.Interop.Git.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Actions\xyLOGIX.Interop.Processes.Actions.csproj">
-      <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
-      <Name>xyLOGIX.Interop.Processes.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Factories\xyLOGIX.Interop.Processes.Factories.csproj">
-      <Project>{4479E3F8-455F-47FD-BA84-9582F6DAC41F}</Project>
-      <Name>xyLOGIX.Interop.Processes.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Interfaces\xyLOGIX.Interop.Processes.Interfaces.csproj">
-      <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
-      <Name>xyLOGIX.Interop.Processes.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
       <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
       <Name>xyLOGIX.Pools.Tasks.Factories</Name>
@@ -213,10 +199,6 @@
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Senders\xyLOGIX.Queues.Messages.Senders.csproj">
       <Project>{BC596B24-D72C-4CE0-8C3F-E23A32A801E8}</Project>
       <Name>xyLOGIX.Queues.Messages.Senders</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
-      <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
-      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
       <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>

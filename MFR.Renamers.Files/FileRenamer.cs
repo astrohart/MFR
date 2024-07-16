@@ -51,9 +51,6 @@ using xyLOGIX.Files.Actions;
 using xyLOGIX.Files.MemoryMapped.Factories;
 using xyLOGIX.Interop.Git.Factories;
 using xyLOGIX.Interop.Git.Interfaces;
-using xyLOGIX.Interop.Processes.Actions;
-using xyLOGIX.Interop.Processes.Factories;
-using xyLOGIX.Interop.Processes.Interfaces;
 using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
@@ -280,16 +277,6 @@ namespace MFR.Renamers.Files
             get;
             set;
         }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:xyLOGIX.Interop.Processes.Interfaces.IProcessProvider" />
-        /// interface.
-        /// </summary>
-        private static IProcessProvider ProcessProvider
-        {
-            get;
-        } = GetProcessProvider.SoleInstance();
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname
@@ -630,8 +617,6 @@ namespace MFR.Renamers.Files
                     $"FileRenamer.ProcessAll: replaceWith = '{replaceWith}'"
                 );
 
-                KillErrantProcesses();
-
                 TotalReposWithPendingChanges =
                     -1; // reset the TotalReposWithPendingChanges property
 
@@ -653,8 +638,6 @@ namespace MFR.Renamers.Files
                     renameFilesInFolderResult = RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
-
-                KillErrantProcesses();
 
                 var renameSubFoldersResult = true;
                 if (CurrentConfiguration.RenameSubFolders)
@@ -2020,52 +2003,6 @@ namespace MFR.Renamers.Files
             Starting?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(FileRenamerMessages.FRM_STARTING);
-        }
-
-        private static void AttemptToKillProcessesLockingFolder(string pathname)
-        {
-            TaskKillProcess(FileRenamingBlockingProcessName.PerfWatson2);
-
-            if (!Does.FolderExist(pathname)) return;
-
-            var procs = List.ProcessesLockingFileSystemEntry(pathname);
-            if (procs == null || !procs.Any()) return;
-
-            try
-            {
-                foreach (var proc in procs)
-                    try
-                    {
-                        proc.Kill();
-                    }
-                    finally
-                    {
-                        proc?.Dispose();
-                    }
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
-
-        private static void TaskKillProcess(string filename)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(filename)) return;
-                if (!".exe".Equals(Path.GetExtension(filename))) return;
-
-                Run.SystemCommand($"taskkill /IM {filename} /F /T");
-
-                Thread.Sleep(5 * 500);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
         }
 
         private void CloseActiveSolutions()
@@ -3962,30 +3899,6 @@ namespace MFR.Renamers.Files
             );
 
             return result;
-        }
-
-        /// <summary>
-        /// Forcibly kills all instances of process(es) that may be locking key file(s)
-        /// and/or folder(s).
-        /// </summary>
-        private void KillErrantProcesses()
-        {
-            /*
-             * Before we begin, run commands to forcibly kill all instances of process(es) that may
-             * be locking key file(s) and/or folder(s).
-             */
-
-            if (!CurrentConfiguration.AutoStart) return;
-
-            Run.SystemCommand("taskkill /IM devenv.exe /F /T");
-            Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
-            Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
-            Run.SystemCommand("taskkill /IM chrome.exe /F /T");
-            Run.SystemCommand("taskkill /IM chromedriver.exe /F /T");
-            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-            Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
         }
 
         /// <summary>
