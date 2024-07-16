@@ -4895,9 +4895,6 @@ namespace MFR.Renamers.Files
                     return true; // "succeed" but don't process any further
                 }
 
-                if (Does.FileExist(entry.Path))
-                    Delete.File(entry.Path);
-
                 /*
                  * OKAY, check whether the replacement file data has zero byte length.
                  * If so, then the file-deletion operation above suffices to remove the
@@ -4920,8 +4917,12 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the new file data is blank."
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the new file data is blank.  Deleting the file instead..."
                     );
+                    
+                    // Delete the file if there are zero bytes of replacement data
+                    if (Does.FileExist(entry.Path))
+                        File.Delete(entry.Path);
 
                     return true; // "succeed" but don't process any further
                 }
