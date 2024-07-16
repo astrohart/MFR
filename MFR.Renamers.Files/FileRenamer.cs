@@ -1518,9 +1518,6 @@ namespace MFR.Renamers.Files
                 .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
                 .ToList();
 
-            Debugger.Launch();
-            Debugger.Break();
-
             if (fileSystemEntries == null) return result;
 
             var totalFileCount = fileSystemEntries.Count;
