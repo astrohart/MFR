@@ -3917,8 +3917,6 @@ namespace MFR.Renamers.Files
              * be locking key file(s) and/or folder(s).
              */
 
-            if (!CurrentConfiguration.AutoStart) return;
-
             Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
             Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
             Run.SystemCommand("taskkill /IM chrome.exe /F /T");
