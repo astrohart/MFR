@@ -39,7 +39,6 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -4759,7 +4758,7 @@ namespace MFR.Renamers.Files
                         $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because it contains control characters that would suggest it's a binary file."
                     );
 
-                    return true;    // "succeed" but don't process any further
+                    return true; // "succeed" but don't process any further
                 }
 
                 if (SpecializedFileData.NoChange.Equals(newFileData))
@@ -4769,7 +4768,7 @@ namespace MFR.Renamers.Files
                         $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because there is nothing to be replaced."
                     );
 
-                    return true;    // "succeed" but don't process any further
+                    return true; // "succeed" but don't process any further
                 }
 
                 if (Does.FileExist(entry.Path))
@@ -4800,7 +4799,7 @@ namespace MFR.Renamers.Files
                         $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the new file data is blank."
                     );
 
-                    return true;    // "succeed" but don't process any further
+                    return true; // "succeed" but don't process any further
                 }
 
                 // Calculate the length of the modified text
@@ -4829,10 +4828,10 @@ namespace MFR.Renamers.Files
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
                     entry != null
-                    ? $"*** ERROR *** Exception caught while attempting to replace text in the file, '{entry.Path}':  {ex.Message}"
-                    : $"*** ERROR *** Exception caught while attempting to replace text in a file:  {ex.Message}"
+                        ? $"*** ERROR *** Exception caught while attempting to replace text in the file, '{entry.Path}':  {ex.Message}"
+                        : $"*** ERROR *** Exception caught while attempting to replace text in a file:  {ex.Message}"
                 );
-                
+
                 result = false;
             }
 
