@@ -51,6 +51,7 @@ using xyLOGIX.Files.Actions;
 using xyLOGIX.Files.MemoryMapped.Factories;
 using xyLOGIX.Interop.Git.Factories;
 using xyLOGIX.Interop.Git.Interfaces;
+using xyLOGIX.Interop.Processes.Actions;
 using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
@@ -617,6 +618,8 @@ namespace MFR.Renamers.Files
                     $"FileRenamer.ProcessAll: replaceWith = '{replaceWith}'"
                 );
 
+                KillErrantProcesses();
+
                 TotalReposWithPendingChanges =
                     -1; // reset the TotalReposWithPendingChanges property
 
@@ -638,6 +641,8 @@ namespace MFR.Renamers.Files
                     renameFilesInFolderResult = RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
+
+                KillErrantProcesses();
 
                 var renameSubFoldersResult = true;
                 if (CurrentConfiguration.RenameSubFolders)
@@ -3899,6 +3904,29 @@ namespace MFR.Renamers.Files
             );
 
             return result;
+        }
+
+        /// <summary>
+        /// Forcibly kills all instances of process(es) that may be locking key file(s)
+        /// and/or folder(s).
+        /// </summary>
+        private void KillErrantProcesses()
+        {
+            /*
+             * Before we begin, run commands to forcibly kill all instances of process(es) that may
+             * be locking key file(s) and/or folder(s).
+             */
+
+            if (!CurrentConfiguration.AutoStart) return;
+
+            Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
+            Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
+            Run.SystemCommand("taskkill /IM chrome.exe /F /T");
+            Run.SystemCommand("taskkill /IM chromedriver.exe /F /T");
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+            Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
         }
 
         /// <summary>
