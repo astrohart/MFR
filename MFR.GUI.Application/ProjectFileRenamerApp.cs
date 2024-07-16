@@ -9,8 +9,6 @@ using MFR.CommandLine.Validators.Interfaces;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
-using MFR.File.Stream.Providers.Factories;
-using MFR.File.Stream.Providers.Interfaces;
 using MFR.GUI.Actions;
 using MFR.GUI.Application.Interfaces;
 using MFR.GUI.Displayers;
@@ -117,16 +115,6 @@ namespace MFR.GUI.Application
         } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileHostProvider" />
-        /// interface.
-        /// </summary>
-        private static IFileHostProvider FileHostProvider
-        {
-            get;
-        } = GetFileHostProvider.SoleInstance();
-
-        /// <summary>
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.GUI.Application.ProjectFileRenamerApp" />.
         /// </summary>
@@ -222,18 +210,6 @@ namespace MFR.GUI.Application
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     "ProjectFileRenamerApp.ExitApplication: *** SUCCESS *** Configured profile(s) have been SAVED.  Proceeding..."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "ProjectFileRenamerApp.ExitApplication: Disposing of all the element(s) of the File Host Provider..."
-                );
-
-                FileHostProvider.DisposeAll();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "ProjectFileRenamerApp.ExitApplication: *** SUCCESS *** All File Host Provider element(s) have been disposed of."
                 );
             }
             catch (Exception ex)
