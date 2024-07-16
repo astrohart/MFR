@@ -56,7 +56,6 @@ using xyLOGIX.UI.Dark.Forms;
 using xyLOGIX.Win32.Interact;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Display = MFR.GUI.Displayers.Display;
-using File = Alphaleonis.Win32.Filesystem.File;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 using Wait = xyLOGIX.Application.Semaphores.Wait;
 
@@ -2034,12 +2033,13 @@ namespace MFR.GUI.Windows
             try
             {
                 this.InvokeIfRequired(
-                    () => result =
-                        DialogResult.No.Equals(xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
+                    () => result = DialogResult.No.Equals(
+                        xyLOGIX.Win32.Interact.Messages.ConfirmWithYesNo(
                             this,
                             Resources
                                 .Confirm_ReplaceTextThatWouldOverwriteExistingFiles
-                        ))
+                        )
+                    )
                 );
             }
             catch (Exception ex)
@@ -2219,56 +2219,6 @@ namespace MFR.GUI.Windows
             hiddenFocusLabel.Focus();
             ReplaceWithComboBox.Focus();
             return false;
-        }
-
-        /// <summary>
-        /// Exposes static methods to make determinations about data and the state of the
-        /// system.
-        /// </summary>
-        internal static class Is
-        {
-            /// <summary>
-            /// Determines whether the file having the specified <paramref name="pathname" />
-            /// is a Visual Studio Solution (*.sln) file.
-            /// </summary>
-            /// <param name="pathname">
-            /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
-            /// pathname of a file that is to be examined in order to determine whether it is a
-            /// Visual Studio Solution (*.sln) file.
-            /// </param>
-            /// <returns>
-            /// <see langword="true" /> if the file having the specified
-            /// <paramref name="pathname" /> is a Visual Studio Solution (*.sln) file;
-            /// <see langword="false" /> otherwise.
-            /// </returns>
-            /// <remarks>
-            /// This method also returns <see langword="false" /> if the
-            /// <paramref name="pathname" /> that is passed is blank, <see langword="null" />,
-            /// or refers to a file that does actually exist on the file system.
-            /// </remarks>
-            internal static bool SolutionFIle(string pathname)
-            {
-                var result = false;
-
-                if (string.IsNullOrWhiteSpace(pathname)) return result;
-                if (!File.Exists(pathname)) return result;
-
-                try
-                {
-                    result = ".sln".Equals(
-                        Path.GetExtension(pathname.ToLowerInvariant())
-                    );
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = false;
-                }
-
-                return result;
-            }
         }
     }
 }

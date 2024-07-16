@@ -39,6 +39,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -1516,6 +1517,9 @@ namespace MFR.Renamers.Files
                 .AndReplaceItWith(replaceWith)
                 .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
                 .ToList();
+
+            Debugger.Launch();
+            Debugger.Break();
 
             if (fileSystemEntries == null) return result;
 
@@ -4630,22 +4634,107 @@ namespace MFR.Renamers.Files
 
             try
             {
-                /* validate inputs */
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ReplaceTextInFileForEntry: Checking whether the 'entry' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, entry, is null. If it is, send an
+                // error to the log file and quit, returning the default return value of this
+                // method.
+                if (entry == null)
+                {
+                    // The parameter, 'entry', is required and is not supposed to have a NULL value.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.ReplaceTextInFileForEntry: *** ERROR *** A null reference was passed for the 'entry' method parameter.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.ReplaceTextInFileForEntry: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ReplaceTextInFileForEntry: *** SUCCESS *** We have been passed a valid object reference for the 'entry' method parameter.  Proceeding..."
+                );
+
                 if (string.IsNullOrWhiteSpace(findWhat))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the 'Find What' value is blank."
+                    );
+
                     return result;
+                }
+
                 if (string.IsNullOrWhiteSpace(replaceWith))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the 'Replace With' value is blank."
+                    );
+
                     return result;
-                if (entry == null || string.IsNullOrWhiteSpace(entry.Path) ||
-                    Guid.Empty.Equals(entry.UserState) ||
-                    !Does.FileExist(entry.Path))
+                }
+
+                if (string.IsNullOrWhiteSpace(entry.Path))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the pathname is blank."
+                    );
+
                     return result;
-                if (AbortRequested) return result;
+                }
+
+                if (!Does.FileExist(entry.Path))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because it could not be found on the file system."
+                    );
+
+                    return result;
+                }
+
+                if (AbortRequested)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because an Abort has been requested."
+                    );
+
+                    return result;
+                }
 
                 var origFileInfo = new FileInfo(entry.Path);
-                if (!origFileInfo.Exists) return result;
+                if (!origFileInfo.Exists)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because it could not be found on the file system."
+                    );
+
+                    return result;
+                }
 
                 var origLength = origFileInfo.Length;
-                if (origLength <= 0) return result;
+                if (origLength <= 0)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because it has a zero length."
+                    );
+
+                    return result;
+                }
 
                 OnProcessingOperation(
                     new ProcessingOperationEventArgs(
@@ -4657,11 +4746,34 @@ namespace MFR.Renamers.Files
                     entry, findWhat, replaceWith
                 );
                 if (string.IsNullOrWhiteSpace(newFileData))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** Not replacing text in file '{entry.Path}' because the new file data is blank."
+                    );
+
                     return result;
+                }
+
                 if (SpecializedFileData.BinaryFileSkipped.Equals(newFileData))
-                    return true; // "succeed" but don't process any further
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because it contains control characters that would suggest it's a binary file."
+                    );
+
+                    return true;    // "succeed" but don't process any further
+                }
+
                 if (SpecializedFileData.NoChange.Equals(newFileData))
-                    return true; // "succeed" but don't process any further
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because there is nothing to be replaced."
+                    );
+
+                    return true;    // "succeed" but don't process any further
+                }
 
                 if (Does.FileExist(entry.Path))
                     Delete.File(entry.Path);
@@ -4685,8 +4797,14 @@ namespace MFR.Renamers.Files
                  */
 
                 if (string.IsNullOrWhiteSpace(newFileData))
-                    return
-                        true; // operation succeeded, but file just got deleted.
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the new file data is blank."
+                    );
+
+                    return true;    // "succeed" but don't process any further
+                }
 
                 // Calculate the length of the modified text
                 long modifiedLength = Encoding.UTF8.GetByteCount(newFileData);
@@ -4710,7 +4828,15 @@ namespace MFR.Renamers.Files
             catch (Exception ex)
             {
                 OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
-                return true;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    entry != null
+                    ? $"*** ERROR *** Exception caught while attempting to replace text in the file, '{entry.Path}':  {ex.Message}"
+                    : $"*** ERROR *** Exception caught while attempting to replace text in a file:  {ex.Message}"
+                );
+                
+                result = false;
             }
 
             DebugUtils.WriteLine(

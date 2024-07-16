@@ -17,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8960.28760" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8962.34472" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -113,13 +113,6 @@
     <ROW Component="MFR.Expressions.Registry.Validators.Interfaces.dll" ComponentId="{304BD6A3-31C5-4D8B-9B3E-381F599025F5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Expressions.Registry.Validators.Interfaces.dll"/>
     <ROW Component="MFR.Expressions.Registry.Validators.dll" ComponentId="{030F2A43-20DB-4138-B654-D80959AFC5E2}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Expressions.Registry.Validators.dll"/>
     <ROW Component="MFR.Expressions.Registry.dll" ComponentId="{14EAA71D-F139-4CD4-930C-A230716CF6BC}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Expressions.Registry.dll"/>
-    <ROW Component="MFR.File.Hosts.Factories.dll" ComponentId="{51EF416A-C819-4290-9091-8832ADCCA519}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Hosts.Factories.dll"/>
-    <ROW Component="MFR.File.Hosts.Interfaces.dll" ComponentId="{736D92A2-797A-4B59-AC48-CB925711FAC7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Hosts.Interfaces.dll"/>
-    <ROW Component="MFR.File.Hosts.dll" ComponentId="{0D8AF574-78E7-4437-AC27-588CA24855F1}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Hosts.dll"/>
-    <ROW Component="MFR.File.Stream.Providers.Events.dll" ComponentId="{2DD6417B-F5B0-4C80-9A40-788B852FC2D5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Events.dll"/>
-    <ROW Component="MFR.File.Stream.Providers.Factories.dll" ComponentId="{F1521CC3-5A1B-42F4-84B1-B911998D460E}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Factories.dll"/>
-    <ROW Component="MFR.File.Stream.Providers.Interfaces.dll" ComponentId="{4B256BE5-A0EE-4DD2-A981-B36C9E4583A8}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.Interfaces.dll"/>
-    <ROW Component="MFR.File.Stream.Providers.dll" ComponentId="{ADEDEB6F-0288-44EA-9B93-8112B1E56A99}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.File.Stream.Providers.dll"/>
     <ROW Component="MFR.FileSystem.Creators.dll" ComponentId="{51088390-B105-4EFF-90F9-560B4792C158}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Creators.dll"/>
     <ROW Component="MFR.FileSystem.Enumerators.dll" ComponentId="{72310430-A727-423D-8875-C18C05E24466}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Enumerators.dll"/>
     <ROW Component="MFR.FileSystem.Factories.dll" ComponentId="{1FB80BFD-27D2-463D-9A2E-986B3D40D72C}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.FileSystem.Factories.dll"/>
@@ -307,12 +300,8 @@
     <ROW Component="MFR.Solutions.Providers.Factories.dll" ComponentId="{E5982450-1E41-412A-8B46-58ECCE32B759}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Solutions.Providers.Factories.dll"/>
     <ROW Component="MFR.Solutions.Providers.Interfaces.dll" ComponentId="{13AB8C81-6118-4D44-8612-2C39F26DF395}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Solutions.Providers.Interfaces.dll"/>
     <ROW Component="MFR.Solutions.Providers.dll" ComponentId="{CE7C258C-840C-4797-B1D7-8B4088E3724B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Solutions.Providers.dll"/>
-    <ROW Component="MFR.TextValues.Retrievers.Actions.dll" ComponentId="{C6A8B1A5-66B1-4EC7-BD55-49F969898E30}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Actions.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.Factories.dll" ComponentId="{7FB8B898-4277-4ACF-8459-8CF6B2EC5C70}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Factories.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.Interfaces.dll" ComponentId="{4FBE424D-F03A-4CD1-ACC5-AD49D09745E8}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Interfaces.dll"/>
-    <ROW Component="MFR.TextValues.Retrievers.Synchroniz_1_ation.Factories.dll" ComponentId="{94D73779-22B3-4933-83A4-F66CF5B62F04}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Synchronization.Factories.dll"/>
-    <ROW Component="MFR.TextValues.Retrievers.Synchroniz_2_ation.Interfaces.dll" ComponentId="{E2F04066-B081-48C3-91A0-CEA5D2CAE396}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Synchronization.Interfaces.dll"/>
-    <ROW Component="MFR.TextValues.Retrievers.Synchronization.dll" ComponentId="{975F7303-9780-4D44-8C02-ED1A645B683E}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Synchronization.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.dll" ComponentId="{CDF19C18-EC9D-48AB-8CC6-AC99590072D9}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.dll"/>
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{CB80431B-4195-4554-A317-C03B03A9EA95}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
     <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{7752EAAA-6EA3-424B-8158-0AE19F4174F6}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
@@ -356,12 +345,7 @@
     <ROW Component="log4net.dll" ComponentId="{F27ADDD9-3370-45DA-94E5-AE074860086C}" Directory_="APPDIR" Attributes="0" KeyPath="log4net.dll"/>
     <ROW Component="mfr.exe" ComponentId="{9132EC2B-533F-4742-A0A3-68CF02698C01}" Directory_="APPDIR" Attributes="256" KeyPath="mfr.exe"/>
     <ROW Component="xyLOGIX.Application.Semaphores.dll" ComponentId="{ECB84B15-1215-48E4-ACA9-092C16FBE0D2}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Application.Semaphores.dll"/>
-    <ROW Component="xyLOGIX.Collections.Constants.dll" ComponentId="{C6FC862A-9BA5-40F4-AA32-30D6B53F9E07}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Constants.dll"/>
-    <ROW Component="xyLOGIX.Collections.Events.dll" ComponentId="{1FB0EBA3-5471-4600-93CD-1D6C630BBE99}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Events.dll"/>
-    <ROW Component="xyLOGIX.Collections.Interfaces.dll" ComponentId="{1362E11D-CEC2-4D92-915D-44F4157EB68C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Collections.Synchronized.dll" ComponentId="{E826207F-E5D9-43B3-A85F-C43FECAE224B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Synchronized.dll"/>
-    <ROW Component="xyLOGIX.Collections.Utilities.dll" ComponentId="{A3818F48-0687-48C9-A782-64A24DCECD57}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Utilities.dll"/>
-    <ROW Component="xyLOGIX.Collections.dll" ComponentId="{5CA6CB61-485A-4D76-A107-AF224987BEC7}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.dll"/>
     <ROW Component="xyLOGIX.Core.Assemblies.Info.dll" ComponentId="{57B5C12C-B6E7-4138-96B8-FB097B0C1D18}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Assemblies.Info.dll"/>
     <ROW Component="xyLOGIX.Core.Debug.dll" ComponentId="{6B731404-4F99-4A59-A308-91C82658A535}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Debug.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.Factories.dll" ComponentId="{18E465DE-A0E2-4216-B721-DD007D9F30E7}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.Factories.dll"/>
@@ -375,6 +359,9 @@
     <ROW Component="xyLOGIX.FileSystem.Enumerable.Interfaces.dll" ComponentId="{B9B9A471-0A65-4027-89F7-DEA38B77D1E8}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.Interfaces.dll"/>
     <ROW Component="xyLOGIX.FileSystem.Enumerable.dll" ComponentId="{2A0C9EB8-C131-4CE8-9124-684416528386}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.dll"/>
     <ROW Component="xyLOGIX.Files.Actions.dll" ComponentId="{CA675666-4F41-4B4F-901A-B172FC22CB55}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.Actions.dll"/>
+    <ROW Component="xyLOGIX.Files.MemoryMapped.Factories.dll" ComponentId="{C396A97B-5CF4-459F-8E79-15D15FE334F1}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.MemoryMapped.Factories.dll"/>
+    <ROW Component="xyLOGIX.Files.MemoryMapped.Interfaces.dll" ComponentId="{71F5E66D-4B00-4B36-8588-CFD32CD8EAAD}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.MemoryMapped.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Files.MemoryMapped.dll" ComponentId="{9B134D21-119A-4BE4-9DCC-A0DBCBBE1736}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.MemoryMapped.dll"/>
     <ROW Component="xyLOGIX.Generators.Constants.dll" ComponentId="{1291B784-D9D5-46DE-9B5A-BEB3F9239D54}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Constants.dll"/>
     <ROW Component="xyLOGIX.Generators.Interfaces.dll" ComponentId="{562F50F8-ECFF-4839-B306-A6A523587232}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Generators.dll" ComponentId="{4D720ABA-B272-4CD0-B32C-144C10E19D91}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Generators.dll"/>
@@ -422,9 +409,6 @@
     <ROW Component="xyLOGIX.Queues.Messages.Senders.dll" ComponentId="{C14A56E5-4DB4-47A1-AA50-1B5F002EBABB}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.Senders.dll"/>
     <ROW Component="xyLOGIX.Queues.Messages.dll" ComponentId="{5B50FC30-9CC9-4EC7-9C27-55B50BA3F740}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.dll"/>
     <ROW Component="xyLOGIX.Text.Actions.dll" ComponentId="{9B974925-4DB2-4420-80B1-06EDA289E9C7}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Text.Actions.dll"/>
-    <ROW Component="xyLOGIX.TicketedProvider.Events.dll" ComponentId="{9ECB34A7-90DA-4885-8C22-EECE16E74E66}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TicketedProvider.Events.dll"/>
-    <ROW Component="xyLOGIX.TicketedProvider.Interfaces.dll" ComponentId="{A16CB414-C0E8-40EE-9DE3-1D01FA83A888}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TicketedProvider.Interfaces.dll"/>
-    <ROW Component="xyLOGIX.TicketedProvider.dll" ComponentId="{95AE3B2F-24ED-450C-99BB-8AE2E8A58D0C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TicketedProvider.dll"/>
     <ROW Component="xyLOGIX.TimeZoneInfo.Extensions.dll" ComponentId="{ABE914A9-42E0-4ADD-A91A-2E38493DAB74}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TimeZoneInfo.Extensions.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Collections.Events.dll" ComponentId="{5F3D5C2B-847A-424A-B412-2230BC178C59}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Collections.Events.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Collections.Interfaces.dll" ComponentId="{44C32315-AEBE-4F03-8854-474531E64DE1}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Collections.Interfaces.dll"/>
@@ -610,14 +594,6 @@
     <ROW File="MFR.Expressions.Registry.Validators.Factories.dll.config" Component_="config.json" FileName="MFREXP~9.CON|MFR.Expressions.Registry.Validators.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Expressions.Registry.Validators.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.Expressions.Registry.Validators.Interfaces.dll" Component_="MFR.Expressions.Registry.Validators.Interfaces.dll" FileName="MFREX~10.DLL|MFR.Expressions.Registry.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Expressions.Registry.Validators.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.Expressions.Registry.Validators.Interfaces.dll.config" Component_="config.json" FileName="MFREX~10.CON|MFR.Expressions.Registry.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Expressions.Registry.Validators.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.dll" Component_="MFR.File.Stream.Providers.dll" FileName="MFRFIL~1.DLL|MFR.File.Stream.Providers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.dll.config" Component_="config.json" FileName="MFRFIL~1.CON|MFR.File.Stream.Providers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.Events.dll" Component_="MFR.File.Stream.Providers.Events.dll" FileName="MFRFIL~2.DLL|MFR.File.Stream.Providers.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.Events.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.Events.dll.config" Component_="config.json" FileName="MFRFIL~2.CON|MFR.File.Stream.Providers.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.Events.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.Factories.dll" Component_="MFR.File.Stream.Providers.Factories.dll" FileName="MFRFIL~3.DLL|MFR.File.Stream.Providers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.Factories.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.Factories.dll.config" Component_="config.json" FileName="MFRFIL~3.CON|MFR.File.Stream.Providers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.Factories.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.Interfaces.dll" Component_="MFR.File.Stream.Providers.Interfaces.dll" FileName="MFRFIL~4.DLL|MFR.File.Stream.Providers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.Interfaces.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Stream.Providers.Interfaces.dll.config" Component_="config.json" FileName="MFRFIL~4.CON|MFR.File.Stream.Providers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Stream.Providers.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Creators.dll" Component_="MFR.FileSystem.Creators.dll" FileName="MFRFIL~5.DLL|MFR.FileSystem.Creators.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Creators.dll" SelfReg="false"/>
     <ROW File="MFR.FileSystem.Creators.dll.config" Component_="config.json" FileName="MFRFIL~5.CON|MFR.FileSystem.Creators.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.Creators.dll.config" SelfReg="false"/>
     <ROW File="MFR.FileSystem.dll" Component_="MFR.FileSystem.dll" FileName="MFRFIL~6.DLL|MFR.FileSystem.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.FileSystem.dll" SelfReg="false"/>
@@ -993,20 +969,12 @@
     <ROW File="MFR.Solutions.Providers.Factories.dll.config" Component_="config.json" FileName="MFRSOL~2.CON|MFR.Solutions.Providers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Solutions.Providers.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.Solutions.Providers.Interfaces.dll" Component_="MFR.Solutions.Providers.Interfaces.dll" FileName="MFRSOL~3.DLL|MFR.Solutions.Providers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Solutions.Providers.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.Solutions.Providers.Interfaces.dll.config" Component_="config.json" FileName="MFRSOL~3.CON|MFR.Solutions.Providers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Solutions.Providers.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Actions.dll" Component_="MFR.TextValues.Retrievers.Actions.dll" FileName="MFRTEX~1.DLL|MFR.TextValues.Retrievers.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Actions.dll" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Actions.dll.config" Component_="config.json" FileName="MFRTEX~1.CON|MFR.TextValues.Retrievers.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Actions.dll.config" SelfReg="false"/>
     <ROW File="MFR.TextValues.Retrievers.dll" Component_="MFR.TextValues.Retrievers.dll" FileName="MFRTEX~2.DLL|MFR.TextValues.Retrievers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.dll" SelfReg="false"/>
     <ROW File="MFR.TextValues.Retrievers.dll.config" Component_="config.json" FileName="MFRTEX~2.CON|MFR.TextValues.Retrievers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.dll.config" SelfReg="false"/>
     <ROW File="MFR.TextValues.Retrievers.Factories.dll" Component_="MFR.TextValues.Retrievers.Factories.dll" FileName="MFRTEX~3.DLL|MFR.TextValues.Retrievers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Factories.dll" SelfReg="false"/>
     <ROW File="MFR.TextValues.Retrievers.Factories.dll.config" Component_="config.json" FileName="MFRTEX~3.CON|MFR.TextValues.Retrievers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.TextValues.Retrievers.Interfaces.dll" Component_="MFR.TextValues.Retrievers.Interfaces.dll" FileName="MFRTEX~4.DLL|MFR.TextValues.Retrievers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.TextValues.Retrievers.Interfaces.dll.config" Component_="config.json" FileName="MFRTEX~4.CON|MFR.TextValues.Retrievers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Synchronization.dll" Component_="MFR.TextValues.Retrievers.Synchronization.dll" FileName="MFRTEX~5.DLL|MFR.TextValues.Retrievers.Synchronization.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.dll" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Synchronization.dll.config" Component_="config.json" FileName="MFRTEX~5.CON|MFR.TextValues.Retrievers.Synchronization.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.dll.config" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Synchronization.Factories.dll" Component_="MFR.TextValues.Retrievers.Synchroniz_1_ation.Factories.dll" FileName="MFRTEX~6.DLL|MFR.TextValues.Retrievers.Synchronization.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.Factories.dll" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Synchronization.Factories.dll.config" Component_="config.json" FileName="MFRTEX~6.CON|MFR.TextValues.Retrievers.Synchronization.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.Factories.dll.config" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Synchronization.Interfaces.dll" Component_="MFR.TextValues.Retrievers.Synchroniz_2_ation.Interfaces.dll" FileName="MFRTEX~7.DLL|MFR.TextValues.Retrievers.Synchronization.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.Interfaces.dll" SelfReg="false"/>
-    <ROW File="MFR.TextValues.Retrievers.Synchronization.Interfaces.dll.config" Component_="config.json" FileName="MFRTEX~7.CON|MFR.TextValues.Retrievers.Synchronization.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.TextValues.Retrievers.Synchronization.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="MFR.Validators.Interfaces.dll" Component_="MFR.Validators.Interfaces.dll" FileName="MFRVAL~1.DLL|MFR.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Validators.Interfaces.dll" SelfReg="false"/>
     <ROW File="MFR.Validators.Interfaces.dll.config" Component_="config.json" FileName="MFRVAL~1.CON|MFR.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.Validators.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" Component_="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" FileName="MICROS~1.DLL|Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" SelfReg="false"/>
@@ -1148,12 +1116,6 @@
     <ROW File="xyLOGIX.Queues.Messages.Senders.dll.config" Component_="config.json" FileName="XYLOG~61.CON|xyLOGIX.Queues.Messages.Senders.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Queues.Messages.Senders.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Text.Actions.dll" Component_="xyLOGIX.Text.Actions.dll" FileName="XYLOG~62.DLL|xyLOGIX.Text.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Text.Actions.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Text.Actions.dll.config" Component_="config.json" FileName="XYLOG~62.CON|xyLOGIX.Text.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Text.Actions.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.TicketedProvider.dll" Component_="xyLOGIX.TicketedProvider.dll" FileName="XYLOG~63.DLL|xyLOGIX.TicketedProvider.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.TicketedProvider.dll.config" Component_="config.json" FileName="XYLOG~63.CON|xyLOGIX.TicketedProvider.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.TicketedProvider.Events.dll" Component_="xyLOGIX.TicketedProvider.Events.dll" FileName="XYLOG~64.DLL|xyLOGIX.TicketedProvider.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Events.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.TicketedProvider.Events.dll.config" Component_="config.json" FileName="XYLOG~64.CON|xyLOGIX.TicketedProvider.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Events.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.TicketedProvider.Interfaces.dll" Component_="xyLOGIX.TicketedProvider.Interfaces.dll" FileName="XYLOG~65.DLL|xyLOGIX.TicketedProvider.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Interfaces.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.TicketedProvider.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~65.CON|xyLOGIX.TicketedProvider.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TicketedProvider.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.TimeZoneInfo.Extensions.dll" Component_="xyLOGIX.TimeZoneInfo.Extensions.dll" FileName="XYLOG~66.DLL|xyLOGIX.TimeZoneInfo.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TimeZoneInfo.Extensions.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.TimeZoneInfo.Extensions.dll.config" Component_="config.json" FileName="XYLOG~66.CON|xyLOGIX.TimeZoneInfo.Extensions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.TimeZoneInfo.Extensions.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.UI.Dark.Collections.dll" Component_="xyLOGIX.UI.Dark.Collections.dll" FileName="XYLOG~67.DLL|xyLOGIX.UI.Dark.Collections.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.UI.Dark.Collections.dll" SelfReg="false"/>
@@ -1246,12 +1208,6 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLO~110.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLO~111.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLO~111.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Hosts.dll" Component_="MFR.File.Hosts.dll" FileName="MFRFI~18.DLL|MFR.File.Hosts.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Hosts.dll.config" Component_="config.json" FileName="MFRFI~18.CON|MFR.File.Hosts.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Hosts.Factories.dll" Component_="MFR.File.Hosts.Factories.dll" FileName="MFRFI~19.DLL|MFR.File.Hosts.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Factories.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Hosts.Factories.dll.config" Component_="config.json" FileName="MFRFI~19.CON|MFR.File.Hosts.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Factories.dll.config" SelfReg="false"/>
-    <ROW File="MFR.File.Hosts.Interfaces.dll" Component_="MFR.File.Hosts.Interfaces.dll" FileName="MFRFI~20.DLL|MFR.File.Hosts.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Interfaces.dll" SelfReg="false"/>
-    <ROW File="MFR.File.Hosts.Interfaces.dll.config" Component_="config.json" FileName="MFRFI~20.CON|MFR.File.Hosts.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.File.Hosts.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~3.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
     <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Buffers.dll" SelfReg="false"/>
     <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~2.DLL|System.Memory.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Memory.dll" SelfReg="false"/>
@@ -1262,16 +1218,12 @@
     <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~7.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
     <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTEM~8.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.ValueTuple.dll" SelfReg="false"/>
     <ROW File="TimeZoneConverter.dll" Component_="TimeZoneConverter.dll" FileName="TIMEZO~2.DLL|TimeZoneConverter.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\TimeZoneConverter.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Constants.dll" Component_="xyLOGIX.Collections.Constants.dll" FileName="XYLO~112.DLL|xyLOGIX.Collections.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Constants.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Constants.dll.config" Component_="config.json" FileName="XYLO~112.CON|xyLOGIX.Collections.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Constants.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.dll" Component_="xyLOGIX.Collections.dll" FileName="XYLO~113.DLL|xyLOGIX.Collections.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.dll.config" Component_="config.json" FileName="XYLO~113.CON|xyLOGIX.Collections.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Events.dll" Component_="xyLOGIX.Collections.Events.dll" FileName="XYLO~114.DLL|xyLOGIX.Collections.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Events.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Events.dll.config" Component_="config.json" FileName="XYLO~114.CON|xyLOGIX.Collections.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Events.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Interfaces.dll" Component_="xyLOGIX.Collections.Interfaces.dll" FileName="XYLO~115.DLL|xyLOGIX.Collections.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Interfaces.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Interfaces.dll.config" Component_="config.json" FileName="XYLO~115.CON|xyLOGIX.Collections.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Utilities.dll" Component_="xyLOGIX.Collections.Utilities.dll" FileName="XYLO~116.DLL|xyLOGIX.Collections.Utilities.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Utilities.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Collections.Utilities.dll.config" Component_="config.json" FileName="XYLO~116.CON|xyLOGIX.Collections.Utilities.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Collections.Utilities.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.MemoryMapped.dll" Component_="xyLOGIX.Files.MemoryMapped.dll" FileName="XYLO~117.DLL|xyLOGIX.Files.MemoryMapped.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.MemoryMapped.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.MemoryMapped.dll.config" Component_="config.json" FileName="XYLO~117.CON|xyLOGIX.Files.MemoryMapped.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.MemoryMapped.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.MemoryMapped.Factories.dll" Component_="xyLOGIX.Files.MemoryMapped.Factories.dll" FileName="XYLO~118.DLL|xyLOGIX.Files.MemoryMapped.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.MemoryMapped.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.MemoryMapped.Factories.dll.config" Component_="config.json" FileName="XYLO~118.CON|xyLOGIX.Files.MemoryMapped.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.MemoryMapped.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.MemoryMapped.Interfaces.dll" Component_="xyLOGIX.Files.MemoryMapped.Interfaces.dll" FileName="XYLO~119.DLL|xyLOGIX.Files.MemoryMapped.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.MemoryMapped.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.MemoryMapped.Interfaces.dll.config" Component_="config.json" FileName="XYLO~119.CON|xyLOGIX.Files.MemoryMapped.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.MemoryMapped.Interfaces.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1453,10 +1405,6 @@
     <ROW Feature_="MainFeature" Component_="MFR.Expressions.Registry.Validators.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Expressions.Registry.Validators.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Expressions.Registry.Validators.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Stream.Providers.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Stream.Providers.Events.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Stream.Providers.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Stream.Providers.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Creators.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.FileSystem.Enumerators.dll"/>
@@ -1644,13 +1592,9 @@
     <ROW Feature_="MainFeature" Component_="MFR.Solutions.Providers.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Solutions.Providers.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Solutions.Providers.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Actions.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Synchronization.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Synchroniz_1_ation.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.TextValues.Retrievers.Synchroniz_2_ation.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.Validators.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Interop.dll"/>
@@ -1729,9 +1673,6 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Queues.Messages.Mappings.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Queues.Messages.Senders.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Text.Actions.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.TicketedProvider.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.TicketedProvider.Events.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.TicketedProvider.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.TimeZoneInfo.Extensions.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.UI.Dark.Collections.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.UI.Dark.Collections.Events.dll"/>
@@ -1778,9 +1719,6 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Hosts.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Hosts.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.File.Hosts.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
@@ -1791,11 +1729,9 @@
     <ROW Feature_="MainFeature" Component_="System.Threading.Tasks.Extensions.dll"/>
     <ROW Feature_="MainFeature" Component_="System.ValueTuple.dll"/>
     <ROW Feature_="MainFeature" Component_="TimeZoneConverter.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Constants.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Events.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Collections.Utilities.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Files.MemoryMapped.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Files.MemoryMapped.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Files.MemoryMapped.Interfaces.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
