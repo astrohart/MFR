@@ -3917,7 +3917,15 @@ namespace MFR.Renamers.Files
              * be locking key file(s) and/or folder(s).
              */
 
-            Run.SystemCommand("taskkill /IM devenv.exe /F /T");
+            Run.SystemCommand("sc stop WSearch");
+            Run.SystemCommand("taskkill /IM vshost.exe /F /T");
+            Run.SystemCommand("taskkill /IM postsharp-x64-srv.exe /F /T");
+            Run.SystemCommand("taskkill /IM msedge.exe /F /T");
+            Run.SystemCommand("taskkill /IM msedgewebview2.exe /F /T");
+            Run.SystemCommand("taskkill /IM perfwatson2.exe /F /T");
+            Run.SystemCommand("taskkill /IM ServiceHub.Host.dotnet.x64.exe /F /T");
+            Run.SystemCommand("taskkill /IM ServiceHub.IndexingService.exe /F /T");
+            Run.SystemCommand("taskkill /IM ServiceHub.RoslynCodeAnalysisService.exe /F /T");
             Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
             Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
             Run.SystemCommand("taskkill /IM chrome.exe /F /T");
