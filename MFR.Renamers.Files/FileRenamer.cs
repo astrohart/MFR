@@ -4917,7 +4917,7 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because the new file data is blank.  Deleting the file instead..."
+                        $"*** ERROR *** '{entry.Path}' will not be getting any text replaced in it because we could not determine whether text is to be replaced or not."
                     );
 
                     return true; // "succeed" but don't process any further
