@@ -10,8 +10,6 @@ using MFR.Events.Common;
 using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
-using MFR.File.Stream.Providers.Factories;
-using MFR.File.Stream.Providers.Interfaces;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
@@ -205,14 +203,6 @@ namespace MFR.Renamers.Files
             get;
             set;
         }
-
-        /// <summary>
-        /// Gets a reference to an instance of an object that implements the
-        /// <see cref="T:MFR.File.Stream.Providers.Interfaces.IFileHostProvider" />
-        /// interface.
-        /// </summary>
-        private static IFileHostProvider FileHostProvider
-            => GetFileHostProvider.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -2293,9 +2283,11 @@ namespace MFR.Renamers.Files
 
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
-                    if (!pendingChangesTracker.ContainsKey(entry)) continue;
+                    if (!pendingChangesTracker.TryGetValue(
+                            entry, out var value
+                        )) continue;
 
-                    if (!pendingChangesTracker[entry]) continue;
+                    if (!value) continue;
 
                     /*
                      * It's good enough for just one of the calls to
@@ -2674,13 +2666,15 @@ namespace MFR.Renamers.Files
 
                     if (entry == null) continue;
                     if (!entry.Exists) continue;
-                    if (!pendingChangesTracker.ContainsKey(entry)) continue;
+                    if (!pendingChangesTracker.TryGetValue(
+                            entry, out var value
+                        )) continue;
 
-                    if (!pendingChangesTracker[entry]) continue;
+                    if (!value) continue;
 
                     /*
                      * It's good enough for just one of the calls to
-                     * commit the repository(ies) to Git succeeds.
+                     * commit the repository(ies) to Git succeed.
                      */
 
                     succeeded |= CommitResultsToGitForEntry(
