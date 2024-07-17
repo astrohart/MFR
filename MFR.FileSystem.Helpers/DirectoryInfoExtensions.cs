@@ -4,7 +4,6 @@ using System;
 using System.Threading;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
-using xyLOGIX.Interop.Processes.Actions;
 using xyLOGIX.Interop.Processes.Factories;
 using xyLOGIX.Interop.Processes.Interfaces;
 
@@ -436,70 +435,65 @@ namespace MFR.FileSystem.Helpers
                     $"DirectoryInfoExtensions.TryRenameFolder: *** SUCCESS *** The temporary folder, '{tempFolderLocation}', does NOT already exist on the file system.  Proceeding..."
                 );
 
-                // To help to ensure that the folder-rename operation succeeds, first move the
-                // source folder to a temporary location, and then wait a little while, kill
-                // some nasty processes which just LOVE to get in our way, and then move the
-                // folder from the temporary location to the destination.  This often works.
-                new DirectoryInfo(sourceFolderPath, PathFormat.FullPath).MoveTo(
-                    tempFolderLocation,
+                Directory.Move(
+                    sourceFolderPath, newSubFolderPath,
                     MoveOptions.CopyAllowed | MoveOptions.ReplaceExisting |
                     MoveOptions.WriteThrough, PathFormat.FullPath
                 );
 
-                // Delay to let the system catch up
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "DirectoryInfoExtensions.TryRenameFolder: Delaying to let the system catch up..."
-                );
+                //// Delay to let the system catch up
+                //DebugUtils.WriteLine(
+                //    DebugLevel.Info,
+                //    "DirectoryInfoExtensions.TryRenameFolder: Delaying to let the system catch up..."
+                //);
 
-                Thread.Sleep(50);
+                //Thread.Sleep(50);
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "DirectoryInfoExtensions.TryRenameFolder: Verifying the move operation succeeded..."
-                );
+                //DebugUtils.WriteLine(
+                //    DebugLevel.Info,
+                //    "DirectoryInfoExtensions.TryRenameFolder: Verifying the move operation succeeded..."
+                //);
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"*** DirectoryInfoExtensions.TryRenameFolder: Checking whether the temporary folder, '{tempFolderLocation}', exists on the file system..."
-                );
+                //DebugUtils.WriteLine(
+                //    DebugLevel.Info,
+                //    $"*** DirectoryInfoExtensions.TryRenameFolder: Checking whether the temporary folder, '{tempFolderLocation}', exists on the file system..."
+                //);
 
-                // Check to see whether the temporary folder exists on the file system.
-                // If this is not the case, then write an error message to the log file,
-                // and then terminate the execution of this method.
-                if (!Does.FolderExist(tempFolderLocation))
-                {
-                    // The temporary folder does NOT exist on the file system.  This is not desirable.
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        $"*** ERROR *** The temporary folder, '{tempFolderLocation}', does NOT exist on the file system.  Stopping..."
-                    );
+                //// Check to see whether the temporary folder exists on the file system.
+                //// If this is not the case, then write an error message to the log file,
+                //// and then terminate the execution of this method.
+                //if (!Does.FolderExist(tempFolderLocation))
+                //{
+                //    // The temporary folder does NOT exist on the file system.  This is not desirable.
+                //    DebugUtils.WriteLine(
+                //        DebugLevel.Error,
+                //        $"*** ERROR *** The temporary folder, '{tempFolderLocation}', does NOT exist on the file system.  Stopping..."
+                //    );
 
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"*** DirectoryInfoExtensions.TryRenameFolder: Result = {result}"
-                    );
+                //    DebugUtils.WriteLine(
+                //        DebugLevel.Debug,
+                //        $"*** DirectoryInfoExtensions.TryRenameFolder: Result = {result}"
+                //    );
 
-                    // stop.
-                    return result;
-                }
+                //    // stop.
+                //    return result;
+                //}
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"DirectoryInfoExtensions.TryRenameFolder: *** SUCCESS *** The temporary folder, '{tempFolderLocation}', exists on the file system.  Proceeding..."
-                );
+                //DebugUtils.WriteLine(
+                //    DebugLevel.Info,
+                //    $"DirectoryInfoExtensions.TryRenameFolder: *** SUCCESS *** The temporary folder, '{tempFolderLocation}', exists on the file system.  Proceeding..."
+                //);
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"DirectoryInfoExtensions.TryRenameFolder: Now attempting to move the folder, '{tempFolderLocation}', to the new path, which is '{newSubFolderPath}'."
-                );
+                //DebugUtils.WriteLine(
+                //    DebugLevel.Info,
+                //    $"DirectoryInfoExtensions.TryRenameFolder: Now attempting to move the folder, '{tempFolderLocation}', to the new path, which is '{newSubFolderPath}'."
+                //);
 
-                new DirectoryInfo(tempFolderLocation, PathFormat.FullPath)
-                    .MoveTo(
-                        newSubFolderPath,
-                        MoveOptions.CopyAllowed | MoveOptions.ReplaceExisting |
-                        MoveOptions.WriteThrough, PathFormat.FullPath
-                    );
+                //Directory.Move(
+                //    tempFolderLocation, newSubFolderPath,
+                //    MoveOptions.CopyAllowed | MoveOptions.ReplaceExisting |
+                //    MoveOptions.WriteThrough, PathFormat.FullPath
+                //);
 
                 // Delay to let the system catch up
                 DebugUtils.WriteLine(

@@ -549,9 +549,6 @@ namespace MFR.Renamers.Files
 
             try
             {
-                // If we're auto-started, sleep for 5 seconds to let Visual Studio close its handles
-                if (CurrentConfiguration.AutoStart) Thread.Sleep(5000);
-
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     $"*** FileRenamer.ProcessAll: Checking whether the root folder, '{RootDirectoryPath}', can be located on the file system..."
@@ -3920,15 +3917,12 @@ namespace MFR.Renamers.Files
              * be locking key file(s) and/or folder(s).
              */
 
-            Run.SystemCommand("sc stop WSearch");
+            Run.SystemCommand("taskkill /IM VBCSCompiler.exe /F /T");
             Run.SystemCommand("taskkill /IM vshost.exe /F /T");
             Run.SystemCommand("taskkill /IM postsharp-x64-srv.exe /F /T");
             Run.SystemCommand("taskkill /IM msedge.exe /F /T");
             Run.SystemCommand("taskkill /IM msedgewebview2.exe /F /T");
             Run.SystemCommand("taskkill /IM perfwatson2.exe /F /T");
-            Run.SystemCommand("taskkill /IM ServiceHub.Host.dotnet.x64.exe /F /T");
-            Run.SystemCommand("taskkill /IM ServiceHub.IndexingService.exe /F /T");
-            Run.SystemCommand("taskkill /IM ServiceHub.RoslynCodeAnalysisService.exe /F /T");
             Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
             Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
             Run.SystemCommand("taskkill /IM chrome.exe /F /T");
