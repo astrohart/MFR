@@ -435,10 +435,13 @@ namespace MFR.FileSystem.Helpers
                     $"DirectoryInfoExtensions.TryRenameFolder: *** SUCCESS *** The temporary folder, '{tempFolderLocation}', does NOT already exist on the file system.  Proceeding..."
                 );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"DirectoryInfoExtensions.TryRenameFolder: Attempting to rename '{sourceFolderPath}' -> '{newSubFolderPath}'..."
+                );
+                
                 Directory.Move(
-                    sourceFolderPath, newSubFolderPath,
-                    MoveOptions.CopyAllowed | MoveOptions.ReplaceExisting |
-                    MoveOptions.WriteThrough, PathFormat.FullPath
+                    sourceFolderPath, newSubFolderPath
                 );
 
                 //// Delay to let the system catch up
