@@ -3913,24 +3913,31 @@ namespace MFR.Renamers.Files
         private void KillErrantProcesses()
         {
             /*
-             * Before we begin, run commands to forcibly kill all instances of process(es) that may
-             * be locking key file(s) and/or folder(s).
+             * Run commands to forcibly kill all instances of process(es) that may
+             * be locking key file(s) and/or folder(s) whose names and/or contents
+             * we must update.
              */
 
-            Run.SystemCommand("taskkill /IM VBCSCompiler.exe /F /T");
-            Run.SystemCommand("taskkill /IM vshost.exe /F /T");
-            Run.SystemCommand("taskkill /IM postsharp-x64-srv.exe /F /T");
-            Run.SystemCommand("taskkill /IM msedge.exe /F /T");
-            Run.SystemCommand("taskkill /IM msedgewebview2.exe /F /T");
-            Run.SystemCommand("taskkill /IM perfwatson2.exe /F /T");
-            Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
-            Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
-            Run.SystemCommand("taskkill /IM chrome.exe /F /T");
-            Run.SystemCommand("taskkill /IM chromedriver.exe /F /T");
-            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-            Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-            Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
+            try
+            {
+                Run.SystemCommand("taskkill /IM VBCSCompiler.exe /F /T");
+                Run.SystemCommand("taskkill /IM vshost.exe /F /T");
+                Run.SystemCommand("taskkill /IM postsharp-x64-srv.exe /F /T");
+                Run.SystemCommand("taskkill /IM msedge.exe /F /T");
+                Run.SystemCommand("taskkill /IM msedgewebview2.exe /F /T");
+                Run.SystemCommand("taskkill /IM perfwatson2.exe /F /T");
+                Run.SystemCommand("taskkill /IM TGitCache.exe /F /T");
+                Run.SystemCommand("taskkill /IM msbuild.exe /F /T");
+                Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+                Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+                Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
+                Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
