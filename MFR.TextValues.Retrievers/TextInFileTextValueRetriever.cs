@@ -102,7 +102,7 @@ namespace MFR.TextValues.Retrievers
                 );
 
                 using (var reader = MakeNewFileStreamReader.ForPath(entry.Path))
-                    result = reader.ReadAllText();
+                    result = reader.ReadAllText().Replace("\0\0", "");
             }
             catch (Exception ex)
             {
