@@ -98,4 +98,4 @@ namespace MFR.GUI.Models.Factories
             return self;
         }
     }
-}}
+}

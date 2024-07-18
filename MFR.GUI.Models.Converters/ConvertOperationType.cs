@@ -49,4 +49,4 @@ namespace MFR.GUI.Models.Converters
             return result;
         }
     }
-}}
+}

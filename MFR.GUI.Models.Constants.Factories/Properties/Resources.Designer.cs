@@ -69,4 +69,3 @@ namespace MFR.GUI.Models.Constants.Factories.Properties
         }
     }
 }
-}

@@ -23,10 +23,10 @@
     </Compile>
   </ItemGroup>
   <Target Name="Build">
-    <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
+    <Error Text="This project requires the Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
   </Target>
   <Target Name="Rebuild">
-    <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
+    <Error Text="This project requires the Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
   </Target>
   <Target Name="Clean">
   </Target>
