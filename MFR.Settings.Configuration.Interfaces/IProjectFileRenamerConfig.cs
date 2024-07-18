@@ -59,6 +59,17 @@ namespace MFR.Settings.Configuration.Interfaces
         }
 
         /// <summary>
+        /// Gets a reference to an instance of a collection, each of whose elements are of
+        /// type <see cref="T:System.String" />, representing the list of errant processes
+        /// we should attempt to kill prior to the beginning of an operation.
+        /// </summary>
+        IList<string> ErrantProcessesList
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
         /// by the user.
         /// </summary>
