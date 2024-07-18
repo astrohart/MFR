@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using PostSharp.Patterns.Diagnostics;
+using System.IO;
 using xyLOGIX.Files.Actions;
 
 namespace MFR.GUI.Models
@@ -57,5 +58,11 @@ namespace MFR.GUI.Models
             get;
             set;
         }
+
+        /// <summary>Returns a string that represents the current object.</summary>
+        /// <returns>A string that represents the current object.</returns>
+        [Log(AttributeExclude = true)]
+        public override string ToString()
+            => FileName;
     }
 }
