@@ -6,6 +6,7 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Forms;
@@ -108,6 +109,17 @@ namespace MFR.GUI.Dialogs
             [DebuggerStepThrough]
             set => dontPromptUserToReloadOpenSolutionCheckBox.Checked = value;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of a collection, each of whose elements are of
+        /// type <see cref="T:System.String" />, representing the items in the
+        /// <b>Errant Processes</b> list box.
+        /// </summary>
+        public IList<string> ErrantProcessList
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        } = new List<string>();
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
@@ -248,7 +260,7 @@ namespace MFR.GUI.Dialogs
         /// <summary>
         /// This method handles the
         /// <see cref="E:System.Windows.Forms.CheckBox.CheckedChanged" /> event for all the
-        ///  checkboxes on the tabs of this property sheet.
+        /// checkboxes on the tabs of this property sheet.
         /// </summary>
         /// <param name="sender">
         /// (Required.) Reference to the object that raised this
@@ -270,6 +282,32 @@ namespace MFR.GUI.Dialogs
         /// checkbox.
         /// </remarks>
         private void OnAnyCheckBoxCheckedChanged(object sender, EventArgs e)
+            => SetModifiedFlag();
+
+        /// <summary>
+        /// Handles the <see cref="E:System.Windows.Forms.Control.TextChanged" /> event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method is called to respond to the value of the text inside the
+        /// CurrentConfiguration File Pathname text box being changed. This method
+        /// responds to such a happenstance by updating the value of the
+        /// <see
+        ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />
+        /// property to be
+        /// <see
+        ///     langword="true" />
+        /// by calling the
+        /// <see
+        ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
+        /// method.
+        /// </remarks>
+        private void OnAnyTextBoxChanged(object sender, EventArgs e)
             => SetModifiedFlag();
 
         private void
@@ -393,35 +431,6 @@ namespace MFR.GUI.Dialogs
                     dialog.DetailedCommitMessageFormat;
             }
         }
-
-        /// <summary>
-        /// Handles the <see cref="E:System.Windows.Forms.Control.TextChanged" /> event.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method is called to respond to the value of the text inside the
-        /// CurrentConfiguration File Pathname text box being changed. This method
-        /// responds to such a happenstance by updating the value of the
-        /// <see
-        ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />
-        /// property to be
-        /// <see
-        ///     langword="true" />
-        /// by calling the
-        /// <see
-        ///     cref="M:MFR.GUI.OptionsDialog.SetModifiedFlag" />
-        /// method.
-        /// </remarks>
-        private void OnAnyTextBoxChanged(
-            object sender,
-            EventArgs e
-        )
-            => SetModifiedFlag();
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Application.Idle" /> event.
