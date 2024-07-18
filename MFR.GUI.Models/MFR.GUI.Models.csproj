@@ -115,13 +115,11 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.1.4\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+    <Compile Include="ErrantProcessInfo.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +149,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Models.Converters\MFR.GUI.Models.Converters.csproj">
       <Project>{80D46DA4-AC62-4D36-A763-6E03951224FB}</Project>
