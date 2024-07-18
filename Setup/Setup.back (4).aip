@@ -142,7 +142,7 @@
     <ROW Component="MFR.GUI.Launchers.Dialogs.dll" ComponentId="{E67ABCC7-532A-46D0-AC50-DFC90DE2B4D6}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Launchers.Dialogs.dll"/>
     <ROW Component="MFR.GUI.Models.Actions.dll" ComponentId="{F39DCE64-4500-4738-A2B2-0CB6944F56CC}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Actions.dll"/>
     <ROW Component="MFR.GUI.Models.Constants.dll" ComponentId="{F7FFE6B8-578D-46F1-9982-565325816274}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Constants.dll"/>
-    <ROW Component="MFR.GUI.Models.Converters.Factories.dll" ComponentId="{2B2936E0-0227-446F-AB8B-103198F0707F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Converters.Factories.dll"/>
+    <ROW Component="MFR.GUI.Models.Constants.Factories.dll" ComponentId="{2B2936E0-0227-446F-AB8B-103198F0707F}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Constants.Factories.dll"/>
     <ROW Component="MFR.GUI.Models.Converters.dll" ComponentId="{B8FAF6BE-3B85-4456-8509-07360C8217E5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Converters.dll"/>
     <ROW Component="MFR.GUI.Models.Extensions.dll" ComponentId="{C71FACB2-C189-4983-A041-152CA3BF24F5}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Extensions.dll"/>
     <ROW Component="MFR.GUI.Models.Factories.dll" ComponentId="{9D953F63-65F1-41A1-B8BE-F5334F922103}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Models.Factories.dll"/>
@@ -582,8 +582,8 @@
     <ROW File="MFR.GUI.Models.Constants.dll.config" Component_="config.json" FileName="MFRGU~37.CON|MFR.GUI.Models.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Constants.dll.config" SelfReg="false"/>
     <ROW File="MFR.GUI.Models.Converters.dll" Component_="MFR.GUI.Models.Converters.dll" FileName="MFRGU~38.DLL|MFR.GUI.Models.Converters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Converters.dll" SelfReg="false"/>
     <ROW File="MFR.GUI.Models.Converters.dll.config" Component_="config.json" FileName="MFRGU~38.CON|MFR.GUI.Models.Converters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Converters.dll.config" SelfReg="false"/>
-    <ROW File="MFR.GUI.Models.Converters.Factories.dll" Component_="MFR.GUI.Models.Converters.Factories.dll" FileName="MFRGU~39.DLL|MFR.GUI.Models.Converters.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Converters.Factories.dll" SelfReg="false"/>
-    <ROW File="MFR.GUI.Models.Converters.Factories.dll.config" Component_="config.json" FileName="MFRGU~39.CON|MFR.GUI.Models.Converters.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Converters.Factories.dll.config" SelfReg="false"/>
+    <ROW File="MFR.GUI.Models.Constants.Factories.dll" Component_="MFR.GUI.Models.Constants.Factories.dll" FileName="MFRGU~39.DLL|MFR.GUI.Models.Constants.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Constants.Factories.dll" SelfReg="false"/>
+    <ROW File="MFR.GUI.Models.Constants.Factories.dll.config" Component_="config.json" FileName="MFRGU~39.CON|MFR.GUI.Models.Constants.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Constants.Factories.dll.config" SelfReg="false"/>
     <ROW File="MFR.GUI.Models.dll" Component_="MFR.GUI.Models.dll" FileName="MFRGU~40.DLL|MFR.GUI.Models.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.dll" SelfReg="false"/>
     <ROW File="MFR.GUI.Models.dll.config" Component_="config.json" FileName="MFRGU~40.CON|MFR.GUI.Models.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.dll.config" SelfReg="false"/>
     <ROW File="MFR.GUI.Models.Extensions.dll" Component_="MFR.GUI.Models.Extensions.dll" FileName="MFRGU~41.DLL|MFR.GUI.Models.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Models.Extensions.dll" SelfReg="false"/>
@@ -1174,7 +1174,7 @@
     <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Actions.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Constants.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Converters.dll"/>
-    <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Converters.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Constants.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Extensions.dll"/>
     <ROW Feature_="MainFeature" Component_="MFR.GUI.Models.Factories.dll"/>
@@ -1420,4 +1420,4 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
-</DOCUMENT>
+</DOCUMENT>/D

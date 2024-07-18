@@ -148,9 +148,9 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.GUI.Models.Converters.Factories\MFR.GUI.Models.Converters.Factories.csproj">
+    <ProjectReference Include="..\MFR.GUI.Models.Constants.Factories\MFR.GUI.Models.Constants.Factories.csproj">
       <Project>{077A67EB-C33C-4884-AAFE-1EF517595CD8}</Project>
-      <Name>MFR.GUI.Models.Converters.Factories</Name>
+      <Name>MFR.GUI.Models.Constants.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
       <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>

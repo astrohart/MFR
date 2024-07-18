@@ -714,7 +714,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Renamers.Files.Events",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Engines.Matching.Actions", "MFR.Engines.Matching.Actions\MFR.Engines.Matching.Actions.csproj", "{79C077EE-FF71-4491-BCFA-22A564F0782A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Models.Converters.Factories", "MFR.GUI.Models.Converters.Factories\MFR.GUI.Models.Converters.Factories.csproj", "{077A67EB-C33C-4884-AAFE-1EF517595CD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Models.Constants.Factories", "MFR.GUI.Models.Constants.Factories\MFR.GUI.Models.Constants.Factories.csproj", "{077A67EB-C33C-4884-AAFE-1EF517595CD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Assemblies.Info", "..\xyLOGIX.Core.Assemblies.Info.VS2019\xyLOGIX.Core.Assemblies.Info\xyLOGIX.Core.Assemblies.Info.csproj", "{1611C59B-1C1E-4F7C-A1CC-7F263DD31188}"
 EndProject
@@ -9177,4 +9177,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E13E7C89-941E-4C5A-9228-80AAA4B5CD77}
 	EndGlobalSection
-EndGlobal
+EndGlobalba

@@ -10,7 +10,7 @@
 
 using System;
 
-namespace MFR.GUI.Models.Converters.Factories.Properties
+namespace MFR.GUI.Models.Constants.Factories.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -44,7 +44,7 @@ namespace MFR.GUI.Models.Converters.Factories.Properties
             {
                 if (object.ReferenceEquals(resourceMan, null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.GUI.Models.Converters.Factories.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MFR.GUI.Models.Constants.Factories.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -68,4 +68,5 @@ namespace MFR.GUI.Models.Converters.Factories.Properties
             }
         }
     }
+}
 }

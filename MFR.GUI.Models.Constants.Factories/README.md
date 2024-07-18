@@ -1,20 +1,20 @@
 <a name='assembly'></a>
-# MFR.GUI.Models.Converters.Factories
+# MFR.GUI.Models.Constants.Factories
 
 ## Contents
 
-- [GetOperationName](#T-MFR-GUI-Models-Converters-Factories-GetOperationName 'MFR.GUI.Models.Converters.Factories.GetOperationName')
-  - [For(type)](#M-MFR-GUI-Models-Converters-Factories-GetOperationName-For-MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Converters.Factories.GetOperationName.For(MFR.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-GUI-Models-Converters-Factories-Properties-Resources 'MFR.GUI.Models.Converters.Factories.Properties.Resources')
-  - [Culture](#P-MFR-GUI-Models-Converters-Factories-Properties-Resources-Culture 'MFR.GUI.Models.Converters.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-GUI-Models-Converters-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Models.Converters.Factories.Properties.Resources.ResourceManager')
+- [GetOperationName](#T-MFR-GUI-Models-Converters-Factories-GetOperationName 'MFR.GUI.Models.Constants.Factories.GetOperationName')
+  - [For(type)](#M-MFR-GUI-Models-Converters-Factories-GetOperationName-For-MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Constants.Factories.GetOperationName.For(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-GUI-Models-Converters-Factories-Properties-Resources 'MFR.GUI.Models.Constants.Factories.Properties.Resources')
+  - [Culture](#P-MFR-GUI-Models-Converters-Factories-Properties-Resources-Culture 'MFR.GUI.Models.Constants.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-GUI-Models-Converters-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Models.Constants.Factories.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-GUI-Models-Converters-Factories-GetOperationName'></a>
 ## GetOperationName `type`
 
 ##### Namespace
 
-MFR.GUI.Models.Converters.Factories
+MFR.GUI.Models.Constants.Factories
 
 ##### Summary
 
@@ -56,7 +56,7 @@ text. |
 
 ##### Namespace
 
-MFR.GUI.Models.Converters.Factories.Properties
+MFR.GUI.Models.Constants.Factories.Properties
 
 ##### Summary
 
@@ -75,4 +75,4 @@ Overrides the current thread's CurrentUICulture property for all
 
 ##### Summary
 
-Returns the cached ResourceManager instance used by this class.
+Returns the cached ResourceManager instance used by this class.s

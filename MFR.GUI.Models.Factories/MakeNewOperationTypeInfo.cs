@@ -1,4 +1,4 @@
-using MFR.GUI.Models.Converters.Factories;
+using MFR.GUI.Models.Constants.Factories;
 using MFR.GUI.Models.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using MFR.Operations.Constants;
@@ -98,4 +98,4 @@ namespace MFR.GUI.Models.Factories
             return self;
         }
     }
-}
+}}

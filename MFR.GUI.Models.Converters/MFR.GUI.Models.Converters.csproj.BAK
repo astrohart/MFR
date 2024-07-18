@@ -150,9 +150,9 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Models.Converters.Factories\MFR.GUI.Models.Converters.Factories.csproj">
+    <ProjectReference Include="..\MFR.GUI.Models.Constants.Factories\MFR.GUI.Models.Constants.Factories.csproj">
       <Project>{077A67EB-C33C-4884-AAFE-1EF517595CD8}</Project>
-      <Name>MFR.GUI.Models.Converters.Factories</Name>
+      <Name>MFR.GUI.Models.Constants.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>

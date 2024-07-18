@@ -2,7 +2,7 @@ using MFR.GUI.Models.Constants;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 
-namespace MFR.GUI.Models.Converters.Factories
+namespace MFR.GUI.Models.Constants.Factories
 {
     /// <summary>
     /// Exposes methods to obtain the names of operations.

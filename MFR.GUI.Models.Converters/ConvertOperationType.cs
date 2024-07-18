@@ -1,5 +1,5 @@
 using PostSharp.Patterns.Threading;
-using MFR.GUI.Models.Converters.Factories;
+using MFR.GUI.Models.Constants.Factories;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
@@ -49,4 +49,4 @@ namespace MFR.GUI.Models.Converters
             return result;
         }
     }
-}
+}}

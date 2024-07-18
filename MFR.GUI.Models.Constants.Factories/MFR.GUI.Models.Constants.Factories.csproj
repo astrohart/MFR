@@ -21,7 +21,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x64\Debug\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Debug\MFR.GUI.Models.Constants.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -35,7 +35,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>True</SkipPostSharp>
-    <DocumentationFile>bin\x64\Release\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\MFR.GUI.Models.Constants.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -49,7 +49,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Debug\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Debug\MFR.GUI.Models.Constants.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -63,7 +63,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <SkipPostSharp>False</SkipPostSharp>
-    <DocumentationFile>bin\x86\Release\MFR.GUI.Models.Converters.Factories.xml</DocumentationFile>
+    <DocumentationFile>bin\x86\Release\MFR.GUI.Models.Constants.Factories.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,10 +73,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>MFR.GUI.Models.Converters.Factories</AssemblyName>
+    <AssemblyName>MFR.GUI.Models.Constants.Factories</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>MFR.GUI.Models.Converters.Factories</RootNamespace>
+    <RootNamespace>MFR.GUI.Models.Constants.Factories</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
