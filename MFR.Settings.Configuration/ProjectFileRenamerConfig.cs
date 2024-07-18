@@ -91,17 +91,29 @@ namespace MFR.Settings.Configuration
         /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" /> and
         /// returns a reference to it.
         /// </summary>
+        /// <param name="errantProcesses">
+        /// (Required.) A collection of references to instances of
+        /// <see cref="T:System.String" />, each element of which is the name of a process
+        /// that is to be killed prior to the start of an operation.
+        /// </param>
+        /// <param name="operations">
+        /// (Required.) Reference to an instance of a collection of instances of objects
+        /// that implement the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IOperationTypeInfo" /> interface, each
+        /// element of which specifies configuration information, such as whether the
+        /// operation is disabled, for each invokable operation.
+        /// </param>
         [JsonConstructor]
         public ProjectFileRenamerConfig(
+            IEnumerable<string> errantProcesses,
             IEnumerable<IOperationTypeInfo> operations
         )
         {
             Reset();
 
-            if (operations == null || !operations.Any()) return;
+            if (!AddErrantProcessEntries(errantProcesses)) return;
 
-            foreach (var operation in operations)
-                InvokableOperations.Add(operation);
+            if (!AddInvokableOperationEntries(operations)) return;
         }
 
         /// <summary>
@@ -160,6 +172,18 @@ namespace MFR.Settings.Configuration
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of a collection, each of whose elements are of
+        /// type <see cref="T:System.String" />, representing the list of errant processes
+        /// we should attempt to kill prior to the beginning of an operation.
+        /// </summary>
+        [JsonProperty("errantProcessesList")]
+        public IList<string> ErrantProcessesList
+        {
+            get;
+            set;
+        } = new List<string>();
 
         /// <summary>
         /// Gets or sets the text to be found that was most-recently specified
@@ -756,6 +780,8 @@ namespace MFR.Settings.Configuration
                     InvokableOperations.Clear();
 
                 InvokableOperations = Initialize.OperationList();
+
+                ErrantProcessesList.Clear();
             }
             catch (Exception ex)
             {
@@ -857,5 +883,100 @@ namespace MFR.Settings.Configuration
             StartingFolderChangedEventArgs e
         )
             => StartingFolderChanged?.Invoke(this, e);
+
+        /// <summary>
+        /// Adds the specified <paramref name="errantProcesses" /> to the configured list
+        /// of errant processes that are to be killed prior to performing certain
+        /// operations.
+        /// </summary>
+        /// <param name="errantProcesses">
+        /// (Required.) A collection of references to instances of
+        /// <see cref="T:System.String" />, each element of which is the name of a process
+        /// that is to be killed prior to the start of an operation.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the invokable operation(s) were
+        /// successfully added to the internal collection; <see langword="false" />
+        /// otherwise.
+        /// </returns>
+        private bool AddErrantProcessEntries(
+            IEnumerable<string> errantProcesses
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (errantProcesses == null) return result;
+                if (!errantProcesses.Any()) return result;
+
+                foreach (var errantProcess in errantProcesses)
+                    ErrantProcessesList.Add(errantProcess);
+
+                /*
+                 * If we made it this far with no exceptions getting caught,
+                 * then assume that this method succeeded.
+                 */
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Adds the specified <paramref name="operations" /> to the configured list of
+        /// invokable operations.
+        /// </summary>
+        /// <param name="operations">
+        /// (Required.) Reference to an instance of a collection of instances of objects
+        /// that implement the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IOperationTypeInfo" /> interface, each
+        /// element of which specifies configuration information, such as whether the
+        /// operation is disabled, for each invokable operation.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the invokable operation(s) were
+        /// successfully added to the internal collection; <see langword="false" />
+        /// otherwise.
+        /// </returns>
+        private bool AddInvokableOperationEntries(
+            IEnumerable<IOperationTypeInfo> operations
+        )
+        {
+            var result = false;
+
+            try
+            {
+                if (operations == null) return result;
+                if (!operations.Any()) return result;
+
+                foreach (var operation in operations)
+                    InvokableOperations.Add(operation);
+
+                /*
+                 * If we made it this far with no exceptions getting caught,
+                 * then assume that this method succeeded.
+                 */
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
     }
 }
