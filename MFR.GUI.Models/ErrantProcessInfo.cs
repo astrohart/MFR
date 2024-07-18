@@ -1,4 +1,5 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using MFR.GUI.Models.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System.IO;
 using xyLOGIX.Files.Actions;
 
@@ -9,7 +10,7 @@ namespace MFR.GUI.Models
     /// prior to the processing of either of the <c>Rename Files In Folder</c> or
     /// <c>Rename Sub Folder(s)</c> operations.
     /// </summary>
-    public class ErrantProcessInfo
+    public class ErrantProcessInfo : IErrantProcessInfo
     {
         /// <summary>
         /// Constructs a new instance of <see cref="T:MFR.GUI.Models.ErrantProcessInfo" />
