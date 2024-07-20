@@ -258,7 +258,7 @@ To differentiate these arguments, which merely turn settings on or off, we will 
 
 **Figure 7.** The **Options** dialog has a new tab called **Git**.
 
-As of the 30 July 2023 release, Project File Renamer sports a new feature, called IntelliGit®*.
+As of the 30 July 2023 release, Project File Renamer sports a new feature, called IntelliGitï¿½*.
 
 As its name implies, IntelliGit gives Project File Renamer the ability to detect all the local Git repositories that are located within the directory tree of the starting folder, as well as which branch those Git repository(ies) are currently on.
 
