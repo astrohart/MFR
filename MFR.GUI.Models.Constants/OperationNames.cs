@@ -8,6 +8,12 @@ namespace MFR.GUI.Models.Constants
     public static class OperationNames
     {
         /// <summary>
+        /// Name of the <c>Clean Files</c> operation.
+        /// </summary>
+        public static readonly string CleanFiles =
+            Resources.OperationName_CleanFiles;
+
+        /// <summary>
         /// Name of the <c>Rename Files</c> operation.
         /// </summary>
         public static readonly string RenameFilesInFolder =
