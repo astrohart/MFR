@@ -10,10 +10,13 @@ using MFR.Events.Common;
 using MFR.Expressions.Matches.Factories;
 using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
+using MFR.FileSystem.Enumerators;
+using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;
+using MFR.FileSystem.Validators;
 using MFR.Operations.Constants;
 using MFR.Operations.Events;
 using MFR.Operations.Exceptions;
@@ -85,6 +88,26 @@ namespace MFR.Renamers.Files
     /// </remarks>
     public class FileRenamer : ConfigurationComposedObjectBase, IFileRenamer
     {
+        private static readonly string[] TheBadPaths =
+        {
+            @"\bin\",
+            @"\obj\",
+            @"\packages\",
+            @"\.vs\",
+            @"\.git\"
+        };
+
+        private static readonly string[] TheGoodSearchPatterns =
+        {
+            "*.cs",
+            "*.csproj",
+            "*.sln",
+            "*.txt",
+            "*.resx",
+            "*.config",
+            "*.md"
+        };
+
         /// <summary>
         /// A <see cref="T:MFR.Operations.Constants.OperationType" /> enumeration value
         /// that describes what operation is currently being performed by the application.
@@ -657,6 +680,10 @@ namespace MFR.Renamers.Files
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
+                var cleanFilesResult = true;
+                if (CurrentConfiguration.ReplaceTextInFiles)
+                    cleanFilesResult = CleanFiles(RootDirectoryPath);
+
                 var renameSolutionFoldersResult = true;
                 if (CurrentConfiguration.RenameSolutionFolders)
                     renameSolutionFoldersResult = RenameSolutionFolders(
@@ -670,7 +697,7 @@ namespace MFR.Renamers.Files
                     );
 
                 result = renameFilesInFolderResult && renameSubFoldersResult &&
-                         replaceTextInFilesResult &&
+                         replaceTextInFilesResult && cleanFilesResult &&
                          renameSolutionFoldersResult &&
                          commitResultsToGitResult;
             }
@@ -1520,17 +1547,21 @@ namespace MFR.Renamers.Files
         /// <see langword="false" /> otherwise.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
-        /// Thrown if either the <paramref name="rootFolderPath" /> or the
-        /// <paramref name="findWhat" /> parameters are blank.
+        /// Thrown if the <paramref name="findWhat" /> parameter is blank.
         /// </exception>
         /// <exception cref="T:System.IO.DirectoryNotFoundException">
         /// Thrown if the folder with pathname specified by the
         /// <paramref
         ///     name="rootFolderPath" />
-        /// does not exist.
+        /// cannot be located on the file system.
         /// </exception>
         /// <exception cref="T:System.IO.IOException">
         /// Thrown if a file operation does not succeed.
+        /// </exception>
+        /// <exception cref="T:MFR.Operations.Exceptions.OperationAbortedException">
+        /// Thrown
+        /// if the operation is to be aborted, e.g., by the user clicking the <b>Cancel</b>
+        /// button in the progress dialog.
         /// </exception>
         public bool ReplaceTextInFiles(
             string rootFolderPath,
@@ -1541,79 +1572,76 @@ namespace MFR.Renamers.Files
         {
             var result = false;
 
-            if (string.IsNullOrWhiteSpace(rootFolderPath))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.",
-                    nameof(rootFolderPath)
-                );
-            if (!Directory.Exists(rootFolderPath))
-                throw new DirectoryNotFoundException(
-                    $"The specified folder, with pathname '{rootFolderPath}', could not be located on the file system."
-                );
-            if (string.IsNullOrWhiteSpace(findWhat))
-                throw new ArgumentException(
-                    "Value cannot be null or whitespace.", nameof(findWhat)
-                );
-
-            OnOperationStarted(
-                new OperationStartedEventArgs(OperationType.ReplaceTextInFiles)
-            );
-
-            OnStatusUpdate(
-                new StatusUpdateEventArgs(
-                    $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
-                    CurrentOperation
-                )
-            );
-
-            IFileSystemEntryListRetriever retriever =
-                GetFileSystemEntryListRetriever
-                    .For(OperationType.ReplaceTextInFiles)
-                    .AndAttachConfiguration(CurrentConfiguration);
-            if (retriever == null) return result;
-
-            IList<IFileSystemEntry> fileSystemEntries = retriever
-                .UsingSearchPattern("*")
-                .WithSearchOption(SearchOption.AllDirectories)
-                .ToFindWhat(findWhat)
-                .AndReplaceItWith(replaceWith)
-                .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
-                .ToList();
-
-            if (fileSystemEntries == null) return result;
-
-            var totalFileCount = fileSystemEntries.Count;
-
-            DebugUtils.WriteLine(
-                DebugLevel.Info,
-                $"FileRenamer.ReplaceTextInFiles: {totalFileCount} file(s) found to move forward on."
-            );
-
-            if (totalFileCount == 0 && !AbortRequested)
+            try
             {
-                OnStatusUpdate(
-                    new StatusUpdateEventArgs(
-                        $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
-                        CurrentOperation, true /* operation finished */
-                    )
-                );
+                if (!Does.FolderExist(rootFolderPath))
+                    throw new DirectoryNotFoundException(
+                        $"The specified folder, with pathname '{rootFolderPath}', could not be located on the file system."
+                    );
+                if (string.IsNullOrWhiteSpace(findWhat))
+                    throw new ArgumentException(
+                        "Value cannot be null or whitespace.", nameof(findWhat)
+                    );
 
-                OnOperationFinished(
-                    new OperationFinishedEventArgs(
+                OnOperationStarted(
+                    new OperationStartedEventArgs(
                         OperationType.ReplaceTextInFiles
                     )
                 );
-                return result;
-            }
 
-            OnFilesToHaveTextReplacedCounted(
-                new FilesOrFoldersCountedEventArgs(
-                    totalFileCount, OperationType.ReplaceTextInFiles
-                )
-            );
+                OnStatusUpdate(
+                    new StatusUpdateEventArgs(
+                        $"Replacing text in files in subfolders of '{RootDirectoryPath}', replacing '{findWhat}' with '{replaceWith}'...",
+                        CurrentOperation
+                    )
+                );
 
-            try
-            {
+                IFileSystemEntryListRetriever retriever =
+                    GetFileSystemEntryListRetriever
+                        .For(OperationType.ReplaceTextInFiles)
+                        .AndAttachConfiguration(CurrentConfiguration);
+                if (retriever == null) return result;
+
+                IList<IFileSystemEntry> fileSystemEntries = retriever
+                    .UsingSearchPattern("*")
+                    .WithSearchOption(SearchOption.AllDirectories)
+                    .ToFindWhat(findWhat)
+                    .AndReplaceItWith(replaceWith)
+                    .GetMatchingFileSystemPaths(RootDirectoryPath, pathFilter)
+                    .ToList();
+
+                if (fileSystemEntries == null) return result;
+
+                var totalFileCount = fileSystemEntries.Count;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.ReplaceTextInFiles: {totalFileCount} file(s) found to move forward on."
+                );
+
+                if (totalFileCount == 0 && !AbortRequested)
+                {
+                    OnStatusUpdate(
+                        new StatusUpdateEventArgs(
+                            $"*** Finished replacing text in files contained inside subfolders of '{RootDirectoryPath}'.",
+                            CurrentOperation, true /* operation finished */
+                        )
+                    );
+
+                    OnOperationFinished(
+                        new OperationFinishedEventArgs(
+                            OperationType.ReplaceTextInFiles
+                        )
+                    );
+                    return result;
+                }
+
+                OnFilesToHaveTextReplacedCounted(
+                    new FilesOrFoldersCountedEventArgs(
+                        totalFileCount, OperationType.ReplaceTextInFiles
+                    )
+                );
+
                 var executionResults = new ConcurrentBag<bool>();
 
                 Parallel.ForEach(
@@ -2008,6 +2036,270 @@ namespace MFR.Renamers.Files
             Starting?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(FileRenamerMessages.FRM_STARTING);
+        }
+
+        /// <summary>
+        /// Called to run the file-cleaning algorithm (i.e., removing NULs and other
+        /// control character(s)),
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <returns></returns>
+        private bool CleanFileForEntry(IFileSystemEntry entry)
+        {
+            var result = false;
+
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** FileRenamer.CleanFileForEntry: Checking whether the specified file-system entry, '{entry}', is valid or not..."
+                );
+
+                // Check to see whether the specified file-system entry is valid or not.
+                // If this is not the case, then write an error message to the log file,
+                // and then terminate the execution of this method.
+                if (!FileSystemEntryValidator.IsValid(entry))
+                {
+                    // The specified file-system entry is NOT valid.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The specified file-system entry, '{entry}', is NOT valid.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.CleanFileForEntry: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanFileForEntry: *** SUCCESS *** The specified file-system entry, '{entry}', is valid or not.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanFileForEntry: Cleaning the file '{entry}'.  Reading its contents..."
+                );
+
+                var contents = Read.FileContents(entry.Path);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanFileForEntry: *** SUCCESS *** {contents.Length} B were read from the file, '{entry}'.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanFileForEntry: Checking whether the specified file, '{entry}', contains more than zero bytes..."
+                );
+
+                // Check to see whether the specified file contains more than zero bytes.
+                // If this is not the case, then write an error message to the log file,
+                // and then terminate the execution of this method.
+                if (string.IsNullOrWhiteSpace(contents))
+                {
+                    // The specified file contains zero bytes.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** FYI *** The specified file, '{entry}', contains zero bytes.  Skipping it..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.CleanFileForEntry: Result = {true}"
+                    );
+
+                    // stop. return 'true' to make sure the overall operation proceeds.
+                    return true;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanFileForEntry: *** SUCCESS *** {contents.Length} B were found in the file, '{entry}'.  Proceeding..."
+                );
+
+                // check the content for NUL characters.  If it does not contain them, then skip the file.
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** FileRenamer.CleanFileForEntry: Checking whether the contents of the file, '{entry}', contains a NUL character(s)..."
+                );
+
+                // Check to see whether the contents of the current file contains a NUL character(s).
+                // If this is not the case, then write an error message to the log file,
+                // and then terminate the execution of this method.
+                if (!contents.Contains('\0'))
+                {
+                    // The contents of the current file do NOT contain a NUL character(s).  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"*** FYI *** The contents of the file, '{entry}', do NOT contain a NUL character(s).  Nothing to do..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.CleanFileForEntry: Result = {true}"
+                    );
+
+                    // stop. return 'true' to make sure the overall operation proceeds.
+                    return true;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanFileForEntry: *** SUCCESS *** The contents of the file, '{entry}', contains a NUL character(s).  Proceeding..."
+                );
+
+                lock (SyncRoot)
+                {
+                    contents = contents.Replace("\0", "")
+                                       .Trim();
+                    result = Write.FileContents(
+                        entry.Path, contents, new UTF8Encoding(true)
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            DebugUtils.WriteLine(
+                result ? DebugLevel.Info : DebugLevel.Error,
+                result
+                    ? $"*** SUCCESS *** Wrote {new FileInfo(entry.Path).Length} B to the file, '{entry}'.  Proceeding..."
+                    : $"*** ERROR *** FAILED to clean the file, '{entry}', or cleaning it was not necessary.  Stopping..."
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.CleanFileForEntry: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Called to clean the file(s), i.e., remove <c>NUL</c>s and any other ASCII
+        /// control characters, as applicable, from the file(s) in the folder having the
+        /// pathname specified in the <paramref name="rootFolderPath" /> parameter.
+        /// </summary>
+        /// <param name="rootFolderPath">
+        /// (Required.) A <see cref="T:System.String" /> that contains the fully-qualified
+        /// pathname of a folder where the search is to start.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        /// <exception cref="OperationAbortedException"></exception>
+        private bool CleanFiles(string rootFolderPath)
+        {
+            var result = false;
+
+            try
+            {
+                if (!Does.FolderExist(rootFolderPath)) return result;
+
+                if (!Does.FolderExist(rootFolderPath))
+                    throw new DirectoryNotFoundException(
+                        $"The specified folder, with pathname '{rootFolderPath}', could not be located on the file system."
+                    );
+
+                OnOperationStarted(
+                    new OperationStartedEventArgs(OperationType.CleanFiles)
+                );
+
+                var fileSystemEntries = Enumerable.Empty<IFileSystemEntry>();
+
+                foreach (var element in TheGoodSearchPatterns)
+                {
+                    if (string.IsNullOrWhiteSpace(element)) continue;
+
+                    fileSystemEntries = fileSystemEntries.Concat(
+                        Enumerate.Files(
+                                     rootFolderPath, element,
+                                     SearchOption.AllDirectories
+                                 )
+                                 .Where(
+                                     pathname => !ShouldNotCleanFile(pathname)
+                                 )
+                                 .Select(
+                                     pathname => MakeNewFileSystemEntry
+                                                 .ForPath(pathname)
+                                                 .AndOperationType(
+                                                     OperationType.CleanFiles
+                                                 ) as IFileSystemEntry
+                                 )
+                    );
+                }
+
+                var executionResults = new ConcurrentBag<bool>();
+
+                Parallel.ForEach(
+                    fileSystemEntries, (entry, state) =>
+                    {
+                        if (AbortRequested)
+                        {
+                            state.Stop();
+                            return;
+                        }
+
+                        executionResults.Add(CleanFileForEntry(entry));
+                    }
+                );
+
+                foreach (var executionResult in executionResults.ToArray())
+                    if (!executionResult)
+                    {
+                        result = false;
+                        break;
+                    }
+            }
+            catch (OperationAbortedException)
+            {
+                AbortRequested = true;
+
+                result = false;
+
+                throw;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                OnExceptionRaised(new ExceptionRaisedEventArgs(ex));
+            }
+
+            if (AbortRequested)
+                throw new OperationAbortedException(
+                    Resources.Error_OperationAborted
+                );
+
+            OnStatusUpdate(
+                new StatusUpdateEventArgs(
+                    $"*** Finished cleaning files contained inside subfolders of '{RootDirectoryPath}'.",
+                    CurrentOperation, true /* operation finished */
+                )
+            );
+
+            OnOperationFinished(
+                new OperationFinishedEventArgs(OperationType.CleanFiles)
+            );
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info, $"FileRenamer.CleanFiles: Result = {result}"
+            );
+
+            return result;
         }
 
         private void CloseActiveSolutions()
@@ -5243,6 +5535,26 @@ namespace MFR.Renamers.Files
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+        }
+
+        private bool ShouldNotCleanFile(string pathname)
+        {
+            var result = true;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(pathname)) return result;
+
+                result = pathname.ContainsAnyOf(TheBadPaths);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR: {ex.Message}");
+
+                result = true;
+            }
+
+            return result;
         }
 
         private void UpdateLoadedSolutionPaths(FileRenamedEventArgs e)
