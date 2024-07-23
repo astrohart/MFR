@@ -289,8 +289,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.Generators.RegularExpre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Models", "MFR.CommandLine.Models\MFR.CommandLine.Models.csproj", "{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Constants", "MFR.CommandLine.Constants\MFR.CommandLine.Constants.csproj", "{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Validators", "MFR.CommandLine.Validators\MFR.CommandLine.Validators.csproj", "{EA1DC6C8-5108-494A-8699-E05910A5E234}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.CommandLine.Validators.Interfaces", "MFR.CommandLine.Validators.Interfaces\MFR.CommandLine.Validators.Interfaces.csproj", "{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}"
@@ -1026,6 +1024,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Files.MemoryMapped", "..\xyLOGIX.Files.MemoryMapped.VS2022\xyLOGIX.Files.MemoryMapped\xyLOGIX.Files.MemoryMapped.csproj", "{2557ED07-457A-415C-9C36-25C5ED163907}"
 EndProject
 Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{F64BBB81-4E26-45F6-8743-3C70926154A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1AA54DD-684F-45CC-A5B7-766AE9E75634} = {F1AA54DD-684F-45CC-A5B7-766AE9E75634}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -3263,22 +3264,6 @@ Global
 		{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}.Release|x64.Build.0 = Release|x64
 		{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}.Release|x86.ActiveCfg = Release|x86
 		{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}.Release|x86.Build.0 = Release|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.All|x64.ActiveCfg = Release|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.All|x64.Build.0 = Release|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.All|x86.ActiveCfg = Release|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.All|x86.Build.0 = Release|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Debug|x64.ActiveCfg = Debug|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Debug|x64.Build.0 = Debug|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Debug|x86.ActiveCfg = Debug|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Debug|x86.Build.0 = Debug|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.DefaultBuild|x64.ActiveCfg = Debug|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.DefaultBuild|x64.Build.0 = Debug|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.DefaultBuild|x86.ActiveCfg = Debug|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.DefaultBuild|x86.Build.0 = Debug|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x64.ActiveCfg = Release|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x64.Build.0 = Release|x64
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x86.ActiveCfg = Release|x86
-		{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}.Release|x86.Build.0 = Release|x86
 		{EA1DC6C8-5108-494A-8699-E05910A5E234}.All|x64.ActiveCfg = Release|x64
 		{EA1DC6C8-5108-494A-8699-E05910A5E234}.All|x64.Build.0 = Release|x64
 		{EA1DC6C8-5108-494A-8699-E05910A5E234}.All|x86.ActiveCfg = Release|x86
@@ -9156,9 +9141,7 @@ Global
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.ActiveCfg = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.All|x86.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x64.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.ActiveCfg = DefaultBuild
-		{F64BBB81-4E26-45F6-8743-3C70926154A2}.Debug|x86.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x64.ActiveCfg = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x64.Build.0 = DefaultBuild
 		{F64BBB81-4E26-45F6-8743-3C70926154A2}.DefaultBuild|x86.ActiveCfg = DefaultBuild
