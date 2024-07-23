@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2024.1.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.1.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -146,10 +146,6 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MFR.CommandLine.Constants\MFR.CommandLine.Constants.csproj">
-      <Project>{D6D1EDD1-DA2D-4B3B-9C34-4178343B7803}</Project>
-      <Name>MFR.CommandLine.Constants</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
       <Name>MFR.CommandLine.Models.Interfaces</Name>
