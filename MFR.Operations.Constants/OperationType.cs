@@ -17,6 +17,12 @@ namespace MFR.Operations.Constants
         CheckingWhetherChosenFolderContainsSolutions = 12,
 
         /// <summary>
+        /// Iterates over the root directory's files and removes <c>NUL</c> character(s)
+        /// that may be present in any of the text file(s) touched by this application.
+        /// </summary>
+        CleanFiles = 16,
+
+        /// <summary>
         /// Closes the active solution in Visual Studio.
         /// </summary>
         /// <remarks>

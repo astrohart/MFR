@@ -46,6 +46,10 @@ namespace MFR.Operations.Descriptions.Factories
 
             switch (type)
             {
+                case OperationType.CleanFiles:
+                    result = GetCleanFilesOperationDescription.SoleInstance();
+                    break;
+
                 case OperationType.CommitPendingChanges:
                     result = GetCommitPendingChangesOperationDescription
                         .SoleInstance();

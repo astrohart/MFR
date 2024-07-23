@@ -37,6 +37,10 @@ namespace MFR.GUI.Models.Constants.Factories
 
             switch (type)
             {
+                case OperationType.CleanFiles:
+                    result = OperationNames.CleanFiles;
+                    break;
+
                 case OperationType.RenameFilesInFolder:
                     result = OperationNames.RenameFilesInFolder;
                     break;

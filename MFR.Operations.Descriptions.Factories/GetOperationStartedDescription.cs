@@ -63,6 +63,11 @@ namespace MFR.Operations.Descriptions.Factories
                             .SoleInstance();
                     break;
 
+                case OperationType.CleanFiles:
+                    result = GetCleanFilesOperationStartedDescription
+                        .SoleInstance();
+                    break;
+
                 case OperationType.CloseActiveSolutions:
                     result = GetCloseActiveSolutionOperationStartedDescription
                         .SoleInstance();
