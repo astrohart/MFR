@@ -143,6 +143,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Resources\_release-handles.bat" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -168,6 +169,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Files.VS2019\xyLOGIX.Core.Files\xyLOGIX.Core.Files.csproj">
+      <Project>{4BACCE79-0960-4445-975E-DB92F5A555A4}</Project>
+      <Name>xyLOGIX.Core.Files</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
       <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
@@ -191,6 +196,14 @@
     <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Actions\xyLOGIX.Interop.Processes.Actions.csproj">
       <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
       <Name>xyLOGIX.Interop.Processes.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Factories\xyLOGIX.Interop.Processes.Factories.csproj">
+      <Project>{4479E3F8-455F-47FD-BA84-9582F6DAC41F}</Project>
+      <Name>xyLOGIX.Interop.Processes.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Interfaces\xyLOGIX.Interop.Processes.Interfaces.csproj">
+      <Project>{16BFEE7A-5603-4074-8732-A4CC02E1C0F1}</Project>
+      <Name>xyLOGIX.Interop.Processes.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Pools.Tasks.VS2019\xyLOGIX.Pools.Tasks.Factories\xyLOGIX.Pools.Tasks.Factories.csproj">
       <Project>{22A2A549-9587-430A-B9BC-FC33899BC488}</Project>
@@ -251,10 +264,6 @@
     <ProjectReference Include="..\MFR.FileSystem.Validators\MFR.FileSystem.Validators.csproj">
       <Project>{22D86888-ACAC-4E15-B860-10461CF0C079}</Project>
       <Name>MFR.FileSystem.Validators</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem\MFR.FileSystem.csproj">
-      <Project>{D8856B7F-68A7-483A-AB52-0B678B5395F1}</Project>
-      <Name>MFR.FileSystem</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Services.Solutions.Actions\MFR.Services.Solutions.Actions.csproj">
       <Project>{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}</Project>

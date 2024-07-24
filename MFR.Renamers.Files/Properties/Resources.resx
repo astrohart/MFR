@@ -157,7 +157,7 @@ Do you want to proceed with the rename operation?</value>
     <value>Attempting to rename subfolders of '{0}', replacing '{1}' with '{2}'...</value>
   </data>
   <data name="Info_CommittingResultsToGit_WithStats" xml:space="preserve">
-      <value>Committing results of operation(s) to Git...
+    <value>Committing results of operation(s) to Git...
 
 {0} total pending change(s) across {1} repository(ies)</value>
   </data>
@@ -176,8 +176,12 @@ We will still carry out the operations.</value>
     <value>Committing result(s) of operation(s) to Git...</value>
   </data>
   <data name="Info_CommittingPendingChangesToGit_WithStats" xml:space="preserve">
-      <value>Committing your pending changes to Git...
+    <value>Committing your pending changes to Git...
 
 {0} total pending change(s) across {1} repository(ies)</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_release_handles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\_release-handles.bat;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

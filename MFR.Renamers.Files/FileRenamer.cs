@@ -42,6 +42,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -50,11 +51,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
+using xyLOGIX.Core.Files;
 using xyLOGIX.Files.Actions;
 using xyLOGIX.Files.MemoryMapped.Factories;
 using xyLOGIX.Interop.Git.Factories;
 using xyLOGIX.Interop.Git.Interfaces;
 using xyLOGIX.Interop.Processes.Actions;
+using xyLOGIX.Interop.Processes.Factories;
+using xyLOGIX.Interop.Processes.Interfaces;
 using xyLOGIX.Pools.Tasks.Factories;
 using xyLOGIX.Pools.Tasks.Interfaces;
 using xyLOGIX.Queues.Messages.Senders;
@@ -63,6 +67,7 @@ using xyLOGIX.VisualStudio.Providers.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using xyLOGIX.Win32.Interact;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
+using Does = xyLOGIX.Files.Actions.Does;
 using Formulate = MFR.Renamers.Files.Actions.Formulate;
 using Get = MFR.Services.Solutions.Actions.Get;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
@@ -301,6 +306,16 @@ namespace MFR.Renamers.Files
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:xyLOGIX.Interop.Processes.Interfaces.IProcessProvider" />
+        /// interface.
+        /// </summary>
+        private static IProcessProvider ProcessProvider
+        {
+            [DebuggerStepThrough] get;
+        } = GetProcessProvider.SoleInstance();
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> containing the fully-qualified pathname
@@ -4224,6 +4239,26 @@ namespace MFR.Renamers.Files
                 Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
                 Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
                 Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
+
+                var batchFilePathname = Path.Combine(
+                    Path.GetTempPath(), $"{Guid.NewGuid():N}.bat"
+                );
+                if (string.IsNullOrWhiteSpace(batchFilePathname)) return;
+
+                File.WriteAllText(
+                    batchFilePathname, Resources
+                                       ._release_handles.Replace(
+                                           "$PROCESS$", "devenv"
+                                       )
+                                       .Replace(
+                                           "$FOLDER$",
+                                           Parent.Of(RootDirectoryPath)
+                                       )
+                );
+
+                if (!Does.FileExist(batchFilePathname)) return;
+
+                Run.SystemCommand(batchFilePathname);
             }
             catch (Exception ex)
             {
