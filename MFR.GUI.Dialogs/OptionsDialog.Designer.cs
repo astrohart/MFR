@@ -37,6 +37,7 @@ namespace MFR.GUI.Dialogs
             this.okayButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.optionsTabControl = new xyLOGIX.UI.Dark.Controls.DarkTabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.removeAllErrantProcessesButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.removeErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.errantProcessListBox = new xyLOGIX.UI.Dark.Controls.DarkListBox();
             this.editErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
@@ -67,7 +68,6 @@ namespace MFR.GUI.Dialogs
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.removeAllErrantProcessesButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.errantProcessSelectionDialog = new System.Windows.Forms.OpenFileDialog();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
@@ -149,6 +149,17 @@ namespace MFR.GUI.Dialogs
             this.generalTabPage.TabIndex = 2;
             this.generalTabPage.Text = "Ge&neral";
             // 
+            // removeAllErrantProcessesButton
+            // 
+            this.removeAllErrantProcessesButton.IsDarkTheme = true;
+            this.removeAllErrantProcessesButton.Location = new System.Drawing.Point(326, 303);
+            this.removeAllErrantProcessesButton.Name = "removeAllErrantProcessesButton";
+            this.removeAllErrantProcessesButton.Padding = new System.Windows.Forms.Padding(5);
+            this.removeAllErrantProcessesButton.Size = new System.Drawing.Size(87, 27);
+            this.removeAllErrantProcessesButton.TabIndex = 6;
+            this.removeAllErrantProcessesButton.Text = "Re&move All";
+            this.removeAllErrantProcessesButton.Click += new System.EventHandler(this.OnRemoveAllErrantProcessesButtonClicked);
+            // 
             // removeErrantProcessButton
             // 
             this.removeErrantProcessButton.IsDarkTheme = true;
@@ -158,6 +169,7 @@ namespace MFR.GUI.Dialogs
             this.removeErrantProcessButton.Size = new System.Drawing.Size(87, 27);
             this.removeErrantProcessButton.TabIndex = 5;
             this.removeErrantProcessButton.Text = "&Remove";
+            this.removeErrantProcessButton.Click += new System.EventHandler(this.OnRemoveErrantProcessButtonClicked);
             // 
             // errantProcessListBox
             // 
@@ -490,16 +502,6 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.Filter = "JavaScript Over Network (JSON) Files (*.json)|*.json|All Files (*.*)|*.*";
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
-            // 
-            // removeAllErrantProcessesButton
-            // 
-            this.removeAllErrantProcessesButton.IsDarkTheme = true;
-            this.removeAllErrantProcessesButton.Location = new System.Drawing.Point(326, 303);
-            this.removeAllErrantProcessesButton.Name = "removeAllErrantProcessesButton";
-            this.removeAllErrantProcessesButton.Padding = new System.Windows.Forms.Padding(5);
-            this.removeAllErrantProcessesButton.Size = new System.Drawing.Size(87, 27);
-            this.removeAllErrantProcessesButton.TabIndex = 6;
-            this.removeAllErrantProcessesButton.Text = "Re&move All";
             // 
             // errantProcessSelectionDialog
             // 

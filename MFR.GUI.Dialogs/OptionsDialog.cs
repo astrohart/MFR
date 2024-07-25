@@ -397,6 +397,37 @@ namespace MFR.GUI.Dialogs
             SetModifiedFlag(false); // start us off as having no modified values
         }
 
+        private void ClearErrantProcesses()
+        {
+            try
+            {
+                if (errantProcessListBox == null) return;
+                if (errantProcessListBox.IsDisposed) return;
+                if (errantProcessListBox.Items.Count == 0)
+                {
+                    Messages.ShowStopError(
+                        this, Resources.Error_NoErrantProcessesToRemove
+                    );
+                    return;
+                }
+
+                errantProcessListBox.Items.Clear();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                Messages.ShowStopError(
+                    this,
+                    string.Format(
+                        Resources.Error_FailedRemoveAllErrantProcesses,
+                        ex.Message
+                    )
+                );
+            }
+        }
+
         private bool FileAlreadyIsInErrantProcessList(string pathname)
         {
             var result = false;
@@ -461,7 +492,10 @@ namespace MFR.GUI.Dialogs
                 DebugUtils.LogException(ex);
 
                 Messages.ShowStopError(
-                    this, Resources.Error_FailedAddErrantProcessEntry
+                    this,
+                    string.Format(
+                        Resources.Error_FailedAddErrantProcessEntry, ex.Message
+                    )
                 );
             }
         }
@@ -690,6 +724,102 @@ namespace MFR.GUI.Dialogs
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
+
+                Messages.ShowStopError(
+                    this,
+                    string.Format(
+                        Resources.Error_FailedEditErrantProcessEntry, ex.Message
+                    )
+                );
+            }
+        }
+
+        private void OnRemoveAllErrantProcessesButtonClicked(
+            object sender,
+            EventArgs e
+        )
+        {
+            try
+            {
+                if (!HasErrantProcesses)
+                {
+                    Messages.ShowStopError(
+                        this, Resources.Error_NoErrantProcessesToRemove
+                    );
+                    return;
+                }
+
+                if (DialogResult.No == Messages.ConfirmWithYesNo(
+                        this, Resources.Question_ConfirmRemoveAllErrantProcesses
+                    ))
+                    return;
+
+                ClearErrantProcesses();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                Messages.ShowStopError(
+                    this,
+                    string.Format(
+                        Resources.Error_FailedRemoveAllErrantProcesses,
+                        ex.Message
+                    )
+                );
+            }
+        }
+
+        private void OnRemoveErrantProcessButtonClicked(
+            object sender,
+            EventArgs e
+        )
+        {
+            try
+            {
+                if (!HasErrantProcesses)
+                {
+                    Messages.ShowStopError(
+                        this, Resources.Error_NoErrantProcessesToRemove
+                    );
+                    return;
+                }
+
+                if (!IsErrantProcessSelected)
+                {
+                    Messages.ShowStopError(
+                        this,
+                        Resources.Error_NoErrantProcessToBeRemovedIsSelected
+                    );
+                    return;
+                }
+
+                if (DialogResult.No == Messages.ConfirmWithYesNo(
+                        this,
+                        $"Are you sure you want to remove the Errant Process entry having pathname, '{SelectedErrantProcess.Pathname}'?\n\nThis action cannot be undone."
+                    ) && errantProcessListBox != null &&
+                    !errantProcessListBox.IsDisposed)
+                {
+                    errantProcessListBox.Focus();
+                    return;
+                }
+
+                errantProcessListBox.Items.RemoveAt(errantProcessListBox.SelectedIndex);
+                errantProcessListBox.Focus();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                Messages.ShowStopError(
+                    this,
+                    string.Format(
+                        Resources.Error_FailedRemoveErrantProcessEntry,
+                        ex.Message
+                    )
+                );
             }
         }
 
