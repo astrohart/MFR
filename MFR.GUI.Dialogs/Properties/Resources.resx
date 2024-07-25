@@ -133,12 +133,38 @@
       <value>Please select the Errant Process entry that you wish to edit.</value>
   </data>
   <data name="Error_FailedAddErrantProcessEntry" xml:space="preserve">
-      <value>Failed to add a new Errant Process entry.</value>
+      <value>Failed to add a new Errant Process entry.\n\n{0}</value>
   </data>
   <data name="Error_ErrantProcessEntryAlreadyPresent" xml:space="preserve">
       <value>An entry with the pathname, '{0}', is already present in the list.</value>
   </data>
   <data name="Error_NoErrantProcessEntryPathname" xml:space="preserve">
       <value>The selected Errant Process entry does not have an associated pathname specified.</value>
+  </data>
+  <data name="Error_FailedEditErrantProcessEntry" xml:space="preserve">
+      <value>Failed to edit the specified Errant Process entry.
+
+{0}</value>
+  </data>
+  <data name="Error_NoErrantProcessesToRemove" xml:space="preserve">
+      <value>There aren't any entry(ies) in the Errant Processes list box to remove.</value>
+  </data>
+  <data name="Question_ConfirmRemoveAllErrantProcesses" xml:space="preserve">
+      <value>Are you sure you want to remove all the entry(ies) currently in the Errant Processes list box?
+
+This action cannot be undone.</value>
+  </data>
+  <data name="Error_FailedRemoveAllErrantProcesses" xml:space="preserve">
+      <value>Failed to clear the entry(ies) in the Errant Processes list box.
+
+{0}</value>
+  </data>
+  <data name="Error_FailedRemoveErrantProcessEntry" xml:space="preserve">
+      <value>Failed to remove the selected Errant Process entry from the list.
+
+{0}</value>
+  </data>
+  <data name="Error_NoErrantProcessToBeRemovedIsSelected" xml:space="preserve">
+      <value>Please click to highlight the Errant Process entry that is to be removed, and then click the Remove button.</value>
   </data>
 </root>

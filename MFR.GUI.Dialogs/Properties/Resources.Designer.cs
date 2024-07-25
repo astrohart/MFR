@@ -79,11 +79,44 @@ namespace MFR.GUI.Dialogs.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to add a new Errant Process entry..
+        ///   Looks up a localized string similar to Failed to add a new Errant Process entry.\n\n{0}.
         /// </summary>
         public static string Error_FailedAddErrantProcessEntry {
             get {
                 return ResourceManager.GetString("Error_FailedAddErrantProcessEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to edit the specified Errant Process entry.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Error_FailedEditErrantProcessEntry {
+            get {
+                return ResourceManager.GetString("Error_FailedEditErrantProcessEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to clear the entry(ies) in the Errant Processes list box.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Error_FailedRemoveAllErrantProcesses {
+            get {
+                return ResourceManager.GetString("Error_FailedRemoveAllErrantProcesses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to remove the selected Errant Process entry from the list.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Error_FailedRemoveErrantProcessEntry {
+            get {
+                return ResourceManager.GetString("Error_FailedRemoveErrantProcessEntry", resourceCulture);
             }
         }
         
@@ -106,11 +139,29 @@ namespace MFR.GUI.Dialogs.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There aren&apos;t any entry(ies) in the Errant Processes list box to remove..
+        /// </summary>
+        public static string Error_NoErrantProcessesToRemove {
+            get {
+                return ResourceManager.GetString("Error_NoErrantProcessesToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select the Errant Process entry that you wish to edit..
         /// </summary>
         public static string Error_NoErrantProcessSelectedForEditing {
             get {
                 return ResourceManager.GetString("Error_NoErrantProcessSelectedForEditing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please click to highlight the Errant Process entry that is to be removed, and then click the Remove button..
+        /// </summary>
+        public static string Error_NoErrantProcessToBeRemovedIsSelected {
+            get {
+                return ResourceManager.GetString("Error_NoErrantProcessToBeRemovedIsSelected", resourceCulture);
             }
         }
         
@@ -129,6 +180,17 @@ namespace MFR.GUI.Dialogs.Properties {
         public static string FolderSelectDialogFilters {
             get {
                 return ResourceManager.GetString("FolderSelectDialogFilters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to remove all the entry(ies) currently in the Errant Processes list box?
+        ///
+        ///This action cannot be undone..
+        /// </summary>
+        public static string Question_ConfirmRemoveAllErrantProcesses {
+            get {
+                return ResourceManager.GetString("Question_ConfirmRemoveAllErrantProcesses", resourceCulture);
             }
         }
     }
