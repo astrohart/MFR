@@ -1,14 +1,18 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
+using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Dialogs
@@ -111,15 +115,72 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Gets a reference to an instance of a collection, each of whose elements are of
-        /// type <see cref="T:System.String" />, representing the items in the
-        /// <b>Errant Processes</b> list box.
+        /// Gets a reference to a collection, each element of which implements the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IErrantProcessInfo" /> interface,
+        /// representing the process(es), if running, that should be forcibly terminated
+        /// prior to the execution of the <c>Rename Files in Folder</c> and
+        /// <c>Rename Sub Folders</c> operations.
         /// </summary>
-        public IList<string> ErrantProcessList
+        public IList<IErrantProcessInfo> ErrantProcesses
         {
-            [DebuggerStepThrough] get;
-            [DebuggerStepThrough] set;
-        } = new List<string>();
+            [DebuggerStepThrough]
+            get {
+                var result = new AdvisableCollection<IErrantProcessInfo>();
+
+                try
+                {
+                    if (errantProcessListBox == null) return result;
+                    if (errantProcessListBox.IsDisposed) return result;
+                    if (errantProcessListBox.Items.Count == 0) return result;
+
+                    result.AddRange(
+                        errantProcessListBox.Items.Cast<IErrantProcessInfo>()
+                    );
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = new AdvisableCollection<IErrantProcessInfo>();
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether the user has configured more than zero
+        /// <c>Errant Process</c> entry(ies) in the <b>Errant Processes</b> list box.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if there are more than zero
+        /// <c>Errant Process</c> entry(ies) in the <b>Errant Processes</b> list box;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        public bool HasErrantProcesses
+        {
+            get {
+                var result = false;
+
+                try
+                {
+                    if (errantProcessListBox == null) return result;
+                    if (errantProcessListBox.IsDisposed) return result;
+
+                    result = errantProcessListBox.Items.Count > 0;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+        }
 
         /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
@@ -446,7 +507,10 @@ namespace MFR.GUI.Dialogs
         /// </remarks>
         [Log(AttributeExclude = true)] // do not log this method
         private void OnUpdateCmdUI(object sender, EventArgs e)
-            => applyButton.Enabled = IsModified;
+        {
+            applyButton.Enabled = IsModified;
+            addErrantProcessButton.Enabled = true;
+        }
 
         /// <summary>
         /// Sets the dirty state of the data of this dialog box.
