@@ -4227,6 +4227,7 @@ namespace MFR.Renamers.Files
 
             try
             {
+                Run.SystemCommand("taskkill /IM nuget.exe /F /T");
                 Run.SystemCommand("taskkill /IM VBCSCompiler.exe /F /T");
                 Run.SystemCommand("taskkill /IM vshost.exe /F /T");
                 Run.SystemCommand("taskkill /IM postsharp-x64-srv.exe /F /T");
