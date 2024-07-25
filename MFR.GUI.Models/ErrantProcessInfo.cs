@@ -1,5 +1,6 @@
 using MFR.GUI.Models.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System;
 using System.IO;
 using xyLOGIX.Files.Actions;
 
@@ -23,6 +24,16 @@ namespace MFR.GUI.Models
         /// </param>
         public ErrantProcessInfo(string pathname)
         {
+            if (string.IsNullOrWhiteSpace(pathname))
+                throw new ArgumentException(
+                    "Value cannot be null or whitespace.", nameof(pathname)
+                );
+            if (!File.Exists(pathname))
+                throw new FileNotFoundException(
+                    $"The file '{pathname}' could not be found on the file system.",
+                    pathname
+                );
+
             Pathname = pathname;
         }
 

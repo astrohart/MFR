@@ -104,4 +104,7 @@
     <data name="Error_NoAssembliesReferencedByExecutingAssembly" xml:space="preserve">
         <value>Reflector.InitializeTargetAssembly: The executing assembly, '{0}', does not reference any other assemblies.</value>
     </data>
+    <data name="Error_NoErrantProcessesToEdit" xml:space="preserve">
+        <value>Please add Errant Process(es) to the list before trying to edit one of them.</value>
+    </data>
 </root>

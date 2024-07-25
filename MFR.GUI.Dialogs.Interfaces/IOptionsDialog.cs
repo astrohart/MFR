@@ -1,4 +1,7 @@
 using MFR.GUI.Dialogs.Events;
+using MFR.GUI.Models.Interfaces;
+using System.Collections.Generic;
+using System.Diagnostics;
 using xyLOGIX.Core.Extensions;
 
 namespace MFR.GUI.Dialogs.Interfaces
@@ -60,6 +63,45 @@ namespace MFR.GUI.Dialogs.Interfaces
         }
 
         /// <summary>
+        /// Gets a reference to a collection, each element of which implements the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IErrantProcessInfo" /> interface,
+        /// representing the process(es), if running, that should be forcibly terminated
+        /// prior to the execution of the <c>Rename Files in Folder</c> and
+        /// <c>Rename Sub Folders</c> operations.
+        /// </summary>
+        IList<IErrantProcessInfo> ErrantProcesses
+        {
+            [DebuggerStepThrough] get;
+        }
+
+        /// <summary>
+        /// Gets a value that indicates whether the user has configured more than zero
+        /// <c>Errant Process</c> entry(ies) in the <b>Errant Processes</b> list box.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if there are more than zero
+        /// <c>Errant Process</c> entry(ies) in the <b>Errant Processes</b> list box;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
+        bool HasErrantProcesses
+        {
+            get;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether an entry is currently selected in the
+        /// <b>Errant Processes</b> list box.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if an entry is currently selected in the
+        /// <b>Errant Processes</b> list box; <see langword="false" /> otherwise.
+        /// </returns>
+        bool IsErrantProcessSelected
+        {
+            [DebuggerStepThrough] get;
+        }
+
+        /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
         /// been modified.
         /// </summary>
@@ -84,6 +126,26 @@ namespace MFR.GUI.Dialogs.Interfaces
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IErrantProcessInfo" /> interface that
+        /// represents the item that is currently selected, if any, in the
+        /// <b>Errant Processes</b> list box on the <b>General</b> tab.
+        /// </summary>
+        /// <remarks>
+        /// If there are no items currently in the list box, or none are currently
+        /// selected, then this property returns a <see langword="null" /> reference.
+        /// </remarks>
+        /// <returns>
+        /// If successful, a reference to an instance of an object that implements
+        /// the <see cref="T:MFR.GUI.Models.Interfaces.IErrantProcessInfo" /> interface;
+        /// otherwise, a <see langword="null" /> reference is returned.
+        /// </returns>
+        IErrantProcessInfo SelectedErrantProcess
+        {
+            get;
         }
 
         /// <summary>

@@ -37,6 +37,11 @@ namespace MFR.GUI.Dialogs
             this.okayButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.optionsTabControl = new xyLOGIX.UI.Dark.Controls.DarkTabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.removeErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.errantProcessListBox = new xyLOGIX.UI.Dark.Controls.DarkListBox();
+            this.editErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.addErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.killErrantProcessesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.autoQuitOnCompletionCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configurationTabPage = new System.Windows.Forms.TabPage();
             this.configPathnamePromptLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
@@ -62,11 +67,8 @@ namespace MFR.GUI.Dialogs
             this.commitPostOperationChangesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.commitPendingChangesBeforeOperationsCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
             this.configPathBrowseBox = new System.Windows.Forms.OpenFileDialog();
-            this.killErrantProcessesCheckBox = new xyLOGIX.UI.Dark.Controls.DarkCheckBox();
-            this.addErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.editErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.errantProcessListBox = new xyLOGIX.UI.Dark.Controls.DarkListBox();
-            this.removeErrantProcessButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.removeAllErrantProcessesButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.errantProcessSelectionDialog = new System.Windows.Forms.OpenFileDialog();
             this.optionsTabControl.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.configurationTabPage.SuspendLayout();
@@ -133,6 +135,7 @@ namespace MFR.GUI.Dialogs
             // generalTabPage
             // 
             this.generalTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
+            this.generalTabPage.Controls.Add(this.removeAllErrantProcessesButton);
             this.generalTabPage.Controls.Add(this.removeErrantProcessButton);
             this.generalTabPage.Controls.Add(this.errantProcessListBox);
             this.generalTabPage.Controls.Add(this.editErrantProcessButton);
@@ -145,6 +148,64 @@ namespace MFR.GUI.Dialogs
             this.generalTabPage.Size = new System.Drawing.Size(436, 347);
             this.generalTabPage.TabIndex = 2;
             this.generalTabPage.Text = "Ge&neral";
+            // 
+            // removeErrantProcessButton
+            // 
+            this.removeErrantProcessButton.IsDarkTheme = true;
+            this.removeErrantProcessButton.Location = new System.Drawing.Point(326, 270);
+            this.removeErrantProcessButton.Name = "removeErrantProcessButton";
+            this.removeErrantProcessButton.Padding = new System.Windows.Forms.Padding(5);
+            this.removeErrantProcessButton.Size = new System.Drawing.Size(87, 27);
+            this.removeErrantProcessButton.TabIndex = 5;
+            this.removeErrantProcessButton.Text = "&Remove";
+            // 
+            // errantProcessListBox
+            // 
+            this.errantProcessListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.errantProcessListBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.errantProcessListBox.BorderThickness = 1;
+            this.errantProcessListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.errantProcessListBox.FormattingEnabled = true;
+            this.errantProcessListBox.HighlightColor = System.Drawing.SystemColors.Highlight;
+            this.errantProcessListBox.IsDarkTheme = true;
+            this.errantProcessListBox.Location = new System.Drawing.Point(16, 131);
+            this.errantProcessListBox.Name = "errantProcessListBox";
+            this.errantProcessListBox.ScrollAlwaysVisible = true;
+            this.errantProcessListBox.Size = new System.Drawing.Size(304, 199);
+            this.errantProcessListBox.TabIndex = 2;
+            // 
+            // editErrantProcessButton
+            // 
+            this.editErrantProcessButton.IsDarkTheme = true;
+            this.editErrantProcessButton.Location = new System.Drawing.Point(326, 164);
+            this.editErrantProcessButton.Name = "editErrantProcessButton";
+            this.editErrantProcessButton.Padding = new System.Windows.Forms.Padding(5);
+            this.editErrantProcessButton.Size = new System.Drawing.Size(87, 27);
+            this.editErrantProcessButton.TabIndex = 4;
+            this.editErrantProcessButton.Text = "&Edit...";
+            this.editErrantProcessButton.Click += new System.EventHandler(this.OnEditErrantProcessButtonClicked);
+            // 
+            // addErrantProcessButton
+            // 
+            this.addErrantProcessButton.IsDarkTheme = true;
+            this.addErrantProcessButton.Location = new System.Drawing.Point(326, 131);
+            this.addErrantProcessButton.Name = "addErrantProcessButton";
+            this.addErrantProcessButton.Padding = new System.Windows.Forms.Padding(5);
+            this.addErrantProcessButton.Size = new System.Drawing.Size(87, 27);
+            this.addErrantProcessButton.TabIndex = 3;
+            this.addErrantProcessButton.Text = "&Add...";
+            this.addErrantProcessButton.Click += new System.EventHandler(this.OnAddErrantProcessButtonClicked);
+            // 
+            // killErrantProcessesCheckBox
+            // 
+            this.killErrantProcessesCheckBox.Checked = true;
+            this.killErrantProcessesCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.killErrantProcessesCheckBox.IsDarkTheme = false;
+            this.killErrantProcessesCheckBox.Location = new System.Drawing.Point(16, 96);
+            this.killErrantProcessesCheckBox.Name = "killErrantProcessesCheckBox";
+            this.killErrantProcessesCheckBox.Size = new System.Drawing.Size(339, 17);
+            this.killErrantProcessesCheckBox.TabIndex = 1;
+            this.killErrantProcessesCheckBox.Text = "&Kill the following processes, if active, prior to operations:";
             // 
             // autoQuitOnCompletionCheckBox
             // 
@@ -430,61 +491,23 @@ namespace MFR.GUI.Dialogs
             this.configPathBrowseBox.RestoreDirectory = true;
             this.configPathBrowseBox.Title = "Browse";
             // 
-            // killErrantProcessesCheckBox
+            // removeAllErrantProcessesButton
             // 
-            this.killErrantProcessesCheckBox.Checked = true;
-            this.killErrantProcessesCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.killErrantProcessesCheckBox.IsDarkTheme = false;
-            this.killErrantProcessesCheckBox.Location = new System.Drawing.Point(16, 96);
-            this.killErrantProcessesCheckBox.Name = "killErrantProcessesCheckBox";
-            this.killErrantProcessesCheckBox.Size = new System.Drawing.Size(339, 17);
-            this.killErrantProcessesCheckBox.TabIndex = 1;
-            this.killErrantProcessesCheckBox.Text = "Kill the following processes, if active, prior to operations:";
+            this.removeAllErrantProcessesButton.IsDarkTheme = true;
+            this.removeAllErrantProcessesButton.Location = new System.Drawing.Point(326, 303);
+            this.removeAllErrantProcessesButton.Name = "removeAllErrantProcessesButton";
+            this.removeAllErrantProcessesButton.Padding = new System.Windows.Forms.Padding(5);
+            this.removeAllErrantProcessesButton.Size = new System.Drawing.Size(87, 27);
+            this.removeAllErrantProcessesButton.TabIndex = 6;
+            this.removeAllErrantProcessesButton.Text = "Re&move All";
             // 
-            // addErrantProcessButton
+            // errantProcessSelectionDialog
             // 
-            this.addErrantProcessButton.IsDarkTheme = true;
-            this.addErrantProcessButton.Location = new System.Drawing.Point(326, 131);
-            this.addErrantProcessButton.Name = "addErrantProcessButton";
-            this.addErrantProcessButton.Padding = new System.Windows.Forms.Padding(5);
-            this.addErrantProcessButton.Size = new System.Drawing.Size(87, 27);
-            this.addErrantProcessButton.TabIndex = 3;
-            this.addErrantProcessButton.Text = "&Add...";
-            // 
-            // editErrantProcessButton
-            // 
-            this.editErrantProcessButton.IsDarkTheme = true;
-            this.editErrantProcessButton.Location = new System.Drawing.Point(326, 164);
-            this.editErrantProcessButton.Name = "editErrantProcessButton";
-            this.editErrantProcessButton.Padding = new System.Windows.Forms.Padding(5);
-            this.editErrantProcessButton.Size = new System.Drawing.Size(87, 27);
-            this.editErrantProcessButton.TabIndex = 4;
-            this.editErrantProcessButton.Text = "&Edit...";
-            // 
-            // errantProcessListBox
-            // 
-            this.errantProcessListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
-            this.errantProcessListBox.BorderColor = System.Drawing.SystemColors.ActiveBorder;
-            this.errantProcessListBox.BorderThickness = 1;
-            this.errantProcessListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.errantProcessListBox.FormattingEnabled = true;
-            this.errantProcessListBox.HighlightColor = System.Drawing.SystemColors.Highlight;
-            this.errantProcessListBox.IsDarkTheme = true;
-            this.errantProcessListBox.Location = new System.Drawing.Point(16, 131);
-            this.errantProcessListBox.Name = "errantProcessListBox";
-            this.errantProcessListBox.ScrollAlwaysVisible = true;
-            this.errantProcessListBox.Size = new System.Drawing.Size(304, 199);
-            this.errantProcessListBox.TabIndex = 2;
-            // 
-            // removeErrantProcessButton
-            // 
-            this.removeErrantProcessButton.IsDarkTheme = true;
-            this.removeErrantProcessButton.Location = new System.Drawing.Point(326, 303);
-            this.removeErrantProcessButton.Name = "removeErrantProcessButton";
-            this.removeErrantProcessButton.Padding = new System.Windows.Forms.Padding(5);
-            this.removeErrantProcessButton.Size = new System.Drawing.Size(87, 27);
-            this.removeErrantProcessButton.TabIndex = 5;
-            this.removeErrantProcessButton.Text = "&Remove";
+            this.errantProcessSelectionDialog.DefaultExt = "json";
+            this.errantProcessSelectionDialog.FileName = "*.exe";
+            this.errantProcessSelectionDialog.Filter = "Application (*.exe)|*.exe";
+            this.errantProcessSelectionDialog.RestoreDirectory = true;
+            this.errantProcessSelectionDialog.Title = "Add Errant Process Entry";
             // 
             // OptionsDialog
             // 
@@ -557,5 +580,7 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkButton editErrantProcessButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton addErrantProcessButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton removeErrantProcessButton;
+        private xyLOGIX.UI.Dark.Controls.DarkButton removeAllErrantProcessesButton;
+        private OpenFileDialog errantProcessSelectionDialog;
     }
 }

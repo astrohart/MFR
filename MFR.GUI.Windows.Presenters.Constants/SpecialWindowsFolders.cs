@@ -3,7 +3,7 @@ namespace MFR.GUI.Windows.Presenters.Constants
     /// <summary>
     /// Provides string constants that allow access to special folders.
     /// </summary>
-    public static class Folders
+    public static class SpecialWindowsFolders
     {
         /// <summary>
         /// Path to the <b>Quick Access</b> area of Windows.

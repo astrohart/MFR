@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2024.1.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.1.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -115,14 +115,9 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.1.4\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -245,9 +240,9 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Forms.DarkTheme.VS2019\xyLOGIX.Forms.DarkTheme.Controls\xyLOGIX.Forms.DarkTheme.Controls.csproj">
-      <Project>{D6A72CC5-D530-4204-BF5E-2B126CF28CCA}</Project>
-      <Name>xyLOGIX.Forms.DarkTheme.Controls</Name>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
+      <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
+      <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Mappings\xyLOGIX.Queues.Messages.Mappings.csproj">
       <Project>{EF6CFC30-5D1D-42D8-B386-C1519427A80A}</Project>
@@ -309,9 +304,17 @@
       <Project>{49002D48-38C0-49CF-A6CC-6314218AC468}</Project>
       <Name>MFR.GUI.Dialogs.Text.Retrievers.Factories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Models.Factories\MFR.GUI.Models.Factories.csproj">
+      <Project>{7A7199BF-A235-4CC2-A2E4-8AEF5FB45214}</Project>
+      <Name>MFR.GUI.Models.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Models.Interfaces\MFR.GUI.Models.Interfaces.csproj">
       <Project>{4B618058-A034-4087-9FC9-F6F3D7A5CBB1}</Project>
       <Name>MFR.GUI.Models.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Windows.Presenters.Constants\MFR.GUI.Windows.Presenters.Constants.csproj">
+      <Project>{EDCAF840-40F5-442D-97FE-23C4B1B23BF3}</Project>
+      <Name>MFR.GUI.Windows.Presenters.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
       <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
@@ -320,10 +323,6 @@
     <ProjectReference Include="..\MFR.Operations.Descriptions.Factories\MFR.Operations.Descriptions.Factories.csproj">
       <Project>{0FF66CA2-92B5-4A11-AB1A-7B4A51A3981A}</Project>
       <Name>MFR.Operations.Descriptions.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Operations.Descriptions.Interfaces\MFR.Operations.Descriptions.Interfaces.csproj">
-      <Project>{522A7534-3065-477B-B756-844F124FAE1A}</Project>
-      <Name>MFR.Operations.Descriptions.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Events\MFR.Operations.Events.csproj">
       <Project>{A1EA34DE-EC55-47B2-A1E4-815C29FD53A8}</Project>

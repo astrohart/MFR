@@ -1,7 +1,10 @@
 using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
+using MFR.GUI.Dialogs.Properties;
+using MFR.GUI.Models.Factories;
 using MFR.GUI.Models.Interfaces;
+using MFR.GUI.Windows.Presenters.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -13,7 +16,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 using xyLOGIX.UI.Dark.Forms;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI.Dialogs
 {
@@ -183,6 +188,39 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
+        /// Gets a value indicating whether an entry is currently selected in the
+        /// <b>Errant Processes</b> list box.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if an entry is currently selected in the
+        /// <b>Errant Processes</b> list box; <see langword="false" /> otherwise.
+        /// </returns>
+        public bool IsErrantProcessSelected
+        {
+            [DebuggerStepThrough]
+            get {
+                var result = false;
+
+                try
+                {
+                    if (errantProcessListBox == null) return result;
+                    if (errantProcessListBox.Items.Count > 0) return result;
+
+                    result = errantProcessListBox.SelectedIndex >= 0;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = false;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
         /// Gets a value that indicates whether the data in this dialog box has
         /// been modified.
         /// </summary>
@@ -209,6 +247,47 @@ namespace MFR.GUI.Dialogs
         {
             [DebuggerStepThrough] get => reOpenSolutionCheckBox.Checked;
             [DebuggerStepThrough] set => reOpenSolutionCheckBox.Checked = value;
+        }
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Models.Interfaces.IErrantProcessInfo" /> interface that
+        /// represents the item that is currently selected, if any, in the
+        /// <b>Errant Processes</b> list box on the <b>General</b> tab.
+        /// </summary>
+        /// <remarks>
+        /// If there are no items currently in the list box, or none are currently
+        /// selected, then this property returns a <see langword="null" /> reference.
+        /// </remarks>
+        /// <returns>
+        /// If successful, a reference to an instance of an object that implements
+        /// the <see cref="T:MFR.GUI.Models.Interfaces.IErrantProcessInfo" /> interface;
+        /// otherwise, a <see langword="null" /> reference is returned.
+        /// </returns>
+        public IErrantProcessInfo SelectedErrantProcess
+        {
+            get {
+                IErrantProcessInfo result = default;
+
+                try
+                {
+                    if (errantProcessListBox == null) return result;
+                    if (errantProcessListBox.IsDisposed) return result;
+                    if (errantProcessListBox.SelectedIndex < 0) return result;
+
+                    result =
+                        errantProcessListBox.SelectedItem as IErrantProcessInfo;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = default;
+                }
+
+                return result;
+            }
         }
 
         /// <summary>
@@ -316,6 +395,75 @@ namespace MFR.GUI.Dialogs
             base.OnShown(e);
 
             SetModifiedFlag(false); // start us off as having no modified values
+        }
+
+        private bool FileAlreadyIsInErrantProcessList(string pathname)
+        {
+            var result = false;
+
+            try
+            {
+                if (!Does.FileExist(pathname)) return result;
+
+                foreach (var errantProcess in ErrantProcesses.ToArray())
+                {
+                    if (errantProcess == null) continue;
+                    if (!pathname.Equals(errantProcess.Pathname)) continue;
+
+                    result = true;
+                    break;
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        private void OnAddErrantProcessButtonClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                errantProcessSelectionDialog.InitialDirectory =
+                    SpecialWindowsFolders.QuickAccess;
+                if (DialogResult.Cancel ==
+                    errantProcessSelectionDialog.ShowDialog(this))
+                    return;
+
+                if (FileAlreadyIsInErrantProcessList(
+                        errantProcessSelectionDialog.FileName
+                    ))
+                {
+                    Messages.ShowStopError(
+                        this,
+                        string.Format(
+                            Resources.Error_ErrantProcessEntryAlreadyPresent,
+                            errantProcessSelectionDialog.FileName
+                        )
+                    );
+                    return;
+                }
+
+                errantProcessListBox.Items.Add(
+                    MakeNewErrantProcessInfo.ForFile(
+                        errantProcessSelectionDialog.FileName
+                    )
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                Messages.ShowStopError(
+                    this, Resources.Error_FailedAddErrantProcessEntry
+                );
+            }
         }
 
         /// <summary>
@@ -493,6 +641,58 @@ namespace MFR.GUI.Dialogs
             }
         }
 
+        private void OnEditErrantProcessButtonClicked(
+            object sender,
+            EventArgs e
+        )
+        {
+            try
+            {
+                if (!IsErrantProcessSelected)
+                {
+                    Messages.ShowStopError(
+                        this, Resources.Error_NoErrantProcessSelectedForEditing
+                    );
+                    return;
+                }
+
+                if (!HasErrantProcesses)
+                {
+                    Messages.ShowStopError(
+                        this, Resources.Error_NoErrantProcessesToEdit
+                    );
+                    return;
+                }
+
+                var currentErrantProcessFolder =
+                    Path.GetDirectoryName(SelectedErrantProcess.Pathname);
+                if (string.IsNullOrWhiteSpace(currentErrantProcessFolder))
+                {
+                    Messages.ShowStopError(
+                        this, Resources.Error_NoErrantProcessEntryPathname
+                    );
+                    return;
+                }
+
+                errantProcessSelectionDialog.InitialDirectory =
+                    currentErrantProcessFolder;
+                errantProcessSelectionDialog.FileName =
+                    Path.GetFileName(SelectedErrantProcess.Pathname);
+
+                if (DialogResult.Cancel ==
+                    errantProcessSelectionDialog.ShowDialog(this))
+                    return;
+
+                SelectedErrantProcess.Pathname =
+                    errantProcessSelectionDialog.FileName;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Application.Idle" /> event.
         /// </summary>
@@ -510,6 +710,10 @@ namespace MFR.GUI.Dialogs
         {
             applyButton.Enabled = IsModified;
             addErrantProcessButton.Enabled = true;
+            editErrantProcessButton.Enabled =
+                removeErrantProcessButton.Enabled =
+                    HasErrantProcesses && IsErrantProcessSelected;
+            removeAllErrantProcessesButton.Enabled = HasErrantProcesses;
         }
 
         /// <summary>

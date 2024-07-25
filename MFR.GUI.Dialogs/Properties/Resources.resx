@@ -121,9 +121,24 @@
     <value>Value cannot be null or whitespace.</value>
   </data>
   <data name="FolderSelectDialogFilters" xml:space="preserve">
-    <value>Folders|</value>
+    <value>SpecialWindowsFolders|</value>
   </data>
   <data name="Error_CommitMessageRequired" xml:space="preserve">
       <value>You must type a value in the Commit Message text box.</value>
+  </data>
+  <data name="Error_NoErrantProcessesToEdit" xml:space="preserve">
+      <value>Please add Errant Process(es) to the list before trying to edit one of them.</value>
+  </data>
+  <data name="Error_NoErrantProcessSelectedForEditing" xml:space="preserve">
+      <value>Please select the Errant Process entry that you wish to edit.</value>
+  </data>
+  <data name="Error_FailedAddErrantProcessEntry" xml:space="preserve">
+      <value>Failed to add a new Errant Process entry.</value>
+  </data>
+  <data name="Error_ErrantProcessEntryAlreadyPresent" xml:space="preserve">
+      <value>An entry with the pathname, '{0}', is already present in the list.</value>
+  </data>
+  <data name="Error_NoErrantProcessEntryPathname" xml:space="preserve">
+      <value>The selected Errant Process entry does not have an associated pathname specified.</value>
   </data>
 </root>
