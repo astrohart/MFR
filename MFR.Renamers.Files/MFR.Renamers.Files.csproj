@@ -237,6 +237,10 @@
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Actions\xyLOGIX.Win32.RecycleBin.Actions.csproj">
+      <Project>{0f60daa3-bfe7-4ad1-a84b-d885a46f6269}</Project>
+      <Name>xyLOGIX.Win32.RecycleBin.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
       <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
       <Name>MFR.Directories.Managers.Factories</Name>

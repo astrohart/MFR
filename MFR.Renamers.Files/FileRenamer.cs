@@ -68,6 +68,7 @@ using xyLOGIX.VisualStudio.Solutions.Interfaces;
 using xyLOGIX.Win32.Interact;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;
 using Does = xyLOGIX.Files.Actions.Does;
+using Empty = xyLOGIX.Win32.RecycleBin.Actions.Empty;
 using Formulate = MFR.Renamers.Files.Actions.Formulate;
 using Get = MFR.Services.Solutions.Actions.Get;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
@@ -657,6 +658,8 @@ namespace MFR.Renamers.Files
                 );
 
                 KillErrantProcesses();
+
+                EmptyRecycleBin();
 
                 TotalReposWithPendingChanges =
                     -1; // reset the TotalReposWithPendingChanges property
@@ -3402,6 +3405,23 @@ namespace MFR.Renamers.Files
             finally
             {
                 OnFinished();
+            }
+        }
+
+        /// <summary>
+        /// Called to empty the Recycle Bin prior to the execution of the requested
+        /// operations.
+        /// </summary>
+        private void EmptyRecycleBin()
+        {
+            try
+            {
+                Empty.RecycleBin();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
             }
         }
 
