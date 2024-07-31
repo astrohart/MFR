@@ -3392,6 +3392,8 @@ namespace MFR.Renamers.Files
                 }
 
                 ReopenActiveSolutions();
+
+                ReleaseAllVisualStudioConnections();
             }
             catch (OperationAbortedException)
             {
@@ -4521,6 +4523,24 @@ namespace MFR.Renamers.Files
                 .ForMessageId(
                     FileRenamerMessages.FRM_SUBFOLDERS_TO_BE_RENAMED_COUNTED
                 );
+        }
+
+        /// <summary>
+        /// Called to instruct the Windows operating system to release all references to
+        /// the currently-running instances of Visual Studio.
+        /// </summary>
+        private void ReleaseAllVisualStudioConnections()
+        {
+            // Be sure to throw away all the interface pointers that need their
+            // reference counts decremented.  This will help let Visual Studio know
+            // that there is not a need to keep file handles open.
+            foreach (var instance in LoadedSolutions.ToArray())
+            {
+                if (instance == null) continue;
+                if (instance.WasVisualStudioClosed) continue;
+
+                instance.Disconnect();
+            }
         }
 
         /// <summary>
