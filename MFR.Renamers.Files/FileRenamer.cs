@@ -4259,7 +4259,6 @@ namespace MFR.Renamers.Files
                 Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
                 Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
                 Run.SystemCommand("taskkill /IM dllhost.exe /F /T");
-                Run.SystemCommand("taskkill /IM RuntimeBroker.exe /F /T");
 
                 var batchFilePathname = Path.Combine(
                     Path.GetTempPath(), $"{Guid.NewGuid():N}.bat"
