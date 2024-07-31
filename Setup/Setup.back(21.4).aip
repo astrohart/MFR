@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="20.1" version="21.9" Modules="architect" RootPath="." Language="en" Id="{FD55B4DC-5236-46DF-A195-47C0C0D9A473}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="20.1" version="21.4" Modules="architect" RootPath="." Language="en" Id="{FD55B4DC-5236-46DF-A195-47C0C0D9A473}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPCONTACT" Value="info@xylogix.net"/>
     <ROW Property="ARPHELPLINK" Value="https://www.xylogix.net"/>
-    <ROW Property="ARPPRODUCTICON" Value="newxylogix.exe" Type="8"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://www.xylogix.net"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://www.xylogix.net"/>
     <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
@@ -15,7 +17,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8975.34973" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.8971.39302" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -444,11 +446,6 @@
     <ROW Component="xyLOGIX.VisualStudio.dll" ComponentId="{31DAAC41-1037-4304-8985-B02F12722466}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.dll"/>
     <ROW Component="xyLOGIX.Win32.Interact.dll" ComponentId="{8647F1CB-6ECD-4E2E-A4A4-2EEAC1A29DF8}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.Interact.dll"/>
     <ROW Component="xyLOGIX.Win32.Messages.Filters.dll" ComponentId="{C68613A6-4A70-4ADE-B04D-E7DF3DA5A5C3}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.Messages.Filters.dll"/>
-    <ROW Component="xyLOGIX.Win32.RecycleBin.Actions.dll" ComponentId="{9425AF57-43D5-4DB5-946D-790CC9A5DF20}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.RecycleBin.Actions.dll"/>
-    <ROW Component="xyLOGIX.Win32.RecycleBin.Constants.dll" ComponentId="{E78B7A78-6E56-43E2-AC51-2A1A4B2E231C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.RecycleBin.Constants.dll"/>
-    <ROW Component="xyLOGIX.Win32.RecycleBin.Factories.dll" ComponentId="{2B710CB7-4F0E-44BC-8DEA-EC940BCD18A5}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.RecycleBin.Factories.dll"/>
-    <ROW Component="xyLOGIX.Win32.RecycleBin.Interfaces.dll" ComponentId="{88A306D6-CE78-4E96-AFE3-0967CD1F825E}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.RecycleBin.Interfaces.dll"/>
-    <ROW Component="xyLOGIX.Win32.RecycleBin.dll" ComponentId="{84622BB9-35B5-4D4E-90E3-AC3CE10B87A6}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Win32.RecycleBin.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
@@ -1209,16 +1206,6 @@
     <ROW File="xyLOGIX.Win32.Interact.dll.config" Component_="config.json" FileName="XYLO~110.CON|xyLOGIX.Win32.Interact.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Interact.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll" Component_="xyLOGIX.Win32.Messages.Filters.dll" FileName="XYLO~111.DLL|xyLOGIX.Win32.Messages.Filters.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.Messages.Filters.dll.config" Component_="config.json" FileName="XYLO~111.CON|xyLOGIX.Win32.Messages.Filters.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.Messages.Filters.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Actions.dll" Component_="xyLOGIX.Win32.RecycleBin.Actions.dll" FileName="XYLO~112.DLL|xyLOGIX.Win32.RecycleBin.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Actions.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Actions.dll.config" Component_="config.json" FileName="XYLO~112.CON|xyLOGIX.Win32.RecycleBin.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Actions.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Constants.dll" Component_="xyLOGIX.Win32.RecycleBin.Constants.dll" FileName="XYLO~113.DLL|xyLOGIX.Win32.RecycleBin.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Constants.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Constants.dll.config" Component_="config.json" FileName="XYLO~113.CON|xyLOGIX.Win32.RecycleBin.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Constants.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.dll" Component_="xyLOGIX.Win32.RecycleBin.dll" FileName="XYLO~114.DLL|xyLOGIX.Win32.RecycleBin.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.dll.config" Component_="config.json" FileName="XYLO~114.CON|xyLOGIX.Win32.RecycleBin.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Factories.dll" Component_="xyLOGIX.Win32.RecycleBin.Factories.dll" FileName="XYLO~115.DLL|xyLOGIX.Win32.RecycleBin.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Factories.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Factories.dll.config" Component_="config.json" FileName="XYLO~115.CON|xyLOGIX.Win32.RecycleBin.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Factories.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll" FileName="XYLO~116.DLL|xyLOGIX.Win32.RecycleBin.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Component_="config.json" FileName="XYLO~116.CON|xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1718,15 +1705,9 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.VisualStudio.Solutions.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Interact.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.Messages.Filters.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Actions.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Constants.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
-    <ROW Name="newxylogix.exe" SourcePath="..\..\newxylogix.ICO" Index="0"/>
     <ROW Name="xylogix.ICO" SourcePath="..\MFR.GUI\xylogix.ICO" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
