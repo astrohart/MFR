@@ -56,12 +56,12 @@ occurred.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a JSON-formatted
-data file on the disk that contains the profile-list data. |
+data file on the file system that contains the profile-list data. |
 
 ##### Remarks
 
 If the `pathname` parameter is not passed the fully-qualified
-pathname of a file that exists on the disk, or if an error occurs during the
+pathname of a file that exists on the file system, or if an error occurs during the
 execution of the `Load` operation, then the empty collection is returned.
 
 <a name='M-MFR-Settings-Profiles-Serializers-ProfileCollectionSerializer-Save-System-String,MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection-'></a>
@@ -80,7 +80,7 @@ is to be saved to. |
 | profileList | [MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection') | (Required.) Reference to an instance of an object that implements
 the
 [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-interface, containing the data to be written to the disk. |
+interface, containing the data to be written to the file system. |
 
 <a name='T-MFR-Settings-Profiles-Serializers-Properties-Resources'></a>
 ## Resources `type`

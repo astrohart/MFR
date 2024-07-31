@@ -7,16 +7,16 @@
   - [#ctor()](#M-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-#ctor 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever.#ctor')
   - [Instance](#P-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-Instance 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever.Instance')
   - [OperationType](#P-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-OperationType 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever.OperationType')
-  - [SearchPattern](#P-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-SearchPattern 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever.SearchPattern')
   - [#cctor()](#M-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-#cctor 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever.#cctor')
-  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
 - [CommitResultsToGitRetriever](#T-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-#ctor 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever.#ctor')
   - [Instance](#P-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-Instance 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever.Instance')
   - [OperationType](#P-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-OperationType 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever.OperationType')
-  - [SearchPattern](#P-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-SearchPattern 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever.SearchPattern')
   - [#cctor()](#M-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-#cctor 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever.#cctor')
-  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.CommitResultsToGitRetriever.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
+- [CommitToGitRetrieverBase](#T-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase 'MFR.FileSystem.Retrievers.CommitToGitRetrieverBase')
+  - [SearchOption](#P-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase-SearchOption 'MFR.FileSystem.Retrievers.CommitToGitRetrieverBase.SearchOption')
+  - [SearchPattern](#P-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase-SearchPattern 'MFR.FileSystem.Retrievers.CommitToGitRetrieverBase.SearchPattern')
+  - [DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter)](#M-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}- 'MFR.FileSystem.Retrievers.CommitToGitRetrieverBase.DoGetMatchingFileSystemPaths(System.String,System.Predicate{System.String})')
 - [FileAndFolderNameFileSystemEntryListRetrieverBase](#T-MFR-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase')
   - [AndReplaceItWith()](#M-MFR-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-AndReplaceItWith-System-String- 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.AndReplaceItWith(System.String)')
   - [Reset()](#M-MFR-FileSystem-Retrievers-FileAndFolderNameFileSystemEntryListRetrieverBase-Reset 'MFR.FileSystem.Retrievers.FileAndFolderNameFileSystemEntryListRetrieverBase.Reset')
@@ -96,18 +96,25 @@ MFR.FileSystem.Retrievers
 Retrieves lists of file-system entries that should be processed by an
 operation that wants to commit the results of the processing of projects to the
 various GIt repository(ies) that may be contained within the directory tree of
-the starting folder..
+the starting folder.
 
 <a name='M-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-Empty, protected constructor to prohibit direct allocation of this class.
+Initializes a new instance of
+[CommitPendingChangesRetriever](#T-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever') and
+returns a reference to it.
 
 ##### Parameters
 
 This constructor has no parameters.
+
+##### Remarks
+
+This constructor is marked `protected`
+due to the fact that this class is marked `abstract`.
 
 <a name='P-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-Instance'></a>
 ### Instance `property`
@@ -128,84 +135,23 @@ the various Git repository(ies) that may exist.
 Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
-<a name='P-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-SearchPattern'></a>
-### SearchPattern `property`
-
-##### Summary
-
-Gets or sets a string that contains a wildcard search pattern.
-
-##### Remarks
-
-This property may have a blank or `null` value. The
-default value of this property is nominally an asterisk; however,
-classes that implement this interface may specify something different.
-
 <a name='M-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
 
-Empty, static constructor to prohibit direct allocation of this class.
+Initializes static data or performs actions that need to be performed once only
+for the
+[CommitPendingChangesRetriever](#T-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever 'MFR.FileSystem.Retrievers.CommitPendingChangesRetriever') class.
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-MFR-FileSystem-Retrievers-CommitPendingChangesRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}-'></a>
-### DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter) `method`
-
-##### Summary
-
-Gets a list of the files that match the criteria specified by this
-object and that correspond to the type of operation being performed.
-
-##### Returns
-
-Collection of instances of objects that implement the
-[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
-interface that correspond to the file system entries that match the
-criteria specified.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| rootFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the full pathname of the folder in
-which to start the search. |
-| pathFilter | [System.Predicate{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Predicate 'System.Predicate{System.String}') | (Optional.) Reference to an instance of [Func](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func')
-that points to a delegate, accepting the current file or folder's
-path as an argument, that returns `true` if the file
-should be included in the operation or `false` otherwise.
-
-
-
-This parameter is `null` by default. This method
-should return `true` to specify that a given
-file-system entry is to be included in the output collection --
-barring other inclusion/exclusion criteria.
-
-
-
-In the event that this parameter is `null`, no path
-filtering is done. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `rootFolderPath`,
-is passed a blank or `null` string for a value. |
-| [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no config data is attached to this object. |
-
 ##### Remarks
 
-Implementers of this method have a guarantee that the
-`rootFolderPath`
-parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
-[ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
-property is set to a valid object instance reference.
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
 
 <a name='T-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever'></a>
 ## CommitResultsToGitRetriever `type`
@@ -251,7 +197,39 @@ the various Git repository(ies) that may exist.
 Gets one of the [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType') values
 that corresponds to the type of operation being performed.
 
-<a name='P-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-SearchPattern'></a>
+<a name='M-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase'></a>
+## CommitToGitRetrieverBase `type`
+
+##### Namespace
+
+MFR.FileSystem.Retrievers
+
+##### Summary
+
+Defines the events, methods, properties, and behaviors for all
+`File and Folder File System Entry List Retriever` objects that search for
+folders containing local Git repositories.
+
+<a name='P-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase-SearchOption'></a>
+### SearchOption `property`
+
+##### Summary
+
+A [SearchOption](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.SearchOption 'System.IO.SearchOption') value to be utilized for
+file-system searches.
+
+<a name='P-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase-SearchPattern'></a>
 ### SearchPattern `property`
 
 ##### Summary
@@ -264,18 +242,7 @@ This property may have a blank or `null` value. The
 default value of this property is nominally an asterisk; however,
 classes that implement this interface may specify something different.
 
-<a name='M-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-#cctor'></a>
-### #cctor() `method`
-
-##### Summary
-
-Empty, static constructor to prohibit direct allocation of this class.
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-MFR-FileSystem-Retrievers-CommitResultsToGitRetriever-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}-'></a>
+<a name='M-MFR-FileSystem-Retrievers-CommitToGitRetrieverBase-DoGetMatchingFileSystemPaths-System-String,System-Predicate{System-String}-'></a>
 ### DoGetMatchingFileSystemPaths(rootFolderPath,pathFilter) `method`
 
 ##### Summary
@@ -326,7 +293,7 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.
 
@@ -606,7 +573,7 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.
 
@@ -704,7 +671,7 @@ is passed a blank or `null` string for a value. |
 | [MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException](#T-MFR-Settings-Configuration-Exceptions-ConfigurationNotAttachedException 'MFR.Settings.Configuration.Exceptions.ConfigurationNotAttachedException') | Thrown if no config data is attached to this object. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
 `rootFolderPath`
-' parameter cannot be located on the disk. |
+' parameter cannot be located on the file system. |
 
 <a name='M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-Reset'></a>
 ### Reset() `method`
@@ -993,7 +960,7 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.
 
@@ -1101,7 +1068,7 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.
 
@@ -1286,7 +1253,7 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.
 
@@ -1510,7 +1477,7 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.
 
@@ -1696,6 +1663,6 @@ is passed a blank or `null` string for a value. |
 Implementers of this method have a guarantee that the
 `rootFolderPath`
 parameter contains a fully-qualified
-pathname of a folder that exists on the disk, and that the
+pathname of a folder that exists on the file system, and that the
 [ProjectFileRenamerConfig](#P-MFR-Settings-ConfigurationComposedObjectBase-ProjectFileRenamerConfig 'MFR.Settings.ConfigurationComposedObjectBase.ProjectFileRenamerConfig')
 property is set to a valid object instance reference.

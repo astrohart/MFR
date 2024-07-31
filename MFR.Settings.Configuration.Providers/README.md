@@ -173,7 +173,7 @@ file from which to import the config data. |
 is passed a blank or `null` string for a value. |
 | [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
 `sourceFilePath`
-parameter, cannot be located on the disk. |
+parameter, cannot be located on the file system. |
 
 ##### Remarks
 
@@ -203,7 +203,7 @@ This method has no parameters.
 
 ##### Summary
 
-Loads the config from the disk.
+Loads the config from the file system.
 
 
 
@@ -261,7 +261,7 @@ the event data. |
 
 ##### Summary
 
-Saves config data to a file on the disk having path
+Saves config data to a file on the file system having path
 `pathname`.
 
 ##### Parameters
@@ -283,7 +283,7 @@ property. |
 
 ##### Summary
 
-Saves config data to a file on the disk having path
+Saves config data to a file on the file system having path
 `pathname`.
 
 ##### Parameters

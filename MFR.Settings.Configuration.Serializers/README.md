@@ -21,14 +21,14 @@ MFR.Settings.Configuration.Serializers
 ##### Summary
 
 Provides helper methods for storing the config data to, and
-loading it from, a file on the disk.
+loading it from, a file on the file system.
 
 <a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Load-System-String-'></a>
 ### Load(pathname) `method`
 
 ##### Summary
 
-Loads the config data from the file on the disk that has the
+Loads the config data from the file on the file system that has the
 specified `pathname`.
 
 ##### Returns
@@ -45,7 +45,7 @@ if a problem occurred.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the fully-qualified pathname of a
-JSON-formatted data file on the disk that contains the config data. |
+JSON-formatted data file on the file system that contains the config data. |
 
 <a name='M-MFR-Settings-Configuration-Serializers-ConfigurationSerializer-Save-System-String,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-'></a>
 ### Save(pathname,config) `method`

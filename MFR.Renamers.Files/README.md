@@ -13,7 +13,6 @@
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
-  - [FileHostProvider](#P-MFR-Renamers-Files-FileRenamer-FileHostProvider 'MFR.Renamers.Files.FileRenamer.FileHostProvider')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [IsStarted](#P-MFR-Renamers-Files-FileRenamer-IsStarted 'MFR.Renamers.Files.FileRenamer.IsStarted')
@@ -21,6 +20,7 @@
   - [LoadedSolutionProvider](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutionProvider 'MFR.Renamers.Files.FileRenamer.LoadedSolutionProvider')
   - [LoadedSolutions](#P-MFR-Renamers-Files-FileRenamer-LoadedSolutions 'MFR.Renamers.Files.FileRenamer.LoadedSolutions')
   - [LocalGitInteropProvider](#P-MFR-Renamers-Files-FileRenamer-LocalGitInteropProvider 'MFR.Renamers.Files.FileRenamer.LocalGitInteropProvider')
+  - [ProcessProvider](#P-MFR-Renamers-Files-FileRenamer-ProcessProvider 'MFR.Renamers.Files.FileRenamer.ProcessProvider')
   - [RootDirectoryPath](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath 'MFR.Renamers.Files.FileRenamer.RootDirectoryPath')
   - [RootDirectoryPathValidator](#P-MFR-Renamers-Files-FileRenamer-RootDirectoryPathValidator 'MFR.Renamers.Files.FileRenamer.RootDirectoryPathValidator')
   - [SearchDirectories](#P-MFR-Renamers-Files-FileRenamer-SearchDirectories 'MFR.Renamers.Files.FileRenamer.SearchDirectories')
@@ -31,12 +31,16 @@
   - [TotalReposWithPendingChanges](#P-MFR-Renamers-Files-FileRenamer-TotalReposWithPendingChanges 'MFR.Renamers.Files.FileRenamer.TotalReposWithPendingChanges')
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
+  - [CleanFileForEntry(entry)](#M-MFR-Renamers-Files-FileRenamer-CleanFileForEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.CleanFileForEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [CleanFiles(rootFolderPath)](#M-MFR-Renamers-Files-FileRenamer-CleanFiles-System-String- 'MFR.Renamers.Files.FileRenamer.CleanFiles(System.String)')
   - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
   - [ConnectToLocalGitRepoFor(entry)](#M-MFR-Renamers-Files-FileRenamer-ConnectToLocalGitRepoFor-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.ConnectToLocalGitRepoFor(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [EmptyRecycleBin()](#M-MFR-Renamers-Files-FileRenamer-EmptyRecycleBin 'MFR.Renamers.Files.FileRenamer.EmptyRecycleBin')
   - [EnableOperations(operations)](#M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]- 'MFR.Renamers.Files.FileRenamer.EnableOperations(MFR.Operations.Constants.OperationType[])')
   - [HasPendingChanges(entry)](#M-MFR-Renamers-Files-FileRenamer-HasPendingChanges-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.HasPendingChanges(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [InvokeProcessing(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-InvokeProcessing-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.InvokeProcessing(System.String,System.String,System.Predicate{System.String})')
+  - [KillErrantProcesses()](#M-MFR-Renamers-Files-FileRenamer-KillErrantProcesses 'MFR.Renamers.Files.FileRenamer.KillErrantProcesses')
   - [OnClosingSolution(e)](#M-MFR-Renamers-Files-FileRenamer-OnClosingSolution-MFR-Renamers-Files-Events-ClosingSolutionEventArgs- 'MFR.Renamers.Files.FileRenamer.OnClosingSolution(MFR.Renamers.Files.Events.ClosingSolutionEventArgs)')
   - [OnCurrentOperationChanged(e)](#M-MFR-Renamers-Files-FileRenamer-OnCurrentOperationChanged-MFR-Renamers-Files-Events-CurrentOperationChangedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnCurrentOperationChanged(MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs)')
   - [OnExceptionRaised(e)](#M-MFR-Renamers-Files-FileRenamer-OnExceptionRaised-MFR-Events-Common-ExceptionRaisedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnExceptionRaised(MFR.Events.Common.ExceptionRaisedEventArgs)')
@@ -62,6 +66,7 @@
   - [OnSubfoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSubfoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [RenameFileInFolderForEntry(findWhat,replaceWith,entry)](#M-MFR-Renamers-Files-FileRenamer-RenameFileInFolderForEntry-System-String,System-String,MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.RenameFileInFolderForEntry(System.String,System.String,MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSolutionFolders(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
@@ -92,6 +97,7 @@
   - [StatusUpdate_FinishedRenamingSolutionFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_FinishedRenamingSolutionFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_FinishedRenamingSolutionFolders')
   - [StatusUpdate_RenamingFilesInFolders](#P-MFR-Renamers-Files-Properties-Resources-StatusUpdate_RenamingFilesInFolders 'MFR.Renamers.Files.Properties.Resources.StatusUpdate_RenamingFilesInFolders')
   - [Warning_FailedCommitPendingChanges](#P-MFR-Renamers-Files-Properties-Resources-Warning_FailedCommitPendingChanges 'MFR.Renamers.Files.Properties.Resources.Warning_FailedCommitPendingChanges')
+  - [_release_handles](#P-MFR-Renamers-Files-Properties-Resources-_release_handles 'MFR.Renamers.Files.Properties.Resources._release_handles')
 
 <a name='T-MFR-Renamers-Files-FileRenamer'></a>
 ## FileRenamer `type`
@@ -218,15 +224,6 @@ If the list is empty when the
 method is called, do
 nothing or throw an exception.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-FileHostProvider'></a>
-### FileHostProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
-interface.
-
 <a name='P-MFR-Renamers-Files-FileRenamer-Instance'></a>
 ### Instance `property`
 
@@ -294,6 +291,15 @@ interface.
 ##### Remarks
 
 This object provides access to Git functionality on the local machine.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-ProcessProvider'></a>
+### ProcessProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProcessProvider](#T-xyLOGIX-Interop-Processes-Interfaces-IProcessProvider 'xyLOGIX.Interop.Processes.Interfaces.IProcessProvider')
+interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-RootDirectoryPath'></a>
 ### RootDirectoryPath `property`
@@ -411,6 +417,51 @@ Empty, static constructor to prohibit direct allocation of this class.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-Renamers-Files-FileRenamer-CleanFileForEntry-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### CleanFileForEntry(entry) `method`
+
+##### Summary
+
+Called to run the file-cleaning algorithm (i.e., removing NULs and other
+control character(s)),
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') |  |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-CleanFiles-System-String-'></a>
+### CleanFiles(rootFolderPath) `method`
+
+##### Summary
+
+Called to clean the file(s), i.e., remove `NUL`s and any other ASCII
+control characters, as applicable, from the file(s) in the folder having the
+pathname specified in the `rootFolderPath` parameter.
+
+##### Returns
+
+`true` if the operation completed successfully;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| rootFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a folder where the search is to start. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [MFR.Operations.Exceptions.OperationAbortedException](#T-MFR-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException') |  |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
 ### CloseSolution(solution) `method`
@@ -533,6 +584,18 @@ filtering is done. |
 `null`
 string for a value. |
 
+<a name='M-MFR-Renamers-Files-FileRenamer-EmptyRecycleBin'></a>
+### EmptyRecycleBin() `method`
+
+##### Summary
+
+Called to empty the Recycle Bin prior to the execution of the requested
+operations.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-MFR-Renamers-Files-FileRenamer-EnableOperations-MFR-Operations-Constants-OperationType[]-'></a>
 ### EnableOperations(operations) `method`
 
@@ -602,6 +665,18 @@ barring other inclusion/exclusion criteria.
 
 In the event that this parameter is `null`, no path
 filtering is done. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-KillErrantProcesses'></a>
+### KillErrantProcesses() `method`
+
+##### Summary
+
+Forcibly kills all instances of process(es) that may be locking key file(s)
+and/or folder(s).
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-OnClosingSolution-MFR-Renamers-Files-Events-ClosingSolutionEventArgs-'></a>
 ### OnClosingSolution(e) `method`
@@ -1048,6 +1123,29 @@ method on this object prior to calling this method. |
 `null`
 string for a value. |
 
+<a name='M-MFR-Renamers-Files-FileRenamer-RenameFileInFolderForEntry-System-String,System-String,MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### RenameFileInFolderForEntry(findWhat,replaceWith,entry) `method`
+
+##### Summary
+
+Renames a file for the specified file system `entry`.
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| findWhat | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing
+the data for which to search in the name of the target file of the specified
+`entry`. |
+| replaceWith | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')
+containing the data to replace the found search text with in the name of the
+target file of the specified `entry`. |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') |  |
+
 <a name='M-MFR-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
 
@@ -1289,12 +1387,14 @@ filtering is done. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if either the `rootFolderPath` or the
-`findWhat` parameters are blank. |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the `findWhat` parameter is blank. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder with pathname specified by the
 `rootFolderPath`
-does not exist. |
+cannot be located on the file system. |
 | [System.IO.IOException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.IOException 'System.IO.IOException') | Thrown if a file operation does not succeed. |
+| [MFR.Operations.Exceptions.OperationAbortedException](#T-MFR-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException') | Thrown
+if the operation is to be aborted, e.g., by the user clicking the 
+button in the progress dialog. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-ReportSolutionCloseFailed-System-String-'></a>
 ### ReportSolutionCloseFailed(pathname) `method`
@@ -1341,7 +1441,7 @@ which searches should be started.
 
 
 The fully-qualified pathname passed must reference a folder that currently
-exists on the disk; otherwise,
+exists on the file system; otherwise,
 [DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') is thrown. |
 
 ##### Exceptions
@@ -1352,7 +1452,7 @@ exists on the disk; otherwise,
 `path`, is passed a blank or `null` string
 for a value. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose fully-qualified pathname is passed in the
-`path` parameter cannot be located on the disk. |
+`path` parameter cannot be located on the file system. |
 
 ##### Remarks
 
@@ -1540,3 +1640,11 @@ Looks up a localized string similar to Renaming files in subfolders of '{0}', re
 Looks up a localized string similar to Failed to commit pending changes to the repository you're working in.
 
 We will still carry out the operations..
+
+<a name='P-MFR-Renamers-Files-Properties-Resources-_release_handles'></a>
+### _release_handles `property`
+
+##### Summary
+
+Looks up a localized string similar to @echo off
+for /f "tokens=3,6,8 delims=: " %%i in ('handle /accepteula -p $PROCESS$ "$FOLDER$"') do echo Releasing %%k & handle -c %%j -y -p %%i.

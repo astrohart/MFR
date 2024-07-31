@@ -87,7 +87,7 @@ searched. |
 | ---- | ----------- |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the `folderToSearch` parameter is passed a value
 that is not the fully-qualified pathname of a folder that actually exists on
-the disk. |
+the file system. |
 
 <a name='T-MFR-Services-Solutions-Factories-Actions-Properties-Resources'></a>
 ## Resources `type`

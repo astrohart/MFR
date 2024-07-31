@@ -66,7 +66,7 @@ class.
 Asserts that the
 [DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method returns `false` when the folder path provided
-to the method as its argument does not, in fact, exist on the disk.
+to the method as its argument does not, in fact, exist on the file system.
 
 ##### Parameters
 
@@ -80,7 +80,7 @@ This method has no parameters.
 Asserts that the
 [DoesExist](#M-MFR-FileSystem-Validators-DirectoryPathValidator-DoesExist 'MFR.FileSystem.Validators.DirectoryPathValidator.DoesExist')
 method returns `true` when provided with the path to
-a folder on the disk that is guaranteed to exist.
+a folder on the file system that is guaranteed to exist.
 
 ##### Parameters
 
@@ -536,7 +536,7 @@ This method has no parameters.
 Asserts that the
 [ShouldSkip](#M-MFR-FileSystem-Validators-ProjectFileValidator-ShouldSkip 'MFR.FileSystem.Validators.ProjectFileValidator.ShouldSkip')
 method returns `true` when passed the pathname of a
-file that is guaranteed not to exist on the disk.
+file that is guaranteed not to exist on the file system.
 
 ##### Parameters
 

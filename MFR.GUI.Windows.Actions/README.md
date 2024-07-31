@@ -22,6 +22,8 @@
   - [_widthMultiplicationFactor](#F-MFR-GUI-Windows-Actions-Responsive-_widthMultiplicationFactor 'MFR.GUI.Windows.Actions.Responsive._widthMultiplicationFactor')
   - [Resolution](#P-MFR-GUI-Windows-Actions-Responsive-Resolution 'MFR.GUI.Windows.Actions.Responsive.Resolution')
 - [Would](#T-MFR-GUI-Windows-Actions-Would 'MFR.GUI.Windows.Actions.Would')
+  - [TheBathPathParts](#F-MFR-GUI-Windows-Actions-Would-TheBathPathParts 'MFR.GUI.Windows.Actions.Would.TheBathPathParts')
+  - [#cctor()](#M-MFR-GUI-Windows-Actions-Would-#cctor 'MFR.GUI.Windows.Actions.Would.#cctor')
   - [UserOverwriteExistingDirectory(rootFolderPath,replaceWith)](#M-MFR-GUI-Windows-Actions-Would-UserOverwriteExistingDirectory-System-String,System-String- 'MFR.GUI.Windows.Actions.Would.UserOverwriteExistingDirectory(System.String,System.String)')
 
 <a name='T-MFR-GUI-Windows-Actions-Compute'></a>
@@ -270,6 +272,33 @@ MFR.GUI.Windows.Actions
 ##### Summary
 
 Exposes static methods to explore hypothetical situations with data.
+
+<a name='F-MFR-GUI-Windows-Actions-Would-TheBathPathParts'></a>
+### TheBathPathParts `constants`
+
+##### Summary
+
+Portions of a path that should exclude a folder from a scan.
+
+<a name='M-MFR-GUI-Windows-Actions-Would-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only for the [Would](#T-MFR-GUI-Windows-Actions-Would 'MFR.GUI.Windows.Actions.Would') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-GUI-Windows-Actions-Would-UserOverwriteExistingDirectory-System-String,System-String-'></a>
 ### UserOverwriteExistingDirectory(rootFolderPath,replaceWith) `method`

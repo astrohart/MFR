@@ -53,7 +53,7 @@ Provides access to the one and only instance of the object that implements the
 [IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
 interface that creates instances of objects that are responsible for replacing
 the text in the filenames of files that exist in a specific directory tree on
-the disk.
+the file system.
 
 <a name='M-MFR-Replacers-Factories-GetRenameFilesInFolderStringReplacerFactory-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -70,7 +70,7 @@ Reference to the one, and only, instance of the object that implements the
 [IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
 interface that creates instances of objects that are responsible for replacing
 the text in the filenames of files that exist in a specific directory tree on
-the disk.
+the file system.
 
 ##### Parameters
 
@@ -259,7 +259,7 @@ Gets a reference to the one and only instance of the object that implements the
 [IStringReplacerFactory](#T-MFR-Replacers-Factories-Interfaces-IStringReplacerFactory 'MFR.Replacers.Factories.Interfaces.IStringReplacerFactory')
 interface that creates instances of objects that are responsible for replacing
 the text in the filenames of files that exist in a specific directory tree on
-the disk.
+the file system.
 
 <a name='P-MFR-Replacers-Factories-RenameFilesInFolderStringReplacerFactory-OperationType'></a>
 ### OperationType `property`

@@ -39,7 +39,7 @@ config.
 ##### Returns
 
 If the `submittedPathname` is not blank and is set
-to the pathname of a file that exists on the disk, then the method returns that
+to the pathname of a file that exists on the file system, then the method returns that
 pathname; otherwise, the `currentPathnameInRegistry` is
 returned.
 
@@ -79,7 +79,7 @@ pathname of a file to be checked. |
 
 In order to be valid, the specified `pathname` must
 not be blank, must contain the fully-qualified pathname of a file that exists
-on the disk; and the filename of the file must be `config.json`.
+on the file system; and the filename of the file must be `config.json`.
 
 <a name='T-MFR-Settings-Configuration-Providers-Actions-Execute'></a>
 ## Execute `type`
@@ -100,7 +100,7 @@ Exposes static  methods to execute actions on data.
 Attempts to execute the operation of loading a new instance of an object that
 implements
 [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
-from a file on the disk.
+from a file on the file system.
 
 ##### Returns
 
@@ -116,7 +116,7 @@ config data is contained within the specified file.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | action | [MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}](#T-MFR-Messages-Actions-Interfaces-IAction{MFR-FileSystem-Interfaces-IFileSystemEntry,MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig} 'MFR.Messages.Actions.Interfaces.IAction{MFR.FileSystem.Interfaces.IFileSystemEntry,MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig}') | (Required.) Reference to an `Action` object that, when executed, loads the
-application config from a file on the disk. |
+application config from a file on the file system. |
 
 <a name='T-MFR-Settings-Configuration-Providers-Actions-Generate'></a>
 ## Generate `type`
@@ -151,7 +151,7 @@ pathname of a `config.json` file. |
 ##### Remarks
 
 This method checks whether the file having the specified
-`pathname` exists on the disk or not, and has the filename
+`pathname` exists on the file system or not, and has the filename
 `config.json` before creating a new file system entry object.
 
 <a name='M-MFR-Settings-Configuration-Providers-Actions-Generate-LoadConfigFromFileAction-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
@@ -160,12 +160,12 @@ This method checks whether the file having the specified
 ##### Summary
 
 Generates a new `Action` object that loads the config data from a
-file on the disk.
+file on the file system.
 
 ##### Returns
 
 A new `Action` object that loads the config data from a
-file on the disk.
+file on the file system.
 
 ##### Parameters
 
@@ -173,7 +173,7 @@ file on the disk.
 | ---- | ---- | ----------- |
 | entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements the
 [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface that
-contains the fully-qualified pathname of a file on the disk that contains
+contains the fully-qualified pathname of a file on the file system that contains
 application config data. |
 
 <a name='T-MFR-Settings-Configuration-Providers-Actions-Obtain'></a>
@@ -209,7 +209,7 @@ blank config is returned.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a `config.json` file on the disk from which the application
+pathname of a `config.json` file on the file system from which the application
 config is to be loaded. |
 
 <a name='T-MFR-Settings-Configuration-Providers-Actions-Properties-Resources'></a>

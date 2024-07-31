@@ -144,9 +144,13 @@
   - [ConfigProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigProvider')
   - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
   - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.DontPromptUserToReloadOpenSolution')
+  - [ErrantProcesses](#P-MFR-GUI-Dialogs-OptionsDialog-ErrantProcesses 'MFR.GUI.Dialogs.OptionsDialog.ErrantProcesses')
+  - [HasErrantProcesses](#P-MFR-GUI-Dialogs-OptionsDialog-HasErrantProcesses 'MFR.GUI.Dialogs.OptionsDialog.HasErrantProcesses')
+  - [IsErrantProcessSelected](#P-MFR-GUI-Dialogs-OptionsDialog-IsErrantProcessSelected 'MFR.GUI.Dialogs.OptionsDialog.IsErrantProcessSelected')
   - [IsModified](#P-MFR-GUI-Dialogs-OptionsDialog-IsModified 'MFR.GUI.Dialogs.OptionsDialog.IsModified')
   - [PushChangesToRemoteWhenDone](#P-MFR-GUI-Dialogs-OptionsDialog-PushChangesToRemoteWhenDone 'MFR.GUI.Dialogs.OptionsDialog.PushChangesToRemoteWhenDone')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.ReOpenSolution')
+  - [SelectedErrantProcess](#P-MFR-GUI-Dialogs-OptionsDialog-SelectedErrantProcess 'MFR.GUI.Dialogs.OptionsDialog.SelectedErrantProcess')
   - [ShouldCommitPendingChanges](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPendingChanges 'MFR.GUI.Dialogs.OptionsDialog.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPostOperationChanges 'MFR.GUI.Dialogs.OptionsDialog.ShouldCommitPostOperationChanges')
   - [UpdateGitOnAutoStart](#P-MFR-GUI-Dialogs-OptionsDialog-UpdateGitOnAutoStart 'MFR.GUI.Dialogs.OptionsDialog.UpdateGitOnAutoStart')
@@ -183,8 +187,19 @@
 - [Resources](#T-MFR-GUI-Dialogs-Properties-Resources 'MFR.GUI.Dialogs.Properties.Resources')
   - [Culture](#P-MFR-GUI-Dialogs-Properties-Resources-Culture 'MFR.GUI.Dialogs.Properties.Resources.Culture')
   - [Error_CommitMessageRequired](#P-MFR-GUI-Dialogs-Properties-Resources-Error_CommitMessageRequired 'MFR.GUI.Dialogs.Properties.Resources.Error_CommitMessageRequired')
+  - [Error_ErrantProcessEntryAlreadyPresent](#P-MFR-GUI-Dialogs-Properties-Resources-Error_ErrantProcessEntryAlreadyPresent 'MFR.GUI.Dialogs.Properties.Resources.Error_ErrantProcessEntryAlreadyPresent')
+  - [Error_FailedAddErrantProcessEntry](#P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedAddErrantProcessEntry 'MFR.GUI.Dialogs.Properties.Resources.Error_FailedAddErrantProcessEntry')
+  - [Error_FailedEditErrantProcessEntry](#P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedEditErrantProcessEntry 'MFR.GUI.Dialogs.Properties.Resources.Error_FailedEditErrantProcessEntry')
+  - [Error_FailedRemoveAllErrantProcesses](#P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedRemoveAllErrantProcesses 'MFR.GUI.Dialogs.Properties.Resources.Error_FailedRemoveAllErrantProcesses')
+  - [Error_FailedRemoveErrantProcessEntry](#P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedRemoveErrantProcessEntry 'MFR.GUI.Dialogs.Properties.Resources.Error_FailedRemoveErrantProcessEntry')
+  - [Error_NoErrantProcessEntryPathname](#P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessEntryPathname 'MFR.GUI.Dialogs.Properties.Resources.Error_NoErrantProcessEntryPathname')
+  - [Error_NoErrantProcessSelectedForEditing](#P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessSelectedForEditing 'MFR.GUI.Dialogs.Properties.Resources.Error_NoErrantProcessSelectedForEditing')
+  - [Error_NoErrantProcessToBeRemovedIsSelected](#P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessToBeRemovedIsSelected 'MFR.GUI.Dialogs.Properties.Resources.Error_NoErrantProcessToBeRemovedIsSelected')
+  - [Error_NoErrantProcessesToEdit](#P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessesToEdit 'MFR.GUI.Dialogs.Properties.Resources.Error_NoErrantProcessesToEdit')
+  - [Error_NoErrantProcessesToRemove](#P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessesToRemove 'MFR.GUI.Dialogs.Properties.Resources.Error_NoErrantProcessesToRemove')
   - [Error_ValueCannotBeNullOrWhiteSpace](#P-MFR-GUI-Dialogs-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace 'MFR.GUI.Dialogs.Properties.Resources.Error_ValueCannotBeNullOrWhiteSpace')
   - [FolderSelectDialogFilters](#P-MFR-GUI-Dialogs-Properties-Resources-FolderSelectDialogFilters 'MFR.GUI.Dialogs.Properties.Resources.FolderSelectDialogFilters')
+  - [Question_ConfirmRemoveAllErrantProcesses](#P-MFR-GUI-Dialogs-Properties-Resources-Question_ConfirmRemoveAllErrantProcesses 'MFR.GUI.Dialogs.Properties.Resources.Question_ConfirmRemoveAllErrantProcesses')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Properties.Resources.ResourceManager')
 
 <a name='T-MFR-GUI-Dialogs-AboutDialog'></a>
@@ -2094,6 +2109,44 @@ Gets or sets the value of the
 
 checkbox
 
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-ErrantProcesses'></a>
+### ErrantProcesses `property`
+
+##### Summary
+
+Gets a reference to a collection, each element of which implements the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface,
+representing the process(es), if running, that should be forcibly terminated
+prior to the execution of the `Rename Files in Folder` and
+`Rename Sub Folders` operations.
+
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-HasErrantProcesses'></a>
+### HasErrantProcesses `property`
+
+##### Summary
+
+Gets a value that indicates whether the user has configured more than zero
+`Errant Process` entry(ies) in the list box.
+
+##### Returns
+
+`true` if there are more than zero
+`Errant Process` entry(ies) in the list box;
+`false` otherwise.
+
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-IsErrantProcessSelected'></a>
+### IsErrantProcessSelected `property`
+
+##### Summary
+
+Gets a value indicating whether an entry is currently selected in the
+list box.
+
+##### Returns
+
+`true` if an entry is currently selected in the
+list box; `false` otherwise.
+
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-IsModified'></a>
 ### IsModified `property`
 
@@ -2115,6 +2168,27 @@ Gets or sets the value of the checkbox.
 ##### Summary
 
 Gets or sets the value of the checkbox.
+
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-SelectedErrantProcess'></a>
+### SelectedErrantProcess `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface that
+represents the item that is currently selected, if any, in the
+list box on the tab.
+
+##### Returns
+
+If successful, a reference to an instance of an object that implements
+the [IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface;
+otherwise, a `null` reference is returned.
+
+##### Remarks
+
+If there are no items currently in the list box, or none are currently
+selected, then this property returns a `null` reference.
 
 <a name='P-MFR-GUI-Dialogs-OptionsDialog-ShouldCommitPendingChanges'></a>
 ### ShouldCommitPendingChanges `property`
@@ -2171,7 +2245,7 @@ This method has no parameters.
 
 This method handles the
 [](#E-System-Windows-Forms-CheckBox-CheckedChanged 'System.Windows.Forms.CheckBox.CheckedChanged') event for all the
- checkboxes on the tabs of this property sheet.
+checkboxes on the tabs of this property sheet.
 
 ##### Parameters
 
@@ -2629,6 +2703,82 @@ Overrides the current thread's CurrentUICulture property for all
 
 Looks up a localized string similar to You must type a value in the Commit Message text box..
 
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_ErrantProcessEntryAlreadyPresent'></a>
+### Error_ErrantProcessEntryAlreadyPresent `property`
+
+##### Summary
+
+Looks up a localized string similar to An entry with the pathname, '{0}', is already present in the list..
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedAddErrantProcessEntry'></a>
+### Error_FailedAddErrantProcessEntry `property`
+
+##### Summary
+
+Looks up a localized string similar to Failed to add a new Errant Process entry.\n\n{0}.
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedEditErrantProcessEntry'></a>
+### Error_FailedEditErrantProcessEntry `property`
+
+##### Summary
+
+Looks up a localized string similar to Failed to edit the specified Errant Process entry.
+
+{0}.
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedRemoveAllErrantProcesses'></a>
+### Error_FailedRemoveAllErrantProcesses `property`
+
+##### Summary
+
+Looks up a localized string similar to Failed to clear the entry(ies) in the Errant Processes list box.
+
+{0}.
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_FailedRemoveErrantProcessEntry'></a>
+### Error_FailedRemoveErrantProcessEntry `property`
+
+##### Summary
+
+Looks up a localized string similar to Failed to remove the selected Errant Process entry from the list.
+
+{0}.
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessEntryPathname'></a>
+### Error_NoErrantProcessEntryPathname `property`
+
+##### Summary
+
+Looks up a localized string similar to The selected Errant Process entry does not have an associated pathname specified..
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessSelectedForEditing'></a>
+### Error_NoErrantProcessSelectedForEditing `property`
+
+##### Summary
+
+Looks up a localized string similar to Please select the Errant Process entry that you wish to edit..
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessToBeRemovedIsSelected'></a>
+### Error_NoErrantProcessToBeRemovedIsSelected `property`
+
+##### Summary
+
+Looks up a localized string similar to Please click to highlight the Errant Process entry that is to be removed, and then click the Remove button..
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessesToEdit'></a>
+### Error_NoErrantProcessesToEdit `property`
+
+##### Summary
+
+Looks up a localized string similar to Please add Errant Process(es) to the list before trying to edit one of them..
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_NoErrantProcessesToRemove'></a>
+### Error_NoErrantProcessesToRemove `property`
+
+##### Summary
+
+Looks up a localized string similar to There aren't any entry(ies) in the Errant Processes list box to remove..
+
 <a name='P-MFR-GUI-Dialogs-Properties-Resources-Error_ValueCannotBeNullOrWhiteSpace'></a>
 ### Error_ValueCannotBeNullOrWhiteSpace `property`
 
@@ -2641,7 +2791,16 @@ Looks up a localized string similar to Value cannot be null or whitespace..
 
 ##### Summary
 
-Looks up a localized string similar to Folders|.
+Looks up a localized string similar to SpecialWindowsFolders|.
+
+<a name='P-MFR-GUI-Dialogs-Properties-Resources-Question_ConfirmRemoveAllErrantProcesses'></a>
+### Question_ConfirmRemoveAllErrantProcesses `property`
+
+##### Summary
+
+Looks up a localized string similar to Are you sure you want to remove all the entry(ies) currently in the Errant Processes list box?
+
+This action cannot be undone..
 
 <a name='P-MFR-GUI-Dialogs-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

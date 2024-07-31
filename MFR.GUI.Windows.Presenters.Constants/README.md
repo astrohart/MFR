@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [Folders](#T-MFR-GUI-Windows-Presenters-Constants-Folders 'MFR.GUI.Windows.Presenters.Constants.Folders')
-  - [QuickAccess](#F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess 'MFR.GUI.Windows.Presenters.Constants.Folders.QuickAccess')
 - [MainWindowPresenterMessageId](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId')
   - [op_Implicit(id)](#M-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-op_Implicit-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId-~System-Guid 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId.op_Implicit(MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessageId)~System.Guid')
 - [MainWindowPresenterMessages](#T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessages 'MFR.GUI.Windows.Presenters.Constants.MainWindowPresenterMessages')
@@ -22,24 +20,8 @@
 - [Resources](#T-MFR-GUI-Windows-Presenters-Constants-Properties-Resources 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources')
   - [Culture](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-Culture 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Windows-Presenters-Constants-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Presenters.Constants.Properties.Resources.ResourceManager')
-
-<a name='T-MFR-GUI-Windows-Presenters-Constants-Folders'></a>
-## Folders `type`
-
-##### Namespace
-
-MFR.GUI.Windows.Presenters.Constants
-
-##### Summary
-
-Provides string constants that allow access to special folders.
-
-<a name='F-MFR-GUI-Windows-Presenters-Constants-Folders-QuickAccess'></a>
-### QuickAccess `constants`
-
-##### Summary
-
-Path to the area of Windows.
+- [SpecialWindowsFolders](#T-MFR-GUI-Windows-Presenters-Constants-SpecialWindowsFolders 'MFR.GUI.Windows.Presenters.Constants.SpecialWindowsFolders')
+  - [QuickAccess](#F-MFR-GUI-Windows-Presenters-Constants-SpecialWindowsFolders-QuickAccess 'MFR.GUI.Windows.Presenters.Constants.SpecialWindowsFolders.QuickAccess')
 
 <a name='T-MFR-GUI-Windows-Presenters-Constants-MainWindowPresenterMessageId'></a>
 ## MainWindowPresenterMessageId `type`
@@ -204,3 +186,21 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-MFR-GUI-Windows-Presenters-Constants-SpecialWindowsFolders'></a>
+## SpecialWindowsFolders `type`
+
+##### Namespace
+
+MFR.GUI.Windows.Presenters.Constants
+
+##### Summary
+
+Provides string constants that allow access to special folders.
+
+<a name='F-MFR-GUI-Windows-Presenters-Constants-SpecialWindowsFolders-QuickAccess'></a>
+### QuickAccess `constants`
+
+##### Summary
+
+Path to the area of Windows.

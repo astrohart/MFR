@@ -146,7 +146,7 @@ project-rename operation.
 
 
 
-It must exist on the disk, and it must contain a Visual Studio
+It must exist on the file system, and it must contain a Visual Studio
 Solution (*.sln) file.
 
 ##### Returns

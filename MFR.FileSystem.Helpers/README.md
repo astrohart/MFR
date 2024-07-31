@@ -6,6 +6,8 @@
 - [CreateOrOpen](#T-MFR-FileSystem-Helpers-CreateOrOpen 'MFR.FileSystem.Helpers.CreateOrOpen')
   - [TextFile(pathname)](#M-MFR-FileSystem-Helpers-CreateOrOpen-TextFile-System-String- 'MFR.FileSystem.Helpers.CreateOrOpen.TextFile(System.String)')
 - [DirectoryInfoExtensions](#T-MFR-FileSystem-Helpers-DirectoryInfoExtensions 'MFR.FileSystem.Helpers.DirectoryInfoExtensions')
+  - [ProcessProvider](#P-MFR-FileSystem-Helpers-DirectoryInfoExtensions-ProcessProvider 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.ProcessProvider')
+  - [#cctor()](#M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-#cctor 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.#cctor')
   - [RenameTo(folderToBeRenamed,newSubFolderPath,maxRetries)](#M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String,System-Int32- 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.RenameTo(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String,System.Int32)')
   - [TryRenameFolder(folderToBeRenamed,newSubFolderPath)](#M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-TryRenameFolder-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String- 'MFR.FileSystem.Helpers.DirectoryInfoExtensions.TryRenameFolder(Alphaleonis.Win32.Filesystem.DirectoryInfo,System.String)')
 - [DumpText](#T-MFR-FileSystem-Helpers-DumpText 'MFR.FileSystem.Helpers.DumpText')
@@ -75,6 +77,37 @@ MFR.FileSystem.Helpers
 
 Helper methods for working with instances of
 [DirectoryInfo](#T-Alphaleonis-Win32-Filesystem-DirectoryInfo 'Alphaleonis.Win32.Filesystem.DirectoryInfo').
+
+<a name='P-MFR-FileSystem-Helpers-DirectoryInfoExtensions-ProcessProvider'></a>
+### ProcessProvider `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IProcessProvider](#T-xyLOGIX-Interop-Processes-Interfaces-IProcessProvider 'xyLOGIX.Interop.Processes.Interfaces.IProcessProvider')
+interface.
+
+<a name='M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [DirectoryInfoExtensions](#T-MFR-FileSystem-Helpers-DirectoryInfoExtensions 'MFR.FileSystem.Helpers.DirectoryInfoExtensions') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-FileSystem-Helpers-DirectoryInfoExtensions-RenameTo-Alphaleonis-Win32-Filesystem-DirectoryInfo,System-String,System-Int32-'></a>
 ### RenameTo(folderToBeRenamed,newSubFolderPath,maxRetries) `method`
@@ -426,7 +459,7 @@ filled with the data.
 
 
 This method throws [InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') if the
-pathname is not an absolute pathname to a file on the disk. |
+pathname is not an absolute pathname to a file on the file system. |
 
 <a name='T-MFR-FileSystem-Helpers-MakeSure'></a>
 ## MakeSure `type`

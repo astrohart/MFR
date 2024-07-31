@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [Is](#T-MFR-GUI-Windows-MainWindow-Is 'MFR.GUI.Windows.MainWindow.Is')
-  - [SolutionFIle(pathname)](#M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String- 'MFR.GUI.Windows.MainWindow.Is.SolutionFIle(System.String)')
 - [MainWindow](#T-MFR-GUI-Windows-MainWindow 'MFR.GUI.Windows.MainWindow')
   - [#ctor()](#M-MFR-GUI-Windows-MainWindow-#ctor 'MFR.GUI.Windows.MainWindow.#ctor')
   - [_cmdInfo](#F-MFR-GUI-Windows-MainWindow-_cmdInfo 'MFR.GUI.Windows.MainWindow._cmdInfo')
@@ -106,46 +104,6 @@
   - [Info_PreparingStartOperations](#P-MFR-GUI-Windows-Properties-Resources-Info_PreparingStartOperations 'MFR.GUI.Windows.Properties.Resources.Info_PreparingStartOperations')
   - [ResourceManager](#P-MFR-GUI-Windows-Properties-Resources-ResourceManager 'MFR.GUI.Windows.Properties.Resources.ResourceManager')
   - [SwitchUpDown_16x](#P-MFR-GUI-Windows-Properties-Resources-SwitchUpDown_16x 'MFR.GUI.Windows.Properties.Resources.SwitchUpDown_16x')
-
-<a name='T-MFR-GUI-Windows-MainWindow-Is'></a>
-## Is `type`
-
-##### Namespace
-
-MFR.GUI.Windows.MainWindow
-
-##### Summary
-
-Exposes static methods to make determinations about data and the state of the
-system.
-
-<a name='M-MFR-GUI-Windows-MainWindow-Is-SolutionFIle-System-String-'></a>
-### SolutionFIle(pathname) `method`
-
-##### Summary
-
-Determines whether the file having the specified `pathname`
-is a Visual Studio Solution (*.sln) file.
-
-##### Returns
-
-`true` if the file having the specified
-`pathname` is a Visual Studio Solution (*.sln) file;
-`false` otherwise.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file that is to be examined in order to determine whether it is a
-Visual Studio Solution (*.sln) file. |
-
-##### Remarks
-
-This method also returns `false` if the
-`pathname` that is passed is blank, `null`,
-or refers to a file that does actually exist on the disk.
 
 <a name='T-MFR-GUI-Windows-MainWindow'></a>
 ## MainWindow `type`
@@ -831,7 +789,7 @@ data. |
 
 ##### Remarks
 
-This method responds by saving the configuration to the disk.
+This method responds by saving the configuration to the file system.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnFormClosing-System-Windows-Forms-FormClosingEventArgs-'></a>
 ### OnFormClosing(e) `method`

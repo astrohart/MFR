@@ -12,7 +12,6 @@
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
   - [ConfigProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigProvider')
-  - [FileHostProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-FileHostProvider 'MFR.GUI.Application.ProjectFileRenamerApp.FileHostProvider')
   - [Instance](#P-MFR-GUI-Application-ProjectFileRenamerApp-Instance 'MFR.GUI.Application.ProjectFileRenamerApp.Instance')
   - [ProfileProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ProfileProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ProfileProvider')
   - [RootDirectoryPathValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryPathValidator')
@@ -122,15 +121,6 @@ interface.
 This object allows access to the user config and the
 actions
 associated with it.
-
-<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-FileHostProvider'></a>
-### FileHostProvider `property`
-
-##### Summary
-
-Gets a reference to an instance of an object that implements the
-[IFileHostProvider](#T-MFR-File-Stream-Providers-Interfaces-IFileHostProvider 'MFR.File.Stream.Providers.Interfaces.IFileHostProvider')
-interface.
 
 <a name='P-MFR-GUI-Application-ProjectFileRenamerApp-Instance'></a>
 ### Instance `property`

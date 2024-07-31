@@ -29,7 +29,6 @@
   - [OperationType](#P-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-OperationType 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.OperationType')
   - [#cctor()](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-#cctor 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.#cctor')
   - [GetTextValue(entry)](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValue-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValue(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [GetTextValueAsync(entry)](#M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.TextValues.Retrievers.TextInFileTextValueRetriever.GetTextValueAsync(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [TextValueRetrieverBase](#T-MFR-TextValues-Retrievers-TextValueRetrieverBase 'MFR.TextValues.Retrievers.TextValueRetrieverBase')
   - [FileSystemEntryValidatorSays](#P-MFR-TextValues-Retrievers-TextValueRetrieverBase-FileSystemEntryValidatorSays 'MFR.TextValues.Retrievers.TextValueRetrieverBase.FileSystemEntryValidatorSays')
   - [OperationType](#P-MFR-TextValues-Retrievers-TextValueRetrieverBase-OperationType 'MFR.TextValues.Retrievers.TextValueRetrieverBase.OperationType')
@@ -342,50 +341,6 @@ interface. |
 | ---- | ----------- |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
 passed a `null` value. |
-
-<a name='M-MFR-TextValues-Retrievers-TextInFileTextValueRetriever-GetTextValueAsync-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
-### GetTextValueAsync(entry) `method`
-
-##### Summary
-
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the text to be
-searched, from the file-system `entry` provided,
-given the current
-[OperationType](#P-MFR-FileAndFolderTextValueRetriever-OperationType 'MFR.FileAndFolderTextValueRetriever.OperationType')
-.
-
-##### Returns
-
-A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value data to be searched
-for the current operation type, or the empty string if the data source has
-no data.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
-interface. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `entry`, is
-passed a `null` value. |
-
-##### Remarks
-
-The base-class version of this method does nothing but always return
-the return value of the
-[GetTextValue](#M-MFR-TextValues-Retrievers-TextValueRetrieverBase-GetTextValue 'MFR.TextValues.Retrievers.TextValueRetrieverBase.GetTextValue')
-method.
-
-
-
-Override this method if you want to do something else.  Child classes need not
-call the base-class version of this method.
 
 <a name='T-MFR-TextValues-Retrievers-TextValueRetrieverBase'></a>
 ## TextValueRetrieverBase `type`

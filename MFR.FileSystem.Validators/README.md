@@ -8,6 +8,7 @@
   - [Instance](#P-MFR-FileSystem-Validators-DirectoryPathValidator-Instance 'MFR.FileSystem.Validators.DirectoryPathValidator.Instance')
   - [#cctor()](#M-MFR-FileSystem-Validators-DirectoryPathValidator-#cctor 'MFR.FileSystem.Validators.DirectoryPathValidator.#cctor')
 - [FileSystemEntryValidator](#T-MFR-FileSystem-Validators-FileSystemEntryValidator 'MFR.FileSystem.Validators.FileSystemEntryValidator')
+  - [IsValid(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidator.IsValid(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [ValidateFileSystemEntry(entry)](#M-MFR-FileSystem-Validators-FileSystemEntryValidator-ValidateFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.FileSystem.Validators.FileSystemEntryValidator.ValidateFileSystemEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [FileSystemEntryValidatorBase](#T-MFR-FileSystem-Validators-FileSystemEntryValidatorBase 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase')
   - [DISALLOWED_EXTENSIONS](#F-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-DISALLOWED_EXTENSIONS 'MFR.FileSystem.Validators.FileSystemEntryValidatorBase.DISALLOWED_EXTENSIONS')
@@ -90,6 +91,32 @@ Validates the values of the properties of instances of objects that
 implement the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface.
 
+<a name='M-MFR-FileSystem-Validators-FileSystemEntryValidator-IsValid-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### IsValid(entry) `method`
+
+##### Summary
+
+Determines whether the specified file system `entry` object
+is valid or not.
+
+##### Returns
+
+`true` if the specified file-system
+`entry` is valid; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface. |
+
+##### Remarks
+
+To count as valid, the specified `entry` must not be
+set to a `null` reference, and it must refer to a file or
+folder that actually exists on the file system.
+
 <a name='M-MFR-FileSystem-Validators-FileSystemEntryValidator-ValidateFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### ValidateFileSystemEntry(entry) `method`
 
@@ -142,12 +169,12 @@ Array of extensions of files we won't search ever.
 
 Determines whether the specified file-system
 `entry`
-exists on the disk.
+exists on the file system.
 
 ##### Returns
 
 `true` if the file-system `entry`
-exists on the disk; `false` otherwise.
+exists on the file system; `false` otherwise.
 
 ##### Parameters
 
@@ -202,7 +229,7 @@ method.
 ##### Summary
 
 Determines whether a file system `entry` exists on
-the disk at the pathname indicated.
+the file system at the pathname indicated.
 
 ##### Returns
 
@@ -221,14 +248,14 @@ interface containing information about the entry to be checked. |
 
 If the properties of the `entry` have valid data
 and the path stored in the entry refers to a file-system object that
-exists on the disk, then this method returns `true`.
+exists on the file system, then this method returns `true`.
 
 
 
 If an object instance variable or property has a
 `null`
 reference, or if the path stored in the entry
-refers to a file-system object that does not exist on the disk, then
+refers to a file-system object that does not exist on the file system, then
 this method returns `false`.
 
 <a name='M-MFR-FileSystem-Validators-FileSystemEntryValidatorBase-ShouldNotSkip-System-String-'></a>
@@ -269,7 +296,7 @@ the operation; otherwise, `false`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the disk of the
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the file system of the
 file-system entry that is to potentially be skipped. |
 
 <a name='T-MFR-FileSystem-Validators-GitRepositoryFolderPathValidator'></a>
@@ -322,7 +349,7 @@ This method has no parameters.
 ##### Summary
 
 Determines whether a file system `entry` exists on
-the disk at the pathname indicated.
+the file system at the pathname indicated.
 
 ##### Returns
 
@@ -341,14 +368,14 @@ interface containing information about the entry to be checked. |
 
 If the properties of the `entry` have valid data
 and the path stored in the entry refers to a file-system object that
-exists on the disk, then this method returns `true`.
+exists on the file system, then this method returns `true`.
 
 
 
 If an object instance variable or property has a
 `null`
 reference, or if the path stored in the entry
-refers to a file-system object that does not exist on the disk, then
+refers to a file-system object that does not exist on the file system, then
 this method returns `false`.
 
 <a name='T-MFR-FileSystem-Validators-ProjectFileValidator'></a>
@@ -411,7 +438,7 @@ the operation; otherwise, `false`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the disk of the
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the file system of the
 file-system entry that is to potentially be skipped. |
 
 <a name='T-MFR-FileSystem-Validators-Properties-Resources'></a>
@@ -502,5 +529,5 @@ the operation; otherwise, `false`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the disk of the
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the file system of the
 file-system entry that is to potentially be skipped. |

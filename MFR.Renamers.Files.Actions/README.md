@@ -40,7 +40,7 @@ If it exists, deletes the file having the specified
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a file that is to be deleted from the disk. |
+pathname of a file that is to be deleted from the file system. |
 
 ##### Remarks
 

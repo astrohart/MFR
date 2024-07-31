@@ -30,9 +30,13 @@
   - [CommitAuthorName](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-CommitAuthorName 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.CommitAuthorName')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ConfigPathname')
   - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.DontPromptUserToReloadOpenSolution')
+  - [ErrantProcesses](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ErrantProcesses 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ErrantProcesses')
+  - [HasErrantProcesses](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-HasErrantProcesses 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.HasErrantProcesses')
+  - [IsErrantProcessSelected](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsErrantProcessSelected 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.IsErrantProcessSelected')
   - [IsModified](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.IsModified')
   - [PushChangesToRemoteWhenDone](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-PushChangesToRemoteWhenDone 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.PushChangesToRemoteWhenDone')
   - [ReOpenSolution](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ReOpenSolution 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ReOpenSolution')
+  - [SelectedErrantProcess](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-SelectedErrantProcess 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.SelectedErrantProcess')
   - [ShouldCommitPendingChanges](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPendingChanges 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPostOperationChanges 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.ShouldCommitPostOperationChanges')
   - [UpdateGitOnAutoStart](#P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-UpdateGitOnAutoStart 'MFR.GUI.Dialogs.Interfaces.IOptionsDialog.UpdateGitOnAutoStart')
@@ -335,6 +339,44 @@ Gets or sets the value of the
 
 checkbox
 
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ErrantProcesses'></a>
+### ErrantProcesses `property`
+
+##### Summary
+
+Gets a reference to a collection, each element of which implements the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface,
+representing the process(es), if running, that should be forcibly terminated
+prior to the execution of the `Rename Files in Folder` and
+`Rename Sub Folders` operations.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-HasErrantProcesses'></a>
+### HasErrantProcesses `property`
+
+##### Summary
+
+Gets a value that indicates whether the user has configured more than zero
+`Errant Process` entry(ies) in the list box.
+
+##### Returns
+
+`true` if there are more than zero
+`Errant Process` entry(ies) in the list box;
+`false` otherwise.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsErrantProcessSelected'></a>
+### IsErrantProcessSelected `property`
+
+##### Summary
+
+Gets a value indicating whether an entry is currently selected in the
+list box.
+
+##### Returns
+
+`true` if an entry is currently selected in the
+list box; `false` otherwise.
+
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-IsModified'></a>
 ### IsModified `property`
 
@@ -356,6 +398,27 @@ Gets or sets the value of the checkbox.
 ##### Summary
 
 Gets or sets the value of the checkbox.
+
+<a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-SelectedErrantProcess'></a>
+### SelectedErrantProcess `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface that
+represents the item that is currently selected, if any, in the
+list box on the tab.
+
+##### Returns
+
+If successful, a reference to an instance of an object that implements
+the [IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface;
+otherwise, a `null` reference is returned.
+
+##### Remarks
+
+If there are no items currently in the list box, or none are currently
+selected, then this property returns a `null` reference.
 
 <a name='P-MFR-GUI-Dialogs-Interfaces-IOptionsDialog-ShouldCommitPendingChanges'></a>
 ### ShouldCommitPendingChanges `property`

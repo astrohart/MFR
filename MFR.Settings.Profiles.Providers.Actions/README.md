@@ -38,7 +38,7 @@ Exposes static methods to determine whether facts are true or false about data.
 
 Determines whether a user-submitted path, or the pathname stored in the system
 Registry, is the correct pathname to be utilized for saving out
-config-setting profiles to the disk with.
+config-setting profiles to the file system with.
 
 ##### Returns
 
@@ -63,7 +63,7 @@ The `pathnameFromRegistry` takes precedence.
 
 Neither the `submittedPathname` nor the
 `pathnameFromRegistry` have to represent a file that exists
-on the disk, since, if this the case, the file will be created by the Save
+on the file system, since, if this the case, the file will be created by the Save
 operation.
 
 <a name='M-MFR-Settings-Profiles-Providers-Actions-Determine-IsProfileListPathValidForSaving-System-String-'></a>
@@ -73,7 +73,7 @@ operation.
 
 Returns a value that indicates whether the specified
 `pathname` is valid for use in saving the user's favorite
-config-setting profiles out to the disk.
+config-setting profiles out to the file system.
 
 ##### Returns
 
@@ -117,7 +117,7 @@ pathname of a file to be checked. |
 
 In order to be valid, the specified `pathname` must
 not be blank, must contain the fully-qualified pathname of a file that exists
-on the disk; and the filename of the file must be `profiles.json`.
+on the file system; and the filename of the file must be `profiles.json`.
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Execute'></a>
 ## Execute `type`
@@ -137,7 +137,7 @@ Exposes static methods to execute operations.
 
 Attempts to execute the operation of loading a new
 [IProfileCollection](#T-MFR-Settings-Profiles-Collections-Interfaces-IProfileCollection 'MFR.Settings.Profiles.Collections.Interfaces.IProfileCollection')
-from a file on the disk.
+from a file on the file system.
 
 ##### Returns
 
@@ -178,7 +178,7 @@ the specified `pathname` of a `profiles.json` file.
 ##### Returns
 
 If the `pathname` refers to a `profiles.json`
-file that exists on the disk, then a new reference to an instance of an object
+file that exists on the file system, then a new reference to an instance of an object
 that implements the [IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry')
 interface is returned; `null` is returned otherwise.
 
@@ -196,13 +196,13 @@ pathname of a `profiles.json` file. |
 
 Generates a reference to an instance of an `Action` object that is
 responsible for executing the operation of loading the user's
-config-setting profiles from the disk.
+config-setting profiles from the file system.
 
 ##### Returns
 
 If successful, a reference to an instance of an `Action` object
 that is responsible for executing the operation of loading the user's
-config-setting profiles from the disk; `null`
+config-setting profiles from the file system; `null`
 otherwise.
 
 ##### Parameters
@@ -223,7 +223,7 @@ MFR.Settings.Profiles.Providers.Actions
 
 ##### Summary
 
-Exposes static methods to load profiles from the disk.
+Exposes static methods to load profiles from the file system.
 
 <a name='M-MFR-Settings-Profiles-Providers-Actions-Obtain-ProfileCollectionFromFile-System-String-'></a>
 ### ProfileCollectionFromFile(pathname) `method`
@@ -247,7 +247,7 @@ the empty collection is returned.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a `profiles.json` file on the disk from which profiles are to
+pathname of a `profiles.json` file on the file system from which profiles are to
 be loaded. |
 
 <a name='T-MFR-Settings-Profiles-Providers-Actions-Remove'></a>

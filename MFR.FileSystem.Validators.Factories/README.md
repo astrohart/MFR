@@ -28,7 +28,7 @@ MFR.FileSystem.Validators.Factories
 
 Provides access to the one and only instance of the object that implements the
 [IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-interface that validates whether directories exist on the disk.
+interface that validates whether directories exist on the file system.
 
 <a name='M-MFR-FileSystem-Validators-Factories-GetDirectoryPathValidator-SoleInstance'></a>
 ### SoleInstance() `method`
@@ -43,7 +43,7 @@ interface, and returns a reference to it.
 
 Reference to the one, and only, instance of the object that implements the
 [IFileSystemEntryValidator](#T-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator 'MFR.FileSystem.Validators.Interfaces.IFileSystemEntryValidator')
-interface  that validates whether directories exist on the disk.
+interface  that validates whether directories exist on the file system.
 
 ##### Parameters
 

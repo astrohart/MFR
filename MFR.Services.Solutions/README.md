@@ -183,7 +183,7 @@ folder that should be scanned for `*.sln` files. |
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter, `folder`, is
 passed a blank or `null` string for a value. |
 | [DirectoryNotFoundException](#T-DirectoryNotFoundException 'DirectoryNotFoundException') | Thrown if the directory whose fully-qualified path is passed in the
-`folder` parameter cannot be found on the disk. |
+`folder` parameter cannot be found on the file system. |
 
 <a name='M-MFR-Services-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
 ### LoadAll(solutions) `method`

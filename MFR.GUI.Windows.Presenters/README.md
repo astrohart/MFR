@@ -410,7 +410,7 @@ pathname of a file to which the config should be exported. |
 ##### Remarks
 
 If a file having the specified `pathname` already
-exists on the disk at the time the export operation is performed, it will be
+exists on the file system at the time the export operation is performed, it will be
 overwritten.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileExist-System-String-'></a>
@@ -964,7 +964,7 @@ This method has no parameters.
 | ---- | ----------- |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the directory whose pathname is referenced by
 [StartingFolder](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-StartingFolder 'MFR.GUI.Windows.Presenters.MainWindowPresenter.StartingFolder')
-is not found on the disk. |
+is not found on the file system. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if either of the
 [FindWhat](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FindWhat 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FindWhat')
 or
@@ -1088,7 +1088,7 @@ Type a value for this text, and then try again..
 
 ##### Summary
 
-Looks up a localized string similar to Could not locate the folder '{0}' on the disk.
+Looks up a localized string similar to Could not locate the folder '{0}' on the file system.
 
 Please specify a folder path of click the '...' button to browse for one..
 

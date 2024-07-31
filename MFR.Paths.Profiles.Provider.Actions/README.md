@@ -110,7 +110,7 @@ contains the user's previously-saved configuration profiles.
 If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the
 default fully-qualified pathname of the `profiles.json` value that should
 be used as a fallback in the event that a `profiles.json` file cannot be
-located either on the disk or in the system Registry.
+located either on the file system or in the system Registry.
 
 ##### Parameters
 
