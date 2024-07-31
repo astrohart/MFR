@@ -54,19 +54,25 @@ namespace MFR.FileSystem.Validators
         {
             var result = true;
 
-            if (string.IsNullOrWhiteSpace(path)) return result;
-
-            if (!Path.GetExtension(path)
-                     .IsAnyOf(".sln")) return result;
-
             try
             {
-                result = base.ShouldSkip(path) ||
-                         string.IsNullOrWhiteSpace(Path.GetExtension(path)) ||
-                         MakeNewFileInfo.ForPath(path)
-                                        .IsZeroLengthFile() || !Path
-                             .GetExtension(path)
-                             .IsAnyOf(".sln");
+                // Should skip the file if its fully-qualified pathname is blank.
+                if (string.IsNullOrWhiteSpace(path)) return result;
+
+                // Should skip the file if its filename extension is not '.sln'.
+                if (!Path.GetExtension(path)
+                         .IsAnyOf(".sln")) return result;
+
+                // Should skip the file if the base class says so
+                if (base.ShouldSkip(path)) return result;
+
+                // Should skip the file if the fully-qualified pathname of the file has no filename extension.
+                if (string.IsNullOrWhiteSpace(Path.GetExtension(path)))
+                    return result;
+
+                // Skip the file if the file is a zero-length file.
+                result = MakeNewFileInfo.ForPath(path)
+                                        .IsZeroLengthFile();
             }
             catch (Exception ex)
             {
