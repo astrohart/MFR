@@ -822,7 +822,7 @@ namespace MFR.Renamers.Files
             try
             {
                 /*
-                 * OKAY, so the path parameter is understood to contain
+                 * OKAY, so the rootDirectoryPath parameter is understood to contain
                  * the pathname of the folder that is filled in by the user in the
                  * Starting Folder text box.
                  *
