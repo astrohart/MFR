@@ -654,7 +654,7 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.replaceWithComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.replaceWithComboBox.EnteredText = "";
-            this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithComboBox.FormattingEnabled = true;
             this.replaceWithComboBox.IsDarkTheme = true;
@@ -672,7 +672,7 @@ namespace MFR.GUI.Windows
             this.findWhatComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.findWhatComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.findWhatComboBox.EnteredText = "";
-            this.findWhatComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.findWhatComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.findWhatComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatComboBox.FormattingEnabled = true;
             this.findWhatComboBox.IsDarkTheme = true;
@@ -690,7 +690,7 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.startingFolderComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.startingFolderComboBox.EnteredText = "";
-            this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.startingFolderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderComboBox.FormattingEnabled = true;
             this.startingFolderComboBox.IsDarkTheme = true;
