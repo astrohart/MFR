@@ -649,55 +649,84 @@ namespace MFR.GUI.Windows
             // 
             // replaceWithComboBox
             // 
+            this.replaceWithComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.replaceWithComboBox.ArrowStyle = xyLOGIX.UI.Dark.Controls.Constants.ComboBoxButtonArrowStyle.Triangle;
+            this.replaceWithComboBox.ArrowThickness = 1;
             this.replaceWithComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.replaceWithComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.replaceWithComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.replaceWithComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.replaceWithComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.replaceWithComboBox.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.replaceWithComboBox.ChangeBorderColorOnFocus = true;
+            this.replaceWithComboBox.ChangeBorderColorOnHover = true;
+            this.replaceWithComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.replaceWithComboBox.EnteredText = "";
-            this.replaceWithComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.replaceWithComboBox.FocusedBorderColor = System.Drawing.SystemColors.Highlight;
             this.replaceWithComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithComboBox.FormattingEnabled = true;
+            this.replaceWithComboBox.HighlightColor = System.Drawing.SystemColors.Highlight;
             this.replaceWithComboBox.IsDarkTheme = true;
             this.replaceWithComboBox.Items.AddRange(new object[] {
             ""});
             this.replaceWithComboBox.Location = new System.Drawing.Point(15, 190);
             this.replaceWithComboBox.Name = "replaceWithComboBox";
+            this.replaceWithComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithComboBox.Size = new System.Drawing.Size(565, 23);
             this.replaceWithComboBox.TabIndex = 6;
             // 
             // findWhatComboBox
             // 
+            this.findWhatComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.findWhatComboBox.ArrowStyle = xyLOGIX.UI.Dark.Controls.Constants.ComboBoxButtonArrowStyle.Triangle;
+            this.findWhatComboBox.ArrowThickness = 1;
             this.findWhatComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.findWhatComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.findWhatComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.findWhatComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.findWhatComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.findWhatComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.findWhatComboBox.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.findWhatComboBox.ChangeBorderColorOnFocus = true;
+            this.findWhatComboBox.ChangeBorderColorOnHover = true;
+            this.findWhatComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.findWhatComboBox.EnteredText = "";
             this.findWhatComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.findWhatComboBox.FocusedBorderColor = System.Drawing.SystemColors.Highlight;
             this.findWhatComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatComboBox.FormattingEnabled = true;
+            this.findWhatComboBox.HighlightColor = System.Drawing.SystemColors.Highlight;
             this.findWhatComboBox.IsDarkTheme = true;
             this.findWhatComboBox.Items.AddRange(new object[] {
             ""});
             this.findWhatComboBox.Location = new System.Drawing.Point(15, 136);
             this.findWhatComboBox.Name = "findWhatComboBox";
+            this.findWhatComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatComboBox.Size = new System.Drawing.Size(565, 23);
             this.findWhatComboBox.TabIndex = 4;
             // 
             // startingFolderComboBox
             // 
+            this.startingFolderComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.startingFolderComboBox.ArrowStyle = xyLOGIX.UI.Dark.Controls.Constants.ComboBoxButtonArrowStyle.Triangle;
+            this.startingFolderComboBox.ArrowThickness = 1;
             this.startingFolderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.startingFolderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
-            this.startingFolderComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
+            this.startingFolderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.startingFolderComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.startingFolderComboBox.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.startingFolderComboBox.ChangeBorderColorOnFocus = true;
+            this.startingFolderComboBox.ChangeBorderColorOnHover = true;
+            this.startingFolderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.startingFolderComboBox.EnteredText = "";
+            this.startingFolderComboBox.FocusedBorderColor = System.Drawing.SystemColors.Highlight;
             this.startingFolderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
             this.startingFolderComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderComboBox.FormattingEnabled = true;
+            this.startingFolderComboBox.HighlightColor = System.Drawing.SystemColors.Highlight;
             this.startingFolderComboBox.IsDarkTheme = true;
             this.startingFolderComboBox.Items.AddRange(new object[] {
             ""});
             this.startingFolderComboBox.Location = new System.Drawing.Point(15, 81);
             this.startingFolderComboBox.Name = "startingFolderComboBox";
+            this.startingFolderComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderComboBox.Size = new System.Drawing.Size(535, 23);
             this.startingFolderComboBox.TabIndex = 1;
             // 
@@ -774,9 +803,23 @@ namespace MFR.GUI.Windows
             // 
             // profileListComboBox
             // 
+            this.profileListComboBox.DarkComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.profileListComboBox.DarkComboBox.ArrowStyle = xyLOGIX.UI.Dark.Controls.Constants.ComboBoxButtonArrowStyle.Triangle;
+            this.profileListComboBox.DarkComboBox.ArrowThickness = 1;
+            this.profileListComboBox.DarkComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.profileListComboBox.DarkComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.profileListComboBox.DarkComboBox.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.profileListComboBox.DarkComboBox.ChangeBorderColorOnFocus = true;
+            this.profileListComboBox.DarkComboBox.ChangeBorderColorOnHover = true;
+            this.profileListComboBox.DarkComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.profileListComboBox.DarkComboBox.FocusedBorderColor = System.Drawing.SystemColors.Highlight;
+            this.profileListComboBox.DarkComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.profileListComboBox.DarkComboBox.FormattingEnabled = true;
+            this.profileListComboBox.DarkComboBox.HighlightColor = System.Drawing.SystemColors.Highlight;
             this.profileListComboBox.Items.AddRange(new object[] {
             "<No profile selected>"});
             this.profileListComboBox.Name = "profileListComboBox";
+            this.profileListComboBox.DarkComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.profileListComboBox.Size = new System.Drawing.Size(200, 23);
             this.profileListComboBox.ToolTipText = "Profiles";
             // 

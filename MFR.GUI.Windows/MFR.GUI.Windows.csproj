@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2024.1.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.1.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -116,11 +116,8 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.1.4\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +184,10 @@
     <ProjectReference Include="..\..\xyLOGIX.Queues.Messages\xyLOGIX.Queues.Messages.Mappings\xyLOGIX.Queues.Messages.Mappings.csproj">
       <Project>{EF6CFC30-5D1D-42D8-B386-C1519427A80A}</Project>
       <Name>xyLOGIX.Queues.Messages.Mappings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Constants\xyLOGIX.UI.Dark.Controls.Constants.csproj">
+      <Project>{c06bccca-01db-4e59-8ba5-6941ae345a92}</Project>
+      <Name>xyLOGIX.UI.Dark.Controls.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.UI.Dark.VS2019\xyLOGIX.UI.Dark.Controls.Interfaces\xyLOGIX.UI.Dark.Controls.Interfaces.csproj">
       <Project>{A63CA76D-B2B3-42F7-A6C3-78E980B4C629}</Project>
