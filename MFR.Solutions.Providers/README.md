@@ -145,7 +145,7 @@ specified by the user for this application to execute, start.
 
 
 If the argument of the `pathname` parameter does not refer to
-a folder that exists on the disk, then this method does nothing.
+a folder that exists on the file system, then this method does nothing.
 
 
 

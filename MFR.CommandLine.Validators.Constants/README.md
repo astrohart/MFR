@@ -68,7 +68,7 @@ This application needs to be launched on a directory that contains at least one 
 
 ##### Summary
 
-The starting folder whose pathname was provided does not exist on the disk.
+The starting folder whose pathname was provided does not exist on the file system.
 
 <a name='F-MFR-CommandLine-Validators-Constants-CommandLineInvalidReason-Unknown'></a>
 ### Unknown `constants`
@@ -199,7 +199,7 @@ Check the value passed on the command line, and then try again..
 
 ##### Summary
 
-Looks up a localized string similar to The specified directory exists on the disk and contains a Visual Studio Solution (*.sln) file..
+Looks up a localized string similar to The specified directory exists on the file system and contains a Visual Studio Solution (*.sln) file..
 
 <a name='P-MFR-CommandLine-Validators-Constants-Properties-Resources-UnknownCommandLineValidationFailedError'></a>
 ### UnknownCommandLineValidationFailedError `property`

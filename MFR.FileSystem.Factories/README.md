@@ -90,7 +90,7 @@ A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesys
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of a file on the disk. |
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname of a file on the file system. |
 
 ##### Exceptions
 
@@ -100,7 +100,7 @@ A [FileInfo](#T-Alphaleonis-Win32-Filesystem-FileInfo 'Alphaleonis.Win32.Filesys
 a blank or `null` string for a value. |
 | [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
 `path`
-parameter, cannot be located on the disk. |
+parameter, cannot be located on the file system. |
 
 <a name='M-MFR-FileSystem-Factories-MakeNewFileInfo-FromFileSystemEntry-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### FromFileSystemEntry(entry) `method`

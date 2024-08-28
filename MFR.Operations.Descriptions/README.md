@@ -15,6 +15,18 @@
   - [OperationType](#P-MFR-Operations-Descriptions-CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.OperationType')
   - [Text](#P-MFR-Operations-Descriptions-CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription-Text 'MFR.Operations.Descriptions.CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.Text')
   - [#cctor()](#M-MFR-Operations-Descriptions-CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.#cctor')
+- [CleanFilesOperationDescription](#T-MFR-Operations-Descriptions-CleanFilesOperationDescription 'MFR.Operations.Descriptions.CleanFilesOperationDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-CleanFilesOperationDescription-#ctor 'MFR.Operations.Descriptions.CleanFilesOperationDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-CleanFilesOperationDescription-Instance 'MFR.Operations.Descriptions.CleanFilesOperationDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-CleanFilesOperationDescription-OperationType 'MFR.Operations.Descriptions.CleanFilesOperationDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-CleanFilesOperationDescription-Text 'MFR.Operations.Descriptions.CleanFilesOperationDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-CleanFilesOperationDescription-#cctor 'MFR.Operations.Descriptions.CleanFilesOperationDescription.#cctor')
+- [CleanFilesOperationStartedDescription](#T-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription 'MFR.Operations.Descriptions.CleanFilesOperationStartedDescription')
+  - [#ctor()](#M-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-#ctor 'MFR.Operations.Descriptions.CleanFilesOperationStartedDescription.#ctor')
+  - [Instance](#P-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-Instance 'MFR.Operations.Descriptions.CleanFilesOperationStartedDescription.Instance')
+  - [OperationType](#P-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-OperationType 'MFR.Operations.Descriptions.CleanFilesOperationStartedDescription.OperationType')
+  - [Text](#P-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-Text 'MFR.Operations.Descriptions.CleanFilesOperationStartedDescription.Text')
+  - [#cctor()](#M-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.CleanFilesOperationStartedDescription.#cctor')
 - [CloseActiveSolutionOperationStartedDescription](#T-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription 'MFR.Operations.Descriptions.CloseActiveSolutionOperationStartedDescription')
   - [#ctor()](#M-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription-#ctor 'MFR.Operations.Descriptions.CloseActiveSolutionOperationStartedDescription.#ctor')
   - [Instance](#P-MFR-Operations-Descriptions-CloseActiveSolutionOperationStartedDescription-Instance 'MFR.Operations.Descriptions.CloseActiveSolutionOperationStartedDescription.Instance')
@@ -123,6 +135,7 @@
   - [#cctor()](#M-MFR-Operations-Descriptions-ReplaceTextInFilesOperationStartedDescription-#cctor 'MFR.Operations.Descriptions.ReplaceTextInFilesOperationStartedDescription.#cctor')
 - [Resources](#T-MFR-Operations-Descriptions-Properties-Resources 'MFR.Operations.Descriptions.Properties.Resources')
   - [Culture](#P-MFR-Operations-Descriptions-Properties-Resources-Culture 'MFR.Operations.Descriptions.Properties.Resources.Culture')
+  - [OperationDescription_CleanFiles](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CleanFiles 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_CleanFiles')
   - [OperationDescription_CommitPendingChanges](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitPendingChanges 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_CommitPendingChanges')
   - [OperationDescription_CommitResultsToGit](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitResultsToGit 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_CommitResultsToGit')
   - [OperationDescription_LoadAllSolutionsInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_LoadAllSolutionsInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_LoadAllSolutionsInFolder')
@@ -133,6 +146,7 @@
   - [OperationDescription_UnloadAllSolutionsInFolder](#P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_UnloadAllSolutionsInFolder 'MFR.Operations.Descriptions.Properties.Resources.OperationDescription_UnloadAllSolutionsInFolder')
   - [OperationStartedDescription_CalculateListOfFilesToBeRenamed](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CalculateListOfFilesToBeRenamed 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CalculateListOfFilesToBeRenamed')
   - [OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CheckingWhetherChosenFolderContainsSolutions')
+  - [OperationStartedDescription_CleanFiles](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CleanFiles 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CleanFiles')
   - [OperationStartedDescription_CloseActiveSolution](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CloseActiveSolution 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CloseActiveSolution')
   - [OperationStartedDescription_CommitPendingChanges](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CommitPendingChanges 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CommitPendingChanges')
   - [OperationStartedDescription_CommitResultsToGit](#P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CommitResultsToGit 'MFR.Operations.Descriptions.Properties.Resources.OperationStartedDescription_CommitResultsToGit')
@@ -281,6 +295,138 @@ current type of operation that is being performed.
 It is up to the implementers of this interface to supply the proper text.
 
 <a name='M-MFR-Operations-Descriptions-CheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-CleanFilesOperationDescription'></a>
+## CleanFilesOperationDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Description of the `Clean Files` operation.
+
+<a name='M-MFR-Operations-Descriptions-CleanFilesOperationDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-CleanFilesOperationDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface.
+
+<a name='P-MFR-Operations-Descriptions-CleanFilesOperationDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-CleanFilesOperationDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is currently being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-CleanFilesOperationDescription-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Empty, static constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription'></a>
+## CleanFilesOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions
+
+##### Summary
+
+Gets the descriptive text to be displayed to the user at the start of a
+Replace Text In Files operation.
+
+<a name='M-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Empty, protected constructor to prohibit direct allocation of this class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='P-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-Instance'></a>
+### Instance `property`
+
+##### Summary
+
+Gets a reference to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that describes, using user-friendly text, that the  application is
+about to begin the operation of replacing textual content within the files
+under the specified starting directory according to the text-replacement
+pattern that was specified by the user.
+
+<a name='P-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-OperationType'></a>
+### OperationType `property`
+
+##### Summary
+
+Gets one of the
+[OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
+values that
+corresponds to the type of operation being performed.
+
+<a name='P-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets a string to be displayed to the user, that corresponds to the
+current type of operation that is being performed.
+
+##### Remarks
+
+It is up to the implementers of this interface to supply the proper text.
+
+<a name='M-MFR-Operations-Descriptions-CleanFilesOperationStartedDescription-#cctor'></a>
 ### #cctor() `method`
 
 ##### Summary
@@ -1502,6 +1648,13 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CleanFiles'></a>
+### OperationDescription_CleanFiles `property`
+
+##### Summary
+
+Looks up a localized string similar to Cleaning file(s) touched by the Replace Text in Files operation....
+
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationDescription_CommitPendingChanges'></a>
 ### OperationDescription_CommitPendingChanges `property`
 
@@ -1570,7 +1723,14 @@ Looks up a localized string similar to Getting list of files to be renamed....
 
 ##### Summary
 
-Looks up a localized string similar to Chekcing whether the folder you selected (or its subfolders) contains a Visual Studio Solution (*.sln) file....
+Looks up a localized string similar to Checking whether the folder you selected (or its subfolders) contains a Visual Studio Solution (*.sln) file....
+
+<a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CleanFiles'></a>
+### OperationStartedDescription_CleanFiles `property`
+
+##### Summary
+
+Looks up a localized string similar to Determining which file(s) need to be cleaned....
 
 <a name='P-MFR-Operations-Descriptions-Properties-Resources-OperationStartedDescription_CloseActiveSolution'></a>
 ### OperationStartedDescription_CloseActiveSolution `property`

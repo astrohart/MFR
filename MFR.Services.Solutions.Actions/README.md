@@ -66,12 +66,12 @@ Exposes static methods to determine whether certain facts are true.
 ##### Summary
 
 Checks the specified `pathname` to check whether it's the
-pathname of a folder that exists on the disk.
+pathname of a folder that exists on the file system.
 
 ##### Returns
 
 `true` if the `pathname` refers to
-a folder that exists on the disk; `false` otherwise, or if the
+a folder that exists on the file system; `false` otherwise, or if the
 `pathname` parameter's argument is a `null`
 reference or a blank [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String').
 
@@ -80,7 +80,7 @@ reference or a blank [String](http://msdn.microsoft.com/query/dev14.query?appId=
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
-pathname of a folder that exists on the disk. |
+pathname of a folder that exists on the file system. |
 
 <a name='T-MFR-Services-Solutions-Actions-Properties-Resources'></a>
 ## Resources `type`

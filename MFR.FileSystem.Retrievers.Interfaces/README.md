@@ -102,7 +102,7 @@ is done. |
 is passed a blank or `null` string for a value. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose pathname is specified by the '
 `rootFolderPath`
-' parameter cannot be located on the disk. |
+' parameter cannot be located on the file system. |
 
 <a name='M-MFR-FileSystem-Retrievers-Interfaces-IFileSystemEntryListRetriever-ToFindWhat-System-String-'></a>
 ### ToFindWhat() `method`

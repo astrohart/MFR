@@ -7,6 +7,10 @@
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCalculateListOfFilesToBeRenamedOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCalculateListOfFilesToBeRenamedOperationStartedDescription.SoleInstance')
 - [GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCheckingWhetherChosenFolderContainsSolutionsOperationStartedDescription.SoleInstance')
+- [GetCleanFilesOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationDescription 'MFR.Operations.Descriptions.Factories.GetCleanFilesOperationDescription')
+  - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCleanFilesOperationDescription.SoleInstance')
+- [GetCleanFilesOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetCleanFilesOperationStartedDescription')
+  - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCleanFilesOperationStartedDescription.SoleInstance')
 - [GetCloseActiveSolutionOperationStartedDescription](#T-MFR-Operations-Descriptions-Factories-GetCloseActiveSolutionOperationStartedDescription 'MFR.Operations.Descriptions.Factories.GetCloseActiveSolutionOperationStartedDescription')
   - [SoleInstance()](#M-MFR-Operations-Descriptions-Factories-GetCloseActiveSolutionOperationStartedDescription-SoleInstance 'MFR.Operations.Descriptions.Factories.GetCloseActiveSolutionOperationStartedDescription.SoleInstance')
 - [GetCommitPendingChangesOperationDescription](#T-MFR-Operations-Descriptions-Factories-GetCommitPendingChangesOperationDescription 'MFR.Operations.Descriptions.Factories.GetCommitPendingChangesOperationDescription')
@@ -122,6 +126,80 @@ Reference to the one, and only, instance of the object that implements the
 interface that provides a message that we display to the user when the
 operation of checking whether a given folder even contains Visual Studio
 Solutions, is starting.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationDescription'></a>
+## GetCleanFilesOperationDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is currently processing committing the user's existing, pending
+changes to the various local Git repository(ies) that reside within the
+directory tree of the root folder, in order to baseline the current version of
+the user's code.
+
+<a name='M-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationDescription-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IOperationDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationDescription 'MFR.Operations.Descriptions.Interfaces.IOperationDescription')
+interface and which provides user-friendly text that explains to the user that
+the application is currently processing committing the user's existing, pending
+changes to the various local Git repository(ies) that reside within the
+directory tree of the root folder, in order to baseline the current version of
+the user's code.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationStartedDescription'></a>
+## GetCleanFilesOperationStartedDescription `type`
+
+##### Namespace
+
+MFR.Operations.Descriptions.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that provides user-friendly text that indicates we are calculating
+the list of files that need to be renamed.
+
+<a name='M-MFR-Operations-Descriptions-Factories-GetCleanFilesOperationStartedDescription-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IOperationStartedDescription](#T-MFR-Operations-Descriptions-Interfaces-IOperationStartedDescription 'MFR.Operations.Descriptions.Interfaces.IOperationStartedDescription')
+interface that provides user-friendly text that indicates we are calculating
+the list of files that need to be renamed.
 
 ##### Parameters
 

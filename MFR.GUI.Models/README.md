@@ -3,6 +3,11 @@
 
 ## Contents
 
+- [ErrantProcessInfo](#T-MFR-GUI-Models-ErrantProcessInfo 'MFR.GUI.Models.ErrantProcessInfo')
+  - [#ctor(pathname)](#M-MFR-GUI-Models-ErrantProcessInfo-#ctor-System-String- 'MFR.GUI.Models.ErrantProcessInfo.#ctor(System.String)')
+  - [FileName](#P-MFR-GUI-Models-ErrantProcessInfo-FileName 'MFR.GUI.Models.ErrantProcessInfo.FileName')
+  - [Pathname](#P-MFR-GUI-Models-ErrantProcessInfo-Pathname 'MFR.GUI.Models.ErrantProcessInfo.Pathname')
+  - [ToString()](#M-MFR-GUI-Models-ErrantProcessInfo-ToString 'MFR.GUI.Models.ErrantProcessInfo.ToString')
 - [OperationTypeInfo](#T-MFR-GUI-Models-OperationTypeInfo 'MFR.GUI.Models.OperationTypeInfo')
   - [_name](#F-MFR-GUI-Models-OperationTypeInfo-_name 'MFR.GUI.Models.OperationTypeInfo._name')
   - [_operationType](#F-MFR-GUI-Models-OperationTypeInfo-_operationType 'MFR.GUI.Models.OperationTypeInfo._operationType')
@@ -18,6 +23,66 @@
 - [Resources](#T-MFR-GUI-Models-Properties-Resources 'MFR.GUI.Models.Properties.Resources')
   - [Culture](#P-MFR-GUI-Models-Properties-Resources-Culture 'MFR.GUI.Models.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Models-Properties-Resources-ResourceManager 'MFR.GUI.Models.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Models-ErrantProcessInfo'></a>
+## ErrantProcessInfo `type`
+
+##### Namespace
+
+MFR.GUI.Models
+
+##### Summary
+
+Encapsulates data about an errant process that is to be forcibly terminated
+prior to the processing of either of the `Rename Files In Folder` or
+`Rename Sub Folder(s)` operations.
+
+<a name='M-MFR-GUI-Models-ErrantProcessInfo-#ctor-System-String-'></a>
+### #ctor(pathname) `constructor`
+
+##### Summary
+
+Constructs a new instance of [ErrantProcessInfo](#T-MFR-GUI-Models-ErrantProcessInfo 'MFR.GUI.Models.ErrantProcessInfo')
+and returns a reference to it.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a `.exe` file representing a process that is to be forcibly
+terminated. |
+
+<a name='P-MFR-GUI-Models-ErrantProcessInfo-FileName'></a>
+### FileName `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing just the filename only, of the
+`.exe` file representing a process that is to be forcibly terminated.
+
+<a name='P-MFR-GUI-Models-ErrantProcessInfo-Pathname'></a>
+### Pathname `property`
+
+##### Summary
+
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a `.exe` file that is to be forcibly terminated.
+
+<a name='M-MFR-GUI-Models-ErrantProcessInfo-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns a string that represents the current object.
+
+##### Returns
+
+A string that represents the current object.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-GUI-Models-OperationTypeInfo'></a>
 ## OperationTypeInfo `type`

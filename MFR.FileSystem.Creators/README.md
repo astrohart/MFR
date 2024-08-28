@@ -114,4 +114,4 @@ disk is to be verified. |
 `containingFolderName`, is passed a blank or
 `null` string for a value. |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the folder whose path is `containingFolderName`
-does not exist on the disk when it is supposed to. |
+does not exist on the file system when it is supposed to. |

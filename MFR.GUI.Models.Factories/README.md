@@ -3,6 +3,9 @@
 
 ## Contents
 
+- [MakeNewErrantProcessInfo](#T-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo 'MFR.GUI.Models.Factories.MakeNewErrantProcessInfo')
+  - [#cctor()](#M-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo-#cctor 'MFR.GUI.Models.Factories.MakeNewErrantProcessInfo.#cctor')
+  - [ForFile(pathname)](#M-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo-ForFile-System-String- 'MFR.GUI.Models.Factories.MakeNewErrantProcessInfo.ForFile(System.String)')
 - [MakeNewOperationTypeInfo](#T-MFR-GUI-Models-Factories-MakeNewOperationTypeInfo 'MFR.GUI.Models.Factories.MakeNewOperationTypeInfo')
   - [AndSetEnabledFlag(self,enabled)](#M-MFR-GUI-Models-Factories-MakeNewOperationTypeInfo-AndSetEnabledFlag-MFR-GUI-Models-Interfaces-IOperationTypeInfo,System-Boolean- 'MFR.GUI.Models.Factories.MakeNewOperationTypeInfo.AndSetEnabledFlag(MFR.GUI.Models.Interfaces.IOperationTypeInfo,System.Boolean)')
   - [FromScratch()](#M-MFR-GUI-Models-Factories-MakeNewOperationTypeInfo-FromScratch 'MFR.GUI.Models.Factories.MakeNewOperationTypeInfo.FromScratch')
@@ -10,6 +13,68 @@
 - [Resources](#T-MFR-GUI-Models-Factories-Properties-Resources 'MFR.GUI.Models.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Models-Factories-Properties-Resources-Culture 'MFR.GUI.Models.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Models-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Models.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo'></a>
+## MakeNewErrantProcessInfo `type`
+
+##### Namespace
+
+MFR.GUI.Models.Factories
+
+##### Summary
+
+Creates new instances of objects that implement the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface, and
+returns references to them.
+
+<a name='M-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed
+once only for the
+[MakeNewErrantProcessInfo](#T-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo 'MFR.GUI.Models.Factories.MakeNewErrantProcessInfo') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance
+being created or before any static members are referenced.
+
+<a name='M-MFR-GUI-Models-Factories-MakeNewErrantProcessInfo-ForFile-System-String-'></a>
+### ForFile(pathname) `method`
+
+##### Summary
+
+Creates a new instance of an object that implements the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface and
+returns a reference to it.
+
+##### Returns
+
+Reference to an instance of an object that implements the
+[IErrantProcessInfo](#T-MFR-GUI-Models-Interfaces-IErrantProcessInfo 'MFR.GUI.Models.Interfaces.IErrantProcessInfo') interface.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
+pathname of a file to create a new object for. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the required parameter,
+`pathname`, is passed a blank or `null`
+string for a value. |
+| [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file having the specified `pathname` cannot be
+located on the file system. |
 
 <a name='T-MFR-GUI-Models-Factories-MakeNewOperationTypeInfo'></a>
 ## MakeNewOperationTypeInfo `type`

@@ -3,13 +3,13 @@
 
 ## Contents
 
-- [GetOperationName](#T-MFR-GUI-Models-Converters-Factories-GetOperationName 'MFR.GUI.Models.Constants.Factories.GetOperationName')
-  - [For(type)](#M-MFR-GUI-Models-Converters-Factories-GetOperationName-For-MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Constants.Factories.GetOperationName.For(MFR.Operations.Constants.OperationType)')
-- [Resources](#T-MFR-GUI-Models-Converters-Factories-Properties-Resources 'MFR.GUI.Models.Constants.Factories.Properties.Resources')
-  - [Culture](#P-MFR-GUI-Models-Converters-Factories-Properties-Resources-Culture 'MFR.GUI.Models.Constants.Factories.Properties.Resources.Culture')
-  - [ResourceManager](#P-MFR-GUI-Models-Converters-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Models.Constants.Factories.Properties.Resources.ResourceManager')
+- [GetOperationName](#T-MFR-GUI-Models-Constants-Factories-GetOperationName 'MFR.GUI.Models.Constants.Factories.GetOperationName')
+  - [For(type)](#M-MFR-GUI-Models-Constants-Factories-GetOperationName-For-MFR-Operations-Constants-OperationType- 'MFR.GUI.Models.Constants.Factories.GetOperationName.For(MFR.Operations.Constants.OperationType)')
+- [Resources](#T-MFR-GUI-Models-Constants-Factories-Properties-Resources 'MFR.GUI.Models.Constants.Factories.Properties.Resources')
+  - [Culture](#P-MFR-GUI-Models-Constants-Factories-Properties-Resources-Culture 'MFR.GUI.Models.Constants.Factories.Properties.Resources.Culture')
+  - [ResourceManager](#P-MFR-GUI-Models-Constants-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Models.Constants.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Models-Converters-Factories-GetOperationName'></a>
+<a name='T-MFR-GUI-Models-Constants-Factories-GetOperationName'></a>
 ## GetOperationName `type`
 
 ##### Namespace
@@ -20,7 +20,7 @@ MFR.GUI.Models.Constants.Factories
 
 Exposes methods to obtain the names of operations.
 
-<a name='M-MFR-GUI-Models-Converters-Factories-GetOperationName-For-MFR-Operations-Constants-OperationType-'></a>
+<a name='M-MFR-GUI-Models-Constants-Factories-GetOperationName-For-MFR-Operations-Constants-OperationType-'></a>
 ### For(type) `method`
 
 ##### Summary
@@ -51,7 +51,7 @@ the specified operation `type` is not supported, then the
 specifies the operation for which to obtain the corresponding user-interface
 text. |
 
-<a name='T-MFR-GUI-Models-Converters-Factories-Properties-Resources'></a>
+<a name='T-MFR-GUI-Models-Constants-Factories-Properties-Resources'></a>
 ## Resources `type`
 
 ##### Namespace
@@ -62,7 +62,7 @@ MFR.GUI.Models.Constants.Factories.Properties
 
 A strongly-typed resource class, for looking up localized strings, etc.
 
-<a name='P-MFR-GUI-Models-Converters-Factories-Properties-Resources-Culture'></a>
+<a name='P-MFR-GUI-Models-Constants-Factories-Properties-Resources-Culture'></a>
 ### Culture `property`
 
 ##### Summary
@@ -70,9 +70,9 @@ A strongly-typed resource class, for looking up localized strings, etc.
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 
-<a name='P-MFR-GUI-Models-Converters-Factories-Properties-Resources-ResourceManager'></a>
+<a name='P-MFR-GUI-Models-Constants-Factories-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
 
 ##### Summary
 
-Returns the cached ResourceManager instance used by this class.s
+Returns the cached ResourceManager instance used by this class.

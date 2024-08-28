@@ -24,6 +24,7 @@
   - [Culture](#P-MFR-Common-Properties-Resources-Culture 'MFR.Common.Properties.Resources.Culture')
   - [Error_DesiredTargetAssemblyNotReferenced](#P-MFR-Common-Properties-Resources-Error_DesiredTargetAssemblyNotReferenced 'MFR.Common.Properties.Resources.Error_DesiredTargetAssemblyNotReferenced')
   - [Error_NoAssembliesReferencedByExecutingAssembly](#P-MFR-Common-Properties-Resources-Error_NoAssembliesReferencedByExecutingAssembly 'MFR.Common.Properties.Resources.Error_NoAssembliesReferencedByExecutingAssembly')
+  - [Error_NoErrantProcessesToEdit](#P-MFR-Common-Properties-Resources-Error_NoErrantProcessesToEdit 'MFR.Common.Properties.Resources.Error_NoErrantProcessesToEdit')
   - [ResourceManager](#P-MFR-Common-Properties-Resources-ResourceManager 'MFR.Common.Properties.Resources.ResourceManager')
 - [Revoke](#T-MFR-Common-Revoke 'MFR.Common.Revoke')
   - [WindowsMessageFilter()](#M-MFR-Common-Revoke-WindowsMessageFilter 'MFR.Common.Revoke.WindowsMessageFilter')
@@ -468,6 +469,13 @@ Looks up a localized string similar to *** ERROR *** The assembly whose name sta
 ##### Summary
 
 Looks up a localized string similar to Reflector.InitializeTargetAssembly: The executing assembly, '{0}', does not reference any other assemblies..
+
+<a name='P-MFR-Common-Properties-Resources-Error_NoErrantProcessesToEdit'></a>
+### Error_NoErrantProcessesToEdit `property`
+
+##### Summary
+
+Looks up a localized string similar to Please add Errant Process(es) to the list before trying to edit one of them..
 
 <a name='P-MFR-Common-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

@@ -125,7 +125,7 @@ file from which to import the config data. |
 is passed a blank or `null` string for a value. |
 | [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file, the path to which is specified by the
 `sourceFilePath`
-parameter, cannot be located on the disk. |
+parameter, cannot be located on the file system. |
 
 ##### Remarks
 
@@ -141,7 +141,7 @@ Then, the method saves the new data out to the master config file.
 
 ##### Summary
 
-Loads the config from the disk.
+Loads the config from the file system.
 
 
 
@@ -174,7 +174,7 @@ property is used instead. |
 | ---- | ----------- |
 | [System.IO.FileNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.FileNotFoundException 'System.IO.FileNotFoundException') | Thrown if the file whose pathname is passed in the
 `pathname`
-parameter cannot be located on the disk. |
+parameter cannot be located on the file system. |
 
 ##### Remarks
 
@@ -187,7 +187,7 @@ property is set to `null` if an error occurs during loading.
 
 ##### Summary
 
-Saves config data to a file on the disk having path
+Saves config data to a file on the file system having path
 `pathname`.
 
 ##### Parameters

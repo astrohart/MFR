@@ -401,7 +401,7 @@ which searches should be started.
 
 
 The fully-qualified pathname passed must reference a folder that currently
-exists on the disk; otherwise,
+exists on the file system; otherwise,
 [DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') is thrown. |
 
 ##### Exceptions
@@ -412,7 +412,7 @@ exists on the disk; otherwise,
 `path`, is passed a blank or `null` string
 for a value. |
 | [System.IO.DirectoryNotFoundException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.DirectoryNotFoundException 'System.IO.DirectoryNotFoundException') | Thrown if the folder whose fully-qualified pathname is passed in the
-`path` parameter cannot be located on the disk. |
+`path` parameter cannot be located on the file system. |
 
 ##### Remarks
 

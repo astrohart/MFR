@@ -70,7 +70,7 @@ Check the value passed on the command line, and then try again..
 
 ##### Summary
 
-Looks up a localized string similar to The specified directory exists on the disk and contains a Visual Studio Solution (*.sln) file..
+Looks up a localized string similar to The specified directory exists on the file system and contains a Visual Studio Solution (*.sln) file..
 
 <a name='P-MFR-Directories-Validators-Constants-Properties-Resources-UnknownRootDirectoryValidationFailedError'></a>
 ### UnknownRootDirectoryValidationFailedError `property`
@@ -103,7 +103,7 @@ Solution (*.sln) file.
 
 ##### Summary
 
-The root directory specified does not exist on the disk.
+The root directory specified does not exist on the file system.
 
 <a name='F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-Unknown'></a>
 ### Unknown `constants`
@@ -117,7 +117,7 @@ Unknown validation failure.
 
 ##### Summary
 
-The specified directory exists on the disk and contains a Visual
+The specified directory exists on the file system and contains a Visual
 Studio Solution (*.sln) file.
 
 <a name='T-MFR-Directories-Validators-Constants-RootDirectoryValidationMessages'></a>
@@ -157,7 +157,7 @@ Studio Solution (*.sln) file..
 ##### Summary
 
 Looks up a localized string similar to The specified directory
-exists on the disk and contains a Visual Studio Solution (*.sln) file..
+exists on the file system and contains a Visual Studio Solution (*.sln) file..
 
 <a name='P-MFR-Directories-Validators-Constants-RootDirectoryValidationMessages-UnknownRootDirectoryValidationFailedError'></a>
 ### UnknownRootDirectoryValidationFailedError `property`

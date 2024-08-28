@@ -66,7 +66,7 @@ This method has no parameters.
 
 ##### Summary
 
-Saves profile list data to a file on the disk having path
+Saves profile list data to a file on the file system having path
 `pathname`.
 
 ##### Parameters

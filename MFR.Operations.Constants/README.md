@@ -6,6 +6,7 @@
 - [OperationType](#T-MFR-Operations-Constants-OperationType 'MFR.Operations.Constants.OperationType')
   - [CalculateListOfFilesToBeRenamed](#F-MFR-Operations-Constants-OperationType-CalculateListOfFilesToBeRenamed 'MFR.Operations.Constants.OperationType.CalculateListOfFilesToBeRenamed')
   - [CheckingWhetherChosenFolderContainsSolutions](#F-MFR-Operations-Constants-OperationType-CheckingWhetherChosenFolderContainsSolutions 'MFR.Operations.Constants.OperationType.CheckingWhetherChosenFolderContainsSolutions')
+  - [CleanFiles](#F-MFR-Operations-Constants-OperationType-CleanFiles 'MFR.Operations.Constants.OperationType.CleanFiles')
   - [CloseActiveSolutions](#F-MFR-Operations-Constants-OperationType-CloseActiveSolutions 'MFR.Operations.Constants.OperationType.CloseActiveSolutions')
   - [CommitPendingChanges](#F-MFR-Operations-Constants-OperationType-CommitPendingChanges 'MFR.Operations.Constants.OperationType.CommitPendingChanges')
   - [CommitResultsToGit](#F-MFR-Operations-Constants-OperationType-CommitResultsToGit 'MFR.Operations.Constants.OperationType.CommitResultsToGit')
@@ -50,6 +51,14 @@ The list of file system entries to be renamed is being retrieved.
 
 Checking the starting folder that has been selected to ensure that it or one or
 more of its subfolders contain Visual Studio Solution (*.sln) files.
+
+<a name='F-MFR-Operations-Constants-OperationType-CleanFiles'></a>
+### CleanFiles `constants`
+
+##### Summary
+
+Iterates over the root directory's files and removes `NUL` character(s)
+that may be present in any of the text file(s) touched by this application.
 
 <a name='F-MFR-Operations-Constants-OperationType-CloseActiveSolutions'></a>
 ### CloseActiveSolutions `constants`

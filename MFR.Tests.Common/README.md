@@ -574,7 +574,7 @@ instead of the full path.
 String consisting of the path to a file. The path contains only
 unique identifiers for folder and filename components -- which are
 regenerated each time this constant is referred to --so the file
-referenced is, more or less, guaranteed not to exist on the disk.
+referenced is, more or less, guaranteed not to exist on the file system.
 
 <a name='F-MFR-Tests-Common-StringConstants-NONEXISTENT_FOLDER'></a>
 ### NONEXISTENT_FOLDER `constants`

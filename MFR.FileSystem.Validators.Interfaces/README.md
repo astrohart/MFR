@@ -37,12 +37,12 @@ to determine whether the pathname is valid.
 
 Determines whether the specified file-system s
 `entry`
-exists on the disk.
+exists on the file system.
 
 ##### Returns
 
 `true` if the file-system `entry`
-exists on the disk; `false` otherwise.
+exists on the file system; `false` otherwise.
 
 ##### Parameters
 
@@ -64,7 +64,7 @@ passed a `null` value. |
 ##### Summary
 
 Determines whether a file system `entry` exists on
-the disk at the pathname indicated.
+the file system at the pathname indicated.
 
 ##### Returns
 
@@ -82,14 +82,14 @@ interface containing information about the entry to be checked. |
 
 If the properties of the `entry` have valid data
 and the path stored in the entry refers to a file-system object that
-exists on the disk, then this method returns `true`.
+exists on the file system, then this method returns `true`.
 
 
 
 If an object instance variable or property has a
 `null`
 reference, or if the path stored in the entry
-refers to a file-system object that does not exist on the disk, then
+refers to a file-system object that does not exist on the file system, then
 this method returns `false`.
 
 <a name='M-MFR-FileSystem-Validators-Interfaces-IFileSystemEntryValidator-ShouldNotSkip-System-String-'></a>
@@ -130,7 +130,7 @@ the operation; otherwise, `false`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the disk of the
+| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the pathname on the file system of the
 file-system entry that is to potentially be skipped. |
 
 <a name='T-MFR-FileSystem-Validators-Interfaces-Properties-Resources'></a>

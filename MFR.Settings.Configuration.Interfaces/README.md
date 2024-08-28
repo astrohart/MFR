@@ -15,6 +15,7 @@
   - [AutoStart](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-AutoStart 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.AutoStart')
   - [CommitAuthorEmail](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-CommitAuthorEmail 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.CommitAuthorEmail')
   - [CommitAuthorName](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-CommitAuthorName 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.CommitAuthorName')
+  - [ErrantProcessesList](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-ErrantProcessesList 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.ErrantProcessesList')
   - [FindWhat](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-FindWhat 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-FindWhatHistory 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.FindWhatHistory')
   - [InvokableOperations](#P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-InvokableOperations 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig.InvokableOperations')
@@ -234,6 +235,15 @@ application.
 
 Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the
 author(s) of commits made to a local Git repository(ies) by this application.
+
+<a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-ErrantProcessesList'></a>
+### ErrantProcessesList `property`
+
+##### Summary
+
+Gets a reference to an instance of a collection, each of whose elements are of
+type [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String'), representing the list of errant processes
+we should attempt to kill prior to the beginning of an operation.
 
 <a name='P-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig-FindWhat'></a>
 ### FindWhat `property`

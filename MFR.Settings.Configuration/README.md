@@ -14,12 +14,13 @@
 - [ProjectFileRenamerConfig](#T-MFR-Settings-Configuration-ProjectFileRenamerConfig 'MFR.Settings.Configuration.ProjectFileRenamerConfig')
   - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-#ctor 'MFR.Settings.Configuration.ProjectFileRenamerConfig.#ctor')
   - [#ctor(source)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
-  - [#ctor()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-#ctor-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.#ctor(System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
+  - [#ctor(errantProcesses,operations)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-#ctor-System-Collections-Generic-IEnumerable{System-String},System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [_startingFolder](#F-MFR-Settings-Configuration-ProjectFileRenamerConfig-_startingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfig._startingFolder')
   - [AutoQuitOnCompletion](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-AutoQuitOnCompletion 'MFR.Settings.Configuration.ProjectFileRenamerConfig.AutoQuitOnCompletion')
   - [AutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-AutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfig.AutoStart')
   - [CommitAuthorEmail](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-CommitAuthorEmail 'MFR.Settings.Configuration.ProjectFileRenamerConfig.CommitAuthorEmail')
   - [CommitAuthorName](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-CommitAuthorName 'MFR.Settings.Configuration.ProjectFileRenamerConfig.CommitAuthorName')
+  - [ErrantProcessesList](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-ErrantProcessesList 'MFR.Settings.Configuration.ProjectFileRenamerConfig.ErrantProcessesList')
   - [FindWhat](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-FindWhat 'MFR.Settings.Configuration.ProjectFileRenamerConfig.FindWhat')
   - [FindWhatHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-FindWhatHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfig.FindWhatHistory')
   - [InvokableOperations](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-InvokableOperations 'MFR.Settings.Configuration.ProjectFileRenamerConfig.InvokableOperations')
@@ -46,6 +47,8 @@
   - [StartingFolder](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-StartingFolder 'MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolder')
   - [StartingFolderHistory](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-StartingFolderHistory 'MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolderHistory')
   - [UpdateGitOnAutoStart](#P-MFR-Settings-Configuration-ProjectFileRenamerConfig-UpdateGitOnAutoStart 'MFR.Settings.Configuration.ProjectFileRenamerConfig.UpdateGitOnAutoStart')
+  - [AddErrantProcessEntries(errantProcesses)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-AddErrantProcessEntries-System-Collections-Generic-IEnumerable{System-String}- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.AddErrantProcessEntries(System.Collections.Generic.IEnumerable{System.String})')
+  - [AddInvokableOperationEntries(operations)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-AddInvokableOperationEntries-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.AddInvokableOperationEntries(System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo})')
   - [Equals(obj)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-Equals-System-Object- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.Equals(System.Object)')
   - [GetHashCode()](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-GetHashCode 'MFR.Settings.Configuration.ProjectFileRenamerConfig.GetHashCode')
   - [IsBlankOrNull(config)](#M-MFR-Settings-Configuration-ProjectFileRenamerConfig-IsBlankOrNull-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.ProjectFileRenamerConfig.IsBlankOrNull(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
@@ -291,8 +294,8 @@ that contains existing config settings to copy into this object. |
 parameter, `source`, is passed a `null`
 value. |
 
-<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfig-#ctor-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
-### #ctor() `constructor`
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfig-#ctor-System-Collections-Generic-IEnumerable{System-String},System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
+### #ctor(errantProcesses,operations) `constructor`
 
 ##### Summary
 
@@ -302,7 +305,16 @@ returns a reference to it.
 
 ##### Parameters
 
-This constructor has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| errantProcesses | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | (Required.) A collection of references to instances of
+[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String'), each element of which is the name of a process
+that is to be killed prior to the start of an operation. |
+| operations | [System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo}') | (Required.) Reference to an instance of a collection of instances of objects
+that implement the
+[IOperationTypeInfo](#T-MFR-GUI-Models-Interfaces-IOperationTypeInfo 'MFR.GUI.Models.Interfaces.IOperationTypeInfo') interface, each
+element of which specifies configuration information, such as whether the
+operation is disabled, for each invokable operation. |
 
 <a name='F-MFR-Settings-Configuration-ProjectFileRenamerConfig-_startingFolder'></a>
 ### _startingFolder `constants`
@@ -352,6 +364,15 @@ application.
 
 Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the
 author(s) of commits made to a local Git repository(ies) by this application.
+
+<a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfig-ErrantProcessesList'></a>
+### ErrantProcessesList `property`
+
+##### Summary
+
+Gets a reference to an instance of a collection, each of whose elements are of
+type [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String'), representing the list of errant processes
+we should attempt to kill prior to the beginning of an operation.
 
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfig-FindWhat'></a>
 ### FindWhat `property`
@@ -596,6 +617,53 @@ repository even when running in `Auto Start` mode.
 ##### Remarks
 
 The default value of this property is `true`.
+
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfig-AddErrantProcessEntries-System-Collections-Generic-IEnumerable{System-String}-'></a>
+### AddErrantProcessEntries(errantProcesses) `method`
+
+##### Summary
+
+Adds the specified `errantProcesses` to the configured list
+of errant processes that are to be killed prior to performing certain
+operations.
+
+##### Returns
+
+`true` if the invokable operation(s) were
+successfully added to the internal collection; `false`
+otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| errantProcesses | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | (Required.) A collection of references to instances of
+[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String'), each element of which is the name of a process
+that is to be killed prior to the start of an operation. |
+
+<a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfig-AddInvokableOperationEntries-System-Collections-Generic-IEnumerable{MFR-GUI-Models-Interfaces-IOperationTypeInfo}-'></a>
+### AddInvokableOperationEntries(operations) `method`
+
+##### Summary
+
+Adds the specified `operations` to the configured list of
+invokable operations.
+
+##### Returns
+
+`true` if the invokable operation(s) were
+successfully added to the internal collection; `false`
+otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| operations | [System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{MFR.GUI.Models.Interfaces.IOperationTypeInfo}') | (Required.) Reference to an instance of a collection of instances of objects
+that implement the
+[IOperationTypeInfo](#T-MFR-GUI-Models-Interfaces-IOperationTypeInfo 'MFR.GUI.Models.Interfaces.IOperationTypeInfo') interface, each
+element of which specifies configuration information, such as whether the
+operation is disabled, for each invokable operation. |
 
 <a name='M-MFR-Settings-Configuration-ProjectFileRenamerConfig-Equals-System-Object-'></a>
 ### Equals(obj) `method`
