@@ -1,11 +1,11 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Command-Line Processors for the GUI Component")]
-[assembly: AssemblyDescription("Provides objects and functionality to process the command line that is passed to the application, using a strategy pattern (the user can fill values in the main window using the command line, and the file operations can also be auto-started using the command line).  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyDescription("Provides objects and functionality to process the command line that is passed to the application, using a strategy pattern (the user can fill values in the main window using the command line, and the file operations can also be auto-started using the command line).  This particular library holds the static classes that enable specific actions to be carried out on a functional level.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
