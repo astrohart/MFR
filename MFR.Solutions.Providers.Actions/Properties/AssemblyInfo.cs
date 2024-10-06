@@ -1,11 +1,11 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Providing Access to Loaded Visual Studio Solution Files Component")]
-[assembly: AssemblyDescription("Provides objects and functionality to manage the various running instances of Visual Studio that have Visual Studio Solution (*.sln) files loaded; i.e., currently open in the IDE.  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyDescription("Provides objects and functionality to manage the various running instances of Visual Studio that have Visual Studio Solution (*.sln) files loaded; i.e., currently open in the IDE.  This particular library holds the static classes that enable specific actions to be carried out on a functional level.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
