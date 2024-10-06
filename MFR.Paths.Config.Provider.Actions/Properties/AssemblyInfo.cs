@@ -1,11 +1,11 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("xyLOGIX Support Library for Project File Renamer's Providing Access to Pathname of the Configuration File Component")]
-[assembly: AssemblyDescription("Provides objects and functionality to load and store the pathname of the application's configuration file to/from the system Registry.  This particular library holds the concrete classes and implementations of the component.")]
+[assembly: AssemblyDescription("Provides objects and functionality to load and store the pathname of the application's configuration file to/from the system Registry.  This particular library holds the static classes that enable specific actions to be carried out on a functional level.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
 [assembly: AssemblyProduct("xyLOGIX Project File Renamer")]
