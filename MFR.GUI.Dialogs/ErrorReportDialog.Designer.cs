@@ -42,10 +42,10 @@ namespace MFR.GUI.Dialogs
             this.reproductionStepsTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
             this.sendReportButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.dontSendReportButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
-            this.darkLabel1 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
-            this.darkTextBox1 = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
-            this.darkTextBox2 = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
-            this.darkLabel2 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.nameOfUserLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.nameOfUserTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.emailAddressOfUserTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.emailOfUserLabel = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.appIconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,49 +169,49 @@ namespace MFR.GUI.Dialogs
             this.dontSendReportButton.TabIndex = 11;
             this.dontSendReportButton.Text = "&Don\'t send";
             // 
-            // darkLabel1
+            // nameOfUserLabel
             // 
-            this.darkLabel1.AutoSize = true;
-            this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.darkLabel1.IsDarkTheme = false;
-            this.darkLabel1.Location = new System.Drawing.Point(21, 376);
-            this.darkLabel1.Name = "darkLabel1";
-            this.darkLabel1.Size = new System.Drawing.Size(42, 15);
-            this.darkLabel1.TabIndex = 7;
-            this.darkLabel1.Text = "&Name:";
+            this.nameOfUserLabel.AutoSize = true;
+            this.nameOfUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.nameOfUserLabel.IsDarkTheme = false;
+            this.nameOfUserLabel.Location = new System.Drawing.Point(21, 376);
+            this.nameOfUserLabel.Name = "nameOfUserLabel";
+            this.nameOfUserLabel.Size = new System.Drawing.Size(42, 15);
+            this.nameOfUserLabel.TabIndex = 7;
+            this.nameOfUserLabel.Text = "&Name:";
             // 
-            // darkTextBox1
+            // nameOfUserTextBox
             // 
-            this.darkTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
-            this.darkTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.darkTextBox1.CueText = "Your Name (optional)";
-            this.darkTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.darkTextBox1.Location = new System.Drawing.Point(69, 374);
-            this.darkTextBox1.Name = "darkTextBox1";
-            this.darkTextBox1.Size = new System.Drawing.Size(405, 23);
-            this.darkTextBox1.TabIndex = 8;
+            this.nameOfUserTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.nameOfUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nameOfUserTextBox.CueText = "Your Name (optional)";
+            this.nameOfUserTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.nameOfUserTextBox.Location = new System.Drawing.Point(69, 374);
+            this.nameOfUserTextBox.Name = "nameOfUserTextBox";
+            this.nameOfUserTextBox.Size = new System.Drawing.Size(405, 23);
+            this.nameOfUserTextBox.TabIndex = 8;
             // 
-            // darkTextBox2
+            // emailAddressOfUserTextBox
             // 
-            this.darkTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
-            this.darkTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.darkTextBox2.CueText = "email@domain.com (optional)";
-            this.darkTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.darkTextBox2.Location = new System.Drawing.Point(69, 403);
-            this.darkTextBox2.Name = "darkTextBox2";
-            this.darkTextBox2.Size = new System.Drawing.Size(405, 23);
-            this.darkTextBox2.TabIndex = 10;
+            this.emailAddressOfUserTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.emailAddressOfUserTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.emailAddressOfUserTextBox.CueText = "email@domain.com (optional)";
+            this.emailAddressOfUserTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.emailAddressOfUserTextBox.Location = new System.Drawing.Point(69, 403);
+            this.emailAddressOfUserTextBox.Name = "emailAddressOfUserTextBox";
+            this.emailAddressOfUserTextBox.Size = new System.Drawing.Size(405, 23);
+            this.emailAddressOfUserTextBox.TabIndex = 10;
             // 
-            // darkLabel2
+            // emailOfUserLabel
             // 
-            this.darkLabel2.AutoSize = true;
-            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.darkLabel2.IsDarkTheme = false;
-            this.darkLabel2.Location = new System.Drawing.Point(21, 405);
-            this.darkLabel2.Name = "darkLabel2";
-            this.darkLabel2.Size = new System.Drawing.Size(39, 15);
-            this.darkLabel2.TabIndex = 9;
-            this.darkLabel2.Text = "&Email:";
+            this.emailOfUserLabel.AutoSize = true;
+            this.emailOfUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.emailOfUserLabel.IsDarkTheme = false;
+            this.emailOfUserLabel.Location = new System.Drawing.Point(21, 405);
+            this.emailOfUserLabel.Name = "emailOfUserLabel";
+            this.emailOfUserLabel.Size = new System.Drawing.Size(39, 15);
+            this.emailOfUserLabel.TabIndex = 9;
+            this.emailOfUserLabel.Text = "&Email:";
             // 
             // ErrorReportDialog
             // 
@@ -221,10 +221,10 @@ namespace MFR.GUI.Dialogs
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.CancelButton = this.sendReportButton;
             this.ClientSize = new System.Drawing.Size(489, 481);
-            this.Controls.Add(this.darkTextBox2);
-            this.Controls.Add(this.darkLabel2);
-            this.Controls.Add(this.darkTextBox1);
-            this.Controls.Add(this.darkLabel1);
+            this.Controls.Add(this.emailAddressOfUserTextBox);
+            this.Controls.Add(this.emailOfUserLabel);
+            this.Controls.Add(this.nameOfUserTextBox);
+            this.Controls.Add(this.nameOfUserLabel);
             this.Controls.Add(this.dontSendReportButton);
             this.Controls.Add(this.sendReportButton);
             this.Controls.Add(this.reproductionStepsTextBox);
@@ -263,9 +263,9 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkTextBox reproductionStepsTextBox;
         private xyLOGIX.UI.Dark.Controls.DarkButton sendReportButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton dontSendReportButton;
-        private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel1;
-        private xyLOGIX.UI.Dark.Controls.DarkTextBox darkTextBox1;
-        private xyLOGIX.UI.Dark.Controls.DarkTextBox darkTextBox2;
-        private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel2;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel nameOfUserLabel;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox nameOfUserTextBox;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox emailAddressOfUserTextBox;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel emailOfUserLabel;
     }
 }

@@ -1,5 +1,6 @@
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -13,15 +14,39 @@ namespace MFR.GUI.Dialogs
     public partial class ErrorReportDialog : DarkForm, IErrorReportDialog
     {
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.GUI.Dialogs.ErrorReportDialog" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static ErrorReportDialog() { }
+
+        /// <summary>
         /// Constructs a new instance of
         /// <see
         ///     cref="T:MFR.GUI.Dialogs.ErrorReportDialog" />
         /// and returns a
         /// reference to it.
         /// </summary>
+        [Log(AttributeExclude = true)]
         public ErrorReportDialog()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Email</b> text box.
+        /// </summary>
+        public string EmailAddressOfUser
+        {
+            [DebuggerStepThrough] get => emailAddressOfUserTextBox.Text;
+            [DebuggerStepThrough] set => emailAddressOfUserTextBox.Text = value;
         }
 
         /// <summary>
@@ -39,6 +64,15 @@ namespace MFR.GUI.Dialogs
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Name</b> text box.
+        /// </summary>
+        public string NameOfUser
+        {
+            [DebuggerStepThrough] get => nameOfUserTextBox.Text;
+            [DebuggerStepThrough] set => nameOfUserTextBox.Text = value;
         }
 
         /// <summary>
@@ -190,7 +224,8 @@ namespace MFR.GUI.Dialogs
         private void OnClickSendReportButton(object sender, EventArgs e)
             => OnSendErrorReportRequested(
                 new SendErrorReportRequestedEventArgs(
-                    Exception, ErrorReportContents, ReproductionSteps
+                    Exception, ErrorReportContents, ReproductionSteps,
+                    NameOfUser, EmailAddressOfUser
                 )
             );
     }
