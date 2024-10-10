@@ -1,6 +1,7 @@
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Forms;
 
@@ -24,26 +25,11 @@ namespace MFR.GUI.Dialogs
         }
 
         /// <summary>
-        /// Gets or sets the value of the Reproduction Steps text box.
-        /// </summary>
-        public string ReproductionSteps
-        {
-            get => reproductionStepsTextBox.Text;
-            set => reproductionStepsTextBox.Text = value;
-        }
-
-        /// <summary>
         /// Gets a string that contains the contents of an error report, given the value of
         /// the <see cref="P:MFR.GUI.Dialogs.ErrorReportDialog.Exception" /> property.
         /// </summary>
         public string ErrorReportContents
             => $"{Exception.GetType()}: {Exception.Message}\n\t{Exception.StackTrace}";
-
-        /// <summary>
-        /// Gets a reference to the View Report link-label control.
-        /// </summary>
-        public LinkLabel ViewReportLinkLabel
-            => viewReportLinkLabel;
 
         /// <summary>
         /// Gets or sets the <see cref="T:System.Exception" /> that describes the error
@@ -54,6 +40,21 @@ namespace MFR.GUI.Dialogs
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets the value of the <b>Reproduction Steps</b> text box.
+        /// </summary>
+        public string ReproductionSteps
+        {
+            [DebuggerStepThrough] get => reproductionStepsTextBox.Text;
+            [DebuggerStepThrough] set => reproductionStepsTextBox.Text = value;
+        }
+
+        /// <summary>
+        /// Gets a reference to the View Report link-label control.
+        /// </summary>
+        public LinkLabel ViewReportLinkLabel
+            => viewReportLinkLabel;
 
         /// <summary>
         /// Occurs when the user requests to view the error report.
@@ -77,7 +78,8 @@ namespace MFR.GUI.Dialogs
         /// data.
         /// </param>
         protected virtual void OnSendErrorReportRequested(
-            SendErrorReportRequestedEventArgs e)
+            SendErrorReportRequestedEventArgs e
+        )
             => SendErrorReportRequested?.Invoke(this, e);
 
         /// <summary>
@@ -138,8 +140,10 @@ namespace MFR.GUI.Dialogs
         /// Doing this allows the caller of this dialog to attach their own custom
         /// event-handling logic.
         /// </remarks>
-        private void OnLinkClickedViewErrorReportLinkLabel(object sender,
-            LinkLabelLinkClickedEventArgs e)
+        private void OnLinkClickedViewErrorReportLinkLabel(
+            object sender,
+            LinkLabelLinkClickedEventArgs e
+        )
             => OnViewErrorReportRequested(
                 new ViewErrorReportRequestedEventArgs(
                     Exception, ErrorReportContents
@@ -157,7 +161,8 @@ namespace MFR.GUI.Dialogs
         /// contains the event data.
         /// </param>
         protected virtual void OnViewErrorReportRequested(
-            ViewErrorReportRequestedEventArgs e)
+            ViewErrorReportRequestedEventArgs e
+        )
             => ViewErrorReportRequested?.Invoke(this, e);
 
         /// <summary>
