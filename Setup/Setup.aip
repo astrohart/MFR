@@ -15,7 +15,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.8996.2047" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.9048.36014" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -302,7 +302,6 @@
     <ROW Component="MFR.TextValues.Retrievers.Interfaces.dll" ComponentId="{4ADB0174-2843-42DD-99F6-C1310078F636}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Interfaces.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.dll" ComponentId="{912974DB-8CF8-4C8B-9FD8-291C7C9C003B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.dll"/>
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{F9CAC1C2-02D0-4801-A107-9DE6208EB9A7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
-    <ROW Component="Microsoft.Bcl.AsyncInterfaces.dll" ComponentId="{71F3963F-DC39-4900-B7A5-DF6AEA9410CE}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Bcl.AsyncInterfaces.dll"/>
     <ROW Component="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" ComponentId="{C66167A7-74C5-40F7-9D3C-646BEBC02EAE}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Component="Microsoft.VisualStudio.Interop.dll" ComponentId="{9D20C065-715F-4948-897B-3FC630F045D5}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Interop.dll"/>
     <ROW Component="Mono.Security.dll" ComponentId="{4BD78467-4473-4062-B607-A2795B2B01D7}" Directory_="APPDIR" Attributes="0" KeyPath="Mono.Security.dll"/>
@@ -318,14 +317,6 @@
     <ROW Component="PostSharp.dll" ComponentId="{702BBDB9-B893-43E0-A096-F0B5370434E9}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.dll"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{BC445822-18B7-4E94-8301-E9F229B2461A}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="Sharpen.dll" ComponentId="{1F2EBC43-EFDE-4D91-ABBD-B9DA9C7A0C47}" Directory_="APPDIR" Attributes="0" KeyPath="Sharpen.dll"/>
-    <ROW Component="System.Buffers.dll" ComponentId="{DBBF889C-FFAC-4C26-A0B4-3062180E813D}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
-    <ROW Component="System.Memory.dll" ComponentId="{63F25117-7548-4887-A5F4-882B9F87E444}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
-    <ROW Component="System.Numerics.Vectors.dll" ComponentId="{0B03D7AE-961D-47C1-BE9F-F18D86B19562}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
-    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{8514FCE8-50AD-4E37-8BA2-F29A88B7386D}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
-    <ROW Component="System.Text.Encodings.Web.dll" ComponentId="{7A0D1405-EFF4-4421-BCF2-20F2BA8AF2E0}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Encodings.Web.dll"/>
-    <ROW Component="System.Text.Json.dll" ComponentId="{6965E468-02A0-43A5-8DA5-6471AA2BCC30}" Directory_="APPDIR" Attributes="0" KeyPath="System.Text.Json.dll"/>
-    <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{2494ABA4-E73E-4EF6-A264-6500F6F3FAFC}" Directory_="APPDIR" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
-    <ROW Component="System.ValueTuple.dll" ComponentId="{3B2F6FF6-F270-4B85-8601-58F180D7AC32}" Directory_="APPDIR" Attributes="0" KeyPath="System.ValueTuple.dll"/>
     <ROW Component="TimeZoneConverter.dll" ComponentId="{AA88DBB6-E0E3-4BB4-81BC-04E449D8A331}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneConverter.dll"/>
     <ROW Component="TimeZoneNames.dll" ComponentId="{77D9400C-E757-4333-B87E-0ECE9E6F99A6}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneNames.dll"/>
     <ROW Component="config.json" ComponentId="{C152E1D4-5DF8-4A3A-BC30-B184E598B670}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
@@ -1222,15 +1213,6 @@
     <ROW File="xyLOGIX.Win32.RecycleBin.Factories.dll.config" Component_="config.json" FileName="XYLO~115.CON|xyLOGIX.Win32.RecycleBin.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Factories.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll" FileName="XYLO~116.DLL|xyLOGIX.Win32.RecycleBin.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Component_="config.json" FileName="XYLO~116.CON|xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Microsoft.Bcl.AsyncInterfaces.dll" FileName="MICROS~3.DLL|Microsoft.Bcl.AsyncInterfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\Microsoft.Bcl.AsyncInterfaces.dll" SelfReg="false"/>
-    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Buffers.dll" SelfReg="false"/>
-    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~2.DLL|System.Memory.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Memory.dll" SelfReg="false"/>
-    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~3.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
-    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~4.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
-    <ROW File="System.Text.Encodings.Web.dll" Component_="System.Text.Encodings.Web.dll" FileName="SYSTEM~5.DLL|System.Text.Encodings.Web.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Text.Encodings.Web.dll" SelfReg="false"/>
-    <ROW File="System.Text.Json.dll" Component_="System.Text.Json.dll" FileName="SYSTEM~6.DLL|System.Text.Json.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Text.Json.dll" SelfReg="false"/>
-    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~7.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
-    <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTEM~8.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.ValueTuple.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1733,15 +1715,6 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="Microsoft.Bcl.AsyncInterfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Text.Encodings.Web.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Text.Json.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.Threading.Tasks.Extensions.dll"/>
-    <ROW Feature_="MainFeature" Component_="System.ValueTuple.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>

@@ -42,6 +42,10 @@ namespace MFR.GUI.Dialogs
             this.reproductionStepsTextBox = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
             this.sendReportButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
             this.dontSendReportButton = new xyLOGIX.UI.Dark.Controls.DarkButton();
+            this.darkLabel1 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
+            this.darkTextBox1 = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.darkTextBox2 = new xyLOGIX.UI.Dark.Controls.DarkTextBox();
+            this.darkLabel2 = new xyLOGIX.UI.Dark.Controls.DarkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.appIconPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +133,6 @@ namespace MFR.GUI.Dialogs
             this.reproductionStepsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
             this.reproductionStepsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.reproductionStepsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.reproductionStepsTextBox.IsDarkTheme = true;
             this.reproductionStepsTextBox.Location = new System.Drawing.Point(21, 235);
             this.reproductionStepsTextBox.Multiline = true;
             this.reproductionStepsTextBox.Name = "reproductionStepsTextBox";
@@ -140,26 +143,72 @@ namespace MFR.GUI.Dialogs
             // 
             // sendReportButton
             // 
+            this.sendReportButton.AcceptBorderColor = System.Drawing.SystemColors.Highlight;
+            this.sendReportButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.sendReportButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.sendReportButton.IsDarkTheme = true;
-            this.sendReportButton.Location = new System.Drawing.Point(390, 379);
+            this.sendReportButton.Location = new System.Drawing.Point(390, 442);
             this.sendReportButton.Name = "sendReportButton";
             this.sendReportButton.Padding = new System.Windows.Forms.Padding(5);
             this.sendReportButton.Size = new System.Drawing.Size(87, 27);
-            this.sendReportButton.TabIndex = 8;
+            this.sendReportButton.TabIndex = 12;
             this.sendReportButton.Text = "&Send report";
             this.sendReportButton.Click += new System.EventHandler(this.OnClickSendReportButton);
             // 
             // dontSendReportButton
             // 
+            this.dontSendReportButton.AcceptBorderColor = System.Drawing.SystemColors.Highlight;
+            this.dontSendReportButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
             this.dontSendReportButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.dontSendReportButton.IsDarkTheme = true;
-            this.dontSendReportButton.Location = new System.Drawing.Point(297, 379);
+            this.dontSendReportButton.Location = new System.Drawing.Point(297, 442);
             this.dontSendReportButton.Name = "dontSendReportButton";
             this.dontSendReportButton.Padding = new System.Windows.Forms.Padding(5);
             this.dontSendReportButton.Size = new System.Drawing.Size(87, 27);
-            this.dontSendReportButton.TabIndex = 7;
+            this.dontSendReportButton.TabIndex = 11;
             this.dontSendReportButton.Text = "&Don\'t send";
+            // 
+            // darkLabel1
+            // 
+            this.darkLabel1.AutoSize = true;
+            this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkLabel1.IsDarkTheme = false;
+            this.darkLabel1.Location = new System.Drawing.Point(21, 376);
+            this.darkLabel1.Name = "darkLabel1";
+            this.darkLabel1.Size = new System.Drawing.Size(42, 15);
+            this.darkLabel1.TabIndex = 7;
+            this.darkLabel1.Text = "&Name:";
+            // 
+            // darkTextBox1
+            // 
+            this.darkTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.darkTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.darkTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkTextBox1.Location = new System.Drawing.Point(69, 374);
+            this.darkTextBox1.Name = "darkTextBox1";
+            this.darkTextBox1.Size = new System.Drawing.Size(405, 23);
+            this.darkTextBox1.TabIndex = 8;
+            // 
+            // darkTextBox2
+            // 
+            this.darkTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
+            this.darkTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.darkTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkTextBox2.Location = new System.Drawing.Point(69, 403);
+            this.darkTextBox2.Name = "darkTextBox2";
+            this.darkTextBox2.Size = new System.Drawing.Size(405, 23);
+            this.darkTextBox2.TabIndex = 10;
+            // 
+            // darkLabel2
+            // 
+            this.darkLabel2.AutoSize = true;
+            this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.darkLabel2.IsDarkTheme = false;
+            this.darkLabel2.Location = new System.Drawing.Point(21, 405);
+            this.darkLabel2.Name = "darkLabel2";
+            this.darkLabel2.Size = new System.Drawing.Size(39, 15);
+            this.darkLabel2.TabIndex = 9;
+            this.darkLabel2.Text = "&Email:";
             // 
             // ErrorReportDialog
             // 
@@ -168,7 +217,11 @@ namespace MFR.GUI.Dialogs
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.CancelButton = this.sendReportButton;
-            this.ClientSize = new System.Drawing.Size(489, 418);
+            this.ClientSize = new System.Drawing.Size(489, 481);
+            this.Controls.Add(this.darkTextBox2);
+            this.Controls.Add(this.darkLabel2);
+            this.Controls.Add(this.darkTextBox1);
+            this.Controls.Add(this.darkLabel1);
             this.Controls.Add(this.dontSendReportButton);
             this.Controls.Add(this.sendReportButton);
             this.Controls.Add(this.reproductionStepsTextBox);
@@ -180,7 +233,6 @@ namespace MFR.GUI.Dialogs
             this.Controls.Add(this.mainInstructionLabel);
             this.Controls.Add(this.appIconPictureBox);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -208,5 +260,9 @@ namespace MFR.GUI.Dialogs
         private xyLOGIX.UI.Dark.Controls.DarkTextBox reproductionStepsTextBox;
         private xyLOGIX.UI.Dark.Controls.DarkButton sendReportButton;
         private xyLOGIX.UI.Dark.Controls.DarkButton dontSendReportButton;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel1;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox darkTextBox1;
+        private xyLOGIX.UI.Dark.Controls.DarkTextBox darkTextBox2;
+        private xyLOGIX.UI.Dark.Controls.DarkLabel darkLabel2;
     }
 }
