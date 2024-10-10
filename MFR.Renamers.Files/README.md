@@ -66,6 +66,7 @@
   - [OnSubfoldersToBeRenamedCounted(e)](#M-MFR-Renamers-Files-FileRenamer-OnSubfoldersToBeRenamedCounted-MFR-Events-FilesOrFoldersCountedEventArgs- 'MFR.Renamers.Files.FileRenamer.OnSubfoldersToBeRenamedCounted(MFR.Events.FilesOrFoldersCountedEventArgs)')
   - [ProcessAll(findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.Predicate{System.String})')
   - [ProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
+  - [ReleaseAllVisualStudioConnections()](#M-MFR-Renamers-Files-FileRenamer-ReleaseAllVisualStudioConnections 'MFR.Renamers.Files.FileRenamer.ReleaseAllVisualStudioConnections')
   - [RenameFileInFolderForEntry(findWhat,replaceWith,entry)](#M-MFR-Renamers-Files-FileRenamer-RenameFileInFolderForEntry-System-String,System-String,MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.RenameFileInFolderForEntry(System.String,System.String,MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [RenameFilesInFolder(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameFilesInFolder-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameFilesInFolder(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSolutionFolders(System.String,System.String,System.String,System.Predicate{System.String})')
@@ -1122,6 +1123,18 @@ method on this object prior to calling this method. |
 , is passed a blank or
 `null`
 string for a value. |
+
+<a name='M-MFR-Renamers-Files-FileRenamer-ReleaseAllVisualStudioConnections'></a>
+### ReleaseAllVisualStudioConnections() `method`
+
+##### Summary
+
+Called to instruct the Windows operating system to release all references to
+the currently-running instances of Visual Studio.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-RenameFileInFolderForEntry-System-String,System-String,MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
 ### RenameFileInFolderForEntry(findWhat,replaceWith,entry) `method`
