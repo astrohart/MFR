@@ -1470,12 +1470,19 @@ namespace MFR.Renamers.Files
                  * settings specified by the user.
                  */
 
-                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .All(
-                                              entry => RenameSubFolderForEntry(
-                                                  findWhat, replaceWith, entry
-                                              )
-                                          );
+                var answers = true;
+
+                foreach (var entry in fileSystemEntries.AsParallel())
+                {
+                    if (AbortRequested) break;
+                    if (entry == null) continue;
+
+                    answers &= RenameSubFolderForEntry(
+                        findWhat, replaceWith, entry
+                    );
+                }
+
+                result = answers;
 
                 /*
                  * Go back over the 'fileSystemEntries' list once more.
@@ -1484,8 +1491,17 @@ namespace MFR.Renamers.Files
                  * erase it from the file system.
                  */
 
-                result = fileSystemEntries.TakeWhile(entry => !AbortRequested)
-                                          .All(CleanupEmptyFileFolder);
+                answers = true;
+
+                foreach (var entry in fileSystemEntries.AsParallel())
+                {
+                    if (AbortRequested) break;
+                    if (entry == null) continue;
+
+                    answers &= CleanupEmptyFileFolder(entry);
+                }
+
+                result &= answers;
 
                 /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
                 result &= !AbortRequested;
