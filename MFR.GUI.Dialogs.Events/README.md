@@ -10,10 +10,13 @@
   - [Culture](#P-MFR-GUI-Dialogs-Events-Properties-Resources-Culture 'MFR.GUI.Dialogs.Events.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Dialogs-Events-Properties-Resources-ResourceManager 'MFR.GUI.Dialogs.Events.Properties.Resources.ResourceManager')
 - [SendErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs')
-  - [#ctor(exception,errorReportContent,reproductionSteps)](#M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#ctor-System-Exception,System-String,System-String- 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.#ctor(System.Exception,System.String,System.String)')
+  - [#ctor(exception,errorReportContent,reproductionSteps,nameOfUser,emailAddressOfUser)](#M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#ctor-System-Exception,System-String,System-String,System-String,System-String- 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.#ctor(System.Exception,System.String,System.String,System.String,System.String)')
+  - [EmailAddressOfUser](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-EmailAddressOfUser 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.EmailAddressOfUser')
   - [ErrorReportContent](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ErrorReportContent 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.ErrorReportContent')
   - [Exception](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-Exception 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.Exception')
+  - [NameOfUser](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-NameOfUser 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.NameOfUser')
   - [ReproductionSteps](#P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ReproductionSteps 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.ReproductionSteps')
+  - [#cctor()](#M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#cctor 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs.#cctor')
 - [SendErrorReportRequestedEventHandler](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventHandler')
 - [ViewErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs')
   - [#ctor(exception,errorReportContent)](#M-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-#ctor-System-Exception,System-String- 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.#ctor(System.Exception,System.String)')
@@ -100,8 +103,8 @@ MFR.GUI.Dialogs.Events
 
 Provides information for SendErrorReportRequested event handlers.
 
-<a name='M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#ctor-System-Exception,System-String,System-String-'></a>
-### #ctor(exception,errorReportContent,reproductionSteps) `constructor`
+<a name='M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#ctor-System-Exception,System-String,System-String,System-String,System-String-'></a>
+### #ctor(exception,errorReportContent,reproductionSteps,nameOfUser,emailAddressOfUser) `constructor`
 
 ##### Summary
 
@@ -117,7 +120,23 @@ returns a reference to it.
 describes the error to be reported. |
 | errorReportContent | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the content of the detailed error report to be
 sent. |
-| reproductionSteps | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the user's report of what was happening that led up to the error. |
+| reproductionSteps | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) String containing the user's report of what was happening that led
+up to the error. |
+| nameOfUser | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the user. |
+| emailAddressOfUser | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the email address of
+the user. |
+
+<a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-EmailAddressOfUser'></a>
+### EmailAddressOfUser `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the email address of the user.
+
+##### Remarks
+
+If the user declines to provide their email address, then the value of
+this property is the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
 
 <a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ErrorReportContent'></a>
 ### ErrorReportContent `property`
@@ -134,12 +153,49 @@ Gets a string that contains the detailed error report that is to be sent.
 Gets a reference to an instance of [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that
 describes the error being reported.
 
+<a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-NameOfUser'></a>
+### NameOfUser `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the user if it has
+been provided.
+
+##### Remarks
+
+If the user declines to share their name, then the value of this property is
+set to the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value.
+
 <a name='P-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-ReproductionSteps'></a>
 ### ReproductionSteps `property`
 
 ##### Summary
 
 Gets a string that contains the user's explanation of what led up to the error.
+
+<a name='M-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[SendErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventHandler'></a>
 ## SendErrorReportRequestedEventHandler `type`

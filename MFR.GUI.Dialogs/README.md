@@ -86,10 +86,13 @@
 - [ErrorReportDialog](#T-MFR-GUI-Dialogs-ErrorReportDialog 'MFR.GUI.Dialogs.ErrorReportDialog')
   - [#ctor()](#M-MFR-GUI-Dialogs-ErrorReportDialog-#ctor 'MFR.GUI.Dialogs.ErrorReportDialog.#ctor')
   - [components](#F-MFR-GUI-Dialogs-ErrorReportDialog-components 'MFR.GUI.Dialogs.ErrorReportDialog.components')
+  - [EmailAddressOfUser](#P-MFR-GUI-Dialogs-ErrorReportDialog-EmailAddressOfUser 'MFR.GUI.Dialogs.ErrorReportDialog.EmailAddressOfUser')
   - [ErrorReportContents](#P-MFR-GUI-Dialogs-ErrorReportDialog-ErrorReportContents 'MFR.GUI.Dialogs.ErrorReportDialog.ErrorReportContents')
   - [Exception](#P-MFR-GUI-Dialogs-ErrorReportDialog-Exception 'MFR.GUI.Dialogs.ErrorReportDialog.Exception')
+  - [NameOfUser](#P-MFR-GUI-Dialogs-ErrorReportDialog-NameOfUser 'MFR.GUI.Dialogs.ErrorReportDialog.NameOfUser')
   - [ReproductionSteps](#P-MFR-GUI-Dialogs-ErrorReportDialog-ReproductionSteps 'MFR.GUI.Dialogs.ErrorReportDialog.ReproductionSteps')
   - [ViewReportLinkLabel](#P-MFR-GUI-Dialogs-ErrorReportDialog-ViewReportLinkLabel 'MFR.GUI.Dialogs.ErrorReportDialog.ViewReportLinkLabel')
+  - [#cctor()](#M-MFR-GUI-Dialogs-ErrorReportDialog-#cctor 'MFR.GUI.Dialogs.ErrorReportDialog.#cctor')
   - [Dispose(disposing)](#M-MFR-GUI-Dialogs-ErrorReportDialog-Dispose-System-Boolean- 'MFR.GUI.Dialogs.ErrorReportDialog.Dispose(System.Boolean)')
   - [InitializeComponent()](#M-MFR-GUI-Dialogs-ErrorReportDialog-InitializeComponent 'MFR.GUI.Dialogs.ErrorReportDialog.InitializeComponent')
   - [OnClickSendReportButton(sender,e)](#M-MFR-GUI-Dialogs-ErrorReportDialog-OnClickSendReportButton-System-Object,System-EventArgs- 'MFR.GUI.Dialogs.ErrorReportDialog.OnClickSendReportButton(System.Object,System.EventArgs)')
@@ -1380,6 +1383,13 @@ This constructor has no parameters.
 
 Required designer variable.
 
+<a name='P-MFR-GUI-Dialogs-ErrorReportDialog-EmailAddressOfUser'></a>
+### EmailAddressOfUser `property`
+
+##### Summary
+
+Gets or sets the value of the text box.
+
 <a name='P-MFR-GUI-Dialogs-ErrorReportDialog-ErrorReportContents'></a>
 ### ErrorReportContents `property`
 
@@ -1396,6 +1406,13 @@ the [Exception](#P-MFR-GUI-Dialogs-ErrorReportDialog-Exception 'MFR.GUI.Dialogs.
 Gets or sets the [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') that describes the error
 that occurred.
 
+<a name='P-MFR-GUI-Dialogs-ErrorReportDialog-NameOfUser'></a>
+### NameOfUser `property`
+
+##### Summary
+
+Gets or sets the value of the text box.
+
 <a name='P-MFR-GUI-Dialogs-ErrorReportDialog-ReproductionSteps'></a>
 ### ReproductionSteps `property`
 
@@ -1409,6 +1426,28 @@ Gets or sets the value of the text box.
 ##### Summary
 
 Gets a reference to the View Report link-label control.
+
+<a name='M-MFR-GUI-Dialogs-ErrorReportDialog-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [ErrorReportDialog](#T-MFR-GUI-Dialogs-ErrorReportDialog 'MFR.GUI.Dialogs.ErrorReportDialog') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-GUI-Dialogs-ErrorReportDialog-Dispose-System-Boolean-'></a>
 ### Dispose(disposing) `method`

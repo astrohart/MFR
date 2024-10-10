@@ -1787,6 +1787,32 @@ namespace MFR.Renamers.Files
             return this;
         }
 
+        /// <summary>
+        /// Attempts to remove an empty file folder (usually the result of a rename)
+        /// referred to by the specified file system <paramref name="entry" />.
+        /// </summary>
+        /// <param name="entry">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface and which
+        /// refers to a (presumably) empty file folder.
+        /// </param>
+        /// <remarks>
+        /// If a <see langword="null" /> reference is passed as the argument of
+        /// the <paramref name="entry" /> parameter, then this method returns
+        /// <see langword="false" />, but otherwise, does nothing.
+        /// <para />
+        /// This method also does nothing if the folder that is referred to by the
+        /// specified file system <paramref name="entry" /> is not empty.
+        /// <para />
+        /// Finally, nothing is done by this method if the specified file system
+        /// <paramref name="entry" /> either: (a) does not refer to a folder that exists on
+        /// the file system; or (b) refers to a file and not a folder.
+        /// </remarks>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise, or if the operation isn't applicable to the
+        /// specified file system <paramref name="entry" />.
+        /// </returns>
         private bool CleanupEmptyFileFolder(IFileSystemEntry entry)
         {
             var result = false;
@@ -1945,7 +1971,10 @@ namespace MFR.Renamers.Files
                 result = false;
             }
 
-            DebugUtils.WriteLine(DebugLevel.Debug, $"FileRenamer.CleanupEmptyFileFolder: Result = {result}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.CleanupEmptyFileFolder: Result = {result}"
+            );
 
             return result;
         }

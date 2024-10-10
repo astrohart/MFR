@@ -15,7 +15,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.9048.36014" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.9049.31005" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -51,6 +51,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{92D35799-C95D-433D-AEC4-6AC96074DB4C}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="AlphaFS.dll" ComponentId="{8CC0AA30-241E-4596-A447-436A34A520B4}" Directory_="APPDIR" Attributes="0" KeyPath="AlphaFS.dll"/>
+    <ROW Component="BouncyCastle.Cryptography.dll" ComponentId="{8C9ABAF5-E848-4F3E-8EDD-CE7A39D4371E}" Directory_="APPDIR" Attributes="0" KeyPath="BouncyCastle.Cryptography.dll"/>
     <ROW Component="FluentCommandLineParser.dll" ComponentId="{31C6A0D9-BB46-44A6-9649-60BE787756DD}" Directory_="APPDIR" Attributes="0" KeyPath="FluentCommandLineParser.dll"/>
     <ROW Component="ICSharpCode.SharpZipLib.dll" ComponentId="{B9686A42-378A-4AC8-9943-5ADDB90E8B87}" Directory_="APPDIR" Attributes="0" KeyPath="ICSharpCode.SharpZipLib.dll"/>
     <ROW Component="Ignore.dll" ComponentId="{334FAF39-EC01-4A2E-9986-F7D4C744D3FF}" Directory_="APPDIR" Attributes="0" KeyPath="Ignore.dll"/>
@@ -302,8 +303,10 @@
     <ROW Component="MFR.TextValues.Retrievers.Interfaces.dll" ComponentId="{4ADB0174-2843-42DD-99F6-C1310078F636}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.Interfaces.dll"/>
     <ROW Component="MFR.TextValues.Retrievers.dll" ComponentId="{912974DB-8CF8-4C8B-9FD8-291C7C9C003B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.TextValues.Retrievers.dll"/>
     <ROW Component="MFR.Validators.Interfaces.dll" ComponentId="{F9CAC1C2-02D0-4801-A107-9DE6208EB9A7}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.Validators.Interfaces.dll"/>
+    <ROW Component="MailKit.dll" ComponentId="{43178A80-B2ED-490B-AC04-EC5B28E440CF}" Directory_="APPDIR" Attributes="0" KeyPath="MailKit.dll"/>
     <ROW Component="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll" ComponentId="{C66167A7-74C5-40F7-9D3C-646BEBC02EAE}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll"/>
     <ROW Component="Microsoft.VisualStudio.Interop.dll" ComponentId="{9D20C065-715F-4948-897B-3FC630F045D5}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Interop.dll"/>
+    <ROW Component="MimeKit.dll" ComponentId="{F7E6CA18-63A5-4A4F-99AC-7711DF7E23F1}" Directory_="APPDIR" Attributes="0" KeyPath="MimeKit.dll"/>
     <ROW Component="Mono.Security.dll" ComponentId="{4BD78467-4473-4062-B607-A2795B2B01D7}" Directory_="APPDIR" Attributes="0" KeyPath="Mono.Security.dll"/>
     <ROW Component="NGit.dll" ComponentId="{D9CB6B05-8E0E-4289-9D91-008D20E4F042}" Directory_="APPDIR" Attributes="0" KeyPath="NGit.dll"/>
     <ROW Component="NSch.dll" ComponentId="{6720FBEE-E796-48E4-A758-204E8C438464}" Directory_="APPDIR" Attributes="0" KeyPath="NSch.dll"/>
@@ -317,6 +320,13 @@
     <ROW Component="PostSharp.dll" ComponentId="{702BBDB9-B893-43E0-A096-F0B5370434E9}" Directory_="APPDIR" Attributes="0" KeyPath="PostSharp.dll"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{BC445822-18B7-4E94-8301-E9F229B2461A}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="Sharpen.dll" ComponentId="{1F2EBC43-EFDE-4D91-ABBD-B9DA9C7A0C47}" Directory_="APPDIR" Attributes="0" KeyPath="Sharpen.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{7160826E-529B-4F40-8B5B-05E9757001D1}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Formats.Asn1.dll" ComponentId="{6D48695E-5722-414A-9724-C5D7A8AF7259}" Directory_="APPDIR" Attributes="0" KeyPath="System.Formats.Asn1.dll"/>
+    <ROW Component="System.Memory.dll" ComponentId="{00E60928-C538-48EF-AE2B-ECC1331E00A2}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Numerics.Vectors.dll" ComponentId="{9E9E3675-7BC9-4BAB-9496-AD020033BF6A}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{9AA30AB0-7906-45DD-AB70-5A1D424A873D}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Component="System.Threading.Tasks.Extensions.dll" ComponentId="{CCE148DA-9AD6-44C0-A17E-3573C6750DA1}" Directory_="APPDIR" Attributes="0" KeyPath="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Component="System.ValueTuple.dll" ComponentId="{C503395C-9610-43C3-819D-98F26C4CBD8F}" Directory_="APPDIR" Attributes="0" KeyPath="System.ValueTuple.dll"/>
     <ROW Component="TimeZoneConverter.dll" ComponentId="{AA88DBB6-E0E3-4BB4-81BC-04E449D8A331}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneConverter.dll"/>
     <ROW Component="TimeZoneNames.dll" ComponentId="{77D9400C-E757-4333-B87E-0ECE9E6F99A6}" Directory_="APPDIR" Attributes="0" KeyPath="TimeZoneNames.dll"/>
     <ROW Component="config.json" ComponentId="{C152E1D4-5DF8-4A3A-BC30-B184E598B670}" Directory_="APPDIR" Attributes="0" KeyPath="config.json" Type="0"/>
@@ -378,6 +388,17 @@
     <ROW Component="xyLOGIX.Interop.Processes.RunningObj_1_ects.Tables.Factories.dll" ComponentId="{7FE24B6A-177B-4C3A-9D19-D721340DC816}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.Tables.Factories.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll" ComponentId="{D7AAEF9E-92BA-4158-9D06-0A9C838E1F75}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.dll" ComponentId="{779A5906-2D03-4F95-8FB8-84155DDC3B02}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Accounts.Factories.dll" ComponentId="{FAA73678-F035-4DBE-B622-0D4F61928F1F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Accounts.Factories.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll" ComponentId="{F4FE1C73-681B-44F0-9FF2-3222E693A172}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Accounts.dll" ComponentId="{D1F46B79-73AD-4D80-BFB2-C28B8807F317}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Accounts.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Actions.dll" ComponentId="{6238BEF4-E191-4918-8168-2B3501F92B1B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Actions.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Factories.dll" ComponentId="{4E1830EE-858A-4D95-8787-DC097FD6785F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Factories.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Interfaces.dll" ComponentId="{1BEF8353-701E-4F07-A989-5DDE77D1F9A6}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Jobs.Factories.dll" ComponentId="{56B8F7B7-317E-43EC-9619-979D0B498D72}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Jobs.Factories.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll" ComponentId="{6AE66E19-84E5-43C8-8909-F7C250608171}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Jobs.dll" ComponentId="{78823B73-9E44-4188-BE9E-E861C4D6B984}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Jobs.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.Messages.Factories.dll" ComponentId="{035562CA-5474-40C3-829A-6AC71BDC61F0}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Messages.Factories.dll"/>
+    <ROW Component="xyLOGIX.Mail.Smtp.dll" ComponentId="{10812D3E-863D-4A27-87C3-9018C0EB602A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.dll"/>
     <ROW Component="xyLOGIX.Parsers.Versions.Factories.dll" ComponentId="{C6C2E86C-FE70-4140-B94C-6C379F50BF5C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Parsers.Versions.Factories.dll"/>
     <ROW Component="xyLOGIX.Parsers.Versions.Interfaces.dll" ComponentId="{7230BEDD-299F-4410-BA37-10E9B04D0B69}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Parsers.Versions.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Parsers.Versions.dll" ComponentId="{DED37F4A-14B3-4569-ABC4-780FD307F631}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Parsers.Versions.dll"/>
@@ -397,6 +418,16 @@
     <ROW Component="xyLOGIX.Queues.Messages.Mappings.dll" ComponentId="{ACF65D19-4B27-407E-9F66-63FC4105554D}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.Mappings.dll"/>
     <ROW Component="xyLOGIX.Queues.Messages.Senders.dll" ComponentId="{E635F0BD-D6BC-440A-83F3-3D9144F2CF0C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.Senders.dll"/>
     <ROW Component="xyLOGIX.Queues.Messages.dll" ComponentId="{2893A8D5-5EAE-40A2-83C0-EBEF31F6E7DA}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Queues.Messages.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Actions.dll" ComponentId="{8366E463-D912-413B-ADD4-C3527FBDBE4B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Actions.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Constants.dll" ComponentId="{A019C789-953A-4A68-8F47-18ED48F281F6}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Constants.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Controls.dll" ComponentId="{77E25ED9-EA17-4AB1-977D-B86C00C9C64C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Controls.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Extensions.dll" ComponentId="{DF426CEB-BD25-4FE4-8699-DF7B2096EA5A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Extensions.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Factories.dll" ComponentId="{6F4F30EC-BEED-45E9-A4C8-6DFB9B4C9B5F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Factories.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Interfaces.dll" ComponentId="{BD4FE971-A2B5-4E41-9922-41A9799AED25}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Validators.Factories.dll" ComponentId="{4BFE7A9F-B0C4-4458-B0BD-DF9F31AFB335}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Validators.Factories.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll" ComponentId="{93A69F61-1CB0-4823-8643-64F6BE7F16CB}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.Validators.dll" ComponentId="{B9159BCF-1CEB-4112-8420-84E214672EB0}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.Validators.dll"/>
+    <ROW Component="xyLOGIX.Reporters.Crashes.dll" ComponentId="{69CABD20-5E61-4F89-8462-724C087EA6CD}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Reporters.Crashes.dll"/>
     <ROW Component="xyLOGIX.Text.Actions.dll" ComponentId="{4E8B1CEC-1CC3-4CF3-9252-5EDDF6B5AF28}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Text.Actions.dll"/>
     <ROW Component="xyLOGIX.TimeZoneInfo.Extensions.dll" ComponentId="{C11D73FE-3645-458A-8A1B-D8DDC50C3E2F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.TimeZoneInfo.Extensions.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Collections.Events.dll" ComponentId="{E879F624-496D-481F-9DC0-E67EFF74A272}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Collections.Events.dll"/>
@@ -421,6 +452,8 @@
     <ROW Component="xyLOGIX.UI.Dark.Forms.dll" ComponentId="{BAC73837-AE87-4BD4-B4C1-A2200C3046E8}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Forms.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Win32.Constants.dll" ComponentId="{D98679CB-9C29-4CBB-9782-4B3B8FC4A468}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Win32.Constants.dll"/>
     <ROW Component="xyLOGIX.UI.Dark.Win32.dll" ComponentId="{5B962BA2-F92F-4703-B486-90D2F50D5518}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.UI.Dark.Win32.dll"/>
+    <ROW Component="xyLOGIX.Validators.Events.dll" ComponentId="{67A1C139-8C0C-4F0F-B322-79BB1C667F23}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Validators.Events.dll"/>
+    <ROW Component="xyLOGIX.Validators.Interfaces.dll" ComponentId="{606CD696-BE6B-451F-BE91-F62B0EEC2F51}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Validators.Interfaces.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Actions.dll" ComponentId="{3AB13526-C653-436B-A4B2-7650BB887D09}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Actions.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Constants.dll" ComponentId="{1A21F99C-7FA6-4C83-A49A-DE33621E28D4}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Constants.dll"/>
     <ROW Component="xyLOGIX.VisualStudio.Instances.Factories.dll" ComponentId="{30727822-AC40-4CFB-B20A-025989B1AD18}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.VisualStudio.Instances.Factories.dll"/>
@@ -1213,6 +1246,64 @@
     <ROW File="xyLOGIX.Win32.RecycleBin.Factories.dll.config" Component_="config.json" FileName="XYLO~115.CON|xyLOGIX.Win32.RecycleBin.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Factories.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll" FileName="XYLO~116.DLL|xyLOGIX.Win32.RecycleBin.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Component_="config.json" FileName="XYLO~116.CON|xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="BouncyCastle.Cryptography.dll" Component_="BouncyCastle.Cryptography.dll" FileName="BOUNCY~1.DLL|BouncyCastle.Cryptography.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\BouncyCastle.Cryptography.dll" SelfReg="false"/>
+    <ROW File="MailKit.dll" Component_="MailKit.dll" FileName="MailKit.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MailKit.dll" SelfReg="false"/>
+    <ROW File="MailKit.dll.config" Component_="config.json" FileName="MAILKI~1.CON|MailKit.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MailKit.dll.config" SelfReg="false"/>
+    <ROW File="MimeKit.dll" Component_="MimeKit.dll" FileName="MimeKit.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MimeKit.dll" SelfReg="false"/>
+    <ROW File="MimeKit.dll.config" Component_="config.json" FileName="MIMEKI~1.CON|MimeKit.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MimeKit.dll.config" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.Formats.Asn1.dll" Component_="System.Formats.Asn1.dll" FileName="SYSTEM~2.DLL|System.Formats.Asn1.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Formats.Asn1.dll" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~3.DLL|System.Memory.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~4.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~5.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="System.Threading.Tasks.Extensions.dll" FileName="SYSTEM~6.DLL|System.Threading.Tasks.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.Threading.Tasks.Extensions.dll" SelfReg="false"/>
+    <ROW File="System.ValueTuple.dll" Component_="System.ValueTuple.dll" FileName="SYSTEM~7.DLL|System.ValueTuple.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\System.ValueTuple.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Accounts.dll" Component_="xyLOGIX.Mail.Smtp.Accounts.dll" FileName="XYLOG~78.DLL|xyLOGIX.Mail.Smtp.Accounts.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Accounts.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Accounts.dll.config" Component_="config.json" FileName="XYLOG~78.CON|xyLOGIX.Mail.Smtp.Accounts.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Accounts.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Accounts.Factories.dll" Component_="xyLOGIX.Mail.Smtp.Accounts.Factories.dll" FileName="XYLOG~80.DLL|xyLOGIX.Mail.Smtp.Accounts.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Accounts.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Accounts.Factories.dll.config" Component_="config.json" FileName="XYLOG~80.CON|xyLOGIX.Mail.Smtp.Accounts.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Accounts.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll" Component_="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll" FileName="XYLO~117.DLL|xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll.config" Component_="config.json" FileName="XYLO~117.CON|xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Actions.dll" Component_="xyLOGIX.Mail.Smtp.Actions.dll" FileName="XYLO~118.DLL|xyLOGIX.Mail.Smtp.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Actions.dll.config" Component_="config.json" FileName="XYLO~118.CON|xyLOGIX.Mail.Smtp.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Actions.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.dll" Component_="xyLOGIX.Mail.Smtp.dll" FileName="XYLO~119.DLL|xyLOGIX.Mail.Smtp.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.dll.config" Component_="config.json" FileName="XYLO~119.CON|xyLOGIX.Mail.Smtp.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Factories.dll" Component_="xyLOGIX.Mail.Smtp.Factories.dll" FileName="XYLO~120.DLL|xyLOGIX.Mail.Smtp.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Factories.dll.config" Component_="config.json" FileName="XYLO~120.CON|xyLOGIX.Mail.Smtp.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Interfaces.dll" Component_="xyLOGIX.Mail.Smtp.Interfaces.dll" FileName="XYLO~121.DLL|xyLOGIX.Mail.Smtp.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Interfaces.dll.config" Component_="config.json" FileName="XYLO~121.CON|xyLOGIX.Mail.Smtp.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Jobs.dll" Component_="xyLOGIX.Mail.Smtp.Jobs.dll" FileName="XYLO~122.DLL|xyLOGIX.Mail.Smtp.Jobs.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Jobs.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Jobs.dll.config" Component_="config.json" FileName="XYLO~122.CON|xyLOGIX.Mail.Smtp.Jobs.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Jobs.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Jobs.Factories.dll" Component_="xyLOGIX.Mail.Smtp.Jobs.Factories.dll" FileName="XYLO~123.DLL|xyLOGIX.Mail.Smtp.Jobs.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Jobs.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Jobs.Factories.dll.config" Component_="config.json" FileName="XYLO~123.CON|xyLOGIX.Mail.Smtp.Jobs.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Jobs.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll" Component_="xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll" FileName="XYLO~124.DLL|xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll.config" Component_="config.json" FileName="XYLO~124.CON|xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Messages.Factories.dll" Component_="xyLOGIX.Mail.Smtp.Messages.Factories.dll" FileName="XYLO~125.DLL|xyLOGIX.Mail.Smtp.Messages.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Messages.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Mail.Smtp.Messages.Factories.dll.config" Component_="config.json" FileName="XYLO~125.CON|xyLOGIX.Mail.Smtp.Messages.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Mail.Smtp.Messages.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Actions.dll" Component_="xyLOGIX.Reporters.Crashes.Actions.dll" FileName="XYLO~126.DLL|xyLOGIX.Reporters.Crashes.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Actions.dll.config" Component_="config.json" FileName="XYLO~126.CON|xyLOGIX.Reporters.Crashes.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Actions.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Constants.dll" Component_="xyLOGIX.Reporters.Crashes.Constants.dll" FileName="XYLO~127.DLL|xyLOGIX.Reporters.Crashes.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Constants.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Constants.dll.config" Component_="config.json" FileName="XYLO~127.CON|xyLOGIX.Reporters.Crashes.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Constants.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Controls.dll" Component_="xyLOGIX.Reporters.Crashes.Controls.dll" FileName="XYLO~128.DLL|xyLOGIX.Reporters.Crashes.Controls.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Controls.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Controls.dll.config" Component_="config.json" FileName="XYLO~128.CON|xyLOGIX.Reporters.Crashes.Controls.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Controls.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.dll" Component_="xyLOGIX.Reporters.Crashes.dll" FileName="XYLO~129.DLL|xyLOGIX.Reporters.Crashes.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.dll.config" Component_="config.json" FileName="XYLO~129.CON|xyLOGIX.Reporters.Crashes.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Extensions.dll" Component_="xyLOGIX.Reporters.Crashes.Extensions.dll" FileName="XYLO~130.DLL|xyLOGIX.Reporters.Crashes.Extensions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Extensions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Extensions.dll.config" Component_="config.json" FileName="XYLO~130.CON|xyLOGIX.Reporters.Crashes.Extensions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Extensions.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Factories.dll" Component_="xyLOGIX.Reporters.Crashes.Factories.dll" FileName="XYLO~131.DLL|xyLOGIX.Reporters.Crashes.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Factories.dll.config" Component_="config.json" FileName="XYLO~131.CON|xyLOGIX.Reporters.Crashes.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Interfaces.dll" Component_="xyLOGIX.Reporters.Crashes.Interfaces.dll" FileName="XYLO~132.DLL|xyLOGIX.Reporters.Crashes.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Interfaces.dll.config" Component_="config.json" FileName="XYLO~132.CON|xyLOGIX.Reporters.Crashes.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Validators.dll" Component_="xyLOGIX.Reporters.Crashes.Validators.dll" FileName="XYLO~133.DLL|xyLOGIX.Reporters.Crashes.Validators.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Validators.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Validators.dll.config" Component_="config.json" FileName="XYLO~133.CON|xyLOGIX.Reporters.Crashes.Validators.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Validators.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Validators.Factories.dll" Component_="xyLOGIX.Reporters.Crashes.Validators.Factories.dll" FileName="XYLO~134.DLL|xyLOGIX.Reporters.Crashes.Validators.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Validators.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Validators.Factories.dll.config" Component_="config.json" FileName="XYLO~134.CON|xyLOGIX.Reporters.Crashes.Validators.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Validators.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll" Component_="xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll" FileName="XYLO~135.DLL|xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll.config" Component_="config.json" FileName="XYLO~135.CON|xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Validators.Events.dll" Component_="xyLOGIX.Validators.Events.dll" FileName="XYLO~136.DLL|xyLOGIX.Validators.Events.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Validators.Events.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Validators.Events.dll.config" Component_="config.json" FileName="XYLO~136.CON|xyLOGIX.Validators.Events.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Validators.Events.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Validators.Interfaces.dll" Component_="xyLOGIX.Validators.Interfaces.dll" FileName="XYLO~137.DLL|xyLOGIX.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Validators.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Validators.Interfaces.dll.config" Component_="config.json" FileName="XYLO~137.CON|xyLOGIX.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Validators.Interfaces.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1715,6 +1806,39 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="BouncyCastle.Cryptography.dll"/>
+    <ROW Feature_="MainFeature" Component_="MailKit.dll"/>
+    <ROW Feature_="MainFeature" Component_="MimeKit.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Formats.Asn1.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.ValueTuple.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Accounts.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Accounts.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Actions.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Jobs.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Jobs.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Jobs.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Messages.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Actions.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Constants.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Controls.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Extensions.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Validators.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Validators.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Reporters.Crashes.Validators.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Validators.Events.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Validators.Interfaces.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>

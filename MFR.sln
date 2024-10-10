@@ -1070,6 +1070,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes", "..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes\xyLOGIX.Reporters.Crashes.csproj", "{21F9F4A8-F77C-4F69-BD61-1FE6DFAF48C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes.Validators.Interfaces", "..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes.Validators.Interfaces\xyLOGIX.Reporters.Crashes.Validators.Interfaces.csproj", "{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes.Validators.Factories", "..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes.Validators.Factories\xyLOGIX.Reporters.Crashes.Validators.Factories.csproj", "{CA4250CD-BE28-45CE-9185-41A71D89E1BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes.Validators", "..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes.Validators\xyLOGIX.Reporters.Crashes.Validators.csproj", "{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes.Extensions", "..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes.Extensions\xyLOGIX.Reporters.Crashes.Extensions.csproj", "{3D088415-B42B-4017-A41C-9BC4EBC6A60F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Reporters.Crashes.Constants", "..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes.Constants\xyLOGIX.Reporters.Crashes.Constants.csproj", "{96671F63-04C4-4CC5-B558-C45514FBFF63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -9530,6 +9540,86 @@ Global
 		{21F9F4A8-F77C-4F69-BD61-1FE6DFAF48C2}.Release|x64.Build.0 = Release|x64
 		{21F9F4A8-F77C-4F69-BD61-1FE6DFAF48C2}.Release|x86.ActiveCfg = Release|x86
 		{21F9F4A8-F77C-4F69-BD61-1FE6DFAF48C2}.Release|x86.Build.0 = Release|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.All|x64.ActiveCfg = Debug|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.All|x64.Build.0 = Debug|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.All|x86.ActiveCfg = Debug|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.All|x86.Build.0 = Debug|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Debug|x64.ActiveCfg = Debug|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Debug|x64.Build.0 = Debug|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Debug|x86.ActiveCfg = Debug|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Debug|x86.Build.0 = Debug|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.DefaultBuild|x64.Build.0 = Debug|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.DefaultBuild|x86.Build.0 = Debug|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Release|x64.ActiveCfg = Release|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Release|x64.Build.0 = Release|x64
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Release|x86.ActiveCfg = Release|x86
+		{58B56B25-6EF4-4BF5-AE82-F2590B2B45C7}.Release|x86.Build.0 = Release|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.All|x64.ActiveCfg = Debug|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.All|x64.Build.0 = Debug|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.All|x86.ActiveCfg = Debug|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.All|x86.Build.0 = Debug|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Debug|x64.ActiveCfg = Debug|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Debug|x64.Build.0 = Debug|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Debug|x86.ActiveCfg = Debug|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Debug|x86.Build.0 = Debug|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.DefaultBuild|x64.Build.0 = Debug|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.DefaultBuild|x86.Build.0 = Debug|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Release|x64.ActiveCfg = Release|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Release|x64.Build.0 = Release|x64
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Release|x86.ActiveCfg = Release|x86
+		{CA4250CD-BE28-45CE-9185-41A71D89E1BE}.Release|x86.Build.0 = Release|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.All|x64.ActiveCfg = Debug|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.All|x64.Build.0 = Debug|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.All|x86.ActiveCfg = Debug|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.All|x86.Build.0 = Debug|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Debug|x64.ActiveCfg = Debug|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Debug|x64.Build.0 = Debug|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Debug|x86.ActiveCfg = Debug|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Debug|x86.Build.0 = Debug|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.DefaultBuild|x64.Build.0 = Debug|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.DefaultBuild|x86.Build.0 = Debug|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Release|x64.ActiveCfg = Release|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Release|x64.Build.0 = Release|x64
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Release|x86.ActiveCfg = Release|x86
+		{D434D38A-C8AC-45D3-9256-0B2B0862EA0B}.Release|x86.Build.0 = Release|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.All|x64.ActiveCfg = Debug|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.All|x64.Build.0 = Debug|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.All|x86.ActiveCfg = Debug|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.All|x86.Build.0 = Debug|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Debug|x64.ActiveCfg = Debug|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Debug|x64.Build.0 = Debug|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Debug|x86.ActiveCfg = Debug|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Debug|x86.Build.0 = Debug|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.DefaultBuild|x64.Build.0 = Debug|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.DefaultBuild|x86.Build.0 = Debug|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Release|x64.ActiveCfg = Release|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Release|x64.Build.0 = Release|x64
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Release|x86.ActiveCfg = Release|x86
+		{3D088415-B42B-4017-A41C-9BC4EBC6A60F}.Release|x86.Build.0 = Release|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.All|x64.ActiveCfg = Debug|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.All|x64.Build.0 = Debug|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.All|x86.ActiveCfg = Debug|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.All|x86.Build.0 = Debug|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Debug|x64.ActiveCfg = Debug|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Debug|x64.Build.0 = Debug|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Debug|x86.ActiveCfg = Debug|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Debug|x86.Build.0 = Debug|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.DefaultBuild|x64.ActiveCfg = Debug|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.DefaultBuild|x64.Build.0 = Debug|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.DefaultBuild|x86.Build.0 = Debug|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Release|x64.ActiveCfg = Release|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Release|x64.Build.0 = Release|x64
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Release|x86.ActiveCfg = Release|x86
+		{96671F63-04C4-4CC5-B558-C45514FBFF63}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,6 +8,7 @@
   - [#ctor(description,messageId)](#M-MFR-Errors-Reports-Commands-Constants-ErrorReportCommandType-#ctor-System-Guid,System-String- 'MFR.Errors.Reports.Commands.Constants.ErrorReportCommandType.#ctor(System.Guid,System.String)')
   - [SendErrorReport](#F-MFR-Errors-Reports-Commands-Constants-ErrorReportCommandType-SendErrorReport 'MFR.Errors.Reports.Commands.Constants.ErrorReportCommandType.SendErrorReport')
   - [ViewErrorReportWithNotepad](#F-MFR-Errors-Reports-Commands-Constants-ErrorReportCommandType-ViewErrorReportWithNotepad 'MFR.Errors.Reports.Commands.Constants.ErrorReportCommandType.ViewErrorReportWithNotepad')
+  - [#cctor()](#M-MFR-Errors-Reports-Commands-Constants-ErrorReportCommandType-#cctor 'MFR.Errors.Reports.Commands.Constants.ErrorReportCommandType.#cctor')
 - [Resources](#T-MFR-Errors-Reports-Commands-Constants-Properties-Resources 'MFR.Errors.Reports.Commands.Constants.Properties.Resources')
   - [Culture](#P-MFR-Errors-Reports-Commands-Constants-Properties-Resources-Culture 'MFR.Errors.Reports.Commands.Constants.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Errors-Reports-Commands-Constants-Properties-Resources-ResourceManager 'MFR.Errors.Reports.Commands.Constants.Properties.Resources.ResourceManager')
@@ -72,6 +73,30 @@ Sends an error report.
 ##### Summary
 
 Views the error report requested using Notepad.
+
+<a name='M-MFR-Errors-Reports-Commands-Constants-ErrorReportCommandType-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[ErrorReportCommandType](#T-MFR-Errors-Reports-Commands-Constants-ErrorReportCommandType 'MFR.Errors.Reports.Commands.Constants.ErrorReportCommandType')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='T-MFR-Errors-Reports-Commands-Constants-Properties-Resources'></a>
 ## Resources `type`
