@@ -241,6 +241,22 @@
       <Project>{0f60daa3-bfe7-4ad1-a84b-d885a46f6269}</Project>
       <Name>xyLOGIX.Win32.RecycleBin.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Constants\xyLOGIX.Win32.RecycleBin.Constants.csproj">
+      <Project>{d95c31a5-464b-47ca-9437-5c6d9da7186b}</Project>
+      <Name>xyLOGIX.Win32.RecycleBin.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Factories\xyLOGIX.Win32.RecycleBin.Factories.csproj">
+      <Project>{b4e71227-0873-4700-86ec-02e37658ccc8}</Project>
+      <Name>xyLOGIX.Win32.RecycleBin.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Interfaces\xyLOGIX.Win32.RecycleBin.Interfaces.csproj">
+      <Project>{d1e28c91-f302-44de-9cd3-c4ac1c4bf5e8}</Project>
+      <Name>xyLOGIX.Win32.RecycleBin.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin\xyLOGIX.Win32.RecycleBin.csproj">
+      <Project>{efa04a13-ba9a-4baf-ace2-7fa5568abf34}</Project>
+      <Name>xyLOGIX.Win32.RecycleBin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
       <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
       <Name>MFR.Directories.Managers.Factories</Name>
