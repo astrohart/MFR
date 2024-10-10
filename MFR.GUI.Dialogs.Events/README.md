@@ -19,6 +19,7 @@
   - [#ctor(exception,errorReportContent)](#M-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-#ctor-System-Exception,System-String- 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.#ctor(System.Exception,System.String)')
   - [ErrorReportContent](#P-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-ErrorReportContent 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.ErrorReportContent')
   - [Exception](#P-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-Exception 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.Exception')
+  - [#cctor()](#M-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-#cctor 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs.#cctor')
 - [ViewErrorReportRequestedEventHandler](#T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventHandler')
 
 <a name='T-MFR-GUI-Dialogs-Events-ModifiedEventArgs'></a>
@@ -203,6 +204,30 @@ Gets a string that contains the detailed error report that is to be sent.
 
 Gets a reference to the [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') instance that
 describes the error that occurred.
+
+<a name='M-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[ViewErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='T-MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventHandler'></a>
 ## ViewErrorReportRequestedEventHandler `type`
