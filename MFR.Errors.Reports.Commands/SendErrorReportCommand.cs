@@ -1,6 +1,5 @@
 using MFR.Errors.Reports.Commands.Constants;
-using MFR.FileSystem.Factories;
-using MFR.FileSystem.Helpers;
+using MFR.GUI.Actions;
 using MFR.GUI.Dialogs.Events;
 using MFR.Messages.Commands;
 using MFR.Messages.Constants;
@@ -8,6 +7,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Reporters.Crashes.Actions;
 
 namespace MFR.Errors.Reports.Commands
 {
@@ -64,24 +64,16 @@ namespace MFR.Errors.Reports.Commands
                 if (Input == null)
                     throw new ArgumentNullException(nameof(Input));
 
+                if (string.IsNullOrWhiteSpace(Input.NameOfUser)) return;
+                if (string.IsNullOrWhiteSpace(Input.EmailAddressOfUser)) return;
+                if (string.IsNullOrWhiteSpace(Input.ReproductionSteps)) return;
                 if (string.IsNullOrWhiteSpace(Input.ErrorReportContent)) return;
 
-                // STEP 1: Dump the error report to a temp file (in .txt format)
-                var newTempFilePath =
-                    DumpText.ToTempFile(Input.ErrorReportContent);
-
-                // STEP 2: Check to ensure the operation succeeded
-                if (string.IsNullOrWhiteSpace(newTempFilePath)) return;
-
-                var resultantFile = MakeNewFileInfo.ForPath(newTempFilePath);
-
-                if (!resultantFile.Exists || resultantFile.Length == 0 ||
-                    resultantFile.Length != Input.ErrorReportContent.Length)
-                    return;
-
-                // STEP 3: If we are here, then call Notepad on the file to display the error report.
-
-                Process.Start("notepad.exe", newTempFilePath);
+                Send.ErrorReport(
+                    Input.Exception, Get.ApplicationProductName(),
+                    Get.LogFilePath(), Input.ReproductionSteps,
+                    Input.NameOfUser, Input.EmailAddressOfUser
+                );
             }
             catch (Exception ex)
             {

@@ -116,6 +116,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -150,6 +151,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Reporters.Crashes.VS2022\xyLOGIX.Reporters.Crashes.Actions\xyLOGIX.Reporters.Crashes.Actions.csproj">
+      <Project>{C7A76C36-FD0D-46AB-B76C-8DCD4F7FE34A}</Project>
+      <Name>xyLOGIX.Reporters.Crashes.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Errors.Reports.Commands.Constants\MFR.Errors.Reports.Commands.Constants.csproj">
       <Project>{12421A60-E923-47AB-84B5-B8D556594C7A}</Project>
       <Name>MFR.Errors.Reports.Commands.Constants</Name>
@@ -161,6 +166,10 @@
     <ProjectReference Include="..\MFR.FileSystem.Helpers\MFR.FileSystem.Helpers.csproj">
       <Project>{3BA0881C-C316-47B4-A8F2-CEB7D37D5049}</Project>
       <Name>MFR.FileSystem.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Actions\MFR.GUI.Actions.csproj">
+      <Project>{277317D8-CB95-448A-BE52-92A27942FA68}</Project>
+      <Name>MFR.GUI.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Dialogs.Events\MFR.GUI.Dialogs.Events.csproj">
       <Project>{E649D3D2-945D-4AAC-81E6-BDE1278A0B56}</Project>

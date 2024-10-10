@@ -1,12 +1,13 @@
-using Alphaleonis.Win32.Filesystem;
 using MFR.Common;
+using MFR.GUI.Actions;
 using MFR.GUI.Application.Factories;
 using MFR.GUI.Application.Interfaces;
 using MFR.GUI.Properties;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
-using xyLOGIX.Core.Assemblies.Info;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Win32.Interact;
 
@@ -19,12 +20,26 @@ namespace MFR.GUI
     public static class Program
     {
         /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:MFR.GUI.Program" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static Program() { }
+
+        /// <summary>
         /// Gets a reference to an instance of an object that implements the
         /// <see cref="T:MFR.GUI.Application.Interfaces.IWinApp" /> interface.
         /// </summary>
         private static IWinApp Application
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetProjectFileRenamerApp.SoleInstance();
 
         /// <summary>
@@ -32,7 +47,9 @@ namespace MFR.GUI
         /// pathname of the currently-loaded config file.
         /// </summary>
         private static string ConfigFilePath
-            => ConfigProvider.ConfigFilePath;
+        {
+            [DebuggerStepThrough] get => ConfigProvider.ConfigFilePath;
+        }
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -47,7 +64,7 @@ namespace MFR.GUI
         /// </remarks>
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
@@ -93,95 +110,5 @@ namespace MFR.GUI
                 logFileName: Get.LogFilePath(),
                 applicationName: Get.ApplicationProductName()
             );
-
-        /// <summary>
-        /// Exposes static methods to obtain data from various data sources.
-        /// </summary>
-        private static class Get
-        {
-            /// <summary>
-            /// A <see cref="T:System.String" /> containing the final piece of the path of the
-            /// log file.
-            /// </summary>
-            private static readonly string LOG_FILE_PATH_TERMINATOR =
-                $@"{AssemblyCompany}\{AssemblyProduct}\Logs\{AssemblyTitle}_log.txt";
-
-            /// <summary>
-            /// Gets a <see cref="T:System.String" /> that contains the product name defined
-            /// for this application.
-            /// </summary>
-            /// <remarks>
-            /// This property is really an alias for the
-            /// <see cref="P:AssemblyMetadata.AssemblyCompany" /> property.
-            /// </remarks>
-            private static string AssemblyCompany
-                => AssemblyMetadata.AssemblyCompany;
-
-            /// <summary>
-            /// Gets a <see cref="T:System.String" /> that contains the product name defined
-            /// for this application.
-            /// </summary>
-            /// <remarks>
-            /// This property is really an alias for the
-            /// <see cref="P:AssemblyMetadata.AssemblyProduct" /> property.
-            /// </remarks>
-            private static string AssemblyProduct
-                => AssemblyMetadata.AssemblyProduct.Replace(
-                    "xyLOGIX ", string.Empty
-                );
-
-            /// <summary>
-            /// Gets a <see cref="T:System.String" /> that contains the assembly title defined
-            /// for this application.
-            /// </summary>
-            /// <remarks>
-            /// This property is really an alias for the
-            /// <see cref="P:AssemblyMetadata.AssemblyTitle" /> property.
-            /// </remarks>
-            private static string AssemblyTitle
-                => AssemblyMetadata.AssemblyTitle.Replace(" ", "_");
-
-            /// <summary>
-            /// Gets a <see cref="T:System.String" /> that contains a user-friendly name for
-            /// the software product of which this application or class library is a part.
-            /// </summary>
-            /// <returns>
-            /// A <see cref="T:System.String" /> that contains a user-friendly name
-            /// for the software product of which this application or class library is a part.
-            /// </returns>
-            public static string ApplicationProductName()
-            {
-                string result;
-
-                try
-                {
-                    result = AssemblyProduct;
-                }
-                catch (Exception ex)
-                {
-                    // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
-
-                    result = string.Empty;
-                }
-
-                return result;
-            }
-
-            /// <summary>
-            /// Obtains a <see cref="T:System.String" /> that contains the fully-qualified
-            /// pathname of the file that should be used for logging messages.
-            /// </summary>
-            /// <returns>
-            /// A <see cref="T:System.String" /> that contains the fully-qualified
-            /// pathname of the file that should be used for logging messages.
-            /// </returns>
-            public static string LogFilePath()
-                => Path.Combine(
-                    Environment.GetFolderPath(
-                        Environment.SpecialFolder.CommonApplicationData
-                    ), LOG_FILE_PATH_TERMINATOR
-                );
-        }
     }
 }

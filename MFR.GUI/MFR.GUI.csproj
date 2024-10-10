@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2024.1.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.1.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -166,6 +166,10 @@
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Actions\MFR.GUI.Actions.csproj">
+      <Project>{277317d8-cb95-448a-be52-92a27942fa68}</Project>
+      <Name>MFR.GUI.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Application.Factories\MFR.GUI.Application.Factories.csproj">
       <Project>{B7F34926-8B59-4B9F-94B9-FD7D70F0CF23}</Project>
