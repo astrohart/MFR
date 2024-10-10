@@ -1826,6 +1826,35 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
+                    "FileRenamer.CleanupEmptyFileFolder: Checking whether the 'entry' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, entry, is null. If it is, send an 
+                // error to the log file and quit, returning the default return value of this
+                // method.
+                if (entry == null)
+                {
+                    // The parameter, 'entry', is required and is not supposed to have a NULL value.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.CleanupEmptyFileFolder: *** ERROR *** A null reference was passed for the 'entry' method parameter.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** We have been passed a valid object reference for the 'entry' method parameter.  Proceeding..."
+                );	 
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
                     "*** FileRenamer.CleanupEmptyFileFolder: Checking whether the specified file system entry is a folder..."
                 );
 
