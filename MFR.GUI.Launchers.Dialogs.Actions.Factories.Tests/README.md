@@ -3,14 +3,14 @@
 
 ## Contents
 
-- [GetDialogLauncherActionTypeTests](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTypeTests 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.GetDialogLauncherActionTypeTests')
-  - [Test_GetLaunchErrorReportDialogAction_Works()](#M-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTypeTests-Test_GetLaunchErrorReportDialogAction_Works 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.GetDialogLauncherActionTypeTests.Test_GetLaunchErrorReportDialogAction_Works')
+- [GetDialogLauncherActionTests](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTests 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.GetDialogLauncherActionTests')
+  - [Test_GetLaunchErrorReportDialogAction_Works()](#M-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTests-Test_GetLaunchErrorReportDialogAction_Works 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.GetDialogLauncherActionTests.Test_GetLaunchErrorReportDialogAction_Works')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTypeTests'></a>
-## GetDialogLauncherActionTypeTests `type`
+<a name='T-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTests'></a>
+## GetDialogLauncherActionTests `type`
 
 ##### Namespace
 
@@ -19,10 +19,10 @@ MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests
 ##### Summary
 
 Provides unit tests for the methods, properties, and events of the
-[GetDialogLauncherActionType](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherActionType 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherActionType')
+[GetDialogLauncherAction](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherAction')
 class.
 
-<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTypeTests-Test_GetLaunchErrorReportDialogAction_Works'></a>
+<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Factories-Tests-GetDialogLauncherActionTests-Test_GetLaunchErrorReportDialogAction_Works'></a>
 ### Test_GetLaunchErrorReportDialogAction_Works() `method`
 
 ##### Summary
