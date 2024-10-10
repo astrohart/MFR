@@ -37,8 +37,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public Exception Exception
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -54,7 +54,9 @@ namespace MFR.GUI.Dialogs
         /// Gets a reference to the View Report link-label control.
         /// </summary>
         public LinkLabel ViewReportLinkLabel
-            => viewReportLinkLabel;
+        {
+            [DebuggerStepThrough] get => viewReportLinkLabel;
+        }
 
         /// <summary>
         /// Occurs when the user requests to view the error report.

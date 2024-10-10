@@ -10,12 +10,12 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests
     /// <summary>
     /// Provides unit tests for the methods, properties, and events of the
     /// <see
-    ///     cref="T:MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherActionType" />
+    ///     cref="T:MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherAction" />
     /// class.
     /// </summary>
     [TestFixture, ExplicitlySynchronized]
     [Log(AttributeExclude = true)]
-    public class GetDialogLauncherActionTypeTests
+    public class GetDialogLauncherActionTests
     {
         /// <summary>
         /// TODO: Add unit test documentation here
@@ -23,7 +23,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions.Factories.Tests
         [Test]
         public void Test_GetLaunchErrorReportDialogAction_Works()
             => Assert.That(
-                GetDialogLauncherActionType
+                GetDialogLauncherAction
                     .For<IErrorReportDialogLaunchParams,
                         IErrorReportDialogLaunchResults>(
                         DialogLauncherActionType.LaunchErrorReportDialog

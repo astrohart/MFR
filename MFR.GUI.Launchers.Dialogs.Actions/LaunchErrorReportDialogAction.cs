@@ -5,6 +5,7 @@ using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 using MFR.Messages.Actions;
 using MFR.Messages.Constants;
 using PostSharp.Patterns.Diagnostics;
+using System.Diagnostics;
 
 namespace MFR.GUI.Launchers.Dialogs.Actions
 {
@@ -34,7 +35,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         [Log(AttributeExclude = true)]
         public static LaunchErrorReportDialogAction Instance
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new LaunchErrorReportDialogAction();
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace MFR.GUI.Launchers.Dialogs.Actions
         [Log(AttributeExclude = true)]
         public override MessageType MessageType
         {
-            get;
+            [DebuggerStepThrough] get;
         } = DialogLauncherActionType.LaunchErrorReportDialog;
 
         /// <summary>

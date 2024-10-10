@@ -5,6 +5,7 @@ using MFR.GUI.Launchers.Dialogs.Results.Factories;
 using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Launchers.Dialogs
@@ -17,17 +18,18 @@ namespace MFR.GUI.Launchers.Dialogs
     /// helpful way to deal with, basically, otherwise-unhandled exceptions, and
     /// to send the resulting error information to xyLOGIX.
     /// </remarks>
-    [Log(AttributeExclude = true)]
     public class ErrorReportDialogLauncher : IErrorReportDialogLauncher
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static ErrorReportDialogLauncher() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected ErrorReportDialogLauncher() { }
 
         /// <summary>
@@ -36,7 +38,7 @@ namespace MFR.GUI.Launchers.Dialogs
         /// </summary>
         public static IErrorReportDialogLauncher Instance
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new ErrorReportDialogLauncher();
 
         /// <summary>

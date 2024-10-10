@@ -12,32 +12,31 @@ using xyLOGIX.Core.Debug;
 namespace MFR.Errors.Reports.Commands
 {
     /// <summary>
-    /// Instructs the application to launch a viewer of an error report.
+    /// Instructs the application to send an error report.
     /// </summary>
     public class
-        ViewErrorReportWithNotepadCommand : CommandBase<
-        ViewErrorReportRequestedEventArgs>
+        SendErrorReportCommand : CommandBase<SendErrorReportRequestedEventArgs>
     {
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        static ViewErrorReportWithNotepadCommand() { }
+        static SendErrorReportCommand() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
         [Log(AttributeExclude = true)]
-        protected ViewErrorReportWithNotepadCommand() { }
+        protected SendErrorReportCommand() { }
 
         /// <summary>
         /// Gets a reference to the one and only instance of
-        /// <see cref="T:MFR.Errors.Reports.Commands.ViewErrorReportWithNotepadCommand" />.
+        /// <see cref="T:MFR.Errors.Reports.Commands.SendErrorReportCommand" />.
         /// </summary>
-        public static ViewErrorReportWithNotepadCommand Instance
+        public static SendErrorReportCommand Instance
         {
             [DebuggerStepThrough] get;
-        } = new ViewErrorReportWithNotepadCommand();
+        } = new SendErrorReportCommand();
 
         /// <summary>
         /// Gets the

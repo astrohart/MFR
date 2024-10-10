@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2024.1.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.1.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -122,7 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
-    <Compile Include="GetErrorReportCommandType.cs" />
+    <Compile Include="GetErrorReportCommand.cs" />
+    <Compile Include="GetSendErrorReportCommand.cs" />
     <Compile Include="GetViewErrorReportWithNotepadCommand.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
@@ -149,6 +150,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Errors.Reports.Commands.Constants\MFR.Errors.Reports.Commands.Constants.csproj">
       <Project>{12421A60-E923-47AB-84B5-B8D556594C7A}</Project>
       <Name>MFR.Errors.Reports.Commands.Constants</Name>

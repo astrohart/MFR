@@ -10,6 +10,7 @@ using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
 using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 using System;
 using System.Windows.Forms;
+using xyLOGIX.Core.Debug;
 
 namespace MFR.GUI.Displayers
 {
@@ -42,10 +43,42 @@ namespace MFR.GUI.Displayers
         /// </remarks>
         public static void ErrorReportDialog(Exception exception)
         {
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "Display.ErrorReportDialog: Checking whether the variable 'exception' has a null reference for a value..."
+                );
+
+                // Check to see if the variable, exception, is null. If it is, send an error to the log file and quit, returning from the method.
+                if (exception == null)
+                {
+                    // the variable exception is required to have a valid object reference.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "Display.ErrorReportDialog: *** ERROR ***  The 'exception' variable has a null reference.  Stopping..."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                // We can use the variable, exception, because it's not set to a null reference.
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "Display.ErrorReportDialog: *** SUCCESS *** The 'exception' variable has a valid object reference for its value.  Proceeding..."
+                );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+
             if (exception == null)
                 throw new ArgumentNullException(nameof(exception));
 
-            GetDialogLauncherActionType
+            GetDialogLauncherAction
                 .For<IErrorReportDialogLaunchParams,
                     IErrorReportDialogLaunchResults>(
                     DialogLauncherActionType.LaunchErrorReportDialog
@@ -56,6 +89,9 @@ namespace MFR.GUI.Displayers
                         .ForException(exception)
                         .AndAttachViewErrorReportRequestedEventHandler(
                             OnViewErrorReportRequested
+                        )
+                        .AndAttachSendErrorReportRequestedEventHandler(
+                            OnSendErrorReportRequested
                         )
                         .AndOwnerWindow(Application.OpenForms[0])
                 )
@@ -83,9 +119,11 @@ namespace MFR.GUI.Displayers
         /// <see cref="E:MFR.GUI.Dialogs.ErrorReportDialog.ViewErrorReportRequested" />
         /// event.
         /// </remarks>
-        public static void ErrorReportDialog(IWin32Window owner,
-            Exception exception)
-            => GetDialogLauncherActionType
+        public static void ErrorReportDialog(
+            IWin32Window owner,
+            Exception exception
+        )
+            => GetDialogLauncherAction
                .For<IErrorReportDialogLaunchParams,
                    IErrorReportDialogLaunchResults>(
                    DialogLauncherActionType.LaunchErrorReportDialog
@@ -140,8 +178,9 @@ namespace MFR.GUI.Displayers
         /// the dialog box.
         /// </returns>
         public static IProfileNameDialogLaunchResults ProfileNameDialogBox(
-            ProfileCreateOperationType type)
-            => GetDialogLauncherActionType
+            ProfileCreateOperationType type
+        )
+            => GetDialogLauncherAction
                .For<IProfileNameDialogLaunchParams,
                    IProfileNameDialogLaunchResults>(
                    DialogLauncherActionType.LaunchProfileNameDialog
@@ -176,8 +215,10 @@ namespace MFR.GUI.Displayers
         /// the dialog box.
         /// </returns>
         public static IProfileNameDialogLaunchResults ProfileNameDialogBox(
-            ProfileCreateOperationType type, IWin32Window owner)
-            => GetDialogLauncherActionType
+            ProfileCreateOperationType type,
+            IWin32Window owner
+        )
+            => GetDialogLauncherAction
                .For<IProfileNameDialogLaunchParams,
                    IProfileNameDialogLaunchResults>(
                    DialogLauncherActionType.LaunchProfileNameDialog
@@ -206,28 +247,42 @@ namespace MFR.GUI.Displayers
         /// contains the event data.
         /// </param>
         /// <remarks>This method responds by launching Notepad to view the detailed report.</remarks>
-        private static void OnViewErrorReportRequested(object sender,
-            ViewErrorReportRequestedEventArgs e)
-            => GetErrorReportCommandType
-               .For<ViewErrorReportRequestedEventArgs>(
-                   ErrorReportCommandType.ViewErrorReportWithNotepad
+        private static void OnViewErrorReportRequested(
+            object sender,
+            ViewErrorReportRequestedEventArgs e
+        )
+            => GetErrorReportCommand.For<ViewErrorReportRequestedEventArgs>(
+                                        ErrorReportCommandType
+                                            .ViewErrorReportWithNotepad
+                                    )
+                                    .WithInput(e)
+                                    .Execute();
+
+        /// <summary>
+        /// Handles the
+        /// <see
+        ///     cref="E:MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.SendErrorReportRequested" />
+        /// event raised by the Error Report dialog box.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>This method responds by launching Notepad to view the detailed report.</remarks>
+        private static void OnSendErrorReportRequested(
+            object sender,
+            SendErrorReportRequestedEventArgs e
+        )
+            => GetErrorReportCommand
+               .For<SendErrorReportRequestedEventArgs>(
+                   ErrorReportCommandType.SendErrorReport
                )
                .WithInput(e)
                .Execute();
-
-        /*
-            => GetErrorReportDialogLauncher.SoleInstance()
-                                           .Launch(
-                                               MakeNewErrorReportDialogLaunchParams
-                                                   .FromScratch()
-                                                   .ForException(exception)
-                                                   .AndOwnerWindow(
-                                                       Application.OpenForms[0]
-                                                   )
-                                                   .AndAttachViewErrorReportRequestedEventHandler(
-                                                       OnViewErrorReportRequested
-                                                   )
-                                           );
-        */
     }
 }
