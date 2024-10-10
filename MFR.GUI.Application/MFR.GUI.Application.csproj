@@ -210,6 +210,10 @@
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Actions\MFR.GUI.Actions.csproj">
+      <Project>{277317d8-cb95-448a-be52-92a27942fa68}</Project>
+      <Name>MFR.GUI.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Application.Interfaces\MFR.GUI.Application.Interfaces.csproj">
       <Project>{175053A0-B6C7-405A-9CC3-5F33CF95DDA0}</Project>
       <Name>MFR.GUI.Application.Interfaces</Name>
