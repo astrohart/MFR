@@ -20,8 +20,25 @@ namespace MFR.Errors.Reports.Commands.Constants
         /// Views the error report requested using Notepad.
         /// </summary>
         public static readonly ErrorReportCommandType
-            ViewErrorReportWithNotepad =
-                new ErrorReportCommandType(Guid.NewGuid(), nameof(ViewErrorReportWithNotepad));
+            ViewErrorReportWithNotepad = new ErrorReportCommandType(
+                Guid.NewGuid(), nameof(ViewErrorReportWithNotepad)
+            );
+
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the
+        /// <see cref="T:MFR.Errors.Reports.Commands.Constants.ErrorReportCommandType" />
+        /// class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static ErrorReportCommandType() { }
 
         /// <summary>
         /// Constructs a new instance of
@@ -34,6 +51,7 @@ namespace MFR.Errors.Reports.Commands.Constants
         /// (Required.) Reference to an instance of <see cref="T:System.Guid" />
         /// that provides a unique identifier to be associated with this instance.
         /// </param>
+        [Log(AttributeExclude = true)]
         public ErrorReportCommandType(Guid messageId) : base(messageId) { }
 
         /// <summary>
@@ -51,6 +69,7 @@ namespace MFR.Errors.Reports.Commands.Constants
         /// (Required.) Reference to an instance of <see cref="T:System.Guid" />
         /// that provides a unique identifier to be associated with this instance.
         /// </param>
+        [Log(AttributeExclude = true)]
         public ErrorReportCommandType(Guid messageId, string description) :
             base(messageId, description) { }
     }
