@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2024.1.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2024.1.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -209,10 +209,6 @@
     <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Actions\MFR.GUI.Actions.csproj">
-      <Project>{80F2209F-D7BA-4B41-A5F4-3E7FD0A939DC}</Project>
-      <Name>MFR.GUI.Actions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.GUI.Application.Interfaces\MFR.GUI.Application.Interfaces.csproj">
       <Project>{175053A0-B6C7-405A-9CC3-5F33CF95DDA0}</Project>
