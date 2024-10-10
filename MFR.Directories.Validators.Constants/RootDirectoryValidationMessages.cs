@@ -1,4 +1,4 @@
-using MFR.Directories.Validators.Constants.Properties;
+﻿using MFR.Directories.Validators.Constants.Properties;
 
 namespace MFR.Directories.Validators.Constants
 {

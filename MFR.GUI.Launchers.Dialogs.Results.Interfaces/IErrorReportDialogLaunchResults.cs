@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Launchers.Dialogs.Results.Interfaces

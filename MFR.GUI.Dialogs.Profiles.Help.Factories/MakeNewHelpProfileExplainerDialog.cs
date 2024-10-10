@@ -1,4 +1,4 @@
-using MFR.GUI.Dialogs.Profiles.Help.Interfaces;
+﻿using MFR.GUI.Dialogs.Profiles.Help.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Dialogs.Profiles.Help.Factories

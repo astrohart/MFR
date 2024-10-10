@@ -1,4 +1,4 @@
-using MFR.Engines.Matching.Factories.Properties;
+﻿using MFR.Engines.Matching.Factories.Properties;
 using MFR.Engines.Matching.Interfaces;
 using MFR.Operations.Constants;
 using System;

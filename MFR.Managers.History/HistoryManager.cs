@@ -1,4 +1,4 @@
-using MFR.Managers.History.Interfaces;
+﻿using MFR.Managers.History.Interfaces;
 using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;

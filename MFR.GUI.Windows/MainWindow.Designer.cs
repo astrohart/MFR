@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System.ComponentModel;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Controls;
@@ -1095,4 +1095,3 @@ namespace MFR.GUI.Windows
         private DarkToolStripSeparator toolStripSeparator7;
     }
 }
-

@@ -1,4 +1,4 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers.Properties;
 using System;

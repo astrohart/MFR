@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using xyLOGIX.Core.Debug;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;

@@ -1,4 +1,4 @@
-namespace MFR.Expressions.Matches.Interfaces
+﻿namespace MFR.Expressions.Matches.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that specifies

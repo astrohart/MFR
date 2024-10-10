@@ -1,4 +1,4 @@
-using MFR.GUI.Dialogs.Interfaces;
+﻿using MFR.GUI.Dialogs.Interfaces;
 
 namespace MFR.GUI.Dialogs.Factories
 {

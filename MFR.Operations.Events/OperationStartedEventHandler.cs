@@ -1,4 +1,4 @@
-namespace MFR.Operations.Events
+﻿namespace MFR.Operations.Events
 {
     /// <summary>
     /// Defines the method signature for the handlers of the <see

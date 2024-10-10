@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.GUI.Windows.Presenters.Events.Properties;
 using System;
 

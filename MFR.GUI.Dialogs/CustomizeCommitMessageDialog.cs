@@ -1,4 +1,4 @@
-using MFR.GUI.Dialogs.Properties;
+﻿using MFR.GUI.Dialogs.Properties;
 using MFR.Renamers.Files.Actions;
 using MFR.Settings.Configuration.Mappers;
 using MFR.Settings.Configuration.Mappers.Constants;

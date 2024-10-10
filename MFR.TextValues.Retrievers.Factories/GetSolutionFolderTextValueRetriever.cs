@@ -1,4 +1,4 @@
-using MFR.TextValues.Retrievers.Interfaces;
+﻿using MFR.TextValues.Retrievers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.TextValues.Retrievers.Factories

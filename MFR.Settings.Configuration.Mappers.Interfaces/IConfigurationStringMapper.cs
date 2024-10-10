@@ -1,4 +1,4 @@
-using MFR.Settings.Configuration.Mappers.Constants;
+﻿using MFR.Settings.Configuration.Mappers.Constants;
 
 namespace MFR.Settings.Configuration.Mappers.Interfaces
 {

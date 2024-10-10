@@ -1,4 +1,4 @@
-using MFR.Messages.Constants;
+﻿using MFR.Messages.Constants;
 using MFR.Messages.Requests;
 using MFR.Settings.Profiles.Factories;
 using MFR.Settings.Profiles.Interfaces;

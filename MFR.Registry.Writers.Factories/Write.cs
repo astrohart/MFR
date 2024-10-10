@@ -1,4 +1,4 @@
-using MFR.Registry.Writers.Interfaces;
+﻿using MFR.Registry.Writers.Interfaces;
 
 namespace MFR.Registry.Writers.Factories
 {

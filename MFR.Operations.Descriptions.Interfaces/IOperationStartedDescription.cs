@@ -1,4 +1,4 @@
-namespace MFR.Operations.Descriptions.Interfaces
+﻿namespace MFR.Operations.Descriptions.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an Operation

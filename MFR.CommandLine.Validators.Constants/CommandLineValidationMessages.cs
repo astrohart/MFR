@@ -1,4 +1,4 @@
-using MFR.CommandLine.Validators.Constants.Properties;
+﻿using MFR.CommandLine.Validators.Constants.Properties;
 
 namespace MFR.CommandLine.Validators.Constants
 {

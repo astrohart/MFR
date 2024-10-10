@@ -1,4 +1,4 @@
-namespace MFR.Settings.Configuration.Mappers.Constants
+﻿namespace MFR.Settings.Configuration.Mappers.Constants
 {
     /// <summary>
     /// Values that define the types of configuration string mappers that are supported.

@@ -1,4 +1,4 @@
-using MFR.Settings.Configuration.Mappers.Interfaces;
+﻿using MFR.Settings.Configuration.Mappers.Interfaces;
 
 namespace MFR.Settings.Configuration.Mappers.Factories
 {

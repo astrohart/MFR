@@ -1,4 +1,4 @@
-using MFR.CommandLine.Models.Factories;
+﻿using MFR.CommandLine.Models.Factories;
 using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Factories;

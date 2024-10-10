@@ -1,4 +1,4 @@
-using MFR.Expressions.Registry.Interfaces;
+﻿using MFR.Expressions.Registry.Interfaces;
 
 namespace MFR.Expressions.Registry.Validators.Interfaces
 {

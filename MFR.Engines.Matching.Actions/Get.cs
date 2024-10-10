@@ -1,4 +1,4 @@
-using MFR.Matchers.Factories;
+﻿using MFR.Matchers.Factories;
 using MFR.Matchers.Interfaces;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Helpers;

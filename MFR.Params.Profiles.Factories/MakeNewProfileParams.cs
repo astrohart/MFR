@@ -1,4 +1,4 @@
-using MFR.Params.Profiles.Interfaces;
+﻿using MFR.Params.Profiles.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 

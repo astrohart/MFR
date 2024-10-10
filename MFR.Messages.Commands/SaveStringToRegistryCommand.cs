@@ -1,4 +1,4 @@
-using MFR.Messages.Constants;
+﻿using MFR.Messages.Constants;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Registry.Writers.Factories;
 using MFR.Settings.Configuration.Commands.Constants;

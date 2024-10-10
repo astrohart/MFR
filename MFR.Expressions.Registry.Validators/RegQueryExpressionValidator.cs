@@ -1,4 +1,4 @@
-using MFR.Expressions.Registry.Interfaces;
+﻿using MFR.Expressions.Registry.Interfaces;
 using MFR.Expressions.Registry.Validators.Interfaces;
 using MFR.Expressions.Registry.Validators.Properties;
 using MFR.Registry.Helpers;

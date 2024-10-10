@@ -1,4 +1,4 @@
-using MFR.GUI.Dialogs.Events;
+﻿using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Models.Interfaces;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -1,4 +1,4 @@
-using MFR.Expressions.Matches.Factories.Interfaces;
+﻿using MFR.Expressions.Matches.Factories.Interfaces;
 using MFR.Expressions.Matches.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;

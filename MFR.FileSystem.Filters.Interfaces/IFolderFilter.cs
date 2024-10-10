@@ -1,4 +1,4 @@
-namespace MFR.FileSystem.Filters.Interfaces
+﻿namespace MFR.FileSystem.Filters.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that

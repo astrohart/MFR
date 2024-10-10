@@ -1,4 +1,4 @@
-namespace MFR.Directories.Validators.Events
+﻿namespace MFR.Directories.Validators.Events
 {
     /// <summary>
     /// Represents a handler for a RootDirectoryInvalid event.

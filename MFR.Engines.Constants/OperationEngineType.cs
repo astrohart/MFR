@@ -1,4 +1,4 @@
-namespace MFR.Engines.Constants
+﻿namespace MFR.Engines.Constants
 {
     /// <summary>
     /// Values that describe the type of operation engine -- e.g., full GUI, automated GUI (called from command line) or console app, which which we are working.

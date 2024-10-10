@@ -1,4 +1,4 @@
-using MFR.Settings.Configuration.Commands.Constants;
+﻿using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Messages.Commands;
 using MFR.Messages.Commands.Interfaces;
 using MFR.Messages.Constants;

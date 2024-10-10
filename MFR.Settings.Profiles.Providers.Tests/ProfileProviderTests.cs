@@ -1,4 +1,4 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Constants;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using MFR.Settings.Profiles.Factories;

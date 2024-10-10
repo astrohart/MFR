@@ -1,4 +1,4 @@
-namespace MFR.GUI.Dialogs.Interfaces
+﻿namespace MFR.GUI.Dialogs.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a dialog box that shows

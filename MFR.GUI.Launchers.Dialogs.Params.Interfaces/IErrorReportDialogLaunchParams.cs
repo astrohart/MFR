@@ -1,4 +1,4 @@
-using MFR.GUI.Dialogs.Events;
+﻿using MFR.GUI.Dialogs.Events;
 using System;
 
 namespace MFR.GUI.Launchers.Dialogs.Params.Interfaces

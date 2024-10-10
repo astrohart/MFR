@@ -1,4 +1,4 @@
-using MFR.Messages.Interfaces;
+﻿using MFR.Messages.Interfaces;
 using System.Threading.Tasks;
 
 namespace MFR.Messages.Requests.Intefaces

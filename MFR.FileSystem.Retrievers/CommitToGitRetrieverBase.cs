@@ -1,4 +1,4 @@
-using MFR.FileSystem.Enumerators;
+﻿using MFR.FileSystem.Enumerators;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Interfaces;
 using System;

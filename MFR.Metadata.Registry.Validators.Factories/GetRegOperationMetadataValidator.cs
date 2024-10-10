@@ -1,4 +1,4 @@
-using MFR.Metadata.Registry.Validators.Interfaces;
+﻿using MFR.Metadata.Registry.Validators.Interfaces;
 
 namespace MFR.Metadata.Registry.Validators.Factories
 {

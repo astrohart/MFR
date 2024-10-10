@@ -1,4 +1,4 @@
-using MFR.CommandLine.Models.Interfaces;
+﻿using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Events;
 using MFR.Directories.Validators.Interfaces;
 using MFR.Validators.Interfaces;

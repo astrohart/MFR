@@ -1,4 +1,4 @@
-namespace MFR.Registry.Writers
+﻿namespace MFR.Registry.Writers
 {
     /// <summary>
     /// Defines the events, methods, properties, and behaviors for all writers of data

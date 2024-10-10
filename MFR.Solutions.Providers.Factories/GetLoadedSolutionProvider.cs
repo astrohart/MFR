@@ -1,4 +1,4 @@
-using MFR.Solutions.Providers.Interfaces;
+﻿using MFR.Solutions.Providers.Interfaces;
 
 namespace MFR.Solutions.Providers.Factories
 {

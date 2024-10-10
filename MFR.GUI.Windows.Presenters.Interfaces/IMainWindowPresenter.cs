@@ -1,4 +1,4 @@
-using MFR.CommandLine.Models.Interfaces;
+﻿using MFR.CommandLine.Models.Interfaces;
 using MFR.Engines.Operations.Interfaces;
 using MFR.Events.Common;
 using MFR.GUI.Dialogs.Interfaces;

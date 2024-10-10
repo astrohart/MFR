@@ -1,4 +1,4 @@
-using MFR.Events;
+﻿using MFR.Events;
 using MFR.Events.Common;
 using MFR.Operations.Events;
 using MFR.Renamers.Files.Events;

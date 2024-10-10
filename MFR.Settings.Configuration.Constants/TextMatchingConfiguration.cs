@@ -1,4 +1,4 @@
-namespace MFR.Settings.Configuration.Constants
+﻿namespace MFR.Settings.Configuration.Constants
 {
     /// <summary>
     /// Values that specify whether we are matching case, matching whole word,

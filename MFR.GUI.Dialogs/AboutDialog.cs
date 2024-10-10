@@ -1,4 +1,4 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
 using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Forms;

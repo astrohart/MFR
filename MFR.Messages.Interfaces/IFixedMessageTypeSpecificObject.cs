@@ -1,4 +1,4 @@
-using MFR.Messages.Constants;
+﻿using MFR.Messages.Constants;
 
 namespace MFR.Messages.Interfaces
 {

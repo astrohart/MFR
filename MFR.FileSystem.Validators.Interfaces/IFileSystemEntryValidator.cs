@@ -1,4 +1,4 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
 
 namespace MFR.FileSystem.Validators.Interfaces
 {

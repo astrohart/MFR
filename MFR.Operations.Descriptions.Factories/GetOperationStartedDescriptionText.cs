@@ -1,4 +1,4 @@
-using MFR.Operations.Constants;
+﻿using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;

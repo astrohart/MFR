@@ -1,4 +1,4 @@
-using MFR.Registry.Helpers;
+﻿using MFR.Registry.Helpers;
 using MFR.Registry.Writers.Interfaces;
 using Microsoft.Win32;
 using PostSharp.Patterns.Diagnostics;

@@ -1,4 +1,4 @@
-namespace MFR.Renamers.Files.Events
+﻿namespace MFR.Renamers.Files.Events
 {
     /// <summary>
     /// Represents a handler for a <c>CurrentOperationChanged</c> event.

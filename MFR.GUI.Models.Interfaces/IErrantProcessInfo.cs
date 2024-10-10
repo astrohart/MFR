@@ -1,4 +1,4 @@
-namespace MFR.GUI.Models.Interfaces
+﻿namespace MFR.GUI.Models.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed events, methods and properties of an object that

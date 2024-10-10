@@ -1,4 +1,4 @@
-using MFR.Metadata.Registry.Interfaces;
+﻿using MFR.Metadata.Registry.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Metadata.Registry.Factories

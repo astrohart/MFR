@@ -1,4 +1,4 @@
-namespace MFR.GUI.Windows.Constants
+﻿namespace MFR.GUI.Windows.Constants
 {
     /// <summary>
     /// Values to indicate which aspect of a <see cref="T:System.Windows.Forms.Form" />

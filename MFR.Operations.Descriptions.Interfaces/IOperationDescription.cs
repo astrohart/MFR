@@ -1,4 +1,4 @@
-using MFR.Operations.Interfaces;
+﻿using MFR.Operations.Interfaces;
 
 namespace MFR.Operations.Descriptions.Interfaces
 {

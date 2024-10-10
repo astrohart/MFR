@@ -1,4 +1,4 @@
-using MFR.Common;
+﻿using MFR.Common;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Dialogs.Properties;
 using MFR.GUI.Windows.Wrappers.Factories;

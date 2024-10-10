@@ -1,4 +1,4 @@
-namespace MFR.Operations.Events
+﻿namespace MFR.Operations.Events
 {
     /// <summary>
     /// Represents a handler for an OperationFinished event.

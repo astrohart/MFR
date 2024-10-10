@@ -1,4 +1,4 @@
-namespace MFR.CommandLine.Validators.Constants
+﻿namespace MFR.CommandLine.Validators.Constants
 {
     /// <summary>
     /// Constants that correspond to the types of validation failures that can

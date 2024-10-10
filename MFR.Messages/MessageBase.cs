@@ -1,4 +1,4 @@
-using MFR.Messages.Interfaces;
+﻿using MFR.Messages.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System.Threading.Tasks;
 

@@ -1,4 +1,4 @@
-using MFR.Common;
+﻿using MFR.Common;
 using MFR.GUI.Actions;
 using MFR.GUI.Application.Factories;
 using MFR.GUI.Application.Interfaces;

@@ -1,4 +1,4 @@
-using MFR.Messages.Requests.Intefaces;
+﻿using MFR.Messages.Requests.Intefaces;
 
 namespace MFR.Messages.Actions.Interfaces
 {

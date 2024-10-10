@@ -1,4 +1,4 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
 using Fclp;
 using MFR.CommandLine.Models;
 using MFR.CommandLine.Models.Factories;

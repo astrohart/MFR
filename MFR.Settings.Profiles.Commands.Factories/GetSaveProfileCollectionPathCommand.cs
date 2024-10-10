@@ -1,4 +1,4 @@
-using MFR.Messages.Commands.Interfaces;
+﻿using MFR.Messages.Commands.Interfaces;
 using MFR.Metadata.Registry.Factories;
 using MFR.Metadata.Registry.Interfaces;
 using MFR.Settings.Profiles.Commands.Constants;

@@ -1,4 +1,4 @@
-using MFR.FileSystem.Enumerators;
+﻿using MFR.FileSystem.Enumerators;
 using MFR.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;

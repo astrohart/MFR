@@ -1,5 +1,4 @@
-
-namespace MFR.GUI.Dialogs.Profiles.Help
+﻿namespace MFR.GUI.Dialogs.Profiles.Help
 {
     partial class HelpProfileExplainerDialog
     {

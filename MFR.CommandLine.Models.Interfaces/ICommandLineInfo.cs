@@ -1,4 +1,4 @@
-namespace MFR.CommandLine.Models.Interfaces
+﻿namespace MFR.CommandLine.Models.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that stores

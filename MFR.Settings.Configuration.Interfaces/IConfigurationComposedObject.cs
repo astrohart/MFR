@@ -1,4 +1,4 @@
-namespace MFR.Settings.Configuration.Interfaces
+﻿namespace MFR.Settings.Configuration.Interfaces
 {
     /// <summary>
     /// Defines the public-exposed methods and properties of an object that is

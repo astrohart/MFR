@@ -1,4 +1,4 @@
-namespace MFR.GUI.Dialogs.Text.Retrievers.Interfaces
+﻿namespace MFR.GUI.Dialogs.Text.Retrievers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of a Dialog Text Retriever

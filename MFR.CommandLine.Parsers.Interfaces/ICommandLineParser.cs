@@ -1,4 +1,4 @@
-using MFR.CommandLine.Models.Interfaces;
+﻿using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Parsers.Events;
 
 namespace MFR.CommandLine.Parsers.Interfaces

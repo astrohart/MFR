@@ -1,4 +1,4 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
 using MFR.Services.Solutions.Factories;
 using MFR.Tests.Common;
 using NUnit.Framework;

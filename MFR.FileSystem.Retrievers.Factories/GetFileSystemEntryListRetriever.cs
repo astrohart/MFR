@@ -1,4 +1,4 @@
-using MFR.FileSystem.Retrievers.Interfaces;
+﻿using MFR.FileSystem.Retrievers.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;

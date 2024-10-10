@@ -1,4 +1,4 @@
-namespace MFR.Renamers.Files.Constants
+﻿namespace MFR.Renamers.Files.Constants
 {
     /// <summary>
     /// Values that contain the filename and filename extension of various processes

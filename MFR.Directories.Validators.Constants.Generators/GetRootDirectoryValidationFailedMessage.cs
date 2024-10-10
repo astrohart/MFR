@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Directories.Validators.Constants.Generators
 {

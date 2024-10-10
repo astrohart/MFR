@@ -1,4 +1,4 @@
-using MFR.Renamers.Files.Interfaces;
+﻿using MFR.Renamers.Files.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Renamers.Files.Factories

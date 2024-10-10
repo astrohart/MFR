@@ -1,4 +1,4 @@
-using MFR.Settings.Configuration;
+﻿using MFR.Settings.Configuration;
 using MFR.Settings.Configuration.Interfaces;
 using NUnit.Framework;
 

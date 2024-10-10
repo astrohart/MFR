@@ -1,4 +1,4 @@
-using MFR.Operations.Interfaces;
+﻿using MFR.Operations.Interfaces;
 using System;
 
 namespace MFR.FileSystem.Interfaces

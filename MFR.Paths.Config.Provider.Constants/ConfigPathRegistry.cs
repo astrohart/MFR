@@ -1,4 +1,4 @@
-namespace MFR.Paths.Config.Provider.Constants
+﻿namespace MFR.Paths.Config.Provider.Constants
 {
     /// <summary>
     /// Values used to read the configuration file path from the system Registry.

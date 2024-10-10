@@ -1,4 +1,4 @@
-using MFR.Renamers.Files.Actions.Win32;
+﻿using MFR.Renamers.Files.Actions.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -1,4 +1,4 @@
-using MFR.Settings.Profiles.Providers.Interfaces;
+﻿using MFR.Settings.Profiles.Providers.Interfaces;
 using NUnit.Framework;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Threading;

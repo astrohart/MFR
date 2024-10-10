@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using xyLOGIX.UI.Dark.Controls;
 
 namespace MFR.GUI.Controls.Extensions

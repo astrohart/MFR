@@ -1,4 +1,4 @@
-using MFR.GUI.Windows.Wrappers.Interfaces;
+﻿using MFR.GUI.Windows.Wrappers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Windows.Wrappers.Factories

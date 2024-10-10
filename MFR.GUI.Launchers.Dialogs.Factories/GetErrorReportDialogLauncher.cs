@@ -1,4 +1,4 @@
-using MFR.GUI.Launchers.Dialogs.Interfaces;
+﻿using MFR.GUI.Launchers.Dialogs.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Launchers.Dialogs.Factories

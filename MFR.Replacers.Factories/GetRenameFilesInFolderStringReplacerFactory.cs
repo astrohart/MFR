@@ -1,4 +1,4 @@
-using MFR.Replacers.Factories.Interfaces;
+﻿using MFR.Replacers.Factories.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Replacers.Factories

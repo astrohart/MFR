@@ -1,4 +1,4 @@
-namespace MFR.GUI.Windows.Events
+﻿namespace MFR.GUI.Windows.Events
 {
     /// <summary>
     /// Represents a handler for a <c>MainWindowStateChanged</c> event.

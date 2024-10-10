@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Constants;
 using MFR.Operations.Constants;
 using MFR.Replacers.Factories;

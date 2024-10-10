@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.Operations.Constants;
 using MFR.Tests;

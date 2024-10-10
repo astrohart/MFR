@@ -1,4 +1,4 @@
-namespace MFR.GUI.Windows.Constants
+﻿namespace MFR.GUI.Windows.Constants
 {
     /// <summary>
     /// Values that describe the state of the main application window.

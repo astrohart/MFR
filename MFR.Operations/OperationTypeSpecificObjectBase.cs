@@ -1,4 +1,4 @@
-using MFR.Operations.Constants;
+﻿using MFR.Operations.Constants;
 using MFR.Operations.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 

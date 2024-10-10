@@ -1,4 +1,4 @@
-using MFR.Services.Solutions.Interfaces;
+﻿using MFR.Services.Solutions.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System.IO;
 using Directory = Alphaleonis.Win32.Filesystem.Directory;

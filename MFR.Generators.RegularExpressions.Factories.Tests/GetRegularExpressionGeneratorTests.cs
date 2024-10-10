@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.Generators.RegularExpressions.Constants;
 using MFR.Generators.RegularExpressions.Interfaces;
 using MFR.Tests.Common;

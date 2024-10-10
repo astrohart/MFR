@@ -1,4 +1,4 @@
-using MFR.Filters.Search.Constants;
+﻿using MFR.Filters.Search.Constants;
 using MFR.Filters.Search.Interfaces;
 using System;
 

@@ -1,4 +1,4 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
 using MFR.Operations.Interfaces;
 
 namespace MFR.TextValues.Retrievers.Interfaces

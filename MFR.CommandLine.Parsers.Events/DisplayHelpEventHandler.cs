@@ -1,4 +1,4 @@
-namespace MFR.CommandLine.Parsers.Events
+﻿namespace MFR.CommandLine.Parsers.Events
 {
     /// <summary>
     /// Represents a handler for a DisplayHelp event.

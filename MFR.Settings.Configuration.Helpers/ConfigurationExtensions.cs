@@ -1,4 +1,4 @@
-using MFR.GUI.Controls.Interfaces;
+﻿using MFR.GUI.Controls.Interfaces;
 using MFR.Settings.Configuration.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Profiles.Factories;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.UI.Dark.Controls.Interfaces;

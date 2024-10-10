@@ -1,4 +1,4 @@
-using MFR.Messages.Constants;
+﻿using MFR.Messages.Constants;
 using System;
 
 namespace MFR.Renamers.Folders.Actions.Constants

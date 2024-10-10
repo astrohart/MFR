@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.Settings.Profiles;
 using MFR.Settings.Profiles.Collections;
 using MFR.Settings.Profiles.Collections.Converters;

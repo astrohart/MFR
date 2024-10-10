@@ -1,4 +1,4 @@
-namespace MFR.GUI.Models.Events
+﻿namespace MFR.GUI.Models.Events
 {
     /// <summary>
     /// Represents a handler for a <c>OperationTypeChanged</c> event.

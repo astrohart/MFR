@@ -1,4 +1,4 @@
-using MFR.Directories.Validators.Events;
+﻿using MFR.Directories.Validators.Events;
 using MFR.Validators.Interfaces;
 
 namespace MFR.Directories.Validators.Interfaces

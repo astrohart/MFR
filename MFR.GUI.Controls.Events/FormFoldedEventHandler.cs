@@ -1,4 +1,4 @@
-namespace MFR.GUI.Controls.Events
+﻿namespace MFR.GUI.Controls.Events
 {
     /// <summary>
     /// Provides the method signature for the handler of a FormFolded event.

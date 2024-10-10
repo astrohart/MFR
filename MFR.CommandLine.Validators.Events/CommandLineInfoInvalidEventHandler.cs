@@ -1,4 +1,4 @@
-namespace MFR.CommandLine.Validators.Events
+﻿namespace MFR.CommandLine.Validators.Events
 {
     /// <summary>
     /// Represents a handler for a CommandLineInfoInvalid event.

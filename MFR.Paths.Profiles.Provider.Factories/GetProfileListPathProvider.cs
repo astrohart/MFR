@@ -1,4 +1,4 @@
-using MFR.Paths.Profiles.Provider.Interfaces;
+﻿using MFR.Paths.Profiles.Provider.Interfaces;
 
 namespace MFR.Paths.Profiles.Provider.Factories
 {

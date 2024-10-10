@@ -1,4 +1,4 @@
-namespace MFR.Directories.Validators.Constants
+﻿namespace MFR.Directories.Validators.Constants
 {
     /// <summary>
     /// Specifies the reason that validation either failed or did not fail.

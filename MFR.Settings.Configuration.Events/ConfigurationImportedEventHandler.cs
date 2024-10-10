@@ -1,4 +1,4 @@
-namespace MFR.Settings.Configuration.Events
+﻿namespace MFR.Settings.Configuration.Events
 {
     /// <summary>
     /// Defines the method signature for the handlers of a ConfigurationImported event.

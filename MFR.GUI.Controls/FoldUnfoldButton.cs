@@ -1,4 +1,4 @@
-using MFR.GUI.Controls.Events;
+﻿using MFR.GUI.Controls.Events;
 using MFR.GUI.Controls.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;

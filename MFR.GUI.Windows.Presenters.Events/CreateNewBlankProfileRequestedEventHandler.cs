@@ -1,4 +1,4 @@
-using MFR.Settings.Profiles.Interfaces;
+﻿using MFR.Settings.Profiles.Interfaces;
 
 namespace MFR.GUI.Windows.Presenters.Events
 {

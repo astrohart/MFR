@@ -1,4 +1,4 @@
-using MFR.Messages.Actions.Interfaces;
+﻿using MFR.Messages.Actions.Interfaces;
 using MFR.Settings.Configuration.Actions.Constants;
 using System;
 

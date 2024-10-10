@@ -1,4 +1,4 @@
-using MFR.Expressions.Registry.Interfaces;
+﻿using MFR.Expressions.Registry.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Expressions.Registry.Factories

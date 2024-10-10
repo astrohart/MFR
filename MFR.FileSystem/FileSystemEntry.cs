@@ -1,4 +1,4 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Win32;
 using MFR.Operations;
 using MFR.Operations.Constants;

@@ -1,4 +1,4 @@
-using MFR.Common.Properties;
+﻿using MFR.Common.Properties;
 using System;
 using System.Linq;
 using System.Reflection;

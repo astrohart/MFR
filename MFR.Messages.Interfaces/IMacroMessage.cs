@@ -1,4 +1,4 @@
-namespace MFR.Messages.Interfaces
+﻿namespace MFR.Messages.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that

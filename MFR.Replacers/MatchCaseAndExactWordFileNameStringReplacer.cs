@@ -1,4 +1,4 @@
-using MFR.Settings.Configuration.Constants;
+﻿using MFR.Settings.Configuration.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;

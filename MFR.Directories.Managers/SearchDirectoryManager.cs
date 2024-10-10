@@ -1,4 +1,4 @@
-using MFR.Directories.Managers.Interfaces;
+﻿using MFR.Directories.Managers.Interfaces;
 using MFR.FileSystem.Enumerators;
 using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;

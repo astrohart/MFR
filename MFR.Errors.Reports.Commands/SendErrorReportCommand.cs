@@ -1,4 +1,4 @@
-using MFR.Errors.Reports.Commands.Constants;
+﻿using MFR.Errors.Reports.Commands.Constants;
 using MFR.GUI.Actions;
 using MFR.GUI.Dialogs.Events;
 using MFR.Messages.Commands;

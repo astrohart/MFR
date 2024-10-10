@@ -1,4 +1,4 @@
-using MFR.Registry.Loaders.Interfaces;
+﻿using MFR.Registry.Loaders.Interfaces;
 
 namespace MFR.Registry.Loaders.Factories
 {

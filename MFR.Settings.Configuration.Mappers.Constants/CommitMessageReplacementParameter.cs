@@ -1,4 +1,4 @@
-namespace MFR.Settings.Configuration.Mappers.Constants
+﻿namespace MFR.Settings.Configuration.Mappers.Constants
 {
     /// <summary>
     /// Values that represent the replacement parameter strings in the configuration

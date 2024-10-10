@@ -1,4 +1,4 @@
-using MFR.Settings.Profiles.Collections.Interfaces;
+﻿using MFR.Settings.Profiles.Collections.Interfaces;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;

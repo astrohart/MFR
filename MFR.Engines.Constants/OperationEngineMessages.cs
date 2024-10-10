@@ -1,4 +1,4 @@
-using MFR.Messages.Identifiers.Factories;
+﻿using MFR.Messages.Identifiers.Factories;
 using PostSharp.Patterns.Diagnostics;
 using System;
 

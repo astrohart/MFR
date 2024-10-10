@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.Settings.Configuration.Constants;
 using MFR.Tests.Common;
 using NUnit.Framework;

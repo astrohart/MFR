@@ -1,4 +1,4 @@
-namespace MFR.Operations.Constants
+﻿namespace MFR.Operations.Constants
 {
     /// <summary>
     /// Specifies the type of operation now being performed.

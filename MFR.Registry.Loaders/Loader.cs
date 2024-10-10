@@ -1,4 +1,4 @@
-namespace MFR.Registry.Loaders
+﻿namespace MFR.Registry.Loaders
 {
     /// <summary>
     /// Defines the events, methods, properties, and behaviors for all loaders of data

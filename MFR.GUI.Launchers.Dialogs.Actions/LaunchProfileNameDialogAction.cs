@@ -1,4 +1,4 @@
-using MFR.GUI.Launchers.Dialogs.Actions.Constants;
+﻿using MFR.GUI.Launchers.Dialogs.Actions.Constants;
 using MFR.GUI.Launchers.Dialogs.Factories;
 using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
 using MFR.GUI.Launchers.Dialogs.Results.Interfaces;

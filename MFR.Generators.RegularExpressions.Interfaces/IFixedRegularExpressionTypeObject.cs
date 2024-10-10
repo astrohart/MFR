@@ -1,4 +1,4 @@
-using MFR.Generators.RegularExpressions.Constants;
+﻿using MFR.Generators.RegularExpressions.Constants;
 
 namespace MFR.Generators.RegularExpressions.Interfaces
 {

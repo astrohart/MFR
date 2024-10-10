@@ -1,4 +1,4 @@
-using MFR.GUI.Windows.Constants;
+﻿using MFR.GUI.Windows.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Drawing;

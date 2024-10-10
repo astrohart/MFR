@@ -1,4 +1,4 @@
-using MFR.GUI.Models.Converters;
+﻿using MFR.GUI.Models.Converters;
 using MFR.GUI.Models.Interfaces;
 using MFR.Operations.Constants;
 using Newtonsoft.Json;

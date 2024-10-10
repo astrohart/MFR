@@ -1,4 +1,4 @@
-using MFR.Events.Common;
+﻿using MFR.Events.Common;
 using MFR.Settings.Profiles.Collections.Interfaces;
 using System;
 using System.ComponentModel;

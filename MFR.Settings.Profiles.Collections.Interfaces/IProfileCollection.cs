@@ -1,4 +1,4 @@
-using MFR.Settings.Profiles.Interfaces;
+﻿using MFR.Settings.Profiles.Interfaces;
 using System;
 using System.Collections.Generic;
 

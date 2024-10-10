@@ -1,4 +1,4 @@
-using MFR.Engines.Matching.Actions;
+﻿using MFR.Engines.Matching.Actions;
 using MFR.Operations.Constants;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;

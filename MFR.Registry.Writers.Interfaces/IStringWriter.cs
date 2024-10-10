@@ -1,4 +1,4 @@
-namespace MFR.Registry.Writers.Interfaces
+﻿namespace MFR.Registry.Writers.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that loads

@@ -1,4 +1,4 @@
-using MFR.FileSystem.Interfaces;
+﻿using MFR.FileSystem.Interfaces;
 using MFR.Messages.Commands;
 using MFR.Messages.Constants;
 using MFR.Settings.Configuration.Commands.Constants;

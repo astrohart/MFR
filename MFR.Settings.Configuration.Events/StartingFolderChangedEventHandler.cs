@@ -1,4 +1,4 @@
-namespace MFR.Settings.Configuration.Events
+﻿namespace MFR.Settings.Configuration.Events
 {
     /// <summary>
     /// Represents a handler for a <c>StartingFolderChanged</c> event.

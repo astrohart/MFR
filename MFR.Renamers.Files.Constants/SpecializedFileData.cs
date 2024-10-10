@@ -1,4 +1,4 @@
-namespace MFR.Renamers.Files.Constants
+﻿namespace MFR.Renamers.Files.Constants
 {
     /// <summary>
     /// Specialized data that is to be returned in the event that a file meets certain

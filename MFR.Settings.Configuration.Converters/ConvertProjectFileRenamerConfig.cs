@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.GUI.Models;
 using MFR.Settings.Configuration.Interfaces;
 using Newtonsoft.Json;

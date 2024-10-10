@@ -1,4 +1,4 @@
-using MFR.GUI.Processors.Constants;
+﻿using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
 using MFR.GUI.Windows.Factories;
 using PostSharp.Patterns.Diagnostics;

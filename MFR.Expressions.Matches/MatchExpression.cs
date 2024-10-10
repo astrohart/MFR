@@ -1,4 +1,4 @@
-using MFR.Expressions.Matches.Interfaces;
+﻿using MFR.Expressions.Matches.Interfaces;
 
 namespace MFR.Expressions.Matches
 {

@@ -1,4 +1,4 @@
-using MFR.Engines.Replacement.Intefaces;
+﻿using MFR.Engines.Replacement.Intefaces;
 using MFR.Operations.Constants;
 using System;
 

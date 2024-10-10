@@ -1,4 +1,4 @@
-using PostSharp.Patterns.Threading;
+﻿using PostSharp.Patterns.Threading;
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Operations.Constants;
 using NUnit.Framework;

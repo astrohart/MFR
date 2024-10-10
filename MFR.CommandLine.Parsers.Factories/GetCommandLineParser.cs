@@ -1,4 +1,4 @@
-using MFR.CommandLine.Parsers.Interfaces;
+﻿using MFR.CommandLine.Parsers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.CommandLine.Parsers.Factories

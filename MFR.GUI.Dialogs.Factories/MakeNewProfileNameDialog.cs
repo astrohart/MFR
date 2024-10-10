@@ -1,4 +1,4 @@
-using MFR.GUI.Dialogs.Constants;
+﻿using MFR.GUI.Dialogs.Constants;
 using PostSharp.Patterns.Diagnostics;
 using MFR.GUI.Dialogs.Interfaces;
 using System;
