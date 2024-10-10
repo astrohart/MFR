@@ -3,14 +3,15 @@
 
 ## Contents
 
-- [GetDialogLauncherActionType](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherActionType 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherActionType')
-  - [For\`\`2(actionType)](#M-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherActionType-For``2-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType- 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherActionType.For``2(MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType)')
+- [GetDialogLauncherAction](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherAction')
+  - [#cctor()](#M-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction-#cctor 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherAction.#cctor')
+  - [For\`\`2(actionType)](#M-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction-For``2-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType- 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherAction.For``2(MFR.GUI.Launchers.Dialogs.Actions.Constants.DialogLauncherActionType)')
 - [Resources](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-Properties-Resources 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Properties.Resources')
   - [Culture](#P-MFR-GUI-Launchers-Dialogs-Actions-Factories-Properties-Resources-Culture 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-GUI-Launchers-Dialogs-Actions-Factories-Properties-Resources-ResourceManager 'MFR.GUI.Launchers.Dialogs.Actions.Factories.Properties.Resources.ResourceManager')
 
-<a name='T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherActionType'></a>
-## GetDialogLauncherActionType `type`
+<a name='T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction'></a>
+## GetDialogLauncherAction `type`
 
 ##### Namespace
 
@@ -23,7 +24,31 @@ Creates instances of objects that implement the
 interface and that summon and collect results from the various dialog boxes
 that are invoked by the commands in this application.
 
-<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherActionType-For``2-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-'></a>
+<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[GetDialogLauncherAction](#T-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction 'MFR.GUI.Launchers.Dialogs.Actions.Factories.GetDialogLauncherAction')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-GUI-Launchers-Dialogs-Actions-Factories-GetDialogLauncherAction-For``2-MFR-GUI-Launchers-Dialogs-Actions-Constants-DialogLauncherActionType-'></a>
 ### For\`\`2(actionType) `method`
 
 ##### Summary
