@@ -29,7 +29,9 @@ namespace MFR.GUI.Actions
         /// it was launched.
         /// </returns>
         public static CommandLineProcessorType CommandLineProcessorType(
-            bool commandLineSpecified, bool autoStart)
+            bool commandLineSpecified,
+            bool autoStart
+        )
         {
             if (!commandLineSpecified)
                 return Processors.Constants.CommandLineProcessorType

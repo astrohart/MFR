@@ -127,6 +127,10 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MFR.GUI.Processors.Constants\MFR.GUI.Processors.Constants.csproj">
+      <Project>{C3D9F192-8088-402D-AD5A-45BD3E4B328A}</Project>
+      <Name>MFR.GUI.Processors.Constants</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
