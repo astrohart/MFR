@@ -4,7 +4,9 @@
 ## Contents
 
 - [Get](#T-MFR-Services-Solutions-Actions-Get 'MFR.Services.Solutions.Actions.Get')
+  - [#cctor()](#M-MFR-Services-Solutions-Actions-Get-#cctor 'MFR.Services.Solutions.Actions.Get.#cctor')
   - [SolutionPathsInFolder(pathname)](#M-MFR-Services-Solutions-Actions-Get-SolutionPathsInFolder-System-String- 'MFR.Services.Solutions.Actions.Get.SolutionPathsInFolder(System.String)')
+  - [SolutionThatInstanceHasOpen(instance)](#M-MFR-Services-Solutions-Actions-Get-SolutionThatInstanceHasOpen-xyLOGIX-VisualStudio-Instances-Interfaces-IVisualStudioInstanceMetadata- 'MFR.Services.Solutions.Actions.Get.SolutionThatInstanceHasOpen(xyLOGIX.VisualStudio.Instances.Interfaces.IVisualStudioInstanceMetadata)')
 - [Is](#T-MFR-Services-Solutions-Actions-Is 'MFR.Services.Solutions.Actions.Is')
   - [Folder(pathname)](#M-MFR-Services-Solutions-Actions-Is-Folder-System-String- 'MFR.Services.Solutions.Actions.Is.Folder(System.String)')
 - [Resources](#T-MFR-Services-Solutions-Actions-Properties-Resources 'MFR.Services.Solutions.Actions.Properties.Resources')
@@ -23,6 +25,28 @@ MFR.Services.Solutions.Actions
 ##### Summary
 
 Exposes static methods, e.g., to get data sets from the system.
+
+<a name='M-MFR-Services-Solutions-Actions-Get-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Get](#T-MFR-Services-Solutions-Actions-Get 'MFR.Services.Solutions.Actions.Get') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-Services-Solutions-Actions-Get-SolutionPathsInFolder-System-String-'></a>
 ### SolutionPathsInFolder(pathname) `method`
@@ -48,6 +72,39 @@ pathname of a `*.sln` file in the folder having the specified
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the fully-qualified
 pathname of a folder in which to search. |
+
+<a name='M-MFR-Services-Solutions-Actions-Get-SolutionThatInstanceHasOpen-xyLOGIX-VisualStudio-Instances-Interfaces-IVisualStudioInstanceMetadata-'></a>
+### SolutionThatInstanceHasOpen(instance) `method`
+
+##### Summary
+
+Gets a reference to an instance of an object, implementing the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface, that represents a `Visual Studio Solution (*.sln)` file that is
+currently open in the specified `instance` of Visual Studio,
+if any.
+
+##### Returns
+
+If successful, a reference to an instance of an object that implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface representing the `Visual Studio Solution (*.sln)` file that is
+currently open in the specified `instance`; otherwise, a
+`null` reference is returned.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| instance | [xyLOGIX.VisualStudio.Instances.Interfaces.IVisualStudioInstanceMetadata](#T-xyLOGIX-VisualStudio-Instances-Interfaces-IVisualStudioInstanceMetadata 'xyLOGIX.VisualStudio.Instances.Interfaces.IVisualStudioInstanceMetadata') | (Required.) Reference to an instance of an object that implements the
+[IVisualStudioInstanceMetadata](#T-xyLOGIX-VisualStudio-Instances-Interfaces-IVisualStudioInstanceMetadata 'xyLOGIX.VisualStudio.Instances.Interfaces.IVisualStudioInstanceMetadata')
+interface representing a currently-open instance of Visual Studio. |
+
+##### Remarks
+
+This method also returns a `null` reference if the specified
+`instance` of Visual Studio does not currently have a Visual
+Studio Solution (`*.sln`)  file open in it.
 
 <a name='T-MFR-Services-Solutions-Actions-Is'></a>
 ## Is `type`
