@@ -132,6 +132,7 @@ namespace MFR.GUI.Dialogs
             // 
             this.reproductionStepsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
             this.reproductionStepsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.reproductionStepsTextBox.CueText = "";
             this.reproductionStepsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.reproductionStepsTextBox.Location = new System.Drawing.Point(21, 235);
             this.reproductionStepsTextBox.Multiline = true;
@@ -183,6 +184,7 @@ namespace MFR.GUI.Dialogs
             // 
             this.darkTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
             this.darkTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.darkTextBox1.CueText = "Your Name (optional)";
             this.darkTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.darkTextBox1.Location = new System.Drawing.Point(69, 374);
             this.darkTextBox1.Name = "darkTextBox1";
@@ -193,6 +195,7 @@ namespace MFR.GUI.Dialogs
             // 
             this.darkTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
             this.darkTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.darkTextBox2.CueText = "email@domain.com (optional)";
             this.darkTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.darkTextBox2.Location = new System.Drawing.Point(69, 403);
             this.darkTextBox2.Name = "darkTextBox2";
