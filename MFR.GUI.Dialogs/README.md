@@ -1401,7 +1401,7 @@ that occurred.
 
 ##### Summary
 
-Gets or sets the value of the Reproduction Steps text box.
+Gets or sets the value of the text box.
 
 <a name='P-MFR-GUI-Dialogs-ErrorReportDialog-ViewReportLinkLabel'></a>
 ### ViewReportLinkLabel `property`
