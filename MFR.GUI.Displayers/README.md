@@ -8,6 +8,7 @@
   - [ErrorReportDialog(owner,exception)](#M-MFR-GUI-Displayers-Display-ErrorReportDialog-System-Windows-Forms-IWin32Window,System-Exception- 'MFR.GUI.Displayers.Display.ErrorReportDialog(System.Windows.Forms.IWin32Window,System.Exception)')
   - [HelpProfileExplainerDialog(owner)](#M-MFR-GUI-Displayers-Display-HelpProfileExplainerDialog-System-Windows-Forms-IWin32Window- 'MFR.GUI.Displayers.Display.HelpProfileExplainerDialog(System.Windows.Forms.IWin32Window)')
   - [HelpProfileExplainerDialog()](#M-MFR-GUI-Displayers-Display-HelpProfileExplainerDialog 'MFR.GUI.Displayers.Display.HelpProfileExplainerDialog')
+  - [OnSendErrorReportRequested(sender,e)](#M-MFR-GUI-Displayers-Display-OnSendErrorReportRequested-System-Object,MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs- 'MFR.GUI.Displayers.Display.OnSendErrorReportRequested(System.Object,MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs)')
   - [OnViewErrorReportRequested(sender,e)](#M-MFR-GUI-Displayers-Display-OnViewErrorReportRequested-System-Object,MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs- 'MFR.GUI.Displayers.Display.OnViewErrorReportRequested(System.Object,MFR.GUI.Dialogs.Events.ViewErrorReportRequestedEventArgs)')
   - [ProfileNameDialogBox(type)](#M-MFR-GUI-Displayers-Display-ProfileNameDialogBox-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType- 'MFR.GUI.Displayers.Display.ProfileNameDialogBox(MFR.GUI.Dialogs.Constants.ProfileCreateOperationType)')
   - [ProfileNameDialogBox(type,owner)](#M-MFR-GUI-Displayers-Display-ProfileNameDialogBox-MFR-GUI-Dialogs-Constants-ProfileCreateOperationType,System-Windows-Forms-IWin32Window- 'MFR.GUI.Displayers.Display.ProfileNameDialogBox(MFR.GUI.Dialogs.Constants.ProfileCreateOperationType,System.Windows.Forms.IWin32Window)')
@@ -119,6 +120,29 @@ Shows a Help window that explains Profiles to the user.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Displayers-Display-OnSendErrorReportRequested-System-Object,MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs-'></a>
+### OnSendErrorReportRequested(sender,e) `method`
+
+##### Summary
+
+Handles the
+[](#E-MFR-GUI-Dialogs-Interfaces-IErrorReportDialog-SendErrorReportRequested 'MFR.GUI.Dialogs.Interfaces.IErrorReportDialog.SendErrorReportRequested')
+event raised by the Error Report dialog box.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Reference to an instance of the object that raised the
+event. |
+| e | [MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs') | A
+[SendErrorReportRequestedEventArgs](#T-MFR-GUI-Dialogs-Events-SendErrorReportRequestedEventArgs 'MFR.GUI.Dialogs.Events.SendErrorReportRequestedEventArgs') that
+contains the event data. |
+
+##### Remarks
+
+This method responds by launching Notepad to view the detailed report.
 
 <a name='M-MFR-GUI-Displayers-Display-OnViewErrorReportRequested-System-Object,MFR-GUI-Dialogs-Events-ViewErrorReportRequestedEventArgs-'></a>
 ### OnViewErrorReportRequested(sender,e) `method`
