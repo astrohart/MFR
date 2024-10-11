@@ -1,5 +1,4 @@
-﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Constants;
+﻿using MFR.Constants;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;
@@ -1835,10 +1834,13 @@ namespace MFR.Renamers.Files
 
             try
             {
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.CleanupEmptyFileFolder: Attempting to cleanup the folder, '{entry.Path}'..."
-                );
+                /*
+                 * We're making an assumption here, that 'entry' refers to a folder, and
+                 * not a file.  We tried checking but for some reason, the methods that
+                 * determine whether a folder exists, cannot ascertain that here, or
+                 * read its file-system attributes.  So, we're just going to shoot from the
+                 * hip with a RD /S /Q system call and cross our fingers.
+                 */
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
@@ -1857,7 +1859,8 @@ namespace MFR.Renamers.Files
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
                     );
 
                     // stop.
@@ -1871,51 +1874,34 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"FileRenamer.CleanupEmptyFileFolder *** INFO: Checking whether the folder with path '{entry.Path}' exists on the file system..."
+                    "*** INFO: Checking whether the 'entry.Path' property has a null reference for a value, or is blank..."
                 );
 
-                // Check whether a folder having the path, 'entry.Path', exists on the file system.
-                // If it does not, then write an error message to the log file, and then terminate
-                // the execution of this method, returning the default return value.
-                if (!Does.FolderExist(entry.Path))
+                // Check to see if the required property, entry.Path, is null or blank. If it is, send an 
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (string.IsNullOrWhiteSpace(entry.Path))
                 {
+                    // the property entry.Path is required.
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        $"FileRenamer.CleanupEmptyFileFolder: *** ERROR *** The system could not locate the folder having the path '{entry.Path}' on the file system.  Stopping..."
+                        "*** ERROR: The 'entry.Path' property has a null reference or is blank.  Stopping."
                     );
 
                     DebugUtils.WriteLine(
-                        DebugLevel.Debug, $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
+                        DebugLevel.Error,
+                        "*** ERROR: This property is required to be set to a non-blank string before we can proceed."
                     );
 
-                    // stop.
-                    return result;
-                }
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** The folder with path '{entry.Path}' was found on the file system.  Proceeding..."
-                );
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "*** FileRenamer.CleanupEmptyFileFolder: Checking whether the specified file system entry is a folder..."
-                );
-
-                // Check to see whether the specified file system entry is a folder.
-                // If this is not the case, then write an error message to the log file,
-                // and then terminate the execution of this method.
-                if (!entry.IsFolder)
-                {
-                    // The specified file system entry is NOT a folder.  This is not desirable.
+                    // log the result
                     DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        "*** ERROR *** The specified file system entry is NOT a folder.  Stopping..."
+                        DebugLevel.Debug,
+                        $"FileRenamer.CleanupEmptyFileFolder: Result = {result}"
                     );
 
                     DebugUtils.WriteLine(
                         DebugLevel.Debug,
-                        $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
+                        "FileRenamer.CleanupEmptyFileFolder: Done."
                     );
 
                     // stop.
@@ -1924,117 +1910,18 @@ namespace MFR.Renamers.Files
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** The specified file system entry is a folder.  Proceeding..."
+                    "*** SUCCESS *** The 'entry.Path' property is set to a non-blank string."
                 );
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.CleanupEmptyFileFolder *** INFO: Checking whether the folder with path '{entry.Path}' exists on the file system..."
-                );
-
-                // Check whether a folder having the path, 'entry.Path', exists on the file system.
-                // If it does not, then write an error message to the log file, and then terminate
-                // the execution of this method, returning the default return value.
-                if (!Does.FolderExist(entry.Path))
-                {
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        $"FileRenamer.CleanupEmptyFileFolder: *** ERROR *** The system could not locate the folder having the path '{entry.Path}' on the file system.  Stopping..."
-                    );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
-                    );
-
-                    // stop.
-                    return result;
-                }
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** The folder with path '{entry.Path}' was found on the file system.  Proceeding..."
-                );
+                Run.SystemCommand($"RD /S /Q \"{entry.Path}\"");
 
                 /*
-                 * Check whether the target folder is empty.
+                 * return TRUE for success and FALSE for failure.  Base the success
+                 * of this method on whether the folder in question still exists.
+                 * If it does, then we failed.
                  */
 
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    $"FileRenamer.CleanupEmptyFileFolder: Reading the file system entry(ies) in the folder, '{entry.Path}'..."
-                );
-
-                var entries = Directory.EnumerateFileSystemEntries(
-                                           entry.Path,
-                                           DirectoryEnumerationOptions
-                                               .AsLongPath |
-                                           DirectoryEnumerationOptions
-                                               .FilesAndFolders |
-                                           DirectoryEnumerationOptions
-                                               .ContinueOnException |
-                                           DirectoryEnumerationOptions.Recursive
-                                       )
-                                       .AsParallel()
-                                       .ToArray();
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "FileRenamer.CleanupEmptyFileFolder: Checking whether the variable 'entries' has a null reference for a value..."
-                );
-
-                // Check to see if the variable, entries, is null. If it is, send an error to the log file and quit, returning from the method.
-                if (entries == null)
-                {
-                    // the variable entries is required to have a valid object reference.
-                    DebugUtils.WriteLine(
-                        DebugLevel.Error,
-                        "FileRenamer.CleanupEmptyFileFolder: *** ERROR ***  The 'entries' variable has a null reference.  Stopping..."
-                    );
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Debug,
-                        $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
-                    );
-
-                    // stop.
-                    return result;
-                }
-
-                // We can use the variable, entries, because it's not set to a null reference.
-                DebugUtils.WriteLine(
-                    DebugLevel.Info,
-                    "FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** The 'entries' variable has a valid object reference for its value.  Proceeding..."
-                );
-
-                if (entries.Length <= 1)
-                {
-                    /*
-                     * The current folder is devoid of any content.
-                     *
-                     * Use the system command, 'RD /S /Q', to attempt to remove the folder
-                     * from the file system.
-                     */
-
-                    Run.SystemCommand($"RD /S /Q \"{entry.Path}\"");
-
-                    // If the entry does no longer exist on the file system, then we've succeeded
-                    result = !Does.FolderExist(entry.Path);
-                }
-                else
-                {
-                    /*
-                     * If we are here, the folder has greater than 1 content(s).  Assume that the
-                     * folder did not get renamed, if this is the case.
-                     */
-
-                    DebugUtils.WriteLine(
-                        DebugLevel.Warning,
-                        $"*** WARNING: Not deleting the folder, '{entry.Path}', because it may yet have valuable content in it."
-                    );
-
-                    result = false;
-                }
+                result = !Directory.Exists(entry.Path);
             }
             catch (Exception ex)
             {
