@@ -56,5 +56,27 @@ namespace MFR.Renamers.Files.Actions
                 DebugUtils.LogException(ex);
             }
         }
+
+        /// <summary>
+        /// Stops a process.
+        /// </summary>
+        /// <param name="fileName">
+        /// (Required.) A <see cref="T:System.String" /> containing the filename only,
+        /// e.g., <c>notepad.exe</c>, of the process that is to be terminated.
+        /// </param>
+        public static void Process(string fileName)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(fileName)) return;
+
+                Run.SystemCommand($"TASKKILL /IM {fileName} /F /T", "", true);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
     }
 }
