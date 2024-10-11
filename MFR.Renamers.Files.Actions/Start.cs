@@ -23,7 +23,9 @@ namespace MFR.Renamers.Files.Actions
         /// attribute in order to simplify the logging output.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        static Start() { }
+        static Start()
+        {
+        }
 
         /// <summary>
         /// Starts a Windows Service by using the command line <c>sc start</c> command.

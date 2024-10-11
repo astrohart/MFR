@@ -124,6 +124,7 @@
   <ItemGroup>
     <Compile Include="Should.cs" />
     <Compile Include="Start.cs" />
+    <Compile Include="Stop.cs" />
     <None Include="key.snk" />
     <Compile Include="Delete.cs" />
     <Compile Include="Formulate.cs" />
