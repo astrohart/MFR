@@ -159,6 +159,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Interop.Processes.VS2019\xyLOGIX.Interop.Processes.Actions\xyLOGIX.Interop.Processes.Actions.csproj">
+      <Project>{408D2215-587F-42D2-A589-B3B6F1A9A396}</Project>
+      <Name>xyLOGIX.Interop.Processes.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>

@@ -9,6 +9,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Interop.Processes.Actions;
 using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI
@@ -85,11 +86,61 @@ namespace MFR.GUI
                 return;
             }
 
+            InitializeSystemCommandRunner();
+
             SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             Application.WinInit(args);
 
             Revoke.WindowsMessageFilter();
+        }
+
+        /// <summary>
+        /// Initializes the events and properties of a <c>System Command Runner</c> object;
+        /// aka, the <see cref="T:xyLOGIX.Interop.Processes.Actions.Run" /> class.
+        /// </summary>
+        private static void InitializeSystemCommandRunner()
+        {
+            try
+            {
+                Run.DataReceived -= OnRunDataReceived;
+                Run.DataReceived += OnRunDataReceived;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Handles the <see cref="E:xyLOGIX.Interop.Processes.Actions.Run.DataReceived" />
+        /// event raised by the <see cref="T:xyLOGIX.Interop.Processes.Actions.Run" />
+        /// class when its methods are called to execute processes.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the
+        /// event.
+        /// </param>
+        /// <param name="e">
+        /// A <see cref="T:System.EventArgs" /> that contains the event
+        /// data.
+        /// </param>
+        /// <remarks>
+        /// This method responds by writing the results of executing system
+        /// commands to the log file.
+        /// </remarks>
+        private static void OnRunDataReceived(
+            object sender,
+            DataReceivedEventArgs e
+        )
+        {
+            if (e == null) return;
+            if (string.IsNullOrWhiteSpace(e.Data)) return;
+
+            DebugUtils.WriteLine(
+                DebugLevel.Info, $"*** DEBUG *** {e.Data.Trim()}"
+            );
         }
 
         private static void OnConfigProviderConfigFilePathChanged(
