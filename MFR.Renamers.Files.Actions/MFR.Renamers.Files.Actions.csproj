@@ -122,6 +122,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Remove.cs" />
     <Compile Include="Should.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="Stop.cs" />
