@@ -1,4 +1,5 @@
-﻿using MFR.Constants;
+﻿using Alphaleonis.Win32.Filesystem;
+using MFR.Constants;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;
@@ -1913,7 +1914,10 @@ namespace MFR.Renamers.Files
                     "*** SUCCESS *** The 'entry.Path' property is set to a non-blank string."
                 );
 
-                Run.SystemCommand($"RD /S /Q \"{entry.Path}\"");
+                Run.SystemCommand(
+                    $"RD /S /Q \"{entry.Path}\"",
+                    Directory.GetCurrentDirectory(), true
+                );
 
                 /*
                  * return TRUE for success and FALSE for failure.  Base the success
@@ -1921,7 +1925,7 @@ namespace MFR.Renamers.Files
                  * If it does, then we failed.
                  */
 
-                result = !Directory.Exists(entry.Path);
+                result = !Directory.Exists(entry.Path, PathFormat.FullPath);
             }
             catch (Exception ex)
             {
@@ -1932,9 +1936,7 @@ namespace MFR.Renamers.Files
             }
 
             DebugUtils.WriteLine(
-                result 
-                    ? DebugLevel.Info 
-                    : DebugLevel.Error,
+                result ? DebugLevel.Info : DebugLevel.Error,
                 result
                     ? $"*** SUCCESS *** Removed the file folder, '{entry.Path}', from the file system.  Proceeding..."
                     : $"*** ERROR *** FAILED to remove the file folder, '{entry.Path}', from the file system.  Stopping..."
