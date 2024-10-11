@@ -46,7 +46,7 @@ namespace MFR.Renamers.Files.Actions
                 if (serviceName.Contains(" "))
                     return; // service name can't have spaces
 
-                Run.SystemCommand($"sc start {serviceName}", "", true);
+                Run.SystemCommand($"sc start {serviceName}", workingDirectory:"", visible:true);
 
                 Thread.Sleep(
                     10000
