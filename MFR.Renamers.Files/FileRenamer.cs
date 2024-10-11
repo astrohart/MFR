@@ -1932,6 +1932,15 @@ namespace MFR.Renamers.Files
             }
 
             DebugUtils.WriteLine(
+                result 
+                    ? DebugLevel.Info 
+                    : DebugLevel.Error,
+                result
+                    ? $"*** SUCCESS *** Removed the file folder, '{entry.Path}', from the file system.  Proceeding..."
+                    : $"*** ERROR *** FAILED to remove the file folder, '{entry.Path}', from the file system.  Stopping..."
+            );
+
+            DebugUtils.WriteLine(
                 DebugLevel.Debug,
                 $"FileRenamer.CleanupEmptyFileFolder: Result = {result}"
             );
