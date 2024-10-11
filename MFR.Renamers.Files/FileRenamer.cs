@@ -77,6 +77,7 @@ using Get = MFR.Services.Solutions.Actions.Get;
 using Is = xyLOGIX.VisualStudio.Actions.Is;
 using Path = Alphaleonis.Win32.Filesystem.Path;
 using Process = System.Diagnostics.Process;
+using Remove = MFR.Renamers.Files.Actions.Remove;
 using Should = MFR.Renamers.Files.Actions.Should;
 using Thread = System.Threading.Thread;
 
@@ -1914,10 +1915,14 @@ namespace MFR.Renamers.Files
                     "*** SUCCESS *** The 'entry.Path' property is set to a non-blank string."
                 );
 
-                Run.SystemCommand(
-                    $"RD /S /Q \"{entry.Path}\"",
-                    Directory.GetCurrentDirectory(), true
-                );
+                Stop.Process("nuget.exe");
+                Stop.Process("msbuild.exe");
+                Stop.Process("TGitCache.exe");
+                Stop.Process("dllhost.exe");
+                Stop.Process("dllhost.exe");
+                Stop.Process("dllhost.exe");
+
+                Remove.Directory(entry.Path);
 
                 /*
                  * return TRUE for success and FALSE for failure.  Base the success
