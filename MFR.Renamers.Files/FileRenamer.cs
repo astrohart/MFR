@@ -1493,9 +1493,6 @@ namespace MFR.Renamers.Files
 
                 answers = true;
 
-                Debugger.Launch();
-                Debugger.Break();
-
                 foreach (var entry in fileSystemEntries.AsParallel())
                 {
                     if (AbortRequested) break;
