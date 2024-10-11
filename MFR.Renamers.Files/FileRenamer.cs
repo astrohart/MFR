@@ -1493,6 +1493,9 @@ namespace MFR.Renamers.Files
 
                 answers = true;
 
+                Debugger.Launch();
+                Debugger.Break();
+
                 foreach (var entry in fileSystemEntries.AsParallel())
                 {
                     if (AbortRequested) break;
@@ -1867,7 +1870,35 @@ namespace MFR.Renamers.Files
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     "FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** We have been passed a valid object reference for the 'entry' method parameter.  Proceeding..."
-                );	 
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanupEmptyFileFolder *** INFO: Checking whether the folder with path '{entry.Path}' exists on the file system..."
+                );
+
+                // Check whether a folder having the path, 'entry.Path', exists on the file system.
+                // If it does not, then write an error message to the log file, and then terminate
+                // the execution of this method, returning the default return value.
+                if (!Does.FolderExist(entry.Path))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"FileRenamer.CleanupEmptyFileFolder: *** ERROR *** The system could not locate the folder having the path '{entry.Path}' on the file system.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug, $"*** FileRenamer.CleanupEmptyFileFolder: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** The folder with path '{entry.Path}' was found on the file system.  Proceeding..."
+                );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
