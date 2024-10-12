@@ -1915,12 +1915,22 @@ namespace MFR.Renamers.Files
                     "*** SUCCESS *** The 'entry.Path' property is set to a non-blank string."
                 );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanupEmptyFileFolder: Attempting to stop process(es) that might interfere with the folder-remove operation..."
+                );
+
                 Stop.Process("nuget.exe");
                 Stop.Process("msbuild.exe");
                 Stop.Process("TGitCache.exe");
                 Stop.Process("dllhost.exe");
                 Stop.Process("dllhost.exe");
                 Stop.Process("dllhost.exe");
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"FileRenamer.CleanupEmptyFileFolder: *** SUCCESS *** The process(es) have been stopped.  Proceedng to remove the folder..."
+                );
 
                 Remove.Directory(entry.Path);
 
