@@ -1830,7 +1830,7 @@ namespace MFR.Renamers.Files
         /// <see langword="false" /> otherwise, or if the operation isn't applicable to the
         /// specified file system <paramref name="entry" />.
         /// </returns>
-        private bool CleanupEmptyFileFolder(IFileSystemEntry entry)
+        private static bool CleanupEmptyFileFolder(IFileSystemEntry entry)
         {
             var result = false;
 
