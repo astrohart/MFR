@@ -2372,7 +2372,7 @@ namespace MFR.Renamers.Files
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"FileRenamer.CleanFilesAndFolders: *** SUCCESS *** {FoldersToCleanup.Count} folder(s) found to be cleaned up.  Proceeding..."
+                        $"FileRenamer.CleanFilesAndFolders: *** SUCCESS *** {FoldersToCleanup.Count} folder(s) found to be cleaned up.  Iterating over the pathname(s) present..."
                     );
 
                     /*
@@ -2385,7 +2385,7 @@ namespace MFR.Renamers.Files
                      * own toes in regard to file sharing permissions.
                      */
 
-                    foreach (var entry in fileSystemEntries)
+                    foreach (var entry in FoldersToCleanup.ToArray())
                     {
                         if (AbortRequested) break;
                         if (entry == null) continue;
