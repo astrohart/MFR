@@ -119,6 +119,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cleanup.cs" />
     <Compile Include="Remove.cs" />
     <Compile Include="Should.cs" />
     <Compile Include="Start.cs" />
@@ -176,6 +177,10 @@
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1A47DA0E-D8A0-44D4-BE58-8ED1044E9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
+      <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
+      <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Actions.Win32\MFR.Renamers.Files.Actions.Win32.csproj">
       <Project>{72001CA0-CABA-48DB-B21E-EE8A43BE7E1A}</Project>
