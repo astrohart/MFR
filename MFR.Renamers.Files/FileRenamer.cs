@@ -2368,11 +2368,12 @@ namespace MFR.Renamers.Files
                 // Check whether the 'FoldersToCleanup' collection has greater than zero elements.  If so, then attempt
                 // to remove al folders whose pathnames are found in the 'FoldersToCleanup' collection, from the file
                 // system.
-                if (FoldersToCleanup.Count > 0)
+                if (FoldersToCleanup.ToArray()
+                                    .Length > 0)
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        $"FileRenamer.CleanFilesAndFolders: *** SUCCESS *** {FoldersToCleanup.Count} folder(s) found to be cleaned up.  Iterating over the pathname(s) present..."
+                        $"FileRenamer.CleanFilesAndFolders: *** SUCCESS *** {FoldersToCleanup.ToArray().Length} folder(s) found to be cleaned up.  Iterating over the pathname(s) present..."
                     );
 
                     /*
@@ -2392,6 +2393,18 @@ namespace MFR.Renamers.Files
 
                         executionResults.Add(Cleanup.EmptyFileFolder(entry));
                     }
+
+                    /*
+                     * Once we are done, clear out all the entry(ies) in the
+                     * FoldersToCleanup collection.
+                     */
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        "FileRenamer.CleanFilesAndFolders: DONE cleaning up folders.  Clearing the 'FoldersToCleanup' collection of all its entry(ies)..."
+                    );
+
+                    FoldersToCleanup.Clear();
                 }
                 else
                     DebugUtils.WriteLine(
@@ -2399,11 +2412,30 @@ namespace MFR.Renamers.Files
                         "*** WARNING: Zero entry(ies) were found in the 'FoldersToCleanup' collection.  Proceeding..."
                     );
 
+                /*
+                 * If we made it this far, assume that we succeeded.  Set the 'result' variable
+                 * to have a value of TRUE.  Then, iterate over the 'executionResults' collection
+                 * and look for any FALSE values.  If found, then change the 'result' variable
+                 * to have a value of FALSE and terminate the execution of this method.
+                 */
+
+                result = true;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.CleanFilesAndFolders: Gathering execution results..."
+                );
 
                 foreach (var executionResult in executionResults.ToArray())
                     if (!executionResult)
                     {
+                        DebugUtils.WriteLine(
+                            DebugLevel.Error,
+                            "*** ERROR *** One of the requested action step(s) did not complete successfully.  Stopping..."
+                        );
+
                         result = false;
+
                         break;
                     }
             }
