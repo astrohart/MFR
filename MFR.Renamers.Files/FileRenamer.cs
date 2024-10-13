@@ -235,6 +235,15 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Gets a reference to a collection, each element of which implements the
+        /// <see cref="T:MFR.FileSystem.Interfaces.IFileSystemEntry" /> interface.
+        /// </summary>
+        private IList<IFileSystemEntry> FoldersToCleanup
+        {
+            [DebuggerStepThrough] get;
+        } = new AdvisableCollection<IFileSystemEntry>();
+
+        /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
         /// <see cref="T:MFR.Renamers.Files.Interfaces.IFileRenamer" /> interface.
         /// </summary>
@@ -592,6 +601,42 @@ namespace MFR.Renamers.Files
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
+                    "FileRenamer.ProcessAll: Checking whether the 'FoldersToCleanup' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, FoldersToCleanup, is null. If it is, send an 
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (FoldersToCleanup == null)
+                {
+                    // The property, 'FoldersToCleanup', is required and is not supposed to have a NULL value.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.ProcessAll: *** ERROR *** The 'FoldersToCleanup' property has a null reference.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.ProcessAll: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.ProcessAll: *** SUCCESS *** The 'FoldersToCleanup' property has a valid object reference for its value.  Proceeding..."
+                );
+
+                /*
+                 * Clear all the entries from the 'FoldersToCleanup' collection, in order to get ready for a new run.
+                 */
+
+                FoldersToCleanup.Clear();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
                     $"*** FileRenamer.ProcessAll: Checking whether the root folder, '{RootDirectoryPath}', can be located on the file system..."
                 );
 
@@ -702,7 +747,7 @@ namespace MFR.Renamers.Files
 
                 var cleanFilesResult = true;
                 if (CurrentConfiguration.ReplaceTextInFiles)
-                    cleanFilesResult = CleanFiles(RootDirectoryPath);
+                    cleanFilesResult = CleanFilesAndFolders(RootDirectoryPath);
 
                 var renameSolutionFoldersResult = true;
                 if (CurrentConfiguration.RenameSolutionFolders)
@@ -1483,24 +1528,7 @@ namespace MFR.Renamers.Files
 
                 result = answers;
 
-                /*
-                 * Go back over the 'fileSystemEntries' list once more.
-                 * If any folders in the list still exist, and it is either
-                 * empty of just containing a .vs file or folder, then
-                 * erase it from the file system.
-                 */
-
-                answers = true;
-
-                foreach (var entry in fileSystemEntries.AsParallel())
-                {
-                    if (AbortRequested) break;
-                    if (entry == null) continue;
-
-                    answers &= Cleanup.EmptyFileFolder(entry);
-                }
-
-                result &= answers;
+                FoldersToCleanup.AddRange(fileSystemEntries);
 
                 /* if we are here, then the operation succeeded -- EXCEPT if the AbortRequested property is set to TRUE */
                 result &= !AbortRequested;
@@ -2246,7 +2274,7 @@ namespace MFR.Renamers.Files
         /// <see langword="false" /> otherwise.
         /// </returns>
         /// <exception cref="OperationAbortedException"></exception>
-        private bool CleanFiles(string rootFolderPath)
+        private bool CleanFilesAndFolders(string rootFolderPath)
         {
             var result = false;
 
@@ -2302,6 +2330,76 @@ namespace MFR.Renamers.Files
                     }
                 );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.CleanFilesAndFolders: Checking whether the 'FoldersToCleanup' property has a null reference for a value..."
+                );
+
+                // Check to see if the required property, FoldersToCleanup, is null. If it is, send an 
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (FoldersToCleanup == null)
+                {
+                    // The property, 'FoldersToCleanup', is required and is not supposed to have a NULL value.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "FileRenamer.CleanFilesAndFolders: *** ERROR *** The 'FoldersToCleanup' property has a null reference.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** FileRenamer.CleanFilesAndFolders: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.CleanFilesAndFolders: *** SUCCESS *** The 'FoldersToCleanup' property has a valid object reference for its value.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "FileRenamer.CleanFilesAndFolders: Checking whether the 'FoldersToCleanup' collection has greater than zero element(s)..."
+                );
+
+                // Check whether the 'FoldersToCleanup' collection has greater than zero elements.  If so, then attempt
+                // to remove al folders whose pathnames are found in the 'FoldersToCleanup' collection, from the file
+                // system.
+                if (FoldersToCleanup.Count > 0)
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Info,
+                        $"FileRenamer.CleanFilesAndFolders: *** SUCCESS *** {FoldersToCleanup.Count} folder(s) found to be cleaned up.  Proceeding..."
+                    );
+
+                    /*
+                     * Go back over the 'FoldersToCleanup' list once more.
+                     * If any folders in the list still exist, and it is either
+                     * empty of just containing a .vs file or folder, then
+                     * erase it from the file system.
+                     *
+                     * Make sure to execute sequentially, so we don't step on our
+                     * own toes in regard to file sharing permissions.
+                     */
+
+                    foreach (var entry in fileSystemEntries)
+                    {
+                        if (AbortRequested) break;
+                        if (entry == null) continue;
+
+                        executionResults.Add(Cleanup.EmptyFileFolder(entry));
+                    }
+                }
+                else
+                    DebugUtils.WriteLine(
+                        DebugLevel.Warning,
+                        "*** WARNING: Zero entry(ies) were found in the 'FoldersToCleanup' collection.  Proceeding..."
+                    );
+
+
                 foreach (var executionResult in executionResults.ToArray())
                     if (!executionResult)
                     {
@@ -2342,7 +2440,8 @@ namespace MFR.Renamers.Files
             );
 
             DebugUtils.WriteLine(
-                DebugLevel.Info, $"FileRenamer.CleanFiles: Result = {result}"
+                DebugLevel.Info,
+                $"FileRenamer.CleanFilesAndFolders: Result = {result}"
             );
 
             return result;
