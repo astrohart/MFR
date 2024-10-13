@@ -182,6 +182,10 @@
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
+      <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
+      <Name>MFR.Operations.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Renamers.Files.Actions.Win32\MFR.Renamers.Files.Actions.Win32.csproj">
       <Project>{72001CA0-CABA-48DB-B21E-EE8A43BE7E1A}</Project>
       <Name>MFR.Renamers.Files.Actions.Win32</Name>
