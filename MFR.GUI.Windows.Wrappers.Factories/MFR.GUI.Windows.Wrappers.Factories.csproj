@@ -146,10 +146,6 @@
       <Project>{09FC149F-D919-4B90-97D3-DA8842D03E26}</Project>
       <Name>MFR.GUI.Windows.Wrappers.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Windows.Wrappers\MFR.GUI.Windows.Wrappers.csproj">
-      <Project>{48B769E1-6DAF-4170-B07D-2F4C8D748953}</Project>
-      <Name>MFR.GUI.Windows.Wrappers</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

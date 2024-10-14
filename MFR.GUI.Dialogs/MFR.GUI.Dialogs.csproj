@@ -381,14 +381,6 @@
       <Project>{73A7F3DD-1F3E-4A26-AF9B-32A211743801}</Project>
       <Name>MFR.GUI.Dialogs.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Windows.Wrappers.Factories\MFR.GUI.Windows.Wrappers.Factories.csproj">
-      <Project>{FC9255CE-CABF-4C5F-8002-E1C738DCF9D7}</Project>
-      <Name>MFR.GUI.Windows.Wrappers.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.GUI.Windows.Wrappers.Interfaces\MFR.GUI.Windows.Wrappers.Interfaces.csproj">
-      <Project>{09FC149F-D919-4B90-97D3-DA8842D03E26}</Project>
-      <Name>MFR.GUI.Windows.Wrappers.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Profiles.Collections.Interfaces\MFR.Settings.Profiles.Collections.Interfaces.csproj">
       <Project>{E6E90230-4D0A-49EF-9D1F-0D744DFEA0D8}</Project>
       <Name>MFR.Settings.Profiles.Collections.Interfaces</Name>
