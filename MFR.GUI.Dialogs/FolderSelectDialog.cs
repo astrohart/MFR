@@ -14,6 +14,11 @@ namespace MFR.GUI.Dialogs
     /// </summary>
     public class FolderSelectDialog : IFolderSelectDialog
     {
+        /// <summary>
+        /// Reference to an instance of
+        /// <see cref="T:System.Windows.Forms.OpenFileDialog" /> that identifies the common
+        /// file dialog that is to be modified by the routines in this class.
+        /// </summary>
         private OpenFileDialog _ofd;
 
         /// <summary>
@@ -23,7 +28,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public FolderSelectDialog()
         {
-            _ofd = new OpenFileDialog {
+            _ofd = new OpenFileDialog
+            {
                 Filter = Resources.FolderSelectDialogFilters,
                 AddExtension = false,
                 CheckFileExists = false,
@@ -167,7 +173,9 @@ namespace MFR.GUI.Dialogs
                     var formType = typeof(Form);
                     if (formType == null) return flag;
 
-                    var r = new Reflector(formType.Assembly.FullName, formType.Namespace);
+                    var r = new Reflector(
+                        formType.Assembly.FullName, formType.Namespace
+                    );
                     if (r == null)
                     {
                         DebugUtils.WriteLine(
@@ -178,7 +186,8 @@ namespace MFR.GUI.Dialogs
                     }
 
                     uint num = 0;
-                    var typeIFileDialog = r.GetType("FileDialogNative.IFileDialog");
+                    var typeIFileDialog =
+                        r.GetType("FileDialogNative.IFileDialog");
                     if (typeIFileDialog == null)
                     {
                         DebugUtils.WriteLine(
@@ -221,7 +230,11 @@ namespace MFR.GUI.Dialogs
                         return flag;
                     }
 
-                    var parameters = new[] { pfde, num };
+                    var parameters = new[]
+                    {
+                        pfde,
+                        num
+                    };
                     Reflector.CallAs2(
                         typeIFileDialog, dialog, "Advise", parameters
                     );
@@ -235,7 +248,9 @@ namespace MFR.GUI.Dialogs
                     }
                     finally
                     {
-                        Reflector.CallAs(typeIFileDialog, dialog, "Unadvise", num);
+                        Reflector.CallAs(
+                            typeIFileDialog, dialog, "Unadvise", num
+                        );
                         GC.KeepAlive(pfde);
                     }
                 }
@@ -249,7 +264,7 @@ namespace MFR.GUI.Dialogs
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
-                
+
                 // If an exception occurs trying to display the new Folder Select dialog box,
                 // then use the old-style version instead.
                 if (!ShowOldStyleFolderBrowserDialog(hWndOwner, ref flag))
@@ -259,10 +274,13 @@ namespace MFR.GUI.Dialogs
             return flag;
         }
 
-        private bool ShowOldStyleFolderBrowserDialog(IntPtr hWndOwner,
-            ref bool flag)
+        private bool ShowOldStyleFolderBrowserDialog(
+            IntPtr hWndOwner,
+            ref bool flag
+        )
         {
-            var fbd = new FolderBrowserDialog {
+            var fbd = new FolderBrowserDialog
+            {
                 Description = Title,
                 SelectedPath = InitialDirectory,
                 ShowNewFolderButton = false
