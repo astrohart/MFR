@@ -15,7 +15,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.9067.33246" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.9067.39448" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -342,6 +342,7 @@
     <ROW Component="xyLOGIX.Collections.Synchronized.dll" ComponentId="{091DA5DB-447E-4F35-B673-13B89330D5D3}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Collections.Synchronized.dll"/>
     <ROW Component="xyLOGIX.Core.Assemblies.Info.dll" ComponentId="{0F041EDA-1716-4C07-AFD3-EC4979FDAFDE}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Assemblies.Info.dll"/>
     <ROW Component="xyLOGIX.Core.Debug.dll" ComponentId="{BF204AFC-1202-4E3E-966A-A2047E9AC85A}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Debug.dll"/>
+    <ROW Component="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" ComponentId="{38D9C884-198E-4F57-B95C-2C1FD8C50AB5}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll"/>
     <ROW Component="xyLOGIX.Core.Dialogs.FolderSelect.Interfaces.dll" ComponentId="{2588475B-C408-4DE1-BC9D-3030BBFD96AF}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Dialogs.FolderSelect.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Core.Dialogs.FolderSelect.dll" ComponentId="{02596EEE-685F-45FB-B2AA-1C3A4525A5D5}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Dialogs.FolderSelect.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.Factories.dll" ComponentId="{8CD419E3-E7FB-4555-8052-2BB44BD272CA}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.Factories.dll"/>
@@ -1306,6 +1307,8 @@
     <ROW File="xyLOGIX.Win32.RecycleBin.Factories.dll.config" Component_="config.json" FileName="XYLO~141.CON|xyLOGIX.Win32.RecycleBin.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Factories.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll" FileName="XYLO~142.DLL|xyLOGIX.Win32.RecycleBin.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Component_="config.json" FileName="XYLO~142.CON|xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" Component_="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" FileName="XYLO~143.DLL|xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll.config" Component_="config.json" FileName="XYLO~143.CON|xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1841,6 +1844,7 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
