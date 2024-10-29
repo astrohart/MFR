@@ -149,7 +149,6 @@
     <Compile Include="ErrorReportDialog.Designer.cs">
       <DependentUpon>ErrorReportDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="FolderSelectDialog.cs" />
     <Compile Include="OperationDrivenProgressDialog.cs">
       <SubType>Form</SubType>
     </Compile>
