@@ -46,6 +46,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Dialogs.FolderSelect.Factories;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
 using xyLOGIX.Pools.Tasks.Factories;

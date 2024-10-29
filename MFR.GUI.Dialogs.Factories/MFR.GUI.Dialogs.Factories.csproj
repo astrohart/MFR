@@ -128,7 +128,6 @@
     <Compile Include="MakeNewCancellableProgressDialog.cs" />
     <Compile Include="MakeNewCustomizeOperationsDialog.cs" />
     <Compile Include="MakeNewErrorReportDialog.cs" />
-    <Compile Include="MakeNewFolderSelectDialog.cs" />
     <Compile Include="MakeNewOperationDrivenProgressDialog.cs" />
     <Compile Include="MakeNewProfileNameDialog.cs" />
     <Compile Include="MakeNewProgressDialog.cs" />
@@ -154,6 +153,14 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.FolderSelect.VS2022\xyLOGIX.Core.Dialogs.FolderSelect.Interfaces\xyLOGIX.Core.Dialogs.FolderSelect.Interfaces.csproj">
+      <Project>{AAE29044-65B8-4416-AB1D-98985DE5F639}</Project>
+      <Name>xyLOGIX.Core.Dialogs.FolderSelect.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.FolderSelect.VS2022\xyLOGIX.Core.Dialogs.FolderSelect\xyLOGIX.Core.Dialogs.FolderSelect.csproj">
+      <Project>{A700E57B-E73F-4C98-90A6-9DE842686740}</Project>
+      <Name>xyLOGIX.Core.Dialogs.FolderSelect</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>

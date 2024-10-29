@@ -165,6 +165,14 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.FolderSelect.VS2022\xyLOGIX.Core.Dialogs.FolderSelect.Factories\xyLOGIX.Core.Dialogs.FolderSelect.Factories.csproj">
+      <Project>{9CC5F62B-E312-4ECE-B179-7D4DF24E1840}</Project>
+      <Name>xyLOGIX.Core.Dialogs.FolderSelect.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Dialogs.FolderSelect.VS2022\xyLOGIX.Core.Dialogs.FolderSelect.Interfaces\xyLOGIX.Core.Dialogs.FolderSelect.Interfaces.csproj">
+      <Project>{AAE29044-65B8-4416-AB1D-98985DE5F639}</Project>
+      <Name>xyLOGIX.Core.Dialogs.FolderSelect.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions\xyLOGIX.Core.Extensions.csproj">
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
