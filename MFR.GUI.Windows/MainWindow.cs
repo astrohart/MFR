@@ -1059,7 +1059,11 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Handles the <see cref="E:System.Windows.Forms.Control.Click" /> event
-        /// for the Browse ("...") button.
+        /// for the Browse (
+        /// <b>
+        ///     <c>...</c>
+        /// </b>
+        /// ) button.
         /// </summary>
         /// <param name="sender">
         /// Reference to an instance of the object that raised the event.
@@ -1069,11 +1073,15 @@ namespace MFR.GUI.Windows
         /// </param>
         /// <remarks>
         ///     <para>
-        ///     When the user clicks the "..." button, we want to show them a dialog
+        ///     When the user clicks the
+        ///     <b>
+        ///         <c>...</c>
+        ///     </b>
+        ///     button, we want to show them a dialog
         ///     box to select a folder.
         ///     </para>
         ///     <para>
-        ///     The contents of the Starting Folder text box will then be
+        ///     The contents of the <b>Starting Folder</b> text box will then be
         ///     initialized to hold the pathname to the folder that the user selects.
         ///     </para>
         /// </remarks>
