@@ -90,7 +90,7 @@
     <Reference Include="FluentCommandLineParser, Version=1.5.0.20, Culture=neutral, PublicKeyToken=1786f719d25473ef, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentCommandLineParser.Signed.1.5.0.20-commands\lib\FluentCommandLineParser.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=3.0.2.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+    <Reference Include="log4net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.3.0.2\lib\net462\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
