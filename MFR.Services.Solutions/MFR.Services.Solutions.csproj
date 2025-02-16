@@ -129,10 +129,7 @@
       <HintPath>..\packages\stdole.17.9.37000\lib\net472\stdole.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -163,33 +160,17 @@
       <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
+      <Project>{BB6F2458-CBF3-43A7-9536-7D027FDED8C7}</Project>
+      <Name>xyLOGIX.VisualStudio.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Instances.Interfaces\xyLOGIX.VisualStudio.Instances.Interfaces.csproj">
       <Project>{1AB59DA7-1718-4F99-B4EB-19635083AE0C}</Project>
       <Name>xyLOGIX.VisualStudio.Instances.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Factories\xyLOGIX.VisualStudio.Solutions.Factories.csproj">
-      <Project>{39CCB01B-E522-4F6F-87CD-0FC7C48E818B}</Project>
-      <Name>xyLOGIX.VisualStudio.Solutions.Factories</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1A47DA0E-D8A0-44D4-BE58-8ED1044E9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.csproj">
-      <Project>{1FD23594-1FB9-49E6-851E-E104AA80E797}</Project>
-      <Name>xyLOGIX.VisualStudio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
-      <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
-      <Name>MFR.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Enumerators\MFR.FileSystem.Enumerators.csproj">
-      <Project>{10098D0E-2878-4FA0-A605-30A3E6A9A9D7}</Project>
-      <Name>MFR.FileSystem.Enumerators</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.FileSystem.Retrievers.Factories\MFR.FileSystem.Retrievers.Factories.csproj">
-      <Project>{428F82C7-A519-4502-B103-916720DF1579}</Project>
-      <Name>MFR.FileSystem.Retrievers.Factories</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Services.Solutions.Actions\MFR.Services.Solutions.Actions.csproj">
       <Project>{880B4B2A-09A8-4F6B-80F1-83393AEBA0E4}</Project>
@@ -198,10 +179,6 @@
     <ProjectReference Include="..\MFR.Services.Solutions.Interfaces\MFR.Services.Solutions.Interfaces.csproj">
       <Project>{74BA19B3-79C5-46D4-A57F-027BC3DA14D7}</Project>
       <Name>MFR.Services.Solutions.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
-      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
-      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
