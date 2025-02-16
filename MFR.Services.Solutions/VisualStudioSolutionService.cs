@@ -1,5 +1,4 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using MFR.Services.Solutions.Actions;
 using MFR.Services.Solutions.Interfaces;
 using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
@@ -8,9 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
-using xyLOGIX.VisualStudio;
+using xyLOGIX.VisualStudio.Actions;
 using xyLOGIX.VisualStudio.Instances.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
+using Get = MFR.Services.Solutions.Actions.Get;
 
 namespace MFR.Services.Solutions
 {
