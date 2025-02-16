@@ -169,10 +169,6 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Core.Files.VS2019\xyLOGIX.Core.Files\xyLOGIX.Core.Files.csproj">
-      <Project>{4BACCE79-0960-4445-975E-DB92F5A555A4}</Project>
-      <Name>xyLOGIX.Core.Files</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
       <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
@@ -240,22 +236,6 @@
     <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Actions\xyLOGIX.Win32.RecycleBin.Actions.csproj">
       <Project>{0f60daa3-bfe7-4ad1-a84b-d885a46f6269}</Project>
       <Name>xyLOGIX.Win32.RecycleBin.Actions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Constants\xyLOGIX.Win32.RecycleBin.Constants.csproj">
-      <Project>{d95c31a5-464b-47ca-9437-5c6d9da7186b}</Project>
-      <Name>xyLOGIX.Win32.RecycleBin.Constants</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Factories\xyLOGIX.Win32.RecycleBin.Factories.csproj">
-      <Project>{b4e71227-0873-4700-86ec-02e37658ccc8}</Project>
-      <Name>xyLOGIX.Win32.RecycleBin.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin.Interfaces\xyLOGIX.Win32.RecycleBin.Interfaces.csproj">
-      <Project>{d1e28c91-f302-44de-9cd3-c4ac1c4bf5e8}</Project>
-      <Name>xyLOGIX.Win32.RecycleBin.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.Win32.RecycleBin.VS2022\xyLOGIX.Win32.RecycleBin\xyLOGIX.Win32.RecycleBin.csproj">
-      <Project>{efa04a13-ba9a-4baf-ace2-7fa5568abf34}</Project>
-      <Name>xyLOGIX.Win32.RecycleBin</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Managers.Factories\MFR.Directories.Managers.Factories.csproj">
       <Project>{A5256544-5B4C-44A8-9E85-F6A1B7C368B1}</Project>
