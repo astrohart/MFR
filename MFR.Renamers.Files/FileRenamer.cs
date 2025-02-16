@@ -51,7 +51,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
-using xyLOGIX.Core.Files;
 using xyLOGIX.Files.Actions;
 using xyLOGIX.Files.MemoryMapped.Factories;
 using xyLOGIX.Interop.Git.Factories;
@@ -78,6 +77,7 @@ using Path = Alphaleonis.Win32.Filesystem.Path;
 using Process = System.Diagnostics.Process;
 using Should = MFR.Renamers.Files.Actions.Should;
 using Thread = System.Threading.Thread;
+using Parent = xyLOGIX.Files.Actions.Parent;
 
 namespace MFR.Renamers.Files
 {
@@ -509,58 +509,6 @@ namespace MFR.Renamers.Files
             PendingChangesToBeCommittedCounted;
 
         /// <summary>
-        /// Occurs when an operation is about to be processed for a file or a folder.
-        /// </summary>
-        public event ProcessingOperationEventHandler ProcessingOperation;
-
-        /// <summary>
-        /// Occurs when the results that are to be committed to Git have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler
-            ResultsToBeCommittedToGitCounted;
-
-        /// <summary>
-        /// Occurs if the value of the
-        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
-        /// changed.
-        /// </summary>
-        public event RootDirectoryPathChangedEventHandler
-            RootDirectoryPathChanged;
-
-        /// <summary>
-        /// Occurs when an attempt to close a Visual Studio Solution (<c>*.sln</c>)  that
-        /// has been loaded into a running instance of Visual Studio has failed.
-        /// </summary>
-        public event SolutionCloseFailedEventHandler SolutionCloseFailed;
-
-        /// <summary>
-        /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
-        /// has been renamed.
-        /// </summary>
-        public event FolderRenamedEventHandler SolutionFolderRenamed;
-
-        /// <summary>
-        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
-        /// a running instance of Visual Studio has failed.
-        /// </summary>
-        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
-
-        /// <summary>
-        /// Occurs when the processing has started.
-        /// </summary>
-        public event EventHandler Started;
-
-        /// <summary>
-        /// Occurs just before the processing has started.
-        /// </summary>
-        public event EventHandler Starting;
-
-        /// <summary>
-        /// Occurs when a textual status message is available for display.
-        /// </summary>
-        public event StatusUpdateEventHandler StatusUpdate;
-
-        /// <summary>
         /// Executes the Rename Subfolders, Rename Files, and Replace Text in
         /// Files operation on all the folders and files in the root folder with
         /// the pathname stored in the
@@ -913,6 +861,11 @@ namespace MFR.Renamers.Files
                 DebugUtils.LogException(ex);
             }
         }
+
+        /// <summary>
+        /// Occurs when an operation is about to be processed for a file or a folder.
+        /// </summary>
+        public event ProcessingOperationEventHandler ProcessingOperation;
 
         /// <summary>
         /// Renames all the files in the all the subfolders etc., recursively,
@@ -1789,6 +1742,48 @@ namespace MFR.Renamers.Files
             => AbortRequested = true;
 
         /// <summary>
+        /// Occurs when the results that are to be committed to Git have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            ResultsToBeCommittedToGitCounted;
+
+        /// <summary>
+        /// Occurs if the value of the
+        /// <see cref="P:MFR.Renamers.Files.FileRenamer.RootDirectoryPath" /> property is
+        /// changed.
+        /// </summary>
+        public event RootDirectoryPathChangedEventHandler
+            RootDirectoryPathChanged;
+
+        /// <summary>
+        /// Occurs when an attempt to close a Visual Studio Solution (<c>*.sln</c>)  that
+        /// has been loaded into a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionCloseFailedEventHandler SolutionCloseFailed;
+
+        /// <summary>
+        /// Occurs when a folder that contains a Visual Studio Solution (<c>*.sln</c>) file
+        /// has been renamed.
+        /// </summary>
+        public event FolderRenamedEventHandler SolutionFolderRenamed;
+
+        /// <summary>
+        /// Occurs when an attempt to open a Visual Studio Solution (<c>*.sln</c>) file in
+        /// a running instance of Visual Studio has failed.
+        /// </summary>
+        public event SolutionOpenFailedEventHandler SolutionOpenFailed;
+
+        /// <summary>
+        /// Occurs when the processing has started.
+        /// </summary>
+        public event EventHandler Started;
+
+        /// <summary>
+        /// Occurs just before the processing has started.
+        /// </summary>
+        public event EventHandler Starting;
+
+        /// <summary>
         /// Sets the new root directory path from which searches should be started.
         /// </summary>
         /// <param name="path">
@@ -1831,286 +1826,9 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
-        /// Occurs when a Solution is about to be closed/unloaded from a running instance
-        /// of Visual Studio.
+        /// Occurs when a textual status message is available for display.
         /// </summary>
-        public event ClosingSolutionEventHandler ClosingSolution;
-
-        /// <summary>
-        /// Occurs when a running instance of Visual Studio has just closed/unloaded a
-        /// Visual Studio Solution (<c>*.sln</c>) file.
-        /// </summary>
-        public event SolutionClosedEventHandler SolutionClosed;
-
-        /// <summary>
-        /// Occurs when solution folders that are to be renamed have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler
-            SolutionFoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Occurs when subfolders to be renamed have been counted.
-        /// </summary>
-        public event FilesOrFoldersCountedEventHandler
-            SubfoldersToBeRenamedCounted;
-
-        /// <summary>
-        /// Enables this object to perform some or all of the operations specified.
-        /// </summary>
-        /// <param name="operations">
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public void EnableOperations(params OperationType[] operations)
-        {
-            if (!operations.Any())
-                return;
-
-            EnabledOperations = operations.ToList();
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ExceptionRaised" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
-        /// the event data.
-        /// </param>
-        [Log(AttributeExclude = true)]
-        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
-        {
-            ExceptionRaised?.Invoke(this, e);
-            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
-                                                 .ForMessageId(
-                                                     FileRenamerMessages
-                                                         .FRM_EXCEPTION_RAISED
-                                                 );
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ClosingSolution" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:MFR.Renamers.Files.Events.ClosingSolutionEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// Handlers of this event can set the value of the
-        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
-        /// <see langword="true" /> to stop the operation from proceeding.
-        /// </remarks>
-        protected virtual void OnClosingSolution(ClosingSolutionEventArgs e)
-            => ClosingSolution?.Invoke(this, e);
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.Renamers.Files.FileRenamer.CurrentOperationChanged" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        protected virtual void OnCurrentOperationChanged(
-            CurrentOperationChangedEventArgs e
-        )
-        {
-            CurrentOperationChanged?.Invoke(this, e);
-            SendMessage<CurrentOperationChangedEventArgs>.Having.Args(this, e)
-                .ForMessageId(
-                    FileRenamerMessages.FRM_CURRENT_OPERATION_CHANGED
-                );
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FileRenamed" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.Renamers.Files.FileRenamer.FileRenamed" />
-        /// that contains the event data.
-        /// </param>
-        protected virtual void OnFileRenamed(FileRenamedEventArgs e)
-        {
-            FileRenamed?.Invoke(this, e);
-            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
-                                             .ForMessageId(
-                                                 FileRenamerMessages
-                                                     .FRM_FILE_RENAMED
-                                             );
-
-            /*
-             * custom processing.
-             *
-             * Sometimes, .sln files (the ones we close and then open before and after the
-             * operations) are renamed by the operations.
-             *
-             * We check if this so.  If so, then we update the FullName property of
-             * the LoadedSolutions if we find one that matches, so that when we reload the
-             * solution, we open the correct file.
-             */
-
-            UpdateLoadedSolutionPaths(e);
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        protected virtual void OnFolderRenamed(FolderRenamedEventArgs e)
-        {
-            FolderRenamed?.Invoke(this, e);
-            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
-                                             .ForMessageId(
-                                                 FileRenamerMessages
-                                                     .FRM_FOLDER_RENAMED
-                                             );
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// (Required.) A
-        /// <see cref="T:MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        protected virtual void OnRootDirectoryPathChanged(
-            RootDirectoryPathChangedEventArgs e
-        )
-        {
-            RootDirectoryPathChanged?.Invoke(this, e);
-
-            // Dump the variable e.OldPath to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.OnRootDirectoryPathChanged: e.OldPath = '{e.OldPath}'"
-            );
-
-            // Dump the variable e.NewPath to the log
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.OnRootDirectoryPathChanged: e.NewPath = '{e.NewPath}'"
-            );
-
-            if (CurrentConfiguration == null) return;
-            if (string.IsNullOrWhiteSpace(CurrentConfiguration.StartingFolder))
-                return;
-            if (e == null) return;
-            if (string.IsNullOrWhiteSpace(e.OldPath)) return;
-            if (!e.OldPath.Equals(CurrentConfiguration.StartingFolder)) return;
-            if (!Does.FolderExist(e.NewPath)) return;
-
-            /*
-             * If the root directory path's old value coincides with the
-             * current setting of the StartingFolder property in the
-             * Current Configuration, then update the StartingFolder property
-             * of the Current Configuration to match the new value of the
-             * Root Directory Path.
-             *
-             * NOTE: This not trivial, since we can process more than
-             * one .sln in a directory tree -- this means that this renamer
-             * might not necessarily be operating on the starting folder set
-             * by the user in the application config.
-             */
-            CurrentConfiguration.StartingFolder = e.NewPath;
-
-            LoadedSolutionProvider.SetRootDirectoryPath(e.NewPath);
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:MFR.Renamers.Files.Events.SolutionClosedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        /// <remarks>
-        /// The <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" /> event is
-        /// used to indicate that a running instance of Visual Studio has just finished
-        /// closing/unloading a Visual Studio Solution (<c>*.sln</c>) file.
-        /// </remarks>
-        protected virtual void OnSolutionClosed(SolutionClosedEventArgs e)
-            => SolutionClosed?.Invoke(this, e);
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionCloseFailed" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// A
-        /// <see cref="T:MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        protected virtual void OnSolutionCloseFailed(
-            SolutionCloseFailedEventArgs e
-        )
-        {
-            SolutionCloseFailed?.Invoke(this, e);
-            SendMessage<SolutionCloseFailedEventArgs>.Having.Args(this, e)
-                .ForMessageId(FileRenamerMessages.FRM_SOLUTION_CLOSE_FAILED);
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
-        /// </summary>
-        /// <param name="e">
-        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        protected virtual void OnSolutionFolderRenamed(FolderRenamedEventArgs e)
-        {
-            SearchForRenamedSolution(e.Source, e.Destination);
-
-            SolutionFolderRenamed?.Invoke(this, e);
-            SendMessage<FolderRenamedEventArgs>.Having.Args(this, e)
-                                               .ForMessageId(
-                                                   FileRenamerMessages
-                                                       .FRM_SOLUTION_FOLDER_RENAMED
-                                               );
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionOpenFailed" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// (Required.) A
-        /// <see cref="T:MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs" /> that
-        /// contains the event data.
-        /// </param>
-        protected virtual void OnSolutionOpenFailed(
-            SolutionOpenFailedEventArgs e
-        )
-        {
-            SolutionOpenFailed?.Invoke(this, e);
-            SendMessage<SolutionOpenFailedEventArgs>.Having.Args(this, e)
-                                                    .ForMessageId(
-                                                        FileRenamerMessages
-                                                            .FRM_SOLUTION_OPEN_FAILED
-                                                    );
-        }
-
-        /// <summary>
-        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
-        /// </summary>
-        protected virtual void OnStarting()
-        {
-            lock (SyncRoot)
-                IsBusy = true;
-
-            Starting?.Invoke(this, EventArgs.Empty);
-            SendMessage.Having.Args(this, EventArgs.Empty)
-                       .ForMessageId(FileRenamerMessages.FRM_STARTING);
-        }
+        public event StatusUpdateEventHandler StatusUpdate;
 
         /// <summary>
         /// Called to run the file-cleaning algorithm (i.e., removing NULs and other
@@ -2586,6 +2304,12 @@ namespace MFR.Renamers.Files
 
             return result;
         }
+
+        /// <summary>
+        /// Occurs when a Solution is about to be closed/unloaded from a running instance
+        /// of Visual Studio.
+        /// </summary>
+        public event ClosingSolutionEventHandler ClosingSolution;
 
         private bool CommitPendingChanges(
             [NotLogged] string rootFolderPath,
@@ -3586,6 +3310,20 @@ namespace MFR.Renamers.Files
             }
         }
 
+        /// <summary>
+        /// Enables this object to perform some or all of the operations specified.
+        /// </summary>
+        /// <param name="operations">
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public void EnableOperations(params OperationType[] operations)
+        {
+            if (!operations.Any())
+                return;
+
+            EnabledOperations = operations.ToList();
+        }
+
         private string GetReplacementFileName(
             string findWhat,
             string replaceWith,
@@ -4449,6 +4187,93 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ClosingSolution" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.ClosingSolutionEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// Handlers of this event can set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property to
+        /// <see langword="true" /> to stop the operation from proceeding.
+        /// </remarks>
+        protected virtual void OnClosingSolution(ClosingSolutionEventArgs e)
+            => ClosingSolution?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.CurrentOperationChanged" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.CurrentOperationChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnCurrentOperationChanged(
+            CurrentOperationChangedEventArgs e
+        )
+        {
+            CurrentOperationChanged?.Invoke(this, e);
+            SendMessage<CurrentOperationChangedEventArgs>.Having.Args(this, e)
+                .ForMessageId(
+                    FileRenamerMessages.FRM_CURRENT_OPERATION_CHANGED
+                );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.ExceptionRaised" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.ExceptionRaisedEventArgs" /> that contains
+        /// the event data.
+        /// </param>
+        [Log(AttributeExclude = true)]
+        public virtual void OnExceptionRaised(ExceptionRaisedEventArgs e)
+        {
+            ExceptionRaised?.Invoke(this, e);
+            SendMessage<ExceptionRaisedEventArgs>.Having.Args(this, e)
+                                                 .ForMessageId(
+                                                     FileRenamerMessages
+                                                         .FRM_EXCEPTION_RAISED
+                                                 );
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FileRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Renamers.Files.FileRenamer.FileRenamed" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnFileRenamed(FileRenamedEventArgs e)
+        {
+            FileRenamed?.Invoke(this, e);
+            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
+                                             .ForMessageId(
+                                                 FileRenamerMessages
+                                                     .FRM_FILE_RENAMED
+                                             );
+
+            /*
+             * custom processing.
+             *
+             * Sometimes, .sln files (the ones we close and then open before and after the
+             * operations) are renamed by the operations.
+             *
+             * We check if this so.  If so, then we update the FullName property of
+             * the LoadedSolutions if we find one that matches, so that when we reload the
+             * solution, we open the correct file.
+             */
+
+            UpdateLoadedSolutionPaths(e);
+        }
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.Renamers.Files.FileRenamer.FilesToBeRenamedCounted" />
@@ -4507,6 +4332,23 @@ namespace MFR.Renamers.Files
             Finished?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.NoArgs()
                        .ForMessageId(FileRenamerMessages.FRM_FINISHED);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnFolderRenamed(FolderRenamedEventArgs e)
+        {
+            FolderRenamed?.Invoke(this, e);
+            SendMessage<FileRenamedEventArgs>.Having.Args(this, e)
+                                             .ForMessageId(
+                                                 FileRenamerMessages
+                                                     .FRM_FOLDER_RENAMED
+                                             );
         }
 
         /// <summary>
@@ -4609,6 +4451,112 @@ namespace MFR.Renamers.Files
 
         /// <summary>
         /// Raises the
+        /// <see cref="E:MFR.Renamers.Files.FileRenamer.RootDirectoryPathChanged" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Renamers.Files.Events.RootDirectoryPathChangedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        protected virtual void OnRootDirectoryPathChanged(
+            RootDirectoryPathChangedEventArgs e
+        )
+        {
+            RootDirectoryPathChanged?.Invoke(this, e);
+
+            // Dump the variable e.OldPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.OnRootDirectoryPathChanged: e.OldPath = '{e.OldPath}'"
+            );
+
+            // Dump the variable e.NewPath to the log
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"FileRenamer.OnRootDirectoryPathChanged: e.NewPath = '{e.NewPath}'"
+            );
+
+            if (CurrentConfiguration == null) return;
+            if (string.IsNullOrWhiteSpace(CurrentConfiguration.StartingFolder))
+                return;
+            if (e == null) return;
+            if (string.IsNullOrWhiteSpace(e.OldPath)) return;
+            if (!e.OldPath.Equals(CurrentConfiguration.StartingFolder)) return;
+            if (!Does.FolderExist(e.NewPath)) return;
+
+            /*
+             * If the root directory path's old value coincides with the
+             * current setting of the StartingFolder property in the
+             * Current Configuration, then update the StartingFolder property
+             * of the Current Configuration to match the new value of the
+             * Root Directory Path.
+             *
+             * NOTE: This not trivial, since we can process more than
+             * one .sln in a directory tree -- this means that this renamer
+             * might not necessarily be operating on the starting folder set
+             * by the user in the application config.
+             */
+            CurrentConfiguration.StartingFolder = e.NewPath;
+
+            LoadedSolutionProvider.SetRootDirectoryPath(e.NewPath);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionClosedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        /// <remarks>
+        /// The <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionClosed" /> event is
+        /// used to indicate that a running instance of Visual Studio has just finished
+        /// closing/unloading a Visual Studio Solution (<c>*.sln</c>) file.
+        /// </remarks>
+        protected virtual void OnSolutionClosed(SolutionClosedEventArgs e)
+            => SolutionClosed?.Invoke(this, e);
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionCloseFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionCloseFailedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionCloseFailed(
+            SolutionCloseFailedEventArgs e
+        )
+        {
+            SolutionCloseFailed?.Invoke(this, e);
+            SendMessage<SolutionCloseFailedEventArgs>.Having.Args(this, e)
+                .ForMessageId(FileRenamerMessages.FRM_SOLUTION_CLOSE_FAILED);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.FolderRenamed" /> event.
+        /// </summary>
+        /// <param name="e">
+        /// A <see cref="T:MFR.Events.FolderRenamedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionFolderRenamed(FolderRenamedEventArgs e)
+        {
+            SearchForRenamedSolution(e.Source, e.Destination);
+
+            SolutionFolderRenamed?.Invoke(this, e);
+            SendMessage<FolderRenamedEventArgs>.Having.Args(this, e)
+                                               .ForMessageId(
+                                                   FileRenamerMessages
+                                                       .FRM_SOLUTION_FOLDER_RENAMED
+                                               );
+        }
+
+        /// <summary>
+        /// Raises the
         /// <see
         ///     cref="E:MFR.Renamers.Files.FileRenamer.SolutionFoldersToBeRenamedCounted" />
         /// event.
@@ -4630,6 +4578,27 @@ namespace MFR.Renamers.Files
         }
 
         /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.SolutionOpenFailed" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Renamers.Files.Events.SolutionOpenFailedEventArgs" /> that
+        /// contains the event data.
+        /// </param>
+        protected virtual void OnSolutionOpenFailed(
+            SolutionOpenFailedEventArgs e
+        )
+        {
+            SolutionOpenFailed?.Invoke(this, e);
+            SendMessage<SolutionOpenFailedEventArgs>.Having.Args(this, e)
+                                                    .ForMessageId(
+                                                        FileRenamerMessages
+                                                            .FRM_SOLUTION_OPEN_FAILED
+                                                    );
+        }
+
+        /// <summary>
         /// Raises the
         /// <see
         ///     cref="E:MFR.Renamers.Files.FileRenamer.Started" />
@@ -4643,6 +4612,19 @@ namespace MFR.Renamers.Files
             Started?.Invoke(this, EventArgs.Empty);
             SendMessage.Having.Args(this, EventArgs.Empty)
                        .ForMessageId(FileRenamerMessages.FRM_STARTED);
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:MFR.Renamers.Files.FileRenamer.Starting" /> event.
+        /// </summary>
+        protected virtual void OnStarting()
+        {
+            lock (SyncRoot)
+                IsBusy = true;
+
+            Starting?.Invoke(this, EventArgs.Empty);
+            SendMessage.Having.Args(this, EventArgs.Empty)
+                       .ForMessageId(FileRenamerMessages.FRM_STARTING);
         }
 
         /// <summary>
@@ -5790,6 +5772,24 @@ namespace MFR.Renamers.Files
 
             return result;
         }
+
+        /// <summary>
+        /// Occurs when a running instance of Visual Studio has just closed/unloaded a
+        /// Visual Studio Solution (<c>*.sln</c>) file.
+        /// </summary>
+        public event SolutionClosedEventHandler SolutionClosed;
+
+        /// <summary>
+        /// Occurs when solution folders that are to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SolutionFoldersToBeRenamedCounted;
+
+        /// <summary>
+        /// Occurs when subfolders to be renamed have been counted.
+        /// </summary>
+        public event FilesOrFoldersCountedEventHandler
+            SubfoldersToBeRenamedCounted;
 
         private void UpdateLoadedSolutionPaths(FileRenamedEventArgs e)
         {
