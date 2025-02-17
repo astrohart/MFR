@@ -35,7 +35,7 @@ namespace MFR.Settings.Configuration.Providers.Interfaces
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        IProjectFileRenamerConfig CurrentConfiguration
+        IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
