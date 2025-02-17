@@ -288,7 +288,7 @@ namespace MFR.GUI.Windows.Presenters.Interfaces
         /// (Required.) String containing the name to give the
         /// new Profile.
         /// </param>
-        void SaveCurrentConfigurationurationAsProfile(string profileName);
+        void SaveCurrentConfigurationAsProfile(string profileName);
 
         /// <summary>
         /// Updates the value of the
