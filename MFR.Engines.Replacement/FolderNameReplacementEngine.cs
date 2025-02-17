@@ -171,7 +171,7 @@ namespace MFR.Engines.Replacement
                      level folder in the pathname */
                     GetStringReplacer.For(OperationType)
                                      .AndTextMatchingConfiguration(
-                                         CurrentConfiguration
+                                         CurrentConfig
                                              .GetTextMatchingConfiguration()
                                      )
                                      .Replace(folderName, pattern, dest)
