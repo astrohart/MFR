@@ -72,11 +72,11 @@ namespace MFR.Engines.Matching
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets one of the <see cref="T:MFR.Operations.Constants.OperationType" /> values
