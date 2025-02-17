@@ -121,7 +121,7 @@ namespace MFR.Engines.Replacement
                 var replacer = GetStringReplacer
                                .For(OperationType.ReplaceTextInFiles)
                                .AndTextMatchingConfiguration(
-                                   CurrentConfiguration
+                                   CurrentConfig
                                        .GetTextMatchingConfiguration()
                                );
                 if (replacer == null) return result;
