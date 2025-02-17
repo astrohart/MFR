@@ -74,7 +74,7 @@ namespace MFR.Settings.Configuration.Providers
         /// exposes settings changed by the user in order to modify the
         /// application's behavior.
         /// </summary>
-        public IProjectFileRenamerConfig CurrentConfiguration
+        public IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
@@ -103,7 +103,7 @@ namespace MFR.Settings.Configuration.Providers
         /// Resets the config to default values.
         /// </summary>
         public void Clear()
-            => CurrentConfiguration =
+            => CurrentConfig =
                 GetBlankProjectFileRenamerConfig.SoleInstance();
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace MFR.Settings.Configuration.Providers
         /// <para />
         /// The
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfig" />
         /// property is then initialized to point to the data that has been loaded.
         /// <para />
         /// The value of the
@@ -213,7 +213,7 @@ namespace MFR.Settings.Configuration.Providers
         /// <remarks>
         /// The value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfig" />
         /// property is set to <see langword="null" /> if an error occurs during loading.
         /// </remarks>
         public IProjectFileRenamerConfig Load([NotLogged] string pathname = "")
@@ -224,18 +224,18 @@ namespace MFR.Settings.Configuration.Providers
             {
                 /*
                  * If we aren't passed anything for the pathname parameter
-                 * of this method, and if the CurrentConfiguration is already
-                 * loaded, then just return a reference to the CurrentConfiguration
-                 * property, to save cycles -- but only if the CurrentConfiguration
+                 * of this method, and if the CurrentConfig is already
+                 * loaded, then just return a reference to the CurrentConfig
+                 * property, to save cycles -- but only if the CurrentConfig
                  * property isn't set to the blank value.
                  */
 
                 if (string.IsNullOrWhiteSpace(pathname) &&
                     !ProjectFileRenamerConfig.IsBlankOrNull(
-                        CurrentConfiguration
+                        CurrentConfig
                     ))
                 {
-                    result = CurrentConfiguration;
+                    result = CurrentConfig;
                     return result;
                 }
 
@@ -250,12 +250,12 @@ namespace MFR.Settings.Configuration.Providers
                     );
                 if (!Does.FileExist(pathnameToLoadFrom))
                 {
-                    result = CurrentConfiguration =
+                    result = CurrentConfig =
                         MakeNewProjectFileRenamerConfig.FromScratch();
                     return result;
                 }
 
-                result = CurrentConfiguration =
+                result = CurrentConfig =
                     Obtain.ConfigurationFrom(pathnameToLoadFrom);
             }
             catch (Exception ex)
@@ -263,7 +263,7 @@ namespace MFR.Settings.Configuration.Providers
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                CurrentConfiguration = GetBlankProjectFileRenamerConfig
+                CurrentConfig = GetBlankProjectFileRenamerConfig
                     .SoleInstance();
             }
 
@@ -324,10 +324,10 @@ namespace MFR.Settings.Configuration.Providers
             if (string.IsNullOrWhiteSpace(pathname)) return;
 
             // Check to see if the required property, ProjectFileRenamerConfig, is null. If
-            if (CurrentConfiguration == null) return;
+            if (CurrentConfig == null) return;
 
-            if (CurrentConfiguration.IsFromCommandLine &&
-                CurrentConfiguration.AutoStart)
+            if (CurrentConfig.IsFromCommandLine &&
+                CurrentConfig.AutoStart)
                 return;
 
             try
@@ -340,7 +340,7 @@ namespace MFR.Settings.Configuration.Providers
                                            MakeNewFileSystemEntry
                                                .ForPath(pathname)
                                                .SetUserState(
-                                                   CurrentConfiguration
+                                                   CurrentConfig
                                                )
                                        )
                                        .Execute();
