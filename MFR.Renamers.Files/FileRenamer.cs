@@ -187,11 +187,11 @@ namespace MFR.Renamers.Files
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets or sets the <see cref="T:MFR.Operations.Constants.OperationType" />
@@ -659,13 +659,13 @@ namespace MFR.Renamers.Files
                 TotalReposWithPendingChanges =
                     -1; // reset the TotalReposWithPendingChanges property
 
-                if (CurrentConfiguration.ShouldCommitPendingChanges &&
+                if (CurrentConfig.ShouldCommitPendingChanges &&
                     !CommitPendingChanges(
                         RootDirectoryPath, findWhat, replaceWith
                     ) &&
                     TotalReposWithPendingChanges >
                     0 /* don't show the commit failure warning if there were no pending changes to start with */
-                    && !CurrentConfiguration
+                    && !CurrentConfig
                         .AutoStart /* don't show the message box if we're automatically started */
                    )
                     Messages.ShowWarning(
@@ -673,7 +673,7 @@ namespace MFR.Renamers.Files
                     );
 
                 var renameFilesInFolderResult = true;
-                if (CurrentConfiguration.RenameFilesInFolder)
+                if (CurrentConfig.RenameFilesInFolder)
                     renameFilesInFolderResult = RenameFilesInFolder(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
@@ -681,30 +681,30 @@ namespace MFR.Renamers.Files
                 KillErrantProcesses();
 
                 var renameSubFoldersResult = true;
-                if (CurrentConfiguration.RenameSubFolders)
+                if (CurrentConfig.RenameSubFolders)
                     renameSubFoldersResult = RenameSubFoldersOf(
                         RootDirectoryPath, findWhat, replaceWith, pathFilter
                     );
 
                 var replaceTextInFilesResult = true;
-                if (CurrentConfiguration.ReplaceTextInFiles)
+                if (CurrentConfig.ReplaceTextInFiles)
                     replaceTextInFilesResult = ReplaceTextInFiles(
                         RootDirectoryPath, findWhat,
                         replaceWith /* filtering paths (besides the default) makes no sense for this operation */
                     );
 
                 var cleanFilesResult = true;
-                if (CurrentConfiguration.ReplaceTextInFiles)
+                if (CurrentConfig.ReplaceTextInFiles)
                     cleanFilesResult = CleanFilesAndFolders(RootDirectoryPath);
 
                 var renameSolutionFoldersResult = true;
-                if (CurrentConfiguration.RenameSolutionFolders)
+                if (CurrentConfig.RenameSolutionFolders)
                     renameSolutionFoldersResult = RenameSolutionFolders(
                         RootDirectoryPath, findWhat, replaceWith
                     );
 
                 var commitResultsToGitResult = true;
-                if (CurrentConfiguration.ShouldCommitPostOperationChanges)
+                if (CurrentConfig.ShouldCommitPostOperationChanges)
                     commitResultsToGitResult = CommitResultsToGit(
                         RootDirectoryPath, findWhat, replaceWith
                     );
@@ -780,7 +780,7 @@ namespace MFR.Renamers.Files
         /// <exception cref="T:System.InvalidOperationException">
         /// Thrown if the value of the
         /// <see
-        ///     cref="P:MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration" />
+        ///     cref="P:MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfig" />
         /// property has not been set prior to calling this method.
         /// <para />
         /// Call the
@@ -804,7 +804,7 @@ namespace MFR.Renamers.Files
             [NotLogged] Predicate<string> pathFilter = null
         )
         {
-            if (CurrentConfiguration == null)
+            if (CurrentConfig == null)
                 throw new InvalidOperationException(
                     "The config has not been initialized."
                 );
@@ -964,7 +964,7 @@ namespace MFR.Renamers.Files
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameFilesInFolder)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (retriever == null)
                     if (!AbortRequested)
                     {
@@ -1174,7 +1174,7 @@ namespace MFR.Renamers.Files
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSolutionFolders)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (retriever == null) return result;
 
                 // build a list of solution folders to be processed
@@ -1408,7 +1408,7 @@ namespace MFR.Renamers.Files
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.RenameSubFolders)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (retriever == null) return result;
 
                 // Build list of folders to be processed
@@ -1626,7 +1626,7 @@ namespace MFR.Renamers.Files
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.ReplaceTextInFiles)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (retriever == null) return result;
 
                 IList<IFileSystemEntry> fileSystemEntries = retriever
@@ -2325,8 +2325,8 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
-                if (CurrentConfiguration.AutoStart &&
-                    !CurrentConfiguration.UpdateGitOnAutoStart)
+                if (CurrentConfig.AutoStart &&
+                    !CurrentConfig.UpdateGitOnAutoStart)
                     return
                         result; /* let the user decide if Git is updated on auto start */
 
@@ -2346,7 +2346,7 @@ namespace MFR.Renamers.Files
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.CommitPendingChanges)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (retriever == null) return result;
 
                 // Build list of folders to be processed
@@ -2649,14 +2649,14 @@ namespace MFR.Renamers.Files
                 LocalGitInteropProvider.Commit(
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfiguration
+                            CurrentConfig
                                 .PendingChangesCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
-                    ), CurrentConfiguration.CommitAuthorName,
-                    CurrentConfiguration.CommitAuthorEmail,
+                    ), CurrentConfig.CommitAuthorName,
+                    CurrentConfig.CommitAuthorEmail,
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfiguration
+                            CurrentConfig
                                 .PendingChangesDetailedCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     )
@@ -2707,8 +2707,8 @@ namespace MFR.Renamers.Files
                     return result;
                 if (string.IsNullOrWhiteSpace(findWhat))
                     return result;
-                if (CurrentConfiguration.AutoStart &&
-                    !CurrentConfiguration.UpdateGitOnAutoStart)
+                if (CurrentConfig.AutoStart &&
+                    !CurrentConfig.UpdateGitOnAutoStart)
                     return
                         result; /* let the user decide if Git is updated on auto start */
 
@@ -2721,7 +2721,7 @@ namespace MFR.Renamers.Files
                 IFileSystemEntryListRetriever retriever =
                     GetFileSystemEntryListRetriever
                         .For(OperationType.CommitResultsToGit)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (retriever == null) return result;
 
                 // Build list of folders to be processed
@@ -2914,7 +2914,7 @@ namespace MFR.Renamers.Files
 
                 if (succeeded && LocalGitInteropProvider.HasRemoteOrigin &&
                     LocalGitInteropProvider.HasCurrentBranch &&
-                    CurrentConfiguration.PushChangesToRemoteWhenDone)
+                    CurrentConfig.PushChangesToRemoteWhenDone)
                 {
                     OnStatusUpdate(
                         new StatusUpdateEventArgs(
@@ -3023,14 +3023,14 @@ namespace MFR.Renamers.Files
                 LocalGitInteropProvider.Commit(
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfiguration
+                            CurrentConfig
                                 .PostOperationCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
-                    ), CurrentConfiguration.CommitAuthorName,
-                    CurrentConfiguration.CommitAuthorEmail,
+                    ), CurrentConfig.CommitAuthorName,
+                    CurrentConfig.CommitAuthorEmail,
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfiguration
+                            CurrentConfig
                                 .PostOperationDetailedCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     )
@@ -3345,7 +3345,7 @@ namespace MFR.Renamers.Files
                                                          .RenameFilesInFolder
                                                  )
                                                  .AndAttachConfiguration(
-                                                     CurrentConfiguration
+                                                     CurrentConfig
                                                  )
                                                  .Replace(
                                                      GetMatchExpressionFactory
@@ -3354,7 +3354,7 @@ namespace MFR.Renamers.Files
                                                                  .RenameFilesInFolder
                                                          )
                                                          .AndAttachConfiguration(
-                                                             CurrentConfiguration
+                                                             CurrentConfig
                                                          )
                                                          .ForTextValue(
                                                              GetTextValueRetriever
@@ -3455,7 +3455,7 @@ namespace MFR.Renamers.Files
                                                         .ReplaceTextInFiles
                                                 )
                                                 .AndAttachConfiguration(
-                                                    CurrentConfiguration
+                                                    CurrentConfig
                                                 );
                 if (engine == null)
                 {
@@ -3475,7 +3475,7 @@ namespace MFR.Renamers.Files
                 IMatchExpressionFactory matchExpressionFactory =
                     GetMatchExpressionFactory
                         .For(OperationType.ReplaceTextInFiles)
-                        .AndAttachConfiguration(CurrentConfiguration);
+                        .AndAttachConfiguration(CurrentConfig);
                 if (matchExpressionFactory == null)
                 {
                     DebugUtils.WriteLine(
@@ -3563,7 +3563,7 @@ namespace MFR.Renamers.Files
                 IMatchExpression expression = matchExpressionFactory
                                               .ForTextValue(textToBeSearched)
                                               .AndAttachConfiguration(
-                                                  CurrentConfiguration
+                                                  CurrentConfig
                                               )
                                               .ToFindWhat(findWhat)
                                               .AndReplaceItWith(replaceWith);
@@ -4476,12 +4476,12 @@ namespace MFR.Renamers.Files
                 $"FileRenamer.OnRootDirectoryPathChanged: e.NewPath = '{e.NewPath}'"
             );
 
-            if (CurrentConfiguration == null) return;
-            if (string.IsNullOrWhiteSpace(CurrentConfiguration.StartingFolder))
+            if (CurrentConfig == null) return;
+            if (string.IsNullOrWhiteSpace(CurrentConfig.StartingFolder))
                 return;
             if (e == null) return;
             if (string.IsNullOrWhiteSpace(e.OldPath)) return;
-            if (!e.OldPath.Equals(CurrentConfiguration.StartingFolder)) return;
+            if (!e.OldPath.Equals(CurrentConfig.StartingFolder)) return;
             if (!Does.FolderExist(e.NewPath)) return;
 
             /*
@@ -4496,7 +4496,7 @@ namespace MFR.Renamers.Files
              * might not necessarily be operating on the starting folder set
              * by the user in the application config.
              */
-            CurrentConfiguration.StartingFolder = e.NewPath;
+            CurrentConfig.StartingFolder = e.NewPath;
 
             LoadedSolutionProvider.SetRootDirectoryPath(e.NewPath);
         }
@@ -4873,7 +4873,7 @@ namespace MFR.Renamers.Files
                                                         .RenameSolutionFolders
                                                 )
                                                 .AndAttachConfiguration(
-                                                    CurrentConfiguration
+                                                    CurrentConfig
                                                 );
                 if (engine == null) return result;
 
@@ -4890,7 +4890,7 @@ namespace MFR.Renamers.Files
                                                      .RenameSolutionFolders
                                              )
                                              .AndAttachConfiguration(
-                                                 CurrentConfiguration
+                                                 CurrentConfig
                                              );
                 if (matchExpressionFactory == null) return result;
 
@@ -5072,7 +5072,7 @@ namespace MFR.Renamers.Files
                                                         .RenameSubFolders
                                                 )
                                                 .AndAttachConfiguration(
-                                                    CurrentConfiguration
+                                                    CurrentConfig
                                                 );
                 if (engine == null) return result;
 
@@ -5081,7 +5081,7 @@ namespace MFR.Renamers.Files
                                                  OperationType.RenameSubFolders
                                              )
                                              .AndAttachConfiguration(
-                                                 CurrentConfiguration
+                                                 CurrentConfig
                                              );
                 if (matchExpressionFactory == null) return result;
 
@@ -5602,7 +5602,7 @@ namespace MFR.Renamers.Files
                  */
 
                 foreach (var solution in LoadedSolutions)
-                    solution.ShouldReopen = CurrentConfiguration.ReOpenSolution;
+                    solution.ShouldReopen = CurrentConfig.ReOpenSolution;
 
                 ShouldReOpenSolutions = LoadedSolutions.Any(
                     solution => solution.ShouldReopen
@@ -5649,7 +5649,7 @@ namespace MFR.Renamers.Files
                 // need to re-load the solution by hand after the operation has
                 // been completed.
 
-                if (CurrentConfiguration.PromptUserToReloadOpenSolution &&
+                if (CurrentConfig.PromptUserToReloadOpenSolution &&
                     DialogResult.No == MessageBox.Show(
                         Resources.Confirm_PerformRename,
                         Application.ProductName, MessageBoxButtons.YesNo,
