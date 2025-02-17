@@ -46,7 +46,7 @@ namespace MFR.Settings.Configuration
         protected ConfigurationComposedObjectBase(
             IProjectFileRenamerConfig config)
         {
-            CurrentConfiguration = config ??
+            CurrentConfig = config ??
                                    throw new ArgumentNullException(
                                        nameof(config)
                                    );
@@ -63,7 +63,7 @@ namespace MFR.Settings.Configuration
         /// This object's properties give us access to the settings configured
         /// by the user of the application.
         /// </remarks>
-        public abstract IProjectFileRenamerConfig CurrentConfiguration
+        public abstract IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
@@ -77,7 +77,7 @@ namespace MFR.Settings.Configuration
         /// interface.
         /// </summary>
         protected bool IsConfigurationAttached
-            => CurrentConfiguration != null;
+            => CurrentConfig != null;
 
         /// <summary>
         /// Associates user settings, in the form of an instance of an object
@@ -105,7 +105,7 @@ namespace MFR.Settings.Configuration
         public dynamic AndAttachConfiguration(
             IProjectFileRenamerConfig config)
         {
-            CurrentConfiguration = config ??
+            CurrentConfig = config ??
                                    throw new ArgumentNullException(
                                        nameof(config)
                                    );
@@ -139,7 +139,7 @@ namespace MFR.Settings.Configuration
         /// </exception>
         public virtual void UpdateConfiguration(
             IProjectFileRenamerConfig config)
-            => CurrentConfiguration = config ??
+            => CurrentConfig = config ??
                                       throw new ArgumentNullException(
                                           nameof(config)
                                       );
