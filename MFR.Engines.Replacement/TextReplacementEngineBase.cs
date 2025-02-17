@@ -82,11 +82,11 @@ namespace MFR.Engines.Replacement
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets one of the
