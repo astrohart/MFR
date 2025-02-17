@@ -80,8 +80,8 @@ namespace MFR.GUI.Dialogs
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that represents the currently-loaded config.
         /// </summary>
-        private static IProjectFileRenamerConfig CurrentConfiguration
-            => ConfigProvider.CurrentConfiguration;
+        private static IProjectFileRenamerConfig CurrentConfig
+            => ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -232,14 +232,14 @@ namespace MFR.GUI.Dialogs
             Refresh();
             Application.DoEvents();
 
-            FileRenamer.UpdateConfiguration(CurrentConfiguration);
+            FileRenamer.UpdateConfiguration(CurrentConfig);
 
             _processingWorker.RunWorkerAsync(
                 MakeNewFileRenamerJob
-                    .ForRootDirectory(CurrentConfiguration.StartingFolder)
+                    .ForRootDirectory(CurrentConfig.StartingFolder)
                     .HavingPathFilter(null)
-                    .ToFindWhat(CurrentConfiguration.FindWhat)
-                    .AndReplaceItWith(CurrentConfiguration.ReplaceWith)
+                    .ToFindWhat(CurrentConfig.FindWhat)
+                    .AndReplaceItWith(CurrentConfig.ReplaceWith)
             );
         }
 
