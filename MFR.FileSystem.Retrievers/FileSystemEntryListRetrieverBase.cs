@@ -65,11 +65,11 @@ namespace MFR.FileSystem.Retrievers
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Fluent bridge property that accesses the appropriate file-system
@@ -172,7 +172,7 @@ namespace MFR.FileSystem.Retrievers
         private ITextExpressionMatchingEngine TextExpressionMatchingEngineSays
             => GetTextExpressionMatchingEngine.For(OperationType)
                                               .AndAttachConfiguration(
-                                                  CurrentConfiguration
+                                                  CurrentConfig
                                               );
 
         /// <summary>
@@ -552,7 +552,7 @@ namespace MFR.FileSystem.Retrievers
             {
                 result = GetMatchExpressionFactory.For(OperationType)
                                                   .AndAttachConfiguration(
-                                                      CurrentConfiguration
+                                                      CurrentConfig
                                                   );
             }
             catch (Exception ex)
