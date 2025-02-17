@@ -13,7 +13,7 @@
         /// Gets or sets a reference to an instance of an object that implements
         /// the <see cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" /> interface.
         /// </summary>
-        IProjectFileRenamerConfig CurrentConfiguration
+        IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
