@@ -180,8 +180,8 @@ namespace MFR.GUI.Windows
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        private IProjectFileRenamerConfig CurrentConfiguration
-            => ConfigProvider.CurrentConfiguration;
+        private IProjectFileRenamerConfig CurrentConfig
+            => ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets or sets the text displayed in the edit portion of the <b>Find What</b>
@@ -327,7 +327,7 @@ namespace MFR.GUI.Windows
                                     .FullGUI
                             )
                             .AndAttachConfiguration(
-                                CurrentConfiguration
+                                CurrentConfig
                             ) as
                             IFullGuiOperationEngine;
                 }
@@ -609,8 +609,8 @@ namespace MFR.GUI.Windows
              * by the user, then we should update the screen with the values from the
              * config, and then "click" the Perform Operation button.
              */
-            if (!CurrentConfiguration.IsFromCommandLine ||
-                !CurrentConfiguration.AutoStart)
+            if (!CurrentConfig.IsFromCommandLine ||
+                !CurrentConfig.AutoStart)
             {
                 SetState(MainWindowState.Idle);
 
@@ -684,7 +684,7 @@ namespace MFR.GUI.Windows
                                                    .WithInput(e.Name)
                                                    .Execute();
 
-                ConfigProvider.CurrentConfiguration =
+                ConfigProvider.CurrentConfig =
                     result; // set the newly-created profile as the new config.
             }
             catch (Exception ex)
@@ -868,11 +868,11 @@ namespace MFR.GUI.Windows
 
                 // Make sure we're getting a valid folder
                 if (!RootDirectoryPathValidator.Validate(
-                        CurrentConfiguration.StartingFolder
+                        CurrentConfig.StartingFolder
                     )) return;
 
                 StartingFolderComboBox.Items.AddDistinct(
-                    CurrentConfiguration.StartingFolder
+                    CurrentConfig.StartingFolder
                 );
             }
             catch (Exception ex)
@@ -884,7 +884,7 @@ namespace MFR.GUI.Windows
 
         /// <summary>
         /// Checks whether the value of the
-        /// <see cref="P:MFR.GUI.Windows.MainWindow.CurrentConfiguration" /> property is
+        /// <see cref="P:MFR.GUI.Windows.MainWindow.CurrentConfig" /> property is
         /// <see langword="null" />.
         /// <para />
         /// If so, then calls the
@@ -897,18 +897,18 @@ namespace MFR.GUI.Windows
             try
             {
                 if (!ProjectFileRenamerConfig.IsBlankOrNull(
-                        CurrentConfiguration
+                        CurrentConfig
                     ))
                     return;
 
                 ConfigProvider.Load();
 
                 if (ProjectFileRenamerConfig.IsBlankOrNull(
-                        CurrentConfiguration
+                        CurrentConfig
                     ))
                     return;
 
-                CurrentConfiguration.StartingFolderChanged +=
+                CurrentConfig.StartingFolderChanged +=
                     OnConfiguredStartingFolderChanged;
 
                 InitializeStartingFolder();
@@ -936,12 +936,12 @@ namespace MFR.GUI.Windows
                 .AndHistoryManager(
                     MakeHistoryManager.ForForm(this)
                                       .AndAttachConfiguration(
-                                          CurrentConfiguration
+                                          CurrentConfig
                                       )
                 )
                 .WithOperationEngine(OperationEngine);
 
-            Presenter.UpdateConfiguration(CurrentConfiguration);
+            Presenter.UpdateConfiguration(CurrentConfig);
 
             if (Presenter == null)
                 throw new InvalidOperationException(
@@ -1004,11 +1004,11 @@ namespace MFR.GUI.Windows
         private void InitializeStartingFolder()
         {
             if (!string.IsNullOrWhiteSpace(
-                    CurrentConfiguration.StartingFolder
+                    CurrentConfig.StartingFolder
                 ) &&
-                !CurrentConfiguration.StartingFolder.Equals(StartingFolder) &&
-                Does.DirectoryExist(CurrentConfiguration.StartingFolder))
-                StartingFolder = CurrentConfiguration.StartingFolder;
+                !CurrentConfig.StartingFolder.Equals(StartingFolder) &&
+                Does.DirectoryExist(CurrentConfig.StartingFolder))
+                StartingFolder = CurrentConfig.StartingFolder;
 
             /*
              * Ensure that the File -> Save menu item is grayed out upon
@@ -1328,7 +1328,7 @@ namespace MFR.GUI.Windows
             FoldButton.SetFoldedStateText();
 
             GetProjectFileRenamerConfigProvider.SoleInstance()
-                                               .CurrentConfiguration.IsFolded =
+                                               .CurrentConfig.IsFolded =
                 e.Folded;
         }
 
@@ -1645,7 +1645,7 @@ namespace MFR.GUI.Windows
             this.InvokeIfRequired(
                 () =>
                 {
-                    if (!CurrentConfiguration.AutoQuitOnCompletion) return;
+                    if (!CurrentConfig.AutoQuitOnCompletion) return;
                     UpdateData();
                     Close();
                 }
@@ -1659,8 +1659,8 @@ namespace MFR.GUI.Windows
              * processing is done.
              */
 
-            if (CurrentConfiguration.IsFromCommandLine &&
-                CurrentConfiguration.AutoStart)
+            if (CurrentConfig.IsFromCommandLine &&
+                CurrentConfig.AutoStart)
                 this.InvokeIfRequired(Close);
         }
 
@@ -1857,7 +1857,7 @@ namespace MFR.GUI.Windows
             // First, save data from the screen
             Presenter.UpdateData();
 
-            Presenter.SaveCurrentConfigurationurationAsProfile(
+            Presenter.SaveCurrentConfigurationAsProfile(
                 results.ProfileName
             );
 
@@ -2075,7 +2075,7 @@ namespace MFR.GUI.Windows
                 () =>
                 {
                     if (bSaveAndValidate)
-                        Presenter.UpdateConfiguration(CurrentConfiguration);
+                        Presenter.UpdateConfiguration(CurrentConfig);
 
                     Presenter.UpdateData(bSaveAndValidate);
 
