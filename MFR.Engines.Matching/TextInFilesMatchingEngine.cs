@@ -129,7 +129,7 @@ namespace MFR.Engines.Matching
                     return result;
 
                 var matcher = Get.StringMatcherForOperation(
-                    OperationType, CurrentConfiguration
+                    OperationType, CurrentConfig
                 );
                 if (matcher == null) return result;
 
