@@ -5,6 +5,7 @@ using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System.Diagnostics;
 
 namespace MFR.GUI.Processors
 {
@@ -44,8 +45,8 @@ namespace MFR.GUI.Processors
         /// </summary>
         public ICommandLineInfo CommandLineInfo
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -84,10 +85,10 @@ namespace MFR.GUI.Processors
         /// Given that this class is an abstract base class, we have marked this property
         /// as <see langword="protected" /> so that our child classes can see it.
         /// </remarks>
-        protected static IProjectFileRenamerConfig CurrentConfiguration
+        protected static IProjectFileRenamerConfig CurrentConfig
         {
-            get => ConfigProvider.CurrentConfiguration;
-            set => ConfigProvider.CurrentConfiguration = value;
+            [DebuggerStepThrough] get => ConfigProvider.CurrentConfig;
+            [DebuggerStepThrough] set => ConfigProvider.CurrentConfig = value;
         }
 
         /// <summary>
