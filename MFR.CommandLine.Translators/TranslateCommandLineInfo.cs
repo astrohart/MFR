@@ -45,10 +45,10 @@ namespace MFR.CommandLine.Translators
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that represents the currently-loaded config.
         /// </summary>
-        private static IProjectFileRenamerConfig CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfig
         {
-            get => ConfigProvider.CurrentConfiguration;
-            set => ConfigProvider.CurrentConfiguration = value;
+            get => ConfigProvider.CurrentConfig;
+            set => ConfigProvider.CurrentConfig = value;
         }
 
         /// <summary>
