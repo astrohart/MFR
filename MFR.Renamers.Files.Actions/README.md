@@ -3,11 +3,17 @@
 
 ## Contents
 
+- [Cleanup](#T-MFR-Renamers-Files-Actions-Cleanup 'MFR.Renamers.Files.Actions.Cleanup')
+  - [#cctor()](#M-MFR-Renamers-Files-Actions-Cleanup-#cctor 'MFR.Renamers.Files.Actions.Cleanup.#cctor')
+  - [EmptyFileFolder(entry)](#M-MFR-Renamers-Files-Actions-Cleanup-EmptyFileFolder-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.Actions.Cleanup.EmptyFileFolder(MFR.FileSystem.Interfaces.IFileSystemEntry)')
 - [Delete](#T-MFR-Renamers-Files-Actions-Delete 'MFR.Renamers.Files.Actions.Delete')
   - [File(pathname)](#M-MFR-Renamers-Files-Actions-Delete-File-System-String- 'MFR.Renamers.Files.Actions.Delete.File(System.String)')
 - [Formulate](#T-MFR-Renamers-Files-Actions-Formulate 'MFR.Renamers.Files.Actions.Formulate')
 - [List](#T-MFR-Renamers-Files-Actions-List 'MFR.Renamers.Files.Actions.List')
   - [ProcessesLockingFileSystemEntry(pathname)](#M-MFR-Renamers-Files-Actions-List-ProcessesLockingFileSystemEntry-System-String- 'MFR.Renamers.Files.Actions.List.ProcessesLockingFileSystemEntry(System.String)')
+- [Remove](#T-MFR-Renamers-Files-Actions-Remove 'MFR.Renamers.Files.Actions.Remove')
+  - [#cctor()](#M-MFR-Renamers-Files-Actions-Remove-#cctor 'MFR.Renamers.Files.Actions.Remove.#cctor')
+  - [Directory(pathname)](#M-MFR-Renamers-Files-Actions-Remove-Directory-System-String- 'MFR.Renamers.Files.Actions.Remove.Directory(System.String)')
 - [Resources](#T-MFR-Renamers-Files-Actions-Properties-Resources 'MFR.Renamers.Files.Actions.Properties.Resources')
   - [Culture](#P-MFR-Renamers-Files-Actions-Properties-Resources-Culture 'MFR.Renamers.Files.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
@@ -15,6 +21,86 @@
   - [FileDataForBinaryControlCharacters(textToBeSearched)](#M-MFR-Renamers-Files-Actions-Scan-FileDataForBinaryControlCharacters-System-String- 'MFR.Renamers.Files.Actions.Scan.FileDataForBinaryControlCharacters(System.String)')
 - [Should](#T-MFR-Renamers-Files-Actions-Should 'MFR.Renamers.Files.Actions.Should')
   - [AnyPreviouslyLoadedSolutionsBeReopened(previouslyLoadedSolutions)](#M-MFR-Renamers-Files-Actions-Should-AnyPreviouslyLoadedSolutionsBeReopened-System-Collections-Generic-IList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Renamers.Files.Actions.Should.AnyPreviouslyLoadedSolutionsBeReopened(System.Collections.Generic.IList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
+- [Start](#T-MFR-Renamers-Files-Actions-Start 'MFR.Renamers.Files.Actions.Start')
+  - [#cctor()](#M-MFR-Renamers-Files-Actions-Start-#cctor 'MFR.Renamers.Files.Actions.Start.#cctor')
+  - [Service(serviceName)](#M-MFR-Renamers-Files-Actions-Start-Service-System-String- 'MFR.Renamers.Files.Actions.Start.Service(System.String)')
+- [Stop](#T-MFR-Renamers-Files-Actions-Stop 'MFR.Renamers.Files.Actions.Stop')
+  - [#cctor()](#M-MFR-Renamers-Files-Actions-Stop-#cctor 'MFR.Renamers.Files.Actions.Stop.#cctor')
+  - [Process(fileName)](#M-MFR-Renamers-Files-Actions-Stop-Process-System-String- 'MFR.Renamers.Files.Actions.Stop.Process(System.String)')
+  - [Service(serviceName)](#M-MFR-Renamers-Files-Actions-Stop-Service-System-String- 'MFR.Renamers.Files.Actions.Stop.Service(System.String)')
+
+<a name='T-MFR-Renamers-Files-Actions-Cleanup'></a>
+## Cleanup `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+##### Summary
+
+Exposes static methods to perform cleanup after other operations have
+completed.
+
+<a name='M-MFR-Renamers-Files-Actions-Cleanup-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Cleanup](#T-MFR-Renamers-Files-Actions-Cleanup 'MFR.Renamers.Files.Actions.Cleanup') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-Renamers-Files-Actions-Cleanup-EmptyFileFolder-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
+### EmptyFileFolder(entry) `method`
+
+##### Summary
+
+Attempts to remove an empty file folder (usually the result of a rename)
+referred to by the specified file system `entry`.
+
+##### Returns
+
+`true` if the operation succeeded;
+`false` otherwise, or if the operation isn't applicable to the
+specified file system `entry`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface and which
+refers to a (presumably) empty file folder. |
+
+##### Remarks
+
+If a `null` reference is passed as the argument of
+the `entry` parameter, then this method returns
+`false`, but otherwise, does nothing.
+
+
+
+This method also does nothing if the folder that is referred to by the
+specified file system `entry` is not empty.
+
+
+
+Finally, nothing is done by this method if the specified file system
+`entry` either: (a) does not refer to a folder that exists on
+the file system; or (b) refers to a file and not a folder.
 
 <a name='T-MFR-Renamers-Files-Actions-Delete'></a>
 ## Delete `type`
@@ -88,6 +174,54 @@ See also:
 http://msdn.microsoft.com/en-us/library/windows/desktop/aa373661(v=vs.85).aspx
 http://wyupdate.googlecode.com/svn-history/r401/trunk/frmFilesInUse.cs (no
 copyright in code at time of viewing)
+
+<a name='T-MFR-Renamers-Files-Actions-Remove'></a>
+## Remove `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+##### Summary
+
+Exposes static methods to remove data from data sources or the file system.
+
+<a name='M-MFR-Renamers-Files-Actions-Remove-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Remove](#T-MFR-Renamers-Files-Actions-Remove 'MFR.Renamers.Files.Actions.Remove') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-Renamers-Files-Actions-Remove-Directory-System-String-'></a>
+### Directory(pathname) `method`
+
+##### Summary
+
+Attempts to remove the directory having the specified
+`pathname`, and all of its contents, from the file system.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing
+the fully-qualified pathname of the directory that is to be removed. |
 
 <a name='T-MFR-Renamers-Files-Actions-Properties-Resources'></a>
 ## Resources `type`
@@ -206,3 +340,121 @@ This method also returns `false` if the count of items in the
 If an error occurs while searching the
 `previouslyLoadedSolutions` collection, then this method
 returns `false`.
+
+<a name='T-MFR-Renamers-Files-Actions-Start'></a>
+## Start `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+##### Summary
+
+Exposes static methods for starting processes, services etc.
+
+<a name='M-MFR-Renamers-Files-Actions-Start-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Start](#T-MFR-Renamers-Files-Actions-Start 'MFR.Renamers.Files.Actions.Start') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-Renamers-Files-Actions-Start-Service-System-String-'></a>
+### Service(serviceName) `method`
+
+##### Summary
+
+Starts a Windows Service by using the command line `sc start` command.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| serviceName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the service
+(must have no spaces). |
+
+##### Remarks
+
+If a blank value is passed as the argument of the
+`serviceName` parameter, then this method does nothing.
+
+<a name='T-MFR-Renamers-Files-Actions-Stop'></a>
+## Stop `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+##### Summary
+
+Exposes static methods to stop processes and services from the command line.
+
+<a name='M-MFR-Renamers-Files-Actions-Stop-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Stop](#T-MFR-Renamers-Files-Actions-Stop 'MFR.Renamers.Files.Actions.Stop') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-Renamers-Files-Actions-Stop-Process-System-String-'></a>
+### Process(fileName) `method`
+
+##### Summary
+
+Stops a process.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the filename only,
+e.g., `notepad.exe`, of the process that is to be terminated. |
+
+<a name='M-MFR-Renamers-Files-Actions-Stop-Service-System-String-'></a>
+### Service(serviceName) `method`
+
+##### Summary
+
+Stops a Windows Service by using the command line `sc stop` command.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| serviceName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the name of the service
+(must have no spaces). |
+
+##### Remarks
+
+If a blank value is passed as the argument of the
+`serviceName` parameter, then this method does nothing.
