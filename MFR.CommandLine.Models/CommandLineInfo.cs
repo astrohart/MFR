@@ -1,5 +1,6 @@
 ﻿using MFR.CommandLine.Models.Interfaces;
 using PostSharp.Patterns.Diagnostics;
+using System.Diagnostics;
 
 namespace MFR.CommandLine.Models
 {
@@ -171,8 +172,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool? ShouldCommitPendingChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = null;
 
         /// <summary>
