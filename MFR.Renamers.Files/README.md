@@ -13,6 +13,7 @@
   - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
+  - [FoldersToCleanup](#P-MFR-Renamers-Files-FileRenamer-FoldersToCleanup 'MFR.Renamers.Files.FileRenamer.FoldersToCleanup')
   - [Instance](#P-MFR-Renamers-Files-FileRenamer-Instance 'MFR.Renamers.Files.FileRenamer.Instance')
   - [IsBusy](#P-MFR-Renamers-Files-FileRenamer-IsBusy 'MFR.Renamers.Files.FileRenamer.IsBusy')
   - [IsStarted](#P-MFR-Renamers-Files-FileRenamer-IsStarted 'MFR.Renamers.Files.FileRenamer.IsStarted')
@@ -32,8 +33,7 @@
   - [VisualStudioSolutionService](#P-MFR-Renamers-Files-FileRenamer-VisualStudioSolutionService 'MFR.Renamers.Files.FileRenamer.VisualStudioSolutionService')
   - [#cctor()](#M-MFR-Renamers-Files-FileRenamer-#cctor 'MFR.Renamers.Files.FileRenamer.#cctor')
   - [CleanFileForEntry(entry)](#M-MFR-Renamers-Files-FileRenamer-CleanFileForEntry-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.CleanFileForEntry(MFR.FileSystem.Interfaces.IFileSystemEntry)')
-  - [CleanFiles(rootFolderPath)](#M-MFR-Renamers-Files-FileRenamer-CleanFiles-System-String- 'MFR.Renamers.Files.FileRenamer.CleanFiles(System.String)')
-  - [CleanupEmptyFileFolder(entry)](#M-MFR-Renamers-Files-FileRenamer-CleanupEmptyFileFolder-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.CleanupEmptyFileFolder(MFR.FileSystem.Interfaces.IFileSystemEntry)')
+  - [CleanFilesAndFolders(rootFolderPath)](#M-MFR-Renamers-Files-FileRenamer-CleanFilesAndFolders-System-String- 'MFR.Renamers.Files.FileRenamer.CleanFilesAndFolders(System.String)')
   - [CloseSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.CloseSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
   - [ConnectToLocalGitRepoFor(entry)](#M-MFR-Renamers-Files-FileRenamer-ConnectToLocalGitRepoFor-MFR-FileSystem-Interfaces-IFileSystemEntry- 'MFR.Renamers.Files.FileRenamer.ConnectToLocalGitRepoFor(MFR.FileSystem.Interfaces.IFileSystemEntry)')
   - [DoProcessAll(rootDirectoryPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-DoProcessAll-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.DoProcessAll(System.String,System.String,System.String,System.Predicate{System.String})')
@@ -225,6 +225,14 @@ If the list is empty when the
 [ProcessAll](#M-MFR-FileRenamer-ProcessAll 'MFR.FileRenamer.ProcessAll')
 method is called, do
 nothing or throw an exception.
+
+<a name='P-MFR-Renamers-Files-FileRenamer-FoldersToCleanup'></a>
+### FoldersToCleanup `property`
+
+##### Summary
+
+Gets a reference to a collection, each element of which implements the
+[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface.
 
 <a name='P-MFR-Renamers-Files-FileRenamer-Instance'></a>
 ### Instance `property`
@@ -438,8 +446,8 @@ control character(s)),
 | ---- | ---- | ----------- |
 | entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') |  |
 
-<a name='M-MFR-Renamers-Files-FileRenamer-CleanFiles-System-String-'></a>
-### CleanFiles(rootFolderPath) `method`
+<a name='M-MFR-Renamers-Files-FileRenamer-CleanFilesAndFolders-System-String-'></a>
+### CleanFilesAndFolders(rootFolderPath) `method`
 
 ##### Summary
 
@@ -464,45 +472,6 @@ pathname of a folder where the search is to start. |
 | Name | Description |
 | ---- | ----------- |
 | [MFR.Operations.Exceptions.OperationAbortedException](#T-MFR-Operations-Exceptions-OperationAbortedException 'MFR.Operations.Exceptions.OperationAbortedException') |  |
-
-<a name='M-MFR-Renamers-Files-FileRenamer-CleanupEmptyFileFolder-MFR-FileSystem-Interfaces-IFileSystemEntry-'></a>
-### CleanupEmptyFileFolder(entry) `method`
-
-##### Summary
-
-Attempts to remove an empty file folder (usually the result of a rename)
-referred to by the specified file system `entry`.
-
-##### Returns
-
-`true` if the operation succeeded;
-`false` otherwise, or if the operation isn't applicable to the
-specified file system `entry`.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| entry | [MFR.FileSystem.Interfaces.IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') | (Required.) Reference to an instance of an object that implements the
-[IFileSystemEntry](#T-MFR-FileSystem-Interfaces-IFileSystemEntry 'MFR.FileSystem.Interfaces.IFileSystemEntry') interface and which
-refers to a (presumably) empty file folder. |
-
-##### Remarks
-
-If a `null` reference is passed as the argument of
-the `entry` parameter, then this method returns
-`false`, but otherwise, does nothing.
-
-
-
-This method also does nothing if the folder that is referred to by the
-specified file system `entry` is not empty.
-
-
-
-Finally, nothing is done by this method if the specified file system
-`entry` either: (a) does not refer to a folder that exists on
-the file system; or (b) refers to a file and not a folder.
 
 <a name='M-MFR-Renamers-Files-FileRenamer-CloseSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
 ### CloseSolution(solution) `method`
