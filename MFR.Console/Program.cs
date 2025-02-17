@@ -11,7 +11,9 @@ using MFR.Renamers.Files.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
+using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Console
@@ -28,7 +30,7 @@ namespace MFR.Console
         /// </summary>
         private static ICommandLineParser CommandLineParser
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetCommandLineParser.SoleInstance();
 
         /// <summary>
@@ -39,7 +41,7 @@ namespace MFR.Console
         /// </summary>
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
@@ -52,10 +54,10 @@ namespace MFR.Console
         /// This property has a getter and a setter, so that we can initialize it from the
         /// command line.
         /// </remarks>
-        private static IProjectFileRenamerConfig CurrentConfiguration
+        private static IProjectFileRenamerConfig CurrentConfig
         {
-            get => ConfigProvider.CurrentConfiguration;
-            set => ConfigProvider.CurrentConfiguration = value;
+            [DebuggerStepThrough] get => ConfigProvider.CurrentConfig;
+            [DebuggerStepThrough] set => ConfigProvider.CurrentConfig = value;
         }
 
         /// <summary>
@@ -64,6 +66,7 @@ namespace MFR.Console
         /// </summary>
         private static IFileRenamer FileRenamer
         {
+            [DebuggerStepThrough]
             get;
         } = GetFileRenamer.SoleInstance();
 
@@ -83,10 +86,10 @@ namespace MFR.Console
 
                 ParseCommandLine(args);
 
-                FileRenamer.UpdateConfiguration(CurrentConfiguration);
+                FileRenamer.UpdateConfiguration(CurrentConfig);
 
-                FileRenamer.StartingFrom(CurrentConfiguration.StartingFolder)
-                           .AndAttachConfiguration(CurrentConfiguration);
+                FileRenamer.StartingFrom(CurrentConfig.StartingFolder)
+                           .AndAttachConfiguration(CurrentConfig);
 
                 FileRenamer.FilesToHaveTextReplacedCounted +=
                     OnFilesToHaveTextReplacedCounted;
@@ -95,8 +98,8 @@ namespace MFR.Console
                 FileRenamer.StatusUpdate += OnFileRenamerStatusUpdated;
 
                 FileRenamer.ProcessAll(
-                    CurrentConfiguration.FindWhat,
-                    CurrentConfiguration.ReplaceWith
+                    CurrentConfig.FindWhat,
+                    CurrentConfig.ReplaceWith
                 );
 
                 ConfigProvider.Save();
@@ -111,12 +114,18 @@ namespace MFR.Console
             }
         }
 
-        private static void OnDisplayHelp(object sender, DisplayHelpEventArgs e)
+        /// <summary>
+        /// Handles the <see cref="E:MFR.CommandLine.Parsers.Interfaces.ICommandLineParser.DisplayHelp"/> event raised by the <c>Command Line Parser</c> component.
+        /// </summary>
+        /// <param name="sender">Reference to an instance of the object that raised the event.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        /// <remarks>This method responds by writing the help message to the console.</remarks>
+        private static void OnDisplayHelp([NotLogged] object sender, [NotLogged] DisplayHelpEventArgs e)
             => System.Console.Write(e.HelpText);
 
         private static void OnFileRenamerProcessingOperation(
-            object sender,
-            ProcessingOperationEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] ProcessingOperationEventArgs e
         )
         {
             switch (e.OperationType)
@@ -141,15 +150,14 @@ namespace MFR.Console
             }
         }
 
-        private static void OnFileRenamerStatusUpdated(
-            object sender,
-            StatusUpdateEventArgs e
+        private static void OnFileRenamerStatusUpdated([NotLogged] object sender,
+            [NotLogged] StatusUpdateEventArgs e
         )
             => System.Console.WriteLine(e.Text);
 
         private static void OnFilesToHaveTextReplacedCounted(
-            object sender,
-            FilesOrFoldersCountedEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] FilesOrFoldersCountedEventArgs e
         )
         {
             switch (e.OperationType)
@@ -184,17 +192,17 @@ namespace MFR.Console
                 var cmdInfo = CommandLineParser.Parse(args);
 
                 if (cmdInfo.AutoStart !=
-                    CurrentConfiguration.AutoStart)
-                    CurrentConfiguration.AutoStart = cmdInfo.AutoStart;
+                    CurrentConfig.AutoStart)
+                    CurrentConfig.AutoStart = cmdInfo.AutoStart;
                 if (!string.IsNullOrWhiteSpace(cmdInfo.FindWhat) &&
-                    !cmdInfo.FindWhat.Equals(CurrentConfiguration.FindWhat))
-                    CurrentConfiguration.FindWhat = cmdInfo.FindWhat;
+                    !cmdInfo.FindWhat.Equals(CurrentConfig.FindWhat))
+                    CurrentConfig.FindWhat = cmdInfo.FindWhat;
                 if (cmdInfo.MatchCase.HasValue && cmdInfo.MatchCase !=
-                    CurrentConfiguration.MatchCase)
-                    CurrentConfiguration.MatchCase = (bool)cmdInfo.MatchCase;
+                    CurrentConfig.MatchCase)
+                    CurrentConfig.MatchCase = (bool)cmdInfo.MatchCase;
                 if (cmdInfo.MatchExactWord.HasValue && cmdInfo.MatchExactWord !=
-                    CurrentConfiguration.MatchExactWord)
-                    CurrentConfiguration.MatchExactWord =
+                    CurrentConfig.MatchExactWord)
+                    CurrentConfig.MatchExactWord =
                         (bool)cmdInfo.MatchExactWord;
             }
             catch (Exception ex)
