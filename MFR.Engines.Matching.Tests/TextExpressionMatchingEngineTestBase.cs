@@ -500,7 +500,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
@@ -523,7 +523,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = true
                 };
@@ -546,7 +546,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = false
                 };
@@ -569,7 +569,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
@@ -592,7 +592,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesDoNotMatch()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
@@ -615,7 +615,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceDoesNotContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn_AndCasesMatch()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
@@ -638,7 +638,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturned_IfSourceExactlyMatchesPattern_WhenMatchExactWord_IsTurnedOn_And_MatchCase_IsTurnedOff()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = true
                 };
@@ -661,7 +661,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturnedIfCaseDoesNotMatch_AndFalseReturnedWhenCaseDoesMatch_IfSourceDoesNotExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = true
                 };
@@ -684,7 +684,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_FalseReturnedIfCaseDoesNotMatch_AndTrueReturnedWhenCaseDoesMatch_IfSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
-            _matcher.CurrentConfiguration = ConfigurationBuilder.Instance
+            _matcher.CurrentConfig = ConfigurationBuilder.Instance
                 .SetMatchCase()
                 .AndSetMatchExactWord()
                 .Build();
@@ -711,7 +711,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOff()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = false, MatchExactWord = false
                 };
@@ -734,7 +734,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_TrueReturned_IfSourceContainsPattern_WhenMatchExactWord_IsTurnedOff_And_MatchCase_IsTurnedOn()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = false
                 };
@@ -757,7 +757,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_TrueReturned_WhenSourceExactlyMatchesPattern_WhenMatchExactWord_And_MatchCase_AreTurnedOn()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = true
                 };
@@ -781,7 +781,7 @@ namespace MFR.Engines.Matching.Tests
         public void
             Test_WhenMatchCaseOn_AndMatchExactWordOn_FalseReturned_IfSourceContainsPattern()
         {
-            _matcher.CurrentConfiguration =
+            _matcher.CurrentConfig =
                 new ProjectFileRenamerConfig {
                     MatchCase = true, MatchExactWord = true
                 };
