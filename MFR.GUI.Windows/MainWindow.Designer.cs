@@ -117,10 +117,12 @@ namespace MFR.GUI.Windows
             // startingFolderLabel
             // 
             this.startingFolderLabel.AutoSize = true;
+            this.startingFolderLabel.DisabledTextColor = System.Drawing.SystemColors.GrayText;
             this.startingFolderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderLabel.IsDarkTheme = false;
             this.startingFolderLabel.Location = new System.Drawing.Point(12, 62);
             this.startingFolderLabel.Name = "startingFolderLabel";
+            this.startingFolderLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderLabel.Size = new System.Drawing.Size(226, 15);
             this.startingFolderLabel.TabIndex = 0;
             this.startingFolderLabel.Text = "What &folder should the operation start in?";
@@ -141,10 +143,12 @@ namespace MFR.GUI.Windows
             // findWhatLabel
             // 
             this.findWhatLabel.AutoSize = true;
+            this.findWhatLabel.DisabledTextColor = System.Drawing.SystemColors.GrayText;
             this.findWhatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatLabel.IsDarkTheme = false;
             this.findWhatLabel.Location = new System.Drawing.Point(12, 118);
             this.findWhatLabel.Name = "findWhatLabel";
+            this.findWhatLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatLabel.Size = new System.Drawing.Size(109, 15);
             this.findWhatLabel.TabIndex = 3;
             this.findWhatLabel.Text = "&Text to be replaced:";
@@ -152,10 +156,12 @@ namespace MFR.GUI.Windows
             // replaceWithLabel
             // 
             this.replaceWithLabel.AutoSize = true;
+            this.replaceWithLabel.DisabledTextColor = System.Drawing.SystemColors.GrayText;
             this.replaceWithLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithLabel.IsDarkTheme = false;
             this.replaceWithLabel.Location = new System.Drawing.Point(12, 168);
             this.replaceWithLabel.Name = "replaceWithLabel";
+            this.replaceWithLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithLabel.Size = new System.Drawing.Size(64, 15);
             this.replaceWithLabel.TabIndex = 5;
             this.replaceWithLabel.Text = "&With what:";
@@ -196,6 +202,7 @@ namespace MFR.GUI.Windows
             this.menuBar.Size = new System.Drawing.Size(596, 24);
             this.menuBar.TabIndex = 10;
             this.menuBar.Text = "menuStrip1";
+            this.menuBar.ToggleUppercase = false;
             // 
             // fileMenu
             // 
@@ -526,6 +533,7 @@ namespace MFR.GUI.Windows
             this.matchExactWordCheckBox.Size = new System.Drawing.Size(121, 19);
             this.matchExactWordCheckBox.TabIndex = 1;
             this.matchExactWordCheckBox.Text = "Match e&xact word";
+            this.matchExactWordCheckBox.UseVisualStyleBackColor = false;
             // 
             // matchCaseCheckBox
             // 
@@ -536,6 +544,7 @@ namespace MFR.GUI.Windows
             this.matchCaseCheckBox.Size = new System.Drawing.Size(86, 19);
             this.matchCaseCheckBox.TabIndex = 0;
             this.matchCaseCheckBox.Text = "Match &case";
+            this.matchCaseCheckBox.UseVisualStyleBackColor = false;
             // 
             // operationsTabPage
             // 
@@ -568,10 +577,12 @@ namespace MFR.GUI.Windows
             // tabPageInstructionLabel
             // 
             this.tabPageInstructionLabel.AutoSize = true;
+            this.tabPageInstructionLabel.DisabledTextColor = System.Drawing.SystemColors.GrayText;
             this.tabPageInstructionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.tabPageInstructionLabel.IsDarkTheme = false;
             this.tabPageInstructionLabel.Location = new System.Drawing.Point(8, 12);
             this.tabPageInstructionLabel.Name = "tabPageInstructionLabel";
+            this.tabPageInstructionLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.tabPageInstructionLabel.Size = new System.Drawing.Size(128, 15);
             this.tabPageInstructionLabel.TabIndex = 2;
             this.tabPageInstructionLabel.Text = "&Operations to perform:";
@@ -585,6 +596,7 @@ namespace MFR.GUI.Windows
             this.selectDeselectAllCheckBox.Size = new System.Drawing.Size(120, 19);
             this.selectDeselectAllCheckBox.TabIndex = 1;
             this.selectDeselectAllCheckBox.Text = "Select/deselect all";
+            this.selectDeselectAllCheckBox.UseVisualStyleBackColor = false;
             this.selectDeselectAllCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckedChangedSelectDeselectAllCheckBox);
             // 
             // operationsCheckedListBox
@@ -647,10 +659,12 @@ namespace MFR.GUI.Windows
             // hiddenFocusLabel
             // 
             this.hiddenFocusLabel.AutoSize = true;
+            this.hiddenFocusLabel.DisabledTextColor = System.Drawing.SystemColors.GrayText;
             this.hiddenFocusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.hiddenFocusLabel.IsDarkTheme = false;
             this.hiddenFocusLabel.Location = new System.Drawing.Point(648, 245);
             this.hiddenFocusLabel.Name = "hiddenFocusLabel";
+            this.hiddenFocusLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.hiddenFocusLabel.Size = new System.Drawing.Size(0, 15);
             this.hiddenFocusLabel.TabIndex = 12;
             this.hiddenFocusLabel.Visible = false;
@@ -751,57 +765,57 @@ namespace MFR.GUI.Windows
             // 
             // goButton
             // 
-            this.goButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.goButton.BackColor = System.Drawing.Color.Transparent;
             this.goButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.goButton.Image = ((System.Drawing.Image)(resources.GetObject("goButton.Image")));
             this.goButton.ImageTransparentColor = System.Drawing.Color.White;
             this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(42, 24);
+            this.goButton.Size = new System.Drawing.Size(42, 23);
             this.goButton.Text = "&Go";
             this.goButton.ToolTipText = "Perform Operation";
             this.goButton.Click += new System.EventHandler(this.OnOperationsPerform);
             // 
             // sep1
             // 
-            this.sep1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.sep1.BackColor = System.Drawing.Color.Transparent;
             this.sep1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.sep1.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.sep1.Name = "sep1";
-            this.sep1.Size = new System.Drawing.Size(6, 27);
+            this.sep1.Size = new System.Drawing.Size(6, 26);
             // 
             // newProfileButton
             // 
-            this.newProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.newProfileButton.BackColor = System.Drawing.Color.Transparent;
             this.newProfileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.newProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.newProfileButton.Image = ((System.Drawing.Image)(resources.GetObject("newProfileButton.Image")));
             this.newProfileButton.ImageTransparentColor = System.Drawing.Color.White;
             this.newProfileButton.Name = "newProfileButton";
-            this.newProfileButton.Size = new System.Drawing.Size(23, 24);
+            this.newProfileButton.Size = new System.Drawing.Size(23, 23);
             this.newProfileButton.Text = "New Profile";
             this.newProfileButton.Click += new System.EventHandler(this.OnToolsConfigurationNewProfile);
             // 
             // saveProfileButton
             // 
-            this.saveProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.saveProfileButton.BackColor = System.Drawing.Color.Transparent;
             this.saveProfileButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveProfileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.saveProfileButton.Image = ((System.Drawing.Image)(resources.GetObject("saveProfileButton.Image")));
             this.saveProfileButton.ImageTransparentColor = System.Drawing.Color.White;
             this.saveProfileButton.Name = "saveProfileButton";
-            this.saveProfileButton.Size = new System.Drawing.Size(23, 24);
+            this.saveProfileButton.Size = new System.Drawing.Size(23, 23);
             this.saveProfileButton.Text = "Save Profile As";
             this.saveProfileButton.Click += new System.EventHandler(this.OnToolsConfigurationSaveProfile);
             // 
             // manageProfilesButton
             // 
-            this.manageProfilesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.manageProfilesButton.BackColor = System.Drawing.Color.Transparent;
             this.manageProfilesButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.manageProfilesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.manageProfilesButton.Image = ((System.Drawing.Image)(resources.GetObject("manageProfilesButton.Image")));
             this.manageProfilesButton.ImageTransparentColor = System.Drawing.Color.White;
             this.manageProfilesButton.Name = "manageProfilesButton";
-            this.manageProfilesButton.Size = new System.Drawing.Size(23, 24);
+            this.manageProfilesButton.Size = new System.Drawing.Size(23, 23);
             this.manageProfilesButton.Text = "Manage Profiles";
             // 
             // profileListComboBox
@@ -809,58 +823,58 @@ namespace MFR.GUI.Windows
             this.profileListComboBox.Items.AddRange(new object[] {
             "<No profile selected>"});
             this.profileListComboBox.Name = "profileListComboBox";
-            this.profileListComboBox.Size = new System.Drawing.Size(200, 24);
+            this.profileListComboBox.Size = new System.Drawing.Size(200, 23);
             this.profileListComboBox.ToolTipText = "Profiles";
             // 
             // toolStripSeparator4
             // 
-            this.toolStripSeparator4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.toolStripSeparator4.BackColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 26);
             // 
             // exportConfigButton
             // 
-            this.exportConfigButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.exportConfigButton.BackColor = System.Drawing.Color.Transparent;
             this.exportConfigButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.exportConfigButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.exportConfigButton.Image = ((System.Drawing.Image)(resources.GetObject("exportConfigButton.Image")));
             this.exportConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.exportConfigButton.Name = "exportConfigButton";
-            this.exportConfigButton.Size = new System.Drawing.Size(23, 24);
+            this.exportConfigButton.Size = new System.Drawing.Size(23, 23);
             this.exportConfigButton.Text = "Export Configuration";
             this.exportConfigButton.Click += new System.EventHandler(this.OnToolsConfigExport);
             // 
             // importConfigButton
             // 
-            this.importConfigButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.importConfigButton.BackColor = System.Drawing.Color.Transparent;
             this.importConfigButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.importConfigButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.importConfigButton.Image = ((System.Drawing.Image)(resources.GetObject("importConfigButton.Image")));
             this.importConfigButton.ImageTransparentColor = System.Drawing.Color.White;
             this.importConfigButton.Name = "importConfigButton";
-            this.importConfigButton.Size = new System.Drawing.Size(23, 24);
+            this.importConfigButton.Size = new System.Drawing.Size(23, 23);
             this.importConfigButton.Text = "Import Configuration";
             this.importConfigButton.Click += new System.EventHandler(this.OnToolsConfigImport);
             // 
             // toolStripSeparator6
             // 
-            this.toolStripSeparator6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.toolStripSeparator6.BackColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.toolStripSeparator6.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 26);
             // 
             // clearAllHistoryButton
             // 
-            this.clearAllHistoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.clearAllHistoryButton.BackColor = System.Drawing.Color.Transparent;
             this.clearAllHistoryButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.clearAllHistoryButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.clearAllHistoryButton.Image = ((System.Drawing.Image)(resources.GetObject("clearAllHistoryButton.Image")));
             this.clearAllHistoryButton.ImageTransparentColor = System.Drawing.Color.White;
             this.clearAllHistoryButton.Name = "clearAllHistoryButton";
-            this.clearAllHistoryButton.Size = new System.Drawing.Size(23, 24);
+            this.clearAllHistoryButton.Size = new System.Drawing.Size(23, 23);
             this.clearAllHistoryButton.Text = "Clear All History";
             this.clearAllHistoryButton.Click += new System.EventHandler(this.OnToolsHistoryClearAll);
             // 
@@ -887,31 +901,31 @@ namespace MFR.GUI.Windows
             this.standardToolStrip.Location = new System.Drawing.Point(0, 24);
             this.standardToolStrip.Name = "standardToolStrip";
             this.standardToolStrip.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.standardToolStrip.Size = new System.Drawing.Size(596, 27);
+            this.standardToolStrip.Size = new System.Drawing.Size(596, 26);
             this.standardToolStrip.TabIndex = 13;
             this.standardToolStrip.Text = "Standard";
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.saveButton.BackColor = System.Drawing.Color.Transparent;
             this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveButton.Enabled = false;
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
             this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(23, 24);
+            this.saveButton.Size = new System.Drawing.Size(23, 23);
             this.saveButton.Text = "&Save";
             this.saveButton.ToolTipText = "Save (Ctrl + S)";
             this.saveButton.Click += new System.EventHandler(this.OnFileSave);
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(28)))));
+            this.toolStripSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.toolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
             // 
             // switchButton
             // 
