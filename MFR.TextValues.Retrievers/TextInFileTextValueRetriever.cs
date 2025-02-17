@@ -101,7 +101,7 @@ namespace MFR.TextValues.Retrievers
                     $"TextInFileTextValueRetriever.GetTextValue: Attempting to read the text from the file, '{entry.Path}'..."
                 );
 
-                using (var reader = MakeNewFileStreamReader.ForPath(entry.Path))
+                using (var reader = MakeNewMemoryMappedFileStreamReader.ForPath(entry.Path))
                     result = reader.ReadAllText().Replace("\0\0", "");
             }
             catch (Exception ex)
