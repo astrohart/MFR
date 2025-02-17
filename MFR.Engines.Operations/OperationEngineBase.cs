@@ -74,11 +74,11 @@ namespace MFR.Engines.Operations
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -164,7 +164,7 @@ namespace MFR.Engines.Operations
 
             OnProcessingStarted();
 
-            FileRenamer.UpdateConfiguration(CurrentConfiguration);
+            FileRenamer.UpdateConfiguration(CurrentConfig);
 
             _processingWorker.RunWorkerAsync(
                 MakeNewFileRenamerJob.ForRootDirectory(rootDirectoryPath)
