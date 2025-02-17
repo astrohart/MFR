@@ -266,6 +266,7 @@ namespace MFR.GUI.Dialogs
         /// </returns>
         public IErrantProcessInfo SelectedErrantProcess
         {
+            [DebuggerStepThrough]
             get {
                 IErrantProcessInfo result = default;
 
@@ -319,8 +320,8 @@ namespace MFR.GUI.Dialogs
         /// </summary>
         public bool UpdateGitOnAutoStart
         {
-            get => updateGitOnAutoStartCheckBox.Checked;
-            set => updateGitOnAutoStartCheckBox.Checked = value;
+            [DebuggerStepThrough] get => updateGitOnAutoStartCheckBox.Checked;
+            [DebuggerStepThrough] set => updateGitOnAutoStartCheckBox.Checked = value;
         }
 
         /// <summary>
