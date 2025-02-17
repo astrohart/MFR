@@ -443,7 +443,7 @@ namespace MFR.GUI.Application
                 var cmdInfo = ParseCommandLine(args);
                 if (cmdInfo != null &&
                     Does.DirectoryExist(cmdInfo.StartingFolder))
-                    ConfigProvider.CurrentConfiguration.StartingFolder =
+                    ConfigProvider.CurrentConfig.StartingFolder =
                         cmdInfo.StartingFolder;
 
                 result = true;
