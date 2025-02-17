@@ -114,7 +114,7 @@ namespace MFR.Engines.Replacement
             {
                 result = GetStringReplacer.For(OperationType)
                                           .AndTextMatchingConfiguration(
-                                              CurrentConfiguration
+                                              CurrentConfig
                                                   .GetTextMatchingConfiguration()
                                           )
                                           .Replace(value, pattern, dest);
