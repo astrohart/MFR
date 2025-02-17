@@ -88,7 +88,7 @@ namespace MFR.FileSystem.Helpers.Tests
             var textValue = textValueRetriever.GetTextValue(newFileSystemEntry);
             var matchExpressionFactory = GetMatchExpressionFactory
                                          .For(OperationType.RenameFilesInFolder)
-                                         .AndAttachConfiguration(ConfigProvider.CurrentConfiguration)
+                                         .AndAttachConfiguration(ConfigProvider.CurrentConfig)
                                          .ForTextValue(textValue)
                                          .ToFindWhat("FizzBuzz");
             IMatchExpression expression = matchExpressionFactory
@@ -99,7 +99,7 @@ namespace MFR.FileSystem.Helpers.Tests
                                                     .RenameFilesInFolder
                                             )
                                             .AndAttachConfiguration(
-                                                ConfigProvider.CurrentConfiguration
+                                                ConfigProvider.CurrentConfig
                                             );
             Console.WriteLine(expression);
             Console.WriteLine(engine);
