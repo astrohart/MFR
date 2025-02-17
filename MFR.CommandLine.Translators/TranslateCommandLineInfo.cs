@@ -5,6 +5,7 @@ using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.CommandLine.Translators
@@ -36,7 +37,9 @@ namespace MFR.CommandLine.Translators
         /// associated with it.
         /// </remarks>
         private static IProjectFileRenamerConfigProvider ConfigProvider
-            => GetProjectFileRenamerConfigProvider.SoleInstance();
+        {
+            [DebuggerStepThrough] get;
+        } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
         /// Gets or sets a reference to the one and only instance of the object that
@@ -47,8 +50,8 @@ namespace MFR.CommandLine.Translators
         /// </summary>
         private static IProjectFileRenamerConfig CurrentConfig
         {
-            get => ConfigProvider.CurrentConfig;
-            set => ConfigProvider.CurrentConfig = value;
+            [DebuggerStepThrough] get => ConfigProvider.CurrentConfig;
+            [DebuggerStepThrough] set => ConfigProvider.CurrentConfig = value;
         }
 
         /// <summary>
