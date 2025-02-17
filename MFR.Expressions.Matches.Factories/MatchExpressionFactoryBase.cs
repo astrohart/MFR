@@ -41,11 +41,11 @@ namespace MFR.Expressions.Matches.Factories
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets or sets a string containing the pattern to be utilized as
