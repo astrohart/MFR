@@ -147,17 +147,17 @@ namespace MFR.GUI.Windows.Presenters
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
-            => CurrentConfiguration is IProfile profile
+            => CurrentConfig is IProfile profile
                 ? profile.Name
                 : string.Empty;
 
@@ -209,68 +209,68 @@ namespace MFR.GUI.Windows.Presenters
 
                 try
                 {
-                    if (!CurrentConfiguration.StartingFolder.Equals(
+                    if (!CurrentConfig.StartingFolder.Equals(
                             View.StartingFolder
                         ))
                         return result;
-                    if (!CurrentConfiguration.FindWhat.Equals(
+                    if (!CurrentConfig.FindWhat.Equals(
                             View.FindWhat, StringComparison.InvariantCulture
                         ))
                         return result;
-                    if (!CurrentConfiguration.ReplaceWith.Equals(
+                    if (!CurrentConfig.ReplaceWith.Equals(
                             View.ReplaceWith, StringComparison.InvariantCulture
                         ))
                         return result;
 
-                    if (!CurrentConfiguration.StartingFolderHistory
+                    if (!CurrentConfig.StartingFolderHistory
                                              .IsIdenticalTo(
                                                  View.StartingFolderComboBox
                                                      .Items.Cast<string>()
                                                      .ToList()
                                              ))
                         return result;
-                    if (!CurrentConfiguration.FindWhatHistory.IsIdenticalTo(
+                    if (!CurrentConfig.FindWhatHistory.IsIdenticalTo(
                             View.FindWhatComboBox.Items.Cast<string>()
                                 .ToList()
                         ))
                         return result;
-                    if (!CurrentConfiguration.ReplaceWithHistory.IsIdenticalTo(
+                    if (!CurrentConfig.ReplaceWithHistory.IsIdenticalTo(
                             View.ReplaceWithComboBox.Items.Cast<string>()
                                 .ToList()
                         ))
                         return result;
 
-                    if (!CurrentConfiguration.MatchCase.Equals(View.MatchCase))
+                    if (!CurrentConfig.MatchCase.Equals(View.MatchCase))
                         return result;
-                    if (!CurrentConfiguration.MatchExactWord.Equals(
+                    if (!CurrentConfig.MatchExactWord.Equals(
                             View.MatchExactWord
                         ))
                         return result;
-                    if (!CurrentConfiguration.IsFolded.Equals(View.IsFolded))
+                    if (!CurrentConfig.IsFolded.Equals(View.IsFolded))
                         return result;
-                    if (!CurrentConfiguration.SelectedOptionTab.Equals(
+                    if (!CurrentConfig.SelectedOptionTab.Equals(
                             View.SelectedOptionTab
                         ))
                         return result;
 
-                    if (!CurrentConfiguration.RenameFilesInFolder.Equals(
+                    if (!CurrentConfig.RenameFilesInFolder.Equals(
                             View.OperationsCheckedListBox.GetCheckedByName(
                                 OperationNames.RenameFilesInFolder
                             )
                         )) return result;
 
-                    if (!CurrentConfiguration.RenameSubFolders.Equals(
+                    if (!CurrentConfig.RenameSubFolders.Equals(
                             View.OperationsCheckedListBox.GetCheckedByName(
                                 OperationNames.RenameSubFolders
                             )
                         )) return result;
 
-                    if (!CurrentConfiguration.ReplaceTextInFiles.Equals(
+                    if (!CurrentConfig.ReplaceTextInFiles.Equals(
                             View.OperationsCheckedListBox.GetCheckedByName(
                                 OperationNames.ReplaceTextInFiles
                             )
                         )) return result;
-                    if (!CurrentConfiguration.RenameSolutionFolders.Equals(
+                    if (!CurrentConfig.RenameSolutionFolders.Equals(
                             View.OperationsCheckedListBox.GetCheckedByName(
                                 OperationNames.RenameSolutionFolders
                             )
@@ -291,7 +291,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets a value that indicates whether a Profile is currently loaded.
         /// </summary>
         public bool IsProfileLoaded
-            => !CurrentConfiguration.IsTemporaryProfile();
+            => !CurrentConfig.IsTemporaryProfile();
 
         /// <summary>
         /// Reference to an instance of an object that implements the
@@ -530,11 +530,11 @@ namespace MFR.GUI.Windows.Presenters
 
             // just in case, have the file renamer object update its
             // config to match that which we have access to
-            OperationEngine.UpdateConfiguration(CurrentConfiguration);
+            OperationEngine.UpdateConfiguration(CurrentConfig);
 
             OperationEngine.ProcessAll(
                 StartingFolder, FindWhat, ReplaceWith,
-                path => CurrentConfiguration.MatchCase
+                path => CurrentConfig.MatchCase
                     ? path.Contains(FindWhat)
                     : path.ContainsNoCase(FindWhat)
             );
@@ -711,20 +711,20 @@ namespace MFR.GUI.Windows.Presenters
         {
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.RenameFilesInFolder,
-                CurrentConfiguration.RenameFilesInFolder
+                CurrentConfig.RenameFilesInFolder
             );
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.RenameSubFolders,
-                CurrentConfiguration.RenameSubFolders
+                CurrentConfig.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.ReplaceTextInFiles,
-                CurrentConfiguration.ReplaceTextInFiles
+                CurrentConfig.ReplaceTextInFiles
             );
 
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.RenameSolutionFolders,
-                CurrentConfiguration.RenameSolutionFolders
+                CurrentConfig.RenameSolutionFolders
             );
         }
 
@@ -816,11 +816,11 @@ namespace MFR.GUI.Windows.Presenters
             if (dialog == null)
                 throw new ArgumentNullException(nameof(dialog));
 
-            CurrentConfiguration.AutoQuitOnCompletion =
+            CurrentConfig.AutoQuitOnCompletion =
                 dialog.AutoQuitOnCompletion;
             ConfigProvider.ConfigFilePath = dialog.ConfigPathname;
-            CurrentConfiguration.ReOpenSolution = dialog.ReOpenSolution;
-            UpdateConfiguration(CurrentConfiguration);
+            CurrentConfig.ReOpenSolution = dialog.ReOpenSolution;
+            UpdateConfiguration(CurrentConfig);
         }
 
         /// <summary>
@@ -836,13 +836,13 @@ namespace MFR.GUI.Windows.Presenters
         /// (Required.) String containing the name to give the
         /// new Profile.
         /// </param>
-        public void SaveCurrentConfigurationurationAsProfile(string profileName)
+        public void SaveCurrentConfigurationAsProfile(string profileName)
         {
             if (string.IsNullOrWhiteSpace(profileName)) return;
 
             if (Does.ProfileAlreadyExist(profileName)) return;
 
-            var newProfile = CurrentConfiguration.ToProfile(profileName);
+            var newProfile = CurrentConfig.ToProfile(profileName);
             ProfileProvider.Profiles.Add(newProfile);
             ProfileProvider.Save();
 
@@ -850,7 +850,7 @@ namespace MFR.GUI.Windows.Presenters
              * Make the new Profile the same as the currently-loaded config.
              */
 
-            CurrentConfiguration = newProfile;
+            CurrentConfig = newProfile;
             ConfigProvider.Save();
         }
 
@@ -931,7 +931,7 @@ namespace MFR.GUI.Windows.Presenters
         {
             // write the name of the current class and method we are now
             // Check to see if the required property, ProjectFileRenamerConfig, is null. If
-            if (CurrentConfiguration == null)
+            if (CurrentConfig == null)
 
                 // the property ProjectFileRenamerConfig is required.
                 // stop.
@@ -946,25 +946,25 @@ namespace MFR.GUI.Windows.Presenters
 
             if (bSavingAndValidating)
             {
-                CurrentConfiguration.SaveCurrentStartingFolderAndHistory(
+                CurrentConfig.SaveCurrentStartingFolderAndHistory(
                     View.StartingFolderComboBox
                 );
 
-                CurrentConfiguration.SaveCurrentFindWhatAndHistory(
+                CurrentConfig.SaveCurrentFindWhatAndHistory(
                     View.FindWhatComboBox
                 );
 
-                CurrentConfiguration.SaveCurrentReplaceWithAndHistory(
+                CurrentConfig.SaveCurrentReplaceWithAndHistory(
                     View.ReplaceWithComboBox
                 );
 
-                CurrentConfiguration.IsFolded = View.IsFolded;
+                CurrentConfig.IsFolded = View.IsFolded;
 
-                CurrentConfiguration.MatchCase = View.MatchCase;
+                CurrentConfig.MatchCase = View.MatchCase;
 
-                CurrentConfiguration.MatchExactWord = View.MatchExactWord;
+                CurrentConfig.MatchExactWord = View.MatchExactWord;
 
-                CurrentConfiguration.SelectedOptionTab = View.SelectedOptionTab;
+                CurrentConfig.SelectedOptionTab = View.SelectedOptionTab;
 
                 SaveOperationSelections();
             }
@@ -972,14 +972,14 @@ namespace MFR.GUI.Windows.Presenters
             {
                 InitializeOperationSelections();
 
-                View.SelectedOptionTab = ConfigProvider.CurrentConfiguration
+                View.SelectedOptionTab = ConfigProvider.CurrentConfig
                     .SelectedOptionTab;
 
-                View.MatchExactWord = CurrentConfiguration.MatchExactWord;
+                View.MatchExactWord = CurrentConfig.MatchExactWord;
 
-                View.MatchCase = CurrentConfiguration.MatchCase;
+                View.MatchCase = CurrentConfig.MatchCase;
 
-                View.IsFolded = CurrentConfiguration.IsFolded;
+                View.IsFolded = CurrentConfig.IsFolded;
 
                 var properStartingFolder = DetermineProperStartingFolder();
 
@@ -991,19 +991,19 @@ namespace MFR.GUI.Windows.Presenters
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.StartingFolderComboBox,
-                    CurrentConfiguration.StartingFolderHistory,
+                    CurrentConfig.StartingFolderHistory,
                     properStartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.FindWhatComboBox, CurrentConfiguration.FindWhatHistory,
-                    CurrentConfiguration.FindWhat
+                    View.FindWhatComboBox, CurrentConfig.FindWhatHistory,
+                    CurrentConfig.FindWhat
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.ReplaceWithComboBox,
-                    CurrentConfiguration.ReplaceWithHistory,
-                    CurrentConfiguration.ReplaceWith
+                    CurrentConfig.ReplaceWithHistory,
+                    CurrentConfig.ReplaceWith
                 );
             }
 
@@ -1050,19 +1050,19 @@ namespace MFR.GUI.Windows.Presenters
         public void SaveOperationSelections()
         {
             // write the name of the current class and method we are now
-            CurrentConfiguration.RenameFilesInFolder =
+            CurrentConfig.RenameFilesInFolder =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     OperationNames.RenameFilesInFolder
                 );
-            CurrentConfiguration.RenameSubFolders =
+            CurrentConfig.RenameSubFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     OperationNames.RenameSubFolders
                 );
-            CurrentConfiguration.ReplaceTextInFiles =
+            CurrentConfig.ReplaceTextInFiles =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     OperationNames.ReplaceTextInFiles
                 );
-            CurrentConfiguration.RenameSolutionFolders =
+            CurrentConfig.RenameSolutionFolders =
                 View.OperationsCheckedListBox.GetCheckedByName(
                     OperationNames.RenameSolutionFolders
                 );
@@ -1181,7 +1181,7 @@ namespace MFR.GUI.Windows.Presenters
                     MainWindowPresenterMessages.MWP_CONFIGURATION_IMPORTED
                 );
 
-            UpdateConfiguration(CurrentConfiguration);
+            UpdateConfiguration(CurrentConfig);
 
             UpdateData(false);
 
@@ -1338,7 +1338,7 @@ namespace MFR.GUI.Windows.Presenters
 
         private string DetermineProperStartingFolder()
         {
-            var result = CurrentConfiguration.StartingFolder;
+            var result = CurrentConfig.StartingFolder;
 
             try
             {
@@ -1347,7 +1347,7 @@ namespace MFR.GUI.Windows.Presenters
                         CommandLineInfo.StartingFolder
                     )) return result;
                 if (CommandLineInfo.StartingFolder.EqualsNoCase(
-                        CurrentConfiguration.StartingFolder
+                        CurrentConfig.StartingFolder
                     )) return result;
 
                 result = CommandLineInfo.StartingFolder;
@@ -1357,7 +1357,7 @@ namespace MFR.GUI.Windows.Presenters
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = CurrentConfiguration.StartingFolder;
+                result = CurrentConfig.StartingFolder;
             }
 
             DebugUtils.WriteLine(
@@ -1375,12 +1375,12 @@ namespace MFR.GUI.Windows.Presenters
         {
             try
             {
-                if (CurrentConfiguration != null)
+                if (CurrentConfig != null)
                     return;
 
                 DebugUtils.WriteLine(
                     DebugLevel.Error,
-                    "*** ERROR *** The CurrentConfiguration property has a null reference for a value."
+                    "*** ERROR *** The CurrentConfig property has a null reference for a value."
                 );
 
                 return;
