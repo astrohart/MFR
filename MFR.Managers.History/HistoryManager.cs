@@ -94,11 +94,11 @@ namespace MFR.Managers.History
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        public override IProjectFileRenamerConfig CurrentConfiguration
+        public override IProjectFileRenamerConfig CurrentConfig
         {
             get;
             set;
-        } = ConfigProvider.CurrentConfiguration;
+        } = ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Clears all the history objects in a config object.
@@ -117,7 +117,7 @@ namespace MFR.Managers.History
             // history list properties, just use reflection to find and iterate
             // through all of them, invoking the System.Collections.IList.Clear
             // method on each one.
-            var historyLists = CurrentConfiguration.GetType()
+            var historyLists = CurrentConfig.GetType()
                                                    .GetProperties()
                                                    .Where(
                                                        x => x.PropertyType
@@ -129,7 +129,7 @@ namespace MFR.Managers.History
                                                    )
                                                    .Select(
                                                        p => p.GetValue(
-                                                           CurrentConfiguration
+                                                           CurrentConfig
                                                        ) as IList
                                                    )
                                                    .ToArray();
@@ -141,9 +141,9 @@ namespace MFR.Managers.History
 
             // Finally, clear out all the current values of the form. This
             // basically like a "Reset Form" button on a website.
-            CurrentConfiguration.StartingFolder =
-                CurrentConfiguration.FindWhat =
-                    CurrentConfiguration.ReplaceWith = string.Empty;
+            CurrentConfig.StartingFolder =
+                CurrentConfig.FindWhat =
+                    CurrentConfig.ReplaceWith = string.Empty;
 
             return true; // success
         }
@@ -163,9 +163,9 @@ namespace MFR.Managers.History
         /// </remarks>
         private bool CanClearAll()
         {
-            if (!CurrentConfiguration.StartingFolderHistory.Any() &&
-                !CurrentConfiguration.FindWhatHistory.Any() &&
-                !CurrentConfiguration.ReplaceWithHistory.Any())
+            if (!CurrentConfig.StartingFolderHistory.Any() &&
+                !CurrentConfig.FindWhatHistory.Any() &&
+                !CurrentConfig.ReplaceWithHistory.Any())
                 return false;
 
             return DialogResult.Yes == MessageBox.Show(
