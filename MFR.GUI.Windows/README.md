@@ -641,7 +641,9 @@ all the boxes in the Operations To Perform checked list box.
 ##### Summary
 
 Handles the [](#E-System-Windows-Forms-Control-Click 'System.Windows.Forms.Control.Click') event
-for the Browse ("...") button.
+for the Browse (
+
+) button.
 
 ##### Parameters
 
@@ -652,10 +654,12 @@ for the Browse ("...") button.
 
 ##### Remarks
 
-When the user clicks the "..." button, we want to show them a dialog
+When the user clicks the
+    
+    button, we want to show them a dialog
     box to select a folder.
 
-The contents of the Starting Folder text box will then be
+The contents of the text box will then be
     initialized to hold the pathname to the folder that the user selects.
 
 <a name='M-MFR-GUI-Windows-MainWindow-OnClickPerformOperation-System-Object,System-EventArgs-'></a>
