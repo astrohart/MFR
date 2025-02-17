@@ -49,7 +49,17 @@ namespace MFR.GUI.Processors
         /// </summary>
         public override void Process()
         {
-            CurrentConfiguration = CommandLineInfo.ToConfiguration();
+            // If the value of the UpdateGitOnAutoStart flag in the config is different from that specified by the 
+            // command line, then use the config value
+            if (CurrentConfig.UpdateGitOnAutoStart != CommandLineInfo.ShouldCommitPendingChanges)
+            {
+                CommandLineInfo.ShouldCommitPendingChanges =
+                    CommandLineInfo.ShouldCommitPostOperationChanges =
+                        CurrentConfig.UpdateGitOnAutoStart;
+            }
+
+            // Set the current configuration to the one specified on the command line.
+            CurrentConfig = CommandLineInfo.ToConfiguration();
 
             Application.Run(
                 (Form)GetAutoStartCancellableProgressDialog.SoleInstance()
