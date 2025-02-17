@@ -65,8 +65,8 @@ namespace MFR.Settings.Configuration.Providers.Tests
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface that represents the currently-loaded (if any) config.
         /// </summary>
-        private static IProjectFileRenamerConfig CurrentConfiguration
-            => ProjectFileRenamerConfigProvider.CurrentConfiguration;
+        private static IProjectFileRenamerConfig CurrentConfig
+            => ProjectFileRenamerConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -97,7 +97,7 @@ namespace MFR.Settings.Configuration.Providers.Tests
                 )
             );
 
-            Assert.That(CurrentConfiguration, Is.Not.Null);
+            Assert.That(CurrentConfig, Is.Not.Null);
         }
 
         /// <summary>
