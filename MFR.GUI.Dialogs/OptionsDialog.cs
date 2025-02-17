@@ -103,8 +103,8 @@ namespace MFR.GUI.Dialogs
         ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
         /// interface.
         /// </summary>
-        private static IProjectFileRenamerConfig CurrentConfiguration
-            => ConfigProvider.CurrentConfiguration;
+        private static IProjectFileRenamerConfig CurrentConfig
+            => ConfigProvider.CurrentConfig;
 
         /// <summary>
         /// Gets or sets the value of the
@@ -539,7 +539,7 @@ namespace MFR.GUI.Dialogs
         /// </param>
         /// <remarks>
         /// This method is called to respond to the value of the text inside the
-        /// CurrentConfiguration File Pathname text box being changed. This method
+        /// CurrentConfig File Pathname text box being changed. This method
         /// responds to such a happenstance by updating the value of the
         /// <see
         ///     cref="P:MFR.GUI.OptionsDialog.IsModified" />
@@ -641,16 +641,16 @@ namespace MFR.GUI.Dialogs
         {
             using (var dialog = new CustomizeCommitMessageDialog())
             {
-                dialog.CommitMessageFormat = CurrentConfiguration
+                dialog.CommitMessageFormat = CurrentConfig
                     .PendingChangesCommitMessageFormat;
-                dialog.DetailedCommitMessageFormat = CurrentConfiguration
+                dialog.DetailedCommitMessageFormat = CurrentConfig
                     .PendingChangesDetailedCommitMessageFormat;
 
                 if (DialogResult.OK != dialog.ShowDialog(this)) return;
 
-                CurrentConfiguration.PendingChangesCommitMessageFormat =
+                CurrentConfig.PendingChangesCommitMessageFormat =
                     dialog.CommitMessageFormat;
-                CurrentConfiguration.PendingChangesDetailedCommitMessageFormat =
+                CurrentConfig.PendingChangesDetailedCommitMessageFormat =
                     dialog.DetailedCommitMessageFormat;
             }
         }
@@ -662,16 +662,16 @@ namespace MFR.GUI.Dialogs
         {
             using (var dialog = new CustomizeCommitMessageDialog())
             {
-                dialog.CommitMessageFormat = CurrentConfiguration
+                dialog.CommitMessageFormat = CurrentConfig
                     .PostOperationCommitMessageFormat;
-                dialog.DetailedCommitMessageFormat = CurrentConfiguration
+                dialog.DetailedCommitMessageFormat = CurrentConfig
                     .PostOperationDetailedCommitMessageFormat;
 
                 if (DialogResult.OK != dialog.ShowDialog(this)) return;
 
-                CurrentConfiguration.PostOperationCommitMessageFormat =
+                CurrentConfig.PostOperationCommitMessageFormat =
                     dialog.CommitMessageFormat;
-                CurrentConfiguration.PostOperationDetailedCommitMessageFormat =
+                CurrentConfig.PostOperationDetailedCommitMessageFormat =
                     dialog.DetailedCommitMessageFormat;
             }
         }
@@ -871,41 +871,41 @@ namespace MFR.GUI.Dialogs
         {
             if (bSaveAndValidate)
             {
-                CurrentConfiguration.PushChangesToRemoteWhenDone =
+                CurrentConfig.PushChangesToRemoteWhenDone =
                     PushChangesToRemoteWhenDone;
-                CurrentConfiguration.AutoQuitOnCompletion =
+                CurrentConfig.AutoQuitOnCompletion =
                     AutoQuitOnCompletion;
-                CurrentConfiguration.CommitAuthorName = CommitAuthorName;
-                CurrentConfiguration.CommitAuthorEmail = CommitAuthorEmail;
-                CurrentConfiguration.ReOpenSolution = ReOpenSolution;
+                CurrentConfig.CommitAuthorName = CommitAuthorName;
+                CurrentConfig.CommitAuthorEmail = CommitAuthorEmail;
+                CurrentConfig.ReOpenSolution = ReOpenSolution;
                 ConfigProvider.ConfigFilePath = ConfigPathname;
-                CurrentConfiguration.PromptUserToReloadOpenSolution =
+                CurrentConfig.PromptUserToReloadOpenSolution =
                     !DontPromptUserToReloadOpenSolution;
-                CurrentConfiguration.ShouldCommitPostOperationChanges =
+                CurrentConfig.ShouldCommitPostOperationChanges =
                     ShouldCommitPostOperationChanges;
-                CurrentConfiguration.ShouldCommitPendingChanges =
+                CurrentConfig.ShouldCommitPendingChanges =
                     ShouldCommitPendingChanges;
-                CurrentConfiguration.UpdateGitOnAutoStart =
+                CurrentConfig.UpdateGitOnAutoStart =
                     UpdateGitOnAutoStart;
             }
             else
             {
                 UpdateGitOnAutoStart =
-                    CurrentConfiguration.UpdateGitOnAutoStart;
+                    CurrentConfig.UpdateGitOnAutoStart;
                 ShouldCommitPendingChanges =
-                    CurrentConfiguration.ShouldCommitPendingChanges;
-                ShouldCommitPostOperationChanges = CurrentConfiguration
+                    CurrentConfig.ShouldCommitPendingChanges;
+                ShouldCommitPostOperationChanges = CurrentConfig
                     .ShouldCommitPostOperationChanges;
-                DontPromptUserToReloadOpenSolution = !CurrentConfiguration
+                DontPromptUserToReloadOpenSolution = !CurrentConfig
                     .PromptUserToReloadOpenSolution;
-                ReOpenSolution = CurrentConfiguration.ReOpenSolution;
+                ReOpenSolution = CurrentConfig.ReOpenSolution;
                 ConfigPathname = ConfigProvider.ConfigFilePath;
-                CommitAuthorEmail = CurrentConfiguration.CommitAuthorEmail;
-                CommitAuthorName = CurrentConfiguration.CommitAuthorName;
+                CommitAuthorEmail = CurrentConfig.CommitAuthorEmail;
+                CommitAuthorName = CurrentConfig.CommitAuthorName;
                 AutoQuitOnCompletion =
-                    CurrentConfiguration.AutoQuitOnCompletion;
+                    CurrentConfig.AutoQuitOnCompletion;
                 PushChangesToRemoteWhenDone =
-                    CurrentConfiguration.PushChangesToRemoteWhenDone;
+                    CurrentConfig.PushChangesToRemoteWhenDone;
             }
         }
     }
