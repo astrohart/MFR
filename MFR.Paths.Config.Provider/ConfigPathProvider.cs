@@ -4,6 +4,7 @@ using MFR.Paths.Config.Provider.Actions;
 using MFR.Paths.Config.Provider.Interfaces;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Config.Provider
@@ -42,8 +43,9 @@ namespace MFR.Paths.Config.Provider
         /// </remarks>
         public string ConfigFilePath
         {
-            get => _configFilePath;
-            set {
+            [DebuggerStepThrough] get => _configFilePath;
+            [DebuggerStepThrough]
+            set { 
                 var changed = !string.IsNullOrWhiteSpace(_configFilePath) &&
                               _configFilePath != value;
                 _configFilePath = value;
@@ -58,7 +60,7 @@ namespace MFR.Paths.Config.Provider
         /// </summary>
         public static IConfigPathProvider Instance
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new ConfigPathProvider();
 
         /// <summary>
