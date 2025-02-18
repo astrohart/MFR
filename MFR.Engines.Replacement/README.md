@@ -29,7 +29,7 @@
   - [#ctor()](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor')
   - [#ctor(config)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Engines.Replacement.TextReplacementEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [ConfigProvider](#P-MFR-Engines-Replacement-TextReplacementEngineBase-ConfigProvider 'MFR.Engines.Replacement.TextReplacementEngineBase.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfiguration 'MFR.Engines.Replacement.TextReplacementEngineBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfig 'MFR.Engines.Replacement.TextReplacementEngineBase.CurrentConfig')
   - [OperationType](#P-MFR-Engines-Replacement-TextReplacementEngineBase-OperationType 'MFR.Engines.Replacement.TextReplacementEngineBase.OperationType')
   - [Replace(value,pattern,dest)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-Replace-System-String,System-String,System-String- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(System.String,System.String,System.String)')
   - [Replace(expression)](#M-MFR-Engines-Replacement-TextReplacementEngineBase-Replace-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Replacement.TextReplacementEngineBase.Replace(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
@@ -504,8 +504,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Engines-Replacement-TextReplacementEngineBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
