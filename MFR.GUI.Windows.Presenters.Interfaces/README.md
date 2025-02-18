@@ -20,7 +20,7 @@
   - [RenameConfigFileToMatchNewName(newConfigFilePath)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-RenameConfigFileToMatchNewName-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.RenameConfigFileToMatchNewName(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
-  - [SaveCurrentConfigurationurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationurationAsProfile(System.String)')
+  - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
   - [SetCommandLineInfo(cmdInfo)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SetCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.SetCommandLineInfo(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [WithOperationEngine(operationEngine)](#M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-WithOperationEngine-MFR-Engines-Operations-Interfaces-IFullGuiOperationEngine- 'MFR.GUI.Windows.Presenters.Interfaces.IMainWindowPresenter.WithOperationEngine(MFR.Engines.Operations.Interfaces.IFullGuiOperationEngine)')
 - [Resources](#T-MFR-GUI-Windows-Presenters-Interfaces-Properties-Resources 'MFR.GUI.Windows.Presenters.Interfaces.Properties.Resources')
@@ -312,8 +312,8 @@ the [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialo
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialog`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String-'></a>
-### SaveCurrentConfigurationurationAsProfile(profileName) `method`
+<a name='M-MFR-GUI-Windows-Presenters-Interfaces-IMainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String-'></a>
+### SaveCurrentConfigurationAsProfile(profileName) `method`
 
 ##### Summary
 
