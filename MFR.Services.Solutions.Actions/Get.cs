@@ -210,6 +210,83 @@ namespace MFR.Services.Solutions.Actions
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
+                    "Get.SolutionThatInstanceHasOpen: Checking whether the Process ID, or PID, of the instance is a valid value..."
+                );
+
+                // Check to see whether the Process ID, or PID, of the instance is a valid value.
+                // If this is not the case, then write an error message to the log file,
+                // and then terminate the execution of this method.
+                if (instance.PID <= 0)
+                {
+                    // The Process ID, or PID, of the instance is NOT set to a valid value.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** The Process ID, or PID, of the instance is NOT set to a valid value.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** Get.SolutionThatInstanceHasOpen: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "Get.SolutionThatInstanceHasOpen: *** SUCCESS *** The Process ID, or PID, of the instance is a valid value.  Proceeding..."
+                );
+
+                // Dump the value of the property, instance.SolutionPath, to the log
+                DebugUtils.WriteLine(
+                    DebugLevel.Debug,
+                    $"Get.SolutionThatInstanceHasOpen: instance.SolutionPath = '{instance.SolutionPath}'"
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** INFO: Checking whether the 'instance.SolutionPath' property has a null reference for a value, or is blank..."
+                );
+
+                // Check to see if the required property, instance.SolutionPath, is null or blank. If it is, send an 
+                // error to the log file and quit, returning the default value of the result
+                // variable.
+                if (string.IsNullOrWhiteSpace(instance.SolutionPath))
+                {
+                    // the property instance.SolutionPath is required.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: The 'instance.SolutionPath' property has a null reference or is blank.  Stopping."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR: This property is required to be set to a non-blank string before we can proceed."
+                    );
+
+                    // log the result
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"Get.SolutionThatInstanceHasOpen: Result = {result}"
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        "Get.SolutionThatInstanceHasOpen: Done."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** SUCCESS *** The 'instance.SolutionPath' property is set to a non-blank string."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
                     "Get.SolutionThatInstanceHasOpen: Specifying the pathname of the Visual Studio Solution (*.sln) file open in the current instance, along with the Process ID (PID) of the current instance..."
                 );
 
