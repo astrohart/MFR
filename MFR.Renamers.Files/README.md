@@ -77,6 +77,7 @@
   - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
   - [ReportSolutionCloseFailed(pathname)](#M-MFR-Renamers-Files-FileRenamer-ReportSolutionCloseFailed-System-String- 'MFR.Renamers.Files.FileRenamer.ReportSolutionCloseFailed(System.String)')
   - [RequestAbort()](#M-MFR-Renamers-Files-FileRenamer-RequestAbort 'MFR.Renamers.Files.FileRenamer.RequestAbort')
+  - [SearchForLoadedSolutions()](#M-MFR-Renamers-Files-FileRenamer-SearchForLoadedSolutions 'MFR.Renamers.Files.FileRenamer.SearchForLoadedSolutions')
   - [StartingFrom(path)](#M-MFR-Renamers-Files-FileRenamer-StartingFrom-System-String- 'MFR.Renamers.Files.FileRenamer.StartingFrom(System.String)')
   - [UpdateStatus(text,operationType,operationFinished)](#M-MFR-Renamers-Files-FileRenamer-UpdateStatus-System-String,MFR-Operations-Constants-OperationType,System-Boolean- 'MFR.Renamers.Files.FileRenamer.UpdateStatus(System.String,MFR.Operations.Constants.OperationType,System.Boolean)')
 - [Resources](#T-MFR-Renamers-Files-Properties-Resources 'MFR.Renamers.Files.Properties.Resources')
@@ -1441,6 +1442,25 @@ could not be closed. |
 ##### Summary
 
 Called to ask the `File Renamer` object to stop operations.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-MFR-Renamers-Files-FileRenamer-SearchForLoadedSolutions'></a>
+### SearchForLoadedSolutions() `method`
+
+##### Summary
+
+Searches for any Visual Studio Solution (`*.sln`) files that are loaded in
+any currently-running instance(s) of Visual Studio.
+
+##### Returns
+
+`true` if more than one currently-running instance of
+Visual Studio has any of the Visual Studio Solution (`*.sln`) file(s)
+found in the current `Root Directory` open in them;
+`false` otherwise.
 
 ##### Parameters
 
