@@ -78,6 +78,7 @@ using Process = System.Diagnostics.Process;
 using Should = MFR.Renamers.Files.Actions.Should;
 using Thread = System.Threading.Thread;
 using Parent = xyLOGIX.Files.Actions.Parent;
+using Wait = xyLOGIX.Files.Actions.Wait;
 
 namespace MFR.Renamers.Files
 {
@@ -2649,8 +2650,7 @@ namespace MFR.Renamers.Files
                 LocalGitInteropProvider.Commit(
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfig
-                                .PendingChangesCommitMessageFormat
+                            CurrentConfig.PendingChangesCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     ), CurrentConfig.CommitAuthorName,
                     CurrentConfig.CommitAuthorEmail,
@@ -3023,8 +3023,7 @@ namespace MFR.Renamers.Files
                 LocalGitInteropProvider.Commit(
                     Formulate.CommitMessage(
                         CommitMessageMapper.Map(
-                            CurrentConfig
-                                .PostOperationCommitMessageFormat
+                            CurrentConfig.PostOperationCommitMessageFormat
                         ), rootFolderPath, findWhat, replaceWith
                     ), CurrentConfig.CommitAuthorName,
                     CurrentConfig.CommitAuthorEmail,
@@ -5565,11 +5564,23 @@ namespace MFR.Renamers.Files
             );
         }
 
+        /// <summary>
+        /// Searches for any Visual Studio Solution (<c>*.sln</c>) files that are loaded in
+        /// any currently-running instance(s) of Visual Studio.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if more than one currently-running instance of
+        /// Visual Studio has any of the Visual Studio Solution (<c>*.sln</c>) file(s)
+        /// found in the current <c>Root Directory</c> open in them;
+        /// <see langword="false" /> otherwise.
+        /// </returns>
         private bool SearchForLoadedSolutions()
         {
             OnOperationStarted(
                 new OperationStartedEventArgs(OperationType.FindVisualStudio)
             );
+
+            ProgramFlowHelper.StartDebugger();
 
             LoadedSolutions.Clear();
 
