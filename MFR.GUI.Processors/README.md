@@ -13,7 +13,7 @@
   - [#ctor()](#M-MFR-GUI-Processors-CommandLineProcessorBase-#ctor 'MFR.GUI.Processors.CommandLineProcessorBase.#ctor')
   - [CommandLineInfo](#P-MFR-GUI-Processors-CommandLineProcessorBase-CommandLineInfo 'MFR.GUI.Processors.CommandLineProcessorBase.CommandLineInfo')
   - [ConfigProvider](#P-MFR-GUI-Processors-CommandLineProcessorBase-ConfigProvider 'MFR.GUI.Processors.CommandLineProcessorBase.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration 'MFR.GUI.Processors.CommandLineProcessorBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfig 'MFR.GUI.Processors.CommandLineProcessorBase.CurrentConfig')
   - [Type](#P-MFR-GUI-Processors-CommandLineProcessorBase-Type 'MFR.GUI.Processors.CommandLineProcessorBase.Type')
   - [#cctor()](#M-MFR-GUI-Processors-CommandLineProcessorBase-#cctor 'MFR.GUI.Processors.CommandLineProcessorBase.#cctor')
   - [Process()](#M-MFR-GUI-Processors-CommandLineProcessorBase-Process 'MFR.GUI.Processors.CommandLineProcessorBase.Process')
@@ -159,8 +159,8 @@ As this class is an abstract base class, we made this property
 `protected`
 so that our child classes can see it.
 
-<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-GUI-Processors-CommandLineProcessorBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
