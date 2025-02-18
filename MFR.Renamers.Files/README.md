@@ -10,7 +10,7 @@
   - [AbortRequested](#P-MFR-Renamers-Files-FileRenamer-AbortRequested 'MFR.Renamers.Files.FileRenamer.AbortRequested')
   - [CommitMessageMapper](#P-MFR-Renamers-Files-FileRenamer-CommitMessageMapper 'MFR.Renamers.Files.FileRenamer.CommitMessageMapper')
   - [ConfigProvider](#P-MFR-Renamers-Files-FileRenamer-ConfigProvider 'MFR.Renamers.Files.FileRenamer.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration 'MFR.Renamers.Files.FileRenamer.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Renamers-Files-FileRenamer-CurrentConfig 'MFR.Renamers.Files.FileRenamer.CurrentConfig')
   - [CurrentOperation](#P-MFR-Renamers-Files-FileRenamer-CurrentOperation 'MFR.Renamers.Files.FileRenamer.CurrentOperation')
   - [EnabledOperations](#P-MFR-Renamers-Files-FileRenamer-EnabledOperations 'MFR.Renamers.Files.FileRenamer.EnabledOperations')
   - [FoldersToCleanup](#P-MFR-Renamers-Files-FileRenamer-FoldersToCleanup 'MFR.Renamers.Files.FileRenamer.FoldersToCleanup')
@@ -183,8 +183,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-Renamers-Files-FileRenamer-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Renamers-Files-FileRenamer-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
@@ -1119,7 +1119,7 @@ filtering is done. |
 | Name | Description |
 | ---- | ----------- |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown if the value of the
-[CurrentConfiguration](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration')
+[CurrentConfig](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfig 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfig')
 property has not been set prior to calling this method.
 
 
