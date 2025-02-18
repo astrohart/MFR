@@ -6,7 +6,7 @@
 - [ConfigurationComposedObjectBase](#T-MFR-Settings-Configuration-ConfigurationComposedObjectBase 'MFR.Settings.Configuration.ConfigurationComposedObjectBase')
   - [#ctor()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.#ctor')
   - [#ctor(config)](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfig 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.CurrentConfig')
   - [IsConfigurationAttached](#P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-IsConfigurationAttached 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.IsConfigurationAttached')
   - [AndAttachConfiguration()](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.AndAttachConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [UpdateConfiguration(config)](#M-MFR-Settings-Configuration-ConfigurationComposedObjectBase-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.ConfigurationComposedObjectBase.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
@@ -116,8 +116,8 @@ that holds settings that are specified by the user. |
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `config`,
 is passed a `null` value. |
 
-<a name='P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-ConfigurationComposedObjectBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
