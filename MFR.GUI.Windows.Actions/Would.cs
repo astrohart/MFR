@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
+using xyLOGIX.Files.Actions.Constants;
 
 namespace MFR.GUI.Windows.Actions
 {
@@ -26,17 +27,6 @@ namespace MFR.GUI.Windows.Actions
         /// </remarks>
         [Log(AttributeExclude = true)]
         static Would() { }
-
-        /// <summary>
-        /// Portions of a path that should exclude a folder from a scan.
-        /// </summary>
-        private static string[] TheBathPathParts =
-        {
-            @"\packages\",
-            @"\.git\",
-            @"\bin\",
-            @"\obj\"
-        };
 
         /// <summary>
         /// Determines whether the user would accidentally nuke an existing folder or
@@ -76,7 +66,7 @@ namespace MFR.GUI.Windows.Actions
                 Parallel.ForEach(
                     folderSet, (dir, state) =>
                     {
-                        if (dir.ContainsAnyOf(TheBathPathParts)) return;
+                        if (dir.ContainsAnyOf(Pathnames.TheBadSourceCodePathnames)) return;
                         if (!Is.TargetFolderMatchingReplaceWith(
                                 dir, replaceWith
                             )) return;
