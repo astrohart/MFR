@@ -7,7 +7,7 @@
   - [#ctor(messageBoxParentWindow)](#M-MFR-Managers-History-HistoryManager-#ctor-System-Windows-Forms-IWin32Window- 'MFR.Managers.History.HistoryManager.#ctor(System.Windows.Forms.IWin32Window)')
   - [_messageBoxParentWindow](#F-MFR-Managers-History-HistoryManager-_messageBoxParentWindow 'MFR.Managers.History.HistoryManager._messageBoxParentWindow')
   - [ConfigProvider](#P-MFR-Managers-History-HistoryManager-ConfigProvider 'MFR.Managers.History.HistoryManager.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-Managers-History-HistoryManager-CurrentConfiguration 'MFR.Managers.History.HistoryManager.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Managers-History-HistoryManager-CurrentConfig 'MFR.Managers.History.HistoryManager.CurrentConfig')
   - [#cctor()](#M-MFR-Managers-History-HistoryManager-#cctor 'MFR.Managers.History.HistoryManager.#cctor')
   - [CanClearAll()](#M-MFR-Managers-History-HistoryManager-CanClearAll 'MFR.Managers.History.HistoryManager.CanClearAll')
   - [ClearAll()](#M-MFR-Managers-History-HistoryManager-ClearAll 'MFR.Managers.History.HistoryManager.ClearAll')
@@ -82,8 +82,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-Managers-History-HistoryManager-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Managers-History-HistoryManager-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
