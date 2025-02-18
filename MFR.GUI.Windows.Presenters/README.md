@@ -10,7 +10,7 @@
   - [CommandLineInfo](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CommandLineInfo 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo')
   - [ConfigFilePath](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigFilePath 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigFilePath')
   - [ConfigProvider](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-ConfigProvider 'MFR.GUI.Windows.Presenters.MainWindowPresenter.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfig 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentConfig')
   - [CurrentProfileName](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentProfileName 'MFR.GUI.Windows.Presenters.MainWindowPresenter.CurrentProfileName')
   - [Does](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-Does 'MFR.GUI.Windows.Presenters.MainWindowPresenter.Does')
   - [FileRenamer](#P-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileRenamer 'MFR.GUI.Windows.Presenters.MainWindowPresenter.FileRenamer')
@@ -54,7 +54,7 @@
   - [RenameConfigFileToMatchNewName(newConfigFilePath)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-RenameConfigFileToMatchNewName-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.RenameConfigFileToMatchNewName(System.String)')
   - [SaveConfiguration()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfiguration 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfiguration')
   - [SaveConfigurationDataFrom(dialog)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveConfigurationDataFrom-MFR-GUI-Dialogs-Interfaces-IOptionsDialog- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveConfigurationDataFrom(MFR.GUI.Dialogs.Interfaces.IOptionsDialog)')
-  - [SaveCurrentConfigurationurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationurationAsProfile(System.String)')
+  - [SaveCurrentConfigurationAsProfile(profileName)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveCurrentConfigurationAsProfile(System.String)')
   - [SaveOperationSelections()](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveOperationSelections 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SaveOperationSelections')
   - [SetCommandLineInfo(cmdInfo)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SetCommandLineInfo-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.SetCommandLineInfo(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [UpdateConfiguration(config)](#M-MFR-GUI-Windows-Presenters-MainWindowPresenter-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.GUI.Windows.Presenters.MainWindowPresenter.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
@@ -158,8 +158,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-GUI-Windows-Presenters-MainWindowPresenter-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
@@ -826,8 +826,8 @@ the [IOptionsDialog](#T-MFR-GUI-Dialogs-Interfaces-IOptionsDialog 'MFR.GUI.Dialo
 | [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter, `dialog`, is
 passed a `null` value. |
 
-<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationurationAsProfile-System-String-'></a>
-### SaveCurrentConfigurationurationAsProfile(profileName) `method`
+<a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-SaveCurrentConfigurationAsProfile-System-String-'></a>
+### SaveCurrentConfigurationAsProfile(profileName) `method`
 
 ##### Summary
 
