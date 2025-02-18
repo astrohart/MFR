@@ -5580,8 +5580,6 @@ namespace MFR.Renamers.Files
                 new OperationStartedEventArgs(OperationType.FindVisualStudio)
             );
 
-            ProgramFlowHelper.StartDebugger();
-
             LoadedSolutions.Clear();
 
             // This tool can potentially be run from Visual Studio (e.g.,
