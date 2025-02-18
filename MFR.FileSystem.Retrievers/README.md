@@ -23,7 +23,7 @@
 - [FileSystemEntryListRetrieverBase](#T-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase')
   - [#ctor()](#M-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-#ctor 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.#ctor')
   - [ConfigProvider](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-ConfigProvider 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfig 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.CurrentConfig')
   - [FileSystemEntryValidatorSays](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FileSystemEntryValidatorSays 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FileSystemEntryValidatorSays')
   - [FindWhat](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-FindWhat 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.FindWhat')
   - [OperationType](#P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-OperationType 'MFR.FileSystem.Retrievers.FileSystemEntryListRetrieverBase.OperationType')
@@ -397,8 +397,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-FileSystem-Retrievers-FileSystemEntryListRetrieverBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
