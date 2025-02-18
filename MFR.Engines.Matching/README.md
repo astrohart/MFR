@@ -25,7 +25,7 @@
   - [#ctor()](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor')
   - [#ctor(config)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-#ctor-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.#ctor(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [ConfigProvider](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-ConfigProvider 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfig 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.CurrentConfig')
   - [OperationType](#P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-OperationType 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.OperationType')
   - [IsMatch(value,findWhat,replaceWith)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-System-String,System-String,System-String- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(System.String,System.String,System.String)')
   - [IsMatch(expression)](#M-MFR-Engines-Matching-TextExpressionMatchingEngineBase-IsMatch-MFR-Expressions-Matches-Interfaces-IMatchExpression- 'MFR.Engines.Matching.TextExpressionMatchingEngineBase.IsMatch(MFR.Expressions.Matches.Interfaces.IMatchExpression)')
@@ -431,8 +431,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Engines-Matching-TextExpressionMatchingEngineBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
