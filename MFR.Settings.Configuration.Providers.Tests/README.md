@@ -13,7 +13,7 @@
 - [ProjectFileRenamerConfigProviderTests](#T-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests')
   - [#ctor()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-#ctor 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.#ctor')
   - [ConfigFilePath](#F-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-ConfigFilePath 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.ConfigFilePath')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-CurrentConfig 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.CurrentConfig')
   - [ProjectFileRenamerConfigProvider](#P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-ProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.ProjectFileRenamerConfigProvider')
   - [#cctor()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-#cctor 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.#cctor')
   - [Test_Load_Works()](#M-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-Test_Load_Works 'MFR.Settings.Configuration.Providers.Tests.ProjectFileRenamerConfigProviderTests.Test_Load_Works')
@@ -146,8 +146,8 @@ This constructor has no parameters.
 
 Path to a sample config file.
 
-<a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Providers-Tests-ProjectFileRenamerConfigProviderTests-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
