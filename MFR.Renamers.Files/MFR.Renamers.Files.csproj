@@ -169,6 +169,10 @@
       <Project>{5528D7FB-B88B-4E9D-9BBD-B6B6B893666A}</Project>
       <Name>xyLOGIX.Core.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions.Constants\xyLOGIX.Files.Actions.Constants.csproj">
+      <Project>{F4419217-55C2-4716-8F0A-4C6E3A28BEEB}</Project>
+      <Name>xyLOGIX.Files.Actions.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Files.Actions.VS2019\xyLOGIX.Files.Actions\xyLOGIX.Files.Actions.csproj">
       <Project>{432d8885-e3ac-4a66-a99a-1a556b6be3fc}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
@@ -228,6 +232,10 @@
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1a47da0e-d8a0-44d4-be58-8ed1044e9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions\xyLOGIX.VisualStudio.Solutions.csproj">
+      <Project>{590970A0-E0B5-4467-A7F9-DE661A02D4C9}</Project>
+      <Name>xyLOGIX.VisualStudio.Solutions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
