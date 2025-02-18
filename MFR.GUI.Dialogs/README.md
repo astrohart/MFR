@@ -20,7 +20,7 @@
   - [#ctor()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#ctor 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.#ctor')
   - [_processingWorker](#F-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-_processingWorker 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog._processingWorker')
   - [ConfigProvider](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-ConfigProvider 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfiguration 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfig 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.CurrentConfig')
   - [FileRenamer](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-FileRenamer 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.FileRenamer')
   - [Instance](#P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-Instance 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.Instance')
   - [#cctor()](#M-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-#cctor 'MFR.GUI.Dialogs.AutoStartCancellableProgressDialog.#cctor')
@@ -135,7 +135,7 @@
   - [CommitAuthorName](#P-MFR-GUI-Dialogs-OptionsDialog-CommitAuthorName 'MFR.GUI.Dialogs.OptionsDialog.CommitAuthorName')
   - [ConfigPathname](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigPathname 'MFR.GUI.Dialogs.OptionsDialog.ConfigPathname')
   - [ConfigProvider](#P-MFR-GUI-Dialogs-OptionsDialog-ConfigProvider 'MFR.GUI.Dialogs.OptionsDialog.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfig 'MFR.GUI.Dialogs.OptionsDialog.CurrentConfig')
   - [DontPromptUserToReloadOpenSolution](#P-MFR-GUI-Dialogs-OptionsDialog-DontPromptUserToReloadOpenSolution 'MFR.GUI.Dialogs.OptionsDialog.DontPromptUserToReloadOpenSolution')
   - [ErrantProcesses](#P-MFR-GUI-Dialogs-OptionsDialog-ErrantProcesses 'MFR.GUI.Dialogs.OptionsDialog.ErrantProcesses')
   - [HasErrantProcesses](#P-MFR-GUI-Dialogs-OptionsDialog-HasErrantProcesses 'MFR.GUI.Dialogs.OptionsDialog.HasErrantProcesses')
@@ -368,8 +368,8 @@ Gets a reference to an instance of an object that implements the
 [IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
 interface.
 
-<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-GUI-Dialogs-AutoStartCancellableProgressDialog-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
@@ -1964,8 +1964,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-GUI-Dialogs-OptionsDialog-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
@@ -2160,7 +2160,7 @@ Handles the [](#E-System-Windows-Forms-Control-TextChanged 'System.Windows.Forms
 ##### Remarks
 
 This method is called to respond to the value of the text inside the
-CurrentConfiguration File Pathname text box being changed. This method
+CurrentConfig File Pathname text box being changed. This method
 responds to such a happenstance by updating the value of the
 [IsModified](#P-MFR-GUI-OptionsDialog-IsModified 'MFR.GUI.OptionsDialog.IsModified')
 property to be
