@@ -8,7 +8,7 @@
   - [ResourceManager](#P-MFR-CommandLine-Translators-Properties-Resources-ResourceManager 'MFR.CommandLine.Translators.Properties.Resources.ResourceManager')
 - [TranslateCommandLineInfo](#T-MFR-CommandLine-Translators-TranslateCommandLineInfo 'MFR.CommandLine.Translators.TranslateCommandLineInfo')
   - [ConfigProvider](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigProvider 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfiguration 'MFR.CommandLine.Translators.TranslateCommandLineInfo.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfig 'MFR.CommandLine.Translators.TranslateCommandLineInfo.CurrentConfig')
   - [ToConfiguration(cmdInfo)](#M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ToConfiguration(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 
 <a name='T-MFR-CommandLine-Translators-Properties-Resources'></a>
@@ -73,8 +73,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
