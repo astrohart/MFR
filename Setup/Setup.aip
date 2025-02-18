@@ -15,7 +15,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.9067.40804" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.9178.37974" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -355,6 +355,7 @@
     <ROW Component="xyLOGIX.FileSystem.Enumerable.Factories.dll" ComponentId="{EB9106AF-24B1-43BA-B67F-281F32072EAC}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.Factories.dll"/>
     <ROW Component="xyLOGIX.FileSystem.Enumerable.Interfaces.dll" ComponentId="{78CC6F23-43D5-4831-B3B9-088DB5AB2FCA}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.Interfaces.dll"/>
     <ROW Component="xyLOGIX.FileSystem.Enumerable.dll" ComponentId="{D4F07488-33CD-4C8D-8FCA-C45886D76081}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.FileSystem.Enumerable.dll"/>
+    <ROW Component="xyLOGIX.Files.Actions.Constants.dll" ComponentId="{AFE0F598-B957-4442-9938-1D4BDF37D189}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.Actions.Constants.dll"/>
     <ROW Component="xyLOGIX.Files.Actions.dll" ComponentId="{9A51A535-7EE4-40EC-AF41-28F47ACB2AE1}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.Actions.dll"/>
     <ROW Component="xyLOGIX.Files.MemoryMapped.Factories.dll" ComponentId="{DA0AA2D3-5B1E-4ADF-ABCB-88558567A8F8}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.MemoryMapped.Factories.dll"/>
     <ROW Component="xyLOGIX.Files.MemoryMapped.Interfaces.dll" ComponentId="{62418E63-56D8-4729-BA7D-494782EB497B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Files.MemoryMapped.Interfaces.dll"/>
@@ -380,14 +381,12 @@
     <ROW Component="xyLOGIX.Interop.Processes.Actions.dll" ComponentId="{F76BA2DB-A500-47DB-A82C-F198245FAB41}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Actions.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.Factories.dll" ComponentId="{DFA660C6-2A50-49CC-944D-96D0086CC601}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Factories.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.Interfaces.dll" ComponentId="{C601ECC0-CFAC-44EA-BD78-BB44637AC381}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Interfaces.dll"/>
-    <ROW Component="xyLOGIX.Interop.Processes.Monikers.Factories.dll" ComponentId="{966B686B-F77C-4431-92FF-E4E98D97E5C9}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.Factories.dll"/>
-    <ROW Component="xyLOGIX.Interop.Processes.Monikers.Interfaces.dll" ComponentId="{FED6629D-DCCD-40E5-AEC0-0192EC9D30BC}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.Interfaces.dll"/>
-    <ROW Component="xyLOGIX.Interop.Processes.Monikers.Wrappers.dll" ComponentId="{FD5B461C-22F7-4B23-9A7B-38D4131A0D02}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.Wrappers.dll"/>
-    <ROW Component="xyLOGIX.Interop.Processes.Monikers.dll" ComponentId="{53AE2742-224E-45E2-8C49-2364745DFB8B}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.dll"/>
-    <ROW Component="xyLOGIX.Interop.Processes.Monikers_1_.Wrappers.Factories.dll" ComponentId="{C590EE98-306C-464E-8F56-65F4E7F80C6C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll"/>
-    <ROW Component="xyLOGIX.Interop.Processes.Monikers_2_.Wrappers.Interfaces.dll" ComponentId="{24CE672F-4C99-4EF4-970D-48AB11C0C7C4}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.RunningO_1_bjects.Tables.Factories.dll" ComponentId="{F8191875-C95E-44C7-A56D-E81317442842}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.Tables.Factories.dll"/>
+    <ROW Component="xyLOGIX.Interop.Processes.RunningO_2_bjects.Actions.dll" ComponentId="{7FB249EF-EAB8-4130-9761-D6DACACDEB72}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.Actions.dll"/>
+    <ROW Component="xyLOGIX.Interop.Processes.RunningO_3_bjects.dll" ComponentId="{DFB9484B-D3F3-48E6-A259-59C96C60A808}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.dll"/>
+    <ROW Component="xyLOGIX.Interop.Processes.RunningO_4_bjects.Interfaces.dll" ComponentId="{AC8F705C-72FA-4278-AFA5-6F1B9E2FB144}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll" ComponentId="{7A46A9F1-131E-451E-83D6-102CB9E50F22}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll"/>
+    <ROW Component="xyLOGIX.Interop.Processes.Win32.dll" ComponentId="{1B86D0C3-A192-43BA-8F30-E7AE53949DD8}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.Win32.dll"/>
     <ROW Component="xyLOGIX.Interop.Processes.dll" ComponentId="{D5836D37-FF1B-40E0-8A1A-672C5048530C}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Interop.Processes.dll"/>
     <ROW Component="xyLOGIX.Mail.Smtp.Accounts.Factories.dll" ComponentId="{184565C2-19D8-4C08-8578-EF788F6E1702}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Accounts.Factories.dll"/>
     <ROW Component="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll" ComponentId="{868B2D0F-39B9-4E79-91C1-07D3D9D133EF}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Mail.Smtp.Accounts.Interfaces.dll"/>
@@ -1107,18 +1106,6 @@
     <ROW File="xyLOGIX.Interop.Processes.Factories.dll.config" Component_="config.json" FileName="XYLOG~41.CON|xyLOGIX.Interop.Processes.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Factories.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.Interfaces.dll" Component_="xyLOGIX.Interop.Processes.Interfaces.dll" FileName="XYLOG~42.DLL|xyLOGIX.Interop.Processes.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Interfaces.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~42.CON|xyLOGIX.Interop.Processes.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.dll" Component_="xyLOGIX.Interop.Processes.Monikers.dll" FileName="XYLOG~43.DLL|xyLOGIX.Interop.Processes.Monikers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.dll.config" Component_="config.json" FileName="XYLOG~43.CON|xyLOGIX.Interop.Processes.Monikers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Factories.dll" Component_="xyLOGIX.Interop.Processes.Monikers.Factories.dll" FileName="XYLOG~44.DLL|xyLOGIX.Interop.Processes.Monikers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Factories.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Factories.dll.config" Component_="config.json" FileName="XYLOG~44.CON|xyLOGIX.Interop.Processes.Monikers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Factories.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Interfaces.dll" Component_="xyLOGIX.Interop.Processes.Monikers.Interfaces.dll" FileName="XYLOG~45.DLL|xyLOGIX.Interop.Processes.Monikers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Interfaces.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~45.CON|xyLOGIX.Interop.Processes.Monikers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Interfaces.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Wrappers.dll" Component_="xyLOGIX.Interop.Processes.Monikers.Wrappers.dll" FileName="XYLOG~46.DLL|xyLOGIX.Interop.Processes.Monikers.Wrappers.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Wrappers.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Wrappers.dll.config" Component_="config.json" FileName="XYLOG~46.CON|xyLOGIX.Interop.Processes.Monikers.Wrappers.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Wrappers.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll" Component_="xyLOGIX.Interop.Processes.Monikers_1_.Wrappers.Factories.dll" FileName="XYLOG~47.DLL|xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll.config" Component_="config.json" FileName="XYLOG~47.CON|xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Wrappers.Factories.dll.config" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll" Component_="xyLOGIX.Interop.Processes.Monikers_2_.Wrappers.Interfaces.dll" FileName="XYLOG~48.DLL|xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll" SelfReg="false"/>
-    <ROW File="xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll.config" Component_="config.json" FileName="XYLOG~48.CON|xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Monikers.Wrappers.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll" Component_="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll" FileName="XYLOG~49.DLL|xyLOGIX.Interop.Processes.RunningObjects.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Factories.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll.config" Component_="config.json" FileName="XYLOG~49.CON|xyLOGIX.Interop.Processes.RunningObjects.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Factories.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Tables.Factories.dll" Component_="xyLOGIX.Interop.Processes.RunningO_1_bjects.Tables.Factories.dll" FileName="XYLOG~50.DLL|xyLOGIX.Interop.Processes.RunningObjects.Tables.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Tables.Factories.dll" SelfReg="false"/>
@@ -1309,6 +1296,16 @@
     <ROW File="xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Component_="config.json" FileName="XYLO~142.CON|xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Win32.RecycleBin.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" Component_="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" FileName="XYLO~143.DLL|xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll.config" Component_="config.json" FileName="XYLO~143.CON|xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.Actions.Constants.dll" Component_="xyLOGIX.Files.Actions.Constants.dll" FileName="XYLO~144.DLL|xyLOGIX.Files.Actions.Constants.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.Actions.Constants.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Files.Actions.Constants.dll.config" Component_="config.json" FileName="XYLO~144.CON|xyLOGIX.Files.Actions.Constants.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Files.Actions.Constants.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Actions.dll" Component_="xyLOGIX.Interop.Processes.RunningO_2_bjects.Actions.dll" FileName="XYLO~145.DLL|xyLOGIX.Interop.Processes.RunningObjects.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Actions.dll.config" Component_="config.json" FileName="XYLO~145.CON|xyLOGIX.Interop.Processes.RunningObjects.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Actions.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.RunningObjects.dll" Component_="xyLOGIX.Interop.Processes.RunningO_3_bjects.dll" FileName="XYLO~146.DLL|xyLOGIX.Interop.Processes.RunningObjects.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.RunningObjects.dll.config" Component_="config.json" FileName="XYLO~146.CON|xyLOGIX.Interop.Processes.RunningObjects.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll" Component_="xyLOGIX.Interop.Processes.RunningO_4_bjects.Interfaces.dll" FileName="XYLO~147.DLL|xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll.config" Component_="config.json" FileName="XYLO~147.CON|xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.Win32.dll" Component_="xyLOGIX.Interop.Processes.Win32.dll" FileName="XYLO~148.DLL|xyLOGIX.Interop.Processes.Win32.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Win32.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Interop.Processes.Win32.dll.config" Component_="config.json" FileName="XYLO~148.CON|xyLOGIX.Interop.Processes.Win32.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Win32.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1744,12 +1741,6 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Monikers.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Monikers.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Monikers.Interfaces.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Monikers.Wrappers.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Monikers_1_.Wrappers.Factories.dll"/>
-    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Monikers_2_.Wrappers.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningObjects.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningO_1_bjects.Tables.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Mail.Smtp.Accounts.dll"/>
@@ -1845,6 +1836,11 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Factories.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Win32.RecycleBin.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Files.Actions.Constants.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningO_2_bjects.Actions.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningO_3_bjects.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningO_4_bjects.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Win32.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
