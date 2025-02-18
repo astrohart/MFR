@@ -7,7 +7,7 @@
   - [#ctor()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-#ctor 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.#ctor')
   - [ConfigFilePath](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigFilePath')
   - [ConfigPathProvider](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-ConfigPathProvider 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.ConfigPathProvider')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfig 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfig')
   - [Instance](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-Instance 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.Instance')
   - [#cctor()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-#cctor 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.#cctor')
   - [Clear()](#M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-Clear 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.Clear')
@@ -67,8 +67,8 @@ Gets a reference to an instance of an object that implements the
 [IConfigPathProvider](#T-MFR-Paths-Config-Provider-Interfaces-IConfigPathProvider 'MFR.Paths.Config.Provider.Interfaces.IConfigPathProvider')
 interface.
 
-<a name='P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
@@ -208,7 +208,7 @@ Loads the config from the file system.
 
 
 The
-[CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration')
+[CurrentConfig](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfig 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfig')
 property is then initialized to point to the data that has been loaded.
 
 
@@ -235,7 +235,7 @@ property is used instead. |
 ##### Remarks
 
 The value of the
-[CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfiguration')
+[CurrentConfig](#P-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-CurrentConfig 'MFR.Settings.Configuration.Providers.ProjectFileRenamerConfigProvider.CurrentConfig')
 property is set to `null` if an error occurs during loading.
 
 <a name='M-MFR-Settings-Configuration-Providers-ProjectFileRenamerConfigProvider-OnConfigFilePathChanged-System-Object,System-EventArgs-'></a>
