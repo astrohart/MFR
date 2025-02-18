@@ -198,11 +198,10 @@ namespace MFR.Services.Solutions
             var result = Enumerable.Empty<IVisualStudioSolution>()
                                    .ToList();
 
-            if (string.IsNullOrWhiteSpace(folder) || !Directory.Exists(folder))
-                return result;
-
             try
             {
+                if (!Does.FolderExist(folder)) return result;
+
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     $"VisualStudioSolutionService.GetLoadedSolutionsInFolder: Attempting to get a list of all the Visual Studio Solution (*.sln) file(s) present in the directory tree of the folder, '{folder}'..."
