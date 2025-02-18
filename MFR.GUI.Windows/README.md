@@ -12,7 +12,7 @@
   - [CommandLineInfo](#P-MFR-GUI-Windows-MainWindow-CommandLineInfo 'MFR.GUI.Windows.MainWindow.CommandLineInfo')
   - [ConfigProvider](#P-MFR-GUI-Windows-MainWindow-ConfigProvider 'MFR.GUI.Windows.MainWindow.ConfigProvider')
   - [CreateParams](#P-MFR-GUI-Windows-MainWindow-CreateParams 'MFR.GUI.Windows.MainWindow.CreateParams')
-  - [CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-GUI-Windows-MainWindow-CurrentConfig 'MFR.GUI.Windows.MainWindow.CurrentConfig')
   - [FindWhat](#P-MFR-GUI-Windows-MainWindow-FindWhat 'MFR.GUI.Windows.MainWindow.FindWhat')
   - [FindWhatComboBox](#P-MFR-GUI-Windows-MainWindow-FindWhatComboBox 'MFR.GUI.Windows.MainWindow.FindWhatComboBox')
   - [FoldButton](#P-MFR-GUI-Windows-MainWindow-FoldButton 'MFR.GUI.Windows.MainWindow.FoldButton')
@@ -211,8 +211,8 @@ created.
 A [CreateParams](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Forms.CreateParams 'System.Windows.Forms.CreateParams') that contains the
 required creation parameters when the handle to the control is created.
 
-<a name='P-MFR-GUI-Windows-MainWindow-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-GUI-Windows-MainWindow-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
@@ -565,7 +565,7 @@ This method has no parameters.
 ##### Summary
 
 Checks whether the value of the
-[CurrentConfiguration](#P-MFR-GUI-Windows-MainWindow-CurrentConfiguration 'MFR.GUI.Windows.MainWindow.CurrentConfiguration') property is
+[CurrentConfig](#P-MFR-GUI-Windows-MainWindow-CurrentConfig 'MFR.GUI.Windows.MainWindow.CurrentConfig') property is
 `null`.
 
 
