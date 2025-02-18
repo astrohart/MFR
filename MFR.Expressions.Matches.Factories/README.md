@@ -24,7 +24,7 @@
   - [FromScratch()](#M-MFR-Expressions-Matches-Factories-MakeNewSolutionFolderNameReplacementMatchExpressionFactory-FromScratch 'MFR.Expressions.Matches.Factories.MakeNewSolutionFolderNameReplacementMatchExpressionFactory.FromScratch')
 - [MatchExpressionFactoryBase](#T-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase')
   - [ConfigProvider](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ConfigProvider 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfig 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.CurrentConfig')
   - [FindWhat](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-FindWhat 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.FindWhat')
   - [OperationType](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-OperationType 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.OperationType')
   - [ReplaceWith](#P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-ReplaceWith 'MFR.Expressions.Matches.Factories.MatchExpressionFactoryBase.ReplaceWith')
@@ -508,8 +508,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Expressions-Matches-Factories-MatchExpressionFactoryBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
