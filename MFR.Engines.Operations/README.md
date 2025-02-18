@@ -46,7 +46,7 @@
   - [#ctor()](#M-MFR-Engines-Operations-OperationEngineBase-#ctor 'MFR.Engines.Operations.OperationEngineBase.#ctor')
   - [_processingWorker](#F-MFR-Engines-Operations-OperationEngineBase-_processingWorker 'MFR.Engines.Operations.OperationEngineBase._processingWorker')
   - [ConfigProvider](#P-MFR-Engines-Operations-OperationEngineBase-ConfigProvider 'MFR.Engines.Operations.OperationEngineBase.ConfigProvider')
-  - [CurrentConfiguration](#P-MFR-Engines-Operations-OperationEngineBase-CurrentConfiguration 'MFR.Engines.Operations.OperationEngineBase.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Engines-Operations-OperationEngineBase-CurrentConfig 'MFR.Engines.Operations.OperationEngineBase.CurrentConfig')
   - [FileRenamer](#P-MFR-Engines-Operations-OperationEngineBase-FileRenamer 'MFR.Engines.Operations.OperationEngineBase.FileRenamer')
   - [Type](#P-MFR-Engines-Operations-OperationEngineBase-Type 'MFR.Engines.Operations.OperationEngineBase.Type')
   - [HandleFilesCountedEvent(count)](#M-MFR-Engines-Operations-OperationEngineBase-HandleFilesCountedEvent-System-Int32- 'MFR.Engines.Operations.OperationEngineBase.HandleFilesCountedEvent(System.Int32)')
@@ -813,8 +813,8 @@ This object allows access to the user config and the
 actions
 associated with it.
 
-<a name='P-MFR-Engines-Operations-OperationEngineBase-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Engines-Operations-OperationEngineBase-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
