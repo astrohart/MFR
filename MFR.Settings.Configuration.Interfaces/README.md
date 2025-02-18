@@ -4,7 +4,7 @@
 ## Contents
 
 - [IConfigurationComposedObject](#T-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-CurrentConfiguration 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-CurrentConfig 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.CurrentConfig')
   - [AndAttachConfiguration()](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-AndAttachConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.AndAttachConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [UpdateConfiguration(config)](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-UpdateConfiguration-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig- 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.UpdateConfiguration(MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig)')
   - [VerifyConfigurationAttached()](#M-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-VerifyConfigurationAttached 'MFR.Settings.Configuration.Interfaces.IConfigurationComposedObject.VerifyConfigurationAttached')
@@ -64,8 +64,8 @@ composed with an instance of another object that implements the
 [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface.
 
-<a name='P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Interfaces-IConfigurationComposedObject-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
