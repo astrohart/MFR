@@ -5,7 +5,7 @@
 
 - [IProjectFileRenamerConfigProvider](#T-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider')
   - [ConfigFilePath](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-ConfigFilePath 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.ConfigFilePath')
-  - [CurrentConfiguration](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-CurrentConfiguration 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.CurrentConfiguration')
+  - [CurrentConfig](#P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-CurrentConfig 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.CurrentConfig')
   - [Clear()](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-Clear 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.Clear')
   - [Export(exportFileName)](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-Export-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.Export(System.String)')
   - [Import(sourceFilePath)](#M-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-Import-System-String- 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.Import(System.String)')
@@ -40,8 +40,8 @@ This property raises the
 [](#E-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-ConfigFilePathChanged 'MFR.Settings.Configuration.Providers.Interfaces.IProjectFileRenamerConfigProvider.ConfigFilePathChanged')
 event when its value is updated.
 
-<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-CurrentConfiguration'></a>
-### CurrentConfiguration `property`
+<a name='P-MFR-Settings-Configuration-Providers-Interfaces-IProjectFileRenamerConfigProvider-CurrentConfig'></a>
+### CurrentConfig `property`
 
 ##### Summary
 
