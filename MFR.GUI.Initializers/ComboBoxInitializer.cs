@@ -70,7 +70,8 @@ namespace MFR.GUI.Initializers
                 comboBox.Items.Clear();
 
                 if (itemList == null) return;
-                if (itemList.Count == 0) return;
+                if (itemList.Count == 0 &&
+                    string.IsNullOrWhiteSpace(currentItem)) return;
 
                 /*
                  * Add the 'currentItem' to the drop-down portion of the
