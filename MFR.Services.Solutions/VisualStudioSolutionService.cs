@@ -424,6 +424,25 @@ namespace MFR.Services.Solutions
             }
         }
 
+        /// <summary>
+        /// Finds the running instance(s), if any, of Visual Studio that have the specified
+        /// Visual Studio Solution (<c>*.sln</c>) <paramref name="files" /> loaded.
+        /// </summary>
+        /// <param name="files">
+        /// (Required.) A <see cref="T:System.String" /> array
+        /// containing the Visual Studio Solution (<c>*.sln</c>) file(s) whose
+        /// fully-qualified pathname(s) are to be matched against those showing as being
+        /// loaded by currently-running instance(s) of Visual Studio.
+        /// </param>
+        /// <returns>
+        /// Collection of objects, each of which implements the
+        /// <see
+        ///     cref="T:xyLOGIX.VisualStudio.Instances.Interfaces.IVisualStudioInstanceMetadata" />
+        /// interface, respectively, that represents the requested data set.
+        /// <para />
+        /// The empty collection is returned if either the information could not be
+        /// obtained or if a different error occurred.
+        /// </returns>
         private static IList<IVisualStudioInstanceMetadata>
             FindVisualStudioInstancesHavingFilesLoaded(string[] files)
         {
