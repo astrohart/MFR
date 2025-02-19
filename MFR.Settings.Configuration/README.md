@@ -333,6 +333,10 @@ Gets or sets a [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14
 application should automatically terminate once the user's requested operations
 are complete.
 
+##### Remarks
+
+The default value of this property is `true`.
+
 <a name='P-MFR-Settings-Configuration-ProjectFileRenamerConfig-AutoStart'></a>
 ### AutoStart `property`
 
