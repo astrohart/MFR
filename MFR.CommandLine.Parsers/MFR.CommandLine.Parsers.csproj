@@ -155,6 +155,10 @@
       <Project>{2E4EDA4F-0D3A-442F-87B5-F0224F596A80}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
+      <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
+      <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj">
       <Project>{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}</Project>
       <Name>MFR.CommandLine.Models.Factories</Name>
