@@ -124,7 +124,7 @@ namespace MFR.GUI.Windows
             this.startingFolderLabel.Name = "startingFolderLabel";
             this.startingFolderLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderLabel.Size = new System.Drawing.Size(226, 15);
-            this.startingFolderLabel.TabIndex = 0;
+            this.startingFolderLabel.TabIndex = 11;
             this.startingFolderLabel.Text = "What &folder should the operation start in?";
             // 
             // startingFolderBrowseButton
@@ -136,7 +136,7 @@ namespace MFR.GUI.Windows
             this.startingFolderBrowseButton.Name = "startingFolderBrowseButton";
             this.startingFolderBrowseButton.Padding = new System.Windows.Forms.Padding(5);
             this.startingFolderBrowseButton.Size = new System.Drawing.Size(24, 27);
-            this.startingFolderBrowseButton.TabIndex = 2;
+            this.startingFolderBrowseButton.TabIndex = 13;
             this.startingFolderBrowseButton.Text = "...";
             this.startingFolderBrowseButton.Click += new System.EventHandler(this.OnClickBrowseForStartingFolder);
             // 
@@ -150,7 +150,7 @@ namespace MFR.GUI.Windows
             this.findWhatLabel.Name = "findWhatLabel";
             this.findWhatLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatLabel.Size = new System.Drawing.Size(109, 15);
-            this.findWhatLabel.TabIndex = 3;
+            this.findWhatLabel.TabIndex = 0;
             this.findWhatLabel.Text = "&Text to be replaced:";
             // 
             // replaceWithLabel
@@ -163,7 +163,7 @@ namespace MFR.GUI.Windows
             this.replaceWithLabel.Name = "replaceWithLabel";
             this.replaceWithLabel.NormalTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithLabel.Size = new System.Drawing.Size(64, 15);
-            this.replaceWithLabel.TabIndex = 5;
+            this.replaceWithLabel.TabIndex = 3;
             this.replaceWithLabel.Text = "&With what:";
             // 
             // performOperationButton
@@ -179,7 +179,7 @@ namespace MFR.GUI.Windows
             this.performOperationButton.Name = "performOperationButton";
             this.performOperationButton.Padding = new System.Windows.Forms.Padding(5);
             this.performOperationButton.Size = new System.Drawing.Size(157, 27);
-            this.performOperationButton.TabIndex = 8;
+            this.performOperationButton.TabIndex = 6;
             this.performOperationButton.Text = "&Perform Operation";
             this.performOperationButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.performOperationButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -200,7 +200,7 @@ namespace MFR.GUI.Windows
             this.menuBar.Name = "menuBar";
             this.menuBar.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
             this.menuBar.Size = new System.Drawing.Size(596, 24);
-            this.menuBar.TabIndex = 10;
+            this.menuBar.TabIndex = 9;
             this.menuBar.Text = "menuStrip1";
             this.menuBar.ToggleUppercase = false;
             // 
@@ -509,7 +509,7 @@ namespace MFR.GUI.Windows
             this.optionsTabControl.SelectedIndex = 0;
             this.optionsTabControl.Size = new System.Drawing.Size(569, 200);
             this.optionsTabControl.TabBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.optionsTabControl.TabIndex = 11;
+            this.optionsTabControl.TabIndex = 7;
             this.optionsTabControl.TabWellBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(69)))));
             // 
             // findReplaceOptionsTabPage
@@ -652,7 +652,7 @@ namespace MFR.GUI.Windows
             this.foldButton.Name = "foldButton";
             this.foldButton.Padding = new System.Windows.Forms.Padding(5);
             this.foldButton.Size = new System.Drawing.Size(87, 27);
-            this.foldButton.TabIndex = 7;
+            this.foldButton.TabIndex = 5;
             this.foldButton.Text = "&More >>";
             this.foldButton.FormFolded += new MFR.GUI.Controls.Events.FormFoldedEventHandler(this.OnFormFolded);
             // 
@@ -693,7 +693,7 @@ namespace MFR.GUI.Windows
             this.replaceWithComboBox.Name = "replaceWithComboBox";
             this.replaceWithComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.replaceWithComboBox.Size = new System.Drawing.Size(565, 24);
-            this.replaceWithComboBox.TabIndex = 6;
+            this.replaceWithComboBox.TabIndex = 4;
             // 
             // findWhatComboBox
             // 
@@ -719,7 +719,7 @@ namespace MFR.GUI.Windows
             this.findWhatComboBox.Name = "findWhatComboBox";
             this.findWhatComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.findWhatComboBox.Size = new System.Drawing.Size(565, 24);
-            this.findWhatComboBox.TabIndex = 4;
+            this.findWhatComboBox.TabIndex = 1;
             // 
             // startingFolderComboBox
             // 
@@ -745,7 +745,7 @@ namespace MFR.GUI.Windows
             this.startingFolderComboBox.Name = "startingFolderComboBox";
             this.startingFolderComboBox.SelectedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.startingFolderComboBox.Size = new System.Drawing.Size(535, 24);
-            this.startingFolderComboBox.TabIndex = 1;
+            this.startingFolderComboBox.TabIndex = 12;
             // 
             // exportConfigDialog
             // 
@@ -902,7 +902,7 @@ namespace MFR.GUI.Windows
             this.standardToolStrip.Name = "standardToolStrip";
             this.standardToolStrip.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
             this.standardToolStrip.Size = new System.Drawing.Size(596, 26);
-            this.standardToolStrip.TabIndex = 13;
+            this.standardToolStrip.TabIndex = 10;
             this.standardToolStrip.Text = "Standard";
             // 
             // saveButton
@@ -940,7 +940,7 @@ namespace MFR.GUI.Windows
             this.switchButton.Name = "switchButton";
             this.switchButton.Padding = new System.Windows.Forms.Padding(5);
             this.switchButton.Size = new System.Drawing.Size(82, 23);
-            this.switchButton.TabIndex = 14;
+            this.switchButton.TabIndex = 2;
             this.switchButton.Text = "&Switch";
             this.switchButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.switchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -960,7 +960,7 @@ namespace MFR.GUI.Windows
             this.statusBar.PrimaryBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.statusBar.SecondaryBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.statusBar.Size = new System.Drawing.Size(596, 22);
-            this.statusBar.TabIndex = 15;
+            this.statusBar.TabIndex = 8;
             this.statusBar.Text = "statusStrip1";
             // 
             // statusBarMessage
