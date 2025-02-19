@@ -1106,6 +1106,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Processors.Validato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Processors.Validators.Interfaces", "MFR.GUI.Processors.Validators.Interfaces\MFR.GUI.Processors.Validators.Interfaces.csproj", "{F16D54B8-4B05-45FD-85FD-0D450AED22B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Extensions.Actions", "..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions.Actions\xyLOGIX.Core.Extensions.Actions.csproj", "{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|x64 = All|x64
@@ -9854,6 +9856,22 @@ Global
 		{F16D54B8-4B05-45FD-85FD-0D450AED22B0}.Release|x64.Build.0 = Release|x64
 		{F16D54B8-4B05-45FD-85FD-0D450AED22B0}.Release|x86.ActiveCfg = Release|x86
 		{F16D54B8-4B05-45FD-85FD-0D450AED22B0}.Release|x86.Build.0 = Release|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.All|x64.ActiveCfg = Debug|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.All|x64.Build.0 = Debug|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.All|x86.ActiveCfg = Debug|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.All|x86.Build.0 = Debug|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Debug|x64.ActiveCfg = Debug|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Debug|x64.Build.0 = Debug|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Debug|x86.ActiveCfg = Debug|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Debug|x86.Build.0 = Debug|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.DefaultBuild|x64.ActiveCfg = Release|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.DefaultBuild|x64.Build.0 = Release|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.DefaultBuild|x86.ActiveCfg = Release|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.DefaultBuild|x86.Build.0 = Release|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Release|x64.ActiveCfg = Release|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Release|x64.Build.0 = Release|x64
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Release|x86.ActiveCfg = Release|x86
+		{DA17C249-8F83-4C5A-ABEE-43D98AF5212A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
