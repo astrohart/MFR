@@ -1,5 +1,4 @@
 ﻿using MFR.CommandLine.Models.Interfaces;
-using MFR.Settings.Configuration.Factories;
 using MFR.Settings.Configuration.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
@@ -7,6 +6,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Core.Extensions.Actions;
 
 namespace MFR.CommandLine.Translators
 {
@@ -74,20 +74,21 @@ namespace MFR.CommandLine.Translators
         /// whose properties have been initialized with the values specified in the
         /// properties of the <paramref name="cmdInfo" /> object.
         /// </returns>
-        public static IProjectFileRenamerConfig ToConfiguration(
+        [return: NotLogged]
+        public static IProjectFileRenamerConfig ToConfig(
             [NotLogged] this ICommandLineInfo cmdInfo
         )
         {
-            IProjectFileRenamerConfig result = default;
+            var result = CurrentConfig;
 
             try
             {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "TranslateCommandLineInfo.ToConfiguration: Checking whether the 'cmdInfo' method parameter has a null reference for a value..."
+                    "TranslateCommandLineInfo.ToConfig: Checking whether the 'cmdInfo' method parameter has a null reference for a value..."
                 );
 
-                // Check to see if the required parameter, cmdInfo, is null. If it is, send an 
+                // Check to see if the required parameter, cmdInfo, is null. If it is, send an
                 // error to the log file and quit, returning the default return value of this
                 // method.
                 if (cmdInfo == null)
@@ -95,7 +96,7 @@ namespace MFR.CommandLine.Translators
                     // the parameter cmdInfo is required.
                     DebugUtils.WriteLine(
                         DebugLevel.Error,
-                        "TranslateCommandLineInfo.ToConfiguration: *** ERROR *** A null reference was passed for the 'cmdInfo' method parameter.  Stopping."
+                        "TranslateCommandLineInfo.ToConfig: *** ERROR *** A null reference was passed for the 'cmdInfo' method parameter.  Stopping."
                     );
 
                     // stop.
@@ -104,106 +105,76 @@ namespace MFR.CommandLine.Translators
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "TranslateCommandLineInfo.ToConfiguration: *** SUCCESS *** We have been passed a valid object reference for the 'cmdInfo' method parameter."
-                );	 
-
-                // Dump the property cmdInfo.StartingFolder to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.StartingFolder = '{cmdInfo.StartingFolder}'"
+                    "TranslateCommandLineInfo.ToConfig: *** SUCCESS *** We have been passed a valid object reference for the 'cmdInfo' method parameter."
                 );
 
-                // Dump the value of the property, cmdInfo.FindWhat, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.FindWhat = '{cmdInfo.FindWhat}'"
+                CurrentConfig.AutoQuitOnCompletion = Prefer.BoolOverNull(
+                    cmdInfo.AutoQuitOnCompletion,
+                    CurrentConfig.AutoQuitOnCompletion
+                );
+                CurrentConfig.AutoStart = cmdInfo.AutoStart;
+                CurrentConfig.FindWhat = Prefer.StringOverBlank(
+                    cmdInfo.FindWhat, CurrentConfig.FindWhat
+                );
+                CurrentConfig.IsFromCommandLine = true;
+                CurrentConfig.MatchCase = Prefer.BoolOverNull(
+                    cmdInfo.MatchCase, CurrentConfig.MatchCase
+                );
+                CurrentConfig.MatchExactWord = Prefer.BoolOverNull(
+                    cmdInfo.MatchExactWord, CurrentConfig.MatchExactWord
+                );
+                CurrentConfig.RenameFilesInFolder = Prefer.BoolOverNull(
+                    cmdInfo.RenameFilesInFolder,
+                    CurrentConfig.RenameFilesInFolder
+                );
+                CurrentConfig.RenameSubFolders = Prefer.BoolOverNull(
+                    cmdInfo.RenameSubFolders, CurrentConfig.RenameSubFolders
+                );
+                CurrentConfig.ReplaceTextInFiles = Prefer.BoolOverNull(
+                    cmdInfo.ReplaceTextInFiles, CurrentConfig.ReplaceTextInFiles
+                );
+                CurrentConfig.ReplaceWith = Prefer.StringOverBlank(
+                    cmdInfo.ReplaceWith, CurrentConfig.ReplaceWith
+                );
+                CurrentConfig.RenameSolutionFolders = Prefer.BoolOverNull(
+                    cmdInfo.RenameSolutionFolders,
+                    CurrentConfig.RenameSolutionFolders
+                );
+                CurrentConfig.ReOpenSolution = Prefer.BoolOverNull(
+                    cmdInfo.ReOpenSolution, CurrentConfig.ReOpenSolution
+                );
+                CurrentConfig.ShouldCommitPendingChanges = Prefer.BoolOverNull(
+                    cmdInfo.ShouldCommitPendingChanges,
+                    CurrentConfig.ShouldCommitPendingChanges
+                );
+                CurrentConfig.ShouldCommitPostOperationChanges =
+                    Prefer.BoolOverNull(
+                        cmdInfo.ShouldCommitPostOperationChanges,
+                        CurrentConfig.ShouldCommitPostOperationChanges
+                    );
+                CurrentConfig.StartingFolder = Prefer.StringOverBlank(
+                    cmdInfo.StartingFolder, CurrentConfig.StartingFolder
+                );
+                CurrentConfig.UpdateGitOnAutoStart = Prefer.BoolOverNull(
+                    cmdInfo.UpdateGitOnAutoStart,
+                    CurrentConfig.UpdateGitOnAutoStart
                 );
 
-                // Dump the value of the property, cmdInfo.ReplaceWith, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ReplaceWith = '{cmdInfo.ReplaceWith}'"
-                );
+                if (CurrentConfig.IsFromCommandLine &&
+                    CurrentConfig.UpdateGitOnAutoStart &&
+                    CurrentConfig.AutoStart)
+                    CurrentConfig.ShouldCommitPendingChanges =
+                        CurrentConfig.ShouldCommitPostOperationChanges =
+                            CurrentConfig.PushChangesToRemoteWhenDone = true;
 
-                // Dump the value of the property, cmdInfo.RenameFilesInFolder, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.RenameFilesInFolder = {cmdInfo.RenameFilesInFolder}"
-                );
-
-                // Dump the value of the property, cmdInfo.RenameSubFolders, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.RenameSubFolders = {cmdInfo.RenameSubFolders}"
-                );
-
-                // Dump the value of the property, cmdInfo.ReplaceTextInFiles, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ReplaceTextInFiles = {cmdInfo.ReplaceTextInFiles}"
-                );
-
-                // Dump the value of the property, cmdInfo.RenameSolutionFolders, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.RenameSolutionFolders = {cmdInfo.RenameSolutionFolders}"
-                );
-
-                // Dump the value of the property, cmdInfo.ReOpenSolution, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ReOpenSolution = {cmdInfo.ReOpenSolution}"
-                );
-
-                // Dump the value of the property, cmdInfo.AutoStart, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.AutoStart = {cmdInfo.AutoStart}"
-                );
-
-                // Dump the value of the property, cmdInfo.ShouldCommitPostOperationChanges, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ShouldCommitPostOperationChanges = {cmdInfo.ShouldCommitPostOperationChanges}"
-                );
-
-                // Dump the value of the property, cmdInfo.ShouldCommitPendingChanges, to the log
-                DebugUtils.WriteLine(
-                    DebugLevel.Debug,
-                    $"TranslateCommandLineInfo.ToConfiguration: cmdInfo.ShouldCommitPendingChanges = {cmdInfo.ShouldCommitPendingChanges}"
-                );
-
-                result = MakeNewProjectFileRenamerConfig
-                         .FromScratch()
-                         .ForStartingFolder(cmdInfo.StartingFolder)
-                         .AndFindWhat(cmdInfo.FindWhat)
-                         .AndReplaceWith(cmdInfo.ReplaceWith)
-                         .ShouldRenameFilesInFolder(cmdInfo.RenameFilesInFolder)
-                         .AndShouldRenameSubFolders(cmdInfo.RenameSubFolders)
-                         .AndShouldReplaceTextInFiles(
-                             cmdInfo.ReplaceTextInFiles
-                         )
-                         .AndShouldRenameSolutionFolders(
-                             cmdInfo.RenameSolutionFolders
-                         )
-                         .AndShouldReOpenSolution(cmdInfo.ReOpenSolution)
-                         .SetIsFromCommandLine(
-                             true
-                         ) // mark this as a command-line specified config
-                         .ShouldAutoStart(cmdInfo.AutoStart)
-                         .ShouldCommitPostOperationChanges(
-                             cmdInfo.ShouldCommitPostOperationChanges
-                         )
-                         .ShouldCommitPendingChanges(
-                             cmdInfo.ShouldCommitPendingChanges
-                         );
+                result = CurrentConfig;
             }
             catch (Exception ex)
             {
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = default;
+                result = CurrentConfig;
             }
 
             return result;
