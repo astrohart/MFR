@@ -78,6 +78,8 @@ namespace MFR.GUI
         [STAThread]
         public static void Main([NotLogged] string[] args)
         {
+            ProgramFlowHelper.StartDebugger();
+
             SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             if (!Register.WindowsMessageFilter())
