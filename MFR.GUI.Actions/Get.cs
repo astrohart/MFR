@@ -32,9 +32,7 @@ namespace MFR.GUI.Actions
         /// attribute in order to simplify the logging output.
         /// </remarks>
         [Log(AttributeExclude = true)]
-        static Get()
-        {
-        }
+        static Get() { }
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the product name defined
@@ -46,8 +44,7 @@ namespace MFR.GUI.Actions
         /// </remarks>
         private static string AssemblyCompany
         {
-            [DebuggerStepThrough]
-            get => AssemblyMetadata.AssemblyCompany;
+            [DebuggerStepThrough] get => AssemblyMetadata.AssemblyCompany;
         }
 
         /// <summary>
@@ -110,7 +107,7 @@ namespace MFR.GUI.Actions
 
         /// <summary>
         /// Obtains the proper
-        /// <see cref="T:MFR.GUI.Processors.Constants.CommandLineProcessorType" />
+        /// <see cref="T:MFR.GUI.Processors.Constants.CurrentCommandLineProcessorType" />
         /// enumeration value that corresponds to the way that the application was
         /// launched.
         /// </summary>
@@ -125,23 +122,66 @@ namespace MFR.GUI.Actions
         /// </param>
         /// <returns>
         /// One of the
-        /// <see cref="T:MFR.GUI.Processors.Constants.CommandLineProcessorType" />
+        /// <see cref="T:MFR.GUI.Processors.Constants.CurrentCommandLineProcessorType" />
         /// enumeration values that specifies how the application is to behave, given how
         /// it was launched.
         /// </returns>
         [DebuggerStepThrough]
-        public static CommandLineProcessorType CommandLineProcessorType(
+        public static CommandLineProcessorType CurrentCommandLineProcessorType(
             bool commandLineSpecified,
             bool autoStart
         )
         {
-            if (!commandLineSpecified)
-                return Processors.Constants.CommandLineProcessorType
-                                 .NoCommandLine;
+            var result = CommandLineProcessorType.NoCommandLine;
 
-            return autoStart
-                ? Processors.Constants.CommandLineProcessorType.AutoStart
-                : Processors.Constants.CommandLineProcessorType.GuiDriven;
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "*** Get.CurrentCommandLineProcessorType: Checking whether the command-line was specified at all..."
+                );
+
+                // Check to see whether the command-line was specified at all.
+                // If this is not the case, then write an error message to the log file,
+                // and then terminate the execution of this method.
+                if (!commandLineSpecified)
+                {
+                    // Zero command-line argument(s) were passed to the application upon startup.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** Zero command-line argument(s) were passed to the application upon startup.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"Get.CurrentCommandLineProcessorType: Result = '{result}'"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "Get.CurrentCommandLineProcessorType: *** SUCCESS *** Greater than zero command-line argument(s) were passed to the application.  Proceeding..."
+                );
+
+                result = autoStart ? CommandLineProcessorType.AutoStart : CommandLineProcessorType.GuiDriven;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = CommandLineProcessorType.Unknown;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Get.CurrentCommandLineProcessorType: Result = '{result}'"
+            );
+
+            return result;
         }
 
         /// <summary>
