@@ -166,6 +166,10 @@
       <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
       <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
+      <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
+      <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj">
       <Project>{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}</Project>
       <Name>MFR.CommandLine.Models.Factories</Name>
@@ -233,6 +237,14 @@
     <ProjectReference Include="..\MFR.GUI.Processors.Interfaces\MFR.GUI.Processors.Interfaces.csproj">
       <Project>{CEFD1E05-C955-42ED-A631-23E5DD1067AC}</Project>
       <Name>MFR.GUI.Processors.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Processors.Validators.Factories\MFR.GUI.Processors.Validators.Factories.csproj">
+      <Project>{318D5761-4508-4563-8953-7FC3B05C812C}</Project>
+      <Name>MFR.GUI.Processors.Validators.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.GUI.Processors.Validators.Interfaces\MFR.GUI.Processors.Validators.Interfaces.csproj">
+      <Project>{F16D54B8-4B05-45FD-85FD-0D450AED22B0}</Project>
+      <Name>MFR.GUI.Processors.Validators.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Settings.Configuration.Interfaces\MFR.Settings.Configuration.Interfaces.csproj">
       <Project>{1ae68e39-484d-4347-ba55-739e0fe98246}</Project>
