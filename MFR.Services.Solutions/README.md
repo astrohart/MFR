@@ -13,6 +13,7 @@
   - [#cctor()](#M-MFR-Services-Solutions-VisualStudioSolutionService-#cctor 'MFR.Services.Solutions.VisualStudioSolutionService.#cctor')
   - [ContainLoadedSolutions()](#M-MFR-Services-Solutions-VisualStudioSolutionService-ContainLoadedSolutions 'MFR.Services.Solutions.VisualStudioSolutionService.ContainLoadedSolutions')
   - [ContainsLoadedSolutions(folder)](#M-MFR-Services-Solutions-VisualStudioSolutionService-ContainsLoadedSolutions-System-String- 'MFR.Services.Solutions.VisualStudioSolutionService.ContainsLoadedSolutions(System.String)')
+  - [FindVisualStudioInstancesHavingFilesLoaded(files)](#M-MFR-Services-Solutions-VisualStudioSolutionService-FindVisualStudioInstancesHavingFilesLoaded-System-String[]- 'MFR.Services.Solutions.VisualStudioSolutionService.FindVisualStudioInstancesHavingFilesLoaded(System.String[])')
   - [GetLoadedSolutionsInFolder(folder)](#M-MFR-Services-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String- 'MFR.Services.Solutions.VisualStudioSolutionService.GetLoadedSolutionsInFolder(System.String)')
   - [LoadAll(solutions)](#M-MFR-Services-Solutions-VisualStudioSolutionService-LoadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Services.Solutions.VisualStudioSolutionService.LoadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
   - [UnloadAll(solutions)](#M-MFR-Services-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}- 'MFR.Services.Solutions.VisualStudioSolutionService.UnloadAll(System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution})')
@@ -146,6 +147,34 @@ value of the
 [FolderToSearch](#P-MFR-Services-Solutions-VisualStudioSolutionService-FolderToSearch 'MFR.Services.Solutions.VisualStudioSolutionService.FolderToSearch')
 property. |
 
+<a name='M-MFR-Services-Solutions-VisualStudioSolutionService-FindVisualStudioInstancesHavingFilesLoaded-System-String[]-'></a>
+### FindVisualStudioInstancesHavingFilesLoaded(files) `method`
+
+##### Summary
+
+Finds the running instance(s), if any, of Visual Studio that have the specified
+Visual Studio Solution (`*.sln`) `files` loaded.
+
+##### Returns
+
+Collection of objects, each of which implements the
+[IVisualStudioInstanceMetadata](#T-xyLOGIX-VisualStudio-Instances-Interfaces-IVisualStudioInstanceMetadata 'xyLOGIX.VisualStudio.Instances.Interfaces.IVisualStudioInstanceMetadata')
+interface, respectively, that represents the requested data set.
+
+
+
+The empty collection is returned if either the information could not be
+obtained or if a different error occurred.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| files | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') array
+containing the Visual Studio Solution (`*.sln`) file(s) whose
+fully-qualified pathname(s) are to be matched against those showing as being
+loaded by currently-running instance(s) of Visual Studio. |
+
 <a name='M-MFR-Services-Solutions-VisualStudioSolutionService-GetLoadedSolutionsInFolder-System-String-'></a>
 ### GetLoadedSolutionsInFolder(folder) `method`
 
@@ -166,7 +195,7 @@ returned as an element of a collection of any other such solutions.
 
 Read-only list of references to instances of objects that implement
 the
-[IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
 interface for each instance of Visual Studio that has that solution loaded.
 
 ##### Parameters
@@ -200,7 +229,7 @@ time, to load them again.
 | ---- | ---- | ----------- |
 | solutions | [System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
 objects that implement the
-[IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
 interface that represent the solution(s) to be loaded. |
 
 <a name='M-MFR-Services-Solutions-VisualStudioSolutionService-UnloadAll-System-Collections-Generic-IReadOnlyList{xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution}-'></a>
@@ -208,15 +237,16 @@ interface that represent the solution(s) to be loaded. |
 
 ##### Summary
 
-Instructs the appropriate currently-running instances of Visual
-Studio who had solutions in the specified collection not loaded at
-one time, to unload them again.
+Instructs the appropriate currently-running instances of Visual Studio
+who had the `solutions` in the specified collection not
+loaded at one time, to unload them again.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| solutions | [System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to instances of
-objects that implement the
-[IVisualStudioSolution](#T-MFR-Solutions-Interfaces-IVisualStudioSolution 'MFR.Solutions.Interfaces.IVisualStudioSolution')
-interface which represent the solution(s) to be unloaded. |
+| solutions | [System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution}') | (Required.) Reference to a collection of references to
+instances of objects that implement the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface which represent the Visual Studio Solution (`*.sln`) file(s)
+that are to be unloaded. |
