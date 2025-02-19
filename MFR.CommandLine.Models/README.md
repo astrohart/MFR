@@ -5,6 +5,7 @@
 
 - [CommandLineInfo](#T-MFR-CommandLine-Models-CommandLineInfo 'MFR.CommandLine.Models.CommandLineInfo')
   - [#ctor()](#M-MFR-CommandLine-Models-CommandLineInfo-#ctor 'MFR.CommandLine.Models.CommandLineInfo.#ctor')
+  - [AutoQuitOnCompletion](#P-MFR-CommandLine-Models-CommandLineInfo-AutoQuitOnCompletion 'MFR.CommandLine.Models.CommandLineInfo.AutoQuitOnCompletion')
   - [AutoStart](#P-MFR-CommandLine-Models-CommandLineInfo-AutoStart 'MFR.CommandLine.Models.CommandLineInfo.AutoStart')
   - [FindWhat](#P-MFR-CommandLine-Models-CommandLineInfo-FindWhat 'MFR.CommandLine.Models.CommandLineInfo.FindWhat')
   - [MatchCase](#P-MFR-CommandLine-Models-CommandLineInfo-MatchCase 'MFR.CommandLine.Models.CommandLineInfo.MatchCase')
@@ -18,6 +19,7 @@
   - [ShouldCommitPendingChanges](#P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPendingChanges 'MFR.CommandLine.Models.CommandLineInfo.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-CommandLine-Models-CommandLineInfo-ShouldCommitPostOperationChanges 'MFR.CommandLine.Models.CommandLineInfo.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-CommandLine-Models-CommandLineInfo-StartingFolder 'MFR.CommandLine.Models.CommandLineInfo.StartingFolder')
+  - [UpdateGitOnAutoStart](#P-MFR-CommandLine-Models-CommandLineInfo-UpdateGitOnAutoStart 'MFR.CommandLine.Models.CommandLineInfo.UpdateGitOnAutoStart')
   - [#cctor()](#M-MFR-CommandLine-Models-CommandLineInfo-#cctor 'MFR.CommandLine.Models.CommandLineInfo.#cctor')
 - [Resources](#T-MFR-CommandLine-Models-Properties-Resources 'MFR.CommandLine.Models.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Models-Properties-Resources-Culture 'MFR.CommandLine.Models.Properties.Resources.Culture')
@@ -55,6 +57,14 @@ This constructor has no parameters.
 
 This constructor is marked `protected`
 due to the fact that this class is marked `abstract`.
+
+<a name='P-MFR-CommandLine-Models-CommandLineInfo-AutoQuitOnCompletion'></a>
+### AutoQuitOnCompletion `property`
+
+##### Summary
+
+Gets or sets a value that indicates that the application should quit when the
+operations are finished.
 
 <a name='P-MFR-CommandLine-Models-CommandLineInfo-AutoStart'></a>
 ### AutoStart `property`
@@ -204,6 +214,23 @@ its value is `null`.
 ##### Summary
 
 Gets or sets a string that contains the starting folder.
+
+<a name='P-MFR-CommandLine-Models-CommandLineInfo-UpdateGitOnAutoStart'></a>
+### UpdateGitOnAutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether to update the user's local Git
+repository even when running in `Auto Start` mode.
+
+##### Remarks
+
+If this property has a `null` value, then that means
+the user did not specify the corresponding flag on the command line at all.
+
+
+
+The default value of this property is `null`.
 
 <a name='M-MFR-CommandLine-Models-CommandLineInfo-#cctor'></a>
 ### #cctor() `method`
