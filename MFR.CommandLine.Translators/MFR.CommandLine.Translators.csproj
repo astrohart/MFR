@@ -152,6 +152,10 @@
       <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Extensions.VS2019\xyLOGIX.Core.Extensions.Actions\xyLOGIX.Core.Extensions.Actions.csproj">
+      <Project>{da17c249-8f83-4c5a-abee-43d98af5212a}</Project>
+      <Name>xyLOGIX.Core.Extensions.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Interfaces\MFR.CommandLine.Models.Interfaces.csproj">
       <Project>{D4F7C2FE-86A3-4D20-AE1D-89248B8F0403}</Project>
       <Name>MFR.CommandLine.Models.Interfaces</Name>
