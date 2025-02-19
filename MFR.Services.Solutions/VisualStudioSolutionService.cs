@@ -180,7 +180,7 @@ namespace MFR.Services.Solutions
         /// Read-only list of references to instances of objects that implement
         /// the
         /// <see
-        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface for each instance of Visual Studio that has that solution loaded.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
@@ -369,7 +369,7 @@ namespace MFR.Services.Solutions
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the
         /// <see
-        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface that represent the solution(s) to be loaded.
         /// </param>
         public void LoadAll(IReadOnlyList<IVisualStudioSolution> solutions)
@@ -391,18 +391,20 @@ namespace MFR.Services.Solutions
         }
 
         /// <summary>
-        /// Instructs the appropriate currently-running instances of Visual
-        /// Studio who had solutions in the specified collection not loaded at
-        /// one time, to unload them again.
+        /// Instructs the appropriate currently-running instances of Visual Studio
+        /// who had the <paramref name="solutions" /> in the specified collection not
+        /// loaded at one time, to unload them again.
         /// </summary>
         /// <param name="solutions">
-        /// (Required.) Reference to a collection of references to instances of
-        /// objects that implement the
-        /// <see
-        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
-        /// interface which represent the solution(s) to be unloaded.
+        /// (Required.) Reference to a collection of references to
+        /// instances of objects that implement the
+        /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
+        /// interface which represent the Visual Studio Solution (<c>*.sln</c>) file(s)
+        /// that are to be unloaded.
         /// </param>
-        public void UnloadAll(IReadOnlyList<IVisualStudioSolution> solutions)
+        public void UnloadAll(
+            [NotLogged] IReadOnlyList<IVisualStudioSolution> solutions
+        )
         {
             try
             {
