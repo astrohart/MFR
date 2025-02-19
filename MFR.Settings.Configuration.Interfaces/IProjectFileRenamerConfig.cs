@@ -1,6 +1,7 @@
 ﻿using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Events;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MFR.Settings.Configuration.Interfaces
 {
@@ -17,8 +18,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool AutoQuitOnCompletion
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -33,8 +34,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </remarks>
         bool AutoStart
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -44,8 +45,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string CommitAuthorEmail
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -54,8 +55,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string CommitAuthorName
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -65,8 +66,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         IList<string> ErrantProcessesList
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -75,8 +76,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string FindWhat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -85,8 +86,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         IList<string> FindWhatHistory
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -96,8 +97,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         IList<IOperationTypeInfo> InvokableOperations
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -109,8 +110,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </remarks>
         bool IsFolded
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -119,8 +120,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool IsFromCommandLine
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -129,8 +130,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool MatchCase
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -139,8 +140,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool MatchExactWord
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -150,8 +151,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string PendingChangesCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -161,8 +162,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string PendingChangesDetailedCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -171,8 +172,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string PostOperationCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -182,8 +183,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string PostOperationDetailedCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -201,8 +202,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </remarks>
         bool PromptUserToReloadOpenSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -213,8 +214,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <remarks>This property is set to <see langword="true" /> by default.</remarks>
         bool PushChangesToRemoteWhenDone
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -223,8 +224,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool RenameFilesInFolder
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -233,8 +234,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool RenameSolutionFolders
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -242,8 +243,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool RenameSubFolders
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -259,8 +260,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </remarks>
         bool ReOpenSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -269,8 +270,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool ReplaceTextInFiles
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -278,8 +279,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string ReplaceWith
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -288,8 +289,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         IList<string> ReplaceWithHistory
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -298,8 +299,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         int SelectedOptionTab
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -309,8 +310,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool ShouldCommitPendingChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -320,8 +321,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         bool ShouldCommitPostOperationChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -330,8 +331,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         string StartingFolder
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -340,8 +341,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// </summary>
         IList<string> StartingFolderHistory
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -351,8 +352,8 @@ namespace MFR.Settings.Configuration.Interfaces
         /// <remarks>The default value of this property is <see langword="true" />.</remarks>
         bool UpdateGitOnAutoStart
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
