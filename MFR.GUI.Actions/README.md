@@ -10,7 +10,7 @@
   - [AssemblyTitle](#P-MFR-GUI-Actions-Get-AssemblyTitle 'MFR.GUI.Actions.Get.AssemblyTitle')
   - [#cctor()](#M-MFR-GUI-Actions-Get-#cctor 'MFR.GUI.Actions.Get.#cctor')
   - [ApplicationProductName()](#M-MFR-GUI-Actions-Get-ApplicationProductName 'MFR.GUI.Actions.Get.ApplicationProductName')
-  - [CommandLineProcessorType(commandLineSpecified,autoStart)](#M-MFR-GUI-Actions-Get-CommandLineProcessorType-System-Boolean,System-Boolean- 'MFR.GUI.Actions.Get.CommandLineProcessorType(System.Boolean,System.Boolean)')
+  - [CurrentCommandLineProcessorType(commandLineSpecified,autoStart)](#M-MFR-GUI-Actions-Get-CurrentCommandLineProcessorType-System-Boolean,System-Boolean- 'MFR.GUI.Actions.Get.CurrentCommandLineProcessorType(System.Boolean,System.Boolean)')
   - [LogFilePath()](#M-MFR-GUI-Actions-Get-LogFilePath 'MFR.GUI.Actions.Get.LogFilePath')
 - [Resources](#T-MFR-GUI-Actions-Properties-Resources 'MFR.GUI.Actions.Properties.Resources')
   - [Culture](#P-MFR-GUI-Actions-Properties-Resources-Culture 'MFR.GUI.Actions.Properties.Resources.Culture')
@@ -113,20 +113,20 @@ for the software product of which this application or class library is a part.
 
 This method has no parameters.
 
-<a name='M-MFR-GUI-Actions-Get-CommandLineProcessorType-System-Boolean,System-Boolean-'></a>
-### CommandLineProcessorType(commandLineSpecified,autoStart) `method`
+<a name='M-MFR-GUI-Actions-Get-CurrentCommandLineProcessorType-System-Boolean,System-Boolean-'></a>
+### CurrentCommandLineProcessorType(commandLineSpecified,autoStart) `method`
 
 ##### Summary
 
 Obtains the proper
-[CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
+[CurrentCommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CurrentCommandLineProcessorType 'MFR.GUI.Processors.Constants.CurrentCommandLineProcessorType')
 enumeration value that corresponds to the way that the application was
 launched.
 
 ##### Returns
 
 One of the
-[CommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CommandLineProcessorType 'MFR.GUI.Processors.Constants.CommandLineProcessorType')
+[CurrentCommandLineProcessorType](#T-MFR-GUI-Processors-Constants-CurrentCommandLineProcessorType 'MFR.GUI.Processors.Constants.CurrentCommandLineProcessorType')
 enumeration values that specifies how the application is to behave, given how
 it was launched.
 
