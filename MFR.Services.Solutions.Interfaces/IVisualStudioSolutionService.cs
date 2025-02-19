@@ -60,7 +60,7 @@ namespace MFR.Services.Solutions.Interfaces
         /// Read-only list of references to instances of objects that implement
         /// the
         /// <see
-        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface for each instance of Visual Studio that has that solution loaded.
         /// </returns>
         /// <exception cref="T:System.ArgumentException">
@@ -83,7 +83,7 @@ namespace MFR.Services.Solutions.Interfaces
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the
         /// <see
-        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface that represent the solution(s) to be loaded.
         /// </param>
         void LoadAll(IReadOnlyList<IVisualStudioSolution> solutions);
@@ -97,7 +97,7 @@ namespace MFR.Services.Solutions.Interfaces
         /// (Required.) Reference to a collection of references to instances of
         /// objects that implement the
         /// <see
-        ///     cref="T:MFR.Solutions.Interfaces.IVisualStudioSolution" />
+        ///     cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface which represent the solution(s) to be unloaded.
         /// </param>
         void UnloadAll(IReadOnlyList<IVisualStudioSolution> solutions);
