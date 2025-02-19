@@ -1,4 +1,6 @@
-﻿namespace MFR.CommandLine.Models.Interfaces
+﻿using System.Diagnostics;
+
+namespace MFR.CommandLine.Models.Interfaces
 {
     /// <summary>
     /// Defines the publicly-exposed methods and properties of an object that stores
@@ -6,6 +8,16 @@
     /// </summary>
     public interface ICommandLineInfo
     {
+        /// <summary>
+        /// Gets or sets a value that indicates that the application should quit when the
+        /// operations are finished.
+        /// </summary>
+        bool? AutoQuitOnCompletion
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
+
         /// <summary>
         /// Gets or sets a value indicating whether processing starts when the application
         /// starts.
@@ -16,8 +28,8 @@
         /// </remarks>
         bool AutoStart
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -26,8 +38,8 @@
         /// </summary>
         string FindWhat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -39,8 +51,8 @@
         /// </remarks>
         bool? MatchCase
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -52,36 +64,36 @@
         /// </remarks>
         bool? MatchExactWord
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether the files are to be renamed.
         /// </summary>
-        bool RenameFilesInFolder
+        bool? RenameFilesInFolder
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether we are to rename folder(s) that contain
         /// Solution(s).
         /// </summary>
-        bool RenameSolutionFolders
+        bool? RenameSolutionFolders
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
         /// Gets or sets a value indicating whether sub folders should be renamed.
         /// </summary>
-        bool RenameSubFolders
+        bool? RenameSubFolders
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -94,8 +106,8 @@
         /// </remarks>
         bool? ReOpenSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -105,10 +117,10 @@
         /// If nothing was specified on the command line for this property, then
         /// its value is set to <see langword="true" />.
         /// </remarks>
-        bool ReplaceTextInFiles
+        bool? ReplaceTextInFiles
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -122,8 +134,8 @@
         /// </remarks>
         string ReplaceWith
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -137,8 +149,8 @@
         /// </remarks>
         bool? ShouldCommitPendingChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -152,8 +164,8 @@
         /// </remarks>
         bool? ShouldCommitPostOperationChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -166,8 +178,24 @@
         /// </remarks>
         string StartingFolder
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to update the user's local Git
+        /// repository even when running in <c>Auto Start</c> mode.
+        /// </summary>
+        /// <remarks>
+        /// If this property has a <see langword="null" /> value, then that means
+        /// the user did not specify the corresponding flag on the command line at all.
+        /// <para />
+        /// The default value of this property is <see langword="null" />.
+        /// </remarks>
+        bool? UpdateGitOnAutoStart
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
     }
 }
