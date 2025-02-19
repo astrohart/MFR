@@ -157,9 +157,7 @@ namespace MFR.GUI.Windows.Presenters
         /// Gets the name of the currently-selected profile.
         /// </summary>
         private string CurrentProfileName
-            => CurrentConfig is IProfile profile
-                ? profile.Name
-                : string.Empty;
+            => CurrentConfig is IProfile profile ? profile.Name : string.Empty;
 
         /// <summary>
         /// Gets a reference to this object instance.
@@ -222,12 +220,10 @@ namespace MFR.GUI.Windows.Presenters
                         ))
                         return result;
 
-                    if (!CurrentConfig.StartingFolderHistory
-                                             .IsIdenticalTo(
-                                                 View.StartingFolderComboBox
-                                                     .Items.Cast<string>()
-                                                     .ToList()
-                                             ))
+                    if (!CurrentConfig.StartingFolderHistory.IsIdenticalTo(
+                            View.StartingFolderComboBox.Items.Cast<string>()
+                                .ToList()
+                        ))
                         return result;
                     if (!CurrentConfig.FindWhatHistory.IsIdenticalTo(
                             View.FindWhatComboBox.Items.Cast<string>()
@@ -359,71 +355,41 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Failed to add the requested profile. Parameter is a string containing the
-        /// error message to display.
+        /// Updates the config currently being used with a new
+        /// value.
         /// </summary>
-        public event AddProfileFailedEventHandler AddProfileFailed;
+        /// <param name="config">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface which has
+        /// the new settings.
+        /// </param>
+        /// <remarks>
+        /// The settings in the object specified will be used for all matching
+        /// from this point forward.
+        /// <para />
+        /// NOTE:This member may be overriden by a child class. If this the
+        /// case, the overrider must call the base class method before doing any
+        /// of its own processing.
+        /// </remarks>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter,
+        /// <paramref name="config" />,
+        /// is passed a <see langword="null" /> value.
+        /// </exception>
+        public override void UpdateConfiguration(
+            IProjectFileRenamerConfig config
+        )
+        {
+            base.UpdateConfiguration(config);
 
-        /// <summary>
-        /// Occurs when all the history has been cleared.
-        /// </summary>
-        public event EventHandler AllHistoryCleared;
+            OperationEngine.UpdateConfiguration(config);
+            _historyManager.UpdateConfiguration(config);
 
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo" />
-        /// property is updated.
-        /// </summary>
-        public event EventHandler CommandLineInfoChanged;
-
-        /// <summary>
-        /// Occurs when the config has been exported to a file.
-        /// </summary>
-        public event ConfigurationExportedEventHandler ConfigurationExported;
-
-        /// <summary>
-        /// Occurs when the config has been updated, say, by an
-        /// import process.
-        /// </summary>
-        public event ConfigurationImportedEventHandler ConfigurationImported;
-
-        /// <summary>
-        /// Occurs when the user issues a request to create a new, blank Profile.
-        /// </summary>
-        public event CreateNewBlankProfileRequestedEventHandler
-            CreateNewBlankProfileRequested;
-
-        /// <summary>
-        /// Occurs when an error happens during a data operation.
-        /// </summary>
-        public event DataOperationErrorEventHandler DataOperationError;
-
-        /// <summary>
-        /// Occurs when data is finished being moved to and fro between the
-        /// screen and the config data source.
-        /// </summary>
-        public event EventHandler DataOperationFinished;
-
-        /// <summary>
-        /// Occurs when data is about to be moved to and fro between the screen
-        /// and the config data source.
-        /// </summary>
-        public event DataOperationEventHandler DataOperationStarted;
-
-        /// <summary>
-        /// Occurs when the processing is done.
-        /// </summary>
-        public event EventHandler Finished;
-
-        /// <summary>
-        /// Occurs when an exception is thrown during a file operation.
-        /// </summary>
-        public event ExceptionRaisedEventHandler OperationError;
-
-        /// <summary>
-        /// Occurs when the processing has started.
-        /// </summary>
-        public event EventHandler Started;
+            InitializeOperationEngine();
+        }
 
         /// <summary>
         /// Creates a 'profile' (really a way of saving a group of
@@ -472,6 +438,17 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Failed to add the requested profile. Parameter is a string containing the
+        /// error message to display.
+        /// </summary>
+        public event AddProfileFailedEventHandler AddProfileFailed;
+
+        /// <summary>
+        /// Occurs when all the history has been cleared.
+        /// </summary>
+        public event EventHandler AllHistoryCleared;
+
+        /// <summary>
         /// Fluent-builder method for initializing the history manager
         /// dependency of this Presenter class. History Manager objects control
         /// the flow of values into and out of the list of previously-specified
@@ -518,6 +495,47 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
+        /// Occurs when the value of the
+        /// <see cref="P:MFR.GUI.Windows.Presenters.MainWindowPresenter.CommandLineInfo" />
+        /// property is updated.
+        /// </summary>
+        public event EventHandler CommandLineInfoChanged;
+
+        /// <summary>
+        /// Occurs when the config has been exported to a file.
+        /// </summary>
+        public event ConfigurationExportedEventHandler ConfigurationExported;
+
+        /// <summary>
+        /// Occurs when the config has been updated, say, by an
+        /// import process.
+        /// </summary>
+        public event ConfigurationImportedEventHandler ConfigurationImported;
+
+        /// <summary>
+        /// Occurs when the user issues a request to create a new, blank Profile.
+        /// </summary>
+        public event CreateNewBlankProfileRequestedEventHandler
+            CreateNewBlankProfileRequested;
+
+        /// <summary>
+        /// Occurs when an error happens during a data operation.
+        /// </summary>
+        public event DataOperationErrorEventHandler DataOperationError;
+
+        /// <summary>
+        /// Occurs when data is finished being moved to and fro between the
+        /// screen and the config data source.
+        /// </summary>
+        public event EventHandler DataOperationFinished;
+
+        /// <summary>
+        /// Occurs when data is about to be moved to and fro between the screen
+        /// and the config data source.
+        /// </summary>
+        public event DataOperationEventHandler DataOperationStarted;
+
+        /// <summary>
         /// Begins the rename operation.
         /// </summary>
         public void DoSelectedOperations()
@@ -550,7 +568,8 @@ namespace MFR.GUI.Windows.Presenters
         /// </param>
         /// <remarks>
         /// If a file having the specified <paramref name="pathname" /> already
-        /// exists on the file system at the time the export operation is performed, it will be
+        /// exists on the file system at the time the export operation is performed, it
+        /// will be
         /// overwritten.
         /// </remarks>
         public void ExportConfiguration(string pathname)
@@ -651,28 +670,9 @@ namespace MFR.GUI.Windows.Presenters
         }
 
         /// <summary>
-        /// Fluent-builder method to set a reference to the main window of the application.
+        /// Occurs when the processing is done.
         /// </summary>
-        /// <param name="view">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" />
-        /// interface, and which represents the form that is to be associated
-        /// with this presenter.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="view" />, is passed
-        /// a <see langword="null" /> value.
-        /// </exception>
-        public IMainWindowPresenter HavingWindowReference(IMainWindow view)
-        {
-            View = view ?? throw new ArgumentNullException(nameof(view));
-
-            return this;
-        }
+        public event EventHandler Finished;
 
         /// <summary>
         /// Imports the config data for this application.
@@ -714,8 +714,7 @@ namespace MFR.GUI.Windows.Presenters
                 CurrentConfig.RenameFilesInFolder
             );
             View.OperationsCheckedListBox.CheckByName(
-                OperationNames.RenameSubFolders,
-                CurrentConfig.RenameSubFolders
+                OperationNames.RenameSubFolders, CurrentConfig.RenameSubFolders
             );
             View.OperationsCheckedListBox.CheckByName(
                 OperationNames.ReplaceTextInFiles,
@@ -727,6 +726,11 @@ namespace MFR.GUI.Windows.Presenters
                 CurrentConfig.RenameSolutionFolders
             );
         }
+
+        /// <summary>
+        /// Occurs when an exception is thrown during a file operation.
+        /// </summary>
+        public event ExceptionRaisedEventHandler OperationError;
 
         /// <summary>
         /// Determines whether a Profile having the specified
@@ -816,8 +820,7 @@ namespace MFR.GUI.Windows.Presenters
             if (dialog == null)
                 throw new ArgumentNullException(nameof(dialog));
 
-            CurrentConfig.AutoQuitOnCompletion =
-                dialog.AutoQuitOnCompletion;
+            CurrentConfig.AutoQuitOnCompletion = dialog.AutoQuitOnCompletion;
             ConfigProvider.ConfigFilePath = dialog.ConfigPathname;
             CurrentConfig.ReOpenSolution = dialog.ReOpenSolution;
             UpdateConfiguration(CurrentConfig);
@@ -875,40 +878,63 @@ namespace MFR.GUI.Windows.Presenters
             => CommandLineInfo = cmdInfo;
 
         /// <summary>
-        /// Updates the config currently being used with a new
-        /// value.
+        /// Occurs when the processing has started.
         /// </summary>
-        /// <param name="config">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
-        /// interface which has
-        /// the new settings.
+        public event EventHandler Started;
+
+        /// <summary>
+        /// Fluent-builder method for initializing the operation engine object.  This
+        /// the object that actually schedules and runs the file-renaming tasks and
+        /// provides user feedback.
+        /// </summary>
+        /// <param name="operationEngine">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface on
+        /// which this Presenter should depend.
         /// </param>
-        /// <remarks>
-        /// The settings in the object specified will be used for all matching
-        /// from this point forward.
-        /// <para />
-        /// NOTE:This member may be overriden by a child class. If this the
-        /// case, the overrider must call the base class method before doing any
-        /// of its own processing.
-        /// </remarks>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
         /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter,
-        /// <paramref name="config" />,
-        /// is passed a <see langword="null" /> value.
+        /// Thrown if the required
+        /// parameter, <paramref name="operationEngine" />, is passed a
+        /// <see langword="null" /> value.
         /// </exception>
-        public override void UpdateConfiguration(
-            IProjectFileRenamerConfig config
+        public IMainWindowPresenter WithOperationEngine(
+            IFullGuiOperationEngine operationEngine
         )
         {
-            base.UpdateConfiguration(config);
+            OperationEngine = operationEngine ??
+                              throw new ArgumentNullException(
+                                  nameof(operationEngine)
+                              );
 
-            OperationEngine.UpdateConfiguration(config);
-            _historyManager.UpdateConfiguration(config);
+            return this;
+        }
 
-            InitializeOperationEngine();
+        /// <summary>
+        /// Fluent-builder method to set a reference to the main window of the application.
+        /// </summary>
+        /// <param name="view">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" />
+        /// interface, and which represents the form that is to be associated
+        /// with this presenter.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="view" />, is passed
+        /// a <see langword="null" /> value.
+        /// </exception>
+        public IMainWindowPresenter HavingWindowReference(IMainWindow view)
+        {
+            View = view ?? throw new ArgumentNullException(nameof(view));
+
+            return this;
         }
 
         /// <summary>
@@ -991,8 +1017,7 @@ namespace MFR.GUI.Windows.Presenters
 
                 ComboBoxInitializer.InitializeComboBox(
                     View.StartingFolderComboBox,
-                    CurrentConfig.StartingFolderHistory,
-                    properStartingFolder
+                    CurrentConfig.StartingFolderHistory, properStartingFolder
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
@@ -1001,8 +1026,7 @@ namespace MFR.GUI.Windows.Presenters
                 );
 
                 ComboBoxInitializer.InitializeComboBox(
-                    View.ReplaceWithComboBox,
-                    CurrentConfig.ReplaceWithHistory,
+                    View.ReplaceWithComboBox, CurrentConfig.ReplaceWithHistory,
                     CurrentConfig.ReplaceWith
                 );
             }
@@ -1010,86 +1034,79 @@ namespace MFR.GUI.Windows.Presenters
             OnDataOperationFinished();
         }
 
-        /// <summary>
-        /// Fluent-builder method for initializing the operation engine object.  This
-        /// the object that actually schedules and runs the file-renaming tasks and
-        /// provides user feedback.
-        /// </summary>
-        /// <param name="operationEngine">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see cref="T:MFR.Engines.Interfaces.IFullGuiOperationEngine" /> interface on
-        /// which this Presenter should depend.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required
-        /// parameter, <paramref name="operationEngine" />, is passed a
-        /// <see langword="null" /> value.
-        /// </exception>
-        public IMainWindowPresenter WithOperationEngine(
-            IFullGuiOperationEngine operationEngine
-        )
+        private string DetermineProperStartingFolder()
         {
-            OperationEngine = operationEngine ??
-                              throw new ArgumentNullException(
-                                  nameof(operationEngine)
-                              );
+            var result = CurrentConfig.StartingFolder;
 
-            return this;
+            try
+            {
+                ProgramFlowHelper.StartDebugger();
+
+                if (CommandLineInfo == null) return result;
+                if (!xyLOGIX.Files.Actions.Does.DirectoryExist(
+                        CommandLineInfo.StartingFolder
+                    )) return result;
+                if (CommandLineInfo.StartingFolder.EqualsNoCase(
+                        CurrentConfig.StartingFolder
+                    )) return result;
+
+                result = CommandLineInfo.StartingFolder;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = CurrentConfig.StartingFolder;
+            }
+
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"MainWindowPresenter.DetermineProperStartingFolder: Result = '{result}'"
+            );
+
+            return result;
         }
 
         /// <summary>
-        /// Saves the selections made in the Operations to Perform checked list
-        /// box into the
-        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" />
-        /// object.
+        /// Initializes the currently-loaded config object.
         /// </summary>
-        public void SaveOperationSelections()
+        private void InitializeConfiguration()
         {
-            // write the name of the current class and method we are now
-            CurrentConfig.RenameFilesInFolder =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    OperationNames.RenameFilesInFolder
+            try
+            {
+                if (CurrentConfig != null)
+                    return;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Error,
+                    "*** ERROR *** The CurrentConfig property has a null reference for a value."
                 );
-            CurrentConfig.RenameSubFolders =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    OperationNames.RenameSubFolders
-                );
-            CurrentConfig.ReplaceTextInFiles =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    OperationNames.ReplaceTextInFiles
-                );
-            CurrentConfig.RenameSolutionFolders =
-                View.OperationsCheckedListBox.GetCheckedByName(
-                    OperationNames.RenameSolutionFolders
-                );
+
+                return;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
-        /// <summary>
-        /// Fluent-builder method to set a reference to the main window of the application.
-        /// </summary>
-        /// <param name="mainWindow">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the <see cref="T:MFR.GUI.IMainWindow" /> interface and which
-        /// represents the main window of the application.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
-        /// passed a <see langword="null" /> value.
-        /// </exception>
-        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
+        private void InitializeOperationEngine()
         {
-            // write the name of the current class and method we are now
-            View = mainWindow ??
-                   throw new ArgumentNullException(nameof(mainWindow));
-            return this;
+            if (FileRenamer == null) return;
+            if (OperationEngine == null) return;
+
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
+                                            OperationEngineMessages
+                                                .OE_PROCESSING_STARTED
+                                        )
+                                        .AndEventHandler(OnOperationStarted);
+            NewMessageMapping<EventArgs>.Associate.WithMessageId(
+                                            OperationEngineMessages
+                                                .OE_PROCESSING_FINISHED
+                                        )
+                                        .AndEventHandler(OnOperationFinished);
         }
 
         /// <summary>
@@ -1130,6 +1147,28 @@ namespace MFR.GUI.Windows.Presenters
                            MainWindowPresenterMessages.MWP_ALL_HISTORY_CLEARED
                        );
         }
+
+        /// <summary>
+        /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="sender">
+        /// Reference to an instance of the object that raised the event.
+        /// </param>
+        /// <param name="e">
+        /// An <see cref="T:System.EventArgs" /> that contains the event data.
+        /// </param>
+        /// <remarks>
+        /// This method handles the situation in which the user has clicked the
+        /// Cancel button on the progress dialog. The message taken by this
+        /// method is to tell the File Renamer Object to attempt to abort.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        private void OnCancellableProgressDialogRequestedCancel(
+            object sender,
+            EventArgs e
+        )
+            => FileRenamer?.RequestAbort();
 
         /// <summary>
         /// Raises the
@@ -1329,6 +1368,9 @@ namespace MFR.GUI.Windows.Presenters
         protected virtual void OnOperationError(ExceptionRaisedEventArgs e)
             => OperationError?.Invoke(this, e);
 
+        private void OnOperationFinished(object sender, EventArgs e)
+            => OnProcessingFinished(sender, e);
+
         protected virtual void OnOperationStarted(object sender, EventArgs e)
         {
             Started?.Invoke(this, EventArgs.Empty);
@@ -1336,110 +1378,39 @@ namespace MFR.GUI.Windows.Presenters
                        .ForMessageId(MainWindowPresenterMessages.MWP_STARTED);
         }
 
-        private string DetermineProperStartingFolder()
-        {
-            var result = CurrentConfig.StartingFolder;
-
-            try
-            {
-                if (CommandLineInfo == null) return result;
-                if (!xyLOGIX.Files.Actions.Does.DirectoryExist(
-                        CommandLineInfo.StartingFolder
-                    )) return result;
-                if (CommandLineInfo.StartingFolder.EqualsNoCase(
-                        CurrentConfig.StartingFolder
-                    )) return result;
-
-                result = CommandLineInfo.StartingFolder;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = CurrentConfig.StartingFolder;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"MainWindowPresenter.DetermineProperStartingFolder: Result = '{result}'"
-            );
-
-            return result;
-        }
-
-        /// <summary>
-        /// Initializes the currently-loaded config object.
-        /// </summary>
-        private void InitializeConfiguration()
-        {
-            try
-            {
-                if (CurrentConfig != null)
-                    return;
-
-                DebugUtils.WriteLine(
-                    DebugLevel.Error,
-                    "*** ERROR *** The CurrentConfig property has a null reference for a value."
-                );
-
-                return;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-            }
-        }
-
-        private void InitializeOperationEngine()
-        {
-            if (FileRenamer == null) return;
-            if (OperationEngine == null) return;
-
-            NewMessageMapping<EventArgs>.Associate.WithMessageId(
-                                            OperationEngineMessages
-                                                .OE_PROCESSING_STARTED
-                                        )
-                                        .AndEventHandler(OnOperationStarted);
-            NewMessageMapping<EventArgs>.Associate.WithMessageId(
-                                            OperationEngineMessages
-                                                .OE_PROCESSING_FINISHED
-                                        )
-                                        .AndEventHandler(OnOperationFinished);
-        }
-
-        /// <summary>
-        /// Handles the <see cref="E:MFR.GUI.ICancellableProgressDialog.CancelRequested" />
-        /// event.
-        /// </summary>
-        /// <param name="sender">
-        /// Reference to an instance of the object that raised the event.
-        /// </param>
-        /// <param name="e">
-        /// An <see cref="T:System.EventArgs" /> that contains the event data.
-        /// </param>
-        /// <remarks>
-        /// This method handles the situation in which the user has clicked the
-        /// Cancel button on the progress dialog. The message taken by this
-        /// method is to tell the File Renamer Object to attempt to abort.
-        /// </remarks>
-        [Log(AttributeExclude = true)]
-        private void OnCancellableProgressDialogRequestedCancel(
-            object sender,
-            EventArgs e
-        )
-            => FileRenamer?.RequestAbort();
-
-        private void OnOperationFinished(object sender, EventArgs e)
-            => OnProcessingFinished(sender, e);
-
         /// <summary>
         /// This method is called when the Operation Engine sends the
         /// <c>OE_PROCESSING_FINISHED</c> message.
         /// </summary>
         private void OnProcessingFinished(object sender, EventArgs e)
             => OnFinished();
+
+        /// <summary>
+        /// Saves the selections made in the Operations to Perform checked list
+        /// box into the
+        /// <see cref="T:MFR.Settings.Configuration.ProjectFileRenamerConfig" />
+        /// object.
+        /// </summary>
+        public void SaveOperationSelections()
+        {
+            // write the name of the current class and method we are now
+            CurrentConfig.RenameFilesInFolder =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    OperationNames.RenameFilesInFolder
+                );
+            CurrentConfig.RenameSubFolders =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    OperationNames.RenameSubFolders
+                );
+            CurrentConfig.ReplaceTextInFiles =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    OperationNames.ReplaceTextInFiles
+                );
+            CurrentConfig.RenameSolutionFolders =
+                View.OperationsCheckedListBox.GetCheckedByName(
+                    OperationNames.RenameSolutionFolders
+                );
+        }
 
         // raise the Finished event
         /// <summary>
@@ -1500,6 +1471,30 @@ namespace MFR.GUI.Windows.Presenters
                 DebugLevel.Info,
                 "*** SUCCESS *** All inputs have been successfully validated."
             );
+        }
+
+        /// <summary>
+        /// Fluent-builder method to set a reference to the main window of the application.
+        /// </summary>
+        /// <param name="mainWindow">
+        /// (Required.) Reference to an instance of an object that implements
+        /// the <see cref="T:MFR.GUI.IMainWindow" /> interface and which
+        /// represents the main window of the application.
+        /// </param>
+        /// <returns>
+        /// Reference to the same instance of the object that called this
+        /// method, for fluent use.
+        /// </returns>
+        /// <exception cref="T:System.ArgumentNullException">
+        /// Thrown if the required parameter, <paramref name="mainWindow" />, is
+        /// passed a <see langword="null" /> value.
+        /// </exception>
+        public IMainWindowPresenter WindowReference(IMainWindow mainWindow)
+        {
+            // write the name of the current class and method we are now
+            View = mainWindow ??
+                   throw new ArgumentNullException(nameof(mainWindow));
+            return this;
         }
     }
 }
