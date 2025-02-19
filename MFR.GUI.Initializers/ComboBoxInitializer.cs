@@ -27,6 +27,67 @@ namespace MFR.GUI.Initializers
         [Log(AttributeExclude = true)]
         static ComboBoxInitializer() { }
 
+        private static void AddCurrentItemToComboBox(
+            [NotLogged] IEntryRespectingComboBox comboBox,
+            [NotLogged] IList<string> itemList,
+            [NotLogged] string currentItem
+        )
+        {
+            try
+            {
+                if (comboBox == null) return;
+                if (comboBox.IsDisposed) return;
+
+                // Nothing to do if the 'currentItem' is null, empty, or all whitespace.
+                if (string.IsNullOrWhiteSpace(currentItem)) return;
+
+                if (itemList == null || itemList.Count <= 0)
+                {
+                    comboBox.Items.AddDistinct(currentItem);
+                    return;
+                }
+
+                // If we are here, then the itemList has greater than zero element(s) in it.
+                // Check to see if the 'currentItem' is already in the itemList.  If so, then stop.
+                // Otherwise, add it to the combobox.
+
+                if (itemList.Contains(currentItem)) return;
+
+                comboBox.Items.AddDistinct(currentItem);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        private static void AddItemsToComboBox(
+            [NotLogged] IEntryRespectingComboBox comboBox,
+            [NotLogged] IList<string> itemList
+        )
+        {
+            try
+            {
+                if (comboBox == null) return;
+                if (comboBox.IsDisposed) return;
+                if (itemList == null) return;
+                if (itemList.Count <= 0) return;
+
+                foreach (var item in itemList)
+                {
+                    if (string.IsNullOrWhiteSpace(item)) continue;
+
+                    comboBox.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
         /// <summary>
         /// Initializes a <see cref="T:System.Windows.Forms.ComboBox" /> to have
         /// the specified <paramref name="itemList" /> as the items in its
@@ -69,26 +130,9 @@ namespace MFR.GUI.Initializers
 
                 comboBox.Items.Clear();
 
-                if (itemList == null) return;
-                if (itemList.Count == 0 &&
-                    string.IsNullOrWhiteSpace(currentItem)) return;
+                AddCurrentItemToComboBox(comboBox, itemList, currentItem);
 
-                /*
-                 * Add the 'currentItem' to the drop-down portion of the
-                 * ComboBox, but only if it is not identically equal to
-                 * (modulus whitespace) the first element of the itemList.
-                 */
-
-                if (string.IsNullOrWhiteSpace(currentItem) && !currentItem
-                        .Trim()
-                        .Equals(
-                            itemList[0]
-                                .Trim()
-                        ))
-                    comboBox.Items.AddDistinct(currentItem);
-
-                foreach (var item in itemList)
-                    comboBox.Items.Add(item);
+                AddItemsToComboBox(comboBox, itemList);
 
                 if (string.IsNullOrWhiteSpace(currentItem))
                     comboBox.SelectedIndex = 0;
