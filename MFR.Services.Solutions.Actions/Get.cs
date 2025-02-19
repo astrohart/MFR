@@ -208,8 +208,6 @@ namespace MFR.Services.Solutions.Actions
                     "Get.SolutionThatInstanceHasOpen: *** SUCCESS *** The operation to get a Visual Studio Solution (*.sln) file handle succeeded.  Proceeding..."
                 );
 
-                ProgramFlowHelper.StartDebugger();
-
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     "Get.SolutionThatInstanceHasOpen: Checking whether the Process ID, or PID, of the instance is a valid value..."
