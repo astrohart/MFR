@@ -651,8 +651,21 @@ namespace MFR.GUI.Application
 
                 result = CommandLineInfo = CommandLineParser.Parse(args);
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ParseCommandLine: Validating the value(s) of the command-line parameter(s) passed to this application..."
+                );
+
                 if (!CommandLineValidator.Validate(CommandLineInfo))
+                {
+                    // Inform the user that validation of the command line parameter(s) has failed, and then quit.
+                    Messages.ShowStopError(
+                        "One or more command-line parameters are invalid.  The application will now terminate."
+                    );
+
                     Environment.Exit(-1); // kill this app
+                    return default;
+                }
             }
             catch (Exception ex)
             {
