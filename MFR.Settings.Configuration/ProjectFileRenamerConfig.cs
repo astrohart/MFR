@@ -639,7 +639,9 @@ namespace MFR.Settings.Configuration
             [DebuggerStepThrough]
             set {
                 var oldValue = _startingFolder;
-                var changed = _startingFolder.Trim() != value.Trim();
+                var changed = !string.IsNullOrWhiteSpace(value) &&
+                              !string.IsNullOrWhiteSpace(_startingFolder) &&
+                              _startingFolder.Trim() != value.Trim();
                 _startingFolder = value;
                 if (changed)
                     OnStartingFolderChanged(
