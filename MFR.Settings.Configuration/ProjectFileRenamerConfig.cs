@@ -635,10 +635,11 @@ namespace MFR.Settings.Configuration
         [JsonProperty("startingFolder")]
         public string StartingFolder
         {
-            get => _startingFolder;
+            [DebuggerStepThrough] get => _startingFolder;
+            [DebuggerStepThrough]
             set {
                 var oldValue = _startingFolder;
-                var changed = _startingFolder != value;
+                var changed = _startingFolder.Trim() != value.Trim();
                 _startingFolder = value;
                 if (changed)
                     OnStartingFolderChanged(
@@ -977,7 +978,7 @@ namespace MFR.Settings.Configuration
         /// property is updated.
         /// </remarks>
         protected virtual void OnStartingFolderChanged(
-            StartingFolderChangedEventArgs e
+            [NotLogged] StartingFolderChangedEventArgs e
         )
             => StartingFolderChanged?.Invoke(this, e);
     }
