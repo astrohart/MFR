@@ -432,6 +432,8 @@ namespace MFR.Services.Solutions
 
             try
             {
+                ProgramFlowHelper.StartDebugger();
+
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     "VisualStudioSolutionService.FindVisualStudioInstancesHavingFilesLoaded: Checking whether the 'files' method parameter has a null reference for a value..."
