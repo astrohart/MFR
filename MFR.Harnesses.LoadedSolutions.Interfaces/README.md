@@ -11,7 +11,6 @@
   - [TargetSolution](#P-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-TargetSolution 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.TargetSolution')
   - [Load()](#M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-Load 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Load')
   - [Quit()](#M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-Quit 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Quit')
-  - [SetFullName(fullName)](#M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-SetFullName-System-String- 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.SetFullName(System.String)')
   - [ShellOpen()](#M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-ShellOpen 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpen')
   - [Unload()](#M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-Unload 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.Unload')
 - [Resources](#T-MFR-Harnesses-LoadedSolutions-Interfaces-Properties-Resources 'MFR.Harnesses.LoadedSolutions.Interfaces.Properties.Resources')
@@ -24,6 +23,12 @@
 ##### Namespace
 
 MFR.Harnesses.LoadedSolutions.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed events, methods and properties of an object that
+serves as a `harness` for a Visual Studio Solution (`*.sln`) file
+that is loaded in a currently-running instance of Visual Studio..
 
 <a name='P-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-ContainingFolder'></a>
 ### ContainingFolder `property`
@@ -121,30 +126,6 @@ Solution (`*.sln`) file open.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-SetFullName-System-String-'></a>
-### SetFullName(fullName) `method`
-
-##### Summary
-
-Updates the value of the
-[FullName](#P-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-FullName 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.FullName')
-property.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| fullName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing
-the fully-qualified pathname of the Visual Studio Solution (`*.sln`) file
-that is represented by the target solution. |
-
-##### Remarks
-
-This method is used when the Project File Renamer algorithms have
-renamed the Visual Studio Solution (`*.sln`) file that corresponds to the
-Solution that is currently loaded in the target running instance of Visual
-Studio.
 
 <a name='M-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-ShellOpen'></a>
 ### ShellOpen() `method`
