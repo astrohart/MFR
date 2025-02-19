@@ -1,4 +1,6 @@
-﻿namespace MFR.Settings.Configuration.Events
+﻿using PostSharp.Patterns.Diagnostics;
+
+namespace MFR.Settings.Configuration.Events
 {
     /// <summary>
     /// Represents a handler for a <c>StartingFolderChanged</c> event.
@@ -17,6 +19,6 @@
     /// </remarks>
     public delegate void StartingFolderChangedEventHandler(
         object sender,
-        StartingFolderChangedEventArgs e
+        [NotLogged] StartingFolderChangedEventArgs e
     );
 }
