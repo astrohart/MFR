@@ -18,6 +18,7 @@
   - [ShouldCommitPendingChanges](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ShouldCommitPendingChanges 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ShouldCommitPendingChanges')
   - [ShouldCommitPostOperationChanges](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-ShouldCommitPostOperationChanges 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.ShouldCommitPostOperationChanges')
   - [StartingFolder](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-StartingFolder 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.StartingFolder')
+  - [UpdateGitOnAutoStart](#P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-UpdateGitOnAutoStart 'MFR.CommandLine.Models.Interfaces.ICommandLineInfo.UpdateGitOnAutoStart')
 - [Resources](#T-MFR-CommandLine-Models-Interfaces-Properties-Resources 'MFR.CommandLine.Models.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Models-Interfaces-Properties-Resources-Culture 'MFR.CommandLine.Models.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Models-Interfaces-Properties-Resources-ResourceManager 'MFR.CommandLine.Models.Interfaces.Properties.Resources.ResourceManager')
@@ -188,6 +189,23 @@ Gets or sets a string that contains the starting folder.
 This property's value is set to the
 [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value if it is not specified on the
 command line.
+
+<a name='P-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-UpdateGitOnAutoStart'></a>
+### UpdateGitOnAutoStart `property`
+
+##### Summary
+
+Gets or sets a value indicating whether to update the user's local Git
+repository even when running in `Auto Start` mode.
+
+##### Remarks
+
+If this property has a `null` value, then that means
+the user did not specify the corresponding flag on the command line at all.
+
+
+
+The default value of this property is `null`.
 
 <a name='T-MFR-CommandLine-Models-Interfaces-Properties-Resources'></a>
 ## Resources `type`
