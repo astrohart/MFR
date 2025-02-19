@@ -162,6 +162,14 @@ namespace MFR.GUI.Application
             if (!InitApplication(args))
                 Environment.Exit(-1);
 
+            foreach(var arg in args)
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"ProjectFileRenamerApp.WinInit: Command-line argument: '{arg}'"
+                );
+            }
+
             OnInitialized();
 
             ProcessCommandLine();
