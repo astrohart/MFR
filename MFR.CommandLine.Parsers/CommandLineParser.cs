@@ -126,6 +126,13 @@ namespace MFR.CommandLine.Parsers
                     $"CommandLineParser.Parse *** SUCCESS *** {args.Length} element(s) were found in the 'args' array.  Parsing the command-line argument(s)..."
                 );
 
+                p.Setup(arg => arg.AutoQuitOnCompletion)
+                 .As("autoQuit")
+                 .SetDefault(null)
+                 .WithDescription(
+                     "Specifies whether the application is to be exited when the specified operation(s) have been completed."
+                 );
+
                 p.Setup(arg => arg.AutoStart)
                  .As("autoStart")
                  .SetDefault(false)
@@ -138,6 +145,20 @@ namespace MFR.CommandLine.Parsers
                  .SetDefault(string.Empty)
                  .WithDescription(
                      "Sets the string to be found in file system entries."
+                 );
+
+                p.Setup(arg => arg.MatchCase)
+                 .As("matchCase")
+                 .SetDefault(null)
+                 .WithDescription(
+                     "Indicates that a case-sensitive search should be performed."
+                 );
+
+                p.Setup(arg => arg.MatchExactWord)
+                 .As("matchWholeWord")
+                 .SetDefault(null)
+                 .WithDescription(
+                     "Indicates that a whole-word search (respecting periods) should be performed."
                  );
 
                 /*
@@ -157,34 +178,34 @@ namespace MFR.CommandLine.Parsers
                 p.Setup(arg => arg.RenameFilesInFolder)
                  .As("renameFiles")
                  .WithDescription("Indicates that files should be renamed.")
-                 .SetDefault(true);
+                 .SetDefault(null);
 
                 p.Setup(arg => arg.RenameSubFolders)
                  .As("renameSubFolders")
                  .WithDescription("Indicates that folders should be renamed.")
-                 .SetDefault(true);
+                 .SetDefault(null);
 
                 p.Setup(arg => arg.RenameSolutionFolders)
                  .As("renameSolutionFolders")
                  .WithDescription(
                      "Indication that the search text should be found and replaced in the same of those folder(s) in the directory tree that contain .sln files."
                  )
-                 .SetDefault(false);
+                 .SetDefault(null);
 
                 p.Setup(arg => arg.ReOpenSolution)
                  .As("reOpenSolution")
-                 .SetDefault(true)
+                 .SetDefault(null)
                  .WithDescription(
                      "Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed."
                  )
-                 .SetDefault(true);
-                
+                 .SetDefault(null);
+
                 p.Setup(arg => arg.ReplaceTextInFiles)
                  .As("replaceTextInFiles")
                  .WithDescription(
                      "Indicates that text should be replaced in files."
                  )
-                 .SetDefault(true);
+                 .SetDefault(null);
 
                 p.Setup(arg => arg.ShouldCommitPendingChanges)
                  .As("commitPendingChanges")
@@ -199,7 +220,7 @@ namespace MFR.CommandLine.Parsers
                  .WithDescription(
                      "Determines whether post-operation changes are to be committed to the local Git repository."
                  );
-                
+
                 p.Setup(arg => arg.StartingFolder)
                  .As('r', "root")
                  .SetDefault(string.Empty)
@@ -209,18 +230,11 @@ namespace MFR.CommandLine.Parsers
                  .Required()
                  .SetDefault(Directory.GetCurrentDirectory());
 
-                p.Setup(arg => arg.MatchCase)
-                 .As("matchCase")
-                 .SetDefault(true)
+                p.Setup(arg => arg.UpdateGitOnAutoStart)
+                 .As("updateGitOnAutoStart")
+                 .SetDefault(null)
                  .WithDescription(
-                     "Indicates that a case-sensitive search should be performed."
-                 );
-
-                p.Setup(arg => arg.MatchExactWord)
-                 .As("matchWholeWord")
-                 .SetDefault(false)
-                 .WithDescription(
-                     "Indicates that a whole-word search (respecting periods) should be performed."
+                     "Indicates that the local Git repository should be updated when the application is auto-started."
                  );
 
                 p.SetupHelp("?", "help")
@@ -241,10 +255,17 @@ namespace MFR.CommandLine.Parsers
                  * on the command line, assume that the user wants to perform
                  * all of them.
                  */
-                if (!result.RenameFilesInFolder && !result.RenameSubFolders &&
-                    !result.ReplaceTextInFiles)
+                if (!result.RenameFilesInFolder.HasValue &&
+                    !result.RenameSubFolders.HasValue &&
+                    !result.ReplaceTextInFiles.HasValue)
                     result.RenameFilesInFolder = result.RenameSubFolders =
                         result.ReplaceTextInFiles = true;
+
+                if (!result.RenameSolutionFolders.HasValue)
+                    result.RenameSolutionFolders = false;
+
+                if (!result.ReOpenSolution.HasValue)
+                    result.ReOpenSolution = false;
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
@@ -280,8 +301,7 @@ namespace MFR.CommandLine.Parsers
         /// <see cref="T:MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs" /> that
         /// contains the event data.
         /// </param>
-        protected virtual void OnDisplayHelp(
-            [NotLogged] DisplayHelpEventArgs e)
+        protected virtual void OnDisplayHelp([NotLogged] DisplayHelpEventArgs e)
             => DisplayHelp?.Invoke(this, e);
     }
 }
