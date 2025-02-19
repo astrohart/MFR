@@ -173,7 +173,7 @@ namespace MFR.CommandLine.Parsers
 
                 p.Setup(arg => arg.ReOpenSolution)
                  .As("reOpenSolution")
-                 .SetDefault(null)
+                 .SetDefault(true)
                  .WithDescription(
                      "Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed."
                  )
