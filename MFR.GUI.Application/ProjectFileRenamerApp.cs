@@ -13,19 +13,24 @@ using MFR.GUI.Actions;
 using MFR.GUI.Application.Interfaces;
 using MFR.GUI.Displayers;
 using MFR.GUI.Processors.Factories;
+using MFR.GUI.Processors.Validators.Factories;
+using MFR.GUI.Processors.Validators.Interfaces;
 using MFR.Settings.Configuration.Providers.Factories;
 using MFR.Settings.Configuration.Providers.Interfaces;
 using MFR.Settings.Profiles.Providers.Factories;
 using MFR.Settings.Profiles.Providers.Interfaces;
+using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Core.Extensions;
 using xyLOGIX.Files.Actions;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.GUI.Application
 {
@@ -50,7 +55,7 @@ namespace MFR.GUI.Application
         /// </summary>
         public Guid AppId
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new Guid("ce26f41b-78f8-4093-ab60-91fbb069c70b");
 
         /// <summary>
@@ -58,7 +63,9 @@ namespace MFR.GUI.Application
         /// operations requested by the user from the command line.
         /// </summary>
         public bool AutoStart
-            => CommandLineInfo.AutoStart;
+        {
+            [DebuggerStepThrough] get => CommandLineInfo.AutoStart;
+        }
 
         /// <summary>
         /// Gets a reference to an instance of an object that implements the
@@ -66,8 +73,8 @@ namespace MFR.GUI.Application
         /// </summary>
         public ICommandLineInfo CommandLineInfo
         {
-            get;
-            private set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] private set;
         }
 
         /// <summary>
@@ -77,8 +84,20 @@ namespace MFR.GUI.Application
         /// </summary>
         private static ICommandLineParser CommandLineParser
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetCommandLineParser.SoleInstance();
+
+        /// <summary>
+        /// Gets a reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.GUI.Processors.Validators.Interfaces.ICommandLineProcessorTypeValidator" />
+        /// interface.
+        /// </summary>
+        private static ICommandLineProcessorTypeValidator
+            CommandLineProcessorTypeValidator
+        {
+            [DebuggerStepThrough] get;
+        } = GetCommandLineProcessorTypeValidator.SoleInstance();
 
         /// <summary>
         /// Gets or sets a value that indicates whether the user specified any arguments on
@@ -86,8 +105,8 @@ namespace MFR.GUI.Application
         /// </summary>
         public bool CommandLineSpecified
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -96,7 +115,9 @@ namespace MFR.GUI.Application
         /// interface.
         /// </summary>
         private static ICommandLineValidator CommandLineValidator
-            => GetCommandLineValidator.SoleInstance();
+        {
+            [DebuggerStepThrough] get;
+        } = GetCommandLineValidator.SoleInstance();
 
         /// <summary>
         /// Gets a reference to the sole instance of the object that implements the
@@ -111,7 +132,7 @@ namespace MFR.GUI.Application
         /// </remarks>
         private static IProjectFileRenamerConfigProvider ConfigProvider
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetProjectFileRenamerConfigProvider.SoleInstance();
 
         /// <summary>
@@ -120,7 +141,7 @@ namespace MFR.GUI.Application
         /// </summary>
         public static IWinApp Instance
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new ProjectFileRenamerApp();
 
         /// <summary>
@@ -130,7 +151,7 @@ namespace MFR.GUI.Application
         /// </summary>
         private static IProfileProvider ProfileProvider
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetProfileProvider.SoleInstance();
 
         /// <summary>
@@ -140,7 +161,7 @@ namespace MFR.GUI.Application
         /// </summary>
         private static IRootDirectoryPathValidator RootDirectoryPathValidator
         {
-            get;
+            [DebuggerStepThrough] get;
         } = GetRootDirectoryPathValidator.SoleInstance();
 
         /// <summary>
@@ -157,22 +178,42 @@ namespace MFR.GUI.Application
         /// values, each of which corresponds to a value that was passed by the user on the
         /// application's command line.
         /// </param>
-        public void WinInit(string[] args)
+        public void WinInit([NotLogged] string[] args)
         {
-            if (!InitApplication(args))
-                Environment.Exit(-1);
-
-            foreach (var arg in args)
+            try
+            {
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"ProjectFileRenamerApp.WinInit: Command-line argument: '{arg}'"
+                    "ProjectFileRenamerApp.WinInit: Arrived at the application entry-point..."
                 );
 
-            OnInitialized();
+                args = FixArguments(args);
 
-            ProcessCommandLine();
+                if (!InitApplication(args))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "*** ERROR *** Failed to initialize the application."
+                    );
 
-            ExitApplication();
+                    Messages.ShowStopError(
+                        "An error occurred while initializing the application.  The application will now terminate."
+                    );
+
+                    Environment.Exit(-1);
+                }
+
+                OnInitialized();
+
+                ProcessCommandLine();
+
+                ExitApplication();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -219,6 +260,82 @@ namespace MFR.GUI.Application
         }
 
         /// <summary>
+        /// Gets the command-line arguments passed to the application, and fixes any that
+        /// are malformed.
+        /// </summary>
+        /// <param name="args">
+        /// (Required.) An array of <see cref="T:System.String" /> values, each of which
+        /// corresponds to a value that was passed by the user on the application's command
+        /// line.
+        /// </param>
+        /// <returns>
+        /// If successful, an array of <see cref="T:System.String" /> values, each of which
+        /// corresponds to a value that was passed by the user on the application's command
+        /// line, with each value's format aligned with what we expect; otherwise, the
+        /// empty array is returned.
+        /// </returns>
+        [return: NotLogged]
+        private string[] FixArguments([NotLogged] string[] args)
+        {
+            var result = new AdvisableCollection<string>();
+
+            try
+            {
+                if (args == null) return result.ToArray();
+                if (args.Length <= 0) return result.ToArray();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.FixArguments: Fixing malformed command-line arguments..."
+                );
+
+                /*
+                 * Make sure any args of the format <c>--flag="value"</c> are fixed if they are missing
+                 * the first double-quote character after the equals sign.
+                 */
+
+                foreach (var arg in args)
+                {
+                    if (string.IsNullOrWhiteSpace(arg)) continue;
+
+                    var argToUse = arg;
+
+                    if (!arg.StartsWith(
+                            "--", StringComparison.OrdinalIgnoreCase
+                        ))
+                    {
+                        result.Add(argToUse);
+                        continue;
+                    }
+
+                    if (!arg.Contains("="))
+                    {
+                        result.Add(argToUse);
+                        continue;
+                    }
+
+                    if (arg.Contains("=\""))
+                    {
+                        result.Add(argToUse);
+                        continue;
+                    }
+
+                    argToUse = arg.Replace("=", "=\"");
+                    result.Add(argToUse);
+                }
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = new AdvisableCollection<string>();
+            }
+
+            return result.ToArray();
+        }
+
+        /// <summary>
         /// Called to perform a one-time initialization of the application.
         /// </summary>
         /// <param name="args">
@@ -236,11 +353,36 @@ namespace MFR.GUI.Application
 
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.InitApplication: Initializing the application..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.InitApplication: Setting up the display of the application and its window(s)..."
+                );
+
                 SetDisplayParameters();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.InitApplication: Configuring what to do when an exception is thrown..."
+                );
 
                 SetUpExceptionHandling();
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.InitApplication: Subscribing to notification(s) about invalid command-line parameter(s)..."
+                );
+
                 SetUpCommandLineValidation();
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.InitApplication: Loading profile(s)..."
+                );
 
                 // Load the config from the file system.
                 ProfileProvider.Load();
@@ -434,23 +576,77 @@ namespace MFR.GUI.Application
         /// <para />
         /// If any validation failures occur, then the app is terminated.
         /// </remarks>
-        private ICommandLineInfo ParseCommandLine(string[] args)
+        [return: NotLogged]
+        private ICommandLineInfo ParseCommandLine([NotLogged] string[] args)
         {
-            ICommandLineInfo result = default;
+            var result = MakeNewCommandLineInfo.FromScratch();
 
             try
             {
-                CommandLineSpecified = args.Any();
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ParseCommandLine: Checking whether the 'args' method parameter has a null reference for a value..."
+                );
 
-                if (!args.Any())
+                // Check to see if the required parameter, args, is null. If it is, send an 
+                // error to the log file and quit, returning the default return value of this
+                // method.
+                if (args == null)
                 {
-                    result = CommandLineInfo =
-                        MakeNewCommandLineInfo.FromScratch();
-                    return
-                        result; // This app can be launched with no command-line arguments.
+                    // The parameter, 'args', is required and is not supposed to have a NULL value.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ProjectFileRenamerApp.ParseCommandLine: *** ERROR *** A null reference was passed for the 'args' method parameter.  Stopping..."
+                    );
+
+                    // stop.
+                    return result;
                 }
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ParseCommandLine: *** SUCCESS *** We have been passed a valid object reference for the 'args' method parameter.  Proceeding..."
+                );
+
+                CommandLineSpecified = args.Length > 0;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ParseCommandLine *** INFO: Checking whether the array, 'args', has greater than zero elements..."
+                );
+
+                // Check whether the array, 'args', has greater than zero elements.  If it is empty,
+                // then write an error message to the log file, and then terminate the execution of this method.
+                // It is preferred for the array to have greater than zero elements.
+                if (args.Length <= 0)
+                {
+                    // The array, 'args', has zero elements, and we can't proceed if this is so.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ProjectFileRenamerApp.ParseCommandLine *** ERROR *** The array, 'args', has zero elements.  Stopping..."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"ProjectFileRenamerApp.ParseCommandLine *** SUCCESS *** {args.Length} element(s) were found in the 'args' array.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ParseCommandLine: Checking whether greater than zero argument(s) were passed to the application on its command line..."
+                );
+
                 CommandLineParser.DisplayHelp += OnCommandLineParserDisplayHelp;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ParseCommandLine: Instructing the Command Line Parser component to parse the command-line argument(s)..."
+                );
+
                 result = CommandLineInfo = CommandLineParser.Parse(args);
 
                 if (!CommandLineValidator.Validate(CommandLineInfo))
@@ -461,7 +657,7 @@ namespace MFR.GUI.Application
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
 
-                result = default;
+                result = MakeNewCommandLineInfo.FromScratch();
             }
 
             return result;
@@ -476,21 +672,91 @@ namespace MFR.GUI.Application
                                            * run.
                                            */
         {
-            var commandLineProcessorType = Get
-                .CommandLineProcessorType(
-                    CommandLineSpecified,
-                    AutoStart
+            try
+            {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ProcessCommandLine: Attempting to discover the type of command-line argument(s) that were passed to the application..."
                 );
 
-            var processor = GetCommandLineProcessor.OfType(
-                                                       commandLineProcessorType
-                                                   )
-                                                   .HavingCommandLineInfo(
-                                                       CommandLineInfo
-                                                   );
+                var commandLineProcessorType =
+                    Get.CurrentCommandLineProcessorType(
+                        CommandLineSpecified, AutoStart
+                    );
 
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"*** ProjectFileRenamerApp.ProcessCommandLine: Checking whether the command-line processor type, '{commandLineProcessorType}', is within the defined value set..."
+                );
 
-            processor.Process();
+                // Check to see whether the command-line processor type is within the defined value set.
+                // If this is not the case, then write an error message to the log file
+                // and then terminate the execution of this method.
+                if (!CommandLineProcessorTypeValidator.IsValid(
+                        commandLineProcessorType
+                    ))
+                {
+                    // The command-line processor type is NOT within the defined value set.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR: The command-line processor type, '{commandLineProcessorType}', is NOT within the defined value set.  Stopping..."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"ProjectFileRenamerApp.ProcessCommandLine: *** SUCCESS *** The command-line processor type, '{commandLineProcessorType}', is within the defined value set.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"ProjectFileRenamerApp.ProcessCommandLine: Attempting to obtain a Command Line Processor component for the command-line processor type, '{commandLineProcessorType}'..."
+                );
+
+                var processor = GetCommandLineProcessor
+                                .OfType(commandLineProcessorType)
+                                .HavingCommandLineInfo(CommandLineInfo);
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ProcessCommandLine: Checking whether the variable 'processor' has a null reference for a value..."
+                );
+
+                // Check to see if the variable, processor, is null. If it is,
+                // send an error to the log file and quit, returning from the method.
+                if (processor == null)
+                {
+                    // the variable processor is required to have a valid object reference.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ProjectFileRenamerApp.ProcessCommandLine: *** ERROR ***  The 'processor' variable has a null reference.  Stopping..."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                // We can use the variable, processor, because it's not set to a null reference.
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ProcessCommandLine: *** SUCCESS *** The 'processor' variable has a valid object reference for its value.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.ProcessCommandLine: Instructing the Command Line Processor to process the command-line argument(s)..."
+                );
+
+                processor.Process();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
         }
 
         /// <summary>
@@ -520,6 +786,31 @@ namespace MFR.GUI.Application
         {
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.SetUpCommandLineValidation: Checking whether the property, 'CommandLineValidator', has a null reference for a value..."
+                );
+
+                // Check to see if the required property, 'CommandLineValidator', has a null reference for a value. 
+                // If that is the case, then we will write an error message to the log file, and then
+                // terminate the execution of this method.
+                if (CommandLineValidator == null)
+                {
+                    // The property, 'CommandLineValidator', has a null reference for a value.  This is not desirable.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "ProjectFileRenamerApp.SetUpCommandLineValidation: *** ERROR *** The property, 'CommandLineValidator', has a null reference for a value.  Stopping..."
+                    );
+
+                    // stop.
+                    return;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "ProjectFileRenamerApp.SetUpCommandLineValidation: *** SUCCESS *** The property, 'CommandLineValidator', has a valid object reference for its value.  Proceeding..."
+                );
+
                 CommandLineValidator.CommandLineInfoInvalid +=
                     OnCommandLineInfoInvalid;
                 RootDirectoryPathValidator.RootDirectoryInvalid +=
