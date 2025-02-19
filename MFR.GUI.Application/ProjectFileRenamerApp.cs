@@ -43,11 +43,13 @@ namespace MFR.GUI.Application
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         static ProjectFileRenamerApp() { }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
+        [Log(AttributeExclude = true)]
         protected ProjectFileRenamerApp() { }
 
         /// <summary>
