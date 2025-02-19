@@ -1,7 +1,9 @@
-﻿using MFR.GUI.Processors.Constants;
+﻿using MFR.CommandLine.Translators;
+using MFR.GUI.Processors.Constants;
 using MFR.GUI.Processors.Interfaces;
 using MFR.GUI.Windows.Factories;
 using MFR.GUI.Windows.Interfaces;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Processors
@@ -16,12 +18,16 @@ namespace MFR.GUI.Processors
         /// <summary>
         /// Empty, static constructor to prohibit direct allocation of this class.
         /// </summary>
-        static GuiDrivenCommandLineProcessor() { }
+        static GuiDrivenCommandLineProcessor()
+        {
+        }
 
         /// <summary>
         /// Empty, protected constructor to prohibit direct allocation of this class.
         /// </summary>
-        protected GuiDrivenCommandLineProcessor() { }
+        protected GuiDrivenCommandLineProcessor()
+        {
+        }
 
         /// <summary>
         /// Gets a reference to the one and only instance of the object that implements the
@@ -32,16 +38,9 @@ namespace MFR.GUI.Processors
         /// </summary>
         public static ICommandLineProcessor Instance
         {
+            [DebuggerStepThrough]
             get;
         } = new GuiDrivenCommandLineProcessor();
-
-        /// <summary>
-        /// Gets a reference to the one and only instance of the object that implements the
-        /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface that
-        /// represents the main window of the application.
-        /// </summary>
-        private static IMainWindow MainWindow
-            => GetMainWindow.SoleInstance();
 
         /// <summary>
         /// Gets a <see cref="T:MFR.GUI.Processors.Constants.CommandLineProcessorType" />
@@ -51,10 +50,24 @@ namespace MFR.GUI.Processors
             => CommandLineProcessorType.GuiDriven;
 
         /// <summary>
+        /// Gets a reference to the one and only instance of the object that implements the
+        /// <see cref="T:MFR.GUI.Windows.Interfaces.IMainWindow" /> interface that
+        /// represents the main window of the application.
+        /// </summary>
+        private static IMainWindow MainWindow
+        {
+            [DebuggerStepThrough]
+            get;
+        } = GetMainWindow.SoleInstance();
+
+        /// <summary>
         /// Executes the processing specified by this processor type.
         /// </summary>
         public override void Process()
         {
+            // Set the current configuration to the one specified on the command line.
+            CurrentConfig = CommandLineInfo.ToConfig();
+
             MainWindow.AttachCommandLineInfo(CommandLineInfo);
 
             Application.Run((Form)MainWindow);
