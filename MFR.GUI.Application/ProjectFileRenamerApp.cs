@@ -162,13 +162,11 @@ namespace MFR.GUI.Application
             if (!InitApplication(args))
                 Environment.Exit(-1);
 
-            foreach(var arg in args)
-            {
+            foreach (var arg in args)
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
                     $"ProjectFileRenamerApp.WinInit: Command-line argument: '{arg}'"
                 );
-            }
 
             OnInitialized();
 
@@ -176,13 +174,6 @@ namespace MFR.GUI.Application
 
             ExitApplication();
         }
-
-        /// <summary>
-        /// Raises the
-        /// <see cref="E:MFR.GUI.Application.ProjectFileRenamerApp.Initialized" /> event.
-        /// </summary>
-        protected virtual void OnInitialized()
-            => Initialized?.Invoke(this, EventArgs.Empty);
 
         /// <summary>
         /// Performs operations that should be undertaken when the application exits.
@@ -225,6 +216,54 @@ namespace MFR.GUI.Application
                 // dump all the exception info to the log
                 DebugUtils.LogException(ex);
             }
+        }
+
+        /// <summary>
+        /// Called to perform a one-time initialization of the application.
+        /// </summary>
+        /// <param name="args">
+        /// (Required.) An array of <see cref="T:System.String" />
+        /// values, each of which corresponds to a value that was passed by the user on the
+        /// application's command line.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the application was initialized
+        /// successfully; <see langword="false" /> otherwise.
+        /// </returns>
+        private bool InitApplication([NotLogged] string[] args)
+        {
+            var result = false;
+
+            try
+            {
+                SetDisplayParameters();
+
+                SetUpExceptionHandling();
+
+                SetUpCommandLineValidation();
+
+                // Load the config from the file system.
+                ProfileProvider.Load();
+
+                ConfigProvider.Load();
+
+                var cmdInfo = ParseCommandLine(args);
+                if (cmdInfo != null &&
+                    Does.DirectoryExist(cmdInfo.StartingFolder))
+                    ConfigProvider.CurrentConfig.StartingFolder =
+                        cmdInfo.StartingFolder;
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -300,6 +339,13 @@ namespace MFR.GUI.Application
         }
 
         /// <summary>
+        /// Raises the
+        /// <see cref="E:MFR.GUI.Application.ProjectFileRenamerApp.Initialized" /> event.
+        /// </summary>
+        protected virtual void OnInitialized()
+            => Initialized?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
         /// Handles the
         /// <see
         ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
@@ -371,103 +417,6 @@ namespace MFR.GUI.Application
         }
 
         /// <summary>
-        /// Configures the display settings, such as DPI-awareness and visual
-        /// styles etc.
-        /// </summary>
-        private static void SetDisplayParameters()
-        {
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(
-                false
-            );
-        }
-
-        /// <summary>
-        /// Configures the application's handling of exceptions that are not
-        /// caught elsewhere.
-        /// </summary>
-        private static void SetUpExceptionHandling()
-        {
-            System.Windows.Forms.Application.SetUnhandledExceptionMode(
-                UnhandledExceptionMode.CatchException
-            );
-            System.Windows.Forms.Application.ThreadException +=
-                OnThreadException;
-        }
-
-        /// <summary>
-        /// Shows the error <paramref name="message" /> to the user.
-        /// </summary>
-        /// <param name="message">
-        /// (Required.) String containing the message to be displayed.
-        /// </param>
-        /// <remarks>
-        /// If the string value in <paramref name="message" /> is blank, then
-        /// this method does nothing.
-        /// </remarks>
-        private static void ShowValidationFailureMessage(
-            [NotLogged] string message
-        )
-        {
-            if (string.IsNullOrWhiteSpace(message))
-                return;
-
-            MessageBox.Show(
-                message, System.Windows.Forms.Application.ProductName,
-                MessageBoxButtons.OK, MessageBoxIcon.Stop,
-                MessageBoxDefaultButton.Button1
-            );
-        }
-
-        /// <summary>
-        /// Called to perform a one-time initialization of the application.
-        /// </summary>
-        /// <param name="args">
-        /// (Required.) An array of <see cref="T:System.String" />
-        /// values, each of which corresponds to a value that was passed by the user on the
-        /// application's command line.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the application was initialized
-        /// successfully; <see langword="false" /> otherwise.
-        /// </returns>
-        private bool InitApplication(string[] args)
-        {
-            var result = false;
-
-            try
-            {
-                SetDisplayParameters();
-
-                SetUpExceptionHandling();
-
-                SetUpCommandLineValidation();
-
-                // Load the config from the file system.
-                ProfileProvider.Load();
-
-                ConfigProvider.Load();
-
-                var cmdInfo = ParseCommandLine(args);
-                if (cmdInfo != null &&
-                    Does.DirectoryExist(cmdInfo.StartingFolder))
-                    ConfigProvider.CurrentConfig.StartingFolder =
-                        cmdInfo.StartingFolder;
-
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Initializes a new instance of
         /// <see
         ///     cref="T:MFR.CommandLine.CommandLineInfo" />
@@ -521,19 +470,47 @@ namespace MFR.GUI.Application
         /// <summary>
         /// Takes actions based on what arguments were passed to the application.
         /// </summary>
-        private void ProcessCommandLine()
-            /*
-             * If the user specified one or more argument(s) on the command line of this
-             * application, translate those parameters into config settings for this
-             * run.
-             */
-            => GetCommandLineProcessor.OfType(
-                                          Get.CommandLineProcessorType(
-                                              CommandLineSpecified, AutoStart
-                                          )
-                                      )
-                                      .HavingCommandLineInfo(CommandLineInfo)
-                                      .Process();
+        private void ProcessCommandLine() /*
+                                           * If the user specified one or more argument(s) on the command line of this
+                                           * application, translate those parameters into config settings for this
+                                           * run.
+                                           */
+        {
+            var commandLineProcessorType = Get
+                .CommandLineProcessorType(
+                    CommandLineSpecified,
+                    AutoStart
+                );
+
+            var processor = GetCommandLineProcessor.OfType(
+                                                       commandLineProcessorType
+                                                   )
+                                                   .HavingCommandLineInfo(
+                                                       CommandLineInfo
+                                                   );
+
+
+            processor.Process();
+        }
+
+        /// <summary>
+        /// Configures the display settings, such as DPI-awareness and visual
+        /// styles etc.
+        /// </summary>
+        private static void SetDisplayParameters()
+        {
+            try
+            {
+                System.Windows.Forms.Application.EnableVisualStyles();
+                System.Windows.Forms.Application
+                      .SetCompatibleTextRenderingDefault(false);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
 
         /// <summary>
         /// Configures the application's handling of validation failures of the
@@ -541,10 +518,63 @@ namespace MFR.GUI.Application
         /// </summary>
         private void SetUpCommandLineValidation()
         {
-            CommandLineValidator.CommandLineInfoInvalid +=
-                OnCommandLineInfoInvalid;
-            RootDirectoryPathValidator.RootDirectoryInvalid +=
-                OnRootDirectoryInvalid;
+            try
+            {
+                CommandLineValidator.CommandLineInfoInvalid +=
+                    OnCommandLineInfoInvalid;
+                RootDirectoryPathValidator.RootDirectoryInvalid +=
+                    OnRootDirectoryInvalid;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Configures the application's handling of exceptions that are not
+        /// caught elsewhere.
+        /// </summary>
+        private static void SetUpExceptionHandling()
+        {
+            try
+            {
+                System.Windows.Forms.Application.SetUnhandledExceptionMode(
+                    UnhandledExceptionMode.CatchException
+                );
+                System.Windows.Forms.Application.ThreadException +=
+                    OnThreadException;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Shows the error <paramref name="message" /> to the user.
+        /// </summary>
+        /// <param name="message">
+        /// (Required.) String containing the message to be displayed.
+        /// </param>
+        /// <remarks>
+        /// If the string value in <paramref name="message" /> is blank, then
+        /// this method does nothing.
+        /// </remarks>
+        private static void ShowValidationFailureMessage(
+            [NotLogged] string message
+        )
+        {
+            if (string.IsNullOrWhiteSpace(message))
+                return;
+
+            MessageBox.Show(
+                message, System.Windows.Forms.Application.ProductName,
+                MessageBoxButtons.OK, MessageBoxIcon.Stop,
+                MessageBoxDefaultButton.Button1
+            );
         }
     }
 }
