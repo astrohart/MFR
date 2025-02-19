@@ -133,15 +133,6 @@ namespace MFR.CommandLine.Parsers
                      "Specify this flag to automatically start the specified operation(s) when the application starts and then quit when done. "
                  );
 
-                p.Setup(arg => arg.StartingFolder)
-                 .As('r', "root")
-                 .SetDefault(string.Empty)
-                 .WithDescription(
-                     "Sets the directory that this application begins in."
-                 )
-                 .Required()
-                 .SetDefault(Directory.GetCurrentDirectory());
-
                 p.Setup(arg => arg.FindWhat)
                  .As("findWhat")
                  .SetDefault(string.Empty)
@@ -163,13 +154,6 @@ namespace MFR.CommandLine.Parsers
                  * Therefore, we updated this parameter to being required.
                  */
 
-                p.Setup(arg => arg.ReplaceWith)
-                 .As("replaceWith")
-                 .SetDefault(string.Empty)
-                 .WithDescription(
-                     "Sets the string to be substituted in file system entry names."
-                 );
-
                 p.Setup(arg => arg.RenameFilesInFolder)
                  .As("renameFiles")
                  .WithDescription("Indicates that files should be renamed.")
@@ -178,13 +162,6 @@ namespace MFR.CommandLine.Parsers
                 p.Setup(arg => arg.RenameSubFolders)
                  .As("renameSubFolders")
                  .WithDescription("Indicates that folders should be renamed.")
-                 .SetDefault(true);
-
-                p.Setup(arg => arg.ReplaceTextInFiles)
-                 .As("replaceTextInFiles")
-                 .WithDescription(
-                     "Indicates that text should be replaced in files."
-                 )
                  .SetDefault(true);
 
                 p.Setup(arg => arg.RenameSolutionFolders)
@@ -201,6 +178,13 @@ namespace MFR.CommandLine.Parsers
                      "Indicates that any currently-open Solution in the target directory should be re-loaded when the operation(s) are completed."
                  )
                  .SetDefault(true);
+                
+                p.Setup(arg => arg.ReplaceTextInFiles)
+                 .As("replaceTextInFiles")
+                 .WithDescription(
+                     "Indicates that text should be replaced in files."
+                 )
+                 .SetDefault(true);
 
                 p.Setup(arg => arg.ShouldCommitPendingChanges)
                  .As("commitPendingChanges")
@@ -215,17 +199,26 @@ namespace MFR.CommandLine.Parsers
                  .WithDescription(
                      "Determines whether post-operation changes are to be committed to the local Git repository."
                  );
+                
+                p.Setup(arg => arg.StartingFolder)
+                 .As('r', "root")
+                 .SetDefault(string.Empty)
+                 .WithDescription(
+                     "Sets the directory that this application begins in."
+                 )
+                 .Required()
+                 .SetDefault(Directory.GetCurrentDirectory());
 
                 p.Setup(arg => arg.MatchCase)
                  .As("matchCase")
-                 .SetDefault(null)
+                 .SetDefault(true)
                  .WithDescription(
                      "Indicates that a case-sensitive search should be performed."
                  );
 
                 p.Setup(arg => arg.MatchExactWord)
                  .As("matchWholeWord")
-                 .SetDefault(null)
+                 .SetDefault(false)
                  .WithDescription(
                      "Indicates that a whole-word search (respecting periods) should be performed."
                  );
