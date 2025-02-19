@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using xyLOGIX.Core.Debug;
 using Initialize = MFR.GUI.Models.Actions.Initialize;
@@ -121,12 +122,13 @@ namespace MFR.Settings.Configuration
         /// application should automatically terminate once the user's requested operations
         /// are complete.
         /// </summary>
+        /// <remarks>The default value of this property is <see langword="true" />.</remarks>
         [JsonProperty("autoQuitWhenRunInteractively")]
         public bool AutoQuitOnCompletion
         {
-            get;
-            set;
-        }
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether the specified operation(s) should be
@@ -141,13 +143,13 @@ namespace MFR.Settings.Configuration
         [JsonIgnore]
         public bool AutoStart
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         public static IProjectFileRenamerConfig Blank
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new ProjectFileRenamerConfig();
 
         /// <summary>
@@ -158,8 +160,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("commitAuthorEmail")]
         public string CommitAuthorEmail
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -169,8 +171,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("commitAuthorName")]
         public string CommitAuthorName
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -181,8 +183,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("errantProcessesList")]
         public IList<string> ErrantProcessesList
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = new List<string>();
 
         /// <summary>
@@ -192,8 +194,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("findWhat")]
         public string FindWhat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -203,8 +205,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("findWhatHistory")]
         public IList<string> FindWhatHistory
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = new List<string>();
 
         /// <summary>
@@ -215,8 +217,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("invokableOperations")]
         public IList<IOperationTypeInfo> InvokableOperations
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -229,8 +231,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("isFolded")]
         public bool IsFolded
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -239,8 +241,8 @@ namespace MFR.Settings.Configuration
         /// </summary>
         public bool IsFromCommandLine
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -250,8 +252,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("matchCase")]
         public bool MatchCase
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -261,8 +263,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("matchExactWord")]
         public bool MatchExactWord
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -273,8 +275,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("pendingChangesCommitMessage")]
         public string PendingChangesCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = Resources.Default_PendingChangesCommitMessage;
 
         /// <summary>
@@ -285,8 +287,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("pendingChangesDetailedCommitMessageFormat")]
         public string PendingChangesDetailedCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = Resources.Default_PendingChangesDetailedCommitMessage;
 
         /// <summary>
@@ -296,8 +298,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("postOperationCommitMessage")]
         public string PostOperationCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = Resources.Default_PostOperationCommitMessage;
 
         /// <summary>
@@ -308,8 +310,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("postOperationDetailedCommitMessage")]
         public string PostOperationDetailedCommitMessageFormat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = Resources.Default_PostOperationDetailedCommitMessage;
 
         /// <summary>
@@ -328,8 +330,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("promptUserToReloadOpenSolution")]
         public bool PromptUserToReloadOpenSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = true;
 
         /// <summary>
@@ -341,8 +343,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("pushChangesToRemoteWhenDone")]
         public bool PushChangesToRemoteWhenDone
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = true;
 
         /// <summary>
@@ -515,8 +517,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("reOpenSolution")]
         public bool ReOpenSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -577,8 +579,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("replaceWith")]
         public string ReplaceWith
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -588,8 +590,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("replaceWithHistory")]
         public IList<string> ReplaceWithHistory
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = new List<string>();
 
         /// <summary>
@@ -599,8 +601,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("selectedOptionTab")]
         public int SelectedOptionTab
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -611,8 +613,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("shouldCommitPendingChanges")]
         public bool ShouldCommitPendingChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -622,8 +624,8 @@ namespace MFR.Settings.Configuration
         /// </summary>
         public bool ShouldCommitPostOperationChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -652,8 +654,8 @@ namespace MFR.Settings.Configuration
         [JsonProperty("startingFolderHistory")]
         public IList<string> StartingFolderHistory
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = new List<string>();
 
         /// <summary>
@@ -664,17 +666,9 @@ namespace MFR.Settings.Configuration
         [JsonProperty("updateGitOnAutoStart")]
         public bool UpdateGitOnAutoStart
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = true;
-
-        /// <summary>
-        /// Occurs when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolder" />
-        /// property has been updated.
-        /// </summary>
-        public event StartingFolderChangedEventHandler StartingFolderChanged;
 
         /// <summary>
         /// Determines whether the specified object is equal to the current
@@ -791,98 +785,12 @@ namespace MFR.Settings.Configuration
         }
 
         /// <summary>
-        /// Determines whether the specified <paramref name="config" /> object
-        /// instance is blank or a <see langword="null" /> reference.
+        /// Occurs when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolder" />
+        /// property has been updated.
         /// </summary>
-        /// <param name="config">
-        /// (Required.) Reference to an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
-        /// interface that represents the object instance that is to be examined.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the specified
-        /// <paramref name="config" /> object instance is blank or a
-        /// <see langword="null" /> reference.
-        /// </returns>
-        public static bool IsBlankOrNull(IProjectFileRenamerConfig config)
-        {
-            bool result;
-
-            try
-            {
-                result = config == null || Blank.Equals(config);
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        protected bool Equals(IProjectFileRenamerConfig other)
-        {
-            var result = false;
-
-            try
-            {
-                if (other is null) return result;
-
-                result = AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
-                         AutoStart == other.AutoStart &&
-                         FindWhat == other.FindWhat &&
-                         FindWhatHistory.SequenceEqual(other.FindWhatHistory) &&
-                         InvokableOperations.SequenceEqual(
-                             other.InvokableOperations
-                         ) && IsFolded == other.IsFolded &&
-                         IsFromCommandLine == other.IsFromCommandLine &&
-                         MatchCase == other.MatchCase &&
-                         MatchExactWord == other.MatchExactWord &&
-                         ReOpenSolution == other.ReOpenSolution &&
-                         ReplaceWith == other.ReplaceWith &&
-                         ReplaceWithHistory.SequenceEqual(
-                             other.ReplaceWithHistory
-                         ) && SelectedOptionTab == other.SelectedOptionTab &&
-                         StartingFolderHistory.SequenceEqual(
-                             other.StartingFolderHistory
-                         );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolderChanged" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// (Required.) A
-        /// <see cref="T:MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs" />
-        /// that contains the event's data.
-        /// </param>
-        /// <remarks>
-        /// This event is supposed to be raised when the value of the
-        /// <see
-        ///     cref="P:MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolder" />
-        /// property is updated.
-        /// </remarks>
-        protected virtual void OnStartingFolderChanged(
-            StartingFolderChangedEventArgs e
-        )
-            => StartingFolderChanged?.Invoke(this, e);
+        public event StartingFolderChangedEventHandler StartingFolderChanged;
 
         /// <summary>
         /// Adds the specified <paramref name="errantProcesses" /> to the configured list
@@ -978,5 +886,99 @@ namespace MFR.Settings.Configuration
 
             return result;
         }
+
+        protected bool Equals(IProjectFileRenamerConfig other)
+        {
+            var result = false;
+
+            try
+            {
+                if (other is null) return result;
+
+                result = AutoQuitOnCompletion == other.AutoQuitOnCompletion &&
+                         AutoStart == other.AutoStart &&
+                         FindWhat == other.FindWhat &&
+                         FindWhatHistory.SequenceEqual(other.FindWhatHistory) &&
+                         InvokableOperations.SequenceEqual(
+                             other.InvokableOperations
+                         ) && IsFolded == other.IsFolded &&
+                         IsFromCommandLine == other.IsFromCommandLine &&
+                         MatchCase == other.MatchCase &&
+                         MatchExactWord == other.MatchExactWord &&
+                         ReOpenSolution == other.ReOpenSolution &&
+                         ReplaceWith == other.ReplaceWith &&
+                         ReplaceWithHistory.SequenceEqual(
+                             other.ReplaceWithHistory
+                         ) && SelectedOptionTab == other.SelectedOptionTab &&
+                         StartingFolderHistory.SequenceEqual(
+                             other.StartingFolderHistory
+                         );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether the specified <paramref name="config" /> object
+        /// instance is blank or a <see langword="null" /> reference.
+        /// </summary>
+        /// <param name="config">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see
+        ///     cref="T:MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig" />
+        /// interface that represents the object instance that is to be examined.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified
+        /// <paramref name="config" /> object instance is blank or a
+        /// <see langword="null" /> reference.
+        /// </returns>
+        public static bool IsBlankOrNull(IProjectFileRenamerConfig config)
+        {
+            bool result;
+
+            try
+            {
+                result = config == null || Blank.Equals(config);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:MFR.Settings.ProjectFileRenamerConfig.ProjectFileRenamerConfig.StartingFolderChanged" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:MFR.Settings.Configuration.Events.StartingFolderChangedEventArgs" />
+        /// that contains the event's data.
+        /// </param>
+        /// <remarks>
+        /// This event is supposed to be raised when the value of the
+        /// <see
+        ///     cref="P:MFR.Settings.Configuration.ProjectFileRenamerConfig.StartingFolder" />
+        /// property is updated.
+        /// </remarks>
+        protected virtual void OnStartingFolderChanged(
+            StartingFolderChangedEventArgs e
+        )
+            => StartingFolderChanged?.Invoke(this, e);
     }
 }
