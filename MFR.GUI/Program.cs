@@ -76,9 +76,11 @@ namespace MFR.GUI
         /// command-line argument passed to this application.
         /// </param>
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main([NotLogged] string[] args)
         {
             ProgramFlowHelper.StartDebugger();
+
+            SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             if (!Register.WindowsMessageFilter())
             {
@@ -89,8 +91,6 @@ namespace MFR.GUI
             }
 
             InitializeSystemCommandRunner();
-
-            SetUpLogging(); // has to be called here for the log file to be stored in the proper location.
 
             Application.WinInit(args);
 
