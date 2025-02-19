@@ -78,6 +78,8 @@ namespace MFR.GUI
         [STAThread]
         public static void Main(string[] args)
         {
+            ProgramFlowHelper.StartDebugger();
+
             if (!Register.WindowsMessageFilter())
             {
                 Messages.ShowStopError(
