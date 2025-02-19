@@ -36,6 +36,16 @@ namespace MFR.CommandLine.Models
         public CommandLineInfo() { }
 
         /// <summary>
+        /// Gets or sets a value that indicates that the application should quit when the
+        /// operations are finished.
+        /// </summary>
+        public bool? AutoQuitOnCompletion
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        } = null;
+
+        /// <summary>
         /// Gets or sets a value indicating whether processing starts when the application
         /// starts.
         /// </summary>
@@ -91,7 +101,7 @@ namespace MFR.CommandLine.Models
         /// <remarks>
         /// The default value of this property is <see langword="true" />.
         /// </remarks>
-        public bool RenameFilesInFolder
+        public bool? RenameFilesInFolder
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
@@ -101,7 +111,7 @@ namespace MFR.CommandLine.Models
         /// Gets or sets a value indicating whether we are to rename folder(s) that contain
         /// Solution(s).
         /// </summary>
-        public bool RenameSolutionFolders
+        public bool? RenameSolutionFolders
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
@@ -113,11 +123,11 @@ namespace MFR.CommandLine.Models
         /// <remarks>
         /// The default value of this property is <see langword="true" />.
         /// </remarks>
-        public bool RenameSubFolders
+        public bool? RenameSubFolders
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
-        } = true;
+        } = null;
 
         /// <summary>
         /// Gets or sets a value that indicates that the Solution is to be reloaded when
@@ -140,11 +150,11 @@ namespace MFR.CommandLine.Models
         /// If nothing was specified on the command line for this property, then
         /// its value is set to <see langword="true" />.
         /// </remarks>
-        public bool ReplaceTextInFiles
+        public bool? ReplaceTextInFiles
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
-        } = true;
+        } = null;
 
         /// <summary>
         /// Gets or sets a string containing the content to be replaced in the file system
@@ -199,5 +209,21 @@ namespace MFR.CommandLine.Models
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
         } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to update the user's local Git
+        /// repository even when running in <c>Auto Start</c> mode.
+        /// </summary>
+        /// <remarks>
+        /// If this property has a <see langword="null" /> value, then that means
+        /// the user did not specify the corresponding flag on the command line at all.
+        /// <para />
+        /// The default value of this property is <see langword="null" />.
+        /// </remarks>
+        public bool? UpdateGitOnAutoStart
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        } = null;
     }
 }
