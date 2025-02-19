@@ -9,6 +9,7 @@
   - [AutoStart](#P-MFR-GUI-Application-ProjectFileRenamerApp-AutoStart 'MFR.GUI.Application.ProjectFileRenamerApp.AutoStart')
   - [CommandLineInfo](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineInfo 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineInfo')
   - [CommandLineParser](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineParser 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineParser')
+  - [CommandLineProcessorTypeValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineProcessorTypeValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineProcessorTypeValidator')
   - [CommandLineSpecified](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineSpecified')
   - [CommandLineValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineValidator 'MFR.GUI.Application.ProjectFileRenamerApp.CommandLineValidator')
   - [ConfigProvider](#P-MFR-GUI-Application-ProjectFileRenamerApp-ConfigProvider 'MFR.GUI.Application.ProjectFileRenamerApp.ConfigProvider')
@@ -17,6 +18,7 @@
   - [RootDirectoryPathValidator](#P-MFR-GUI-Application-ProjectFileRenamerApp-RootDirectoryPathValidator 'MFR.GUI.Application.ProjectFileRenamerApp.RootDirectoryPathValidator')
   - [#cctor()](#M-MFR-GUI-Application-ProjectFileRenamerApp-#cctor 'MFR.GUI.Application.ProjectFileRenamerApp.#cctor')
   - [ExitApplication()](#M-MFR-GUI-Application-ProjectFileRenamerApp-ExitApplication 'MFR.GUI.Application.ProjectFileRenamerApp.ExitApplication')
+  - [FixArguments(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-FixArguments-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.FixArguments(System.String[])')
   - [InitApplication(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-InitApplication-System-String[]- 'MFR.GUI.Application.ProjectFileRenamerApp.InitApplication(System.String[])')
   - [IsAutoStarted(args)](#M-MFR-GUI-Application-ProjectFileRenamerApp-IsAutoStarted-System-Collections-Generic-IEnumerable{System-String}- 'MFR.GUI.Application.ProjectFileRenamerApp.IsAutoStarted(System.Collections.Generic.IEnumerable{System.String})')
   - [OnCommandLineInfoInvalid(sender,e)](#M-MFR-GUI-Application-ProjectFileRenamerApp-OnCommandLineInfoInvalid-System-Object,MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.GUI.Application.ProjectFileRenamerApp.OnCommandLineInfoInvalid(System.Object,MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
@@ -88,6 +90,15 @@ Gets a reference to an instance of an object that implements the
 
 Gets a reference to an instance of an object that implements the
 [ICommandLineParser](#T-MFR-CommandLine-Parsers-Interfaces-ICommandLineParser 'MFR.CommandLine.Parsers.Interfaces.ICommandLineParser')
+interface.
+
+<a name='P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineProcessorTypeValidator'></a>
+### CommandLineProcessorTypeValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[ICommandLineProcessorTypeValidator](#T-MFR-GUI-Processors-Validators-Interfaces-ICommandLineProcessorTypeValidator 'MFR.GUI.Processors.Validators.Interfaces.ICommandLineProcessorTypeValidator')
 interface.
 
 <a name='P-MFR-GUI-Application-ProjectFileRenamerApp-CommandLineSpecified'></a>
@@ -169,6 +180,29 @@ Performs operations that should be undertaken when the application exits.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-MFR-GUI-Application-ProjectFileRenamerApp-FixArguments-System-String[]-'></a>
+### FixArguments(args) `method`
+
+##### Summary
+
+Gets the command-line arguments passed to the application, and fixes any that
+are malformed.
+
+##### Returns
+
+If successful, an array of [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values, each of which
+corresponds to a value that was passed by the user on the application's command
+line, with each value's format aligned with what we expect; otherwise, the
+empty array is returned.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| args | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | (Required.) An array of [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') values, each of which
+corresponds to a value that was passed by the user on the application's command
+line. |
 
 <a name='M-MFR-GUI-Application-ProjectFileRenamerApp-InitApplication-System-String[]-'></a>
 ### InitApplication(args) `method`
