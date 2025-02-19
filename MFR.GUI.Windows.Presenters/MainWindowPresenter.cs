@@ -1040,8 +1040,6 @@ namespace MFR.GUI.Windows.Presenters
 
             try
             {
-                ProgramFlowHelper.StartDebugger();
-
                 if (CommandLineInfo == null) return result;
                 if (!xyLOGIX.Files.Actions.Does.DirectoryExist(
                         CommandLineInfo.StartingFolder
