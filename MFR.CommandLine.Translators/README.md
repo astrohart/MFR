@@ -9,7 +9,7 @@
 - [TranslateCommandLineInfo](#T-MFR-CommandLine-Translators-TranslateCommandLineInfo 'MFR.CommandLine.Translators.TranslateCommandLineInfo')
   - [ConfigProvider](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-ConfigProvider 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ConfigProvider')
   - [CurrentConfig](#P-MFR-CommandLine-Translators-TranslateCommandLineInfo-CurrentConfig 'MFR.CommandLine.Translators.TranslateCommandLineInfo.CurrentConfig')
-  - [ToConfiguration(cmdInfo)](#M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ToConfiguration(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
+  - [ToConfig(cmdInfo)](#M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfig-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Translators.TranslateCommandLineInfo.ToConfig(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 
 <a name='T-MFR-CommandLine-Translators-Properties-Resources'></a>
 ## Resources `type`
@@ -83,8 +83,8 @@ implements the
 [IProjectFileRenamerConfig](#T-MFR-Settings-Configuration-Interfaces-IProjectFileRenamerConfig 'MFR.Settings.Configuration.Interfaces.IProjectFileRenamerConfig')
 interface that represents the currently-loaded config.
 
-<a name='M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfiguration-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
-### ToConfiguration(cmdInfo) `method`
+<a name='M-MFR-CommandLine-Translators-TranslateCommandLineInfo-ToConfig-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### ToConfig(cmdInfo) `method`
 
 ##### Summary
 
