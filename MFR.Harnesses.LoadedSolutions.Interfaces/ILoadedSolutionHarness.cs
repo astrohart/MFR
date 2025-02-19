@@ -1,9 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 
 namespace MFR.Harnesses.LoadedSolutions.Interfaces
 {
+    /// <summary>
+    /// Defines the publicly-exposed events, methods and properties of an object that
+    /// serves as a <c>harness</c> for a Visual Studio Solution (<c>*.sln</c>) file
+    /// that is loaded in a currently-running instance of Visual Studio..
+    /// </summary>
     public interface ILoadedSolutionHarness
     {
         /// <summary>
@@ -16,7 +22,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </remarks>
         string ContainingFolder
         {
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
@@ -25,7 +31,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </summary>
         string FullName
         {
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
@@ -42,8 +48,8 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </remarks>
         bool IsInRootDirectoryTree
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
 
         /// <summary>
@@ -52,7 +58,7 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </summary>
         bool IsLoaded
         {
-            get;
+            [DebuggerStepThrough] get;
         }
 
         /// <summary>
@@ -71,9 +77,22 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// </remarks>
         IVisualStudioSolution TargetSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         }
+
+        /// <summary>
+        /// Opens the target Visual Studio Solution (<c>*.sln</c>) file in the target
+        /// running instance of Visual Studio.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the operation completed successfully;
+        /// <see langword="false" /> otherwise or if the value of the
+        /// <see
+        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.TargetSolution" />
+        /// property is <see langword="null" />.
+        /// </returns>
+        bool Load();
 
         /// <summary>
         /// Occurs when the target running instance of Visual Studio has finished loading
@@ -93,6 +112,12 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         event CancelEventHandler Loading;
 
         /// <summary>
+        /// Exits the running instance of Visual Studio that has the target Visual Studio
+        /// Solution (<c>*.sln</c>) file open.
+        /// </summary>
+        void Quit();
+
+        /// <summary>
         /// Occurs when the target running instance of Visual Studio has been exited.
         /// </summary>
         event EventHandler Quitted;
@@ -108,6 +133,29 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// to prevent the operation from being carried out.
         /// </remarks>
         event CancelEventHandler Quitting;
+
+        /// <summary>
+        /// Open the target Visual Studio Solution (<c>*.sln</c>) file (if it exists) using
+        /// the Windows Shell.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if the operation succeeded;
+        /// <see langword="false" /> otherwise, or if the operation is cancelled.
+        /// </returns>
+        /// <remarks>
+        /// The
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpening" />
+        /// event is raised before the operation is carried out.  Handlers have a chance to
+        /// request that the operation be cancelled.
+        /// <para />
+        /// The
+        /// <see
+        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpened" />
+        /// event is raised when this method has completed executing the requested
+        /// operations.
+        /// </remarks>
+        bool ShellOpen();
 
         /// <summary>
         /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
@@ -136,85 +184,6 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         event EventHandler TargetSolutionChanged;
 
         /// <summary>
-        /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
-        /// unloaded from the target running instance of Visual Studio.
-        /// </summary>
-        event EventHandler Unloaded;
-
-        /// <summary>
-        /// Occurs when we are about to unload the target Visual Studio Solution (
-        /// <c>*.sln</c>) file from the target running instance of Visual Studio.
-        /// </summary>
-        /// The handler can set the value of the
-        /// <see cref="P:System.ComponentModel.CancelEventHandler.Cancel" />
-        /// property to
-        /// <see langword="true" />
-        /// to prevent the operation from being carried out.
-        /// </remarks>
-        event CancelEventHandler Unloading;
-
-        /// <summary>
-        /// Opens the target Visual Studio Solution (<c>*.sln</c>) file in the target
-        /// running instance of Visual Studio.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the operation completed successfully;
-        /// <see langword="false" /> otherwise or if the value of the
-        /// <see
-        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.TargetSolution" />
-        /// property is <see langword="null" />.
-        /// </returns>
-        bool Load();
-
-        /// <summary>
-        /// Exits the running instance of Visual Studio that has the target Visual Studio
-        /// Solution (<c>*.sln</c>) file open.
-        /// </summary>
-        void Quit();
-
-        /// <summary>
-        /// Updates the value of the
-        /// <see
-        ///     cref="P:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.FullName" />
-        /// property.
-        /// </summary>
-        /// <param name="fullName">
-        /// (Required.) A <see cref="T:System.String" /> containing
-        /// the fully-qualified pathname of the Visual Studio Solution (<c>*.sln</c>) file
-        /// that is represented by the target solution.
-        /// </param>
-        /// <remarks>
-        /// This method is used when the Project File Renamer algorithms have
-        /// renamed the Visual Studio Solution (<c>*.sln</c>) file that corresponds to the
-        /// Solution that is currently loaded in the target running instance of Visual
-        /// Studio.
-        /// </remarks>
-        void SetFullName(string fullName);
-
-        /// <summary>
-        /// Open the target Visual Studio Solution (<c>*.sln</c>) file (if it exists) using
-        /// the Windows Shell.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the operation succeeded;
-        /// <see langword="false" /> otherwise, or if the operation is cancelled.
-        /// </returns>
-        /// <remarks>
-        /// The
-        /// <see
-        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpening" />
-        /// event is raised before the operation is carried out.  Handlers have a chance to
-        /// request that the operation be cancelled.
-        /// <para />
-        /// The
-        /// <see
-        ///     cref="E:MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.ShellOpened" />
-        /// event is raised when this method has completed executing the requested
-        /// operations.
-        /// </remarks>
-        bool ShellOpen();
-
-        /// <summary>
         /// Unloads the target Visual Studio Solution (<c>*.sln</c>) file from the running
         /// instance of Visual Studio that has it open.
         /// </summary>
@@ -239,5 +208,23 @@ namespace MFR.Harnesses.LoadedSolutions.Interfaces
         /// operations.
         /// </remarks>
         bool Unload();
+
+        /// <summary>
+        /// Occurs when the target Visual Studio Solution (<c>*.sln</c>) file has been
+        /// unloaded from the target running instance of Visual Studio.
+        /// </summary>
+        event EventHandler Unloaded;
+
+        /// <summary>
+        /// Occurs when we are about to unload the target Visual Studio Solution (
+        /// <c>*.sln</c>) file from the target running instance of Visual Studio.
+        /// </summary>
+        /// The handler can set the value of the
+        /// <see cref="P:System.ComponentModel.CancelEventHandler.Cancel" />
+        /// property to
+        /// <see langword="true" />
+        /// to prevent the operation from being carried out.
+        /// </remarks>
+        event CancelEventHandler Unloading;
     }
 }
