@@ -410,7 +410,8 @@ pathname of a file to which the config should be exported. |
 ##### Remarks
 
 If a file having the specified `pathname` already
-exists on the file system at the time the export operation is performed, it will be
+exists on the file system at the time the export operation is performed, it
+will be
 overwritten.
 
 <a name='M-MFR-GUI-Windows-Presenters-MainWindowPresenter-FileExist-System-String-'></a>
