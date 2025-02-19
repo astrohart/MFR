@@ -323,6 +323,10 @@ namespace MFR.GUI.Application
                     }
 
                     argToUse = arg.Replace("=", "=\"");
+
+                    if (!argToUse.EndsWith("\""))
+                        argToUse += "\"";
+
                     result.Add(argToUse);
                 }
             }
