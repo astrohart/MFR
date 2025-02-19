@@ -45,8 +45,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool AutoStart
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = false;
 
         /// <summary>
@@ -55,8 +55,8 @@ namespace MFR.CommandLine.Models
         /// </summary>
         public string FindWhat
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = "";
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool? MatchCase
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = null;
 
         /// <summary>
@@ -81,8 +81,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool? MatchExactWord
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = null;
 
         /// <summary>
@@ -93,8 +93,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool RenameFilesInFolder
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = true;
 
         /// <summary>
@@ -103,8 +103,8 @@ namespace MFR.CommandLine.Models
         /// </summary>
         public bool RenameSolutionFolders
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = false;
 
         /// <summary>
@@ -115,8 +115,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool RenameSubFolders
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = true;
 
         /// <summary>
@@ -129,8 +129,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool? ReOpenSolution
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = null;
 
         /// <summary>
@@ -142,8 +142,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool ReplaceTextInFiles
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = true;
 
         /// <summary>
@@ -157,8 +157,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public string ReplaceWith
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = string.Empty;
 
         /// <summary>
@@ -187,8 +187,8 @@ namespace MFR.CommandLine.Models
         /// </remarks>
         public bool? ShouldCommitPostOperationChanges
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = null;
 
         /// <summary>
@@ -196,8 +196,8 @@ namespace MFR.CommandLine.Models
         /// </summary>
         public string StartingFolder
         {
-            get;
-            set;
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
         } = string.Empty;
     }
 }
