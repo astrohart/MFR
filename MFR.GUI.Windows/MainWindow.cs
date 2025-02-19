@@ -1234,8 +1234,8 @@ namespace MFR.GUI.Windows
         /// method, and, if required, marshaling the method call to the UI thread.
         /// </remarks>
         private void OnConfiguredStartingFolderChanged(
-            object sender,
-            StartingFolderChangedEventArgs e
+            [NotLogged] object sender,
+            [NotLogged] StartingFolderChangedEventArgs e
         )
         {
             if (e.OldPath.EqualsNoCase(e.NewPath)) return;
