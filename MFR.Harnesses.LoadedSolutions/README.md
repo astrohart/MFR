@@ -22,7 +22,6 @@
   - [OnUnloaded()](#M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-OnUnloaded 'MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.OnUnloaded')
   - [OnUnloading(e)](#M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-OnUnloading-System-ComponentModel-CancelEventArgs- 'MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.OnUnloading(System.ComponentModel.CancelEventArgs)')
   - [Quit()](#M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-Quit 'MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Quit')
-  - [SetFullName(fullName)](#M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-SetFullName-System-String- 'MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.SetFullName(System.String)')
   - [ShellOpen()](#M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-ShellOpen 'MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.ShellOpen')
   - [Unload()](#M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-Unload 'MFR.Harnesses.LoadedSolutions.LoadedSolutionHarness.Unload')
 - [Resources](#T-MFR-Harnesses-LoadedSolutions-Properties-Resources 'MFR.Harnesses.LoadedSolutions.Properties.Resources')
@@ -347,30 +346,6 @@ Solution (`*.sln`) file open.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-SetFullName-System-String-'></a>
-### SetFullName(fullName) `method`
-
-##### Summary
-
-Updates the value of the
-[FullName](#P-MFR-Harnesses-LoadedSolutions-Interfaces-ILoadedSolutionHarness-FullName 'MFR.Harnesses.LoadedSolutions.Interfaces.ILoadedSolutionHarness.FullName')
-property.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| fullName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing
-the fully-qualified pathname of the Visual Studio Solution (`*.sln`) file
-that is represented by the target solution. |
-
-##### Remarks
-
-This method is used when the Project File Renamer algorithms have
-renamed the Visual Studio Solution (`*.sln`) file that corresponds to the
-Solution that is currently loaded in the target running instance of Visual
-Studio.
 
 <a name='M-MFR-Harnesses-LoadedSolutions-LoadedSolutionHarness-ShellOpen'></a>
 ### ShellOpen() `method`
