@@ -167,6 +167,10 @@
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Validators.Interfaces\MFR.CommandLine.Validators.Interfaces.csproj">
+      <Project>{5a6cc1df-fef7-4877-8116-4a06ab34c317}</Project>
+      <Name>MFR.CommandLine.Validators.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Common\MFR.Common.csproj">
       <Project>{B896E5D7-988C-4DDD-96D1-D36B7CA75CB6}</Project>
       <Name>MFR.Common</Name>
