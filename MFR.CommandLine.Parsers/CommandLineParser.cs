@@ -7,8 +7,10 @@ using MFR.CommandLine.Parsers.Events;
 using MFR.CommandLine.Parsers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Win32.Interact;
 
 namespace MFR.CommandLine.Parsers
 {
@@ -33,10 +35,9 @@ namespace MFR.CommandLine.Parsers
         /// Gets a reference to the one and only instance of
         /// <see cref="T:MFR.CommandLine.Parsers.CommandLineParser" />.
         /// </summary>
-        [Log(AttributeExclude = true)]
         public static ICommandLineParser Instance
         {
-            get;
+            [DebuggerStepThrough] get;
         } = new CommandLineParser();
 
         /// <summary>
@@ -55,16 +56,76 @@ namespace MFR.CommandLine.Parsers
         /// application.
         /// application.
         /// </param>
-        public ICommandLineInfo Parse(string[] args)
+        [return: NotLogged]
+        public ICommandLineInfo Parse([NotLogged] string[] args)
         {
-            var result = MakeNewCommandLineInfo.FromScratch();
-            if (args == null || !args.Any())
-                return result;
+            DebugUtils.WriteLine(
+                DebugLevel.Info,
+                "CommandLineParser.Parse: Attempting to parse command line argument(s)..."
+            );
 
+            var result = MakeNewCommandLineInfo.FromScratch();
+
+            // Keep this variable outside the try/catch, so a help message can be shown if an error occurs.
             var p = new FluentCommandLineParser<CommandLineInfo>();
 
             try
             {
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineParser.Parse: Checking whether the 'args' method parameter has a null reference for a value..."
+                );
+
+                // Check to see if the required parameter, args, is null. If it is, send an 
+                // error to the log file and quit, returning the default return value of this
+                // method.
+                if (args == null)
+                {
+                    // The parameter, 'args', is required and is not supposed to have a NULL value.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "CommandLineParser.Parse: *** ERROR *** A null reference was passed for the 'args' method parameter.  Stopping..."
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineParser.Parse: *** SUCCESS *** We have been passed a valid object reference for the 'args' method parameter.  Proceeding..."
+                );
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineParser.Parse *** INFO: Checking whether the array, 'args', has greater than zero elements..."
+                );
+
+                // Check whether the array, 'args', has greater than zero elements.  If it is empty,
+                // then write an error message to the log file, and then terminate the execution of this method.
+                // It is preferred for the array to have greater than zero elements.
+                if (args.Length <= 0)
+                {
+                    // The array, 'args', has zero elements, and we can't proceed if this is so.
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        "CommandLineParser.Parse *** ERROR *** The array, 'args', has zero elements.  Stopping..."
+                    );
+
+                    DebugUtils.WriteLine(
+                        DebugLevel.Debug,
+                        $"*** CommandLineParser.Parse: Result = {result}"
+                    );
+
+                    // stop.
+                    return result;
+                }
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    $"CommandLineParser.Parse *** SUCCESS *** {args.Length} element(s) were found in the 'args' array.  Parsing the command-line argument(s)..."
+                );
+
                 p.Setup(arg => arg.AutoStart)
                  .As("autoStart")
                  .SetDefault(false)
@@ -191,6 +252,11 @@ namespace MFR.CommandLine.Parsers
                     !result.ReplaceTextInFiles)
                     result.RenameFilesInFolder = result.RenameSubFolders =
                         result.ReplaceTextInFiles = true;
+
+                DebugUtils.WriteLine(
+                    DebugLevel.Info,
+                    "CommandLineParser.Parse: *** SUCCESS *** The command-line argument(s) of the application were parsed successfully.  Proceeding..."
+                );
             }
             catch (Exception ex)
             {
@@ -200,7 +266,13 @@ namespace MFR.CommandLine.Parsers
                 if (p != null && p.Options.Any())
                     p.HelpOption.ShowHelp(p.Options);
 
+                Messages.ShowStopError(
+                    $"Failed to parse the command-line argument(s) that were passed to the application.\n\n{ex.Message}.\n\nThe application will now close."
+                );
+
                 Environment.Exit(-1);
+
+                result = MakeNewCommandLineInfo.FromScratch();
             }
 
             return result;
@@ -215,7 +287,8 @@ namespace MFR.CommandLine.Parsers
         /// <see cref="T:MFR.CommandLine.Parsers.Events.DisplayHelpEventArgs" /> that
         /// contains the event data.
         /// </param>
-        protected virtual void OnDisplayHelp(DisplayHelpEventArgs e)
+        protected virtual void OnDisplayHelp(
+            [NotLogged] DisplayHelpEventArgs e)
             => DisplayHelp?.Invoke(this, e);
     }
 }
