@@ -128,15 +128,14 @@ namespace MFR.GUI.Initializers
                 if (comboBox == null) return;
                 if (comboBox.IsDisposed) return;
 
-                ProgramFlowHelper.StartDebugger();
-
                 comboBox.Items.Clear();
 
                 AddCurrentItemToComboBox(comboBox, itemList, currentItem);
 
                 AddItemsToComboBox(comboBox, itemList);
 
-                if (string.IsNullOrWhiteSpace(currentItem))
+                if (string.IsNullOrWhiteSpace(currentItem)
+                    && comboBox.Items.Count > 0)
                     comboBox.SelectedIndex = 0;
                 else
                     comboBox.Text = currentItem;
