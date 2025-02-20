@@ -130,6 +130,8 @@ namespace MFR.GUI.Initializers
 
                 comboBox.Items.Clear();
 
+                ProgramFlowHelper.StartDebugger();
+
                 AddCurrentItemToComboBox(comboBox, itemList, currentItem);
 
                 AddItemsToComboBox(comboBox, itemList);
