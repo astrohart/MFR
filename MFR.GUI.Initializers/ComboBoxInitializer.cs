@@ -128,9 +128,9 @@ namespace MFR.GUI.Initializers
                 if (comboBox == null) return;
                 if (comboBox.IsDisposed) return;
 
-                comboBox.Items.Clear();
-
                 ProgramFlowHelper.StartDebugger();
+
+                comboBox.Items.Clear();
 
                 AddCurrentItemToComboBox(comboBox, itemList, currentItem);
 
