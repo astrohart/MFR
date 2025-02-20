@@ -8,9 +8,8 @@ using xyLOGIX.Core.Extensions;
 namespace MFR.GUI.Initializers
 {
     /// <summary>
-    /// Declares methods that assist in initializing combo boxes.
+    /// Declares methods that assist in initializing comboboxes.
     /// </summary>
-    [Log(AttributeExclude = true)]
     public static class ComboBoxInitializer
     {
         /// <summary>
@@ -27,6 +26,37 @@ namespace MFR.GUI.Initializers
         [Log(AttributeExclude = true)]
         static ComboBoxInitializer() { }
 
+        /// <summary>
+        /// Adds the <paramref name="currentItem" /> to the drop-down portion of the
+        /// specified <paramref name="comboBox" /> if it is not already present in the
+        /// provided <paramref name="itemList" />.
+        /// </summary>
+        /// <param name="comboBox">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that represents the combobox control to which the current item is to be added.
+        /// </param>
+        /// <param name="itemList">
+        /// (Required.) Collection of <see cref="T:System.String" /> value(s), each of
+        /// which representing an item that is already present in the combobox.
+        /// </param>
+        /// <param name="currentItem">
+        /// (Required.) A <see cref="T:System.String" /> containing the value to set as the
+        /// currently-selected item in the combobox (unless it is blank).
+        /// </param>
+        /// <remarks>
+        /// This method checks if the value of the <paramref name="comboBox" /> parameter
+        /// is a <see langword="null" /> reference or refers to an already-disposed
+        /// control, and if the <paramref name="currentItem" /> is <see langword="null" />,
+        /// the <see cref="F:System.String.Empty" /> value, or all whitespace.
+        /// <para />
+        /// If the specified <paramref name="itemList" /> is <see langword="null" /> or the
+        /// empty collection, the specified <paramref name="currentItem" /> is added to the
+        /// <paramref name="comboBox"/>.
+        /// <para />
+        /// If the specified <paramref name="currentItem" /> is not already in the item
+        /// list, it is added to the drop-down portion of the combobox.
+        /// </remarks>
         private static void AddCurrentItemToComboBox(
             [NotLogged] IEntryRespectingComboBox comboBox,
             [NotLogged] IList<string> itemList,
@@ -62,6 +92,29 @@ namespace MFR.GUI.Initializers
             }
         }
 
+        /// <summary>
+        /// Adds items from the provided list to the specified combobox.
+        /// </summary>
+        /// <param name="comboBox">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that represents the combobox control to which items are to be added.
+        /// </param>
+        /// <param name="itemList">
+        /// (Required.) Collection of <see cref="T:System.String" /> value(s), each of
+        /// which representing an item that is to be added to the drop-down portion of the
+        /// combobox.
+        /// </param>
+        /// <remarks>
+        /// This method iterates through the provided list of items and adds each non-null,
+        /// non-empty, and non-whitespace item to the combobox.
+        /// <para />
+        /// If this method receives a <see langword="null" /> reference or an
+        /// already-disposed combobox, then it simply returns without doing anything.
+        /// <para />
+        /// The same occurs if the paramref name="itemList" /> is <see langword="null" />
+        /// or has no elements.
+        /// </remarks>
         private static void AddItemsToComboBox(
             [NotLogged] IEntryRespectingComboBox comboBox,
             [NotLogged] IList<string> itemList
@@ -95,18 +148,17 @@ namespace MFR.GUI.Initializers
         /// currently-selected item.
         /// </summary>
         /// <param name="comboBox">
-        /// (Required.) Reference to the
-        /// <see
-        ///     cref="T:System.Windows.Forms.ComboBox" />
-        /// to be initialized.
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" /> interface
+        /// that represents the combobox control that is to be initialized.
         /// </param>
         /// <param name="currentItem">
         /// (Optional.) String containing the value to set as the
-        /// currently-selected item in the combo box.
+        /// currently-selected item in the combobox.
         /// </param>
         /// <param name="itemList">
         /// (Required.) Collection of one or more items that should be in the
-        /// history list of items in the combo box's body.
+        /// history list of items in the combobox's body.
         /// </param>
         /// <exception cref="T:System.ArgumentNullException">
         /// Thrown if the required parameters, <paramref name="comboBox" /> and
@@ -114,13 +166,13 @@ namespace MFR.GUI.Initializers
         /// reference for values.
         /// </exception>
         /// <remarks>
-        /// This method is intended to be utilized in order to fill combo box
+        /// This method is intended to be utilized in order to fill combobox
         /// controls with data from a data source.
         /// </remarks>
         public static void InitializeComboBox(
-            IEntryRespectingComboBox comboBox,
-            IList<string> itemList,
-            string currentItem = ""
+            [NotLogged] IEntryRespectingComboBox comboBox,
+            [NotLogged] IList<string> itemList,
+            [NotLogged] string currentItem = ""
         )
         {
             try
@@ -134,11 +186,55 @@ namespace MFR.GUI.Initializers
 
                 AddItemsToComboBox(comboBox, itemList);
 
-                if (string.IsNullOrWhiteSpace(currentItem)
-                    && comboBox.Items.Count > 0)
-                    comboBox.SelectedIndex = 0;
-                else
+                SelectAppropriateItem(comboBox, currentItem);
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+            }
+        }
+
+        /// <summary>
+        /// Selects the appropriate item in the combobox. If the
+        /// <paramref name="currentItem" /> is not null, empty, or all whitespace, then set
+        /// the value of the editable, text portion of the combobox to it. Otherwise,
+        /// select the first item in the list, if there is one.
+        /// </summary>
+        /// <param name="comboBox">
+        /// (Required.) Reference to an instance of an object that implements the
+        /// <see cref="T:MFR.GUI.Controls.Interfaces.IEntryRespectingComboBox" />
+        /// interface.
+        /// <para />
+        /// This object is the combobox control that is to be initialized.
+        /// </param>
+        /// <param name="currentItem">
+        /// (Required.) A <see cref="T:System.String" /> that
+        /// represents the item that is either to be set as the text of the editable
+        /// portion of the target <paramref name="comboBox" />, or, if it is already
+        /// contained within the list of the item(s) in the combobox, selected.
+        /// </param>
+        private static void SelectAppropriateItem(
+            [NotLogged] IEntryRespectingComboBox comboBox,
+            [NotLogged] string currentItem
+        )
+        {
+            try
+            {
+                // If the 'currentItem' is not null, empty, or all whitespace, then set the value of the editable, text portion of the combobox to it. Otherwise,// select the first item in the list, if there is one.
+                if (!string.IsNullOrWhiteSpace(currentItem))
+                {
                     comboBox.Text = currentItem;
+                    return;
+                }
+
+                // If we are here, then the 'currentItem' is null, empty, or all whitespace. In this case,
+                // we need to select the first item in the list, if there is one.
+                if (comboBox.Items.Count > 0)
+                {
+                    comboBox.SelectedIndex = 0;
+                    return;
+                }
             }
             catch (Exception ex)
             {
