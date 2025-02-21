@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Constants;
+ */
+
+using MFR.GUI.Constants;
 
 namespace MFR.Paths.Profiles.Provider.Constants
 {

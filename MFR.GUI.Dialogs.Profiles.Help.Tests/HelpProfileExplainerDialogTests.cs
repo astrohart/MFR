@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using MFR.GUI.Dialogs.Profiles.Help.Factories;
 using MFR.GUI.Dialogs.Tests;
 using NUnit.Framework;

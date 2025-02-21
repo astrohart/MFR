@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Dialogs.Constants;
+ */
+
+using MFR.GUI.Dialogs.Constants;
 using PostSharp.Patterns.Diagnostics;
 using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
 using System;

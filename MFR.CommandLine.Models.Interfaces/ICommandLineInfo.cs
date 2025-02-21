@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System.Diagnostics;
+ */
+
+using System.Diagnostics;
 
 namespace MFR.CommandLine.Models.Interfaces
 {

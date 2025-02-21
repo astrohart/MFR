@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Settings.Configuration.Commands.Constants;
+ */
+
+using MFR.Settings.Configuration.Commands.Constants;
 using MFR.Messages.Commands.Interfaces;
 using MFR.Messages.Constants;
 using MFR.Metadata.Registry.Factories;

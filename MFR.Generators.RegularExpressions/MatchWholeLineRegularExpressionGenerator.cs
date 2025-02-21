@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Generators.RegularExpressions.Constants;
+ */
+
+using MFR.Generators.RegularExpressions.Constants;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Text.RegularExpressions;

@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System.Runtime.InteropServices;
+ */
+
+using System.Runtime.InteropServices;
 using FILETIME = System.Runtime.InteropServices.ComTypes.FILETIME;
 
 namespace MFR.Renamers.Files.Actions.Win32

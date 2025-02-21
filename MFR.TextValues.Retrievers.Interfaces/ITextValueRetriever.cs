@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.FileSystem.Interfaces;
+ */
+
+using MFR.FileSystem.Interfaces;
 using MFR.Operations.Interfaces;
 
 namespace MFR.TextValues.Retrievers.Interfaces

@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.CommandLine.Models.Interfaces;
+ */
+
+using MFR.CommandLine.Models.Interfaces;
 using MFR.CommandLine.Validators.Constants;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Interfaces;

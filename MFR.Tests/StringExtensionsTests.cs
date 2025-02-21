@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using MFR.Tests.Common;
 using NUnit.Framework;
 using Alphaleonis.Win32.Filesystem;

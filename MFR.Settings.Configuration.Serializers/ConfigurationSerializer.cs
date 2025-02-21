@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using Alphaleonis.Win32.Filesystem;
+ */
+
+using Alphaleonis.Win32.Filesystem;
 using MFR.FileSystem.Helpers;
 using MFR.Settings.Configuration.Converters;
 using MFR.Settings.Configuration.Factories;

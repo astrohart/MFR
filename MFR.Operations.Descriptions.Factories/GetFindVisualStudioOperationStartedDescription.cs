@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Operations.Descriptions.Interfaces;
+ */
+
+using MFR.Operations.Descriptions.Interfaces;
 
 namespace MFR.Operations.Descriptions.Factories
 {

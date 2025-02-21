@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using MFR.Directories.Validators.Constants;
 using MFR.Directories.Validators.Constants.Generators;
 using System;

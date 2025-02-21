@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Processors.Validators.Interfaces;
+ */
+
+using MFR.GUI.Processors.Validators.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Diagnostics;

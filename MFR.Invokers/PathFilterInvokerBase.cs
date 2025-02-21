@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Invokers.Interfaces;
+ */
+
+using MFR.Invokers.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 

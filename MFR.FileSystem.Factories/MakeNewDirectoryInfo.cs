@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using Alphaleonis.Win32.Filesystem;
+ */
+
+using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;

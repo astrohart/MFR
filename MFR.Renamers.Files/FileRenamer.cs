@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Constants;
+ */
+
+using MFR.Constants;
 using MFR.Directories.Managers.Factories;
 using MFR.Directories.Managers.Interfaces;
 using MFR.Directories.Validators.Factories;

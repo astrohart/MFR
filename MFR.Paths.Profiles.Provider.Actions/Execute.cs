@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Expressions.Registry.Interfaces;
+ */
+
+using MFR.Expressions.Registry.Interfaces;
 using MFR.FileSystem.Interfaces;
 using MFR.Messages.Actions.Interfaces;
 using MFR.Messages.Commands.Interfaces;

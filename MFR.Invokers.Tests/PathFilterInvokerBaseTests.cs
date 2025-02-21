@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using MFR.Invokers.Factories;
 using MFR.Invokers.Interfaces;
 using NUnit.Framework;

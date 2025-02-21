@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using Alphaleonis.Win32.Filesystem;
+ */
+
+using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Interfaces;
 using PostSharp.Patterns.Diagnostics;

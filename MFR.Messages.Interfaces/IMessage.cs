@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System.Threading.Tasks;
+ */
+
+using System.Threading.Tasks;
 
 namespace MFR.Messages.Interfaces
 {

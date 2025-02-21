@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System.Windows.Forms;
+ */
+
+using System.Windows.Forms;
 
 namespace MFR.GUI.Launchers.Dialogs.Params.Interfaces
 {

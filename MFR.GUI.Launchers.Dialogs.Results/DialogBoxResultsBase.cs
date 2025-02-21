@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
+ */
+
+using MFR.GUI.Launchers.Dialogs.Results.Interfaces;
 using System.Windows.Forms;
 
 namespace MFR.GUI.Launchers.Dialogs.Results

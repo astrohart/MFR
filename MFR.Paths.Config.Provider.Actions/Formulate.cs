@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System;
+ */
+
+using System;
 using xyLOGIX.Core.Debug;
 
 namespace MFR.Paths.Config.Provider.Actions

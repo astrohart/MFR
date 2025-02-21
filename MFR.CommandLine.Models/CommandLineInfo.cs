@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.CommandLine.Models.Interfaces;
+ */
+
+using MFR.CommandLine.Models.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System.Diagnostics;
 

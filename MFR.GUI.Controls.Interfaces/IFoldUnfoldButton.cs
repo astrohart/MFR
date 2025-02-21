@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Controls.Events;
+ */
+
+using MFR.GUI.Controls.Events;
 using System.Drawing;
 using System.Windows.Forms;
 

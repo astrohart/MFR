@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Dialogs.Text.Retrievers.Interfaces;
+ */
+
+using MFR.GUI.Dialogs.Text.Retrievers.Interfaces;
 using System;
 
 namespace MFR.GUI.Dialogs.Text.Retrievers

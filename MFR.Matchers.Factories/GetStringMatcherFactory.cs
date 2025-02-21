@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Models.Converters;
+ */
+
+using MFR.GUI.Models.Converters;
 using MFR.Matchers.Factories.Interfaces;
 using MFR.Operations.Constants;
 using PostSharp.Patterns.Diagnostics;

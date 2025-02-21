@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Application.Interfaces;
+ */
+
+using MFR.GUI.Application.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.GUI.Application.Factories

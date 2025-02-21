@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Managers.History.Interfaces;
+ */
+
+using MFR.Managers.History.Interfaces;
 using System.Windows.Forms;
 
 namespace MFR.Managers.History.Factories

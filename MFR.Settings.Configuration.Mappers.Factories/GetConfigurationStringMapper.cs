@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Settings.Configuration.Mappers.Constants;
+ */
+
+using MFR.Settings.Configuration.Mappers.Constants;
 using MFR.Settings.Configuration.Mappers.Factories;
 using MFR.Settings.Configuration.Mappers.Interfaces;
 using System;

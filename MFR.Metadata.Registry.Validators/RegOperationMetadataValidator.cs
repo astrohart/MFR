@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Metadata.Registry.Interfaces;
+ */
+
+using MFR.Metadata.Registry.Interfaces;
 using MFR.Metadata.Registry.Validators.Interfaces;
 using MFR.Metadata.Registry.Validators.Properties;
 using MFR.Registry.Helpers;

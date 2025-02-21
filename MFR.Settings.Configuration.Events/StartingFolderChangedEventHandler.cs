@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Diagnostics;
+ */
+
+using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Settings.Configuration.Events
 {

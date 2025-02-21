@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Expressions.Matches.Interfaces;
+ */
+
+using MFR.Expressions.Matches.Interfaces;
 
 namespace MFR.Expressions.Matches
 {

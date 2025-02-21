@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Errors.Reports.Commands.Constants;
+ */
+
+using MFR.Errors.Reports.Commands.Constants;
 using MFR.FileSystem.Factories;
 using MFR.FileSystem.Helpers;
 using MFR.GUI.Dialogs.Events;

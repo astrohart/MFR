@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.CommandLine.Models.Interfaces;
+ */
+
+using MFR.CommandLine.Models.Interfaces;
 using System;
 
 namespace MFR.GUI.Application.Interfaces

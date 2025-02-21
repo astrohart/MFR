@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Dialogs.Constants;
+ */
+
+using MFR.GUI.Dialogs.Constants;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Dialogs.Profiles.Help.Factories;
 using MFR.GUI.Dialogs.Text.Retrievers.Factories;

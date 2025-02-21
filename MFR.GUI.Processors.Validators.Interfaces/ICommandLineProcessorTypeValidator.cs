@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Processors.Constants;
+ */
+
+using MFR.GUI.Processors.Constants;
 
 namespace MFR.GUI.Processors.Validators.Interfaces
 {

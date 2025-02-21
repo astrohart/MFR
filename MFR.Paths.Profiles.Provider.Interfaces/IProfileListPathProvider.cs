@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Events.Common;
+ */
+
+using MFR.Events.Common;
 using System;
 using System.ComponentModel;
 

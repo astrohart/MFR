@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using xyLOGIX.UI.Dark.Forms;
+ */
+
+using xyLOGIX.UI.Dark.Forms;
 
 namespace MFR.GUI.Dialogs
 {

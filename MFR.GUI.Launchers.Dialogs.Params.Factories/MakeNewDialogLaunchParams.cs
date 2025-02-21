@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
+ */
+
+using MFR.GUI.Launchers.Dialogs.Params.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Windows.Forms;

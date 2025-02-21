@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System.Collections.Generic;
+ */
+
+using System.Collections.Generic;
 
 namespace MFR.Validators.Interfaces
 {

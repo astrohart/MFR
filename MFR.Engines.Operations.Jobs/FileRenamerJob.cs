@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Engines.Operations.Jobs.Interfaces;
+ */
+
+using MFR.Engines.Operations.Jobs.Interfaces;
 using System;
 
 namespace MFR.Engines.Operations.Jobs

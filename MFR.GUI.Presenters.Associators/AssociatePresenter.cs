@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Windows.Presenters;
+ */
+
+using MFR.GUI.Windows.Presenters;
 
 namespace MFR.GUI.Presenters.Associators
 {

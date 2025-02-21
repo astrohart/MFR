@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Settings.Profiles.Interfaces;
+ */
+
+using MFR.Settings.Profiles.Interfaces;
 using Newtonsoft.Json;
 using PostSharp.Patterns.Diagnostics;
 using System;

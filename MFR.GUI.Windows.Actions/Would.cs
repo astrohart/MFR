@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.FileSystem.Enumerators;
+ */
+
+using MFR.FileSystem.Enumerators;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.IO;

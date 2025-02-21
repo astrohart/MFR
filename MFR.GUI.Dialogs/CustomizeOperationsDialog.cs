@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Dialogs.Interfaces;
+ */
+
+using MFR.GUI.Dialogs.Interfaces;
 using System.ComponentModel;
 using System.Diagnostics;
 using xyLOGIX.UI.Dark.Controls.Interfaces;

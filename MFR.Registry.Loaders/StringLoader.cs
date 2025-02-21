@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Registry.Helpers;
+ */
+
+using MFR.Registry.Helpers;
 using MFR.Registry.Loaders.Interfaces;
 using Microsoft.Win32;
 using PostSharp.Patterns.Diagnostics;

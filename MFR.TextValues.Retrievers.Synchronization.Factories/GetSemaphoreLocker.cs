@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.TextValues.Retrievers.Synchronization.Interfaces;
+ */
+
+using MFR.TextValues.Retrievers.Synchronization.Interfaces;
 
 namespace MFR.TextValues.Retrievers.Synchronization.Factories
 {

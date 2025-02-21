@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.FileSystem.Filters.Interfaces;
+ */
+
+using MFR.FileSystem.Filters.Interfaces;
 
 namespace MFR.FileSystem.Filters.Factories
 {

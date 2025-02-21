@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System;
+ */
+
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;

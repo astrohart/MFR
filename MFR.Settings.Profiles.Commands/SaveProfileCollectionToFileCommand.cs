@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.FileSystem.Interfaces;
+ */
+
+using MFR.FileSystem.Interfaces;
 using MFR.Messages.Commands;
 using MFR.Messages.Constants;
 using MFR.Settings.Profiles.Collections.Interfaces;

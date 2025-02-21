@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Filters.Search.Constants;
+ */
+
+using MFR.Filters.Search.Constants;
 
 namespace MFR.Filters.Search.Interfaces
 {

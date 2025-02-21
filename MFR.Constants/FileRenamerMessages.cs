@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Diagnostics;
+ */
+
+using PostSharp.Patterns.Diagnostics;
 using System;
 
 namespace MFR.Constants

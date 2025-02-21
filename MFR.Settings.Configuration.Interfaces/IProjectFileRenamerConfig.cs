@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Models.Interfaces;
+ */
+
+using MFR.GUI.Models.Interfaces;
 using MFR.Settings.Configuration.Events;
 using System.Collections.Generic;
 using System.Diagnostics;

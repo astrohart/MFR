@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Messages.Constants;
+ */
+
+using MFR.Messages.Constants;
 using MFR.Messages.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 

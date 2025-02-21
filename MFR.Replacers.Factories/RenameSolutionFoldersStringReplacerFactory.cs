@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Operations.Constants;
+ */
+
+using MFR.Operations.Constants;
 using MFR.Replacers.Factories.Interfaces;
 
 namespace MFR.Replacers.Factories

@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Settings.Configuration.Interfaces;
+ */
+
+using MFR.Settings.Configuration.Interfaces;
 using MFR.Engines.Replacement.Factories;
 using MFR.Engines.Replacement.Intefaces;
 using MFR.Operations.Constants;

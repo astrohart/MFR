@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using Microsoft.Win32;
+ */
+
+using Microsoft.Win32;
 using System;
 using System.Linq;
 using xyLOGIX.Core.Debug;

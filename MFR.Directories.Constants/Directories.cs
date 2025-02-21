@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System;
+ */
+
+using System;
 
 namespace MFR.Directories.Constants
 {

@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Messages.Identifiers.Interfaces;
+ */
+
+using MFR.Messages.Identifiers.Interfaces;
 using System;
 
 namespace MFR.Messages.Identifiers.Factories

@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Replacers.Factories.Interfaces;
+ */
+
+using MFR.Replacers.Factories.Interfaces;
 using PostSharp.Patterns.Diagnostics;
 
 namespace MFR.Replacers.Factories

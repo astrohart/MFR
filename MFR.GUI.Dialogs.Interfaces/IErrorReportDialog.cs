@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Dialogs.Events;
+ */
+
+using MFR.GUI.Dialogs.Events;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;

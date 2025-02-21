@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using Alphaleonis.Win32.Filesystem;
 using MFR.Paths.Config.Provider.Factories;
 using MFR.Paths.Config.Provider.Interfaces;

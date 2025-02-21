@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using Alphaleonis.Win32.Filesystem;
+ */
+
+using Alphaleonis.Win32.Filesystem;
 using MFR.GUI.Dialogs.Events;
 using MFR.GUI.Dialogs.Interfaces;
 using MFR.GUI.Dialogs.Properties;

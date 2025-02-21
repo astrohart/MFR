@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using System.Diagnostics;
+ */
+
+using System.Diagnostics;
 using System.Windows.Forms;
 using xyLOGIX.Core.Extensions;
 

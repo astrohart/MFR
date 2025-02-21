@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using MFR.Harnesses.LoadedSolutions.Interfaces;
 using xyLOGIX.VisualStudio.Solutions.Interfaces;
 

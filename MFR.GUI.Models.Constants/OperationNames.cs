@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.GUI.Models.Constants.Properties;
+ */
+
+using MFR.GUI.Models.Constants.Properties;
 
 namespace MFR.GUI.Models.Constants
 {

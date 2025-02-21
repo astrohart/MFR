@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Extensibility;
+ */
+
+using PostSharp.Extensibility;
 using PostSharp.Patterns.Diagnostics;
 
 // This file contains registration of aspects that are applied to several classes of this project.

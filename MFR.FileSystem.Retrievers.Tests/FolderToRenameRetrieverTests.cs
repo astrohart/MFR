@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using PostSharp.Patterns.Threading;
+ */
+
+using PostSharp.Patterns.Threading;
 using MFR.FileSystem.Interfaces;
 using MFR.FileSystem.Retrievers.Factories;
 using MFR.FileSystem.Retrievers.Interfaces;

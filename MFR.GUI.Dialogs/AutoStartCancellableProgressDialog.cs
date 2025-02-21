@@ -49,7 +49,9 @@
  *
  * xyLOGIX, LLC
  * info@xylogix.net
- */using MFR.Constants;
+ */
+
+using MFR.Constants;
 using MFR.Engines.Operations.Jobs.Factories;
 using MFR.Engines.Operations.Jobs.Interfaces;
 using MFR.Events;
