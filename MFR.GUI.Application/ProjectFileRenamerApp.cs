@@ -324,7 +324,7 @@ namespace MFR.GUI.Application
 
                     argToUse = arg.Replace("=", "=\"");
 
-                    if (!argToUse.EndsWith("\""))
+                    if (!argToUse.EndsWith("\"") || argToUse.EndsWith("=\""))
                         argToUse += "\"";
 
                     result.Add(argToUse);
