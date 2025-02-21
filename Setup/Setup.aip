@@ -15,7 +15,7 @@
     <ROW Property="ProductCode" Value="1033:{9DB2C27F-08D8-40B6-B84A-A7DFF7A0C51A} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="xyLOGIX Project File Renamer [|ProductVersion]"/>
-    <ROW Property="ProductVersion" Value="2.0.9178.37974" Options="24"/>
+    <ROW Property="ProductVersion" Value="2.0.9181.41278" Options="24"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{4BCB8C37-9CB7-49F9-929C-6372E5430078}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -173,6 +173,9 @@
     <ROW Component="MFR.GUI.Processors.Constants.dll" ComponentId="{9748EB31-8516-4740-8340-5F78C337A983}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.Constants.dll"/>
     <ROW Component="MFR.GUI.Processors.Factories.dll" ComponentId="{A815CAC2-66B6-4D11-A170-5EF2EFC31F97}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.Factories.dll"/>
     <ROW Component="MFR.GUI.Processors.Interfaces.dll" ComponentId="{88D90893-6244-4A0E-B89F-A91C7126FF38}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.Interfaces.dll"/>
+    <ROW Component="MFR.GUI.Processors.Validators.Factories.dll" ComponentId="{ABA40CA6-2480-4235-80EA-0354ABF170B0}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.Validators.Factories.dll"/>
+    <ROW Component="MFR.GUI.Processors.Validators.Interfaces.dll" ComponentId="{661BD1DE-41B5-45DB-A2F2-21AA364A37F0}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.Validators.Interfaces.dll"/>
+    <ROW Component="MFR.GUI.Processors.Validators.dll" ComponentId="{4388D581-0168-4D7A-AD8B-32097AE9286B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.Validators.dll"/>
     <ROW Component="MFR.GUI.Processors.dll" ComponentId="{081A2D6D-3B79-4137-A94F-8E46A82472B1}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Processors.dll"/>
     <ROW Component="MFR.GUI.Windows.Actions.dll" ComponentId="{0B502BEC-8DEF-48EA-B095-D91C259AD84B}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Windows.Actions.dll"/>
     <ROW Component="MFR.GUI.Windows.Constants.dll" ComponentId="{15329096-3BC2-4B02-A115-2C6BA3BDEC75}" Directory_="APPDIR" Attributes="256" KeyPath="MFR.GUI.Windows.Constants.dll"/>
@@ -345,6 +348,7 @@
     <ROW Component="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll" ComponentId="{38D9C884-198E-4F57-B95C-2C1FD8C50AB5}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Dialogs.FolderSelect.Factories.dll"/>
     <ROW Component="xyLOGIX.Core.Dialogs.FolderSelect.Interfaces.dll" ComponentId="{2588475B-C408-4DE1-BC9D-3030BBFD96AF}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Dialogs.FolderSelect.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Core.Dialogs.FolderSelect.dll" ComponentId="{02596EEE-685F-45FB-B2AA-1C3A4525A5D5}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Dialogs.FolderSelect.dll"/>
+    <ROW Component="xyLOGIX.Core.Extensions.Actions.dll" ComponentId="{5D96C2FA-FAC1-4240-B5D0-3EAE9AA9A02F}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Actions.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.Factories.dll" ComponentId="{8CD419E3-E7FB-4555-8052-2BB44BD272CA}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.Factories.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.Interfaces.dll" ComponentId="{27DD57C9-73BE-4A26-ACE6-96D8AB2626AE}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.Interfaces.dll"/>
     <ROW Component="xyLOGIX.Core.Extensions.Providers.dll" ComponentId="{833B8860-990F-4C2D-8EB9-330EC3FAA1A0}" Directory_="APPDIR" Attributes="256" KeyPath="xyLOGIX.Core.Extensions.Providers.dll"/>
@@ -1306,6 +1310,14 @@
     <ROW File="xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll.config" Component_="config.json" FileName="XYLO~147.CON|xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.RunningObjects.Interfaces.dll.config" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.Win32.dll" Component_="xyLOGIX.Interop.Processes.Win32.dll" FileName="XYLO~148.DLL|xyLOGIX.Interop.Processes.Win32.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Win32.dll" SelfReg="false"/>
     <ROW File="xyLOGIX.Interop.Processes.Win32.dll.config" Component_="config.json" FileName="XYLO~148.CON|xyLOGIX.Interop.Processes.Win32.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Interop.Processes.Win32.dll.config" SelfReg="false"/>
+    <ROW File="MFR.GUI.Processors.Validators.dll" Component_="MFR.GUI.Processors.Validators.dll" FileName="MFRGU~60.DLL|MFR.GUI.Processors.Validators.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Processors.Validators.dll" SelfReg="false"/>
+    <ROW File="MFR.GUI.Processors.Validators.dll.config" Component_="config.json" FileName="MFRGU~60.CON|MFR.GUI.Processors.Validators.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Processors.Validators.dll.config" SelfReg="false"/>
+    <ROW File="MFR.GUI.Processors.Validators.Factories.dll" Component_="MFR.GUI.Processors.Validators.Factories.dll" FileName="MFRGU~61.DLL|MFR.GUI.Processors.Validators.Factories.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Processors.Validators.Factories.dll" SelfReg="false"/>
+    <ROW File="MFR.GUI.Processors.Validators.Factories.dll.config" Component_="config.json" FileName="MFRGU~61.CON|MFR.GUI.Processors.Validators.Factories.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Processors.Validators.Factories.dll.config" SelfReg="false"/>
+    <ROW File="MFR.GUI.Processors.Validators.Interfaces.dll" Component_="MFR.GUI.Processors.Validators.Interfaces.dll" FileName="MFRGU~62.DLL|MFR.GUI.Processors.Validators.Interfaces.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Processors.Validators.Interfaces.dll" SelfReg="false"/>
+    <ROW File="MFR.GUI.Processors.Validators.Interfaces.dll.config" Component_="config.json" FileName="MFRGU~62.CON|MFR.GUI.Processors.Validators.Interfaces.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\MFR.GUI.Processors.Validators.Interfaces.dll.config" SelfReg="false"/>
+    <ROW File="xyLOGIX.Core.Extensions.Actions.dll" Component_="xyLOGIX.Core.Extensions.Actions.dll" FileName="XYLOG~43.DLL|xyLOGIX.Core.Extensions.Actions.dll" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Core.Extensions.Actions.dll" SelfReg="false"/>
+    <ROW File="xyLOGIX.Core.Extensions.Actions.dll.config" Component_="config.json" FileName="XYLOG~43.CON|xyLOGIX.Core.Extensions.Actions.dll.config" Attributes="0" SourcePath="..\MFR.GUI\bin\x64\Release\xyLOGIX.Core.Extensions.Actions.dll.config" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -1841,6 +1853,10 @@
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningO_3_bjects.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.RunningO_4_bjects.Interfaces.dll"/>
     <ROW Feature_="MainFeature" Component_="xyLOGIX.Interop.Processes.Win32.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.GUI.Processors.Validators.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.GUI.Processors.Validators.Factories.dll"/>
+    <ROW Feature_="MainFeature" Component_="MFR.GUI.Processors.Validators.Interfaces.dll"/>
+    <ROW Feature_="MainFeature" Component_="xyLOGIX.Core.Extensions.Actions.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="mfr.exe" SourcePath="..\MFR.GUI\bin\x64\Release\mfr.exe" Index="0"/>
