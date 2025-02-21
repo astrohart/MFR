@@ -161,6 +161,23 @@ namespace MFR.Directories.Validators
                     $"RootDirectoryPathValidator.Validate: Checking whether the folder '{directoryToUse}' exists..."
                 );
 
+                if (string.IsNullOrWhiteSpace(directoryToUse))
+                {
+                    DebugUtils.WriteLine(
+                        DebugLevel.Error,
+                        $"*** ERROR *** The value specified for the root directory is blank.  Stopping..."
+                    );
+
+                    var args = new RootDirectoryInvalidEventArgs(
+                        RootDirectoryInvalidReason.Blank, directoryToUse
+                    );
+
+                    OnRootDirectoryInvalid(args);
+                    if (args.Cancel) return true;       // in this case, just ignore the blank value
+
+                    directoryToUse = args.RootDirectory;
+                }
+
                 if (!Directory.Exists(directoryToUse))
                 {
                     DebugUtils.WriteLine(
