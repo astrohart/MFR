@@ -515,7 +515,11 @@ namespace MFR.GUI.Application
             object sender,
             RootDirectoryInvalidEventArgs e
         )
-            => ShowValidationFailureMessage(e.Message);
+        {
+            // TODO: Show the user a "code locator wizard" that will help them find the root directory, or specify what else they can do to fix the problem.
+            // ReSharper disable once ArrangeMethodOrOperatorBody
+            ShowValidationFailureMessage(e.Message);
+        }
 
         /// <summary>
         /// Handles the
