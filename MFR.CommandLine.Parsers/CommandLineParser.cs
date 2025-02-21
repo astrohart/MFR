@@ -10,6 +10,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using xyLOGIX.Core.Debug;
+using xyLOGIX.Files.Actions;
 using xyLOGIX.Win32.Interact;
 
 namespace MFR.CommandLine.Parsers
@@ -265,7 +266,7 @@ namespace MFR.CommandLine.Parsers
                     result.RenameSolutionFolders = false;
 
                 if (!result.ReOpenSolution.HasValue)
-                    result.ReOpenSolution = false;
+                    result.ReOpenSolution = Does.FolderHaveAtLeastOneFileMatching(result.StartingFolder, "*.sln", false);
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
