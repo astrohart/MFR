@@ -6,6 +6,11 @@
     public enum RootDirectoryInvalidReason
     {
         /// <summary>
+        /// A blank pathname was specified for the value of the <c>--root</c> command-line parameter.
+        /// </summary>
+        Blank,
+
+        /// <summary>
         /// The root directory specified does not exist on the file system.
         /// </summary>
         DoesntExist,

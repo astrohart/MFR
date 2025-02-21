@@ -6,6 +6,7 @@ using MFR.CommandLine.Parsers.Interfaces;
 using MFR.CommandLine.Validators.Events;
 using MFR.CommandLine.Validators.Factories;
 using MFR.CommandLine.Validators.Interfaces;
+using MFR.Directories.Validators.Constants;
 using MFR.Directories.Validators.Events;
 using MFR.Directories.Validators.Factories;
 using MFR.Directories.Validators.Interfaces;
@@ -516,6 +517,28 @@ namespace MFR.GUI.Application
             RootDirectoryInvalidEventArgs e
         )
         {
+            /*
+             * OKAY, so the root directory is invalid.  This means that the user has:
+             * (a) specified a blank folder on the command line; or
+             * (b) the '--root' command-line parameter has been improperly formatted; or
+             * (c) the directory specified does not exist; or
+             * (d) the directory specified does not contain any Visual Studio Solution (*.sln) files
+             * anywhere in its directory tree.
+             */
+
+            /*
+             * CASE I: The user specified a blank folder on the command line.
+             */
+
+            if (RootDirectoryInvalidReason.Blank.Equals(e.Reason) || string.IsNullOrWhiteSpace(e.RootDirectory))
+            {
+                // Cancel validation and allow the application to launch.  The main application window will appear
+                // and, before the user can execute the operation, they will need to fill in the Starting Folder combo
+                // box on the main application window.
+                e.Cancel = true;
+                return;
+            }
+
             // TODO: Show the user a "code locator wizard" that will help them find the root directory, or specify what else they can do to fix the problem.
             // ReSharper disable once ArrangeMethodOrOperatorBody
             ShowValidationFailureMessage(e.Message);

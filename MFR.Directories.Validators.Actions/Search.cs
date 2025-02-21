@@ -121,7 +121,7 @@ namespace MFR.Directories.Validators.Actions
                 );
 
                 result = Does.FolderHaveAtLeastOneFileMatching(
-                    folder, extensionPattern
+                    folder, extensionPattern, false
                 );
             }
             catch (Exception ex)

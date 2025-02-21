@@ -202,6 +202,10 @@
       <Project>{5A6CC1DF-FEF7-4877-8116-4A06AB34C317}</Project>
       <Name>MFR.CommandLine.Validators.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Constants\MFR.Directories.Validators.Constants.csproj">
+      <Project>{D8C19529-ECD5-4A75-9ECA-38BD9C174032}</Project>
+      <Name>MFR.Directories.Validators.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Events\MFR.Directories.Validators.Events.csproj">
       <Project>{F4FC7296-6B39-4AEA-8285-88A9DA2E7C3D}</Project>
       <Name>MFR.Directories.Validators.Events</Name>
