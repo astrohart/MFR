@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+    <Compile Include="GetRootDirectoryInvalidReasonValidator.cs" />
     <Compile Include="GetRootDirectoryPathValidator.cs" />
     <Compile Include="GlobalAspects.cs" />
   </ItemGroup>
@@ -148,6 +149,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
+      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Name>xyLOGIX.Core.Debug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
