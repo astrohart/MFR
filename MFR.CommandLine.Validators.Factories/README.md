@@ -4,6 +4,7 @@
 ## Contents
 
 - [GetCommandLineValidator](#T-MFR-CommandLine-Validators-Factories-GetCommandLineValidator 'MFR.CommandLine.Validators.Factories.GetCommandLineValidator')
+  - [#cctor()](#M-MFR-CommandLine-Validators-Factories-GetCommandLineValidator-#cctor 'MFR.CommandLine.Validators.Factories.GetCommandLineValidator.#cctor')
   - [SoleInstance()](#M-MFR-CommandLine-Validators-Factories-GetCommandLineValidator-SoleInstance 'MFR.CommandLine.Validators.Factories.GetCommandLineValidator.SoleInstance')
 - [Resources](#T-MFR-CommandLine-Validators-Factories-Properties-Resources 'MFR.CommandLine.Validators.Factories.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Validators-Factories-Properties-Resources-Culture 'MFR.CommandLine.Validators.Factories.Properties.Resources.Culture')
@@ -21,6 +22,30 @@ MFR.CommandLine.Validators.Factories
 Provides access to the sole instance of the object that implements the
 [ICommandLineValidator](#T-MFR-CommandLine-Validators-Interfaces-ICommandLineValidator 'MFR.CommandLine.Validators.Interfaces.ICommandLineValidator')
 interface.
+
+<a name='M-MFR-CommandLine-Validators-Factories-GetCommandLineValidator-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[GetCommandLineValidator](#T-MFR-CommandLine-Validators-Factories-GetCommandLineValidator 'MFR.CommandLine.Validators.Factories.GetCommandLineValidator')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
 
 <a name='M-MFR-CommandLine-Validators-Factories-GetCommandLineValidator-SoleInstance'></a>
 ### SoleInstance() `method`
