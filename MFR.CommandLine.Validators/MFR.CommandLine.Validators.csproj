@@ -166,6 +166,10 @@
       <Project>{227E5496-922F-4ED4-8FFB-7DB529E4EC9B}</Project>
       <Name>MFR.CommandLine.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Directories.Validators.Factories\MFR.Directories.Validators.Factories.csproj">
+      <Project>{D45EF99B-C51A-484B-8020-25262AAD53D0}</Project>
+      <Name>MFR.Directories.Validators.Factories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MFR.Directories.Validators.Interfaces\MFR.Directories.Validators.Interfaces.csproj">
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
