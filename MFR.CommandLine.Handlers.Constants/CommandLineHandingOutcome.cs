@@ -56,7 +56,7 @@ namespace MFR.CommandLine.Handlers.Constants
     /// <summary>
     /// Possible outcomes of handling invalid command-line arguments.
     /// </summary>
-    public enum CommandLineHandingOutcomes
+    public enum CommandLineHandingOutcome
     {
         /// <summary>
         /// Do nothing but allow the application to continue loading.
