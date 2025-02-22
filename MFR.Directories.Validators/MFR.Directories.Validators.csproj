@@ -124,6 +124,7 @@
   <ItemGroup>
     <None Include="key.snk" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="RootDirectoryInvalidReasonValidator.cs" />
     <Compile Include="RootDirectoryPathValidator.cs" />
   </ItemGroup>
   <ItemGroup>
