@@ -101,6 +101,6 @@ namespace MFR.Directories.Validators.Interfaces
         ///     cref="E:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event.
         /// </remarks>
-        bool Validate(string rootDirectory);
+        bool IsValid(string rootDirectory);
     }
 }
