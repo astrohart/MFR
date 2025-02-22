@@ -3302,7 +3302,7 @@ namespace MFR.Renamers.Files
 
                 RootDirectoryPath = rootDirectoryPath;
 
-                if (!RootDirectoryPathValidator.Validate(rootDirectoryPath))
+                if (!RootDirectoryPathValidator.IsValid(rootDirectoryPath))
                     return;
 
                 OnStarted();
