@@ -156,7 +156,7 @@ namespace MFR.Directories.Validators
         ///     cref="E:MFR.CommandLine.Validators.Interfaces.IRootDirectoryPathValidator.RootDirectoryInvalid" />
         /// event.
         /// </remarks>
-        public bool Validate(string rootDirectory)
+        public bool IsValid(string rootDirectory)
         {
             var result = false;
 
@@ -168,12 +168,12 @@ namespace MFR.Directories.Validators
                 // Dump the parameter rootDirectory to the log
                 DebugUtils.WriteLine(
                     DebugLevel.Debug,
-                    $"RootDirectoryPathValidator.Validate: rootDirectory = '{rootDirectory}'"
+                    $"RootDirectoryPathValidator.IsValid: rootDirectory = '{rootDirectory}'"
                 );
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "RootDirectoryPathValidator.Validate: Checking whether we were passed the path to the user's My Documents folder..."
+                    "RootDirectoryPathValidator.IsValid: Checking whether we were passed the path to the user's My Documents folder..."
                 );
 
                 if (Directories.Constants.Directories.MyDocuments.Equals(
@@ -182,12 +182,12 @@ namespace MFR.Directories.Validators
                 {
                     DebugUtils.WriteLine(
                         DebugLevel.Info,
-                        "RootDirectoryPathValidator.Validate: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This always valid.  Proceeding..."
+                        "RootDirectoryPathValidator.IsValid: *** SUCCESS *** We were passed the user's My Documents folder for the starting folder.  This always valid.  Proceeding..."
                     );
 
                     DebugUtils.WriteLine(
                         DebugLevel.Debug,
-                        $"RootDirectoryPathValidator.Validate: Result = {true}"
+                        $"RootDirectoryPathValidator.IsValid: Result = {true}"
                     );
 
                     return true;
@@ -195,7 +195,7 @@ namespace MFR.Directories.Validators
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    "RootDirectoryPathValidator.Validate: The user's My Documents folder is not the starting folder.  Proceeding..."
+                    "RootDirectoryPathValidator.IsValid: The user's My Documents folder is not the starting folder.  Proceeding..."
                 );
 
                 /*
@@ -211,7 +211,7 @@ namespace MFR.Directories.Validators
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"RootDirectoryPathValidator.Validate: Checking whether the folder '{directoryToUse}' exists..."
+                    $"RootDirectoryPathValidator.IsValid: Checking whether the folder '{directoryToUse}' exists..."
                 );
 
                 if (string.IsNullOrWhiteSpace(directoryToUse))
@@ -259,7 +259,7 @@ namespace MFR.Directories.Validators
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"RootDirectoryPathValidator.Validate: Checking whether the folder '{directoryToUse}' exists again..."
+                    $"RootDirectoryPathValidator.IsValid: Checking whether the folder '{directoryToUse}' exists again..."
                 );
 
                 if (!Directory.Exists(directoryToUse))
@@ -276,7 +276,7 @@ namespace MFR.Directories.Validators
 
                     DebugUtils.WriteLine(
                         DebugLevel.Debug,
-                        $"RootDirectoryPathValidator.Validate: Result = {result}"
+                        $"RootDirectoryPathValidator.IsValid: Result = {result}"
                     );
 
                     return result;
@@ -284,7 +284,7 @@ namespace MFR.Directories.Validators
 
                 DebugUtils.WriteLine(
                     DebugLevel.Info,
-                    $"RootDirectoryPathValidator.Validate: *** SUCCESS *** The folder '{directoryToUse}' was found on the user's system.  Proceeding..."
+                    $"RootDirectoryPathValidator.IsValid: *** SUCCESS *** The folder '{directoryToUse}' was found on the user's system.  Proceeding..."
                 );
 
                 /*
@@ -330,7 +330,7 @@ namespace MFR.Directories.Validators
 
             DebugUtils.WriteLine(
                 DebugLevel.Debug,
-                $"RootDirectoryPathValidator.Validate: Result = {result}"
+                $"RootDirectoryPathValidator.IsValid: Result = {result}"
             );
 
             return result;
