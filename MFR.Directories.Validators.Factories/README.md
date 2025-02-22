@@ -3,11 +3,65 @@
 
 ## Contents
 
+- [GetRootDirectoryInvalidReasonValidator](#T-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator 'MFR.Directories.Validators.Factories.GetRootDirectoryInvalidReasonValidator')
+  - [#cctor()](#M-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator-#cctor 'MFR.Directories.Validators.Factories.GetRootDirectoryInvalidReasonValidator.#cctor')
+  - [SoleInstance()](#M-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator-SoleInstance 'MFR.Directories.Validators.Factories.GetRootDirectoryInvalidReasonValidator.SoleInstance')
 - [GetRootDirectoryPathValidator](#T-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator 'MFR.Directories.Validators.Factories.GetRootDirectoryPathValidator')
   - [SoleInstance()](#M-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator-SoleInstance 'MFR.Directories.Validators.Factories.GetRootDirectoryPathValidator.SoleInstance')
 - [Resources](#T-MFR-Directories-Validators-Factories-Properties-Resources 'MFR.Directories.Validators.Factories.Properties.Resources')
   - [Culture](#P-MFR-Directories-Validators-Factories-Properties-Resources-Culture 'MFR.Directories.Validators.Factories.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Directories-Validators-Factories-Properties-Resources-ResourceManager 'MFR.Directories.Validators.Factories.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator'></a>
+## GetRootDirectoryInvalidReasonValidator `type`
+
+##### Namespace
+
+MFR.Directories.Validators.Factories
+
+##### Summary
+
+Provides access to the one and only instance of the object that implements the
+[IRootDirectoryInvalidReasonValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryInvalidReasonValidator')
+interface.
+
+<a name='M-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the
+[GetRootDirectoryInvalidReasonValidator](#T-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator 'MFR.Directories.Validators.Factories.GetRootDirectoryInvalidReasonValidator')
+class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance
+being created or before any static members are referenced.
+
+<a name='M-MFR-Directories-Validators-Factories-GetRootDirectoryInvalidReasonValidator-SoleInstance'></a>
+### SoleInstance() `method`
+
+##### Summary
+
+Obtains access to the sole instance of the object that implements the
+[IRootDirectoryInvalidReasonValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryInvalidReasonValidator')
+interface, and returns a reference to it.
+
+##### Returns
+
+Reference to the one, and only, instance of the object that implements the
+[IRootDirectoryInvalidReasonValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryInvalidReasonValidator')
+interface.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-MFR-Directories-Validators-Factories-GetRootDirectoryPathValidator'></a>
 ## GetRootDirectoryPathValidator `type`
