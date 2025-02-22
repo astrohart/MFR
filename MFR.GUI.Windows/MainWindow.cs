@@ -920,7 +920,7 @@ namespace MFR.GUI.Windows
                 Presenter.UpdateData(false);
 
                 // Make sure we're getting a valid folder
-                if (!RootDirectoryPathValidator.Validate(
+                if (!RootDirectoryPathValidator.IsValid(
                         CurrentConfig.StartingFolder
                     )) return;
 
@@ -2174,7 +2174,7 @@ namespace MFR.GUI.Windows
         /// </remarks>
         private bool ValidateData()
         {
-            if (!RootDirectoryPathValidator.Validate(
+            if (!RootDirectoryPathValidator.IsValid(
                     StartingFolderComboBox.EnteredText
                 ))
             {
