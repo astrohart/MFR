@@ -116,10 +116,7 @@
       <HintPath>..\packages\PostSharp.Patterns.Threading.Redist.2024.1.6\lib\net45\PostSharp.Patterns.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -162,13 +159,17 @@
       <Project>{432D8885-E3AC-4A66-A99A-1A556B6BE3FC}</Project>
       <Name>xyLOGIX.Files.Actions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\xyLOGIX.TicketedProvider.VS2019\xyLOGIX.TicketedProvider.Interfaces\xyLOGIX.TicketedProvider.Interfaces.csproj">
-      <Project>{bf8e6621-8edc-44ab-a191-5d559c6f2d1e}</Project>
-      <Name>xyLOGIX.TicketedProvider.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.Win32.Interact.VS2019\xyLOGIX.Win32.Interact\xyLOGIX.Win32.Interact.csproj">
       <Project>{4E11B5C7-823F-46B4-8E46-CCB2947DC2C7}</Project>
       <Name>xyLOGIX.Win32.Interact</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Handlers.Actions\MFR.CommandLine.Handlers.Actions.csproj">
+      <Project>{98b65351-ff88-4e00-95b6-54eea79e7a02}</Project>
+      <Name>MFR.CommandLine.Handlers.Actions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.CommandLine.Handlers.Constants\MFR.CommandLine.Handlers.Constants.csproj">
+      <Project>{CA91CBDE-8CA4-4E1D-AC76-72679CDC8F63}</Project>
+      <Name>MFR.CommandLine.Handlers.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.CommandLine.Models.Factories\MFR.CommandLine.Models.Factories.csproj">
       <Project>{9F8BBA15-2603-45F3-ABB7-1C2DFADF58FA}</Project>
