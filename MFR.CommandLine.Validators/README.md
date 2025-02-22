@@ -5,15 +5,14 @@
 
 - [CommandLineValidator](#T-MFR-CommandLine-Validators-CommandLineValidator 'MFR.CommandLine.Validators.CommandLineValidator')
   - [#ctor()](#M-MFR-CommandLine-Validators-CommandLineValidator-#ctor 'MFR.CommandLine.Validators.CommandLineValidator.#ctor')
-  - [_rootDirectoryPathValidator](#F-MFR-CommandLine-Validators-CommandLineValidator-_rootDirectoryPathValidator 'MFR.CommandLine.Validators.CommandLineValidator._rootDirectoryPathValidator')
   - [Errors](#P-MFR-CommandLine-Validators-CommandLineValidator-Errors 'MFR.CommandLine.Validators.CommandLineValidator.Errors')
   - [Instance](#P-MFR-CommandLine-Validators-CommandLineValidator-Instance 'MFR.CommandLine.Validators.CommandLineValidator.Instance')
+  - [RootDirectoryPathValidator](#P-MFR-CommandLine-Validators-CommandLineValidator-RootDirectoryPathValidator 'MFR.CommandLine.Validators.CommandLineValidator.RootDirectoryPathValidator')
   - [VWarnings](#P-MFR-CommandLine-Validators-CommandLineValidator-VWarnings 'MFR.CommandLine.Validators.CommandLineValidator.VWarnings')
   - [ValidationFailures](#P-MFR-CommandLine-Validators-CommandLineValidator-ValidationFailures 'MFR.CommandLine.Validators.CommandLineValidator.ValidationFailures')
   - [#cctor()](#M-MFR-CommandLine-Validators-CommandLineValidator-#cctor 'MFR.CommandLine.Validators.CommandLineValidator.#cctor')
-  - [AssociateWithRootDirectoryPathValidator(rootDirectoryPathValidator)](#M-MFR-CommandLine-Validators-CommandLineValidator-AssociateWithRootDirectoryPathValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator- 'MFR.CommandLine.Validators.CommandLineValidator.AssociateWithRootDirectoryPathValidator(MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator)')
+  - [IsValid(cmdInfo)](#M-MFR-CommandLine-Validators-CommandLineValidator-IsValid-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Validators.CommandLineValidator.IsValid(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
   - [OnCommandLineInfoInvalid(e)](#M-MFR-CommandLine-Validators-CommandLineValidator-OnCommandLineInfoInvalid-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs- 'MFR.CommandLine.Validators.CommandLineValidator.OnCommandLineInfoInvalid(MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs)')
-  - [Validate(cmdInfo)](#M-MFR-CommandLine-Validators-CommandLineValidator-Validate-MFR-CommandLine-Models-Interfaces-ICommandLineInfo- 'MFR.CommandLine.Validators.CommandLineValidator.Validate(MFR.CommandLine.Models.Interfaces.ICommandLineInfo)')
 - [Resources](#T-MFR-CommandLine-Validators-Properties-Resources 'MFR.CommandLine.Validators.Properties.Resources')
   - [Culture](#P-MFR-CommandLine-Validators-Properties-Resources-Culture 'MFR.CommandLine.Validators.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-CommandLine-Validators-Properties-Resources-ResourceManager 'MFR.CommandLine.Validators.Properties.Resources.ResourceManager')
@@ -41,15 +40,6 @@ Empty, protected constructor to prohibit direct allocation of this class.
 
 This constructor has no parameters.
 
-<a name='F-MFR-CommandLine-Validators-CommandLineValidator-_rootDirectoryPathValidator'></a>
-### _rootDirectoryPathValidator `constants`
-
-##### Summary
-
-Reference to an instance of an object that implements the
-[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
-interface.
-
 <a name='P-MFR-CommandLine-Validators-CommandLineValidator-Errors'></a>
 ### Errors `property`
 
@@ -64,6 +54,15 @@ Gets a collection of strings, each of which contains an error message.
 
 Gets a reference to the one and only instance of
 [CommandLineValidator](#T-MFR-CommandLine-Validators-CommandLineValidator 'MFR.CommandLine.Validators.CommandLineValidator').
+
+<a name='P-MFR-CommandLine-Validators-CommandLineValidator-RootDirectoryPathValidator'></a>
+### RootDirectoryPathValidator `property`
+
+##### Summary
+
+Gets a reference to an instance of an object that implements the
+[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
+interface.
 
 <a name='P-MFR-CommandLine-Validators-CommandLineValidator-VWarnings'></a>
 ### VWarnings `property`
@@ -92,63 +91,8 @@ Empty, static constructor to prohibit direct allocation of this class.
 
 This method has no parameters.
 
-<a name='M-MFR-CommandLine-Validators-CommandLineValidator-AssociateWithRootDirectoryPathValidator-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-'></a>
-### AssociateWithRootDirectoryPathValidator(rootDirectoryPathValidator) `method`
-
-##### Summary
-
-Associates an instance of an object that implements the
-[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
-interface with this validator object.
-
-##### Returns
-
-Reference to the same instance of the object that called this
-method, for fluent use.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| rootDirectoryPathValidator | [MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator') | (Required.) Reference to an instance of an object that implements
-the
-[IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
-interface. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required parameter,
-`rootDirectoryPathValidator`
-, is passed a `null` value. |
-
-<a name='M-MFR-CommandLine-Validators-CommandLineValidator-OnCommandLineInfoInvalid-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs-'></a>
-### OnCommandLineInfoInvalid(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-MFR-CommandLine-Validators-CommandLineValidator-CommandLineInfoInvalid 'MFR.CommandLine.Validators.CommandLineValidator.CommandLineInfoInvalid')
-event.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs](#T-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs') | A
-[CommandLineInfoInvalidEventArgs](#T-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs')
-that contains the event data. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
-parameter, `e`, is passed a `null` value. |
-
-<a name='M-MFR-CommandLine-Validators-CommandLineValidator-Validate-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
-### Validate(cmdInfo) `method`
+<a name='M-MFR-CommandLine-Validators-CommandLineValidator-IsValid-MFR-CommandLine-Models-Interfaces-ICommandLineInfo-'></a>
+### IsValid(cmdInfo) `method`
 
 ##### Summary
 
@@ -190,6 +134,30 @@ property is used to keep track of the number of validation failures that occur.
 At the beginning of this method's execution, the
 [ValidationFailures](#P-MFR-CommandLine-Validators-Interfaces-IValidator-ValidationFailures 'MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures')
 property's value is set to zero.
+
+<a name='M-MFR-CommandLine-Validators-CommandLineValidator-OnCommandLineInfoInvalid-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs-'></a>
+### OnCommandLineInfoInvalid(e) `method`
+
+##### Summary
+
+Raises the
+[](#E-MFR-CommandLine-Validators-CommandLineValidator-CommandLineInfoInvalid 'MFR.CommandLine.Validators.CommandLineValidator.CommandLineInfoInvalid')
+event.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs](#T-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs') | A
+[CommandLineInfoInvalidEventArgs](#T-MFR-CommandLine-Validators-Events-CommandLineInfoInvalidEventArgs 'MFR.CommandLine.Validators.Events.CommandLineInfoInvalidEventArgs')
+that contains the event data. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | Thrown if the required
+parameter, `e`, is passed a `null` value. |
 
 <a name='T-MFR-CommandLine-Validators-Properties-Resources'></a>
 ## Resources `type`
