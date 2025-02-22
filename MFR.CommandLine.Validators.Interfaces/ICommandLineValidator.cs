@@ -73,30 +73,6 @@ namespace MFR.CommandLine.Validators.Interfaces
         event CommandLineInfoInvalidEventHandler CommandLineInfoInvalid;
 
         /// <summary>
-        /// Associates an instance of an object that implements the
-        /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
-        /// interface with this validator object.
-        /// </summary>
-        /// <param name="rootDirectoryPathValidator">
-        /// (Required.) Reference to an instance of an object that implements
-        /// the
-        /// <see
-        ///     cref="T:MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator" />
-        /// interface.
-        /// </param>
-        /// <returns>
-        /// Reference to the same instance of the object that called this
-        /// method, for fluent use.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">
-        /// Thrown if the required parameter, <paramref name="rootDirectoryPathValidator" />,
-        /// is passed a <see langword="null" /> value.
-        /// </exception>
-        ICommandLineValidator AssociateWithRootDirectoryPathValidator(
-            IRootDirectoryPathValidator rootDirectoryPathValidator);
-
-        /// <summary>
         /// Gets a value indicating whether the specified
         /// <paramref
         ///     name="cmdInfo" />
@@ -132,6 +108,6 @@ namespace MFR.CommandLine.Validators.Interfaces
         ///     cref="P:MFR.CommandLine.Validators.Interfaces.IValidator.ValidationFailures" />
         /// property's value is set to zero.
         /// </remarks>
-        bool Validate(ICommandLineInfo cmdInfo);
+        bool IsValid(ICommandLineInfo cmdInfo);
     }
 }
