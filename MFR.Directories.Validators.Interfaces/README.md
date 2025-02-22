@@ -3,11 +3,60 @@
 
 ## Contents
 
+- [IRootDirectoryInvalidReasonValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryInvalidReasonValidator')
+  - [IsValid(reason)](#M-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator-IsValid-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason- 'MFR.Directories.Validators.Interfaces.IRootDirectoryInvalidReasonValidator.IsValid(MFR.Directories.Validators.Constants.RootDirectoryInvalidReason)')
 - [IRootDirectoryPathValidator](#T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator')
-  - [Validate(rootDirectory)](#M-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-Validate-System-String- 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator.Validate(System.String)')
+  - [IsValid(rootDirectory)](#M-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-IsValid-System-String- 'MFR.Directories.Validators.Interfaces.IRootDirectoryPathValidator.IsValid(System.String)')
 - [Resources](#T-MFR-Directories-Validators-Interfaces-Properties-Resources 'MFR.Directories.Validators.Interfaces.Properties.Resources')
   - [Culture](#P-MFR-Directories-Validators-Interfaces-Properties-Resources-Culture 'MFR.Directories.Validators.Interfaces.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Directories-Validators-Interfaces-Properties-Resources-ResourceManager 'MFR.Directories.Validators.Interfaces.Properties.Resources.ResourceManager')
+
+<a name='T-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator'></a>
+## IRootDirectoryInvalidReasonValidator `type`
+
+##### Namespace
+
+MFR.Directories.Validators.Interfaces
+
+##### Summary
+
+Defines the publicly-exposed events, methods and properties of an object that
+validates data variables whose values are purported to fall within the defined
+value set of the
+[RootDirectoryInvalidReason](#T-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason')
+enumeration..
+
+<a name='M-MFR-Directories-Validators-Interfaces-IRootDirectoryInvalidReasonValidator-IsValid-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-'></a>
+### IsValid(reason) `method`
+
+##### Summary
+
+Determines whether the specified `reason` is actually within
+the defined value set of the
+[RootDirectoryInvalidReason](#T-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason')
+enumeration.
+
+##### Returns
+
+`true` if the specified `reason` is
+within the defined value set of the
+[RootDirectoryInvalidReason](#T-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason')
+enumeration; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| reason | [MFR.Directories.Validators.Constants.RootDirectoryInvalidReason](#T-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason') | (Required.) One of the
+[RootDirectoryInvalidReason](#T-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason')
+enumeration value(s) that is to be examined. |
+
+##### Remarks
+
+If
+[Unknown](#F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-Unknown 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason.Unknown')
+is the value of the `reason` parameter, then this method
+returns `false`.
 
 <a name='T-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator'></a>
 ## IRootDirectoryPathValidator `type`
@@ -22,8 +71,8 @@ Defines the publicly-exposed methods and properties of an object that
 validates the pathnames of root directories; i.e., the folder where the
 project-rename operation starts..
 
-<a name='M-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-Validate-System-String-'></a>
-### Validate(rootDirectory) `method`
+<a name='M-MFR-Directories-Validators-Interfaces-IRootDirectoryPathValidator-IsValid-System-String-'></a>
+### IsValid(rootDirectory) `method`
 
 ##### Summary
 
