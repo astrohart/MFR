@@ -740,7 +740,7 @@ namespace MFR.GUI.Application
                     "ProjectFileRenamerApp.ParseCommandLine: Validating the value(s) of the command-line parameter(s) passed to this application..."
                 );
 
-                if (!CommandLineValidator.Validate(CommandLineInfo))
+                if (!CommandLineValidator.IsValid(CommandLineInfo))
                 {
                     // Inform the user that validation of the command line parameter(s) has failed, and then quit.
                     Messages.ShowStopError(
