@@ -113,10 +113,10 @@ namespace MFR.CommandLine.Handlers.Actions
         /// if the value of the <paramref name="reason" /> parameter is not within the
         /// defined value set of the
         /// <see cref="T:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason" />
-        /// enumeration, or if it is
+        /// enumeration, or if it is set to the
         /// <see
         ///     cref="F:MFR.Directories.Validators.Constants.RootDirectoryInvalidReason.Unknown" />
-        /// .
+        /// value.
         /// </remarks>
         /// <returns>
         /// If successful, the corresponding
@@ -124,7 +124,7 @@ namespace MFR.CommandLine.Handlers.Actions
         /// enumeration value; otherwise, the
         /// <see
         ///     cref="F:MFR.CommandLine.Handlers.Constants.CommandLineHandingOutcome.Unknown" />
-        /// is returned.
+        /// value is returned.
         /// </returns>
         public static CommandLineHandingOutcome
             OutcomeFromRootDirectoryInvalidReason(
