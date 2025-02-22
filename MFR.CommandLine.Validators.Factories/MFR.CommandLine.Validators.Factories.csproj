@@ -157,6 +157,10 @@
       <Project>{C178EBBD-B250-4A49-8F1B-5EECBC9EABF9}</Project>
       <Name>MFR.Directories.Validators.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MFR.Validators.Interfaces\MFR.Validators.Interfaces.csproj">
+      <Project>{9D0A59C5-A814-45CA-88B3-DAE6E6462D07}</Project>
+      <Name>MFR.Validators.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
