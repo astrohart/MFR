@@ -1097,9 +1097,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Processes.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Validators.Actions", "..\xyLOGIX.Validators.VS2019\xyLOGIX.Validators.Actions\xyLOGIX.Validators.Actions.csproj", "{211A5F2E-5CB5-43B1-B43D-C19952E339DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Win32.Constants", "..\xyLOGIX.Win32\xyLOGIX.Win32.Constants\xyLOGIX.Win32.Constants.csproj", "{D7602741-2E90-4DA1-BD26-3903672DC71E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Win32.Constants", "..\xyLOGIX.Win32.VS2022\xyLOGIX.Win32.Constants\xyLOGIX.Win32.Constants.csproj", "{D7602741-2E90-4DA1-BD26-3903672DC71E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Win32", "..\xyLOGIX.Win32\xyLOGIX.Win32\xyLOGIX.Win32.csproj", "{4598EF65-0986-42DF-87F6-801FC44E7711}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Win32", "..\xyLOGIX.Win32.VS2022\xyLOGIX.Win32\xyLOGIX.Win32.csproj", "{4598EF65-0986-42DF-87F6-801FC44E7711}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFR.GUI.Processors.Validators", "MFR.GUI.Processors.Validators\MFR.GUI.Processors.Validators.csproj", "{8BD8B4D8-1D95-4CA2-BEA7-FF106493B594}"
 EndProject
