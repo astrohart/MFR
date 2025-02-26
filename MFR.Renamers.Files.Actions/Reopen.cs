@@ -1,5 +1,4 @@
-﻿using MFR.Operations.Constants;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using xyLOGIX.Core.Debug;
 using xyLOGIX.Files.Actions;
@@ -25,56 +24,19 @@ namespace MFR.Renamers.Files.Actions
         static Reopen() { }
 
         /// <summary>
-        /// Tasks the associated instance of Visual Studio to load the specified
-        /// <paramref name="solution" />.
+        /// Reopens the specified Visual Studio <paramref name="solution" /> if it is not
+        /// already loaded.
         /// </summary>
         /// <param name="solution">
         /// (Required.) Reference to an instance of an object that implements the
         /// <see cref="T:xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution" />
         /// interface that represents the Visual Studio Solution (<c>*.sln</c>) file that
-        /// is to be loaded.
+        /// is to be reopened.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the operation completed successfully;
-        /// <see langword="false" /> otherwise.
+        /// <see langword="true" /> if the specified <paramref name="solution" />
+        /// was reopened successfully; <see langword="false" /> otherwise.
         /// </returns>
-        private static bool DoReopenSolution(
-            [NotLogged] IVisualStudioSolution solution
-        )
-        {
-            var result = false;
-
-            try
-            {
-                if (solution == null) return result;
-                if (solution.SolutionObject == null) return result;
-                if (!solution.ShouldReopen) return result;
-                if (Is.SolutionOpen(solution)) return true;
-
-                var fileNameToUse = solution.SolutionObject.FullName;
-                if (!Does.FileExist(fileNameToUse))
-                    fileNameToUse = solution.FullName;
-
-                if (!Does.FileExist(fileNameToUse)) return result;
-
-                result = solution.Load();
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
-
-            DebugUtils.WriteLine(
-                DebugLevel.Debug,
-                $"FileRenamer.ReopenSolution: Result = {result}"
-            );
-
-            return result;
-        }
-
         public static bool PreviouslyLoadedVisualStudioSolution(
             [NotLogged] IVisualStudioSolution solution
         )
@@ -211,7 +173,10 @@ namespace MFR.Renamers.Files.Actions
                 result = false;
             }
 
-            DebugUtils.WriteLine(DebugLevel.Debug, $"Reopen.PreviouslyLoadedVisualStudioSolution: Result = {result}");
+            DebugUtils.WriteLine(
+                DebugLevel.Debug,
+                $"Reopen.PreviouslyLoadedVisualStudioSolution: Result = {result}"
+            );
 
             return result;
         }
