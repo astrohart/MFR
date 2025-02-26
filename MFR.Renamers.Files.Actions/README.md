@@ -14,6 +14,9 @@
 - [Remove](#T-MFR-Renamers-Files-Actions-Remove 'MFR.Renamers.Files.Actions.Remove')
   - [#cctor()](#M-MFR-Renamers-Files-Actions-Remove-#cctor 'MFR.Renamers.Files.Actions.Remove.#cctor')
   - [Directory(pathname)](#M-MFR-Renamers-Files-Actions-Remove-Directory-System-String- 'MFR.Renamers.Files.Actions.Remove.Directory(System.String)')
+- [Reopen](#T-MFR-Renamers-Files-Actions-Reopen 'MFR.Renamers.Files.Actions.Reopen')
+  - [#cctor()](#M-MFR-Renamers-Files-Actions-Reopen-#cctor 'MFR.Renamers.Files.Actions.Reopen.#cctor')
+  - [DoReopenSolution(solution)](#M-MFR-Renamers-Files-Actions-Reopen-DoReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.Actions.Reopen.DoReopenSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
 - [Resources](#T-MFR-Renamers-Files-Actions-Properties-Resources 'MFR.Renamers.Files.Actions.Properties.Resources')
   - [Culture](#P-MFR-Renamers-Files-Actions-Properties-Resources-Culture 'MFR.Renamers.Files.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
@@ -222,6 +225,57 @@ Attempts to remove the directory having the specified
 | ---- | ---- | ----------- |
 | pathname | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing
 the fully-qualified pathname of the directory that is to be removed. |
+
+<a name='T-MFR-Renamers-Files-Actions-Reopen'></a>
+## Reopen `type`
+
+##### Namespace
+
+MFR.Renamers.Files.Actions
+
+<a name='M-MFR-Renamers-Files-Actions-Reopen-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Reopen](#T-MFR-Renamers-Files-Actions-Reopen 'MFR.Renamers.Files.Actions.Reopen') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-MFR-Renamers-Files-Actions-Reopen-DoReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
+### DoReopenSolution(solution) `method`
+
+##### Summary
+
+Tasks the associated instance of Visual Studio to load the specified
+`solution`.
+
+##### Returns
+
+`true` if the operation completed successfully;
+`false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| solution | [xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution') | (Required.) Reference to an instance of an object that implements the
+[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
+interface that represents the Visual Studio Solution (`*.sln`) file that
+is to be loaded. |
 
 <a name='T-MFR-Renamers-Files-Actions-Properties-Resources'></a>
 ## Resources `type`
