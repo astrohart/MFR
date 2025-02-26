@@ -261,6 +261,13 @@ namespace MFR.CommandLine.Parsers
                  )
                  .SetDefault(null);
 
+                p.Setup(arg => arg.ReplaceWith)
+                 .As("replaceWith")
+                 .WithDescription(
+                     "Sets the string that matches are to be replaced with."
+                 )
+                 .SetDefault(string.Empty);
+
                 p.Setup(arg => arg.ShouldCommitPendingChanges)
                  .As("commitPendingChanges")
                  .SetDefault(null)
