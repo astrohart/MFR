@@ -11,6 +11,7 @@
   - [RootDirectoryValid](#P-MFR-Directories-Validators-Constants-Properties-Resources-RootDirectoryValid 'MFR.Directories.Validators.Constants.Properties.Resources.RootDirectoryValid')
   - [UnknownRootDirectoryValidationFailedError](#P-MFR-Directories-Validators-Constants-Properties-Resources-UnknownRootDirectoryValidationFailedError 'MFR.Directories.Validators.Constants.Properties.Resources.UnknownRootDirectoryValidationFailedError')
 - [RootDirectoryInvalidReason](#T-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason')
+  - [Blank](#F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-Blank 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason.Blank')
   - [DoesntContainSolution](#F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-DoesntContainSolution 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason.DoesntContainSolution')
   - [DoesntExist](#F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-DoesntExist 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason.DoesntExist')
   - [Unknown](#F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-Unknown 'MFR.Directories.Validators.Constants.RootDirectoryInvalidReason.Unknown')
@@ -89,6 +90,14 @@ MFR.Directories.Validators.Constants
 ##### Summary
 
 Specifies the reason that validation either failed or did not fail.
+
+<a name='F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-Blank'></a>
+### Blank `constants`
+
+##### Summary
+
+A blank pathname was specified for the value of the `--root` command-line
+parameter.
 
 <a name='F-MFR-Directories-Validators-Constants-RootDirectoryInvalidReason-DoesntContainSolution'></a>
 ### DoesntContainSolution `constants`
