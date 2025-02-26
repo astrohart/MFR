@@ -91,6 +91,10 @@
     <Reference Include="log4net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.3.0.3\lib\net462\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.9.37000\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -121,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Cleanup.cs" />
     <Compile Include="Remove.cs" />
+    <Compile Include="Reopen.cs" />
     <Compile Include="Should.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="Stop.cs" />
@@ -174,6 +179,10 @@
       <Project>{20BD940C-E833-4957-98C2-30CD14269AC1}</Project>
       <Name>xyLOGIX.TimeZoneInfo.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Actions\xyLOGIX.VisualStudio.Actions.csproj">
+      <Project>{bb6f2458-cbf3-43a7-9536-7d027fded8c7}</Project>
+      <Name>xyLOGIX.VisualStudio.Actions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\xyLOGIX.VisualStudio\xyLOGIX.VisualStudio.Solutions.Interfaces\xyLOGIX.VisualStudio.Solutions.Interfaces.csproj">
       <Project>{1A47DA0E-D8A0-44D4-BE58-8ED1044E9138}</Project>
       <Name>xyLOGIX.VisualStudio.Solutions.Interfaces</Name>
@@ -181,6 +190,10 @@
     <ProjectReference Include="..\MFR.FileSystem.Interfaces\MFR.FileSystem.Interfaces.csproj">
       <Project>{27A95CA7-0FA9-481E-A911-EF34D05060BB}</Project>
       <Name>MFR.FileSystem.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFR.Operations.Constants\MFR.Operations.Constants.csproj">
+      <Project>{DE0EC99E-9623-43A9-B582-B12A5675F8D5}</Project>
+      <Name>MFR.Operations.Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFR.Operations.Interfaces\MFR.Operations.Interfaces.csproj">
       <Project>{34c64bd5-455b-4ed8-ba97-5279f8385529}</Project>
