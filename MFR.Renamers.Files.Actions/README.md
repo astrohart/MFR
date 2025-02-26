@@ -16,7 +16,7 @@
   - [Directory(pathname)](#M-MFR-Renamers-Files-Actions-Remove-Directory-System-String- 'MFR.Renamers.Files.Actions.Remove.Directory(System.String)')
 - [Reopen](#T-MFR-Renamers-Files-Actions-Reopen 'MFR.Renamers.Files.Actions.Reopen')
   - [#cctor()](#M-MFR-Renamers-Files-Actions-Reopen-#cctor 'MFR.Renamers.Files.Actions.Reopen.#cctor')
-  - [DoReopenSolution(solution)](#M-MFR-Renamers-Files-Actions-Reopen-DoReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.Actions.Reopen.DoReopenSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
+  - [PreviouslyLoadedVisualStudioSolution(solution)](#M-MFR-Renamers-Files-Actions-Reopen-PreviouslyLoadedVisualStudioSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.Actions.Reopen.PreviouslyLoadedVisualStudioSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
 - [Resources](#T-MFR-Renamers-Files-Actions-Properties-Resources 'MFR.Renamers.Files.Actions.Properties.Resources')
   - [Culture](#P-MFR-Renamers-Files-Actions-Properties-Resources-Culture 'MFR.Renamers.Files.Actions.Properties.Resources.Culture')
   - [ResourceManager](#P-MFR-Renamers-Files-Actions-Properties-Resources-ResourceManager 'MFR.Renamers.Files.Actions.Properties.Resources.ResourceManager')
@@ -255,18 +255,18 @@ created or before any static members are referenced.
 We've decorated this constructor with the `[Log(AttributeExclude = true)]`
 attribute in order to simplify the logging output.
 
-<a name='M-MFR-Renamers-Files-Actions-Reopen-DoReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
-### DoReopenSolution(solution) `method`
+<a name='M-MFR-Renamers-Files-Actions-Reopen-PreviouslyLoadedVisualStudioSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
+### PreviouslyLoadedVisualStudioSolution(solution) `method`
 
 ##### Summary
 
-Tasks the associated instance of Visual Studio to load the specified
-`solution`.
+Reopens the specified Visual Studio `solution` if it is not
+already loaded.
 
 ##### Returns
 
-`true` if the operation completed successfully;
-`false` otherwise.
+`true` if the specified `solution`
+was reopened successfully; `false` otherwise.
 
 ##### Parameters
 
@@ -275,7 +275,7 @@ Tasks the associated instance of Visual Studio to load the specified
 | solution | [xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution') | (Required.) Reference to an instance of an object that implements the
 [IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
 interface that represents the Visual Studio Solution (`*.sln`) file that
-is to be loaded. |
+is to be reopened. |
 
 <a name='T-MFR-Renamers-Files-Actions-Properties-Resources'></a>
 ## Resources `type`
