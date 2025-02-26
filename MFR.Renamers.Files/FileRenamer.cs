@@ -5194,8 +5194,6 @@ namespace MFR.Renamers.Files
         {
             try
             {
-                ProgramFlowHelper.StartDebugger();
-
                 // If Visual Studio is open, and it currently has the solution
                 // open, then close the solution before we perform the rename operation.
 
