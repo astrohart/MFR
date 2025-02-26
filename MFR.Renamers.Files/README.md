@@ -73,7 +73,6 @@
   - [RenameSolutionFolders(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSolutionFolders-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSolutionFolders(System.String,System.String,System.String,System.Predicate{System.String})')
   - [RenameSubFoldersOf(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-RenameSubFoldersOf-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.RenameSubFoldersOf(System.String,System.String,System.String,System.Predicate{System.String})')
   - [ReopenActiveSolutions()](#M-MFR-Renamers-Files-FileRenamer-ReopenActiveSolutions 'MFR.Renamers.Files.FileRenamer.ReopenActiveSolutions')
-  - [ReopenSolution(solution)](#M-MFR-Renamers-Files-FileRenamer-ReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution- 'MFR.Renamers.Files.FileRenamer.ReopenSolution(xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution)')
   - [ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter)](#M-MFR-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}- 'MFR.Renamers.Files.FileRenamer.ReplaceTextInFiles(System.String,System.String,System.String,System.Predicate{System.String})')
   - [ReportSolutionCloseFailed(pathname)](#M-MFR-Renamers-Files-FileRenamer-ReportSolutionCloseFailed-System-String- 'MFR.Renamers.Files.FileRenamer.ReportSolutionCloseFailed(System.String)')
   - [RequestAbort()](#M-MFR-Renamers-Files-FileRenamer-RequestAbort 'MFR.Renamers.Files.FileRenamer.RequestAbort')
@@ -1337,28 +1336,6 @@ performed.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-MFR-Renamers-Files-FileRenamer-ReopenSolution-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution-'></a>
-### ReopenSolution(solution) `method`
-
-##### Summary
-
-Tasks the associated instance of Visual Studio to load the specified
-`solution`.
-
-##### Returns
-
-`true` if the operation completed successfully;
-`false` otherwise.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| solution | [xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution') | (Required.) Reference to an instance of an object that implements the
-[IVisualStudioSolution](#T-xyLOGIX-VisualStudio-Solutions-Interfaces-IVisualStudioSolution 'xyLOGIX.VisualStudio.Solutions.Interfaces.IVisualStudioSolution')
-interface that represents the Visual Studio Solution (`*.sln`) file that
-is to be loaded. |
 
 <a name='M-MFR-Renamers-Files-FileRenamer-ReplaceTextInFiles-System-String,System-String,System-String,System-Predicate{System-String}-'></a>
 ### ReplaceTextInFiles(rootFolderPath,findWhat,replaceWith,pathFilter) `method`
