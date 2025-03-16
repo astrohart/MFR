@@ -972,8 +972,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Git.Ignorer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Interop.Git.Ignorers", "..\xyLOGIX.Interop.Git.VS2019\xyLOGIX.Interop.Git.Ignorers\xyLOGIX.Interop.Git.Ignorers.csproj", "{E89B7A2E-BA82-4557-8794-9337A13A974B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Tests.Constants", "..\xyLOGIX.Core.Tests.VS2019\xyLOGIX.Core.Tests.Constants\xyLOGIX.Core.Tests.Constants.csproj", "{D7411DE2-95AB-4598-9CB9-B48D72139527}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Validators.Constants", "..\xyLOGIX.Validators.VS2019\xyLOGIX.Validators.Constants\xyLOGIX.Validators.Constants.csproj", "{001C84CE-256E-48F6-A7FC-8180AC07AA43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Setup.Providers.Tests", "..\xyLOGIX.VisualStudio.Setup.Providers.VS2019\xyLOGIX.VisualStudio.Setup.Providers.Tests\xyLOGIX.VisualStudio.Setup.Providers.Tests.csproj", "{E6DA1099-3744-473B-B939-8A0D7D4D36C7}"
@@ -987,8 +985,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Setup.Providers.Actions", "..\xyLOGIX.VisualStudio.Setup.Providers.VS2019\xyLOGIX.VisualStudio.Setup.Providers.Actions\xyLOGIX.VisualStudio.Setup.Providers.Actions.csproj", "{21E8A0BB-E269-406C-A530-9BA8139FD0C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.VisualStudio.Setup.Providers", "..\xyLOGIX.VisualStudio.Setup.Providers.VS2019\xyLOGIX.VisualStudio.Setup.Providers\xyLOGIX.VisualStudio.Setup.Providers.csproj", "{C729B266-7EDC-467D-B4CD-AB3842F02B9E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Files.Tests", "..\xyLOGIX.Core.Files.VS2019\xyLOGIX.Core.Files.Tests\xyLOGIX.Core.Files.Tests.csproj", "{0C93FA17-E96F-4809-9AAA-4E9456DD1984}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xyLOGIX.Core.Files.Interfaces", "..\xyLOGIX.Core.Files.VS2019\xyLOGIX.Core.Files.Interfaces\xyLOGIX.Core.Files.Interfaces.csproj", "{E97DC963-726F-4D71-B167-4D3DCAFDBAF8}"
 EndProject
@@ -8821,22 +8817,6 @@ Global
 		{E89B7A2E-BA82-4557-8794-9337A13A974B}.Release|x64.Build.0 = Release|x64
 		{E89B7A2E-BA82-4557-8794-9337A13A974B}.Release|x86.ActiveCfg = Release|x86
 		{E89B7A2E-BA82-4557-8794-9337A13A974B}.Release|x86.Build.0 = Release|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.All|x64.ActiveCfg = Debug|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.All|x64.Build.0 = Debug|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.All|x86.ActiveCfg = Debug|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.All|x86.Build.0 = Debug|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Debug|x64.ActiveCfg = Debug|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Debug|x64.Build.0 = Debug|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Debug|x86.ActiveCfg = Debug|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Debug|x86.Build.0 = Debug|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.DefaultBuild|x64.ActiveCfg = Debug|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.DefaultBuild|x64.Build.0 = Debug|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.DefaultBuild|x86.ActiveCfg = Debug|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.DefaultBuild|x86.Build.0 = Debug|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x64.ActiveCfg = Release|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x64.Build.0 = Release|x64
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x86.ActiveCfg = Release|x86
-		{D7411DE2-95AB-4598-9CB9-B48D72139527}.Release|x86.Build.0 = Release|x86
 		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x64.ActiveCfg = Debug|x64
 		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x64.Build.0 = Debug|x64
 		{001C84CE-256E-48F6-A7FC-8180AC07AA43}.All|x86.ActiveCfg = Debug|x86
@@ -8949,22 +8929,6 @@ Global
 		{C729B266-7EDC-467D-B4CD-AB3842F02B9E}.Release|x64.Build.0 = Release|x64
 		{C729B266-7EDC-467D-B4CD-AB3842F02B9E}.Release|x86.ActiveCfg = Release|x86
 		{C729B266-7EDC-467D-B4CD-AB3842F02B9E}.Release|x86.Build.0 = Release|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.All|x64.ActiveCfg = Debug|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.All|x64.Build.0 = Debug|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.All|x86.ActiveCfg = Debug|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.All|x86.Build.0 = Debug|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Debug|x64.ActiveCfg = Debug|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Debug|x64.Build.0 = Debug|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Debug|x86.ActiveCfg = Debug|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Debug|x86.Build.0 = Debug|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.DefaultBuild|x64.ActiveCfg = Debug|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.DefaultBuild|x64.Build.0 = Debug|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.DefaultBuild|x86.ActiveCfg = Debug|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.DefaultBuild|x86.Build.0 = Debug|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Release|x64.ActiveCfg = Release|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Release|x64.Build.0 = Release|x64
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Release|x86.ActiveCfg = Release|x86
-		{0C93FA17-E96F-4809-9AAA-4E9456DD1984}.Release|x86.Build.0 = Release|x86
 		{E97DC963-726F-4D71-B167-4D3DCAFDBAF8}.All|x64.ActiveCfg = Debug|x64
 		{E97DC963-726F-4D71-B167-4D3DCAFDBAF8}.All|x64.Build.0 = Debug|x64
 		{E97DC963-726F-4D71-B167-4D3DCAFDBAF8}.All|x86.ActiveCfg = Debug|x86
